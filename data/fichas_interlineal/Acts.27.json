@@ -1,0 +1,415 @@
+[
+ {
+  "ref": "Acts.27.1",
+  "strong": "G2457",
+  "forma": "Ἰουλίῳ",
+  "glosa_interlineal": "Julio",
+  "rango_semantico": [
+   "Julio (centurión romano)"
+  ],
+  "construccion": "Dativo: «a un centurión llamado Julio, de la compañía Augusta».",
+  "sentido_en_contexto": "Tercera sección «nosotros» (27:1—28:16): relato del viaje en barco a Roma, con detalles náuticos precisos. Pablo y otros presos son entregados al centurión Julio, de la cohorte «Augusta» (unidad auxiliar imperial). Julio trata a Pablo con humanidad (27:3, 43).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Cuando se decidió que habíamos de navegar para Italia, entregaron a Pablo y a algunos otros presos a un centurión llamado Julio, de la compañía Augusta."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 27:3, 43",
+   "Hch 28:16",
+   "Lc 7:1-10 — otros centuriones favorables"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.27.2",
+  "strong": "G708",
+  "forma": "Ἀριστάρχου",
+  "glosa_interlineal": "Aristarco",
+  "rango_semantico": [
+   "Aristarco (de Tesalónica)"
+  ],
+  "construccion": "Genitivo: «con Aristarco, macedonio de Tesalónica».",
+  "sentido_en_contexto": "Aristarco, macedonio de Tesalónica, compañero de Pablo (19:29; 20:4), acompaña a Pablo en el viaje a Roma. En las cartas de la cautividad, Pablo lo llama «compañero de prisiones» (Col 4:10; Flm 24).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y embarcándonos en una nave adramitena que iba a tocar los puertos de Asia, zarpamos, estando con nosotros Aristarco, macedonio de Tesalónica."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 19:29; 20:4",
+   "Col 4:10",
+   "Flm 24"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.27.3",
+  "strong": "G5364",
+  "forma": "φιλανθρώπως",
+  "glosa_interlineal": "humanamente",
+  "rango_semantico": [
+   "con humanidad, con bondad"
+  ],
+  "construccion": "Adverbio: «Julio, tratando humanamente a Pablo, le permitió ir a sus amigos para ser atendido».",
+  "sentido_en_contexto": "En Sidón, el centurión permite a Pablo visitar a los amigos (cristianos de la ciudad) para recibir atención. Muestra la consideración de Julio, que más adelante salvará a Pablo de ser muerto por los soldados (v.43).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Al otro día llegamos a Sidón; y Julio, tratando humanamente a Pablo, le permitió que fuese a los amigos, para ser atendido por ellos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 27:43",
+   "Hch 24:23; 28:16"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.27.9",
+  "strong": "G3521",
+  "forma": "νηστείαν",
+  "glosa_interlineal": "el ayuno",
+  "rango_semantico": [
+   "ayuno (aquí, el Día de la Expiación)"
+  ],
+  "construccion": "Acusativo: «habiendo ya pasado el ayuno».",
+  "sentido_en_contexto": "«El ayuno» es el Día de la Expiación (Yom Kippur), en septiembre-octubre. Después de esa fecha la navegación en el Mediterráneo se consideraba peligrosa (hasta noviembre y cerrada hasta marzo). Pablo advierte del peligro pero el centurión prefiere el consejo del piloto y del patrón.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y habiendo pasado mucho tiempo, y siendo ya peligrosa la navegación, por haber pasado ya el ayuno, Pablo los amonestaba,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lv 16:29-31; 23:27",
+   "Hch 27:10-12"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.27.10",
+  "strong": "G5196",
+  "forma": "ὕβρεως",
+  "glosa_interlineal": "perjuicio",
+  "rango_semantico": [
+   "daño, pérdida, afrenta"
+  ],
+  "construccion": "Genitivo: «con perjuicio y mucha pérdida, no sólo del cargamento y de la nave, sino también de nuestras vidas».",
+  "sentido_en_contexto": "Pablo predice un viaje desastroso, con daños para el barco, la carga y las vidas. Es una percepción de experiencia náutica (había sufrido tres naufragios, 2 Co 11:25) y quizá inspirada. El centurión no le hace caso.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "diciéndoles: Varones, veo que la navegación va a ser con perjuicio y mucha pérdida, no solamente del cargamento y de la nave, sino también de nuestras personas."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 11:25",
+   "Hch 27:21"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.27.14",
+  "strong": "G5189",
+  "forma": "τυφωνικὸς",
+  "glosa_interlineal": "tifónico",
+  "rango_semantico": [
+   "huracanado, de tifón"
+  ],
+  "construccion": "Nominativo: «un viento huracanado, llamado Euroclidón».",
+  "sentido_en_contexto": "Un fuerte viento del noreste (εὐρακύλων, «Euraquilón») arrastra el barco desde la costa de Creta hacia el sur. Comienza la tempestad que dura catorce días (v.27), con pérdida de la carga y el aparejo.",
+  "matiz": "Variante textual: «Euroclidón» (εὐροκλύδων, mayoría tardía; RVR) frente a «Euraquilón» (εὐρακύλων, Aleph, B, A). Esta última (viento del NE) es la preferida.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero no mucho después dio contra ella un viento huracanado llamado Euroclidón."
+   }
+  ],
+  "notas_traduccion": "RVR60 lee «Euroclidón»; las ediciones críticas leen «Euraquilón» (εὐρακύλων).",
+  "otros_usos": [
+   "Hch 27:15-20",
+   "Sal 107:23-30"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Acts.27.20",
+  "strong": "G1680",
+  "forma": "ἐλπὶς",
+  "glosa_interlineal": "esperanza",
+  "rango_semantico": [
+   "esperanza"
+  ],
+  "construccion": "Nominativo: «ya toda esperanza de salvarnos se nos iba quitando».",
+  "sentido_en_contexto": "Tras muchos días sin sol ni estrellas, sin orientación y con gran tormenta, desaparece toda esperanza humana de salvarse. Lucas sitúa el siguiente discurso de Pablo (vv.21-26) en el punto más bajo de la desesperanza.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y no apareciendo ni sol ni estrellas por muchos días, y acosados por una tempestad no pequeña, ya toda esperanza de salvarnos nos iba quitando."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 27:21-26",
+   "Jon 1:4-16",
+   "Ro 4:18"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.27.23",
+  "strong": "G32",
+  "forma": "ἄγγελος",
+  "glosa_interlineal": "ángel",
+  "rango_semantico": [
+   "ángel, mensajero"
+  ],
+  "construccion": "Nominativo: «esta noche ha estado conmigo el ángel del Dios de quien soy y a quien sirvo».",
+  "sentido_en_contexto": "Un ángel anima a Pablo: «No temas, Pablo; es necesario que comparezcas ante César; y Dios te ha concedido todos los que navegan contigo». Pablo, preso, se convierte en fuente de esperanza para todos. Cumple 23:11.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque esta noche ha estado conmigo el ángel del Dios de quien soy y a quien sirvo,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 23:11; 18:9-10",
+   "Hch 27:24-25"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.27.24",
+  "strong": "G5483",
+  "forma": "κεχάρισταί",
+  "glosa_interlineal": "ha concedido",
+  "rango_semantico": [
+   "conceder por gracia, regalar"
+  ],
+  "construccion": "Perfecto indicativo medio-pasivo: «Dios te ha concedido (graciosamente) todos los que navegan contigo».",
+  "sentido_en_contexto": "Dios concede a Pablo por gracia la vida de todos los demás (276 personas, v.37). El verbo χαρίζομαι («dar por gracia») subraya que la salvación de los 276 es un don en consideración a Pablo. Prefigura la intercesión de los justos por otros.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "diciendo: Pablo, no temas; es necesario que comparezcas ante César; y he aquí, Dios te ha concedido todos los que navegan contigo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 18:22-33",
+   "Hch 27:34, 44",
+   "Ro 8:32"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.27.27",
+  "strong": "G99",
+  "forma": "Ἀδρίᾳ",
+  "glosa_interlineal": "Adriático",
+  "rango_semantico": [
+   "mar Adriático (en la antigüedad, incluía el mar Jónico)"
+  ],
+  "construccion": "Dativo: «siendo llevados a través del Adriático».",
+  "sentido_en_contexto": "Catorce días a la deriva «por el Adriático» (en la antigua geografía, el mar entre Creta, Sicilia y Grecia). Hacia medianoche los marineros sospechan acercarse a tierra. Detalle náutico que la crítica reconoce como preciso.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Venida la decimocuarta noche, y siendo llevados a través del mar Adriático, a la medianoche los marineros sospecharon que estaban cerca de alguna tierra;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 27:33, 39"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.27.31",
+  "strong": "G4982",
+  "forma": "σωθῆναι",
+  "glosa_interlineal": "salvarse",
+  "rango_semantico": [
+   "salvar, rescatar"
+  ],
+  "construccion": "Infinitivo aoristo pasivo: «si éstos no permanecen en la nave, vosotros no podéis salvaros».",
+  "sentido_en_contexto": "Pablo avisa al centurión: si los marineros huyen en el bote, nadie podrá salvarse. Los soldados cortan las amarras del bote. Aunque Dios ha prometido la salvación de todos, los medios humanos (marineros en la nave) son necesarios: soberanía divina y responsabilidad humana.",
+  "matiz": "Aparente tensión: Dios prometió salvarlos a todos (v.24), pero Pablo condiciona la salvación a que los marineros permanezcan. Se resuelve entendiendo que la promesa de Dios incluye los medios. Es un ejemplo bíblico de cómo los fines divinos se logran por medios humanos.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Dijo Pablo al centurión y a los soldados: Si éstos no permanecen en la nave, vosotros no podéis salvaros."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 27:24, 34, 44",
+   "Fil 2:12-13"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Acts.27.34",
+  "strong": "G2359",
+  "forma": "θρὶξ",
+  "glosa_interlineal": "cabello",
+  "rango_semantico": [
+   "cabello, pelo"
+  ],
+  "construccion": "Nominativo: «ni aun un cabello de la cabeza de ninguno de vosotros perecerá».",
+  "sentido_en_contexto": "Expresión proverbial (cf. 1 S 14:45; Lc 21:18) de total seguridad. Pablo anima a todos a comer, pues es necesario para su salvación; promete que ninguno perecerá.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Por tanto, os ruego que comáis por vuestra salud; pues ni aun un cabello de la cabeza de ninguno de vosotros perecerá."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 21:18",
+   "1 S 14:45",
+   "Mt 10:30",
+   "Hch 27:22"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.27.35",
+  "strong": "G2168",
+  "forma": "εὐχαρίστησεν",
+  "glosa_interlineal": "dio gracias",
+  "rango_semantico": [
+   "dar gracias"
+  ],
+  "construccion": "Aoristo indicativo activo: «tomando el pan, dio gracias a Dios en presencia de todos, y partiéndolo, comenzó a comer».",
+  "sentido_en_contexto": "Gesto de Pablo ante 276 personas: toma pan, da gracias a Dios en público, lo parte y come. Es una comida normal (no la cena del Señor, según la mayoría), pero los verbos recuerdan el patrón eucarístico (Lc 22:19; 24:30). Da testimonio de fe y ánimo.",
+  "matiz": "Debate: ¿es una celebración eucarística o una comida ordinaria con acción de gracias? La mayoría de exégetas lo ve como comida común (los demás eran paganos), aunque con claro eco del lenguaje de Jesús.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y habiendo dicho esto, tomó el pan, y dio gracias a Dios en presencia de todos, y partiéndolo, comenzó a comer."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 22:19; 24:30",
+   "Hch 2:42; 20:7, 11",
+   "Mr 6:41"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Acts.27.37",
+  "strong": "G1250",
+  "forma": "διακόσιαι",
+  "glosa_interlineal": "doscientas",
+  "rango_semantico": [
+   "doscientos"
+  ],
+  "construccion": "Numeral: «éramos en la nave doscientas setenta y seis personas».",
+  "sentido_en_contexto": "Lucas da el número exacto de pasajeros: 276. La cifra sugiere un barco mercante grande, capaz de llevar trigo de Alejandría a Roma (Josefo menciona barcos con 600 personas). Algunos manuscritos leen «setenta y seis» o «aproximadamente setenta y seis».",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y éramos en la nave por todas doscientas setenta y seis personas."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 27:44",
+   "Josefo, Vida 15 — barco con 600 personas"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.27.41",
+  "strong": "G1337",
+  "forma": "διθάλασσον",
+  "glosa_interlineal": "entre dos mares",
+  "rango_semantico": [
+   "entre dos mares (banco de arena entre corrientes)"
+  ],
+  "construccion": "Acusativo: «dando en un lugar de dos aguas».",
+  "sentido_en_contexto": "El barco encalla en un banco de arena entre dos corrientes («lugar donde se encuentran dos mares»); la proa queda fija y la popa se rompe por la violencia de las olas. Se identifica tradicionalmente con la bahía de San Pablo, en Malta.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero dando en un lugar de dos aguas, hicieron encallar la nave; y la proa, hundida, quedó inmóvil, y la popa se abría con la violencia del mar."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 28:1"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.27.43",
+  "strong": "G2967",
+  "forma": "ἐκώλυσεν",
+  "glosa_interlineal": "impidió",
+  "rango_semantico": [
+   "impedir, estorbar"
+  ],
+  "construccion": "Aoristo indicativo activo: «el centurión, queriendo salvar a Pablo, impidió este intento».",
+  "sentido_en_contexto": "Los soldados quieren matar a los presos para que no escapen (según ley romana, respondían con su vida por ellos). El centurión Julio, queriendo salvar a Pablo, lo impide y ordena que los que sepan nadar se lancen primero. Así se cumple la promesa de Dios: todos llegan salvos a tierra.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero el centurión, queriendo salvar a Pablo, impidió este intento, y mandó que los que pudiesen nadar se echasen los primeros, y saliesen a tierra;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 27:24, 44",
+   "Hch 12:19 — guardias ejecutados"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.27.44",
+  "strong": "G1295",
+  "forma": "διασωθῆναι",
+  "glosa_interlineal": "salvarse",
+  "rango_semantico": [
+   "salvar completamente, llegar salvo"
+  ],
+  "construccion": "Infinitivo aoristo pasivo: «así aconteció que todos se salvaron saliendo a tierra».",
+  "sentido_en_contexto": "Verbo compuesto διασῴζω (salvar completamente): las 276 personas llegan salvas a tierra, algunas nadando, otras sobre tablas o restos de la nave. Se cumplió la promesa divina (vv.22-24). Cierra el relato del naufragio con la fórmula de victoria de Dios sobre el peligro.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "y los demás, parte en tablas, y parte en cosas de la nave. Y así aconteció que todos se salvaron saliendo a tierra."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 27:22-24",
+   "Hch 28:1, 4"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

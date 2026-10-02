@@ -1,0 +1,153 @@
+[
+ {
+  "ref": "2John.1.1",
+  "strong": "G4245",
+  "forma": "πρεσβύτερος",
+  "glosa_interlineal": "anciano",
+  "rango_semantico": [
+   "anciano, presbítero"
+  ],
+  "construccion": "Nominativo: «el anciano a la señora elegida y a sus hijos, a quienes yo amo en la verdad».",
+  "sentido_en_contexto": "Carta breve del «anciano» (el apóstol Juan, o el «anciano Juan» según algunos) a la «señora elegida» (ἐκλεκτὴ κυρία): ¿una mujer cristiana concreta, o una iglesia personificada (cf. v.13: «los hijos de tu hermana elegida»)? Tema: verdad, amor y cautela ante falsos maestros itinerantes.",
+  "matiz": "Debate: (a) «señora elegida» es una iglesia local personificada (la mayoría de exégetas; los «hijos» son sus miembros, y «tu hermana» otra iglesia); (b) una dama cristiana concreta, tal vez llamada Kyria o Eclecta; (c) una mujer con una iglesia en su casa. Sobre el «anciano»: Juan el apóstol o un presbítero de la escuela joánica (ver 1 Jn 1:1).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "El anciano a la señora elegida y a sus hijos, a quienes yo amo en la verdad; y no sólo yo, sino también todos los que han conocido la verdad,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "3 Jn 1",
+   "1 P 5:1",
+   "1 Jn 1:1"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "2John.1.5",
+  "strong": "G2537",
+  "forma": "καινὴν",
+  "glosa_interlineal": "nuevo",
+  "rango_semantico": [
+   "nuevo"
+  ],
+  "construccion": "Acusativo: «y ahora te ruego, señora, no como escribiéndote un nuevo mandamiento, sino el que hemos tenido desde el principio, que nos amemos unos a otros».",
+  "sentido_en_contexto": "Mismo mandamiento del amor que en 1 Jn 2:7-8; 3:11: antiguo y nuevo a la vez. El amor se define en el v.6: caminar según sus mandamientos. Amor y obediencia están unidos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y ahora te ruego, señora, no como escribiéndote un nuevo mandamiento, sino el que hemos tenido desde el principio, que nos amemos unos a otros."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Jn 2:7-8; 3:11, 23",
+   "Jn 13:34",
+   "Jn 14:15"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "2John.1.7",
+  "strong": "G4108",
+  "forma": "πλάνοι",
+  "glosa_interlineal": "engañadores",
+  "rango_semantico": [
+   "engañador, seductor"
+  ],
+  "construccion": "Nominativo plural: «porque muchos engañadores han salido por el mundo, que no confiesan que Jesucristo ha venido en carne. Quien esto hace es el engañador y el anticristo».",
+  "sentido_en_contexto": "Misma advertencia doctrinal que 1 Jn 4:1-3: negar que Jesucristo vino en carne (docetismo incipiente). Tales personas son «el engañador y el anticristo». Los creyentes deben velar para no perder el fruto de su obra (v.8).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque muchos engañadores han salido por el mundo, que no confiesan que Jesucristo ha venido en carne. Quien esto hace es el engañador y el anticristo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Jn 4:1-3",
+   "1 Jn 2:18, 22",
+   "Mt 24:4-5"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "2John.1.9",
+  "strong": "G4254",
+  "forma": "προάγων",
+  "glosa_interlineal": "el que se desvía",
+  "rango_semantico": [
+   "ir más allá, adelantarse"
+  ],
+  "construccion": "Participio presente activo: «cualquiera que se extravía, y no persevera en la doctrina de Cristo, no tiene a Dios; el que persevera en la doctrina de Cristo, ése sí tiene al Padre y al Hijo».",
+  "sentido_en_contexto": "προάγω: «ir más allá» (avanzar más allá de la enseñanza apostólica, pretendiendo una gnosis superior). Quien se aparta de la doctrina de Cristo no tiene a Dios. «La doctrina de Cristo» puede ser la enseñanza de Cristo o sobre Cristo (genitivo objetivo o subjetivo).",
+  "matiz": "Debate: διδαχὴ τοῦ Χριστοῦ: (a) la enseñanza sobre Cristo (genitivo objetivo: su persona y obra; la mayoría); (b) la enseñanza que Cristo dio (subjetivo). El contexto (v.7) es cristológico.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Cualquiera que se extravía, y no persevera en la doctrina de Cristo, no tiene a Dios; el que persevera en la doctrina de Cristo, ése sí tiene al Padre y al Hijo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Jn 2:23",
+   "Gá 1:8-9",
+   "1 Ti 6:3"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "2John.1.10",
+  "strong": "G5342",
+  "forma": "φέρει",
+  "glosa_interlineal": "trae",
+  "rango_semantico": [
+   "traer, llevar"
+  ],
+  "construccion": "Presente indicativo activo: «si alguno viene a vosotros, y no trae esta doctrina, no lo recibáis en casa, ni le digáis: ¡Bienvenido!».",
+  "sentido_en_contexto": "Instrucción de no hospedar ni saludar a los maestros itinerantes que traen falsa doctrina (hospitalidad con los verdaderos misioneros era un deber, 3 Jn 5-8). El saludo implicaba apoyo (v.11). Se aplica a maestros, no a vecinos o a la cortesía social general.",
+  "matiz": "Debate sobre la aplicación: (a) prohibición de apoyar o dar plataforma a falsos maestros itinerantes (la mayoría); (b) base para la disciplina eclesiástica y la separación de herejes (tradiciones que practican excomunión); (c) no es mandato de falta de cortesía en general, sino de no respaldar su ministerio.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Si alguno viene a vosotros, y no trae esta doctrina, no lo recibáis en casa, ni le digáis: ¡Bienvenido!"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 1:9",
+   "Tit 3:10",
+   "Ro 16:17",
+   "3 Jn 5-8"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "2John.1.12",
+  "strong": "G5489",
+  "forma": "χάρτου",
+  "glosa_interlineal": "papel",
+  "rango_semantico": [
+   "papel (papiro)"
+  ],
+  "construccion": "Genitivo: «tengo muchas cosas que escribiros, pero no he querido hacerlo por medio de papel y tinta; pero espero ir a vosotros, y hablar cara a cara, para que nuestro gozo sea cumplido».",
+  "sentido_en_contexto": "Mención del papiro y la tinta: preferencia por la comunicación personal. El gozo se completa en la comunión presencial. Cierre similar al de 3 Jn 13-14.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Tengo muchas cosas que escribiros, pero no he querido hacerlo por medio de papel y tinta; pero espero ir a vosotros, y hablar cara a cara, para que nuestro gozo sea cumplido."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "3 Jn 13-14",
+   "1 Jn 1:4",
+   "Ro 15:24"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

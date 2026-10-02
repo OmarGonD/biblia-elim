@@ -1,0 +1,544 @@
+[
+ {
+  "ref": "1Cor.15.3",
+  "strong": "G3860",
+  "forma": "παρέδωκα",
+  "glosa_interlineal": "transmití",
+  "rango_semantico": [
+   "entregar, transmitir (una tradición)"
+  ],
+  "construccion": "Aoristo indicativo activo: «primeramente os he enseñado lo que asimismo recibí: que Cristo murió por nuestros pecados, conforme a las Escrituras».",
+  "sentido_en_contexto": "Credo prepaulino de 15:3-5 (probablemente de la iglesia de Jerusalén, c. 3-5 años tras la cruz): muerte por nuestros pecados, sepultura, resurrección al tercer día, apariciones. Es el testimonio más antiguo de la resurrección. «Conforme a las Escrituras» (dos veces).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque primeramente os he enseñado lo que asimismo recibí: Que Cristo murió por nuestros pecados, conforme a las Escrituras;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 11:23",
+   "Is 53:5-12",
+   "Lc 24:25-27, 44-46",
+   "Hch 2:23-24"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Cor.15.4",
+  "strong": "G1453",
+  "forma": "ἐγήγερται",
+  "glosa_interlineal": "resucitó",
+  "rango_semantico": [
+   "levantar, resucitar"
+  ],
+  "construccion": "Perfecto indicativo pasivo: «fue sepultado, y resucitó al tercer día, conforme a las Escrituras».",
+  "sentido_en_contexto": "Perfecto pasivo («ha sido resucitado»): acción de Dios cuyos efectos permanecen. Al «tercer día» (Os 6:2; Jon 1:17). La sepultura confirma la realidad de la muerte. Se debate el sentido de «según las Escrituras» (pasajes concretos o toda la Escritura).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "y que fue sepultado, y que resucitó al tercer día, conforme a las Escrituras;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Os 6:2",
+   "Jon 1:17; Mt 12:40",
+   "Sal 16:10",
+   "Hch 2:25-32"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Cor.15.5",
+  "strong": "G3708",
+  "forma": "ὤφθη",
+  "glosa_interlineal": "apareció",
+  "rango_semantico": [
+   "ser visto, aparecerse"
+  ],
+  "construccion": "Aoristo indicativo pasivo: «y que apareció a Cefas, y después a los doce».",
+  "sentido_en_contexto": "Lista de apariciones del resucitado: Cefas, los Doce, más de quinientos (la mayoría aún vivos, testigos verificables), Jacobo, todos los apóstoles y, por último, Pablo (v.8). Lucas 24:34 también menciona la aparición a Pedro. Las apariciones a mujeres no se mencionan aquí.",
+  "matiz": "Debate: ¿por qué Pablo omite a las mujeres testigos (Mt 28:9; Jn 20:14-18)? Se suele pensar que cita una lista tradicional de testigos oficiales (varones, jurídicamente aceptados) o formulada por el interés apologético.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "y que apareció a Cefas, y después a los doce."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 24:34",
+   "Jn 20:19-29",
+   "Mt 28:9",
+   "Hch 1:3"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "1Cor.15.8",
+  "strong": "G1626",
+  "forma": "ἐκτρώματι",
+  "glosa_interlineal": "abortivo",
+  "rango_semantico": [
+   "aborto, nacido fuera de tiempo"
+  ],
+  "construccion": "Dativo: «y el último de todos, como a un abortivo (nacido fuera de tiempo), me apareció a mí».",
+  "sentido_en_contexto": "Pablo se describe como «el abortivo» (ἔκτρωμα): término despectivo que pudo ser un insulto de sus adversarios. Llega tarde y de forma anormal al apostolado. Pero su aparición es verdadera: él también vio al Señor, y por la gracia de Dios es lo que es (v.10).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "y al último de todos, como a un abortivo, me apareció a mí."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 9:3-6",
+   "Gá 1:15-16",
+   "1 Co 9:1",
+   "1 Ti 1:15-16"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Cor.15.10",
+  "strong": "G5485",
+  "forma": "χάριτι",
+  "glosa_interlineal": "gracia",
+  "rango_semantico": [
+   "gracia, favor"
+  ],
+  "construccion": "Dativo: «pero por la gracia de Dios soy lo que soy; y su gracia no ha sido en vano para conmigo».",
+  "sentido_en_contexto": "Pablo atribuye su identidad apostólica a la gracia: lo que él es (apóstol) lo es por gracia, y la gracia no fue estéril: trabajó más que todos «no yo, sino la gracia de Dios conmigo». Equilibrio entre iniciativa divina y esfuerzo humano.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero por la gracia de Dios soy lo que soy; y su gracia no ha sido en vano para conmigo, antes he trabajado más que todos ellos; pero no yo, sino la gracia de Dios que está conmigo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ef 3:7-8",
+   "Gá 2:20",
+   "Fil 2:12-13",
+   "Col 1:29"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Cor.15.12",
+  "strong": "G386",
+  "forma": "ἀνάστασις",
+  "glosa_interlineal": "resurrección",
+  "rango_semantico": [
+   "resurrección"
+  ],
+  "construccion": "Nominativo: «¿cómo dicen algunos entre vosotros que no hay resurrección de muertos?».",
+  "sentido_en_contexto": "Problema corintio: algunos negaban la resurrección de los muertos (probablemente por influencia del dualismo griego: el cuerpo es una cárcel). Pablo responde que sin resurrección de los muertos, Cristo no resucitó (v.13) y toda la fe es vana. La resurrección de Cristo y la de los creyentes están inseparablemente unidas.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero si se predica de Cristo que resucitó de los muertos, ¿cómo dicen algunos entre vosotros que no hay resurrección de muertos?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 17:32",
+   "2 Ti 2:17-18",
+   "1 Co 15:13-19"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Cor.15.14",
+  "strong": "G2756",
+  "forma": "κενὸν",
+  "glosa_interlineal": "vacío",
+  "rango_semantico": [
+   "vacío, vano"
+  ],
+  "construccion": "Adjetivo neutro nominativo: «si Cristo no resucitó, vana es entonces nuestra predicación, vana es también vuestra fe».",
+  "sentido_en_contexto": "Consecuencias de negar la resurrección (vv.14-19): predicación vana, fe vana, testigos falsos, siguen en pecados, los muertos en Cristo perecieron, somos los más dignos de lástima. Argumento reductio ad absurdum que subraya la centralidad de la resurrección.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y si Cristo no resucitó, vana es entonces nuestra predicación, vana es también vuestra fe."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 15:17-19",
+   "Ro 4:25",
+   "Hch 17:31"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Cor.15.20",
+  "strong": "G536",
+  "forma": "ἀπαρχὴ",
+  "glosa_interlineal": "primicias",
+  "rango_semantico": [
+   "primicias, primer fruto"
+  ],
+  "construccion": "Nominativo: «mas ahora Cristo ha resucitado de los muertos; primicias de los que durmieron es hecho».",
+  "sentido_en_contexto": "Cristo es las primicias (ἀπαρχή) de la cosecha de los resucitados: su resurrección garantiza la de los suyos. Imagen de la ofrenda de las primicias (Lv 23:9-14): el primer fruto asegura la cosecha. Hace de la resurrección de Cristo un evento escatológico ya iniciado.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Mas ahora Cristo ha resucitado de los muertos; primicias de los que durmieron es hecho."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lv 23:9-14",
+   "Col 1:18",
+   "Hch 26:23",
+   "Ap 1:5"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Cor.15.22",
+  "strong": "G76",
+  "forma": "Ἀδὰμ",
+  "glosa_interlineal": "Adán",
+  "rango_semantico": [
+   "Adán"
+  ],
+  "construccion": "Dativo: «así como en Adán todos mueren, así también en Cristo todos serán vivificados».",
+  "sentido_en_contexto": "Paralelo Adán-Cristo (como Ro 5:12-21): en Adán todos mueren, en Cristo todos serán vivificados. «Todos» en Cristo se debate: ¿resurrección universal (todos resucitan) o todos los que están en Cristo (los creyentes)? El contexto (vv.23-24) y 15:18 apuntan a los de Cristo.",
+  "matiz": "Debate sobre «todos serán vivificados» (πάντες ζῳοποιηθήσονται): (a) resurrección de los creyentes (la mayoría: «en Cristo» limita el grupo); (b) resurrección universal (todos resucitan, unos para vida y otros para juicio, Jn 5:28-29); (c) universalismo de salvación (minoritario).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque así como en Adán todos mueren, también en Cristo todos serán vivificados."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 5:12-21",
+   "Gn 3:19",
+   "1 Co 15:45-49",
+   "Jn 5:28-29"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "1Cor.15.24",
+  "strong": "G3860",
+  "forma": "παραδιδοῖ",
+  "glosa_interlineal": "entregue",
+  "rango_semantico": [
+   "entregar, transmitir"
+  ],
+  "construccion": "Subjuntivo presente activo: «luego el fin, cuando entregue el reino al Dios y Padre, cuando haya suprimido todo dominio, toda autoridad y potencia».",
+  "sentido_en_contexto": "Escatología: Cristo reina hasta someter a todos sus enemigos, el último de los cuales es la muerte (v.26). Entonces entregará el reino al Padre (v.24), y el Hijo mismo se sujetará a Aquel que le sometió todas las cosas, «para que Dios sea todo en todos» (v.28). Texto clave para la relación del Hijo con el Padre; no implica inferioridad esencial, sino orden de la obra salvífica.",
+  "matiz": "Debate sobre «el Hijo se sujetará» (v.28): (a) subordinación económica (funcional) del Hijo en su obra como Mediador, sin negar su igualdad esencial (tradición nicena); (b) subordinación eterna del Hijo (algunos evangélicos); (c) interpretada por los arrianos como inferioridad del Hijo (rechazada por la tradición). El «todo en todos» describe la consumación.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Luego el fin, cuando entregue el reino al Dios y Padre, cuando haya suprimido todo dominio, toda autoridad y potencia."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 15:25-28",
+   "Sal 110:1",
+   "Ef 1:20-23",
+   "Fil 2:9-11"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "1Cor.15.26",
+  "strong": "G2288",
+  "forma": "θάνατος",
+  "glosa_interlineal": "muerte",
+  "rango_semantico": [
+   "muerte"
+  ],
+  "construccion": "Nominativo: «el postrer enemigo que será destruido es la muerte».",
+  "sentido_en_contexto": "La muerte es el último enemigo (ἔσχατος ἐχθρός): su destrucción coincide con la resurrección de los creyentes (v.54: «sorbida es la muerte en victoria»). Cristo ya venció a la muerte; el resultado completo se verá en la parusía.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y el postrer enemigo que será destruido es la muerte."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ap 20:14; 21:4",
+   "Is 25:8",
+   "Heb 2:14-15",
+   "2 Ti 1:10"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Cor.15.29",
+  "strong": "G907",
+  "forma": "βαπτιζόμενοι",
+  "glosa_interlineal": "bautizados",
+  "rango_semantico": [
+   "bautizar, sumergir"
+  ],
+  "construccion": "Participio presente pasivo: «¿qué harán los que se bautizan por los muertos?».",
+  "sentido_en_contexto": "Uno de los versículos más enigmáticos del NT: «bautizarse por los muertos» (ὑπὲρ τῶν νεκρῶν). Pablo no lo aprueba ni lo condena; lo usa como argumento ad hominem (si los muertos no resucitan, ¿para qué esa práctica?). Se han propuesto decenas de interpretaciones.",
+  "matiz": "Debate (más de 40 interpretaciones): (a) bautismo vicario por muertos no cristianos (práctica de algunos corintios; adoptada por mormones, con diferencia de contexto); (b) bautizarse «por causa de los muertos» (con la esperanza de reunirse con familiares ya muertos en Cristo); (c) bautismo en vista de la muerte (martirio); (d) «bautizarse» en sentido figurado de sufrimiento. Pablo habla de «ellos» (3.ª persona), no de «nosotros»: distancia de la práctica.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "De otro modo, ¿qué harán los que se bautizan por los muertos, si los muertos no resucitan en manera alguna? ¿Por qué, pues, se bautizan por los muertos?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 10:38-39",
+   "1 Co 15:30-32",
+   "Ro 6:3-4"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "1Cor.15.32",
+  "strong": "G2341",
+  "forma": "ἐθηριομάχησα",
+  "glosa_interlineal": "luché con fieras",
+  "rango_semantico": [
+   "luchar con fieras (figurado o literal)"
+  ],
+  "construccion": "Aoristo indicativo activo: «si como hombre batallé en Éfeso contra fieras, ¿de qué me sirve?».",
+  "sentido_en_contexto": "Pablo, en Éfeso, afirma haber luchado con «fieras»: ¿literal (condenado a la arena; un ciudadano romano no podría) o figurado (adversarios feroces; cf. 2 Co 1:8-10; Hch 19)? Lo usa para argumentar que si no hay resurrección, sus peligros serían inútiles: «comamos y bebamos, que mañana moriremos» (Is 22:13).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Si como hombre batallé en Éfeso contra fieras, ¿de qué me sirve? Si los muertos no resucitan, comamos y bebamos, porque mañana moriremos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 1:8-10",
+   "Hch 19:23-41",
+   "Is 22:13",
+   "1 Co 4:9"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "1Cor.15.36",
+  "strong": "G878",
+  "forma": "ἄφρων",
+  "glosa_interlineal": "necio",
+  "rango_semantico": [
+   "insensato, necio"
+  ],
+  "construccion": "Vocativo: «necio, lo que tú siembras no se vivifica, si no muere antes».",
+  "sentido_en_contexto": "Respuesta a la objeción «¿cómo resucitan los muertos? ¿con qué cuerpo?»: la analogía de la semilla (vv.36-38). La semilla muere y Dios le da un cuerpo distinto, adecuado: continuidad y transformación. Pablo contrasta cuerpos terrestres y celestiales (vv.39-41).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Necio, lo que tú siembras no se vivifica, si no muere antes."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 12:24",
+   "1 Co 15:35-44",
+   "Dn 12:2-3"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Cor.15.44",
+  "strong": "G4152",
+  "forma": "πνευματικόν",
+  "glosa_interlineal": "espiritual",
+  "rango_semantico": [
+   "espiritual, del Espíritu"
+  ],
+  "construccion": "Neutro acusativo: «se siembra cuerpo animal (ψυχικόν), resucita cuerpo espiritual (πνευματικόν)».",
+  "sentido_en_contexto": "El «cuerpo espiritual» no es inmaterial (incorpóreo), sino un cuerpo animado y transformado por el Espíritu, imperecedero, glorioso y poderoso (vv.42-43). Contraste con el cuerpo animal (ψυχικόν): del alma, corruptible. La resurrección es transformación, no fantasma ni reanimación.",
+  "matiz": "Debate: «cuerpo espiritual» (σῶμα πνευματικόν) como (a) cuerpo real (físico) transformado (Wright, tradición cristiana mayoritaria: continuidad corporal con transformación); (b) cuerpo hecho de «espíritu» (sustancia espiritual; lectura minoritaria, criticada por el v.50). El modelo es el cuerpo resucitado de Cristo (Lc 24:39; Jn 20:27).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Se siembra cuerpo animal, resucita cuerpo espiritual. Hay cuerpo animal, y hay cuerpo espiritual."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Fil 3:21",
+   "Lc 24:39",
+   "Ro 8:11",
+   "2 Co 5:1-4"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "1Cor.15.45",
+  "strong": "G4151",
+  "forma": "πνεῦμα",
+  "glosa_interlineal": "Espíritu",
+  "rango_semantico": [
+   "espíritu"
+  ],
+  "construccion": "Nominativo: «el postrer Adán, espíritu vivificante».",
+  "sentido_en_contexto": "Cristo, «el último Adán», es «espíritu que da vida»: no se identifica sin más con el Espíritu Santo, sino que, como resucitado, es el dador del Espíritu y de la vida. Contrasta con el primer Adán, «alma viviente». Cita Gn 2:7. Su resurrección inaugura la humanidad nueva.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Así también está escrito: Fue hecho el primer hombre Adán alma viviente; el postrer Adán, espíritu que da vida."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 2:7",
+   "Ro 5:14",
+   "Jn 5:21",
+   "2 Co 3:17"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Cor.15.50",
+  "strong": "G4561",
+  "forma": "σὰρξ",
+  "glosa_interlineal": "carne",
+  "rango_semantico": [
+   "carne, naturaleza humana mortal"
+  ],
+  "construccion": "Nominativo: «la carne y la sangre no pueden heredar el reino de Dios».",
+  "sentido_en_contexto": "«Carne y sangre» designa la existencia humana corruptible y mortal, no un cuerpo material en sí. Para entrar en el reino se requiere transformación (v.51-53). No niega la resurrección corporal; afirma que el cuerpo mortal actual debe ser cambiado.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero esto digo, hermanos: que la carne y la sangre no pueden heredar el reino de Dios, ni la corrupción hereda la incorrupción."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 3:6",
+   "Mt 16:17",
+   "Gá 1:16",
+   "Fil 3:21"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Cor.15.51",
+  "strong": "G3466",
+  "forma": "μυστήριον",
+  "glosa_interlineal": "misterio",
+  "rango_semantico": [
+   "misterio, secreto revelado"
+  ],
+  "construccion": "Acusativo: «he aquí, os digo un misterio: No todos dormiremos, pero todos seremos transformados».",
+  "sentido_en_contexto": "El «misterio»: en la parusía, los vivos no morirán pero serán transformados «en un momento, en un abrir y cerrar de ojos, a la final trompeta»; los muertos resucitarán incorruptibles. Paralelo con 1 Ts 4:13-17. Todos, vivos y muertos, serán cambiados.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "He aquí, os digo un misterio: No todos dormiremos; pero todos seremos transformados,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Ts 4:13-17",
+   "Fil 3:20-21",
+   "Mt 24:31",
+   "2 Co 5:1-4"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Cor.15.55",
+  "strong": "G2759",
+  "forma": "κέντρον",
+  "glosa_interlineal": "aguijón",
+  "rango_semantico": [
+   "aguijón, picadura"
+  ],
+  "construccion": "Nominativo: «¿dónde está, oh muerte, tu aguijón? ¿Dónde, oh sepulcro, tu victoria?».",
+  "sentido_en_contexto": "Cita combinada de Is 25:8 (v.54) y Os 13:14 (v.55): la victoria sobre la muerte. «El aguijón de la muerte es el pecado, y el poder del pecado, la ley» (v.56): la muerte tiene su fuerza en el pecado, y este en la ley que lo revela. Cristo ha quitado el aguijón.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¿Dónde está, oh muerte, tu aguijón? ¿Dónde, oh sepulcro, tu victoria?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 25:8",
+   "Os 13:14",
+   "Ro 5:12; 7:7-13",
+   "Heb 2:14-15"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Cor.15.57",
+  "strong": "G3534",
+  "forma": "νῖκος",
+  "glosa_interlineal": "victoria",
+  "rango_semantico": [
+   "victoria"
+  ],
+  "construccion": "Acusativo: «pero gracias sean dadas a Dios, que nos da la victoria por medio de nuestro Señor Jesucristo».",
+  "sentido_en_contexto": "Doxología final del capítulo: la victoria sobre la muerte es un don. Introduce la conclusión práctica (v.58): firmes, constantes, abundando en la obra del Señor, sabiendo que «vuestro trabajo en el Señor no es en vano». La doctrina de la resurrección tiene consecuencias éticas.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Mas gracias sean dadas a Dios, que nos da la victoria por medio de nuestro Señor Jesucristo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 8:37",
+   "1 Jn 5:4",
+   "2 Co 2:14",
+   "Ap 12:11"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Cor.15.58",
+  "strong": "G277",
+  "forma": "ἀμετακίνητοι",
+  "glosa_interlineal": "inconmovibles",
+  "rango_semantico": [
+   "inamovible, firme"
+  ],
+  "construccion": "Adjetivo nominativo plural: «estad firmes y constantes, creciendo en la obra del Señor siempre, sabiendo que vuestro trabajo en el Señor no es en vano».",
+  "sentido_en_contexto": "Conclusión práctica: la resurrección da sentido al trabajo cristiano. Si Cristo resucitó, nada de lo hecho para él es vano (contraste con vv.14, 17: «vana es la fe»). Cierra el capítulo con la exhortación a la perseverancia.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Así que, hermanos míos amados, estad firmes y constantes, creciendo en la obra del Señor siempre, sabiendo que vuestro trabajo en el Señor no es en vano."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 6:10",
+   "Gá 6:9",
+   "2 P 3:14",
+   "Ap 14:13"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

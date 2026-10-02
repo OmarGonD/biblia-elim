@@ -1,0 +1,585 @@
+[
+ {
+  "ref": "Acts.7.2",
+  "strong": "G1391",
+  "forma": "δόξης",
+  "glosa_interlineal": "de gloria",
+  "rango_semantico": [
+   "gloria, esplendor"
+  ],
+  "construccion": "Genitivo: «el Dios de la gloria apareció a nuestro padre Abraham».",
+  "sentido_en_contexto": "Comienzo del largo discurso de Esteban (7:2-53), una revisión de la historia de Israel: Dios actúa fuera de la tierra y del templo (Abraham en Mesopotamia, José en Egipto, Moisés en Madián y Sinaí). La estrategia: Dios no está atado a un lugar, y Israel siempre ha resistido a los enviados de Dios.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y él dijo: Varones hermanos y padres, oíd: El Dios de la gloria apareció a nuestro padre Abraham, estando en Mesopotamia, antes que morase en Harán,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 12:1-3",
+   "Sal 29:3",
+   "Ef 1:17 — «Padre de gloria»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.7.4",
+  "strong": "G599",
+  "forma": "ἀποθανεῖν",
+  "glosa_interlineal": "morir",
+  "rango_semantico": [
+   "morir"
+  ],
+  "construccion": "Infinitivo aoristo: «después de muerto su padre, le trasladó a esta tierra».",
+  "sentido_en_contexto": "Esteban sigue la tradición de que Abraham salió de Harán tras la muerte de Taré. Según Gn 11:26, 32 y 12:4 hay una dificultad cronológica (Taré engendró a Abraham a los 70 y murió a los 205, es decir, Abraham habría tenido 135 al morir su padre, no 75).",
+  "matiz": "Dificultad cronológica: Gn 11:26 y 12:4 vs. Hch 7:4. Soluciones: (a) Abraham no fue el primogénito de Taré (nombrado primero por su importancia); (b) Esteban sigue la tradición del Pentateuco samaritano (Taré murió a los 145); (c) «muerto» espiritualmente. El debate sigue abierto.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 11:26, 32; 12:4",
+   "Jos 24:2-3"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "Acts.7.5",
+  "strong": "G2817",
+  "forma": "κληρονομίαν",
+  "glosa_interlineal": "herencia",
+  "rango_semantico": [
+   "herencia, posesión"
+  ],
+  "construccion": "Acusativo: «no le dio herencia en ella, ni aun para asentar un pie».",
+  "sentido_en_contexto": "Dios prometió la tierra a Abraham y a su descendencia, pero no le dio ni un palmo en propiedad (excepto la tumba, Gn 23). Subraya que la promesa estaba fundada en la palabra de Dios, no en la posesión del lugar.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y no le dio herencia en ella, ni aun para asentar un pie; pero le prometió que se la daría en posesión, y a su descendencia después de él, cuando él aún no tenía hijo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 12:7; 13:15; 17:8",
+   "Heb 11:9-10, 13",
+   "Dt 2:5"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.7.14",
+  "strong": "G4772",
+  "forma": "συγγένειαν",
+  "glosa_interlineal": "parentela",
+  "rango_semantico": [
+   "parentela, familia"
+  ],
+  "construccion": "Acusativo: «toda su parentela, setenta y cinco personas».",
+  "sentido_en_contexto": "Esteban cita setenta y cinco personas (como la LXX de Gn 46:27 y Éx 1:5), mientras el texto masorético da setenta. Un caso de preferencia por la LXX.",
+  "matiz": "Diferencia textual: 70 (TM de Gn 46:27) frente a 75 (LXX). Esteban cita la LXX, que incluye nietos de José.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 46:27",
+   "Éx 1:5",
+   "Dt 10:22"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Acts.7.16",
+  "strong": "G4966",
+  "forma": "Συχὲμ",
+  "glosa_interlineal": "Siquem",
+  "rango_semantico": [
+   "Siquem (ciudad de Samaria)"
+  ],
+  "construccion": "Acusativo: «trasladados a Siquem, y puestos en el sepulcro que Abraham compró».",
+  "sentido_en_contexto": "Esteban dice que Abraham compró el sepulcro en Siquem a los hijos de Hamor (de Siquem). Según Gn 23 Abraham compró una cueva en Hebrón a Efrón; según Gn 33:19, Jacob compró un terreno en Siquem a los hijos de Hamor. Hay una mezcla de tradiciones.",
+  "matiz": "Dificultad: Hch 7:16 parece fusionar Gn 23 (Abraham, Hebrón) y Gn 33:19 / Jos 24:32 (Jacob, Siquem). Soluciones: (a) Esteban abrevia, atribuyendo a Abraham la compra de Jacob (Abraham como compendio de la patriarcal); (b) tradición diversa; (c) error de transmisión. Sigue abierta.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 23:16-20",
+   "Gn 33:19; 50:13",
+   "Jos 24:32"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "Acts.7.20",
+  "strong": "G791",
+  "forma": "ἀστεῖος",
+  "glosa_interlineal": "hermoso",
+  "rango_semantico": [
+   "bello, agradable, de buena presencia"
+  ],
+  "construccion": "Adjetivo nominativo: «Moisés… hermoso para Dios (ἀστεῖος τῷ θεῷ)».",
+  "sentido_en_contexto": "Moisés nació en un tiempo de opresión, fue escondido tres meses y adoptado por la hija de Faraón. ἀστεῖος significa «bello», «agradable»; la expresión «bello para Dios» es un hebraísmo de superlativo («muy hermoso»).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "En aquel tiempo nació Moisés, y fue agradable a Dios; y fue criado en casa de su padre tres meses."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 2:2",
+   "Heb 11:23"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.7.22",
+  "strong": "G3811",
+  "forma": "ἐπαιδεύθη",
+  "glosa_interlineal": "fue educado",
+  "rango_semantico": [
+   "educar, instruir"
+  ],
+  "construccion": "Aoristo indicativo pasivo: «fue enseñado en toda la sabiduría de los egipcios».",
+  "sentido_en_contexto": "Detalle de la tradición judía (Filón, Josefo), no del Pentateuco: Moisés recibió la educación completa de la corte egipcia, poderoso en palabras y obras. Contrasta con Éx 4:10 («no soy hombre de fácil palabra»).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y fue enseñado Moisés en toda la sabiduría de los egipcios; y era poderoso en sus palabras y obras."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 2:10",
+   "Éx 4:10",
+   "Heb 11:24-27"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.7.23",
+  "strong": "G5063",
+  "forma": "τεσσερακονταετὴς",
+  "glosa_interlineal": "de cuarenta años",
+  "rango_semantico": [
+   "de cuarenta años"
+  ],
+  "construccion": "Adjetivo nominativo: «cuando hubo cumplido la edad de cuarenta años».",
+  "sentido_en_contexto": "La vida de Moisés se divide en tres períodos de cuarenta años (en Egipto, en Madián y en el desierto), según la tradición judía: 40+40+40 = 120 (Dt 34:7). Esteban sigue esa tradición (vv.23, 30, 36).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Cuando hubo cumplido la edad de cuarenta años, le vino al corazón el visitar a sus hermanos, los hijos de Israel."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 2:11-15",
+   "Dt 34:7",
+   "Hch 7:30, 36"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.7.25",
+  "strong": "G4991",
+  "forma": "σωτηρίαν",
+  "glosa_interlineal": "liberación",
+  "rango_semantico": [
+   "salvación, liberación"
+  ],
+  "construccion": "Acusativo: «Dios les daba libertad (salvación) por mano suya».",
+  "sentido_en_contexto": "Moisés pensó que sus hermanos entenderían que Dios los libraba por medio de él, pero no lo entendieron. Esteban señala un patrón: Israel rechaza a sus libertadores (Moisés, y ahora Jesús).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero él pensaba que sus hermanos comprendían que Dios les daría libertad por mano suya; mas ellos no lo habían entendido así."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 2:14",
+   "Hch 7:35, 52",
+   "Lc 24:21"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.7.30",
+  "strong": "G942",
+  "forma": "βάτου",
+  "glosa_interlineal": "zarza",
+  "rango_semantico": [
+   "zarza, matorral"
+  ],
+  "construccion": "Genitivo: «en la llama de fuego de una zarza».",
+  "sentido_en_contexto": "Teofanía en el Sinaí/Horeb: el ángel del Señor aparece a Moisés en la zarza ardiendo. Dios se manifiesta en tierra extranjera (desierto de Madián), lejos del templo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pasados cuarenta años, un ángel se le apareció en el desierto del monte Sinaí, en la llama de fuego de una zarza."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 3:1-6",
+   "Mr 12:26; Lc 20:37",
+   "Hch 7:33 — «tierra santa»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.7.33",
+  "strong": "G40",
+  "forma": "ἁγία",
+  "glosa_interlineal": "santa",
+  "rango_semantico": [
+   "santo, consagrado"
+  ],
+  "construccion": "Adjetivo nominativo: «el lugar donde estás es tierra santa».",
+  "sentido_en_contexto": "Dios dice a Moisés que se quite las sandalias: el lugar es santo por su presencia, no por ser Jerusalén ni el templo. Argumento central de Esteban: la santidad la da Dios, no el edificio.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y le dijo el Señor: Quita el calzado de tus pies, porque el lugar en que estás es tierra santa."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 3:5",
+   "Jos 5:15",
+   "Hch 7:48-50"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.7.35",
+  "strong": "G3086",
+  "forma": "λυτρωτὴν",
+  "glosa_interlineal": "libertador",
+  "rango_semantico": [
+   "redentor, libertador"
+  ],
+  "construccion": "Acusativo: «a éste Dios envió como gobernante y libertador».",
+  "sentido_en_contexto": "Palabra única en el NT: «redentor, liberador». Esteban resalta la ironía: al que rechazaron («¿quién te ha puesto por gobernante y juez?»), Dios lo envió como libertador. Paralelo con Jesús, rechazado por sus hermanos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "A este Moisés, a quien habían rechazado, diciendo: ¿Quién te ha puesto por gobernante y juez? a ése lo envió Dios como gobernante y libertador con la ayuda del ángel que se le apareció en la zarza."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 2:14",
+   "Hch 3:13-15",
+   "Lc 1:68; 24:21"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.7.37",
+  "strong": "G4396",
+  "forma": "προφήτην",
+  "glosa_interlineal": "profeta",
+  "rango_semantico": [
+   "profeta"
+  ],
+  "construccion": "Acusativo: «Dios os levantará un profeta como yo».",
+  "sentido_en_contexto": "Cita Dt 18:15: Moisés mismo anunció a un profeta semejante a él. Esteban lo aplica a Jesús, implícitamente: igual que Moisés, fue rechazado por Israel.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Este es aquel Moisés que dijo a los hijos de Israel: Profeta os levantará el Señor vuestro Dios de entre vuestros hermanos, como a mí; a él oiréis."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 18:15",
+   "Hch 3:22",
+   "Jn 6:14"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.7.38",
+  "strong": "G1577",
+  "forma": "ἐκκλησίᾳ",
+  "glosa_interlineal": "congregación",
+  "rango_semantico": [
+   "asamblea, congregación"
+  ],
+  "construccion": "Dativo: «la congregación (iglesia) en el desierto».",
+  "sentido_en_contexto": "ἐκκλησία aquí designa a Israel reunido en el desierto, no a la Iglesia cristiana (aunque la palabra es la misma). Moisés recibió «palabras de vida» (λόγια ζῶντα) para darnos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Este es aquel Moisés que estuvo en la congregación en el desierto con el ángel que le hablaba en el monte Sina, y con nuestros padres, y recibió palabras de vida que darnos;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 4:10; 9:10; 18:16 (LXX)",
+   "Gá 3:19",
+   "Heb 2:2"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.7.41",
+  "strong": "G3447",
+  "forma": "ἐμοσχοποίησαν",
+  "glosa_interlineal": "hicieron un becerro",
+  "rango_semantico": [
+   "hacer un becerro (palabra única en el NT)"
+  ],
+  "construccion": "Aoristo indicativo activo: «hicieron un becerro».",
+  "sentido_en_contexto": "Palabra única en el NT: «hicieron un becerro» en el Sinaí. Esteban pone la idolatría del becerro como ejemplo de resistencia: Israel rechazó a Moisés y se volvió a Egipto en su corazón.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y entonces hicieron un becerro, y ofrecieron sacrificio al ídolo, y en las obras de sus manos se regocijaron."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 32:1-6",
+   "Sal 106:19-20",
+   "1 Co 10:7"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.7.43",
+  "strong": "G4633",
+  "forma": "σκηνὴν",
+  "glosa_interlineal": "tabernáculo",
+  "rango_semantico": [
+   "tienda, tabernáculo"
+  ],
+  "construccion": "Acusativo: «el tabernáculo de Moloc, y la estrella de vuestro dios Renfán».",
+  "sentido_en_contexto": "Cita de Am 5:25-27 (LXX): el pueblo llevó tabernáculos de dioses falsos. «Renfán» es la forma de la LXX de un dios astral (Kiyyun/Kewan, Saturno), distinta de la lectura hebrea. «Más allá de Babilonia» (en lugar de «Damasco» en el TM).",
+  "matiz": "Diferencias con el TM de Am 5:26-27: «Sicut» y «Quiyún» frente a «Moloc» y «Renfán»; «más allá de Damasco» frente a «Babilonia». Esteban usa la LXX adaptada para anunciar el exilio babilónico (más cercano al contexto de su audiencia).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Am 5:25-27",
+   "2 R 17:16",
+   "Jer 19:13"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Acts.7.48",
+  "strong": "G5499",
+  "forma": "χειροποιήτοις",
+  "glosa_interlineal": "hechos por manos",
+  "rango_semantico": [
+   "hecho por manos humanas"
+  ],
+  "construccion": "Dativo plural: «el Altísimo no habita en templos hechos de mano».",
+  "sentido_en_contexto": "Punto culminante del discurso: Dios no está confinado a un edificio. Cita Is 66:1-2. «Hecho a mano» (χειροποίητον) en la LXX se usa de los ídolos; aplicarlo al templo era provocador.",
+  "matiz": "Algunos ven en el discurso una crítica al templo en sí; otros solo al uso idolátrico del templo, como si Dios dependiera de él (cf. Jer 7:1-15). Esteban no niega que el templo sea legítimo (Salomón lo edificó), sino que Dios no está limitado a él.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Si bien el Altísimo no habita en templos hechos de mano; como dice el profeta:"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 66:1-2",
+   "1 R 8:27",
+   "Hch 17:24",
+   "Heb 9:11, 24"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Acts.7.51",
+  "strong": "G4644",
+  "forma": "Σκληροτράχηλοι",
+  "glosa_interlineal": "duros de cerviz",
+  "rango_semantico": [
+   "de dura cerviz, obstinado"
+  ],
+  "construccion": "Vocativo plural: «duros de cerviz, e incircuncisos de corazón y de oídos».",
+  "sentido_en_contexto": "Esteban pasa de la historia a la acusación directa: resisten al Espíritu Santo como sus padres. «Duros de cerviz» es expresión del AT para la obstinación de Israel (Éx 32:9). «Incircuncisos de corazón» alude a Dt 10:16; Jer 9:26.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¡Duros de cerviz, e incircuncisos de corazón y de oídos! Vosotros siempre resistís al Espíritu Santo; como vuestros padres, así también vosotros."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 32:9; 33:3-5",
+   "Dt 10:16",
+   "Jer 6:10; 9:26",
+   "Hch 7:39"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.7.52",
+  "strong": "G1342",
+  "forma": "δικαίου",
+  "glosa_interlineal": "del Justo",
+  "rango_semantico": [
+   "justo, recto"
+  ],
+  "construccion": "Genitivo: «los que anunciaron de antemano la venida del Justo».",
+  "sentido_en_contexto": "«El Justo» es título mesiánico de Jesús (3:14; 22:14). Esteban concluye: sus padres mataron a los profetas que anunciaban al Justo, y ellos lo han entregado y matado.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¿A cuál de los profetas no persiguieron vuestros padres? Y mataron a los que antes anunciaron la venida del Justo, de quien vosotros ahora habéis sido entregadores y matadores;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 3:14; 22:14",
+   "Lc 11:47-51",
+   "Mt 23:29-37"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.7.55",
+  "strong": "G1391",
+  "forma": "δόξαν",
+  "glosa_interlineal": "gloria",
+  "rango_semantico": [
+   "gloria, esplendor"
+  ],
+  "construccion": "Acusativo: «vio la gloria de Dios, y a Jesús que estaba a la diestra de Dios».",
+  "sentido_en_contexto": "Esteban, lleno del Espíritu, ve el cielo abierto y a Jesús «de pie» a la diestra de Dios (lo normal sería «sentado», Sal 110:1). Se ha interpretado como Jesús levantado para recibir a su testigo o para dar testimonio por él.",
+  "matiz": "Se discute por qué Jesús está «de pie» (no sentado): (a) en pie para recibir al mártir; (b) como abogado o testigo de defensa; (c) como juez que se levanta; (d) variación estilística. Lucas no lo explica.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero Esteban, lleno del Espíritu Santo, puestos los ojos en el cielo, vio la gloria de Dios, y a Jesús que estaba a la diestra de Dios,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 110:1",
+   "Lc 22:69",
+   "Mr 14:62",
+   "Ap 5:6"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Acts.7.56",
+  "strong": "G444",
+  "forma": "ἀνθρώπου",
+  "glosa_interlineal": "del Hombre",
+  "rango_semantico": [
+   "hombre, ser humano"
+  ],
+  "construccion": "Genitivo: «el Hijo del Hombre que está a la diestra de Dios».",
+  "sentido_en_contexto": "Única vez en el NT que alguien distinto de Jesús dice «Hijo del Hombre» en los evangelios y Hechos. Esteban alude a Dn 7:13 y a las palabras de Jesús ante el Sanedrín (Lc 22:69). Al afirmar esto, confirma la acusación de blasfemia.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "y dijo: He aquí, veo los cielos abiertos, y al Hijo del Hombre que está a la diestra de Dios."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 7:13-14",
+   "Lc 22:69",
+   "Mr 14:62",
+   "Jn 1:51"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.7.58",
+  "strong": "G3036",
+  "forma": "ἐλιθοβόλουν",
+  "glosa_interlineal": "apedreaban",
+  "rango_semantico": [
+   "apedrear"
+  ],
+  "construccion": "Imperfecto indicativo activo: «le apedrearon».",
+  "sentido_en_contexto": "Lapidación de Esteban fuera de la ciudad, siguiendo la ley (Lv 24:14). Los testigos echan primero la piedra (Dt 17:7) y dejan sus mantos a los pies de Saulo, el joven que aprobaba su muerte (8:1). Primera mención de Saulo (futuro Pablo).",
+  "matiz": "Se discute si fue un juicio formal del Sanedrín o un linchamiento. Roma reservaba la pena capital (Jn 18:31), pero Lucas lo presenta como tumulto con apariencia judicial.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y echándole fuera de la ciudad, le apedrearon; y los testigos pusieron sus ropas a los pies de un joven que se llamaba Saulo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lv 24:14-16",
+   "Dt 17:7",
+   "Hch 8:1; 22:20",
+   "Jn 18:31"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Acts.7.59",
+  "strong": "G4151",
+  "forma": "πνεῦμά",
+  "glosa_interlineal": "espíritu",
+  "rango_semantico": [
+   "espíritu"
+  ],
+  "construccion": "Acusativo: «Señor Jesús, recibe mi espíritu».",
+  "sentido_en_contexto": "Oración de Esteban dirigida a Jesús, eco de Lc 23:46 («Padre, en tus manos encomiendo mi espíritu»). Muestra el culto/invocación a Jesús como Señor desde el principio.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y apedrearon a Esteban, mientras él invocaba y decía: Señor Jesús, recibe mi espíritu."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 23:46",
+   "Hch 9:14; 22:16",
+   "Ro 10:13"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.7.60",
+  "strong": "G266",
+  "forma": "ἁμαρτίαν",
+  "glosa_interlineal": "pecado",
+  "rango_semantico": [
+   "pecado"
+  ],
+  "construccion": "Acusativo: «no les tomes en cuenta este pecado».",
+  "sentido_en_contexto": "Segunda palabra de Esteban: ora por sus verdugos, como Jesús (Lc 23:34). «Se durmió» (ἐκοιμήθη) es eufemismo cristiano de la muerte del creyente.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y puesto de rodillas, clamó a gran voz: Señor, no les tomes en cuenta este pecado. Y habiendo dicho esto, durmió."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 23:34",
+   "Mt 5:44",
+   "1 Ts 4:13-14"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

@@ -1,0 +1,556 @@
+[
+ {
+  "ref": "Matt.18.1",
+  "strong": "G3173",
+  "forma": "μείζων",
+  "glosa_interlineal": "el mayor",
+  "rango_semantico": [
+   "grande, mayor"
+  ],
+  "construccion": "Comparativo nominativo: «¿quién es el mayor?».",
+  "sentido_en_contexto": "Pregunta de los discípulos sobre rango en el reino. Jesús responde con un niño: la grandeza se mide por humildad.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "En aquel tiempo los discípulos vinieron a Jesús, diciendo: ¿Quién es el mayor en el reino de los cielos?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 9:34 — «habían disputado entre sí quién había de ser el mayor»",
+   "Lc 22:24 — otra discusión similar",
+   "Mt 20:26 — «el que quiera hacerse grande entre vosotros, será vuestro servidor»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.18.3",
+  "strong": "G4762",
+  "forma": "στραφῆτε",
+  "glosa_interlineal": "os volváis",
+  "rango_semantico": [
+   "volverse, girar",
+   "convertirse, cambiar de rumbo"
+  ],
+  "construccion": "Subjuntivo aoristo pasivo: «si no os volvéis».",
+  "sentido_en_contexto": "Condición para entrar en el reino: dar la vuelta (convertirse) y hacerse como niños. No es un retorno a la infancia sino un cambio de actitud hacia la dependencia y la humildad.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y dijo: De cierto os digo, que si no os volvéis y os hacéis como niños, no entraréis en el reino de los cielos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 19:14 — «de los tales es el reino de los cielos»",
+   "Mr 10:15 — paralelo",
+   "Hch 3:19 — «arrepentíos y convertíos»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.18.4",
+  "strong": "G5013",
+  "forma": "ταπεινώσει",
+  "glosa_interlineal": "se humille",
+  "rango_semantico": [
+   "humillar, rebajar",
+   "humillarse"
+  ],
+  "construccion": "Futuro indicativo activo, 3ª singular: «el que se humille».",
+  "sentido_en_contexto": "El niño en la sociedad antigua tenía poco estatus. Hacerse como un niño es aceptar una posición baja, sin reclamar derechos.",
+  "matiz": "Se debate qué cualidad del niño se destaca: inocencia, confianza, dependencia o humildad social. El v.4 apunta a la humildad (ταπεινώσει) y el v.3 a la conversión.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Así que, cualquiera que se humille como este niño, ése es el mayor en el reino de los cielos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 23:12 — «el que se humillare, será enaltecido»",
+   "Fil 2:8 — «se humilló a sí mismo»",
+   "Stg 4:10 — «humillaos delante del Señor»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.18.6",
+  "strong": "G3398",
+  "forma": "μικρῶν",
+  "glosa_interlineal": "pequeños",
+  "rango_semantico": [
+   "pequeño, de poca importancia",
+   "humilde"
+  ],
+  "construccion": "Genitivo plural: «uno de estos pequeños».",
+  "sentido_en_contexto": "«Pequeños» aquí son los discípulos humildes y los creyentes sencillos (no solo niños). Dios los protege con especial cuidado.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y cualquiera que haga tropezar a alguno de estos pequeños que creen en mí, mejor le fuera que se le colgase al cuello una piedra de molino de asno, y que se le hundiese en lo profundo del mar."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 10:42 — «uno de estos pequeñitos»",
+   "Lc 17:2 — paralelo",
+   "Mr 9:42 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.18.6",
+  "strong": "G4624",
+  "forma": "σκανδαλίσῃ",
+  "glosa_interlineal": "haga tropezar",
+  "rango_semantico": [
+   "hacer caer, escandalizar",
+   "apartar de la fe"
+  ],
+  "construccion": "Subjuntivo aoristo activo: «haga tropezar».",
+  "sentido_en_contexto": "Advertencia severa: causar que un creyente sencillo caiga es más grave que morir ahogado. El σκάνδαλον es la trampa que hace caer.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…cualquiera que haga tropezar a alguno de estos pequeños…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 14:13 — «no pongáis tropiezo al hermano»",
+   "1 Co 8:9 — «mirad que esta libertad vuestra no venga a ser tropezadero»",
+   "Mt 17:27 — «para no ofenderles»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.18.8",
+  "strong": "G166",
+  "forma": "αἰώνιον",
+  "glosa_interlineal": "eterno",
+  "rango_semantico": [
+   "eterno, perpetuo",
+   "de la edad venidera"
+  ],
+  "construccion": "Adjetivo acusativo: «el fuego eterno».",
+  "sentido_en_contexto": "Hipérbole: es mejor perder un miembro que ser lanzado al fuego eterno. Se refiere al juicio final, no a mutilación literal.",
+  "matiz": "Se discute si «eterno» (αἰώνιος) es «sin fin» o «de la era venidera»; la mayoría lo toma como duración sin fin, aunque algunos lo leen como cualidad de la era futura.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Por tanto, si tu mano o tu pie te fuere ocasión de caer, córtalo y échalo de ti; mejor te es entrar en la vida cojo o manco, que teniendo dos manos o dos pies ser echado en el fuego eterno."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 25:41 — «al fuego eterno preparado para el diablo»",
+   "Mt 25:46 — «irán éstos al castigo eterno, y los justos a la vida eterna»",
+   "Jud 7 — «el castigo del fuego eterno»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.18.10",
+  "strong": "G2706",
+  "forma": "καταφρονήσητε",
+  "glosa_interlineal": "despreciéis",
+  "rango_semantico": [
+   "menospreciar, despreciar"
+  ],
+  "construccion": "Subjuntivo aoristo activo con μή: «no menospreciéis».",
+  "sentido_en_contexto": "Mandato: no despreciar a ninguno de los pequeños. El motivo es que sus ángeles ven siempre el rostro del Padre.",
+  "matiz": "El v.10 («sus ángeles») es la base de la tradición del ángel de la guarda; el texto sugiere cuidado especial de Dios por los sencillos, sin precisar la doctrina.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Mirad que no menospreciéis a uno de estos pequeños; porque os digo que sus ángeles en los cielos ven siempre el rostro de mi Padre que está en los cielos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 12:15 — «es su ángel»",
+   "Heb 1:14 — «espíritus ministradores»",
+   "Sal 34:7 — «el ángel de Jehová acampa alrededor»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.18.12",
+  "strong": "G4105",
+  "forma": "πλανηθῇ",
+  "glosa_interlineal": "se extravía",
+  "rango_semantico": [
+   "errar, desviarse",
+   "extraviarse"
+  ],
+  "construccion": "Subjuntivo aoristo pasivo: «se descarría».",
+  "sentido_en_contexto": "Parábola de la oveja perdida: el pastor deja a las noventa y nueve para buscar a la que se extravió. El verbo es el mismo de la «seducción» (24:4, 11): el extravío puede ser engaño.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¿Qué os parece? Si un hombre tiene cien ovejas, y se descarría una de ellas, ¿no deja las noventa y nueve y va por los montes a buscar la que se había descarriado?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 15:4-7 — paralelo",
+   "Ez 34:16 — «yo buscaré la perdida»",
+   "1 P 2:25 — «erais como ovejas descarriadas»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.18.14",
+  "strong": "G2307",
+  "forma": "θέλημα",
+  "glosa_interlineal": "voluntad",
+  "rango_semantico": [
+   "voluntad, deseo"
+  ],
+  "construccion": "Nominativo: «no es la voluntad de vuestro Padre».",
+  "sentido_en_contexto": "Conclusión de la parábola: el Padre no quiere que se pierda ninguno de los pequeños. Eco del interés pastoral de Mateo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Así, no es la voluntad de vuestro Padre que está en los cielos, que se pierda uno de estos pequeños."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 P 3:9 — «no queriendo que ninguno perezca»",
+   "1 Ti 2:4 — «el cual quiere que todos los hombres sean salvos»",
+   "Ez 18:23 — «¿quiero yo la muerte del impío?»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.18.15",
+  "strong": "G1651",
+  "forma": "ἔλεγξον",
+  "glosa_interlineal": "repréndele",
+  "rango_semantico": [
+   "reprender, convencer",
+   "poner al descubierto"
+  ],
+  "construccion": "Imperativo aoristo activo, 2ª singular.",
+  "sentido_en_contexto": "Primer paso de la disciplina: hablar a solas con el hermano que pecó. El fin es «ganar» al hermano, no humillarlo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Por tanto, si tu hermano peca contra ti, ve y repréndele estando tú y él solos; si te oyere, has ganado a tu hermano."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lv 19:17 — «reprenderás a tu prójimo»",
+   "Lc 17:3 — «si tu hermano pecare contra ti, repréndele»",
+   "Gá 6:1 — «restauradle con espíritu de mansedumbre»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.18.15",
+  "strong": "G2770",
+  "forma": "ἐκέρδησας",
+  "glosa_interlineal": "ganaste",
+  "rango_semantico": [
+   "ganar, obtener provecho",
+   "ganar a alguien"
+  ],
+  "construccion": "Aoristo indicativo activo, 2ª singular: «has ganado».",
+  "sentido_en_contexto": "El objetivo de la corrección es ganar al hermano para la comunidad. «Ganar» aquí es restaurar, no vencer en una discusión.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…si te oyere, has ganado a tu hermano."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 9:19-22 — Pablo «para ganar a mayor número»",
+   "1 P 3:1 — «ganados sin palabra»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.18.17",
+  "strong": "G1482",
+  "forma": "ἐθνικὸς",
+  "glosa_interlineal": "gentil",
+  "rango_semantico": [
+   "pagano, gentil"
+  ],
+  "construccion": "Nominativo: «como gentil y publicano».",
+  "sentido_en_contexto": "Último paso de la disciplina: si no escucha ni a la iglesia, sea tratado «como gentil y publicano», es decir, como alguien fuera de la comunidad.",
+  "matiz": "Se discute si esto es excomunión definitiva o una invitación continua a la restauración: Jesús trató a gentiles y publicanos con gracia (Mt 9:9-13; 15:21-28). Ambos matices se defienden.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Si no los oyere a ellos, dilo a la iglesia; y si no oyere a la iglesia, tenle por gentil y publicano."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 5:11-13 — «no os juntéis con ninguno que, llamándose hermano…»",
+   "2 Ts 3:14-15 — «no lo tengáis por enemigo, sino amonestadle como a hermano»",
+   "Mt 9:9-13 — Jesús come con publicanos"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.18.18",
+  "strong": "G3089",
+  "forma": "λύσητε",
+  "glosa_interlineal": "desatéis",
+  "rango_semantico": [
+   "desatar, soltar",
+   "permitir"
+  ],
+  "construccion": "Subjuntivo aoristo activo: «lo que desatéis».",
+  "sentido_en_contexto": "La autoridad de atar y desatar, dada a Pedro en 16:19, se extiende aquí a la comunidad (plural «vosotros») en contexto de disciplina.",
+  "matiz": "Debate: ¿aquí «atar y desatar» es disciplina eclesial (excomunión, reintegración), interpretación de la Ley, o ambas? El contexto de 18:15-17 favorece la disciplina.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "De cierto os digo que todo lo que atéis en la tierra, será atado en el cielo; y todo lo que desatéis en la tierra, será desatado en el cielo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 16:19 — a Pedro",
+   "Jn 20:23 — «a quienes perdonéis los pecados, les son perdonados»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.18.20",
+  "strong": "G4863",
+  "forma": "συνηγμένοι",
+  "glosa_interlineal": "reunidos",
+  "rango_semantico": [
+   "reunir, congregar"
+  ],
+  "construccion": "Participio perfecto pasivo: «reunidos».",
+  "sentido_en_contexto": "Promesa de la presencia de Jesús en medio de dos o tres reunidos en su nombre. Se afirma en el contexto de decisiones comunitarias (vv.15-19), y en lenguaje similar al rabínico sobre la presencia de Dios.",
+  "matiz": "Frecuentemente se cita en contexto de oración o culto; en Mateo el contexto inmediato es la disciplina y la decisión comunitaria, y la promesa conecta con 1:23 («Dios con nosotros») y 28:20 («yo estoy con vosotros»).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque donde están dos o tres congregados en mi nombre, allí estoy yo en medio de ellos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 1:23 — «Emanuel, Dios con nosotros»",
+   "Mt 28:20 — «yo estoy con vosotros todos los días»",
+   "Pirké Avot 3:6 — «cuando dos se sientan y estudian la Torá, la Shekiná está entre ellos»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.18.22",
+  "strong": "G1441",
+  "forma": "ἑβδομηκοντάκις",
+  "glosa_interlineal": "setenta veces",
+  "rango_semantico": [
+   "setenta veces",
+   "setenta y siete veces"
+  ],
+  "construccion": "Adverbio: «setenta veces siete» (o «setenta y siete veces»).",
+  "sentido_en_contexto": "Respuesta a Pedro: el perdón no se cuenta. El número refleja una cantidad ilimitada, en contraste con la venganza de Lamec (Gn 4:24).",
+  "matiz": "El griego admite «setenta veces siete» (490) o «setenta y siete veces» (77, como en Gn 4:24 LXX). En ambos casos el sentido es «sin límite».",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Jesús le dijo: No te digo hasta siete, sino aun hasta setenta veces siete."
+   }
+  ],
+  "notas_traduccion": "RVR: «setenta veces siete»; algunas versiones modernas: «setenta y siete veces». El número exacto no importa: quiere decir ilimitado.",
+  "otros_usos": [
+   "Gn 4:24 — «si siete veces será vengado Caín, Lamec lo será setenta veces siete»",
+   "Lc 17:4 — «si siete veces al día pecare contra ti… perdónale»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.18.24",
+  "strong": "G3463",
+  "forma": "μυρίων",
+  "glosa_interlineal": "diez mil",
+  "rango_semantico": [
+   "diez mil",
+   "miríada (cantidad enorme)"
+  ],
+  "construccion": "Genitivo plural: «diez mil talentos».",
+  "sentido_en_contexto": "Un talento equivalía a unos 6.000 denarios (jornales). Diez mil talentos son una cantidad impagable: 60 millones de jornales. Jesús usa la exageración para mostrar la inmensidad de la deuda con Dios.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y comenzando a hacer cuentas, le fue presentado uno que le debía diez mil talentos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 18:28 — «cien denarios» (la deuda del compañero)",
+   "Lc 7:41-42 — «quinientos denarios… cincuenta»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.18.26",
+  "strong": "G3114",
+  "forma": "μακροθύμησον",
+  "glosa_interlineal": "ten paciencia",
+  "rango_semantico": [
+   "tener paciencia, ser paciente",
+   "aguantar"
+  ],
+  "construccion": "Imperativo aoristo activo, 2ª singular: «sé paciente conmigo».",
+  "sentido_en_contexto": "Súplica del siervo al rey. La promesa de pagar «todo» es irreal, pero el rey, movido a compasión, perdona la deuda entera.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces aquel siervo, postrado, le suplicaba, diciendo: Señor, ten paciencia conmigo, y yo te lo pagaré todo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 2:4 — «la paciencia (μακροθυμίας) de Dios»",
+   "2 P 3:9 — «es paciente para con nosotros»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.18.27",
+  "strong": "G1156",
+  "forma": "δάνειον",
+  "glosa_interlineal": "deuda",
+  "rango_semantico": [
+   "préstamo, deuda"
+  ],
+  "construccion": "Acusativo: «la deuda».",
+  "sentido_en_contexto": "El rey perdona el préstamo entero: gracia desproporcionada. El siervo debería haber imitado esa gracia.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "El señor de aquel siervo, movido a misericordia, le soltó y le perdonó la deuda."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 6:12 — «perdónanos nuestras deudas»",
+   "Col 2:14 — «anulando el acta de los decretos»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.18.28",
+  "strong": "G1220",
+  "forma": "δηνάρια",
+  "glosa_interlineal": "denarios",
+  "rango_semantico": [
+   "denario (moneda romana de plata, jornal de un obrero)"
+  ],
+  "construccion": "Acusativo plural: «cien denarios».",
+  "sentido_en_contexto": "Cien denarios: tres meses de salario, deuda real pero ínfima comparada con diez mil talentos. El contraste es el núcleo de la parábola.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero saliendo aquel siervo, halló a uno de sus consiervos, que le debía cien denarios; y asiéndole, le ahogaba, diciendo: Págame lo que me debes."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 20:2 — «convino con los obreros en un denario al día»",
+   "Mt 22:19 — «un denario»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.18.33",
+  "strong": "G1653",
+  "forma": "ἐλεῆσαι",
+  "glosa_interlineal": "tener misericordia",
+  "rango_semantico": [
+   "compadecerse, tener misericordia"
+  ],
+  "construccion": "Infinitivo aoristo activo: «¿no debías tú tener misericordia?».",
+  "sentido_en_contexto": "La conclusión del rey: la misericordia recibida obliga a la misericordia dada. Es el principio del Padrenuestro (6:12, 14-15).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¿No debías tú también tener misericordia de tu consiervo, como yo tuve misericordia de ti?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 5:7 — «bienaventurados los misericordiosos»",
+   "Mt 6:14-15 — «si perdonáis… os perdonará»",
+   "Ef 4:32 — «perdonándoos unos a otros, como Dios también os perdonó»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.18.34",
+  "strong": "G930",
+  "forma": "βασανισταῖς",
+  "glosa_interlineal": "verdugos",
+  "rango_semantico": [
+   "torturador, carcelero",
+   "el que atormenta"
+  ],
+  "construccion": "Dativo plural: «a los verdugos».",
+  "sentido_en_contexto": "El siervo sin misericordia es entregado a los verdugos hasta pagar todo. La imagen del juicio severo para quien no perdona.",
+  "matiz": "Se debate si la imagen describe un castigo temporal o definitivo: «hasta que pagase todo» sugiere imposibilidad de saldar la deuda; muchos lo leen como juicio final.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces su señor, enojado, le entregó a los verdugos, hasta que pagase todo lo que le debía."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 5:25-26 — «hasta que pagues el último cuadrante»",
+   "Mt 25:30 — «echad al siervo inútil a las tinieblas»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.18.35",
+  "strong": "G2588",
+  "forma": "καρδιῶν",
+  "glosa_interlineal": "corazones",
+  "rango_semantico": [
+   "corazón, interior"
+  ],
+  "construccion": "ἀπὸ + genitivo: «de vuestros corazones».",
+  "sentido_en_contexto": "El perdón debe ser «de corazón»: no solo un gesto externo. Cierra la parábola con la advertencia al discípulo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Así también mi Padre celestial hará con vosotros, si no perdonáis de todo corazón cada uno a su hermano sus ofensas."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 6:14-15 — perdón recíproco",
+   "Mr 11:25 — «cuando estéis orando, perdonad»"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

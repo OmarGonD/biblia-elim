@@ -1,0 +1,471 @@
+[
+ {
+  "ref": "Acts.10.1",
+  "strong": "G2883",
+  "forma": "Κορνήλιος",
+  "glosa_interlineal": "Cornelio",
+  "rango_semantico": [
+   "Cornelio (nombre romano)"
+  ],
+  "construccion": "Nominativo: «un hombre llamado Cornelio, centurión de la compañía llamada la Italiana».",
+  "sentido_en_contexto": "Centurión romano en Cesarea, de la cohorte Italiana. Primer gentil convertido en Hechos (tras el eunuco, 8:26-40). Su conversión es un hito: Dios abre la puerta a los gentiles sin pasar por la circuncisión.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 8:26-40 — el eunuco etíope",
+   "Hch 11:1-18; 15:7-11",
+   "Lc 7:1-10 — otro centurión creyente"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.10.2",
+  "strong": "G5399",
+  "forma": "φοβούμενος",
+  "glosa_interlineal": "temeroso",
+  "rango_semantico": [
+   "temer, reverenciar"
+  ],
+  "construccion": "Participio presente medio: «piadoso y temeroso de Dios con toda su casa».",
+  "sentido_en_contexto": "«Temeroso de Dios» (φοβούμενος τὸν θεόν) designa a gentiles simpatizantes del judaísmo que adoraban al Dios de Israel sin ser prosélitos plenos (sin circuncisión). Cornelio ora y da limosnas, lo cual agrada a Dios (v.4).",
+  "matiz": "Se discute si «temerosos de Dios» era una categoría formal de la sinagoga o una descripción general de gentiles piadosos. Hechos la usa en este segundo sentido.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "piadoso y temeroso de Dios con toda su casa, y que hacía muchas limosnas al pueblo, y oraba a Dios siempre."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 13:16, 26, 43, 50; 16:14; 17:4, 17",
+   "Lc 7:5"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Acts.10.4",
+  "strong": "G3422",
+  "forma": "μνημόσυνον",
+  "glosa_interlineal": "memorial",
+  "rango_semantico": [
+   "memorial, recuerdo"
+  ],
+  "construccion": "Acusativo: «tus oraciones y tus limosnas han subido para memoria delante de Dios».",
+  "sentido_en_contexto": "Término cultual: μνημόσυνον designa la porción de ofrenda que se quemaba como recordatorio ante Dios (Lv 2:2). Dios acepta las oraciones y limosnas de Cornelio: no por mérito propio, sino por su apertura sincera.",
+  "matiz": "Debate teológico: ¿Cornelio estaba ya salvo antes de oír el evangelio (lectura inclusivista), o su devoción lo preparó para recibirlo sin conferirle la salvación (lectura habitual)? Pedro le enviará «palabras por las cuales serás salvo» (11:14).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lv 2:2, 9, 16",
+   "Hch 11:14",
+   "Sal 141:2"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Acts.10.11",
+  "strong": "G3607",
+  "forma": "ὀθόνην",
+  "glosa_interlineal": "lienzo",
+  "rango_semantico": [
+   "lienzo, vela de lino grande"
+  ],
+  "construccion": "Acusativo: «como un gran lienzo que descendía».",
+  "sentido_en_contexto": "Visión de Pedro en Jope: un lienzo grande con toda clase de animales (puros e impuros). Una voz le manda matar y comer. La visión se repite tres veces (v.16). Su verdadero sentido se aclara después: no son alimentos sino personas (gentiles).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "y vio el cielo abierto, y que descendía algo semejante a un gran lienzo, que atado de las cuatro puntas era bajado a la tierra;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 11:5-10",
+   "Lv 11",
+   "Dt 14:3-21"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.10.14",
+  "strong": "G2839",
+  "forma": "κοινὸν",
+  "glosa_interlineal": "común",
+  "rango_semantico": [
+   "común, profano, impuro"
+  ],
+  "construccion": "Adjetivo acusativo: «ninguna cosa común o inmunda he comido jamás».",
+  "sentido_en_contexto": "Pedro, judío observante, rechaza comer animales impuros. κοινός significa «común, profano» (impuro en sentido ritual). La voz responde: «lo que Dios limpió, no lo llames tú común» (v.15).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces Pedro dijo: Señor, no; porque ninguna cosa común e inmunda he comido jamás."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ez 4:14",
+   "Lv 11",
+   "Mr 7:19",
+   "Ro 14:14"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.10.15",
+  "strong": "G2511",
+  "forma": "ἐκαθάρισεν",
+  "glosa_interlineal": "limpió",
+  "rango_semantico": [
+   "limpiar, purificar, declarar limpio"
+  ],
+  "construccion": "Aoristo indicativo activo: «lo que Dios limpió, no lo llames tú común».",
+  "sentido_en_contexto": "Dios ha declarado limpio lo que antes era impuro: el principio se extiende de los animales a las personas (v.28). Aplicado a los gentiles, rompe la barrera entre judíos y no judíos.",
+  "matiz": "Debate: ¿la visión abroga las leyes alimentarias para los cristianos (la mayoría) o solo se refiere a las personas (Pedro mismo la interpreta así en v.28, sin hablar de alimentos)? Marcos 7:19 («haciendo limpios todos los alimentos») apunta a una abolición.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Volvió la voz a él la segunda vez: Lo que Dios limpió, no lo llames tú común."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 10:28; 11:9",
+   "Mr 7:19",
+   "Ro 14:14, 20",
+   "1 Ti 4:4"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Acts.10.20",
+  "strong": "G1252",
+  "forma": "διακρινόμενος",
+  "glosa_interlineal": "dudando",
+  "rango_semantico": [
+   "dudar, vacilar, discriminar"
+  ],
+  "construccion": "Participio presente medio: «no dudes de ir con ellos».",
+  "sentido_en_contexto": "El Espíritu ordena a Pedro ir con los enviados de Cornelio «sin dudar» (o «sin hacer distinciones»). El verbo διακρίνω puede significar «dudar» o «hacer distinción»: ambos sentidos son relevantes (cf. 11:12).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Levántate, pues, y desciende, y no dudes de ir con ellos, porque yo los he enviado."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 11:12",
+   "Stg 1:6",
+   "Ro 4:20"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.10.28",
+  "strong": "G111",
+  "forma": "ἀθέμιτον",
+  "glosa_interlineal": "ilícito",
+  "rango_semantico": [
+   "ilícito, contra la ley, abominable"
+  ],
+  "construccion": "Adjetivo neutro nominativo: «es abominable (ilícito) a un judío juntarse o acercarse a un extranjero».",
+  "sentido_en_contexto": "Pedro reconoce la prohibición social y ritual judía de tratar con gentiles. Pero Dios le ha mostrado que no debe llamar «común o inmundo» a ningún hombre. La Torá no prohibía exactamente visitar casas gentiles; era una tradición posterior.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y les dijo: Vosotros sabéis cuán abominable es para un varón judío juntarse o acercarse a un extranjero; pero Dios me ha mostrado que a ningún hombre llame común o inmundo;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 18:28",
+   "Gá 2:12",
+   "Ef 2:11-22"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.10.34",
+  "strong": "G4381",
+  "forma": "προσωπολήμπτης",
+  "glosa_interlineal": "que hace acepción",
+  "rango_semantico": [
+   "que juzga por apariencias, parcial"
+  ],
+  "construccion": "Nominativo: «Dios no hace acepción de personas».",
+  "sentido_en_contexto": "Palabra única en el NT, de «recibir el rostro» (προσωπολημψία): Dios no favorece según origen étnico. Pedro comprende que Dios acepta a quien le teme y practica justicia en toda nación (v.35). No dice que todas las religiones salvan, sino que Dios no discrimina por etnia.",
+  "matiz": "Debate sobre v.35 («en toda nación el que le teme y hace justicia le es acepto»): ¿implica que los no cristianos piadosos son aceptos sin Cristo (inclusivismo extremo), o que Dios acepta a quien responde a la luz recibida y esto lleva a Cristo, como en el caso de Cornelio? El contexto muestra que Cornelio necesitaba oír el evangelio (11:14).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces Pedro, abriendo la boca, dijo: En verdad comprendo que Dios no hace acepción de personas,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 10:17",
+   "Ro 2:11",
+   "Gá 2:6",
+   "Ef 6:9",
+   "Stg 2:1"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Acts.10.36",
+  "strong": "G2962",
+  "forma": "κύριος",
+  "glosa_interlineal": "Señor",
+  "rango_semantico": [
+   "señor, amo"
+  ],
+  "construccion": "Nominativo: «éste es Señor de todos».",
+  "sentido_en_contexto": "Pedro proclama la soberanía universal de Jesucristo: es Señor de todos (judíos y gentiles). La frase parentética «éste es Señor de todos» alude al corazón de la misión universal.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Dios envió mensaje a los hijos de Israel, anunciando el evangelio de la paz por medio de Jesucristo; éste es Señor de todos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 10:12",
+   "Fil 2:11",
+   "Hch 2:36",
+   "Ef 2:17"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.10.38",
+  "strong": "G5548",
+  "forma": "ἔχρισεν",
+  "glosa_interlineal": "ungió",
+  "rango_semantico": [
+   "ungir, consagrar"
+  ],
+  "construccion": "Aoristo indicativo activo: «cómo Dios ungió con el Espíritu Santo y con poder a Jesús de Nazaret».",
+  "sentido_en_contexto": "Resumen del ministerio de Jesús: ungido por Dios con el Espíritu y poder, hizo bienes y sanó a todos los oprimidos por el diablo, porque Dios estaba con él. Ejemplo de la acción trinitaria en Jesús.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "cómo Dios ungió con el Espíritu Santo y con poder a Jesús de Nazaret, el cual anduvo haciendo bienes y sanando a todos los oprimidos por el diablo, porque Dios estaba con él."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 4:18",
+   "Is 61:1",
+   "Lc 3:21-22",
+   "Hch 2:22"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.10.39",
+  "strong": "G3586",
+  "forma": "ξύλου",
+  "glosa_interlineal": "madero",
+  "rango_semantico": [
+   "madero, árbol, cruz"
+  ],
+  "construccion": "Genitivo: «a quien mataron colgándole de un madero».",
+  "sentido_en_contexto": "Referencia a la crucifixión con la imagen deuteronómica del colgado (Dt 21:23): Pedro, como en 5:30, la reinterpreta: aquel a quien colgaron como maldito, Dios lo resucitó.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y nosotros somos testigos de todas las cosas que hizo en la tierra de Judea y en Jerusalén; a quien mataron colgándole en un madero."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 5:30",
+   "Dt 21:22-23",
+   "Gá 3:13"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.10.41",
+  "strong": "G4906",
+  "forma": "συνεφάγομεν",
+  "glosa_interlineal": "comimos con él",
+  "rango_semantico": [
+   "comer juntamente"
+  ],
+  "construccion": "Aoristo indicativo activo: «los que comimos y bebimos con él después que resucitó de entre los muertos».",
+  "sentido_en_contexto": "Los testigos escogidos de la resurrección compartieron comida con el Resucitado: prueba de realidad física (cf. Lc 24:41-43). El Resucitado se manifiesta solo a testigos previamente elegidos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "no a todo el pueblo, sino a los testigos que Dios había ordenado de antemano, a nosotros que comimos y bebimos con él después que resucitó de los muertos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 24:41-43",
+   "Jn 21:12-13",
+   "Hch 1:3-4"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.10.42",
+  "strong": "G2923",
+  "forma": "κριτὴς",
+  "glosa_interlineal": "juez",
+  "rango_semantico": [
+   "juez"
+  ],
+  "construccion": "Nominativo: «el que Dios ha puesto por juez de vivos y muertos».",
+  "sentido_en_contexto": "Jesús, resucitado, ha sido constituido juez universal de vivos y muertos: eco de Jn 5:22-27 y Hch 17:31. El mensaje apostólico incluye el juicio venidero.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y nos mandó que predicásemos al pueblo, y testificásemos que él es el que Dios ha puesto por Juez de vivos y muertos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 17:31",
+   "Jn 5:22, 27",
+   "2 Ti 4:1",
+   "1 P 4:5"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.10.43",
+  "strong": "G859",
+  "forma": "ἄφεσιν",
+  "glosa_interlineal": "perdón",
+  "rango_semantico": [
+   "perdón, remisión"
+  ],
+  "construccion": "Acusativo: «todos los que en él creyeren, recibirán perdón de pecados por su nombre».",
+  "sentido_en_contexto": "Conclusión del sermón: todos los profetas testifican que el que cree en él recibe perdón por su nombre. Pedro no ha terminado cuando el Espíritu cae sobre los oyentes (v.44).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "De éste dan testimonio todos los profetas, de que todos los que en él creyeren, recibirán perdón de pecados por su nombre."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 24:47",
+   "Hch 2:38; 13:38-39; 26:18",
+   "Is 53:11",
+   "Jer 31:34"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.10.44",
+  "strong": "G1968",
+  "forma": "ἐπέπεσεν",
+  "glosa_interlineal": "cayó",
+  "rango_semantico": [
+   "caer sobre, sobrevenir"
+  ],
+  "construccion": "Aoristo indicativo activo: «el Espíritu Santo cayó sobre todos los que oían».",
+  "sentido_en_contexto": "Interrupción divina: antes del bautismo y sin imposición de manos, el Espíritu cae sobre los gentiles que escuchaban. Es el «Pentecostés de los gentiles»: Dios confirma su aceptación sin pasar por la circuncisión.",
+  "matiz": "Orden de eventos distinto del de 2:38 (arrepentimiento, bautismo, Espíritu) y 8:14-17 (bautismo, imposición, Espíritu): aquí el Espíritu viene primero, luego el bautismo. Hechos no sigue un orden único.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Mientras aún hablaba Pedro estas palabras, el Espíritu Santo cayó sobre todos los que oían el discurso."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 11:15-17; 15:8-9",
+   "Hch 2:4; 8:17; 19:6"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Acts.10.46",
+  "strong": "G1100",
+  "forma": "γλώσσαις",
+  "glosa_interlineal": "lenguas",
+  "rango_semantico": [
+   "lengua, idioma"
+  ],
+  "construccion": "Dativo plural: «les oían hablar en lenguas y magnificar a Dios».",
+  "sentido_en_contexto": "La señal de las lenguas confirma a los judíos creyentes que los gentiles recibieron el mismo don del Espíritu que ellos (v.47; 11:15-17). Es señal para los de la circuncisión, no una norma de recepción del Espíritu.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque los oían que hablaban en lenguas, y que magnificaban a Dios. Entonces respondió Pedro:"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 2:4; 19:6",
+   "1 Co 14:2, 22"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.10.47",
+  "strong": "G2967",
+  "forma": "κωλῦσαι",
+  "glosa_interlineal": "impedir",
+  "rango_semantico": [
+   "impedir, prohibir, estorbar"
+  ],
+  "construccion": "Infinitivo aoristo: «¿puede acaso alguno impedir el agua para que no sean bautizados éstos?».",
+  "sentido_en_contexto": "Pedro, convencido por el don del Espíritu, ordena bautizarlos en el nombre de Jesucristo. El argumento: si Dios ya los aceptó, ¿quién es el hombre para impedir el bautismo?",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¿Puede acaso alguno impedir el agua, para que no sean bautizados estos que han recibido el Espíritu Santo también como nosotros?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 8:36; 11:17",
+   "Gá 3:26-28"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.10.48",
+  "strong": "G907",
+  "forma": "βαπτισθῆναι",
+  "glosa_interlineal": "ser bautizados",
+  "rango_semantico": [
+   "bautizar, sumergir"
+  ],
+  "construccion": "Infinitivo aoristo pasivo: «mandó bautizarlos en el nombre de Jesucristo».",
+  "sentido_en_contexto": "Cornelio y los suyos son bautizados en agua después de recibir el Espíritu. La Iglesia, que ya incluye samaritanos (cap. 8), da ahora el paso decisivo hacia los gentiles. Pedro se queda con ellos algunos días, comiendo con gentiles: gran novedad.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y mandó bautizarles en el nombre del Señor Jesús. Entonces le rogaron que se quedase por algunos días."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 2:38; 8:12-16; 19:5",
+   "Mt 28:19",
+   "Hch 11:3"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

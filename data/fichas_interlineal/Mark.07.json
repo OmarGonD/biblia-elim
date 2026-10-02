@@ -1,0 +1,342 @@
+[
+ {
+  "ref": "Mark.7.2",
+  "strong": "G2839",
+  "forma": "κοιναῖς",
+  "glosa_interlineal": "impuras",
+  "rango_semantico": [
+   "común, profano",
+   "impuro (ritualmente)"
+  ],
+  "construccion": "Adjetivo dativo: «con manos comunes (impuras), es decir, sin lavar».",
+  "sentido_en_contexto": "Marcos explica a sus lectores no judíos qué significa «común» aquí: manos sin lavar ritualmente. Lo hace con un paréntesis (vv.3-4) para explicar las costumbres judías.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "los cuales, viendo a algunos de los discípulos comer pan con las manos impuras, es decir, no lavadas, los condenaban."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 10:14 — «ninguna cosa común o inmunda he comido jamás»",
+   "Ro 14:14 — «nada es inmundo en sí mismo»",
+   "Mt 15:2 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.7.4",
+  "strong": "G907",
+  "forma": "βαπτίσωνται",
+  "glosa_interlineal": "se lavan",
+  "rango_semantico": [
+   "sumergir, bañar",
+   "lavarse (ritualmente)"
+  ],
+  "construccion": "Subjuntivo aoristo medio: «si no se bañan (se sumergen)».",
+  "sentido_en_contexto": "Al volver del mercado se «bautizaban» (se lavaban) antes de comer. El mismo verbo del bautismo, aplicado aquí a lavados rituales.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y volviendo de la plaza, si no se lavan, no comen. Y otras muchas cosas hay que tomaron para guardar, como los lavamientos de los vasos de beber, y de los jarros, y de los utensilios de metal, y de los lechos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 11:38 — «se extrañó de que no se hubiese lavado (ἐβαπτίσθη)»",
+   "Heb 9:10 — «diversos lavamientos (βαπτισμοῖς)»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.7.11",
+  "strong": "G2878",
+  "forma": "κορβᾶν",
+  "glosa_interlineal": "Corbán",
+  "rango_semantico": [
+   "Corbán (hebreo/arameo: ofrenda consagrada)"
+  ],
+  "construccion": "Palabra aramea conservada por Marcos, con traducción: «es decir, ofrenda».",
+  "sentido_en_contexto": "Fórmula por la que alguien declaraba sus bienes dedicados a Dios y así evitaba ayudar a sus padres. Marcos conserva el término arameo; Mateo usa «don» (δῶρον).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero vosotros decís: Basta que diga un hombre al padre o a la madre: Es Corbán (que quiere decir, mi ofrenda a Dios) todo aquello con que pudiera ayudarte,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 15:5 — «es ofrenda a Dios»",
+   "Lv 1:2 — «ofrenda (qorbán) a Jehová»",
+   "Nm 30 — votos"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.7.15",
+  "strong": "G2840",
+  "forma": "κοινοῖ",
+  "glosa_interlineal": "contamina",
+  "rango_semantico": [
+   "hacer común, profano",
+   "contaminar, volver impuro"
+  ],
+  "construccion": "Presente indicativo activo, 3ª singular.",
+  "sentido_en_contexto": "Principio central: lo que contamina no es lo que entra al cuerpo sino lo que sale del interior. Jesús redefine el concepto de pureza.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Nada hay fuera del hombre que entre en él, que le pueda contaminar; pero lo que sale de él, eso es lo que contamina al hombre."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 15:11 — paralelo",
+   "Hch 10:15 — «lo que Dios limpió, no lo llames tú común»",
+   "Tit 1:15 — «todas las cosas son puras para los puros»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.7.19",
+  "strong": "G2511",
+  "forma": "καθαρίζων",
+  "glosa_interlineal": "declarando limpios",
+  "rango_semantico": [
+   "limpiar, purificar",
+   "declarar puro"
+  ],
+  "construccion": "Participio presente activo, nominativo masculino: «declarando limpios todos los alimentos».",
+  "sentido_en_contexto": "Comentario del narrador (solo en Marcos): al decir esto, Jesús «limpiaba todos los alimentos». Declara abolida la distinción ritual de alimentos de Lv 11, o al menos la relativiza.",
+  "matiz": "Debate: ¿es una nota del evangelista que interpreta la enseñanza de Jesús (para lectores gentiles) o una enseñanza original que abole las leyes alimentarias? Algunos manuscritos y versiones vinculan el participio con «el desagüe» y no con Jesús. La mayoría lo lee como nota del narrador.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "porque no entra en su corazón, sino en el vientre, y sale a la letrina? Esto decía, haciendo limpios todos los alimentos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lv 11 — leyes de alimentos",
+   "Hch 10:9-16 — la visión de Pedro",
+   "Ro 14:14, 20 — «todo es limpio»"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "Mark.7.22",
+  "strong": "G4124",
+  "forma": "πλεονεξίαι",
+  "glosa_interlineal": "avaricia",
+  "rango_semantico": [
+   "codicia, afán de tener más",
+   "avaricia"
+  ],
+  "construccion": "Nominativo plural: «las avaricias».",
+  "sentido_en_contexto": "En la lista de males que salen del corazón, Marcos enumera doce (el doble que Mateo): seis en plural (actos) y seis en singular (disposiciones).",
+  "matiz": "La lista de Marcos 7:21-22 es de las más largas del NT: malos pensamientos, adulterios, fornicaciones, homicidios, hurtos, avaricias, maldades, engaño, lascivia, envidia, maledicencia, soberbia, insensatez.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "los hurtos, las avaricias, las maldades, el engaño, la lascivia, la envidia, la maledicencia, la soberbia, la insensatez."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 15:19 — lista más corta",
+   "Ro 1:29-31 — lista de males",
+   "Col 3:5 — «la avaricia, que es idolatría»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.7.22",
+  "strong": "G3788",
+  "forma": "ὀφθαλμὸς",
+  "glosa_interlineal": "ojo",
+  "rango_semantico": [
+   "ojo"
+  ],
+  "construccion": "Nominativo: «el ojo maligno (πονηρός)».",
+  "sentido_en_contexto": "«Ojo malo» en hebreo es envidia o tacañería. Está entre los males que salen del corazón.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 20:15 — «¿es malo tu ojo, porque yo soy bueno?»",
+   "Mt 6:23 — «si tu ojo es malo»",
+   "Pr 23:6 — «el de ojo malo»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.7.26",
+  "strong": "G1674",
+  "forma": "Ἑλληνίς",
+  "glosa_interlineal": "griega",
+  "rango_semantico": [
+   "griega (de cultura y lengua griega, no judía)"
+  ],
+  "construccion": "Nominativo: «una mujer griega, sirofenicia de nación».",
+  "sentido_en_contexto": "Marcos precisa su condición: de lengua y cultura griega, de origen sirofenicio (Mateo la llama «cananea»). Es gentil.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "La mujer era griega, y sirofenicia de nación; y le rogaba que echase fuera de su hija al demonio."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 15:22 — «mujer cananea»",
+   "Hch 17:4 — «griegos piadosos»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.7.27",
+  "strong": "G5526",
+  "forma": "χορτασθῆναι",
+  "glosa_interlineal": "saciarse",
+  "rango_semantico": [
+   "saciar, dar de comer hasta hartar"
+  ],
+  "construccion": "Infinitivo aoristo pasivo: «deja primero que se sacien los hijos».",
+  "sentido_en_contexto": "Solo Marcos dice «primero»: implica que habrá un tiempo para los gentiles después. Muestra la secuencia histórica de la salvación: primero Israel, luego las naciones (Ro 1:16).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero Jesús le dijo: Deja primero que se sacien los hijos, porque no está bien tomar el pan de los hijos y echarlo a los perrillos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 1:16 — «al judío primeramente, y también al griego»",
+   "Mt 15:26 — paralelo sin «primero»",
+   "Mr 7:28 — la respuesta de la mujer"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.7.29",
+  "strong": "G3056",
+  "forma": "λόγον",
+  "glosa_interlineal": "palabra",
+  "rango_semantico": [
+   "palabra, dicho",
+   "razón"
+  ],
+  "construccion": "διὰ + acusativo: «por esta palabra».",
+  "sentido_en_contexto": "Jesús sana a la hija por la respuesta de la mujer: «por este dicho, vete». Es una de las pocas ocasiones en que alguien «gana» un argumento con Jesús.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces le dijo: Por esta palabra, ve; el demonio ha salido de tu hija."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 15:28 — «oh mujer, grande es tu fe»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.7.32",
+  "strong": "G3424",
+  "forma": "μογιλάλον",
+  "glosa_interlineal": "con dificultad para hablar",
+  "rango_semantico": [
+   "que habla con dificultad, tartamudo"
+  ],
+  "construccion": "Adjetivo acusativo: «un sordo y tartamudo».",
+  "sentido_en_contexto": "Palabra rarísima, solo aquí y en Is 35:6 (LXX): evoca la profecía mesiánica «la lengua del mudo cantará».",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y le trajeron un sordo y tartamudo, y le rogaron que le pusiese la mano encima."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 35:5-6 — «los oídos de los sordos se abrirán»",
+   "Mt 11:5 — «los sordos oyen»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.7.34",
+  "strong": "G2188",
+  "forma": "ἐφφαθά",
+  "glosa_interlineal": "Efata",
+  "rango_semantico": [
+   "Efata (arameo: «ábrete»)"
+  ],
+  "construccion": "Palabra aramea conservada por Marcos.",
+  "sentido_en_contexto": "Jesús usa gestos (dedos en los oídos, saliva, mirada al cielo, suspiro) y una palabra aramea. Marcos conserva el idioma original, como en 5:41.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y levantando los ojos al cielo, gimió, y le dijo: Efata, es decir: Sé abierto."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 5:41 — «talita cumi»",
+   "Mr 14:36 — «Abba»",
+   "Jn 9:6 — otro uso de saliva"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.7.34",
+  "strong": "G4727",
+  "forma": "ἐστέναξεν",
+  "glosa_interlineal": "suspiró",
+  "rango_semantico": [
+   "gemir, suspirar"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª singular.",
+  "sentido_en_contexto": "Jesús suspira profundamente: gesto de compasión o de oración. Marcos presenta a un Jesús que siente.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Ro 8:23 — «gemimos dentro de nosotros»",
+   "Mr 8:12 — «gimiendo en su espíritu»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.7.37",
+  "strong": "G5249",
+  "forma": "ὑπερπερισσῶς",
+  "glosa_interlineal": "extraordinariamente",
+  "rango_semantico": [
+   "en exceso, más allá de toda medida"
+  ],
+  "construccion": "Adverbio doble (ὑπέρ + περισσῶς): «en gran manera, sobremanera».",
+  "sentido_en_contexto": "Superlativo característico de Marcos: «muy sobremanera se asombraban». La frase «bien lo ha hecho todo» hace eco de Gn 1:31 (todo era bueno).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y en gran manera se maravillaban, diciendo: Bien lo ha hecho todo; hace a los sordos oír, y a los mudos hablar."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 1:31 — «todo lo que había hecho, y he aquí que era bueno en gran manera»",
+   "Ro 5:20 — «sobreabundó la gracia»",
+   "Ef 3:20 — «mucho más abundantemente»"
+  ],
+  "nivel_certeza": "medio"
+ }
+]

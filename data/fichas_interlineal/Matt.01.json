@@ -1,0 +1,933 @@
+[
+ {
+  "ref": "Matt.1.1",
+  "strong": "G976",
+  "forma": "Βίβλος",
+  "glosa_interlineal": "libro",
+  "rango_semantico": [
+   "libro, rollo escrito",
+   "registro, documento"
+  ],
+  "construccion": "Nominativo singular, sin artículo: funciona como título de lo que sigue.",
+  "sentido_en_contexto": "Funciona como encabezado: «registro/libro de la genealogía». Presenta lo que viene (la lista de antepasados) como un documento ordenado.",
+  "matiz": "Algunos entienden que el título cubre solo la genealogía (1:2-17); otros, todo el Evangelio de la infancia o incluso el Evangelio entero. El texto no lo decide.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Libro de la genealogía de Jesucristo, hijo de David, hijo de Abraham."
+   }
+  ],
+  "notas_traduccion": "Las versiones coinciden en «libro»; la diferencia está en cuánto abarca el título, no en la palabra.",
+  "otros_usos": [
+   "Mc 12:26 — «¿no habéis leído en el libro de Moisés?»: rollo de la Escritura",
+   "Lc 3:4 — «libro de las palabras del profeta Isaías»",
+   "Ap 20:12 — «libros»: registros del juicio"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.1.1",
+  "strong": "G1078",
+  "forma": "γενέσεως",
+  "glosa_interlineal": "origen, genealogía",
+  "rango_semantico": [
+   "origen, comienzo",
+   "genealogía, linaje",
+   "nacimiento",
+   "existencia (Stg 3:6, «rueda de la creación»)"
+  ],
+  "construccion": "Genitivo singular, complemento de «libro»: «libro de [la] genealogía».",
+  "sentido_en_contexto": "Aquí es «genealogía/linaje»: la lista de quién engendró a quién. Es la misma palabra de Gn 2:4 en la Septuaginta («este es el libro de la génesis del cielo y de la tierra»).",
+  "matiz": "El eco con el Génesis sugiere que Mateo presenta a Jesús como un nuevo comienzo; es una lectura frecuente, no obligada por el texto.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Libro de la genealogía de Jesucristo…"
+   }
+  ],
+  "notas_traduccion": "Algunas versiones traducen «origen» o «nacimiento»; el contexto inmediato (una lista de generaciones) favorece «genealogía».",
+  "otros_usos": [
+   "Mt 1:18 — «el nacimiento de Jesucristo»: aquí sí es nacimiento (con otra lectura textual: γέννησις)",
+   "Stg 1:23 — «el rostro de su nacimiento»: origen natural",
+   "Stg 3:6 — «la rueda de la creación»: ciclo de la existencia"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.1.1",
+  "strong": "G2424",
+  "forma": "Ἰησοῦ",
+  "glosa_interlineal": "Jesús",
+  "rango_semantico": [
+   "Jesús (nombre propio, forma griega de Josué/Yeshúa)"
+  ],
+  "construccion": "Genitivo, en aposición con «Cristo»: «de Jesucristo».",
+  "sentido_en_contexto": "Nombre personal del protagonista. Mateo explicará su sentido en 1:21: «salvará».",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Libro de la genealogía de Jesucristo…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 1:21 — «le pondrás por nombre Jesús, porque él salvará…»",
+   "Hch 7:45 — el mismo nombre griego designa a Josué",
+   "Heb 4:8 — otra vez Josué, no Jesús de Nazaret"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.1",
+  "strong": "G5547",
+  "forma": "Χριστοῦ",
+  "glosa_interlineal": "Cristo, Mesías",
+  "rango_semantico": [
+   "ungido (traducción del hebreo mashíaj)",
+   "título: el Mesías",
+   "con el tiempo, casi un nombre propio"
+  ],
+  "construccion": "Genitivo. Aquí aún suena como título («el Ungido»), no solo apellido.",
+  "sentido_en_contexto": "Afirma desde la primera línea que Jesús es el Mesías esperado, el rey ungido descendiente de David.",
+  "matiz": "En el NT va pasando de título («el Cristo») a nombre («Jesucristo»). En Mateo, al empezar, el sentido de título pesa; algunos lo leen ya casi como nombre.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Libro de la genealogía de Jesucristo, hijo de David…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 16:16 — «Tú eres el Cristo, el Hijo del Dios viviente»: título confesado",
+   "Mt 2:4 — «dónde había de nacer el Cristo»: título con artículo",
+   "Ro 1:1 — «Pablo, siervo de Cristo Jesús»: uso casi como nombre"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.1",
+  "strong": "G5207",
+  "forma": "υἱοῦ",
+  "glosa_interlineal": "hijo",
+  "rango_semantico": [
+   "hijo (varón, descendiente directo)",
+   "descendiente, miembro de un linaje",
+   "persona caracterizada por algo («hijos de luz»)",
+   "título («Hijo de Dios»)"
+  ],
+  "construccion": "Genitivo en aposición con «Jesucristo»: «hijo de David».",
+  "sentido_en_contexto": "Aquí «hijo» es descendiente, no necesariamente hijo inmediato: de David a Jesús hay muchas generaciones.",
+  "matiz": "«Hijo de David» es también un título mesiánico: el rey prometido saldría de esa casa (2 S 7).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Libro de la genealogía de Jesucristo, hijo de David, hijo de Abraham."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 9:27 — «¡Ten misericordia de nosotros, Hijo de David!»: título mesiánico",
+   "Lc 6:35 — «seréis hijos del Altísimo»: semejanza de carácter",
+   "Mt 3:17 — «Este es mi Hijo amado»: relación única con Dios"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.1",
+  "strong": "G1138",
+  "forma": "Δαυεὶδ",
+  "glosa_interlineal": "David",
+  "rango_semantico": [
+   "David, segundo rey de Israel (en griego Δαυίδ/Δαβίδ)"
+  ],
+  "construccion": "Genitivo indeclinable.",
+  "sentido_en_contexto": "Se nombra antes que Abraham porque la clave de Mateo es la promesa al rey: Jesús es heredero del trono.",
+  "matiz": "El orden «David… Abraham» es inverso al de la lista que sigue (que empieza en Abraham): primero el título real, luego el origen del pueblo.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 22:42-45 — «¿de quién es hijo el Cristo?»: debate sobre el Hijo de David",
+   "Ro 1:3 — «del linaje de David según la carne»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.2",
+  "strong": "G1080",
+  "forma": "ἐγέννησεν",
+  "glosa_interlineal": "engendró",
+  "rango_semantico": [
+   "engendrar (el padre)",
+   "dar a luz (la madre; sobre todo en pasiva)",
+   "producir"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª persona singular: «engendró». El aoristo narra el hecho completo, sin detalle de duración.",
+  "sentido_en_contexto": "Verbo repetido como fórmula a lo largo de la genealogía: «A engendró a B». Marca descendencia directa en esa lista.",
+  "matiz": "En genealogías semíticas «engendrar» puede abarcar ancestros no inmediatos; Mateo mismo resume en 14 generaciones (1:17), lo que sugiere una lista ordenada y no exhaustiva.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Abraham engendró a Isaac, e Isaac a Jacob…"
+   }
+  ],
+  "notas_traduccion": "En 1:16 el verbo cambia a pasivo («de la cual nació Jesús»): ya no es «engendró», y esa ruptura de la fórmula es significativa.",
+  "otros_usos": [
+   "Mt 1:16 — «de la cual nació (ἐγεννήθη) Jesús»: pasivo, sin padre humano en la fórmula",
+   "Jn 3:3 — «nacer de nuevo/de arriba»: mismo verbo, sentido espiritual",
+   "Hch 13:33 — «hoy yo te he engendrado»: cita del Sal 2:7"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.2",
+  "strong": "G2455",
+  "forma": "Ἰούδαν",
+  "glosa_interlineal": "Judá",
+  "rango_semantico": [
+   "Judá, hijo de Jacob",
+   "Judá/Judea (tribu o tierra)"
+  ],
+  "construccion": "Acusativo, complemento de «engendró».",
+  "sentido_en_contexto": "Cuarto hijo de Jacob; de su tribu viene David y, por tanto, Jesús.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 7:14 — «nuestro Señor vino de la tribu de Judá»",
+   "Ap 5:5 — «el León de la tribu de Judá»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.2",
+  "strong": "G80",
+  "forma": "ἀδελφοὺς",
+  "glosa_interlineal": "hermanos",
+  "rango_semantico": [
+   "hermano (de sangre)",
+   "pariente o compatriota",
+   "miembro de la comunidad creyente"
+  ],
+  "construccion": "Acusativo plural: «y a sus hermanos».",
+  "sentido_en_contexto": "Hermanos en sentido literal: los otros hijos de Jacob.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…engendró a Judá y a sus hermanos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 12:50 — «cualquiera que hace la voluntad de mi Padre… ese es mi hermano»: familia espiritual",
+   "Hch 1:16 — «varones hermanos»: compatriotas",
+   "Mt 13:55 — «sus hermanos Jacobo, José…»: hermanos de Jesús"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.3",
+  "strong": "G1537",
+  "forma": "ἐκ",
+  "glosa_interlineal": "de",
+  "rango_semantico": [
+   "de, desde (origen)",
+   "a partir de",
+   "por causa de, por medio de",
+   "fuera de"
+  ],
+  "construccion": "ἐκ + genitivo (τῆς Θαμάρ): indica origen o procedencia.",
+  "sentido_en_contexto": "Indica de qué madre nació: «de Tamar». Mateo menciona mujeres, algo inusual en genealogías judías.",
+  "matiz": "Las mujeres de la lista (Tamar, Rajab, Rut, la de Urías) tienen historias irregulares o son extranjeras; se debate por qué Mateo las incluye (extranjería, escándalo, o iniciativa divina). El texto no lo explica.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Judá engendró de Tamar a Fares y a Zara."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 3:5 — «nacer de agua y del Espíritu»: ἐκ de origen",
+   "Mt 1:18 — «por obra del Espíritu Santo»: ἐκ de origen",
+   "Lc 6:45 — «del tesoro del corazón»: de lugar"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.6",
+  "strong": "G935",
+  "forma": "βασιλέα",
+  "glosa_interlineal": "rey",
+  "rango_semantico": [
+   "rey",
+   "soberano en general",
+   "título aplicado a Cristo y a Dios"
+  ],
+  "construccion": "Acusativo singular, en aposición con «David»: «David el rey».",
+  "sentido_en_contexto": "La genealogía llega a su punto alto: aquí se detiene para decir «el rey». Es el único personaje de la lista con ese título explícito.",
+  "matiz": "Pone el acento en la realeza davídica, de la que depende el título «Hijo de David» de 1:1.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…y el rey David engendró a Salomón de la que fue mujer de Urías."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 2:2 — «¿Dónde está el rey de los judíos?»",
+   "Mt 27:11 — «¿Eres tú el Rey de los judíos?»",
+   "1 Ti 6:15 — «Rey de reyes»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.11",
+  "strong": "G3350",
+  "forma": "μετοικεσίας",
+  "glosa_interlineal": "deportación, exilio",
+  "rango_semantico": [
+   "traslado forzado de población",
+   "exilio, destierro"
+  ],
+  "construccion": "ἐπὶ + genitivo (τῆς μετοικεσίας): «en/al tiempo de la deportación».",
+  "sentido_en_contexto": "Se refiere al destierro a Babilonia (hacia 586 a. C.). Es el punto de quiebre de la lista: el reino acaba y empieza el exilio.",
+  "matiz": "Con ἐπί + genitivo la idea es temporal («en el tiempo de»); se traduce «cuando la deportación» o «en la deportación».",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…en el tiempo de la deportación a Babilonia."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 1:17 — «desde la deportación a Babilonia hasta Cristo»: estructura en 14 generaciones"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.1.16",
+  "strong": "G435",
+  "forma": "ἄνδρα",
+  "glosa_interlineal": "marido, varón",
+  "rango_semantico": [
+   "hombre (varón adulto)",
+   "marido",
+   "persona (uso general)"
+  ],
+  "construccion": "Acusativo singular: «el marido de María».",
+  "sentido_en_contexto": "Aquí es «marido/esposo»: José es el esposo legal de María, lo que le da a Jesús la inserción en el linaje davídico.",
+  "matiz": "El texto no dice «José engendró a Jesús»: usa «marido de María, de la cual nació Jesús». Para muchos intérpretes, la ruptura de la fórmula prepara el nacimiento virginal (1:18-25); la herencia davídica vendría por adopción legal.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Jacob engendró a José, marido de María, de la cual nació Jesús, llamado el Cristo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 1:19 — «José su marido»: de nuevo esposo",
+   "1 Co 7:2 — «cada mujer tenga su propio marido»",
+   "Hch 1:11 — «varones galileos»: simplemente hombres"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.16",
+  "strong": "G1080",
+  "forma": "ἐγεννήθη",
+  "glosa_interlineal": "nació",
+  "rango_semantico": [
+   "ser engendrado, nacer (pasivo)"
+  ],
+  "construccion": "Aoristo indicativo pasivo, 3ª singular: «fue engendrado/nació». Rompe la fórmula activa «engendró».",
+  "sentido_en_contexto": "Cambia la voz: ya no hay «José engendró a Jesús», sino «de la cual (María) nació Jesús». Pasivo y relativo femenino (ἧς): el nacimiento se atribuye a María.",
+  "matiz": "Es un pasivo que no nombra al agente. Muchos lo leen como un «pasivo divino» (Dios actúa), preparando 1:20; otros destacan solo la ruptura de la fórmula.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…de la cual nació Jesús, llamado el Cristo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 2:1 — «Jesús nació en Belén»",
+   "Jn 18:37 — «yo para esto he nacido»",
+   "Gá 4:23 — «nació según la carne»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.1.18",
+  "strong": "G3423",
+  "forma": "μνηστευθείσης",
+  "glosa_interlineal": "desposada",
+  "rango_semantico": [
+   "desposar, comprometer en matrimonio"
+  ],
+  "construccion": "Participio aoristo pasivo, genitivo femenino singular, en genitivo absoluto: «habiendo sido desposada». Marca la situación de fondo.",
+  "sentido_en_contexto": "Entre los judíos, el desposorio era un compromiso con valor legal: ya había vínculo, pero aún no convivían. Por eso José la llama «su mujer» (1:20) y necesita divorciarse para romper (1:19).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…estando desposada María su madre con José…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 1:27 — «una virgen desposada con un varón llamado José»",
+   "Lc 2:5 — «con María su mujer, desposada con él»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.18",
+  "strong": "G2147",
+  "forma": "εὑρέθη",
+  "glosa_interlineal": "se halló",
+  "rango_semantico": [
+   "hallar, encontrar",
+   "descubrir (por observación)",
+   "resultar ser"
+  ],
+  "construccion": "Aoristo indicativo pasivo, 3ª singular: «fue hallada».",
+  "sentido_en_contexto": "«Se halló encinta» significa que el embarazo se hizo evidente, no que alguien la buscara. El pasivo no señala quién lo descubrió.",
+  "matiz": "Para el lector que no sabe griego: la frase no insinúa culpa, solo describe el hecho tal como lo percibió José.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…antes que se juntasen, se halló que había concebido del Espíritu Santo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 15:24 — «estaba perdido, y es hallado»",
+   "Fil 2:8 — «hallado en la condición de hombre»",
+   "2 Co 5:3 — «seamos hallados vestidos»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.18",
+  "strong": "G2192",
+  "forma": "ἔχουσα",
+  "glosa_interlineal": "teniendo",
+  "rango_semantico": [
+   "tener, poseer",
+   "sostener, llevar",
+   "considerar",
+   "estar en cierto estado"
+  ],
+  "construccion": "Participio presente activo, nominativo femenino: «teniendo». Con ἐν γαστρί forma un modismo.",
+  "sentido_en_contexto": "ἔχειν ἐν γαστρί («tener en el vientre») es una expresión idiomática para «estar embarazada».",
+  "matiz": "Un giro del griego, no una palabra suelta: por eso la glosa interlineal «teniendo» suena rara.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…se halló que había concebido del Espíritu Santo."
+   }
+  ],
+  "notas_traduccion": "RVR traduce «había concebido»; otras versiones dicen «encinta». Es el mismo modismo con distinto español.",
+  "otros_usos": [
+   "Mt 24:19 — «¡ay de las que estén encinta!»: mismo modismo",
+   "Mr 13:17 — mismo modismo",
+   "Ap 12:2 — «estando encinta, clamaba»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.18",
+  "strong": "G4151",
+  "forma": "πνεύματος",
+  "glosa_interlineal": "espíritu",
+  "rango_semantico": [
+   "viento, aliento",
+   "espíritu (humano)",
+   "ser espiritual (ángel, demonio)",
+   "el Espíritu de Dios"
+  ],
+  "construccion": "ἐκ + genitivo: origen. «De [el] Espíritu Santo». Sin artículo en πνεύματος… ἁγίου: se entiende como «Espíritu Santo».",
+  "sentido_en_contexto": "Se afirma el origen divino del embarazo: no procede de un varón.",
+  "matiz": "El sentido de ἐκ no es «por medio de instrumento» sino «a partir de»: el Espíritu es la fuente. El texto no describe el mecanismo.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…se halló que había concebido del Espíritu Santo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 3:8 — «el viento sopla… así es todo el que es nacido del Espíritu»",
+   "Lc 1:35 — «el Espíritu Santo vendrá sobre ti»",
+   "Hch 8:29 — «el Espíritu dijo a Felipe»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.19",
+  "strong": "G1342",
+  "forma": "δίκαιος",
+  "glosa_interlineal": "justo",
+  "rango_semantico": [
+   "justo, recto",
+   "inocente",
+   "conforme a lo debido (a la ley o a la voluntad de Dios)"
+  ],
+  "construccion": "Adjetivo nominativo masculino, predicativo de José: «siendo justo».",
+  "sentido_en_contexto": "Describe a José como fiel a la Ley y a la rectitud. Pero no quiere exponer a María: su justicia viene unida a compasión.",
+  "matiz": "Se discute cómo se relaciona «justo» con «no queriendo exponerla»: (a) la ley exigía separarse, y él lo hace con discreción; (b) su justicia lo lleva a ir más allá de la letra por misericordia. El texto no lo resuelve.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y José su marido, como era justo, y no quería infamarla, quiso dejarla secretamente."
+   }
+  ],
+  "notas_traduccion": "Algunas versiones ponen «siendo justo y no queriendo…»; otras «como era justo, y no queriendo». Cambia si el «y» une dos rasgos de José o si el segundo explica el primero.",
+  "otros_usos": [
+   "Lc 1:6 — «ambos eran justos delante de Dios»",
+   "Mt 5:45 — «hace llover sobre justos e injustos»",
+   "Ro 3:10 — «no hay justo, ni aun uno»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.1.19",
+  "strong": "G1165",
+  "forma": "δειγματίσαι",
+  "glosa_interlineal": "exponer públicamente",
+  "rango_semantico": [
+   "mostrar públicamente, exhibir",
+   "poner en evidencia, avergonzar"
+  ],
+  "construccion": "Infinitivo aoristo activo, complemento de «queriendo» (θέλων).",
+  "sentido_en_contexto": "Habla de la vergüenza pública que sufriría María si se la denunciaba: José no quiere eso.",
+  "matiz": "Palabra poco frecuente; algunos manuscritos tienen παραδειγματίσαι (más fuerte: «dar en espectáculo»). El sentido básico no cambia.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…y no quería infamarla…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 2:15 — «los exhibió públicamente» (compuesto de la misma raíz)"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.1.19",
+  "strong": "G630",
+  "forma": "ἀπολῦσαι",
+  "glosa_interlineal": "despedir, dejar",
+  "rango_semantico": [
+   "soltar, liberar",
+   "despedir, enviar lejos",
+   "divorciar (despedir a la esposa)"
+  ],
+  "construccion": "Infinitivo aoristo activo, complemento de «se propuso» (ἐβουλήθη).",
+  "sentido_en_contexto": "Aquí es «romper el compromiso/divorciarse». Como el desposorio era vinculante, para romperlo hacía falta un acto formal.",
+  "matiz": "El adverbio λάθρᾳ («en secreto») matiza el verbo: busca hacerlo sin proceso público.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…quiso dejarla secretamente."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 5:31 — «cualquiera que repudie (ἀπολύσῃ) a su mujer»: divorcio",
+   "Mt 14:15 — «despide a la multitud»: despedir",
+   "Lc 23:17 — «soltarles un preso»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.20",
+  "strong": "G1760",
+  "forma": "ἐνθυμηθέντος",
+  "glosa_interlineal": "habiendo pensado",
+  "rango_semantico": [
+   "reflexionar, considerar",
+   "meditar con atención"
+  ],
+  "construccion": "Participio aoristo pasivo (deponente), genitivo masculino, en genitivo absoluto: «mientras él consideraba esto».",
+  "sentido_en_contexto": "Muestra a José deliberando; el ángel interviene en medio de esa deliberación.",
+  "matiz": "El aoristo del participio indica que ya había reflexionado y decidido (v.19) antes de que aparezca el ángel.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y pensando él en esto, he aquí un ángel del Señor le apareció en sueños…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 9:4 — «¿por qué pensáis mal en vuestros corazones?»: mismo verbo"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.1.20",
+  "strong": "G32",
+  "forma": "ἄγγελος",
+  "glosa_interlineal": "ángel, mensajero",
+  "rango_semantico": [
+   "mensajero (humano)",
+   "ángel, mensajero de Dios"
+  ],
+  "construccion": "Nominativo singular, sujeto de «apareció».",
+  "sentido_en_contexto": "Sin artículo: «un ángel del Señor». Mensajero divino que transmite una orden en sueño.",
+  "matiz": "En Mateo los sueños son el medio habitual de dirección divina (1:20; 2:12-13, 19, 22).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…un ángel del Señor le apareció en sueños…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 1:26 — «el ángel Gabriel fue enviado»",
+   "Lc 7:24 — «los mensajeros de Juan»: humanos",
+   "Hch 12:7 — «un ángel del Señor se presentó»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.20",
+  "strong": "G2962",
+  "forma": "κυρίου",
+  "glosa_interlineal": "Señor",
+  "rango_semantico": [
+   "amo, dueño",
+   "señor (título de respeto)",
+   "el Señor (Dios o Cristo)"
+  ],
+  "construccion": "Genitivo singular sin artículo, en «ángel del Señor».",
+  "sentido_en_contexto": "En esta fórmula traduce el nombre divino del AT (Yahvé) en la Septuaginta: es el ángel de Dios.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…un ángel del Señor le apareció en sueños…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 1:11 — «un ángel del Señor se le apareció»",
+   "Mt 22:44 — «dijo el Señor a mi Señor»: Dios y Cristo",
+   "Mt 8:6 — «Señor, mi criado…»: respeto"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.20",
+  "strong": "G3880",
+  "forma": "παραλαβεῖν",
+  "glosa_interlineal": "tomar consigo",
+  "rango_semantico": [
+   "tomar consigo, recibir",
+   "aceptar, recibir (una tradición)",
+   "llevar con uno"
+  ],
+  "construccion": "Infinitivo aoristo activo, complemento de «no temas».",
+  "sentido_en_contexto": "«Tomar consigo a María» en el contexto de matrimonio: llevarla a su casa como esposa.",
+  "matiz": "El verbo es el de la ceremonia de la segunda fase del matrimonio judío (llevar a la esposa al hogar del esposo).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…no temas recibir a María tu mujer…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 2:13 — «toma al niño y a su madre»: tomar consigo",
+   "Jn 14:3 — «vendré otra vez y os tomaré a mí mismo»",
+   "1 Co 15:3 — «lo que recibí»: recibir una tradición"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.21",
+  "strong": "G5088",
+  "forma": "τέξεται",
+  "glosa_interlineal": "dará a luz",
+  "rango_semantico": [
+   "dar a luz, parir",
+   "producir (la tierra)"
+  ],
+  "construccion": "Futuro indicativo medio (deponente), 3ª singular: «dará a luz».",
+  "sentido_en_contexto": "El futuro anuncia lo que ocurrirá; no es mandato sino promesa. Contrasta con «llamarás», que sí es orden.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y dará a luz un hijo…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 1:31 — «concebirás… y darás a luz un hijo»",
+   "Ap 12:4 — «para devorar a su hijo cuando naciese»",
+   "Heb 6:7 — «la tierra… produce»: figurado"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.21",
+  "strong": "G2564",
+  "forma": "καλέσεις",
+  "glosa_interlineal": "llamarás",
+  "rango_semantico": [
+   "llamar, invocar",
+   "nombrar, poner nombre",
+   "convocar"
+  ],
+  "construccion": "Futuro indicativo activo, 2ª singular. El futuro con valor imperativo («le pondrás»), muy frecuente en hebreo/griego bíblico.",
+  "sentido_en_contexto": "José es quien pone el nombre; al hacerlo reconoce legalmente a Jesús como hijo suyo.",
+  "matiz": "El futuro aquí funciona como mandato. Poner nombre implicaba, en la cultura de la época, reconocer la paternidad legal.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…y llamarás su nombre JESÚS…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 1:13 — «llamarás su nombre Juan»",
+   "Mt 22:3 — «llamar a los convidados»: convocar",
+   "Hch 4:18 — «los llamaron y les prohibieron»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.21",
+  "strong": "G4982",
+  "forma": "σώσει",
+  "glosa_interlineal": "salvará",
+  "rango_semantico": [
+   "salvar, rescatar de peligro o muerte",
+   "sanar",
+   "salvar espiritualmente (liberar del pecado)"
+  ],
+  "construccion": "Futuro indicativo activo, 3ª singular. El sujeto es «él» (αὐτός), enfático.",
+  "sentido_en_contexto": "Es el juego de palabras con el nombre: Yeshúa/Yehoshúa significa «Yahvé salva». Aquí el objeto es el pueblo y el mal del que salva es «sus pecados».",
+  "matiz": "El objeto «a su pueblo» se discute: algunos leen Israel; otros, un pueblo más amplio. El texto dice «su pueblo» sin más.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…porque él salvará a su pueblo de sus pecados."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 8:25 — «¡Señor, sálvanos, que perecemos!»: rescate físico",
+   "Mt 9:22 — «tu fe te ha salvado»: sanar",
+   "Hch 4:12 — «en ningún otro hay salvación»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.21",
+  "strong": "G266",
+  "forma": "ἁμαρτιῶν",
+  "glosa_interlineal": "pecados",
+  "rango_semantico": [
+   "pecado, falta",
+   "desviación del blanco (sentido etimológico)",
+   "estado de pecado"
+  ],
+  "construccion": "ἀπὸ + genitivo: «de [liberar] de». Plural: pecados concretos.",
+  "sentido_en_contexto": "Define la misión de Jesús: no solo político o físico, sino liberar del pecado.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…porque él salvará a su pueblo de sus pecados."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 9:2 — «tus pecados te son perdonados»",
+   "Mt 26:28 — «para perdón de los pecados»",
+   "Heb 9:28 — «para quitar de en medio los pecados»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.22",
+  "strong": "G4137",
+  "forma": "πληρωθῇ",
+  "glosa_interlineal": "se cumpla",
+  "rango_semantico": [
+   "llenar",
+   "cumplir, completar",
+   "llevar a término"
+  ],
+  "construccion": "Subjuntivo aoristo pasivo tras ἵνα: «para que se cumpliera».",
+  "sentido_en_contexto": "Fórmula típica de Mateo: un hecho de la vida de Jesús cumple lo dicho por un profeta. Va en pasivo porque se entiende que Dios es quien lo cumple.",
+  "matiz": "El alcance de «cumplir» se discute: ¿cumplimiento directo de una predicción, o paralelo tipológico (un patrón que se repite en Jesús)? Mateo usa la fórmula en ambos casos.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Todo esto aconteció para que se cumpliese lo dicho por el Señor por medio del profeta."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 2:15 — «para que se cumpliese lo dicho… de Egipto llamé a mi hijo»",
+   "Mt 5:17 — «no he venido para abrogar, sino para cumplir»",
+   "Lc 24:44 — «era necesario que se cumpliese todo lo escrito»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.1.23",
+  "strong": "G3933",
+  "forma": "παρθένος",
+  "glosa_interlineal": "virgen, doncella",
+  "rango_semantico": [
+   "virgen",
+   "joven soltera",
+   "mujer en edad de casarse"
+  ],
+  "construccion": "Nominativo singular con artículo: «la virgen». Cita Is 7:14 según la Septuaginta.",
+  "sentido_en_contexto": "Mateo, citando la versión griega de Isaías, usa παρθένος. Aplica el pasaje al nacimiento de Jesús de María.",
+  "matiz": "Debate: el hebreo de Is 7:14 dice 'almáh (joven en edad de casarse), y la Septuaginta lo vertió παρθένος. Unos ven en el contexto de Mateo (1:18, 20, 25) el sentido pleno de «virgen»; otros subrayan que 'almáh no implica virginidad. Que Mateo la entiende como virgen es claro por el relato.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "He aquí, una virgen concebirá y dará a luz un hijo…"
+   }
+  ],
+  "notas_traduccion": "Algunas versiones modernas traducen Is 7:14 como «la joven»; el NT en griego dice «virgen» porque cita la LXX.",
+  "otros_usos": [
+   "Lc 1:27 — «una virgen desposada»",
+   "1 Co 7:25 — «en cuanto a las vírgenes»",
+   "Hch 21:9 — «cuatro hijas vírgenes»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.1.23",
+  "strong": "G1694",
+  "forma": "Ἐμμανουήλ",
+  "glosa_interlineal": "Emanuel",
+  "rango_semantico": [
+   "Emanuel (heb. 'immanu 'el: «Dios con nosotros»)"
+  ],
+  "construccion": "Nombre propio indeclinable, en aposición a «su nombre».",
+  "sentido_en_contexto": "Mateo traduce el nombre enseguida: «Dios con nosotros». Es el tema de todo el Evangelio, que termina con «yo estoy con vosotros» (28:20).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…y llamarán su nombre Emanuel, que traducido es: Dios con nosotros."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 28:20 — «yo estoy con vosotros todos los días»: cierre del Evangelio",
+   "Is 7:14 — fuente del texto citado"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.23",
+  "strong": "G3177",
+  "forma": "μεθερμηνευόμενον",
+  "glosa_interlineal": "traducido",
+  "rango_semantico": [
+   "traducir, interpretar de una lengua a otra"
+  ],
+  "construccion": "Participio presente pasivo neutro: «que se traduce».",
+  "sentido_en_contexto": "Aclaración de Mateo para lectores que no saben hebreo: pone entre paréntesis la traducción del nombre.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…que traducido es: Dios con nosotros."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 5:41 — «Talita cumi, que traducido es: niña, a ti te digo»",
+   "Hch 4:36 — «Bernabé, que traducido es: hijo de consolación»",
+   "Jn 1:38 — «Rabí, que traducido es Maestro»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.23",
+  "strong": "G3326",
+  "forma": "μεθ’",
+  "glosa_interlineal": "con",
+  "rango_semantico": [
+   "con, en compañía de (con genitivo)",
+   "después de (con acusativo)"
+  ],
+  "construccion": "μετά + genitivo (ἡμῶν): «con nosotros». Con genitivo indica compañía; con acusativo, sucesión temporal («después de»).",
+  "sentido_en_contexto": "Aquí es compañía: Dios está con su pueblo. La preposición es el núcleo del nombre «Dios con nosotros».",
+  "matiz": "Contraste útil: μετά + acusativo («después de»), como en 1:12 (μετὰ τὴν μετοικεσίαν, «después de la deportación»).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Dios con nosotros."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 1:12 — μετά + acusativo: «después de»",
+   "Mt 28:20 — «yo estoy con (μεθ’) vosotros»",
+   "Jn 3:22 — «estuvo allí con ellos»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.1.25",
+  "strong": "G1097",
+  "forma": "ἐγίνωσκεν",
+  "glosa_interlineal": "conocía",
+  "rango_semantico": [
+   "conocer, saber",
+   "reconocer",
+   "tener relación íntima (eufemismo)"
+  ],
+  "construccion": "Imperfecto indicativo activo, 3ª singular: «no conocía» de manera continuada. El imperfecto con οὐκ describe un estado que duró durante el período indicado («hasta que»).",
+  "sentido_en_contexto": "Eufemismo bíblico para la relación conyugal. Mateo afirma que no hubo relación mientras María llevaba al niño, hasta el parto.",
+  "matiz": "El «hasta que» (ἕως οὗ) dice qué pasó hasta el parto; no afirma por sí mismo qué ocurrió después. Es un punto debatido entre tradiciones cristianas sobre la virginidad perpetua de María: unos leen que sí hubo relación posterior; otros, que el texto no lo afirma ni lo niega.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero no la conoció hasta que dio a luz a su hijo primogénito."
+   }
+  ],
+  "notas_traduccion": "Algunos manuscritos añaden «primogénito» (πρωτότοκον) y otros no; por eso unas versiones dicen «a su hijo primogénito» y otras «a un hijo».",
+  "otros_usos": [
+   "Gn 4:1 — «conoció Adán a Eva»: mismo eufemismo (LXX)",
+   "Lc 1:34 — «¿cómo será esto, pues no conozco varón?»",
+   "Mt 7:23 — «nunca os conocí»: conocer en sentido de relación"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.1.25",
+  "strong": "G2193",
+  "forma": "ἕως",
+  "glosa_interlineal": "hasta",
+  "rango_semantico": [
+   "hasta (que)",
+   "mientras"
+  ],
+  "construccion": "ἕως οὗ + indicativo: «hasta que». Marca un límite temporal.",
+  "sentido_en_contexto": "Marca el límite de lo afirmado (hasta el parto). No dice por sí mismo qué ocurrió después.",
+  "matiz": "Ver nota en «conocía»: es el centro de un debate teológico, no gramatical.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 5:18 — «hasta que pasen el cielo y la tierra»",
+   "Mt 28:20 — «hasta el fin del mundo»",
+   "Lc 15:8 — «hasta que la halla»"
+  ],
+  "nivel_certeza": "medio"
+ }
+]

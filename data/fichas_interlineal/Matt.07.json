@@ -1,0 +1,618 @@
+[
+ {
+  "ref": "Matt.7.1",
+  "strong": "G2919",
+  "forma": "κρίνετε",
+  "glosa_interlineal": "juzguéis",
+  "rango_semantico": [
+   "juzgar, decidir",
+   "condenar",
+   "distinguir, discernir",
+   "gobernar"
+  ],
+  "construccion": "Imperativo presente activo con μή, 2ª plural: «dejad de juzgar / no sigáis juzgando».",
+  "sentido_en_contexto": "No prohíbe todo discernimiento (vv.6, 15-20 piden discernir), sino la actitud de condena que se coloca por encima del otro. El presente subraya el hábito.",
+  "matiz": "Debate sobre el alcance: ¿prohíbe toda evaluación moral, o la condena hipócrita y presuntuosa? El contexto (vv.3-5) apunta a lo segundo.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "No juzguéis, para que no seáis juzgados."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 2:1 — «en lo que juzgas a otro, te condenas a ti mismo»",
+   "Jn 7:24 — «juzgad con justo juicio»",
+   "1 Co 5:12 — «¿no juzgáis vosotros a los que están dentro?»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.7.2",
+  "strong": "G3354",
+  "forma": "μετρεῖτε",
+  "glosa_interlineal": "medís",
+  "rango_semantico": [
+   "medir",
+   "repartir con medida"
+  ],
+  "construccion": "Presente indicativo activo, 2ª plural: «con la medida con que medís». Refrán sobre reciprocidad.",
+  "sentido_en_contexto": "La medida con que se juzga a otros será la que se aplique a uno mismo. Pasivo divino: «os será medido» (por Dios).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque con el juicio con que juzgáis, seréis juzgados, y con la medida con que medís, os será medido."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 6:38 — «con la misma medida con que medís, os volverán a medir»",
+   "Mr 4:24 — «con la medida con que medís, os será medido»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.7.3",
+  "strong": "G2595",
+  "forma": "κάρφος",
+  "glosa_interlineal": "paja",
+  "rango_semantico": [
+   "paja, astilla, brizna"
+  ],
+  "construccion": "Acusativo singular, objeto de «miras».",
+  "sentido_en_contexto": "Imagen exagerada: una mota diminuta en el ojo del hermano frente a una viga en el propio. Jesús usa humor y hipérbole.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¿Y por qué miras la paja que está en el ojo de tu hermano, y no echas de ver la viga que está en tu propio ojo?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 6:41 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.7.3",
+  "strong": "G1385",
+  "forma": "δοκὸν",
+  "glosa_interlineal": "viga",
+  "rango_semantico": [
+   "viga, tronco de madera"
+  ],
+  "construccion": "Acusativo singular.",
+  "sentido_en_contexto": "Un tablón de madera dentro del ojo: imposible físicamente, por eso es una caricatura. El que critica no ve su propia falta mayor.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…y no echas de ver la viga que está en tu propio ojo?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 6:41 — «la viga que está en tu propio ojo»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.7.5",
+  "strong": "G1544",
+  "forma": "ἔκβαλε",
+  "glosa_interlineal": "saca",
+  "rango_semantico": [
+   "echar fuera, expulsar",
+   "sacar"
+  ],
+  "construccion": "Imperativo aoristo activo, 2ª singular: «saca primero».",
+  "sentido_en_contexto": "Mismo verbo usado para expulsar demonios y echar fuera. Jesús no prohíbe ayudar al hermano, sino pide empezar por uno mismo («primero»).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¡Hipócrita! saca primero la viga de tu propio ojo, y entonces verás bien para sacar la paja del ojo de tu hermano."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 7:22 — «echamos fuera demonios»",
+   "Mt 9:25 — «echó fuera a todos»",
+   "Gá 6:1 — «restauradle con espíritu de mansedumbre»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.7.6",
+  "strong": "G2965",
+  "forma": "κυσίν",
+  "glosa_interlineal": "perros",
+  "rango_semantico": [
+   "perro (animal impuro, despreciado)"
+  ],
+  "construccion": "Dativo plural: «a los perros».",
+  "sentido_en_contexto": "En el mundo judío, «perros» y «cerdos» eran animales impuros. La imagen advierte contra dar lo sagrado a quien lo desprecia.",
+  "matiz": "Se discute a quién se refiere: a los que rechazan el evangelio, a los hostiles al mensaje, o a quienes no pueden valorar lo sagrado. El texto no lo especifica.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "No deis lo santo a los perros, ni echéis vuestras perlas delante de los cerdos, no sea que las pisoteen, y se vuelvan y os despedacen."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Fil 3:2 — «guardaos de los perros»",
+   "2 P 2:22 — «el perro vuelve a su vómito»",
+   "Ap 22:15 — «los perros… quedarán fuera»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.7.7",
+  "strong": "G154",
+  "forma": "Αἰτεῖτε",
+  "glosa_interlineal": "pedid",
+  "rango_semantico": [
+   "pedir, solicitar",
+   "exigir"
+  ],
+  "construccion": "Imperativo presente activo, 2ª plural: «seguid pidiendo». El presente subraya la persistencia.",
+  "sentido_en_contexto": "Tres imperativos (pedir, buscar, llamar) en presente continuo: perseverancia en la oración, no una petición única.",
+  "matiz": "El presente indica acción repetida o continua; por eso se suele traducir «seguid pidiendo». Esta idea se aclara en Lc 11:5-13 con la parábola del amigo importuno.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pedid, y se os dará; buscad, y hallaréis; llamad, y se os abrirá."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 11:9 — paralelo",
+   "Jn 16:24 — «pedid, y recibiréis»",
+   "Stg 4:2 — «no tenéis lo que deseáis, porque no pedís»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.7.7",
+  "strong": "G455",
+  "forma": "ἀνοιγήσεται",
+  "glosa_interlineal": "se abrirá",
+  "rango_semantico": [
+   "abrir"
+  ],
+  "construccion": "Futuro indicativo pasivo, 3ª singular: pasivo divino («Dios abrirá»).",
+  "sentido_en_contexto": "La promesa: a quien llama, se le abre. El pasivo evita nombrar a Dios, pero indica que él es quien responde.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…llamad, y se os abrirá."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ap 3:20 — «yo estoy a la puerta y llamo»",
+   "Lc 13:25 — «llamaréis a la puerta»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.7.11",
+  "strong": "G4190",
+  "forma": "πονηροὶ",
+  "glosa_interlineal": "malos",
+  "rango_semantico": [
+   "malo, perverso",
+   "(aquí) pecador por naturaleza"
+  ],
+  "construccion": "Adjetivo nominativo plural, predicado: «siendo malos».",
+  "sentido_en_contexto": "Argumento de «cuánto más»: si los padres humanos, que son «malos» (con defectos), dan cosas buenas, ¡cuánto más el Padre celestial! No es un juicio sobre cada persona sino un contraste con la bondad perfecta de Dios.",
+  "matiz": "Algunos ven aquí un testimonio de la pecaminosidad universal; otros solo un contraste retórico. El texto solo dice que los padres humanos son «malos» en comparación con Dios.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pues si vosotros, siendo malos, sabéis dar buenas dádivas a vuestros hijos, ¿cuánto más vuestro Padre que está en los cielos dará buenas cosas a los que le pidan?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 11:13 — «si vosotros, siendo malos… cuánto más vuestro Padre celestial dará el Espíritu Santo»",
+   "Mt 12:34 — «¿cómo podéis hablar lo bueno, siendo malos?»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.7.12",
+  "strong": "G3551",
+  "forma": "νόμος",
+  "glosa_interlineal": "ley",
+  "rango_semantico": [
+   "ley, norma",
+   "la Ley de Moisés (Torá)",
+   "el Pentateuco",
+   "principio"
+  ],
+  "construccion": "Nominativo, predicado: «esto es la Ley y los Profetas».",
+  "sentido_en_contexto": "La «regla de oro» resume el AT: tratar a los demás como quieres ser tratado. Es una síntesis práctica de lo que la Ley y los Profetas exigen en las relaciones.",
+  "matiz": "Formulaciones similares aparecen en otros textos judíos, pero en forma negativa («no hagas a otro lo que no quieres…»). La forma positiva de Jesús exige iniciativa activa.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Así que, todas las cosas que queráis que los hombres hagan con vosotros, así también haced vosotros con ellos; porque esto es la ley y los profetas."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 6:31 — paralelo",
+   "Mt 22:40 — «de estos dos mandamientos depende toda la ley y los profetas»",
+   "Ro 13:8 — «el que ama al prójimo ha cumplido la ley»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.7.13",
+  "strong": "G4728",
+  "forma": "στενῆς",
+  "glosa_interlineal": "estrecha",
+  "rango_semantico": [
+   "estrecho, angosto"
+  ],
+  "construccion": "διά + genitivo (στενῆς πύλης): «por la puerta estrecha».",
+  "sentido_en_contexto": "Imagen de dos caminos (Dt 30:19; Sal 1). La puerta estrecha es la exigente, la que lleva a la vida.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entrad por la puerta estrecha; porque ancha es la puerta, y espacioso el camino que lleva a la perdición, y muchos son los que entran por ella;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 13:24 — «esforzaos a entrar por la puerta angosta»",
+   "Dt 30:19 — «la vida y la muerte he puesto delante de ti»",
+   "Sal 1:6 — «el camino de los justos»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.7.13",
+  "strong": "G684",
+  "forma": "ἀπώλειαν",
+  "glosa_interlineal": "perdición",
+  "rango_semantico": [
+   "destrucción, ruina",
+   "perdición, pérdida"
+  ],
+  "construccion": "εἰς + acusativo: «hacia la perdición».",
+  "sentido_en_contexto": "El destino del camino ancho. La palabra indica ruina, no necesariamente aniquilación.",
+  "matiz": "El sentido final de «destrucción/perdición» (aniquilación o castigo consciente) es objeto de debate entre tradiciones. Mateo no lo detalla aquí.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…que lleva a la perdición…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Fil 3:19 — «el fin de los cuales será perdición»",
+   "2 P 3:7 — «para el día de la perdición de los impíos»",
+   "Mt 26:8 — «¿para qué este desperdicio?» (mismo término)"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.7.15",
+  "strong": "G5578",
+  "forma": "ψευδοπροφητῶν",
+  "glosa_interlineal": "falsos profetas",
+  "rango_semantico": [
+   "falso profeta",
+   "profeta mentiroso"
+  ],
+  "construccion": "ἀπό + genitivo: «de los falsos profetas».",
+  "sentido_en_contexto": "Advertencia a discernir. El criterio no es el discurso sino el fruto (v.16).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Guardaos de los falsos profetas, que vienen a vosotros con vestidos de ovejas, pero por dentro son lobos rapaces."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:11 — «muchos falsos profetas se levantarán»",
+   "1 Jn 4:1 — «probad los espíritus»",
+   "2 P 2:1 — «hubo falsos profetas entre el pueblo»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.7.15",
+  "strong": "G727",
+  "forma": "ἅρπαγες",
+  "glosa_interlineal": "rapaces",
+  "rango_semantico": [
+   "rapaz, ladrón",
+   "que arrebata"
+  ],
+  "construccion": "Adjetivo nominativo plural, concordando con «lobos».",
+  "sentido_en_contexto": "Contraste entre apariencia (ovejas) y realidad (lobos que devoran). Muestra el engaño.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…pero por dentro son lobos rapaces."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 18:11 — «no soy como los demás hombres, ladrones (ἅρπαγες)»",
+   "1 Co 5:10 — «los rapaces»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.7.16",
+  "strong": "G1921",
+  "forma": "ἐπιγνώσεσθε",
+  "glosa_interlineal": "conoceréis",
+  "rango_semantico": [
+   "reconocer, conocer bien",
+   "discernir"
+  ],
+  "construccion": "Futuro indicativo medio, 2ª plural.",
+  "sentido_en_contexto": "El prefijo ἐπι- indica conocimiento pleno. Criterio de discernimiento: los frutos, es decir la conducta y sus efectos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Por sus frutos los conoceréis."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 12:33 — «por el fruto se conoce el árbol»",
+   "Lc 6:44 — «cada árbol se conoce por su fruto»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.7.21",
+  "strong": "G2962",
+  "forma": "κύριε",
+  "glosa_interlineal": "Señor",
+  "rango_semantico": [
+   "amo, señor",
+   "título de respeto",
+   "Señor (Dios o Cristo)"
+  ],
+  "construccion": "Vocativo repetido: «Señor, Señor».",
+  "sentido_en_contexto": "La duplicación expresa insistencia o devoción. Jesús dice que la confesión sin obediencia no basta.",
+  "matiz": "Debate: ¿se refiere a la profesión verbal sin vida, o a una relación genuina que falta? El contexto (hacer la voluntad del Padre) apunta a la obediencia como evidencia.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "No todo el que me dice: Señor, Señor, entrará en el reino de los cielos, sino el que hace la voluntad de mi Padre que está en los cielos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 6:46 — «¿por qué me llamáis Señor, Señor, y no hacéis lo que yo digo?»",
+   "Ro 10:9 — «si confesares con tu boca que Jesús es el Señor»",
+   "Mt 25:11 — «Señor, Señor, ábrenos»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.7.22",
+  "strong": "G1411",
+  "forma": "δυνάμεις",
+  "glosa_interlineal": "milagros",
+  "rango_semantico": [
+   "poder, fuerza",
+   "acto de poder, milagro"
+  ],
+  "construccion": "Acusativo plural, objeto de «hicimos».",
+  "sentido_en_contexto": "Obras de poder (profetizar, exorcizar, milagros) que no garantizan una relación con Cristo. Jesús dice «nunca os conocí».",
+  "matiz": "Se discute qué tipo de «obras» eran: milagros genuinos o falsificaciones. Mateo no dice que sean falsas; pone el acento en que no basta hacerlas.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…y en tu nombre hicimos muchos milagros?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 11:20 — «las ciudades donde se había hecho la mayoría de sus milagros»",
+   "Hch 19:11 — «milagros extraordinarios»",
+   "1 Co 13:2 — «si tuviese… fe… sin amor, nada soy»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.7.23",
+  "strong": "G1097",
+  "forma": "ἔγνων",
+  "glosa_interlineal": "conocí",
+  "rango_semantico": [
+   "conocer",
+   "reconocer, tener relación con"
+  ],
+  "construccion": "Aoristo indicativo activo, 1ª singular: «nunca os conocí».",
+  "sentido_en_contexto": "No es «no sé quiénes sois», sino «nunca tuve relación con vosotros»: en la Biblia, conocer es tener comunión personal.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y entonces les declararé: Nunca os conocí; apartaos de mí, hacedores de maldad."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 25:12 — «de cierto os digo que no os conozco»",
+   "Gn 18:19 — «yo lo he conocido (escogido)»",
+   "Jn 10:14 — «conozco mis ovejas, y las mías me conocen»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.7.23",
+  "strong": "G458",
+  "forma": "ἀνομίαν",
+  "glosa_interlineal": "iniquidad",
+  "rango_semantico": [
+   "ausencia de ley, desobediencia",
+   "maldad, iniquidad"
+  ],
+  "construccion": "Acusativo singular, objeto de «los que obran».",
+  "sentido_en_contexto": "Literalmente «sin ley»: vivir contra la voluntad de Dios. Cita de Sal 6:8. Mateo usa el término para quienes dicen «Señor» pero viven sin obediencia.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…apartaos de mí, hacedores de maldad."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 6:8 — texto citado",
+   "Mt 13:41 — «los que hacen iniquidad»",
+   "Mt 24:12 — «por haberse multiplicado la maldad»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.7.24",
+  "strong": "G5429",
+  "forma": "φρονίμῳ",
+  "glosa_interlineal": "prudente",
+  "rango_semantico": [
+   "sensato, prudente",
+   "inteligente en lo práctico"
+  ],
+  "construccion": "Dativo singular, con ἀνδρί: «a un hombre prudente».",
+  "sentido_en_contexto": "En la parábola de las dos casas, «prudente» es quien oye y obedece. No es inteligencia teórica, sino sabiduría práctica.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Cualquiera, pues, que me oye estas palabras, y las hace, le compararé a un hombre prudente, que edificó su casa sobre la roca."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 25:2 — «cinco de ellas eran prudentes»",
+   "Mt 10:16 — «prudentes como serpientes»",
+   "Lc 16:8 — «el mayordomo infiel… obró prudentemente»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.7.24",
+  "strong": "G4073",
+  "forma": "πέτραν",
+  "glosa_interlineal": "roca",
+  "rango_semantico": [
+   "roca, peña",
+   "cimiento firme"
+  ],
+  "construccion": "ἐπί + acusativo: «sobre la roca».",
+  "sentido_en_contexto": "El cimiento sólido es oír y obedecer las palabras de Jesús. La roca no es un lugar sino la acción de obedecer.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…que edificó su casa sobre la roca."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 16:18 — «sobre esta roca edificaré mi iglesia»",
+   "1 Co 10:4 — «la roca era Cristo»",
+   "Lc 6:48 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.7.26",
+  "strong": "G3474",
+  "forma": "μωρῷ",
+  "glosa_interlineal": "insensato",
+  "rango_semantico": [
+   "necio, insensato",
+   "tonto"
+  ],
+  "construccion": "Dativo singular, con ἀνδρί: «a un hombre necio».",
+  "sentido_en_contexto": "Contraste con «prudente»: oye pero no hace. Su casa cae porque el cimiento es arena.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero cualquiera que me oye estas palabras y no las hace, le compararé a un hombre insensato, que edificó su casa sobre la arena;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 5:22 — «cualquiera que le diga: Fatuo»",
+   "Mt 25:2 — «cinco eran insensatas»",
+   "1 Co 1:25 — «lo insensato de Dios es más sabio que los hombres»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.7.28",
+  "strong": "G1605",
+  "forma": "ἐξεπλήσσοντο",
+  "glosa_interlineal": "se admiraban",
+  "rango_semantico": [
+   "quedar asombrado, impresionado",
+   "pasmarse"
+  ],
+  "construccion": "Imperfecto indicativo pasivo, 3ª plural: «estaban asombrados». El imperfecto indica una reacción que se prolonga.",
+  "sentido_en_contexto": "La multitud queda pasmada por la enseñanza de Jesús, no por un milagro sino por su palabra.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Cuando terminó Jesús estas palabras, la gente se admiraba de su doctrina…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 13:54 — «se maravillaban en la sinagoga»",
+   "Mt 19:25 — «los discípulos se asombraron»",
+   "Mr 1:22 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.7.29",
+  "strong": "G1849",
+  "forma": "ἐξουσίαν",
+  "glosa_interlineal": "autoridad",
+  "rango_semantico": [
+   "autoridad, potestad",
+   "poder delegado",
+   "derecho"
+  ],
+  "construccion": "Acusativo singular, objeto de «teniendo»: «como quien tiene autoridad».",
+  "sentido_en_contexto": "Los escribas enseñaban citando a otros maestros; Jesús habla con autoridad propia («pero yo os digo»). Es el tema del capítulo y del Sermón.",
+  "matiz": "ἐξουσία es autoridad legítima (derecho a actuar), distinta de δύναμις (fuerza o poder en acción).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…porque les enseñaba como quien tiene autoridad, y no como los escribas."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 9:6 — «el Hijo del Hombre tiene potestad en la tierra para perdonar pecados»",
+   "Mt 28:18 — «toda potestad me es dada»",
+   "Mr 1:27 — «con autoridad manda a los espíritus»"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

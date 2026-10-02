@@ -1,0 +1,465 @@
+[
+ {
+  "ref": "Luke.17.1",
+  "strong": "G4625",
+  "forma": "σκάνδαλα",
+  "glosa_interlineal": "tropiezos",
+  "rango_semantico": [
+   "tropiezo, ocasión de caer"
+  ],
+  "construccion": "Nominativo plural: «es imposible que no vengan tropiezos».",
+  "sentido_en_contexto": "Jesús reconoce que los tropiezos son inevitables, pero «¡ay de aquel por quien vienen!». Lucas lo condensa; ver Mt 18:6-7 para la versión más larga.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 18:6-7 — paralelo",
+   "Mr 9:42 — paralelo",
+   "Ro 14:13 — «no pongáis tropiezo al hermano»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.17.3",
+  "strong": "G2008",
+  "forma": "ἐπιτίμησον",
+  "glosa_interlineal": "repréndele",
+  "rango_semantico": [
+   "reprender, censurar"
+  ],
+  "construccion": "Imperativo aoristo activo: «si tu hermano pecare, repréndele».",
+  "sentido_en_contexto": "Enseñanza sobre la corrección y el perdón: reprender al que peca, perdonar si se arrepiente, aun siete veces al día. Lucas no habla de pasos de disciplina (Mt 18:15-17), sino de actitud constante.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Mirad por vosotros mismos. Si tu hermano pecare contra ti, repréndele; y si se arrepintiere, perdónale."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 18:15-22 — paralelo con más detalle",
+   "Lv 19:17 — «reprenderás a tu prójimo»",
+   "Gá 6:1 — «restauradle con espíritu de mansedumbre»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.17.4",
+  "strong": "G2034",
+  "forma": "ἑπτάκις",
+  "glosa_interlineal": "siete veces",
+  "rango_semantico": [
+   "siete veces"
+  ],
+  "construccion": "Adverbio: «si siete veces al día pecare contra ti».",
+  "sentido_en_contexto": "El perdón debe repetirse «siete veces al día» (cifra simbólica de lo ilimitado), condicionado a que el hermano diga «me arrepiento». En Mateo (18:22) se dice «setenta veces siete».",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y si siete veces al día pecare contra ti, y siete veces al día volviere a ti, diciendo: Me arrepiento; perdónale."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 18:21-22 — «setenta veces siete»",
+   "Gn 4:24 — la venganza de Lamec",
+   "Sal 119:164 — «siete veces al día te alabo»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.17.5",
+  "strong": "G4369",
+  "forma": "πρόσθες",
+  "glosa_interlineal": "aumenta",
+  "rango_semantico": [
+   "añadir, agregar"
+  ],
+  "construccion": "Imperativo aoristo activo: «auméntanos la fe».",
+  "sentido_en_contexto": "Los apóstoles piden más fe ante las exigencias de perdonar. Jesús responde con la imagen de la fe «como un grano de mostaza»: lo importante no es la cantidad, sino su presencia genuina.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Dijeron los apóstoles al Señor: Auméntanos la fe."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 9:24 — «creo; ayuda mi incredulidad»",
+   "Mt 17:20 — paralelo",
+   "Lc 7:9 — la fe del centurión"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.17.6",
+  "strong": "G4807",
+  "forma": "συκαμίνῳ",
+  "glosa_interlineal": "sicómoro (morera)",
+  "rango_semantico": [
+   "sicómoro, morera"
+  ],
+  "construccion": "Dativo: «a este sicómoro: desarráigate y plántate en el mar».",
+  "sentido_en_contexto": "Imagen hiperbólica, paralela a «mover montañas» (Mt 17:20): hasta el árbol de raíces profundas puede ser trasplantado al mar por la fe. Solo Lucas usa «sicómoro» (o «morera»).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces el Señor dijo: Si tuvieseis fe como un grano de mostaza, podríais decir a este sicómoro: Desarráigate, y plántate en el mar; y os obedecería."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 17:20 — «diréis a este monte»",
+   "Mr 11:23 — paralelo",
+   "Lc 19:4 — Zaqueo sube a un sicómoro"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.17.10",
+  "strong": "G888",
+  "forma": "ἀχρεῖοί",
+  "glosa_interlineal": "inútiles",
+  "rango_semantico": [
+   "inútil, sin mérito, sin provecho"
+  ],
+  "construccion": "Adjetivo nominativo plural: «siervos inútiles somos».",
+  "sentido_en_contexto": "La parábola del siervo que cumple su deber: nada especial merece. «Siervos inútiles» (ἀχρεῖοι) no significa despreciables, sino sin derecho a reclamar mérito. La obediencia es respuesta debida, no mérito.",
+  "matiz": "Debate: ¿«inútiles» es «sin mérito» (lectura habitual) o «sin necesidad (de ser agradecidos)»? Algunos manuscritos omiten ἀχρεῖοι, dejando «siervos que sólo hemos cumplido».",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Así también vosotros, cuando hayáis hecho todo lo que os ha sido ordenado, decid: Siervos inútiles somos, pues lo que debíamos hacer, hicimos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 25:30 — «al siervo inútil echadle»",
+   "Job 22:2-3 — «¿de qué sirve el hombre a Dios?»",
+   "Ef 2:8-9 — «por gracia sois salvos»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Luke.17.11",
+  "strong": "G4540",
+  "forma": "Σαμαρίας",
+  "glosa_interlineal": "Samaria",
+  "rango_semantico": [
+   "Samaria (región)"
+  ],
+  "construccion": "Genitivo: «por entre Samaria y Galilea».",
+  "sentido_en_contexto": "Lucas recuerda que Jesús va camino a Jerusalén, pasando por la frontera entre Samaria y Galilea. En esa zona de mezcla se da el encuentro con los diez leprosos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Lc 9:51-56 — rechazo en una aldea samaritana",
+   "Lc 9:51 — «afirmó su rostro»",
+   "Jn 4:4 — «le era necesario pasar por Samaria»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.17.12",
+  "strong": "G3015",
+  "forma": "λεπροὶ",
+  "glosa_interlineal": "leprosos",
+  "rango_semantico": [
+   "leproso"
+  ],
+  "construccion": "Nominativo plural: «diez hombres leprosos».",
+  "sentido_en_contexto": "Diez leprosos se detienen a distancia (como mandaba la Ley) y piden compasión. Jesús les manda presentarse a los sacerdotes; mientras iban, quedaron limpios. Milagro solo de Lucas.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Lv 13:45-46 — normas de aislamiento",
+   "Lc 5:12-14 — otro leproso",
+   "2 R 5:1-14 — Naamán, sirio sanado"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.17.16",
+  "strong": "G2168",
+  "forma": "εὐχαριστῶν",
+  "glosa_interlineal": "agradeciendo",
+  "rango_semantico": [
+   "dar gracias"
+  ],
+  "construccion": "Participio presente activo: «dando gracias».",
+  "sentido_en_contexto": "Solo uno de los diez, un samaritano, regresa a dar gracias postrándose ante Jesús. Lucas lo subraya: el extranjero reconoce la acción de Dios en Jesús.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "y se postró rostro en tierra a sus pies, dándole gracias; y éste era samaritano."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 17:18 — «¿no hubo quien volviese… sino este extranjero?»",
+   "Lc 10:33 — el samaritano compasivo",
+   "Jn 4:39-42 — samaritanos que creen"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.17.18",
+  "strong": "G241",
+  "forma": "ἀλλογενὴς",
+  "glosa_interlineal": "extranjero",
+  "rango_semantico": [
+   "de otra raza, extranjero"
+  ],
+  "construccion": "Nominativo: «este extranjero».",
+  "sentido_en_contexto": "Palabra única en el NT, usada en las inscripciones del templo que vedaban a extranjeros pasar a ciertos patios. Jesús la aplica al samaritano con ironía: el «extranjero» glorifica a Dios.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Lc 4:27 — Naamán el sirio",
+   "Lc 7:9 — la fe del centurión gentil",
+   "Hch 8:5-8 — Felipe en Samaria"
+  ],
+  "otros_usos": "medio",
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.17.19",
+  "strong": "G4982",
+  "forma": "σέσωκέν",
+  "glosa_interlineal": "te ha salvado",
+  "rango_semantico": [
+   "salvar, sanar"
+  ],
+  "construccion": "Perfecto indicativo activo: «tu fe te ha salvado».",
+  "sentido_en_contexto": "Los diez fueron limpiados, pero solo al samaritano Jesús le dice «tu fe te ha salvado»: sanación más salvación. Lucas distingue entre curación física y salvación integral.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y le dijo: Levántate, vete; tu fe te ha salvado."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 7:50 — «tu fe te ha salvado»",
+   "Lc 8:48 — paralelo",
+   "Lc 18:42 — «tu fe te ha salvado»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.17.20",
+  "strong": "G3907",
+  "forma": "παρατηρήσεως",
+  "glosa_interlineal": "con señales visibles",
+  "rango_semantico": [
+   "observación, vigilancia"
+  ],
+  "construccion": "Genitivo: «el reino de Dios no viene con advertencia (observación)».",
+  "sentido_en_contexto": "Los fariseos preguntan cuándo viene el reino. Jesús responde que no se anuncia con señales observables: no se dirá «aquí está» o «allí está».",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Preguntado por los fariseos, cuándo había de venir el reino de Dios, les respondió y dijo: El reino de Dios no vendrá con advertencia,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:23 — «no lo creáis»",
+   "Lc 21:7 — «¿qué señal habrá?»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.17.21",
+  "strong": "G1787",
+  "forma": "ἐντὸς",
+  "glosa_interlineal": "entre / dentro",
+  "rango_semantico": [
+   "dentro de, en medio de"
+  ],
+  "construccion": "Preposición con genitivo: «el reino de Dios está ἐντὸς ὑμῶν».",
+  "sentido_en_contexto": "Una de las frases más discutidas de Lucas: «el reino de Dios está entre vosotros / dentro de vosotros».",
+  "matiz": "Dos lecturas principales: (a) «en medio de vosotros» (presente en la persona y obra de Jesús; la mayoría crítica, pues Jesús habla a fariseos); (b) «dentro de vosotros» (reino interior; RVR y tradición espiritual). El contexto favorece (a).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "ni dirán: Helo aquí, o helo allí; porque he aquí el reino de Dios está entre vosotros."
+   }
+  ],
+  "notas_traduccion": "Algunas versiones traducen «dentro de vosotros»; el sentido «entre vosotros» es el más defendido por el contexto (Jesús habla a fariseos).",
+  "otros_usos": [
+   "Lc 11:20 — «el reino de Dios ha llegado a vosotros»",
+   "Mt 12:28 — «ha llegado a vosotros el reino»",
+   "Ro 14:17 — «el reino de Dios no es comida ni bebida, sino justicia, paz y gozo»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Luke.17.24",
+  "strong": "G796",
+  "forma": "ἀστραπὴ",
+  "glosa_interlineal": "relámpago",
+  "rango_semantico": [
+   "relámpago"
+  ],
+  "construccion": "Nominativo: «como el relámpago… así será el Hijo del Hombre en su día».",
+  "sentido_en_contexto": "La venida del Hijo del Hombre será visible y repentina como un relámpago; no habrá que buscarla en lugares concretos (vv.23-24). Paralelo con Mt 24:27.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 24:27 — paralelo",
+   "Ap 1:7 — «todo ojo le verá»",
+   "1 Ts 5:2 — «como ladrón en la noche»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.17.25",
+  "strong": "G593",
+  "forma": "ἀποδοκιμασθῆναι",
+  "glosa_interlineal": "ser desechado",
+  "rango_semantico": [
+   "rechazar tras examinar"
+  ],
+  "construccion": "Infinitivo aoristo pasivo: «es necesario que primero padezca mucho y sea desechado».",
+  "sentido_en_contexto": "Antes de su venida gloriosa, el Hijo del Hombre debe padecer: la gloria pasa por la cruz. Lucas inserta este recordatorio en medio del discurso escatológico.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Lc 9:22 — primer anuncio",
+   "Sal 118:22 — la piedra desechada",
+   "Hch 4:11 — «la piedra reprobada»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.17.26",
+  "strong": "G3575",
+  "forma": "Νῶε",
+  "glosa_interlineal": "Noé",
+  "rango_semantico": [
+   "Noé"
+  ],
+  "construccion": "Genitivo: «como en los días de Noé».",
+  "sentido_en_contexto": "Jesús compara los días de su venida con los de Noé y de Lot: la gente vivía en normalidad (comer, beber, casarse, comprar, vender) hasta que llegó el juicio repentino.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 24:37-39 — paralelo (Noé)",
+   "Gn 6-9; 19 — Noé y Lot",
+   "2 P 2:5-8 — Noé y Lot como ejemplos"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.17.32",
+  "strong": "G3091",
+  "forma": "Λὼτ",
+  "glosa_interlineal": "Lot",
+  "rango_semantico": [
+   "Lot"
+  ],
+  "construccion": "Genitivo: «acordaos de la mujer de Lot».",
+  "sentido_en_contexto": "Advertencia breve y exclusiva de Lucas: la mujer de Lot miró atrás y quedó convertida en estatua de sal (Gn 19:26). Quien se aferra a lo que deja atrás se pierde.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Acordaos de la mujer de Lot."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 19:26 — la estatua de sal",
+   "Lc 9:62 — «ninguno que… mira hacia atrás»",
+   "Fil 3:13 — «olvidando lo que queda atrás»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.17.33",
+  "strong": "G4046",
+  "forma": "περιποιήσασθαι",
+  "glosa_interlineal": "conservar",
+  "rango_semantico": [
+   "conservar, ganar para sí"
+  ],
+  "construccion": "Infinitivo aoristo medio: «el que procure salvar su vida».",
+  "sentido_en_contexto": "Paradoja del discipulado: el que procura conservar su vida la perderá, y el que la pierda la salvará (ζῳογονήσει, «dará vida»). Cierre del tema de aferrarse.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Cualquiera que procure salvar su vida, la perderá; y cualquiera que la pierda, la salvará."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 9:24 — paralelo",
+   "Mt 10:39 — paralelo",
+   "Jn 12:25 — «el que ama su vida, la perderá»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.17.34",
+  "strong": "G3880",
+  "forma": "παραλημφθήσεται",
+  "glosa_interlineal": "será tomado",
+  "rango_semantico": [
+   "tomar consigo, llevarse"
+  ],
+  "construccion": "Futuro indicativo pasivo: «el uno será tomado, y el otro dejado».",
+  "sentido_en_contexto": "Dos en una cama, dos moliendo: uno es tomado y otro dejado. El sentido de «tomado» es debatido (salvado o llevado al juicio).",
+  "matiz": "Ver nota en Mt 24:40: «tomado» puede significar arrebatado al encuentro con el Señor o llevado para juicio, como en el diluvio donde «se llevó a todos». El contexto de Lucas (vv.26-30, Noé y Lot) apoya que «tomado» sea el juzgado.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Os digo que en aquella noche estarán dos en una cama; el uno será tomado, y el otro dejado."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:40-41 — paralelo",
+   "1 Ts 4:17 — «arrebatados»",
+   "Lc 17:37 — «donde estuviere el cuerpo»"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "Luke.17.37",
+  "strong": "G105",
+  "forma": "ἀετοὶ",
+  "glosa_interlineal": "águilas",
+  "rango_semantico": [
+   "águila, buitre"
+  ],
+  "construccion": "Nominativo plural: «donde esté el cuerpo, allí se juntarán las águilas».",
+  "sentido_en_contexto": "Los discípulos preguntan «¿dónde?»; Jesús responde con un proverbio sobre carroña y buitres: el juicio será inconfundible y alcanzará donde haya muerte moral. Cierre enigmático.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y respondiendo, le dijeron: ¿Dónde, Señor? Él les dijo: Donde estuviere el cuerpo, allí se juntarán también las águilas."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:28 — paralelo",
+   "Job 39:30 — «donde hay cadáveres, allí está ella»"
+  ],
+  "nivel_certeza": "bajo"
+ }
+]

@@ -1,0 +1,537 @@
+[
+ {
+  "ref": "Luke.7.2",
+  "strong": "G1784",
+  "forma": "ἔντιμος",
+  "glosa_interlineal": "muy querido",
+  "rango_semantico": [
+   "valioso, estimado, apreciado"
+  ],
+  "construccion": "Adjetivo nominativo: «a quien este tenía en gran estima».",
+  "sentido_en_contexto": "Lucas dice que el siervo del centurión era «muy estimado» por él. Detalle propio: la relación afectuosa que motiva el esfuerzo del centurión.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 8:5-13 — paralelo",
+   "Fil 2:29 — «tenedlos en estima (ἐντίμους)»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.7.4",
+  "strong": "G514",
+  "forma": "ἄξιός",
+  "glosa_interlineal": "digno",
+  "rango_semantico": [
+   "digno, merecedor"
+  ],
+  "construccion": "Adjetivo nominativo: «es digno de que le concedas esto».",
+  "sentido_en_contexto": "En Lucas el centurión envía ancianos judíos como intermediarios, que lo recomiendan: «ama a nuestra nación y nos edificó la sinagoga». Luego envía amigos (v.6) para decir que no se atreve a presentarse. En Mateo va él en persona.",
+  "matiz": "Se discute la diferencia entre Mateo y Lucas: Lucas relata los intermediarios (el centurión actúa por delegados) y Mateo condensa. Es un ejemplo de variación narrativa, no contradicción.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 8:5 — «vino a él un centurión»",
+   "Hch 10:2 — Cornelio, «temeroso de Dios»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Luke.7.7",
+  "strong": "G515",
+  "forma": "ἠξίωσα",
+  "glosa_interlineal": "me consideré digno",
+  "rango_semantico": [
+   "considerar digno, juzgar apropiado"
+  ],
+  "construccion": "Aoristo indicativo activo, 1ª singular: «no me consideré digno de ir a ti».",
+  "sentido_en_contexto": "El centurión se declara indigno de presentarse ante Jesús, aunque los ancianos lo juzgaban digno. Contrapunto de humildad.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "por lo que ni aun me tuve por digno de venir a ti; pero di la palabra, y mi siervo será sano."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 3:16 — «no soy digno de desatar la correa»",
+   "Mt 8:8 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.7.11",
+  "strong": "G3484",
+  "forma": "Ναΐν",
+  "glosa_interlineal": "Naín",
+  "rango_semantico": [
+   "Naín (aldea de Galilea)"
+  ],
+  "construccion": "Acusativo: «una ciudad llamada Naín».",
+  "sentido_en_contexto": "Milagro propio de Lucas: la resurrección del hijo único de una viuda en Naín. Eco de Elías y la viuda de Sarepta (1 R 17).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "1 R 17:17-24 — Elías resucita al hijo de la viuda",
+   "2 R 4:32-37 — Eliseo resucita al hijo de la sunamita",
+   "Lc 4:25-26 — Jesús menciona a la viuda de Sarepta"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.7.12",
+  "strong": "G3439",
+  "forma": "μονογενὴς",
+  "glosa_interlineal": "hijo único",
+  "rango_semantico": [
+   "único, unigénito"
+  ],
+  "construccion": "Adjetivo nominativo: «hijo único de su madre, y ella era viuda».",
+  "sentido_en_contexto": "La madre perdía a su único hijo y quedaba sin sustento y sin descendencia: una tragedia social y personal. Lucas usa μονογενής para tres casos de hijos únicos (7:12; 8:42; 9:38).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Lc 8:42 — la hija única de Jairo",
+   "Lc 9:38 — el hijo único del endemoniado",
+   "Jn 3:16 — «su Hijo unigénito»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.7.13",
+  "strong": "G2962",
+  "forma": "κύριος",
+  "glosa_interlineal": "el Señor",
+  "rango_semantico": [
+   "amo, señor",
+   "el Señor (Dios o Cristo)"
+  ],
+  "construccion": "Nominativo con artículo: «el Señor, viéndola, se compadeció».",
+  "sentido_en_contexto": "Lucas llama «el Señor» a Jesús en su narración (7:13, 19; 10:1, 39, 41…), un uso propio que subraya su dignidad. Aquí la compasión del Señor precede a cualquier petición.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y cuando el Señor la vio, se compadeció de ella, y le dijo: No llores."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 10:1 — «después de estas cosas, designó el Señor»",
+   "Lc 7:19 — «llamando Juan… envió al Señor»",
+   "Hch 2:36 — «Dios le ha hecho Señor»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.7.13",
+  "strong": "G4697",
+  "forma": "ἐσπλαγχνίσθη",
+  "glosa_interlineal": "se compadeció",
+  "rango_semantico": [
+   "compadecerse"
+  ],
+  "construccion": "Aoristo indicativo pasivo (deponente), 3ª singular.",
+  "sentido_en_contexto": "Jesús siente compasión de las entrañas por la viuda. Es el motivo del milagro, sin que nadie se lo pidiera.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Lc 10:33 — el samaritano «se compadeció»",
+   "Lc 15:20 — el padre del hijo pródigo «fue movido a misericordia»",
+   "Mt 9:36 — Jesús ante las multitudes"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.7.14",
+  "strong": "G4673",
+  "forma": "σοροῦ",
+  "glosa_interlineal": "féretro",
+  "rango_semantico": [
+   "ataúd, camilla funeraria"
+  ],
+  "construccion": "Genitivo: «tocó el féretro».",
+  "sentido_en_contexto": "Jesús toca el féretro: acto que contaminaba según la Ley (Nm 19:11). Los que lo llevaban se detienen. Jesús ordena al joven levantarse.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y acercándose, tocó el féretro; y los que lo llevaban se detuvieron. Y dijo: Joven, a ti te digo, levántate."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Nm 19:11 — impureza por tocar un cadáver",
+   "Lc 8:54 — «niña, levántate»",
+   "Jn 11:43 — «¡Lázaro, ven fuera!»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.7.16",
+  "strong": "G1980",
+  "forma": "ἐπεσκέψατο",
+  "glosa_interlineal": "ha visitado",
+  "rango_semantico": [
+   "visitar, cuidar de, intervenir a favor de"
+  ],
+  "construccion": "Aoristo indicativo medio, 3ª singular: «Dios ha visitado a su pueblo».",
+  "sentido_en_contexto": "La gente reconoce en el milagro una «visita» de Dios, vocabulario del Benedictus (1:68, 78). Para Lucas, la acción de Jesús es la intervención salvadora de Dios.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y todos tuvieron miedo, y glorificaban a Dios, diciendo: Un gran profeta se ha levantado entre nosotros; y: Dios ha visitado a su pueblo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 1:68 — «ha visitado y redimido a su pueblo»",
+   "Lc 1:78 — «nos visitó la aurora desde lo alto»",
+   "Éx 4:31 — «Jehová había visitado a los hijos de Israel»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.7.19",
+  "strong": "G4328",
+  "forma": "προσδοκῶμεν",
+  "glosa_interlineal": "esperamos",
+  "rango_semantico": [
+   "esperar, aguardar"
+  ],
+  "construccion": "Presente indicativo activo, 1ª plural: «¿esperaremos a otro?».",
+  "sentido_en_contexto": "Juan, en prisión, envía a preguntar si Jesús es «el que ha de venir». Lucas dedica más espacio que Mateo a esta escena, tras los milagros de Naín.",
+  "matiz": "Ver Mt 11:3 sobre si Juan duda realmente o pregunta por sus discípulos.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 11:3 — paralelo",
+   "Mal 3:1 — «vendrá a su templo el Señor»",
+   "Sal 118:26 — «bendito el que viene»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Luke.7.21",
+  "strong": "G3148",
+  "forma": "μαστίγων",
+  "glosa_interlineal": "plagas",
+  "rango_semantico": [
+   "azote, aflicción, enfermedad"
+  ],
+  "construccion": "Genitivo plural: «de enfermedades, de plagas y de espíritus malos».",
+  "sentido_en_contexto": "Lucas añade que en ese momento Jesús sanó a muchos de enfermedades y «azotes» y dio vista a ciegos: muestra visible para que los mensajeros de Juan relaten lo que ven.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mr 3:10 — «cuantos tenían plagas»",
+   "Mr 5:29 — la mujer con flujo, «sana de aquel azote»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.7.23",
+  "strong": "G4624",
+  "forma": "σκανδαλισθῇ",
+  "glosa_interlineal": "tropiece",
+  "rango_semantico": [
+   "tropezar, escandalizarse"
+  ],
+  "construccion": "Subjuntivo aoristo pasivo: «el que no tropiece en mí».",
+  "sentido_en_contexto": "Bienaventuranza para quien no se escandaliza de Jesús: mensaje a Juan. Su misión incluye sufrimiento y no coincide con las expectativas de un juez fulminante.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y bienaventurado es el que no halle tropiezo en mí."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 11:6 — paralelo",
+   "Lc 2:34 — «señal que será contradicha»",
+   "1 Co 1:23 — «Cristo crucificado, para los judíos tropezadero»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.7.27",
+  "strong": "G2680",
+  "forma": "κατασκευάσει",
+  "glosa_interlineal": "preparará",
+  "rango_semantico": [
+   "preparar, construir"
+  ],
+  "construccion": "Futuro indicativo activo, 3ª singular.",
+  "sentido_en_contexto": "Jesús aplica a Juan Mal 3:1 («envío mi mensajero delante de tu faz»): Juan es el precursor profetizado, «más que profeta».",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Este es de quien está escrito: He aquí, envío mi mensajero delante de tu faz, el cual preparará tu camino delante de ti."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mal 3:1 — texto citado",
+   "Mt 11:10 — paralelo",
+   "Lc 1:76 — «irás delante del Señor para preparar sus caminos»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.7.29",
+  "strong": "G1344",
+  "forma": "ἐδικαίωσαν",
+  "glosa_interlineal": "justificaron",
+  "rango_semantico": [
+   "declarar justo, justificar",
+   "reconocer como justo"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª plural: «justificaron a Dios».",
+  "sentido_en_contexto": "El pueblo y los publicanos, al bautizarse con el bautismo de Juan, «justificaron a Dios»: reconocieron que su camino era justo. Lucas contrasta con los fariseos que rechazaron el plan de Dios (v.30).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y todo el pueblo y los publicanos, cuando lo oyeron, justificaron a Dios, bautizándose con el bautismo de Juan."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 51:4 — «para que seas reconocido justo en tu palabra»",
+   "Ro 3:4 — «sea Dios veraz»",
+   "Lc 7:35 — «la sabiduría es justificada»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.7.30",
+  "strong": "G114",
+  "forma": "ἠθέτησαν",
+  "glosa_interlineal": "rechazaron",
+  "rango_semantico": [
+   "anular, rechazar, desechar"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª plural: «desecharon el designio de Dios».",
+  "sentido_en_contexto": "Los fariseos y expertos en la ley rechazaron el propósito de Dios para ellos al no bautizarse. Su resistencia es una decisión que Lucas denuncia.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Mas los fariseos y los intérpretes de la ley desecharon los designios de Dios respecto de sí mismos, no siendo bautizados por Juan."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 10:16 — «el que a vosotros desecha, a mí me desecha»",
+   "Hch 13:46 — «a vosotros… era necesario que se os hablase primero»",
+   "Gá 3:15 — «nadie… la invalida»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.7.35",
+  "strong": "G4678",
+  "forma": "σοφία",
+  "glosa_interlineal": "sabiduría",
+  "rango_semantico": [
+   "sabiduría"
+  ],
+  "construccion": "Nominativo: «la sabiduría es justificada por todos sus hijos».",
+  "sentido_en_contexto": "Cierre de la comparación de «esta generación» con niños caprichosos. «Sus hijos» pueden ser los que acogen a Juan y a Jesús; la sabiduría de Dios queda probada por sus frutos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Mas la sabiduría es justificada por todos sus hijos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 11:19 — «por sus obras»",
+   "Pr 8 — la sabiduría personificada",
+   "1 Co 1:24 — «Cristo, sabiduría de Dios»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Luke.7.37",
+  "strong": "G268",
+  "forma": "ἁμαρτωλός",
+  "glosa_interlineal": "pecadora",
+  "rango_semantico": [
+   "pecador, pecadora"
+  ],
+  "construccion": "Nominativo: «una mujer de la ciudad, que era pecadora».",
+  "sentido_en_contexto": "Escena exclusiva de Lucas: una mujer conocida en la ciudad como pecadora unge los pies de Jesús en casa de Simón el fariseo. No se dice cuál era su pecado; se suele suponer inmoralidad sexual, pero el texto no lo precisa.",
+  "matiz": "No debe confundirse con María Magdalena (Lc 8:2) ni con María de Betania (Jn 12:3), aunque la tradición occidental las fusionó. El texto no identifica a la mujer.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y he aquí una mujer de la ciudad, que era pecadora, al saber que Jesús estaba a la mesa en casa del fariseo, trajo un frasco de alabastro con perfume;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:6-13 — otra unción en Betania",
+   "Jn 12:1-8 — María unge sus pies",
+   "Lc 8:2 — María Magdalena"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Luke.7.38",
+  "strong": "G1026",
+  "forma": "βρέχειν",
+  "glosa_interlineal": "mojar",
+  "rango_semantico": [
+   "mojar, regar, empapar"
+  ],
+  "construccion": "Infinitivo presente: «comenzó a regar sus pies con lágrimas».",
+  "sentido_en_contexto": "Gestos de la mujer: llora, moja los pies con lágrimas, los seca con su cabello, los besa y los unge. Es una acción de devoción y gratitud desbordante.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "y estando detrás de él a sus pies, llorando, comenzó a regar con lágrimas sus pies, y los enjugaba con sus cabellos; y besaba sus pies, y los ungía con el perfume."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 126:5 — «los que sembraron con lágrimas»",
+   "Jn 11:2 — María ungió al Señor con perfume"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.7.39",
+  "strong": "G4396",
+  "forma": "προφήτης",
+  "glosa_interlineal": "profeta",
+  "rango_semantico": [
+   "profeta"
+  ],
+  "construccion": "Nominativo: «si este fuera profeta, sabría quién es la mujer».",
+  "sentido_en_contexto": "Simón piensa que un verdadero profeta habría reconocido la condición de la mujer y se habría apartado. Irónicamente, Jesús sí conoce el pensamiento de Simón (v.40).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y cuando vio esto el fariseo que le había convidado, dijo para sí: Este, si fuera profeta, conocería quién y cuál es la mujer que le toca, que es pecadora."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 7:16 — «un gran profeta se ha levantado»",
+   "Lc 7:40 — «Jesús, respondiendo, le dijo»",
+   "Jn 4:19 — «veo que eres profeta»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.7.41",
+  "strong": "G5533",
+  "forma": "χρεοφειλέται",
+  "glosa_interlineal": "deudores",
+  "rango_semantico": [
+   "deudor"
+  ],
+  "construccion": "Nominativo plural: «dos deudores».",
+  "sentido_en_contexto": "Parábola de Jesús a Simón: dos deudores (500 y 50 denarios), ambos perdonados. ¿Cuál amará más? El perdón engendra amor proporcional.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Un acreedor tenía dos deudores: el uno le debía quinientos denarios, y el otro cincuenta;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 18:23-35 — parábola del siervo despiadado",
+   "Mt 6:12 — «perdónanos nuestras deudas»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.7.47",
+  "strong": "G25",
+  "forma": "ἠγάπησεν",
+  "glosa_interlineal": "amó",
+  "rango_semantico": [
+   "amar"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª singular: «amó mucho».",
+  "sentido_en_contexto": "Versículo muy debatido: «sus muchos pecados le son perdonados, porque amó mucho». ¿El amor es causa del perdón o su consecuencia?",
+  "matiz": "Interpretaciones: (a) el amor (gesto de la mujer) es la prueba del perdón ya recibido (lectura mayoritaria, apoyada por la parábola y el v.50 «tu fe te ha salvado»); (b) el amor es la causa del perdón (lectura menos común). El «porque» (ὅτι) puede ser causal o declarativo («como prueba de que»).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Por lo cual te digo que sus muchos pecados le son perdonados, porque amó mucho; mas aquel a quien se le perdona poco, poco ama."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 7:50 — «tu fe te ha salvado»",
+   "1 Jn 4:19 — «nosotros le amamos a él, porque él nos amó primero»",
+   "Lc 7:42 — la parábola"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Luke.7.49",
+  "strong": "G863",
+  "forma": "ἀφίησιν",
+  "glosa_interlineal": "perdona",
+  "rango_semantico": [
+   "perdonar"
+  ],
+  "construccion": "Presente indicativo activo, 3ª singular: «¿quién es este, que también perdona pecados?».",
+  "sentido_en_contexto": "Reacción de los comensales: Jesús perdona pecados, prerrogativa divina. Como en 5:21, la pregunta apunta a su identidad.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y los que estaban juntamente sentados a la mesa, comenzaron a decir entre sí: ¿Quién es éste, que también perdona pecados?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 5:21 — «¿quién puede perdonar pecados, sino sólo Dios?»",
+   "Mr 2:7 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.7.50",
+  "strong": "G1515",
+  "forma": "εἰρήνην",
+  "glosa_interlineal": "paz",
+  "rango_semantico": [
+   "paz (shalom)"
+  ],
+  "construccion": "εἰς + acusativo: «ve en paz».",
+  "sentido_en_contexto": "Jesús despide a la mujer con las palabras «tu fe te ha salvado, ve en paz»: el perdón se completa con salvación y restauración. Su fe es la que la salva.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero él dijo a la mujer: Tu fe te ha salvado, ve en paz."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 8:48 — «tu fe te ha salvado; ve en paz»",
+   "Lc 17:19 — «tu fe te ha salvado»",
+   "Lc 18:42 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

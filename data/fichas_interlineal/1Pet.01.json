@@ -1,0 +1,468 @@
+[
+ {
+  "ref": "1Pet.1.1",
+  "strong": "G3927",
+  "forma": "παρεπιδήμοις",
+  "glosa_interlineal": "peregrinos",
+  "rango_semantico": [
+   "extranjero residente, peregrino"
+  ],
+  "construccion": "Dativo plural: «Pedro, apóstol de Jesucristo, a los expatriados de la dispersión en el Ponto, Galacia, Capadocia, Asia y Bitinia, elegidos».",
+  "sentido_en_contexto": "Carta de Pedro a cristianos de cinco provincias de Asia Menor, llamados «extranjeros y peregrinos» (παρεπίδημοι) y «elegidos». Escrita probablemente desde «Babilonia» (Roma; 5:13) con ayuda de Silvano (5:12), c. 62-65 d.C. Los destinatarios eran judíos y/o gentiles creyentes marginados socialmente. La autoría petrina se discute.",
+  "matiz": "Debate sobre la autoría: (a) Pedro, con Silvano como secretario (tradición y muchos exégetas); (b) un discípulo en nombre de Pedro hacia fines del siglo I (pseudonimia; algunos críticos, por el buen griego y la teología paulina); (c) Silvano como co-autor. «Expatriados»: sentido literal (exiliados) o metafórico (extraños en el mundo).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pedro, apóstol de Jesucristo, a los expatriados de la dispersión en el Ponto, Galacia, Capadocia, Asia y Bitinia, elegidos"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 11:13",
+   "1 P 2:11",
+   "Hch 2:9-10",
+   "Jas 1:1"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "1Pet.1.2",
+  "strong": "G4268",
+  "forma": "πρόγνωσιν",
+  "glosa_interlineal": "presciencia",
+  "rango_semantico": [
+   "conocimiento previo, presciencia"
+  ],
+  "construccion": "Acusativo: «elegidos según la presciencia de Dios Padre en santificación del Espíritu, para obedecer y ser rociados con la sangre de Jesucristo».",
+  "sentido_en_contexto": "Fórmula trinitaria: elección según la presciencia del Padre, santificación del Espíritu, obediencia y aspersión de la sangre de Cristo (alusión a Éx 24:3-8). Se debate el sentido de πρόγνωσις: previsión de la fe (arminiana) o conocimiento amoroso previo que elige (reformada).",
+  "matiz": "Debate: (a) presciencia = previsión de quién creerá (arminiana); (b) presciencia = conocimiento previo, que establece una relación de amor y elección (reformada; cf. Am 3:2; Ro 8:29; 1 P 1:20, donde Cristo es «conocido de antemano»); (c) elegidos para que obedezcan y sean purificados.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "elegidos según la presciencia de Dios Padre en santificación del Espíritu, para obedecer y ser rociados con la sangre de Jesucristo: Gracia y paz os sean multiplicadas."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 8:29",
+   "Ef 1:4-5",
+   "Éx 24:3-8",
+   "Heb 12:24"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "1Pet.1.3",
+  "strong": "G313",
+  "forma": "ἀναγεννήσας",
+  "glosa_interlineal": "que nos hizo nacer de nuevo",
+  "rango_semantico": [
+   "engendrar de nuevo, regenerar"
+  ],
+  "construccion": "Participio aoristo activo: «bendito sea el Dios y Padre de nuestro Señor Jesucristo, que según su grande misericordia nos hizo renacer para una esperanza viva, por la resurrección de Jesucristo de los muertos».",
+  "sentido_en_contexto": "La regeneración está unida a la resurrección de Cristo, fuente de la esperanza viva. Ver Jn 3:3-8; Tit 3:5. «Hizo renacer» (ἀναγεννάω): nuevo nacimiento por obra de Dios (aoristo, acción completa). Comienza el himno de bendición (1:3-12).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Bendito el Dios y Padre de nuestro Señor Jesucristo, que según su grande misericordia nos hizo renacer para una esperanza viva, por la resurrección de Jesucristo de los muertos,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 3:3-8",
+   "Tit 3:5",
+   "1 P 1:23",
+   "Ef 1:3"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Pet.1.4",
+  "strong": "G2817",
+  "forma": "κληρονομίαν",
+  "glosa_interlineal": "herencia",
+  "rango_semantico": [
+   "herencia"
+  ],
+  "construccion": "Acusativo: «para una herencia incorruptible, incontaminada e inmarchitable, reservada en los cielos para vosotros».",
+  "sentido_en_contexto": "Tres adjetivos con alfa privativa: incorruptible, incontaminada, inmarchitable. La herencia está reservada en los cielos (segura) y los creyentes están guardados para ella por el poder de Dios (v.5). Ya presente en esperanza, aún por revelarse.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "para una herencia incorruptible, incontaminada e inmarchitable, reservada en los cielos para vosotros,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 1:5",
+   "Mt 6:19-21",
+   "Heb 9:15",
+   "Ef 1:14"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Pet.1.5",
+  "strong": "G5432",
+  "forma": "φρουρουμένους",
+  "glosa_interlineal": "guardados",
+  "rango_semantico": [
+   "guardar, custodiar"
+  ],
+  "construccion": "Participio presente pasivo: «que sois guardados por el poder de Dios mediante la fe, para alcanzar la salvación que está preparada para ser manifestada en el tiempo postrero».",
+  "sentido_en_contexto": "Imagen militar: «guardados» como por una guarnición. Dios guarda a los creyentes «mediante la fe» (la perseverancia es doble: obra de Dios y respuesta humana). La salvación se revela «en el tiempo postrero». Texto importante sobre la seguridad y la perseverancia.",
+  "matiz": "Debate: (a) Dios garantiza la perseverancia de los elegidos (reformada); (b) la protección de Dios actúa «mediante la fe», y puede perderse si la fe cesa (arminiana, católica); (c) la guarda divina y la perseverancia humana se complementan.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "que sois guardados por el poder de Dios mediante la fe, para alcanzar la salvación que está preparada para ser manifestada en el tiempo postrero."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jud 24",
+   "Jn 10:28-29",
+   "Fil 1:6",
+   "Heb 3:14"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "1Pet.1.6",
+  "strong": "G3986",
+  "forma": "πειρασμοῖς",
+  "glosa_interlineal": "pruebas",
+  "rango_semantico": [
+   "prueba, tentación"
+  ],
+  "construccion": "Dativo plural: «en lo cual vosotros os alegráis, aunque ahora por un poco de tiempo, si es necesario, tengáis que ser afligidos en diversas pruebas».",
+  "sentido_en_contexto": "El gozo coexiste con pruebas diversas, de duración breve en comparación con la eternidad. Tema central de 1 Pedro: sufrimiento y gloria. La «necesidad» de la prueba es la purificación de la fe (v.7).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "En lo cual vosotros os alegráis, aunque ahora por un poco de tiempo, si es necesario, tengáis que ser afligidos en diversas pruebas,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jas 1:2-4",
+   "Ro 5:3-5",
+   "1 P 4:12-13"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Pet.1.7",
+  "strong": "G4442",
+  "forma": "πυρὸς",
+  "glosa_interlineal": "fuego",
+  "rango_semantico": [
+   "fuego"
+  ],
+  "construccion": "Genitivo: «para que sometida a prueba vuestra fe, mucho más preciosa que el oro, el cual aunque perecedero se prueba con fuego, sea hallada en alabanza, gloria y honra cuando sea manifestado Jesucristo».",
+  "sentido_en_contexto": "La prueba refina la fe como el fuego al oro. La fe probada es más preciosa que el oro perecedero. El resultado: alabanza, gloria y honra en la revelación de Jesucristo. Imagen de Pr 17:3; Mal 3:3.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "para que sometida a prueba vuestra fe, mucho más preciosa que el oro, el cual aunque perecedero se prueba con fuego, sea hallada en alabanza, gloria y honra cuando sea manifestado Jesucristo,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Pr 17:3",
+   "Mal 3:3",
+   "Job 23:10",
+   "Jas 1:12"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Pet.1.8",
+  "strong": "G412",
+  "forma": "ἀνεκλαλήτῳ",
+  "glosa_interlineal": "inefable",
+  "rango_semantico": [
+   "inefable, indescriptible"
+  ],
+  "construccion": "Dativo: «a quien amáis sin haberle visto, en quien creyendo, aunque ahora no lo veáis, os alegráis con gozo inefable y glorioso».",
+  "sentido_en_contexto": "Amor a Cristo sin haberlo visto: la fe se basa en el testimonio, no en la vista (cf. Jn 20:29). Gozo «inexpresable y glorioso»: ya participa de la gloria futura. Los lectores no conocieron a Jesús en persona.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "a quien amáis sin haberle visto, en quien creyendo, aunque ahora no lo veáis, os alegráis con gozo inefable y glorioso;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 20:29",
+   "2 Co 5:7",
+   "Heb 11:1",
+   "1 P 1:6"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Pet.1.10",
+  "strong": "G4396",
+  "forma": "προφῆται",
+  "glosa_interlineal": "profetas",
+  "rango_semantico": [
+   "profeta"
+  ],
+  "construccion": "Nominativo plural: «acerca de esta salvación inquirieron y indagaron diligentemente los profetas que profetizaron de la gracia que había de venir a vosotros».",
+  "sentido_en_contexto": "Los profetas del AT investigaron «cuándo y cómo» se cumplirían sus profecías sobre los sufrimientos del Cristo y la gloria posterior (v.11). El Espíritu de Cristo en ellos los inspiró. Se les reveló que no servían a sí mismos sino a «vosotros» (v.12). Hermenéutica cristológica.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Los profetas que profetizaron de la gracia destinada a vosotros, inquirieron y indagaron acerca de esta salvación,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 24:25-27",
+   "Heb 11:39-40",
+   "2 P 1:20-21",
+   "Jn 12:41"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Pet.1.11",
+  "strong": "G4151",
+  "forma": "πνεῦμα",
+  "glosa_interlineal": "Espíritu de Cristo",
+  "rango_semantico": [
+   "espíritu, Espíritu"
+  ],
+  "construccion": "Nominativo: «escudriñando qué persona o tiempo indicaba el Espíritu de Cristo que estaba en ellos, el cual anunciaba de antemano los sufrimientos de Cristo, y las glorias que vendrían tras ellos».",
+  "sentido_en_contexto": "«El Espíritu de Cristo» en los profetas: expresión que implica la preexistencia de Cristo y su acción en el AT. Los profetas anunciaron los sufrimientos y la gloria posterior. Texto sobre la unidad de la revelación y la presencia del Espíritu en la inspiración del AT.",
+  "matiz": "Debate sobre «Espíritu de Cristo»: (a) el Espíritu Santo como Espíritu de Cristo preexistente (la mayoría); (b) implica la preexistencia de Cristo; (c) el espíritu del Mesías. «Qué persona o qué tiempo»: ¿cuándo (tiempo) o quién (persona) lo cumpliría?",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "escudriñando qué persona o tiempo indicaba el Espíritu de Cristo que estaba en ellos, el cual anunciaba de antemano los sufrimientos de Cristo, y las glorias que vendrían tras ellos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 8:9",
+   "Is 53",
+   "Sal 22",
+   "Lc 24:26"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "1Pet.1.12",
+  "strong": "G32",
+  "forma": "ἄγγελοι",
+  "glosa_interlineal": "ángeles",
+  "rango_semantico": [
+   "ángel"
+  ],
+  "construccion": "Nominativo plural: «a los cuales fue revelado que no para sí mismos, sino para nosotros, administraban las cosas que ahora os son anunciadas por los que os han predicado el evangelio por el Espíritu Santo enviado del cielo; cosas en las cuales desean mirar los ángeles».",
+  "sentido_en_contexto": "Los ángeles desean «mirar» (παρακύψαι: asomarse con curiosidad) en la salvación, que no les ha sido dada a ellos. Los cristianos poseen una revelación que supera el conocimiento angélico. Muestra la grandeza del evangelio.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "A los cuales fue revelado que no para sí mismos, sino para nosotros, administraban las cosas que ahora os son anunciadas por los que os han predicado el evangelio por el Espíritu Santo enviado del cielo; cosas en las cuales desean mirar los ángeles."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ef 3:10",
+   "Heb 1:14",
+   "1 Ti 3:16"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Pet.1.13",
+  "strong": "G328",
+  "forma": "ἀναζωσάμενοι",
+  "glosa_interlineal": "ceñid",
+  "rango_semantico": [
+   "ceñir, atarse la ropa"
+  ],
+  "construccion": "Participio aoristo medio: «por tanto, ceñid los lomos de vuestro entendimiento, sed sobrios, y esperad por completo en la gracia que se os traerá cuando Jesucristo sea manifestado».",
+  "sentido_en_contexto": "Imagen de recoger la túnica para actuar con rapidez (Éx 12:11; Lc 12:35). Preparación mental: sobriedad y esperanza total en la gracia futura. Comienza la sección ética (1:13—2:10): ser santos como Dios es santo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Por tanto, ceñid los lomos de vuestro entendimiento, sed sobrios, y esperad por completo en la gracia que se os traerá cuando Jesucristo sea manifestado;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 12:11",
+   "Lc 12:35",
+   "Ef 6:14",
+   "1 P 4:7"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Pet.1.16",
+  "strong": "G40",
+  "forma": "ἅγιοι",
+  "glosa_interlineal": "santos",
+  "rango_semantico": [
+   "santo"
+  ],
+  "construccion": "Nominativo plural: «porque escrito está: Sed santos, porque yo soy santo».",
+  "sentido_en_contexto": "Cita de Lv 11:44-45; 19:2; 20:7. La santidad de Dios es el fundamento de la ética cristiana. Pedro aplica a los creyentes (judíos y gentiles) el llamado del pacto sinaítico. Ser santos significa apartados para Dios y semejantes a él.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "porque escrito está: Sed santos, porque yo soy santo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lv 11:44-45; 19:2",
+   "Mt 5:48",
+   "Heb 12:14",
+   "1 P 1:15"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Pet.1.17",
+  "strong": "G2919",
+  "forma": "κρίνοντα",
+  "glosa_interlineal": "que juzga",
+  "rango_semantico": [
+   "juzgar"
+  ],
+  "construccion": "Participio presente activo: «y si invocáis por Padre a aquel que sin acepción de personas juzga según la obra de cada uno, conducíos en temor todo el tiempo de vuestra peregrinación».",
+  "sentido_en_contexto": "El Padre juzga «según la obra de cada uno», sin favoritismo: se funda el temor reverencial del creyente. Tensión entre paternidad y juicio. Pedro no sugiere salvación por obras: el juicio de las obras es evidencia de la fe (cf. 2 Co 5:10).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y si invocáis por Padre a aquel que sin acepción de personas juzga según la obra de cada uno, conducíos en temor todo el tiempo de vuestra peregrinación;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 2:6-11",
+   "2 Co 5:10",
+   "Heb 12:28-29",
+   "Ap 20:12"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Pet.1.18",
+  "strong": "G3084",
+  "forma": "ἐλυτρώθητε",
+  "glosa_interlineal": "fuisteis rescatados",
+  "rango_semantico": [
+   "rescatar, redimir"
+  ],
+  "construccion": "Aoristo indicativo pasivo: «sabiendo que fuisteis rescatados de vuestra vana manera de vivir, la cual recibisteis de vuestros padres, no con cosas corruptibles, como oro o plata, sino con la sangre preciosa de Cristo, como de un cordero sin mancha y sin contaminación».",
+  "sentido_en_contexto": "Redención por la sangre de Cristo, el Cordero sin mancha (alusión a la Pascua y a Is 53). El rescate libra de la «vana manera de vivir» heredada: aplicable a gentiles (religión pagana) y a judíos (tradiciones sin vida). Cf. Éx 12:5; Is 53:7.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "sabiendo que fuisteis rescatados de vuestra vana manera de vivir, la cual recibisteis de vuestros padres, no con cosas corruptibles, como oro o plata, sino con la sangre preciosa de Cristo, como de un cordero sin mancha y sin contaminación,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 12:5",
+   "Is 53:7",
+   "Jn 1:29",
+   "Heb 9:12-14"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Pet.1.20",
+  "strong": "G4267",
+  "forma": "προεγνωσμένου",
+  "glosa_interlineal": "conocido de antemano",
+  "rango_semantico": [
+   "conocer de antemano, preordenar"
+  ],
+  "construccion": "Participio perfecto pasivo: «ya destinado desde antes de la fundación del mundo, pero manifestado en los postreros tiempos por amor de vosotros».",
+  "sentido_en_contexto": "Cristo fue «conocido de antemano» o designado antes de la creación para ser el Cordero. «Pero manifestado en estos postreros tiempos». Muestra que la cruz no fue un plan de emergencia, sino el designio eterno de Dios. Con 1:2 aclara el sentido de προγινώσκω.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "ya destinado desde antes de la fundación del mundo, pero manifestado en los postreros tiempos por amor de vosotros,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ef 1:4",
+   "Ap 13:8",
+   "Hch 2:23",
+   "Tit 1:2-3"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Pet.1.22",
+  "strong": "G48",
+  "forma": "ἡγνικότες",
+  "glosa_interlineal": "purificadas",
+  "rango_semantico": [
+   "purificar, hacer casto"
+  ],
+  "construccion": "Participio perfecto activo: «habiendo purificado vuestras almas por la obediencia a la verdad, mediante el Espíritu, para el amor fraternal no fingido, amaos unos a otros entrañablemente, de corazón puro».",
+  "sentido_en_contexto": "La purificación del alma por la obediencia a la verdad tiene como fin el amor fraternal sincero. Se llama a amarse «ardientemente» (ἐκτενῶς: con tensión, sin cansarse). Pasa de la santidad a la comunidad.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Habiendo purificado vuestras almas por la obediencia a la verdad, mediante el Espíritu, para el amor fraternal no fingido, amaos unos a otros entrañablemente, de corazón puro;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 13:34",
+   "1 Jn 3:18",
+   "Ro 12:9-10",
+   "1 Ts 4:9"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Pet.1.23",
+  "strong": "G313",
+  "forma": "ἀναγεγεννημένοι",
+  "glosa_interlineal": "renacidos",
+  "rango_semantico": [
+   "engendrar de nuevo"
+  ],
+  "construccion": "Participio perfecto pasivo: «siendo renacidos, no de simiente corruptible, sino de incorruptible, por la palabra de Dios que vive y permanece para siempre».",
+  "sentido_en_contexto": "El nuevo nacimiento se produce por la palabra de Dios viva y permanente (el evangelio; v.25). La simiente es incorruptible, por contraste con la carne mortal (v.24; Is 40:6-8). Texto sobre la regeneración por la palabra.",
+  "matiz": "Debate: la palabra de Dios que regenera es (a) el evangelio predicado (v.25; la mayoría); (b) Cristo, el Verbo (Jn 1:1); (c) la Escritura. Ver Stg 1:18.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "siendo renacidos, no de simiente corruptible, sino de incorruptible, por la palabra de Dios que vive y permanece para siempre."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jas 1:18",
+   "Jn 1:12-13; 3:3-8",
+   "Is 40:6-8",
+   "Heb 4:12"
+  ],
+  "nivel_certeza": "medio"
+ }
+]

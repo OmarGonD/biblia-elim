@@ -1,0 +1,420 @@
+[
+ {
+  "ref": "Mark.4.3",
+  "strong": "G191",
+  "forma": "ἀκούετε",
+  "glosa_interlineal": "oíd",
+  "rango_semantico": [
+   "oír, escuchar",
+   "prestar atención"
+  ],
+  "construccion": "Imperativo presente activo, 2ª plural: «escuchad».",
+  "sentido_en_contexto": "Marcos abre la parábola del sembrador con «escuchad» (Mateo no); es un eco del Shemá (Dt 6:4). El tema del capítulo es cómo se oye. «Oír» aparece unas trece veces en el capítulo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 6:4 — «oye, Israel»",
+   "Mr 4:9, 23 — «el que tiene oídos para oír, oiga»",
+   "Mr 4:24 — «mirad lo que oís»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.4.11",
+  "strong": "G3466",
+  "forma": "μυστήριον",
+  "glosa_interlineal": "misterio",
+  "rango_semantico": [
+   "misterio, secreto revelado"
+  ],
+  "construccion": "Acusativo singular: «el misterio del reino de Dios». Marcos usa singular; Mateo, plural («misterios»).",
+  "sentido_en_contexto": "El «misterio» es el Reino mismo presente en Jesús, un secreto que Dios da a conocer a quienes él quiere.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y les dijo: A vosotros os es dado saber el misterio del reino de Dios; mas a los que están fuera, por parábolas todas las cosas;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 13:11 — paralelo en plural",
+   "Ro 16:25-26 — «el misterio… ahora manifestado»",
+   "Col 1:26-27 — «el misterio… Cristo en vosotros»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.4.11",
+  "strong": "G1854",
+  "forma": "ἔξω",
+  "glosa_interlineal": "los de fuera",
+  "rango_semantico": [
+   "fuera, afuera",
+   "los que están fuera (de la comunidad)"
+  ],
+  "construccion": "Adverbio sustantivado: «los de fuera».",
+  "sentido_en_contexto": "Quienes no pertenecen al círculo de los discípulos. La distinción «vosotros / los de fuera» marca dos modos de oír las parábolas.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "1 Co 5:12-13 — «los de afuera»",
+   "Col 4:5 — «andad sabiamente para con los de afuera»",
+   "Mr 3:31-32 — su familia «afuera»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.4.12",
+  "strong": "G2443",
+  "forma": "ἵνα",
+  "glosa_interlineal": "para que",
+  "rango_semantico": [
+   "para que (finalidad)",
+   "de manera que (resultado)",
+   "que (contenido)"
+  ],
+  "construccion": "Conjunción de finalidad, con subjuntivo: «para que viendo vean y no perciban».",
+  "sentido_en_contexto": "Marcos presenta la finalidad de las parábolas con ἵνα (finalidad), mientras Mateo usa ὅτι («porque», 13:13). Cita Is 6:9-10.",
+  "matiz": "Debate: ¿es finalidad real (Dios endurece deliberadamente), resultado (así sucede) o una forma semítica de cita (como «para que se cumpla»)? Algunos suavizan el ἵνα; otros lo toman literalmente. El pasaje queda como uno de los más discutidos de Marcos.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "para que viendo, vean y no perciban; y oyendo, oigan y no entiendan; para que no se conviertan, y les sean perdonados los pecados."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 6:9-10 — texto citado",
+   "Mt 13:13 — «porque viendo no ven»",
+   "Hch 28:26-27 — cita el mismo texto"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "Mark.4.13",
+  "strong": "G1097",
+  "forma": "γνώσεσθε",
+  "glosa_interlineal": "conoceréis",
+  "rango_semantico": [
+   "conocer, entender"
+  ],
+  "construccion": "Futuro indicativo medio, 2ª plural: «¿cómo entenderéis todas las parábolas?».",
+  "sentido_en_contexto": "Jesús reprende suavemente a los discípulos: si no entienden esta parábola básica, no entenderán las demás. La parábola del sembrador es llave de las otras.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y les dijo: ¿No sabéis esta parábola? ¿Cómo, pues, entenderéis todas las parábolas?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 4:34 — «a sus discípulos en particular les explicaba todo»",
+   "Mr 8:17-21 — «¿aún no entendéis?»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.4.17",
+  "strong": "G4624",
+  "forma": "σκανδαλίζονται",
+  "glosa_interlineal": "tropiezan",
+  "rango_semantico": [
+   "tropezar, apartarse, escandalizarse"
+  ],
+  "construccion": "Presente indicativo pasivo, 3ª plural: «en seguida tropiezan».",
+  "sentido_en_contexto": "Los de suelo pedregoso se apartan en cuanto aparece la presión. Marcos usa «en seguida» (εὐθύς) repetido para subrayar la fragilidad.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 13:21 — paralelo",
+   "Jn 6:61 — «¿esto os escandaliza?»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.4.19",
+  "strong": "G1939",
+  "forma": "ἐπιθυμίαι",
+  "glosa_interlineal": "deseos",
+  "rango_semantico": [
+   "deseo, anhelo",
+   "codicia"
+  ],
+  "construccion": "Nominativo plural: «los deseos de otras cosas».",
+  "sentido_en_contexto": "Marcos añade a las preocupaciones y la seducción de las riquezas «las codicias de otras cosas». Es una lista más amplia que la de Mateo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "pero los afanes de este siglo, y el engaño de las riquezas, y las codicias de otras cosas, entran y ahogan la palabra, y se hace infructuosa."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 8:14 — «los afanes, las riquezas y los placeres»",
+   "1 Jn 2:16 — «los deseos de la carne»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.4.21",
+  "strong": "G3088",
+  "forma": "λύχνος",
+  "glosa_interlineal": "lámpara",
+  "rango_semantico": [
+   "lámpara de aceite"
+  ],
+  "construccion": "Nominativo: «¿acaso se trae la lámpara para ponerla bajo el almud?».",
+  "sentido_en_contexto": "Pregunta retórica: la lámpara se enciende para alumbrar, no para ocultarse. Se aplica al mensaje que se revela, aun si hoy es secreto.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 5:15 — mismo dicho en el Sermón del Monte",
+   "Lc 8:16 — paralelo",
+   "Lc 11:33 — paralelo"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.4.24",
+  "strong": "G3358",
+  "forma": "μέτρῳ",
+  "glosa_interlineal": "medida",
+  "rango_semantico": [
+   "medida"
+  ],
+  "construccion": "ἐν + dativo: «con la medida con que medís».",
+  "sentido_en_contexto": "En Marcos la medida se aplica a cómo se oye: la atención que uno presta a la palabra determina lo que recibe. En Mateo (7:2) se aplica al juzgar.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Les dijo también: Mirad lo que oís; con la medida con que medís, os será medido, y aun se os añadirá a vosotros los que oís."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 7:2 — «con la medida con que medís»",
+   "Lc 6:38 — «con la misma medida con que medís»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.4.28",
+  "strong": "G844",
+  "forma": "αὐτομάτη",
+  "glosa_interlineal": "por sí misma",
+  "rango_semantico": [
+   "por sí mismo, espontáneamente"
+  ],
+  "construccion": "Adjetivo nominativo: «la tierra da fruto por sí misma (αὐτομάτη)».",
+  "sentido_en_contexto": "Parábola exclusiva de Marcos (la semilla que crece sola). El Reino crece por obra de Dios sin que el sembrador sepa cómo; el hombre duerme y se levanta mientras tanto.",
+  "matiz": "Se debate el sentido: (a) la fuerza del Reino reside en Dios, no en el esfuerzo humano; (b) hay una paciencia necesaria hasta la cosecha. «Por sí misma» es la raíz de «automático».",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque de suyo lleva fruto la tierra, primero hierba, luego espiga, después grano lleno en la espiga;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 12:10 — «la puerta de hierro… se les abrió por sí misma»",
+   "1 Co 3:6-7 — «Dios ha dado el crecimiento»",
+   "Is 55:10-11 — la lluvia y la nieve que fructifican"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.4.29",
+  "strong": "G1407",
+  "forma": "δρέπανον",
+  "glosa_interlineal": "hoz",
+  "rango_semantico": [
+   "hoz, instrumento de siega"
+  ],
+  "construccion": "Acusativo: «en seguida se mete la hoz».",
+  "sentido_en_contexto": "Cierre con imagen de Jl 3:13: la hoz anuncia la cosecha. Marcos subraya que «la siega ha llegado», con lenguaje de juicio.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "y cuando el fruto está maduro, en seguida se mete la hoz, porque la siega ha llegado."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jl 3:13 — «meted la hoz, porque la mies está madura»",
+   "Ap 14:14-16 — la hoz aguda en el Hijo del Hombre"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.4.31",
+  "strong": "G4615",
+  "forma": "σινάπεως",
+  "glosa_interlineal": "mostaza",
+  "rango_semantico": [
+   "mostaza"
+  ],
+  "construccion": "Genitivo: «grano de mostaza».",
+  "sentido_en_contexto": "Marcos subraya el contraste: la más pequeña de las semillas se hace la mayor de las hortalizas, con ramas donde anidan aves. Imagen de crecimiento inesperado.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 13:31-32 — paralelo",
+   "Lc 13:18-19 — paralelo",
+   "Ez 17:23 — aves anidando en el cedro"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.4.34",
+  "strong": "G1956",
+  "forma": "ἐπέλυεν",
+  "glosa_interlineal": "explicaba",
+  "rango_semantico": [
+   "explicar, resolver, desatar"
+  ],
+  "construccion": "Imperfecto indicativo activo, 3ª singular: «iba explicándoles».",
+  "sentido_en_contexto": "Verbo de «desatar» (como un nudo): a los discípulos, en privado, Jesús les «desataba» todo. Imperfecto: acción habitual.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y sin parábolas no les hablaba; aunque a sus discípulos en particular les declaraba todo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 19:39 — «se resolverá en legítima asamblea»",
+   "2 P 1:20 — «ninguna profecía… es de interpretación privada (ἐπιλύσεως)»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.4.37",
+  "strong": "G2978",
+  "forma": "λαῖλαψ",
+  "glosa_interlineal": "tempestad",
+  "rango_semantico": [
+   "torbellino, tormenta de viento"
+  ],
+  "construccion": "Nominativo: «una gran tempestad de viento».",
+  "sentido_en_contexto": "Una ráfaga violenta de las que bajan de los montes al lago de Galilea. Marcos la describe con vivacidad: las olas entran en la barca.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero se levantó una gran tempestad de viento, y echaba las olas en la barca, de tal manera que ya se anegaba."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 8:24 — «un gran temblor en el mar»",
+   "Lc 8:23 — «una tempestad de viento»",
+   "2 P 2:17 — «nubes empujadas por la tormenta»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.4.38",
+  "strong": "G4344",
+  "forma": "προσκεφάλαιον",
+  "glosa_interlineal": "cabezal",
+  "rango_semantico": [
+   "almohada, cojín"
+  ],
+  "construccion": "Acusativo: «sobre un cabezal».",
+  "sentido_en_contexto": "Detalle exclusivo de Marcos: Jesús duerme sobre un cojín en la popa, mientras sus discípulos se asustan. Retrato humano de cansancio y confianza.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y él estaba en la popa, durmiendo sobre un cabezal; y le despertaron, y le dijeron: Maestro, ¿no tienes cuidado que perecemos?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 4:8 — «en paz me acostaré, y asimismo dormiré»",
+   "Jon 1:5-6 — Jonás duerme en la tormenta"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.4.39",
+  "strong": "G5392",
+  "forma": "πεφίμωσο",
+  "glosa_interlineal": "enmudece",
+  "rango_semantico": [
+   "amordazar, silenciar"
+  ],
+  "construccion": "Imperativo perfecto pasivo, 2ª singular: «¡enmudece!».",
+  "sentido_en_contexto": "Jesús ordena al mar «¡calla, enmudece!», con el mismo verbo que usó con el demonio en 1:25. Trata a la tormenta como a una potencia hostil.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y levantándose, reprendió al viento, y dijo al mar: Calla, enmudece. Y cesó el viento, y se hizo grande bonanza."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 1:25 — «cállate» al espíritu inmundo",
+   "Sal 65:7 — «el que calma el estruendo de los mares»",
+   "Sal 107:29 — «hace que se aquieten sus olas»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.4.40",
+  "strong": "G1169",
+  "forma": "δειλοί",
+  "glosa_interlineal": "cobardes",
+  "rango_semantico": [
+   "temeroso, cobarde"
+  ],
+  "construccion": "Adjetivo nominativo plural: «¿por qué estáis así amedrentados?».",
+  "sentido_en_contexto": "Marcos presenta la pregunta de Jesús como un reproche más duro que Mateo («poca fe»): ¿cómo no tenéis fe? El miedo aparece como lo opuesto a la fe.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 8:26 — «hombres de poca fe»",
+   "2 Ti 1:7 — «no nos ha dado Dios espíritu de cobardía»",
+   "Ap 21:8 — «los cobardes»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.4.41",
+  "strong": "G5401",
+  "forma": "φόβον",
+  "glosa_interlineal": "temor",
+  "rango_semantico": [
+   "miedo, temor"
+  ],
+  "construccion": "Acusativo cognado: «temieron con gran temor» (ἐφοβήθησαν φόβον μέγαν).",
+  "sentido_en_contexto": "El temor pasa de la tormenta al Señor de la tormenta: les da más miedo Jesús que el viento. Prepara la pregunta central de Marcos: «¿quién es éste?»",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces temieron con gran temor, y se decían unos a otros: ¿Quién es éste, que aun el viento y el mar le obedecen?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jon 1:16 — «temieron aquellos hombres a Jehová con gran temor»",
+   "Mr 4:41 — pregunta eje del Evangelio",
+   "Mr 8:29 — «¿quién decís que soy?»"
+  ],
+  "nivel_certeza": "medio"
+ }
+]

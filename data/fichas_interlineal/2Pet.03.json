@@ -1,0 +1,284 @@
+[
+ {
+  "ref": "2Pet.3.1",
+  "strong": "G1992",
+  "forma": "ἐπιστολήν",
+  "glosa_interlineal": "carta",
+  "rango_semantico": [
+   "carta, epístola"
+  ],
+  "construccion": "Acusativo: «amados, esta es la segunda carta que os escribo; y en ambas despierto con exhortación vuestro limpio entendimiento».",
+  "sentido_en_contexto": "«Segunda carta»: referencia probable a 1 Pedro, aunque no es seguro. Si es así, apoya la autoría común (o la imitación). Se discute si los destinatarios son los mismos. El tema: recordar las palabras de los profetas y de los apóstoles (v.2).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Amados, esta es la segunda carta que os escribo; y en ambas despierto con exhortación vuestro limpio entendimiento,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 P 1:1",
+   "2 P 1:12-15"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "2Pet.3.3",
+  "strong": "G1703",
+  "forma": "ἐμπαῖκται",
+  "glosa_interlineal": "burladores",
+  "rango_semantico": [
+   "burlador, escarnecedor"
+  ],
+  "construccion": "Nominativo plural: «sabiendo primero esto, que en los postreros días vendrán burladores, andando según sus propias concupiscencias».",
+  "sentido_en_contexto": "Los burladores cuestionan la promesa de la venida del Señor (v.4: «¿dónde está la promesa de su advenimiento?»). Se apoyan en la regularidad del cosmos y la muerte de los padres. Pedro responde con tres argumentos: la creación y el diluvio (vv.5-7), la perspectiva divina del tiempo (v.8) y la paciencia de Dios (v.9).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "sabiendo primero esto, que en los postreros días vendrán burladores, andando según sus propias concupiscencias,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jud 17-18",
+   "1 Ti 4:1",
+   "2 Ti 3:1-5"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "2Pet.3.4",
+  "strong": "G1860",
+  "forma": "ἐπαγγελία",
+  "glosa_interlineal": "promesa",
+  "rango_semantico": [
+   "promesa"
+  ],
+  "construccion": "Nominativo: «y diciendo: ¿Dónde está la promesa de su advenimiento? Porque desde el día en que los padres durmieron, todas las cosas permanecen así como desde el principio de la creación».",
+  "sentido_en_contexto": "La objeción de los burladores: todo sigue igual; ¿por qué no ha venido? «Los padres» son probablemente la primera generación cristiana (o los patriarcas). Pedro refuta con la historia del diluvio: Dios sí interviene en la historia.",
+  "matiz": "Debate: «los padres durmieron»: (a) la primera generación de creyentes (la mayoría; implica una fecha tardía); (b) los patriarcas de Israel. Cf. 3:8-9.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "y diciendo: ¿Dónde está la promesa de su advenimiento? Porque desde el día en que los padres durmieron, todas las cosas permanecen así como desde el principio de la creación."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:48",
+   "Hab 2:3",
+   "Heb 10:37",
+   "1 P 4:7"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "2Pet.3.8",
+  "strong": "G5507",
+  "forma": "χίλια",
+  "glosa_interlineal": "mil",
+  "rango_semantico": [
+   "mil"
+  ],
+  "construccion": "Nominativo neutro plural: «mas, amados, no ignoréis esto: que para con el Señor un día es como mil años, y mil años como un día».",
+  "sentido_en_contexto": "Cita de Sal 90:4: la perspectiva divina del tiempo. No es una fórmula para calcular fechas (un día = mil años), sino que indica que Dios no mide el tiempo como los hombres. Algunos han usado v.8 para teorías sobre días-milenios; el contexto es la paciencia divina.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Mas, amados, no ignoréis esto: que para con el Señor un día es como mil años, y mil años como un día."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 90:4",
+   "Heb 10:37",
+   "Ap 20:2-7"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "2Pet.3.9",
+  "strong": "G3114",
+  "forma": "μακροθυμεῖ",
+  "glosa_interlineal": "es paciente",
+  "rango_semantico": [
+   "ser paciente, ser longánime"
+  ],
+  "construccion": "Presente indicativo activo: «el Señor no retarda su promesa, según algunos la tienen por tardanza, sino que es paciente para con nosotros, no queriendo que ninguno perezca, sino que todos procedan al arrepentimiento».",
+  "sentido_en_contexto": "La demora de la parusía es paciencia de Dios para dar oportunidad de arrepentimiento. «No queriendo que ninguno perezca, sino que todos procedan al arrepentimiento»: otro texto sobre la voluntad salvífica universal de Dios (cf. 1 Ti 2:4). Se debate el sentido de «ninguno» y «todos».",
+  "matiz": "Debate: (a) Dios quiere sinceramente la salvación de todos, pero respeta la libertad humana (arminiana, católica, ortodoxa); (b) «ninguno… todos» se refiere a «vosotros» (los elegidos; reformada, v. «para con vosotros»); (c) distinción entre voluntad de deseo y de decreto.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "El Señor no retarda su promesa, según algunos la tienen por tardanza, sino que es paciente para con nosotros, no queriendo que ninguno perezca, sino que todos procedan al arrepentimiento."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Ti 2:4",
+   "Ez 18:23, 32",
+   "Ro 2:4",
+   "Hab 2:3"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "2Pet.3.10",
+  "strong": "G4747",
+  "forma": "στοιχεῖα",
+  "glosa_interlineal": "elementos",
+  "rango_semantico": [
+   "elemento, principio básico"
+  ],
+  "construccion": "Nominativo plural: «pero el día del Señor vendrá como ladrón en la noche; en el cual los cielos pasarán con gran estruendo, y los elementos ardiendo serán deshechos, y la tierra y las obras que en ella hay serán quemadas».",
+  "sentido_en_contexto": "Descripción del día del Señor: los cielos pasan con estruendo, los «elementos» (στοιχεῖα: cuerpos celestes o elementos físicos) se disuelven con fuego, y la tierra y sus obras son «halladas» (variante textual muy debatida: «serán quemadas» o «serán halladas»). El texto no afirma aniquilación, sino purificación.",
+  "matiz": "Variante textual: «serán quemadas» (κατακαήσεται; mayoría tardía) frente a «serán halladas» (εὑρεθήσεται; Sinaítico, Vaticano) u otras lecturas (P72: «serán halladas deshechas»). Debate teológico: (a) aniquilación y nueva creación (luteranos antiguos); (b) purificación y transformación de la creación (la mayoría hoy, cf. Ro 8:19-22); (c) juicio sobre las obras (que se revelan).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero el día del Señor vendrá como ladrón en la noche; en el cual los cielos pasarán con gran estruendo, y los elementos ardiendo serán deshechos, y la tierra y las obras que en ella hay serán quemadas."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Ts 5:2",
+   "Mt 24:35",
+   "Ap 21:1",
+   "Ro 8:19-22"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "2Pet.3.12",
+  "strong": "G4692",
+  "forma": "σπεύδοντας",
+  "glosa_interlineal": "apresurando",
+  "rango_semantico": [
+   "apresurar, acelerar"
+  ],
+  "construccion": "Participio presente activo: «esperando y apresurándoos para la venida del día de Dios, en el cual los cielos, encendiéndose, serán deshechos, y los elementos, siendo quemados, se fundirán».",
+  "sentido_en_contexto": "Los creyentes pueden «acelerar» (o «anhelar ansiosamente») la venida del día de Dios por su santidad y evangelización. Se debate si σπεύδω es transitivo (acelerar) o intransitivo (esforzarse, desear con ansia), y si la conducta humana puede adelantar la parusía.",
+  "matiz": "Debate: (a) los creyentes pueden adelantar la venida cumpliendo condiciones (misión, arrepentimiento; ver Mt 24:14); (b) anhelar ardientemente su venida (sin influir en su fecha; la mayoría); (c) apresurarse en santidad para estar listos.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "esperando y apresurándoos para la venida del día de Dios, en el cual los cielos, encendiéndose, serán deshechos, y los elementos, siendo quemados, se fundirán."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:14",
+   "Hch 3:19-21",
+   "Ap 22:20",
+   "2 P 3:11"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "2Pet.3.13",
+  "strong": "G2537",
+  "forma": "καινοὺς",
+  "glosa_interlineal": "nuevos",
+  "rango_semantico": [
+   "nuevo (en calidad)"
+  ],
+  "construccion": "Acusativo plural: «pero nosotros esperamos, según sus promesas, cielos nuevos y tierra nueva, en los cuales mora la justicia».",
+  "sentido_en_contexto": "Esperanza de cielos nuevos y tierra nueva (Is 65:17; 66:22; Ap 21:1), donde «habita la justicia». Se debate si es una creación enteramente nueva o una renovación de la actual. El énfasis ético es claro: vivir en santidad con esa esperanza (v.14).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero nosotros esperamos, según sus promesas, cielos nuevos y tierra nueva, en los cuales mora la justicia."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 65:17; 66:22",
+   "Ap 21:1-5",
+   "Ro 8:21",
+   "Mt 19:28"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "2Pet.3.15",
+  "strong": "G3115",
+  "forma": "μακροθυμίαν",
+  "glosa_interlineal": "paciencia",
+  "rango_semantico": [
+   "paciencia, longanimidad"
+  ],
+  "construccion": "Acusativo: «y tened entendido que la paciencia de nuestro Señor es para salvación; como también nuestro amado hermano Pablo, según la sabiduría que le ha sido dada, os ha escrito».",
+  "sentido_en_contexto": "Pedro respalda su enseñanza con la autoridad de Pablo, «nuestro amado hermano» (relación cordial entre apóstoles, pese a Gá 2). La paciencia del Señor es oportunidad de salvación. Alusión a una carta de Pablo no identificada (¿Romanos 2:4?, 1 Ts, otras).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y tened entendido que la paciencia de nuestro Señor es para salvación; como también nuestro amado hermano Pablo, según la sabiduría que le ha sido dada, os ha escrito,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 2:4",
+   "Gá 2:11-14",
+   "1 Ts 5:1-11",
+   "Ro 9:22"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "2Pet.3.16",
+  "strong": "G1124",
+  "forma": "γραφὰς",
+  "glosa_interlineal": "Escrituras",
+  "rango_semantico": [
+   "Escritura, escrito"
+  ],
+  "construccion": "Acusativo plural: «casi en todas sus epístolas, hablando en ellas de estas cosas; entre las cuales hay algunas difíciles de entender, las cuales los ignorantes e inestables tuercen, como también las otras Escrituras, para perdición de sí mismos».",
+  "sentido_en_contexto": "Pedro equipara las cartas de Pablo con «las otras Escrituras»: testimonio temprano del estatus escriturario de los escritos paulinos. Reconoce que algunos pasajes de Pablo son «difíciles de entender» y que los inestables los tuercen. Muestra el peligro de la mala interpretación.",
+  "matiz": "Debate: (a) «las demás Escrituras» incluye las cartas de Pablo, lo que apoya el canon temprano (la mayoría); (b) se refiere a escritos autoritativos generales. Este texto se usa en el debate sobre claridad de la Escritura (algunas partes son difíciles) y sobre la necesidad de una interpretación guiada (católica, ortodoxa) o por el Espíritu (protestante).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "casi en todas sus epístolas, hablando en ellas de estas cosas; entre las cuales hay algunas difíciles de entender, las cuales los ignorantes e inestables tuercen, como también las otras Escrituras, para perdición de sí mismos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 P 3:15",
+   "1 Co 14:37",
+   "Col 4:16",
+   "1 Ti 5:18"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "2Pet.3.18",
+  "strong": "G837",
+  "forma": "αὐξάνετε",
+  "glosa_interlineal": "creced",
+  "rango_semantico": [
+   "crecer, aumentar"
+  ],
+  "construccion": "Imperativo presente activo: «antes bien, creced en la gracia y el conocimiento de nuestro Señor y Salvador Jesucristo. A él sea gloria ahora y hasta el día de la eternidad. Amén».",
+  "sentido_en_contexto": "Cierre de la carta con una exhortación final: crecer en gracia y en conocimiento de Cristo, frente a los errores (v.17). Doxología a Cristo: notable que se dirija la gloria a Jesucristo («a él sea gloria»), prueba de su deidad en la fe primitiva.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Antes bien, creced en la gracia y el conocimiento de nuestro Señor y Salvador Jesucristo. A él sea gloria ahora y hasta el día de la eternidad. Amén."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ef 4:15",
+   "Col 1:10",
+   "1 P 2:2",
+   "2 P 1:5-8"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

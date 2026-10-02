@@ -1,0 +1,778 @@
+[
+ {
+  "ref": "Matt.4.1",
+  "strong": "G321",
+  "forma": "ἀνήχθη",
+  "glosa_interlineal": "fue llevado",
+  "rango_semantico": [
+   "llevar hacia arriba",
+   "conducir a un lugar elevado o interior",
+   "hacerse a la mar (náutico)"
+  ],
+  "construccion": "Aoristo indicativo pasivo, 3ª singular, con ὑπό + genitivo (τοῦ πνεύματος): el agente es el Espíritu.",
+  "sentido_en_contexto": "El Espíritu lleva a Jesús al desierto: la tentación no es un accidente sino parte del plan de Dios.",
+  "matiz": "El pasivo con agente subraya que la iniciativa es del Espíritu, mientras que el tentador (v.3) solo actúa después.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces Jesús fue llevado por el Espíritu al desierto, para ser tentado por el diablo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 2:22 — «lo llevaron a Jerusalén»",
+   "Hch 12:4 — «sacarlo al pueblo»",
+   "Lc 4:5 — «llevándole el diablo a un alto monte»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.1",
+  "strong": "G3985",
+  "forma": "πειρασθῆναι",
+  "glosa_interlineal": "ser tentado / probado",
+  "rango_semantico": [
+   "poner a prueba",
+   "tentar, inducir al mal",
+   "examinar"
+  ],
+  "construccion": "Infinitivo aoristo pasivo de finalidad: «para ser tentado».",
+  "sentido_en_contexto": "πειράζω abarca «probar» y «tentar». Aquí hay dos perspectivas: el Espíritu lleva a Jesús para ponerlo a prueba, y el diablo lo usa para tentarlo.",
+  "matiz": "El mismo acto tiene dos agentes con intenciones opuestas: Dios prueba para confirmar; el diablo tienta para hacer caer. Algunos subrayan que Dios no tienta a nadie al mal (Stg 1:13).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…para ser tentado por el diablo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Stg 1:13 — «Dios no puede ser tentado por el mal, ni él tienta a nadie»",
+   "Heb 4:15 — «tentado en todo según nuestra semejanza, pero sin pecado»",
+   "Hch 5:9 — «tentar al Espíritu del Señor»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.1",
+  "strong": "G1228",
+  "forma": "διαβόλου",
+  "glosa_interlineal": "diablo",
+  "rango_semantico": [
+   "calumniador, acusador",
+   "el Diablo (nombre propio del adversario)"
+  ],
+  "construccion": "ὑπό + genitivo: agente de la tentación.",
+  "sentido_en_contexto": "El nombre significa «el que acusa/calumnia». En el NT es el título del adversario; Mateo lo alterna con «Satanás» (v.10).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…para ser tentado por el diablo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ef 6:11 — «las asechanzas del diablo»",
+   "Jn 8:44 — «vosotros sois de vuestro padre el diablo»",
+   "Ap 12:9 — «la serpiente antigua, que se llama diablo y Satanás»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.2",
+  "strong": "G3522",
+  "forma": "νηστεύσας",
+  "glosa_interlineal": "habiendo ayunado",
+  "rango_semantico": [
+   "ayunar",
+   "abstenerse de comida"
+  ],
+  "construccion": "Participio aoristo activo, nominativo masculino: «después de ayunar». El aoristo indica que el ayuno es anterior al hambre.",
+  "sentido_en_contexto": "Cuarenta días y cuarenta noches evocan a Moisés (Éx 34:28) y a Elías (1 R 19:8), y los cuarenta años de Israel en el desierto.",
+  "matiz": "Mateo no dice explícitamente que evoque esos paralelos; es una lectura habitual. Muchos ven a Jesús como el verdadero Israel que supera la prueba que el pueblo falló.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y después de ayunar cuarenta días y cuarenta noches, tuvo hambre."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 34:28 — Moisés ayuna cuarenta días",
+   "1 R 19:8 — Elías camina cuarenta días",
+   "Mt 6:16 — «cuando ayunéis, no seáis austeros»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.4.3",
+  "strong": "G1487",
+  "forma": "εἰ",
+  "glosa_interlineal": "si",
+  "rango_semantico": [
+   "si (condicional)",
+   "(en preguntas) si, acaso"
+  ],
+  "construccion": "Condicional (εἰ + indicativo): «si eres», sin implicar duda sobre la verdad de la condición.",
+  "sentido_en_contexto": "No es «si acaso eres» con duda. En la tentación, el diablo da por supuesta la filiación («ya que eres Hijo de Dios») y la usa para incitar a Jesús a probarla.",
+  "matiz": "Algunos lo leen como condición real («puesto que eres»); otros como desafío («si de verdad eres»). El contexto del bautismo (3:17) hace que el diablo ponga en cuestión lo que el Padre acaba de afirmar.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Si eres Hijo de Dios, di que estas piedras se conviertan en pan."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 4:6 — misma fórmula en la segunda tentación",
+   "Mt 27:40 — «Si eres Hijo de Dios, desciende de la cruz»",
+   "Lc 22:70 — «¿Luego eres tú el Hijo de Dios?»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.4.3",
+  "strong": "G740",
+  "forma": "ἄρτοι",
+  "glosa_interlineal": "panes",
+  "rango_semantico": [
+   "pan, hogaza",
+   "comida en general",
+   "sustento"
+  ],
+  "construccion": "Nominativo plural, predicado de «piedras»: «que estas piedras se hagan panes».",
+  "sentido_en_contexto": "El diablo apela a la necesidad física de Jesús: tras cuarenta días de ayuno, el pan es lo más necesario. La tentación es usar su poder de Hijo para su provecho propio.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…di que estas piedras se conviertan en pan."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 6:11 — «el pan nuestro de cada día, dánoslo hoy»",
+   "Jn 6:35 — «yo soy el pan de vida»",
+   "Mt 14:19 — «tomó los cinco panes»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.4",
+  "strong": "G2198",
+  "forma": "ζήσεται",
+  "glosa_interlineal": "vivirá",
+  "rango_semantico": [
+   "vivir, tener vida",
+   "vivir de algo, subsistir"
+  ],
+  "construccion": "Futuro indicativo medio (deponente), 3ª singular. Cita Dt 8:3.",
+  "sentido_en_contexto": "Jesús responde con las Escrituras: la vida del hombre no se sostiene solo por el pan. Cita la lección del maná en el desierto: depender de Dios.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "No sólo de pan vivirá el hombre, sino de toda palabra que sale de la boca de Dios."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 8:3 — fuente de la cita",
+   "Lc 4:4 — paralelo",
+   "Jn 6:63 — «las palabras que yo os he hablado son espíritu y son vida»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.4",
+  "strong": "G4487",
+  "forma": "ῥήματι",
+  "glosa_interlineal": "palabra",
+  "rango_semantico": [
+   "palabra, dicho",
+   "cosa, asunto",
+   "mandato"
+  ],
+  "construccion": "Dativo singular con παντί: «de toda palabra».",
+  "sentido_en_contexto": "ῥῆμα es la palabra pronunciada, lo que Dios dice. Aquí la vida depende de lo que Dios habla, no solo de lo que se come.",
+  "matiz": "No es λόγος (el mensaje o discurso en general) sino ῥῆμα, la palabra hablada en un acto concreto: refleja el hebreo de Dt 8:3.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…sino de toda palabra que sale de la boca de Dios."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 1:37 — «nada hay imposible para Dios» (ῥῆμα)",
+   "Ro 10:17 — «la fe es por el oír, y el oír, por la palabra (ῥήματος) de Dios»",
+   "Ef 6:17 — «la espada del Espíritu, que es la palabra de Dios»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.5",
+  "strong": "G4419",
+  "forma": "πτερύγιον",
+  "glosa_interlineal": "pináculo",
+  "rango_semantico": [
+   "extremo, punta",
+   "ala pequeña",
+   "borde, pináculo"
+  ],
+  "construccion": "ἐπί + acusativo: «sobre el pináculo».",
+  "sentido_en_contexto": "Diminutivo de «ala»: la parte más alta o el borde del templo. No se sabe exactamente a qué parte se refiere (esquina del pórtico, el muro sobre el valle).",
+  "matiz": "La identificación del lugar es incierta; muchos piensan en la esquina sureste de la plataforma del templo, con caída al valle del Cedrón.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…y lo puso sobre el pináculo del templo,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 4:9 — paralelo"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.4.6",
+  "strong": "G1125",
+  "forma": "γέγραπται",
+  "glosa_interlineal": "está escrito",
+  "rango_semantico": [
+   "escribir",
+   "citar la Escritura"
+  ],
+  "construccion": "Perfecto indicativo pasivo: «está escrito y sigue valiendo».",
+  "sentido_en_contexto": "Esta vez el diablo mismo cita la Escritura (Sal 91:11-12), aunque la usa torcidamente: omite «en todos tus caminos».",
+  "matiz": "Jesús responde con otro texto (Dt 6:16): la Escritura debe interpretarse en conjunto, no usando un texto contra otro.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…porque escrito está: A sus ángeles mandará acerca de ti, y en sus manos te sostendrán, para que no tropieces con tu pie en piedra."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 91:11-12 — texto citado",
+   "Mt 4:4, 7, 10 — Jesús cita Dt tres veces",
+   "2 Co 11:14 — «Satanás se disfraza como ángel de luz»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.7",
+  "strong": "G1598",
+  "forma": "ἐκπειράσεις",
+  "glosa_interlineal": "pondrás a prueba",
+  "rango_semantico": [
+   "poner a prueba de manera exigente",
+   "tentar a fondo"
+  ],
+  "construccion": "Futuro indicativo activo, 2ª singular (con valor imperativo prohibitivo: «no tentarás»).",
+  "sentido_en_contexto": "El prefijo ἐκ- intensifica: no «probar» sin más, sino exigir a Dios que dé una señal para demostrar que cumple. Cita Dt 6:16.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Escrito está también: No tentarás al Señor tu Dios."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 6:16 — «no tentaréis al Señor vuestro Dios»",
+   "Hch 15:10 — «¿por qué tentáis a Dios?»",
+   "Lc 10:25 — un intérprete de la ley «para tentarle»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.8",
+  "strong": "G1391",
+  "forma": "δόξαν",
+  "glosa_interlineal": "gloria",
+  "rango_semantico": [
+   "gloria, esplendor",
+   "honor, fama",
+   "majestad divina"
+  ],
+  "construccion": "Acusativo, objeto de «muestra».",
+  "sentido_en_contexto": "El diablo enseña los reinos del mundo y su esplendor: poder, riqueza y fama. La tentación es obtener el reino sin pasar por la cruz.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…y le mostró todos los reinos del mundo y la gloria de ellos,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 4:6 — «a ti te daré toda esta potestad y la gloria de ellos»",
+   "Jn 1:14 — «vimos su gloria»",
+   "Mt 6:29 — «ni aun Salomón con toda su gloria»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.9",
+  "strong": "G4352",
+  "forma": "προσκυνήσῃς",
+  "glosa_interlineal": "adores",
+  "rango_semantico": [
+   "postrarse, rendir homenaje",
+   "adorar"
+  ],
+  "construccion": "Subjuntivo aoristo activo tras ἐάν: «si te postras y adoras».",
+  "sentido_en_contexto": "Aquí no es un simple saludo: el diablo exige adoración exclusiva, que pertenece solo a Dios (v.10).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Todo esto te daré, si postrado me adorares."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 2:2 — los magos «vienen a adorarle»",
+   "Ap 22:8 — «me postré para adorar a los pies del ángel»: se rechaza",
+   "Mt 4:10 — respuesta de Jesús"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.10",
+  "strong": "G5217",
+  "forma": "ὕπαγε",
+  "glosa_interlineal": "vete",
+  "rango_semantico": [
+   "irse, marcharse",
+   "ir"
+  ],
+  "construccion": "Imperativo presente activo, 2ª singular: mandato firme.",
+  "sentido_en_contexto": "Jesús despide al tentador con autoridad. En otros contextos, ὕπαγε es un simple «vete».",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Vete, Satanás…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 16:23 — «¡Quítate de delante de mí, Satanás!»",
+   "Mt 8:13 — «Vé, y como creíste, te sea hecho»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.10",
+  "strong": "G3000",
+  "forma": "λατρεύσεις",
+  "glosa_interlineal": "servirás",
+  "rango_semantico": [
+   "servir (con culto), rendir culto",
+   "adorar"
+  ],
+  "construccion": "Futuro indicativo activo, 2ª singular (valor imperativo). Cita Dt 6:13; Mateo añade «solo» (μόνῳ).",
+  "sentido_en_contexto": "λατρεύω es culto o servicio religioso. Jesús añade «solo» al texto de Dt 6:13, subrayando que la adoración es exclusiva de Dios.",
+  "matiz": "Mateo (y Lucas) añaden «solo» a la cita; la LXX tiene «a él servirás». Es un énfasis interpretativo.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…Al Señor tu Dios adorarás, y a él solo servirás."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 1:74 — «le sirvamos sin temor»",
+   "Hch 7:7 — «me servirán en este lugar»",
+   "Fil 3:3 — «los que servimos a Dios en espíritu»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.11",
+  "strong": "G1247",
+  "forma": "διηκόνουν",
+  "glosa_interlineal": "servían",
+  "rango_semantico": [
+   "servir, atender",
+   "ayudar"
+  ],
+  "construccion": "Imperfecto indicativo activo, 3ª plural: «iban sirviéndole». El imperfecto sugiere servicio continuado.",
+  "sentido_en_contexto": "Después de la victoria, los ángeles atienden a Jesús (ofrecen alimento, cuidado). Es el servicio de siervos hacia el Hijo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…y he aquí vinieron ángeles y le servían."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 20:28 — «el Hijo del Hombre no vino para ser servido, sino para servir»",
+   "Lc 8:3 — mujeres que le servían",
+   "Mr 1:13 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.12",
+  "strong": "G3860",
+  "forma": "παρεδόθη",
+  "glosa_interlineal": "fue entregado",
+  "rango_semantico": [
+   "entregar",
+   "traicionar",
+   "transmitir"
+  ],
+  "construccion": "Aoristo indicativo pasivo, 3ª singular: «fue entregado (a prisión)».",
+  "sentido_en_contexto": "El verbo anticipa el destino de Jesús: también él «será entregado» (Mt 17:22; 26:2). Juan es su precursor hasta en eso.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Cuando Jesús oyó que Juan estaba preso, volvió a Galilea;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 17:22 — «el Hijo del Hombre será entregado»",
+   "Mt 26:2 — «el Hijo del Hombre será entregado para ser crucificado»",
+   "1 Co 11:23 — «la noche que fue entregado»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.15",
+  "strong": "G1484",
+  "forma": "ἐθνῶν",
+  "glosa_interlineal": "gentiles",
+  "rango_semantico": [
+   "pueblo, nación",
+   "gentiles, no judíos"
+  ],
+  "construccion": "Genitivo plural, en «Galilea de los gentiles».",
+  "sentido_en_contexto": "En Isaías 9:1 «Galilea de las naciones»: región con población mezclada, vista como periferia. Mateo ve aquí que la luz llega primero a los marginados.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Galilea de los gentiles."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 28:19 — «haced discípulos a todas las naciones»",
+   "Hch 13:46 — «nos volvemos a los gentiles»",
+   "Mt 12:21 — «en su nombre esperarán los gentiles»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.16",
+  "strong": "G4655",
+  "forma": "σκότει",
+  "glosa_interlineal": "tinieblas",
+  "rango_semantico": [
+   "oscuridad",
+   "ignorancia moral o espiritual"
+  ],
+  "construccion": "ἐν + dativo: «en tinieblas».",
+  "sentido_en_contexto": "Cita de Is 9:2: las tinieblas son la situación de los que no han visto la salvación de Dios.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "El pueblo asentado en tinieblas vio gran luz…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 1:5 — «la luz en las tinieblas resplandece»",
+   "Mt 6:23 — «¡cuántas serán las mismas tinieblas!»",
+   "Hch 26:18 — «que se conviertan de las tinieblas a la luz»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.16",
+  "strong": "G5457",
+  "forma": "φῶς",
+  "glosa_interlineal": "luz",
+  "rango_semantico": [
+   "luz",
+   "claridad",
+   "(figurado) revelación, salvación"
+  ],
+  "construccion": "Acusativo, objeto de «vio». «Vio una gran luz»: Jesús es esa luz.",
+  "sentido_en_contexto": "Mateo aplica la imagen de Isaías al inicio de la predicación de Jesús en Galilea: la luz amanece donde estaba la oscuridad.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…vio gran luz…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 8:12 — «yo soy la luz del mundo»",
+   "Mt 5:14 — «vosotros sois la luz del mundo»",
+   "Lc 2:32 — «luz para revelación a los gentiles»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.17",
+  "strong": "G756",
+  "forma": "ἤρξατο",
+  "glosa_interlineal": "comenzó",
+  "rango_semantico": [
+   "comenzar, empezar"
+  ],
+  "construccion": "Aoristo indicativo medio, 3ª singular: «comenzó».",
+  "sentido_en_contexto": "Marca el inicio del ministerio público: «desde entonces» introduce una nueva etapa.",
+  "matiz": "En Mateo, «desde entonces» (ἀπὸ τότε) aparece aquí y en 16:21, y algunos lo toman como marca estructural del Evangelio.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Desde entonces comenzó Jesús a predicar, y a decir: Arrepentíos, porque el reino de los cielos se ha acercado."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 16:21 — «Desde entonces comenzó Jesús a declarar a sus discípulos…»",
+   "Lc 3:23 — «cuando comenzó, tenía casi treinta años»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.4.18",
+  "strong": "G4043",
+  "forma": "περιπατῶν",
+  "glosa_interlineal": "caminando",
+  "rango_semantico": [
+   "caminar, andar",
+   "vivir, conducirse"
+  ],
+  "construccion": "Participio presente activo: «mientras caminaba».",
+  "sentido_en_contexto": "Escena cotidiana: Jesús llama mientras camina por la orilla. El participio de presente marca simultaneidad.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Andando Jesús junto al mar de Galilea, vio a dos hermanos…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 1:16 — paralelo",
+   "Ef 5:2 — «andad en amor»",
+   "1 Jn 2:6 — «debe andar como él anduvo»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.19",
+  "strong": "G1205",
+  "forma": "δεῦτε",
+  "glosa_interlineal": "venid",
+  "rango_semantico": [
+   "venid, ea, vamos",
+   "(exhortación a ir con otro)"
+  ],
+  "construccion": "Adverbio-imperativo plural: «¡venid!».",
+  "sentido_en_contexto": "Invitación directa, no discusión. Se dirige a los dos hermanos pescadores.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y les dijo: Venid en pos de mí…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 11:28 — «Venid a mí todos los que estáis trabajados»",
+   "Mt 28:6 — «Venid, ved el lugar»",
+   "Mt 25:34 — «Venid, benditos de mi Padre»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.19",
+  "strong": "G231",
+  "forma": "ἁλιεῖς",
+  "glosa_interlineal": "pescadores",
+  "rango_semantico": [
+   "pescador"
+  ],
+  "construccion": "Acusativo plural (predicado): «os haré pescadores de hombres».",
+  "sentido_en_contexto": "Imagen que usa su oficio para describir su nueva misión: recoger personas para el reino. Es una llamada a cambiar de ocupación.",
+  "matiz": "En el AT, «pescar a hombres» (Jer 16:16) puede tener sentido de juicio; en Jesús es positivo (reunir). Se debate si Mateo conserva el matiz del AT.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…y os haré pescadores de hombres."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 1:17 — paralelo",
+   "Lc 5:10 — «desde ahora serás pescador de hombres»",
+   "Jer 16:16 — «enviaré muchos pescadores»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.4.20",
+  "strong": "G190",
+  "forma": "ἠκολούθησαν",
+  "glosa_interlineal": "siguieron",
+  "rango_semantico": [
+   "seguir, acompañar",
+   "ser discípulo"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª plural: «le siguieron».",
+  "sentido_en_contexto": "El aoristo señala la respuesta puntual: dejaron y siguieron. En los evangelios «seguir» a Jesús es la imagen del discipulado.",
+  "matiz": "El verbo es literal («andar detrás de») y figurado (ser discípulo); en este pasaje es ambos.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Ellos entonces, dejando al instante las redes, le siguieron."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 8:22 — «sígueme; deja que los muertos entierren a sus muertos»",
+   "Mt 9:9 — Mateo «se levantó y le siguió»",
+   "Mt 16:24 — «el que quiera venir en pos de mí… sígame»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.23",
+  "strong": "G1321",
+  "forma": "διδάσκων",
+  "glosa_interlineal": "enseñando",
+  "rango_semantico": [
+   "enseñar, instruir"
+  ],
+  "construccion": "Participio presente activo: «enseñando» (acción habitual).",
+  "sentido_en_contexto": "Primero de los tres participios que resumen su ministerio: enseñar, proclamar, sanar.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y recorrió Jesús toda Galilea, enseñando en las sinagogas de ellos…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 5:2 — «abriendo su boca les enseñaba»",
+   "Mt 7:29 — «enseñaba como quien tiene autoridad»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.23",
+  "strong": "G2098",
+  "forma": "εὐαγγέλιον",
+  "glosa_interlineal": "evangelio",
+  "rango_semantico": [
+   "buena noticia",
+   "mensaje de salvación"
+  ],
+  "construccion": "Acusativo singular, objeto de «proclamando»: «el evangelio del reino».",
+  "sentido_en_contexto": "En Mateo, «el evangelio del reino» es la buena noticia de que Dios reina; no designa aún un libro, sino el anuncio.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…y predicando el evangelio del reino…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 1:1 — «principio del evangelio de Jesucristo»",
+   "Ro 1:16 — «el evangelio… poder de Dios para salvación»",
+   "Mt 24:14 — «este evangelio del reino será predicado»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.23",
+  "strong": "G2323",
+  "forma": "θεραπεύων",
+  "glosa_interlineal": "sanando",
+  "rango_semantico": [
+   "curar, sanar",
+   "atender, servir"
+  ],
+  "construccion": "Participio presente activo: «sanando».",
+  "sentido_en_contexto": "Tercer participio del resumen: la sanación acompaña a la proclamación como señal del reino.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…y sanando toda enfermedad y toda dolencia en el pueblo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 8:7 — «yo iré y le sanaré»",
+   "Mt 10:1 — «para sanar toda enfermedad»",
+   "Hch 17:25 — «ni es honrado por manos humanas»: servir"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.24",
+  "strong": "G1139",
+  "forma": "δαιμονιζομένους",
+  "glosa_interlineal": "endemoniados",
+  "rango_semantico": [
+   "estar poseído por un demonio"
+  ],
+  "construccion": "Participio presente pasivo/medio, acusativo plural: «los endemoniados».",
+  "sentido_en_contexto": "Mateo los distingue de los enfermos comunes: son personas controladas por poderes espirituales hostiles.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…los endemoniados…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 8:28 — «dos endemoniados salían de los sepulcros»",
+   "Mt 12:22 — «un endemoniado, ciego y mudo»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.4.24",
+  "strong": "G4583",
+  "forma": "σεληνιαζομένους",
+  "glosa_interlineal": "lunáticos",
+  "rango_semantico": [
+   "que padece de epilepsia",
+   "(lit.) afectado por la luna"
+  ],
+  "construccion": "Participio presente pasivo/medio, acusativo plural.",
+  "sentido_en_contexto": "Término antiguo para epilépticos, en referencia al cambio de la luna (σελήνη). En Mt 17:15 se aplica a un niño con ataques.",
+  "matiz": "Se discute si Mateo distingue epilepsia de posesión; aquí los enumera por separado de los endemoniados.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…lunáticos…"
+   }
+  ],
+  "notas_traduccion": "RVR conserva «lunáticos» (de luna); otras versiones modernas traducen «epilépticos».",
+  "otros_usos": [
+   "Mt 17:15 — «tiene epilepsia y sufre mucho»"
+  ],
+  "nivel_certeza": "medio"
+ }
+]

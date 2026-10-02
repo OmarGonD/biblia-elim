@@ -1,0 +1,676 @@
+[
+ {
+  "ref": "Luke.22.3",
+  "strong": "G4567",
+  "forma": "σατανᾶς",
+  "glosa_interlineal": "Satanás",
+  "rango_semantico": [
+   "Satanás, el adversario"
+  ],
+  "construccion": "Nominativo: «entró Satanás en Judas».",
+  "sentido_en_contexto": "Lucas atribuye la traición a la entrada de Satanás en Judas (cf. 4:13: el diablo se apartó «hasta el momento oportuno»). Es el inicio de la pasión como confrontación con el poder de las tinieblas.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 4:13 — «se apartó de él por un tiempo»",
+   "Jn 13:27 — «Satanás entró en él»",
+   "Lc 22:53 — «la potestad de las tinieblas»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.22.7",
+  "strong": "G2380",
+  "forma": "θύεσθαι",
+  "glosa_interlineal": "sacrificarse",
+  "rango_semantico": [
+   "sacrificar, inmolar"
+  ],
+  "construccion": "Infinitivo presente pasivo: «en el cual era necesario sacrificar la pascua».",
+  "sentido_en_contexto": "El día de los panes sin levadura, cuando se inmolaba el cordero pascual. Lucas ubica la última cena en el marco de la Pascua.",
+  "matiz": "Discusión clásica sobre la cronología de la última cena: ¿fue cena pascual (sinópticos) o antes de la Pascua (Juan 18:28; 19:14)? Hay varias propuestas armonizadoras (calendarios distintos, uso de «Pascua» para toda la fiesta, etc.).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 12:6-8 — el cordero pascual",
+   "Mt 26:17; Mr 14:12 — paralelos",
+   "1 Co 5:7 — «nuestra pascua, que es Cristo»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Luke.22.12",
+  "strong": "G508",
+  "forma": "ἀνάγαιον",
+  "glosa_interlineal": "aposento alto",
+  "rango_semantico": [
+   "cuarto superior, sala alta"
+  ],
+  "construccion": "Acusativo: «un gran aposento alto, ya dispuesto».",
+  "sentido_en_contexto": "Jesús indica a Pedro y Juan que preparen la Pascua en una sala superior grande, amueblada. Detalle de la preparación sobrenatural y ordenada de la cena.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mr 14:15 — paralelo",
+   "Hch 1:13 — «subieron al aposento alto»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.22.15",
+  "strong": "G1937",
+  "forma": "ἐπεθύμησα",
+  "glosa_interlineal": "he deseado",
+  "rango_semantico": [
+   "desear, anhelar"
+  ],
+  "construccion": "Aoristo indicativo activo con epítome hebraizante (ἐπιθυμίᾳ ἐπεθύμησα): «con ansia he deseado».",
+  "sentido_en_contexto": "Jesús expresa su deseo intenso de comer esta Pascua con los discípulos «antes de padecer». Combina la cena con su pasión inminente.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y les dijo: ¡Cuánto he deseado comer con vosotros esta pascua antes que padezca!"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 22:16 — «no la comeré más»",
+   "Jn 13:1 — «habiendo amado a los suyos… los amó hasta el fin»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.22.19",
+  "strong": "G364",
+  "forma": "ἀνάμνησιν",
+  "glosa_interlineal": "memoria",
+  "rango_semantico": [
+   "recuerdo, memorial, conmemoración"
+  ],
+  "construccion": "Acusativo: «haced esto en memoria de mí».",
+  "sentido_en_contexto": "Mandato de repetir la cena como memorial. ἀνάμνησις en la tradición judía no es solo recuerdo mental sino actualización de un acto salvífico (como en la Pascua). Lucas y Pablo (1 Co 11:24-25) conservan el mandato; Mateo y Marcos no.",
+  "matiz": "Las tradiciones difieren en cuánto sentido de presencia o actualización implica «memorial»: mera conmemoración (zuingliana), presencia espiritual (reformada) o real (católica y luterana). El texto griego permite varias lecturas.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y tomó el pan y dio gracias, y lo partió y les dio, diciendo: Esto es mi cuerpo que por vosotros es dado; haced esto en memoria de mí."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 11:24-25 — «haced esto en memoria de mí»",
+   "Éx 12:14 — «este día os será en memoria»",
+   "Heb 10:3 — «un recordatorio de los pecados»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Luke.22.20",
+  "strong": "G1242",
+  "forma": "διαθήκη",
+  "glosa_interlineal": "pacto",
+  "rango_semantico": [
+   "pacto, alianza, testamento"
+  ],
+  "construccion": "Nominativo: «esta copa es el nuevo pacto en mi sangre».",
+  "sentido_en_contexto": "Alusión al nuevo pacto de Jer 31:31-34 y a la sangre del pacto en Éx 24:8. La sangre «derramada por vosotros» indica sacrificio sustitutivo. Es el único de los evangelios que dice explícitamente «nuevo pacto» (junto con Pablo).",
+  "matiz": "Crítica textual: algunos manuscritos antiguos (Bezae y otros) omiten los vv.19b-20 («que por vosotros es dado… derramada»), lo que formaría la «forma corta». La mayoría los incluye y las ediciones críticas modernas los retienen.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "De igual manera tomó también la copa, después de haber cenado, diciendo: Esta copa es el nuevo pacto en mi sangre, que por vosotros se derrama."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jer 31:31-34 — el nuevo pacto",
+   "Éx 24:8 — «la sangre del pacto»",
+   "1 Co 11:25 — paralelo",
+   "Heb 8:6-13 — mediador de un nuevo pacto"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Luke.22.22",
+  "strong": "G3724",
+  "forma": "ὡρισμένον",
+  "glosa_interlineal": "determinado",
+  "rango_semantico": [
+   "determinar, fijar, decretar"
+  ],
+  "construccion": "Participio perfecto pasivo: «el Hijo del Hombre va según lo que está determinado».",
+  "sentido_en_contexto": "La traición se enmarca en el plan divino, pero no exculpa al traidor: «¡ay de aquel por quien es entregado!». Tensión característica entre soberanía divina y responsabilidad humana.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y a la verdad el Hijo del Hombre va según lo que está determinado; pero ¡ay de aquel hombre por quien es entregado!"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 2:23 — «entregado por el determinado consejo y anticipado conocimiento de Dios»",
+   "Hch 4:27-28 — «lo que tu mano… había antes determinado»",
+   "Mt 26:24 — «mejor le fuera no haber nacido»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.22.24",
+  "strong": "G5379",
+  "forma": "φιλονεικία",
+  "glosa_interlineal": "discusión, contienda",
+  "rango_semantico": [
+   "rivalidad, disputa, afán de ganar"
+  ],
+  "construccion": "Nominativo: «hubo también entre ellos una disputa».",
+  "sentido_en_contexto": "Después de la cena, los discípulos discuten quién es el mayor. Lucas contrasta esa ambición con el servicio de Jesús (v.27), que es el criterio del reino.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Hubo también entre ellos una disputa sobre quién de ellos sería considerado el mayor."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 9:46 — «¿quién sería el mayor?»",
+   "Mr 10:35-45 — petición de Santiago y Juan",
+   "Jn 13:14-15 — el lavado de pies"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.22.27",
+  "strong": "G1247",
+  "forma": "διακονῶν",
+  "glosa_interlineal": "el que sirve",
+  "rango_semantico": [
+   "servir, atender (a la mesa)"
+  ],
+  "construccion": "Participio presente activo: «yo estoy entre vosotros como el que sirve».",
+  "sentido_en_contexto": "Jesús se define como siervo en medio de los discípulos: el mayor es el que sirve. Es el criterio del reino, opuesto a la lógica de los reyes de las naciones (vv.25-26).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque, ¿cuál es mayor, el que se sienta a la mesa, o el que sirve? ¿No es el que se sienta a la mesa? Mas yo estoy entre vosotros como el que sirve."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 10:45 — «no vino para ser servido, sino para servir»",
+   "Jn 13:12-17 — el lavado de los pies",
+   "Fil 2:7 — «tomando forma de siervo»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.22.29",
+  "strong": "G1303",
+  "forma": "διατίθεμαι",
+  "glosa_interlineal": "asigno",
+  "rango_semantico": [
+   "disponer, establecer (un pacto o testamento)"
+  ],
+  "construccion": "Presente indicativo medio: «yo os asigno un reino».",
+  "sentido_en_contexto": "Jesús confiere a los discípulos fieles un reino, como el Padre se lo confirió a él: comerán y beberán en su mesa y se sentarán en tronos juzgando a las doce tribus. El verbo es de la misma raíz que «pacto» (διαθήκη).",
+  "matiz": "«Juzgar a las doce tribus» (v.30) se interpreta como gobierno futuro de los apóstoles sobre el Israel renovado, o como participación en el juicio escatológico; Mt 19:28 lo sitúa «en la regeneración».",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 19:28 — «os sentaréis sobre doce tronos»",
+   "Ap 3:21 — «le daré que se siente conmigo en mi trono»",
+   "1 Co 6:2-3 — «los santos han de juzgar al mundo»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Luke.22.31",
+  "strong": "G4617",
+  "forma": "σινιάσαι",
+  "glosa_interlineal": "zarandear",
+  "rango_semantico": [
+   "zarandear, cribar"
+  ],
+  "construccion": "Infinitivo aoristo activo: «Satanás os ha pedido para zarandearos como a trigo».",
+  "sentido_en_contexto": "Satanás obtuvo permiso para probar a los discípulos (plural en «os»), como en Job 1-2. El zarandeo es la prueba que revela la paja del trigo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Dijo también el Señor: Simón, Simón, he aquí Satanás os ha pedido para zarandearos como a trigo;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Job 1:6-12; 2:1-6 — Satanás pide permiso",
+   "Am 9:9 — «haré que la casa de Israel sea zarandeada»",
+   "1 P 5:8 — «vuestro adversario el diablo»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.22.32",
+  "strong": "G4741",
+  "forma": "στήρισον",
+  "glosa_interlineal": "fortalece",
+  "rango_semantico": [
+   "fortalecer, afirmar"
+  ],
+  "construccion": "Imperativo aoristo activo: «y tú, una vez vuelto, confirma a tus hermanos».",
+  "sentido_en_contexto": "Jesús ora por Pedro para que su fe no desfallezca; le encarga luego fortalecer a los hermanos. La caída de Pedro no será definitiva y su restauración tiene función pastoral.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "pero yo he rogado por ti, que tu fe no falte; y tú, una vez vuelto, confirma a tus hermanos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 21:15-17 — «apacienta mis ovejas»",
+   "Hch 15:7-11 — Pedro en el concilio",
+   "1 P 5:10 — Dios «os perfeccionará, afirmará, fortalecerá»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.22.34",
+  "strong": "G533",
+  "forma": "ἀπαρνήσῃ",
+  "glosa_interlineal": "negarás",
+  "rango_semantico": [
+   "negar, renegar de"
+  ],
+  "construccion": "Subjuntivo aoristo medio: «hasta que tres veces niegues que me conoces».",
+  "sentido_en_contexto": "Jesús predice la triple negación de Pedro antes de que cante el gallo. Lucas es el único que precisa «hoy» y que Jesús mira a Pedro tras la negación (v.61).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y él le dijo: Pedro, te digo que el gallo no cantará hoy antes que tú niegues tres veces que me conoces."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:34; Mr 14:30 — paralelos",
+   "Jn 13:38 — paralelo",
+   "Lc 22:61 — «el Señor, volviéndose, miró a Pedro»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.22.36",
+  "strong": "G3162",
+  "forma": "μάχαιραν",
+  "glosa_interlineal": "espada",
+  "rango_semantico": [
+   "espada, cuchillo"
+  ],
+  "construccion": "Acusativo: «compre una espada».",
+  "sentido_en_contexto": "Pasaje difícil: Jesús, tras decir que antes no necesitaban nada (v.35), manda comprar una espada. Los discípulos presentan dos espadas y él dice «basta». Poco después prohíbe usar la espada (v.51).",
+  "matiz": "Interpretaciones: (a) sentido figurado (preparación para la oposición, no violencia); (b) autodefensa en circunstancias nuevas; (c) cumplimiento de la profecía de ser contado con transgresores (v.37). La mayoría descarta que justifique la violencia armada contra la autoridad: ver v.51.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:52 — «todos los que tomen espada, a espada perecerán»",
+   "Jn 18:11 — «mete tu espada en la vaina»",
+   "Lc 22:51 — «¡Basta ya!»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Luke.22.37",
+  "strong": "G459",
+  "forma": "ἀνόμων",
+  "glosa_interlineal": "transgresores",
+  "rango_semantico": [
+   "sin ley, inicuo, transgresor"
+  ],
+  "construccion": "Genitivo plural: «fue contado con los transgresores».",
+  "sentido_en_contexto": "Cita de Is 53:12, única vez que Lucas introduce explícitamente la profecía del Siervo sufriente aplicada a Jesús. «Lo que está escrito de mí tiene cumplimiento».",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque os digo que es necesario que se cumpla todavía en mí aquello que está escrito: Y fue contado con los inicuos; porque lo que está escrito de mí, tiene cumplimiento."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 53:12 — «fue contado con los pecadores»",
+   "Mr 15:28 — algunos manuscritos",
+   "Hch 8:32-35 — Felipe y Is 53"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.22.40",
+  "strong": "G3986",
+  "forma": "πειρασμόν",
+  "glosa_interlineal": "tentación",
+  "rango_semantico": [
+   "prueba, tentación"
+  ],
+  "construccion": "Acusativo: «orad para que no entréis en tentación».",
+  "sentido_en_contexto": "Jesús pide a los discípulos orar para no entrar en la prueba. El mismo consejo aparece en la oración del Señor: «no nos metas en tentación» (11:4).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Cuando llegó a aquel lugar, les dijo: Orad que no entréis en tentación."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 11:4 — «no nos dejes caer en tentación»",
+   "Mt 26:41 — «velad y orad»",
+   "1 Co 10:13 — Dios no permite más de lo que podáis soportar"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.22.42",
+  "strong": "G2307",
+  "forma": "θέλημά",
+  "glosa_interlineal": "voluntad",
+  "rango_semantico": [
+   "voluntad, deseo"
+  ],
+  "construccion": "Nominativo: «no se haga mi voluntad, sino la tuya».",
+  "sentido_en_contexto": "Oración de Jesús en Getsemaní: pide, si es posible, que pase la copa, pero se somete. Expresa su obediencia filial y su humanidad plena.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "diciendo: Padre, si quieres, pasa de mí esta copa; pero no se haga mi voluntad, sino la tuya."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:39; Mr 14:36 — paralelos",
+   "Jn 5:30 — «no busco mi voluntad»",
+   "Heb 5:7-8 — «con gran clamor y lágrimas»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.22.43",
+  "strong": "G32",
+  "forma": "ἄγγελος",
+  "glosa_interlineal": "ángel",
+  "rango_semantico": [
+   "ángel, mensajero"
+  ],
+  "construccion": "Nominativo: «se le apareció un ángel del cielo para fortalecerle».",
+  "sentido_en_contexto": "Los vv.43-44 (ángel y sudor como gotas de sangre) están ausentes en algunos manuscritos importantes.",
+  "matiz": "Crítica textual: los vv.43-44 faltan en P75, Aleph (original), B y otros; están en Aleph (correctores), D, L, Θ y muchos más. Los estudiosos se dividen sobre si son originales (omitidos por motivos doctrinales) o añadidos antiguos. Las ediciones críticas los conservan entre corchetes. Muchas Biblias los incluyen con una nota.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 4:13 — «los ángeles le servían» (cf. Mt 4:11)",
+   "Heb 5:7 — «ofreciendo ruegos… con gran clamor»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Luke.22.44",
+  "strong": "G74",
+  "forma": "ἀγωνίᾳ",
+  "glosa_interlineal": "agonía",
+  "rango_semantico": [
+   "angustia, lucha, agonía"
+  ],
+  "construccion": "Dativo: «estando en agonía oraba más intensamente».",
+  "sentido_en_contexto": "ἀγωνία, de la que viene «agonía», expresa lucha intensa. El «sudor como gotas de sangre» (θρόμβοι αἵματος) es comparación: «como» gotas de sangre, no necesariamente sangre literal.",
+  "matiz": "Ver nota textual en el v.43. Sobre «como gotas de sangre»: la comparación puede indicar la abundancia o aspecto del sudor; algunos piensan en hematidrosis, otros solo en metáfora.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 5:7 — oraciones y súplicas",
+   "Sal 22:14 — «me he derramado como aguas»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Luke.22.48",
+  "strong": "G5370",
+  "forma": "φιλήματι",
+  "glosa_interlineal": "con un beso",
+  "rango_semantico": [
+   "beso"
+  ],
+  "construccion": "Dativo: «¿con un beso entregas al Hijo del Hombre?».",
+  "sentido_en_contexto": "Jesús confronta a Judas: el signo de afecto se convierte en señal de traición. Lucas omite el beso en sí, pero conserva la pregunta de Jesús.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Jesús le dijo: Judas, ¿con un beso entregas al Hijo del Hombre?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:49-50 — «amigo, ¿a qué vienes?»",
+   "Pr 27:6 — «engañosos son los besos del enemigo»",
+   "2 S 20:9-10 — Joab y Amasa"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.22.51",
+  "strong": "G1439",
+  "forma": "ἐᾶτε",
+  "glosa_interlineal": "dejad",
+  "rango_semantico": [
+   "permitir, dejar, consentir"
+  ],
+  "construccion": "Imperativo presente activo: «dejad hasta aquí».",
+  "sentido_en_contexto": "Jesús detiene la violencia y sana la oreja del siervo del sumo sacerdote: el único relato que menciona esta curación. Muestra su misericordia incluso hacia sus captores.",
+  "matiz": "La expresión «dejad hasta aquí» es ambigua en griego: ¿se dirige a los discípulos (dejad que lo hagan) o a los captores (permitidme sanar)? La segunda lectura es más común.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces respondiendo Jesús, dijo: Basta ya; dejad. Y tocando su oreja, le sanó."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:52 — «vuelve tu espada a su lugar»",
+   "Jn 18:10-11 — el siervo se llamaba Malco",
+   "Lc 6:27 — «amad a vuestros enemigos»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Luke.22.53",
+  "strong": "G4655",
+  "forma": "σκότους",
+  "glosa_interlineal": "tinieblas",
+  "rango_semantico": [
+   "oscuridad, tinieblas"
+  ],
+  "construccion": "Genitivo: «esta es vuestra hora y la potestad de las tinieblas».",
+  "sentido_en_contexto": "Jesús reconoce que el arresto en la noche ocurre bajo el poder de las tinieblas, pero dentro del plan de Dios. Es la clave teológica del relato: la oscuridad parece triunfar, pero es la hora asignada.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Habiendo estado con vosotros cada día en el templo, no extendisteis las manos contra mí; mas esta es vuestra hora, y la potestad de las tinieblas."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 1:13 — «nos ha librado de la potestad de las tinieblas»",
+   "Jn 12:35, 46 — luz y tinieblas",
+   "Lc 22:3 — «entró Satanás»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.22.57",
+  "strong": "G720",
+  "forma": "ἠρνήσατο",
+  "glosa_interlineal": "negó",
+  "rango_semantico": [
+   "negar, rehusar, renegar"
+  ],
+  "construccion": "Aoristo indicativo medio: «él lo negó».",
+  "sentido_en_contexto": "Primera negación de Pedro: ante una criada en el patio del sumo sacerdote. Lucas lo relata con las tres escenas seguidas y la mirada de Jesús.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero él lo negó, diciendo: Mujer, no lo conozco."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:69-75; Mr 14:66-72; Jn 18:15-27 — paralelos",
+   "Lc 12:9 — «el que me negare delante de los hombres»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.22.61",
+  "strong": "G1689",
+  "forma": "ἐνέβλεψεν",
+  "glosa_interlineal": "miró fijamente",
+  "rango_semantico": [
+   "mirar fijamente, mirar con atención"
+  ],
+  "construccion": "Aoristo indicativo activo: «el Señor, volviéndose, miró a Pedro».",
+  "sentido_en_contexto": "Detalle exclusivo de Lucas. La mirada del Señor despierta a Pedro, que recuerda sus palabras y llora. Reconoce el amor que lo busca a pesar de su caída.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces, vuelto el Señor, miró a Pedro; y Pedro se acordó de la palabra del Señor, que le había dicho: Antes que el gallo cante, me negarás tres veces."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 21:15-17 — la restauración de Pedro",
+   "Lc 22:34 — la predicción",
+   "Lc 24:34 — «ha aparecido a Simón»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.22.62",
+  "strong": "G2799",
+  "forma": "ἔκλαυσεν",
+  "glosa_interlineal": "lloró",
+  "rango_semantico": [
+   "llorar"
+  ],
+  "construccion": "Aoristo indicativo activo: «lloró amargamente».",
+  "sentido_en_contexto": "Respuesta de Pedro al darse cuenta de su negación. El llanto marca arrepentimiento, aunque su restauración plena se muestra más tarde.",
+  "matiz": "Algunos manuscritos occidentales omiten este versículo, pero está en la mayoría de los antiguos y en Mt 26:75.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y saliendo fuera, lloró amargamente."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:75 — paralelo",
+   "2 Co 7:10 — «la tristeza que es según Dios produce arrepentimiento»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.22.64",
+  "strong": "G4395",
+  "forma": "προφήτευσον",
+  "glosa_interlineal": "profetiza",
+  "rango_semantico": [
+   "profetizar, adivinar"
+  ],
+  "construccion": "Imperativo aoristo activo: «profetiza, ¿quién es el que te golpeó?».",
+  "sentido_en_contexto": "Burla de quienes golpean a Jesús con los ojos vendados: se mofan de su pretendida condición profética. Irónicamente, acababa de cumplirse su profecía sobre Pedro.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 26:67-68; Mr 14:65 — paralelos",
+   "Lc 22:34, 61 — la profecía cumplida"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.22.66",
+  "strong": "G4892",
+  "forma": "συνέδριον",
+  "glosa_interlineal": "Sanedrín",
+  "rango_semantico": [
+   "consejo, tribunal (Sanedrín)"
+  ],
+  "construccion": "Acusativo: «lo llevaron al concilio de ellos».",
+  "sentido_en_contexto": "Al amanecer, el Sanedrín se reúne y examina a Jesús. Lucas omite los falsos testigos y se concentra en las preguntas sobre su identidad: Cristo e Hijo de Dios.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 26:57-68 — con más detalle",
+   "Mr 14:53-65 — paralelo",
+   "Hch 4:15 — el Sanedrín ante los apóstoles"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.22.69",
+  "strong": "G1188",
+  "forma": "δεξιῶν",
+  "glosa_interlineal": "a la derecha",
+  "rango_semantico": [
+   "derecha, mano derecha"
+  ],
+  "construccion": "Genitivo plural: «sentado a la diestra del poder de Dios».",
+  "sentido_en_contexto": "Alusión a Sal 110:1 y Dn 7:13. Jesús afirma su exaltación futura. Lucas dice «desde ahora» (ἀπὸ τοῦ νῦν): la entronización comienza con la pasión y resurrección.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero desde ahora el Hijo del Hombre se sentará a la diestra del poder de Dios."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 110:1 — «siéntate a mi diestra»",
+   "Dn 7:13 — «el Hijo del Hombre»",
+   "Hch 7:56 — Esteban ve «al Hijo del Hombre de pie a la diestra de Dios»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.22.70",
+  "strong": "G5207",
+  "forma": "υἱὸς",
+  "glosa_interlineal": "Hijo",
+  "rango_semantico": [
+   "hijo"
+  ],
+  "construccion": "Nominativo: «¿luego tú eres el Hijo de Dios?».",
+  "sentido_en_contexto": "Los miembros del Sanedrín interpretan «Hijo del Hombre sentado a la diestra» como una pretensión divina y preguntan directamente: «¿Eres tú el Hijo de Dios?». La respuesta de Jesús («vosotros lo decís») es una afirmación matizada.",
+  "matiz": "El sentido de «vosotros decís que lo soy» se debate: ¿afirmación irónica, o aceptación con reserva del título?; en todo caso el Sanedrín lo toma como confesión (v.71).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Dijeron todos: ¿Luego eres tú el Hijo de Dios? Y él les dijo: Vosotros decís que lo soy."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 1:32, 35 — «Hijo del Altísimo»",
+   "Lc 3:22 — voz del bautismo",
+   "Mt 26:64 — «tú lo has dicho»"
+  ],
+  "nivel_certeza": "medio"
+ }
+]

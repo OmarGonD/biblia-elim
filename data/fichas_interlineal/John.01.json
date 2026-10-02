@@ -1,0 +1,879 @@
+[
+ {
+  "ref": "John.1.1",
+  "strong": "G3056",
+  "forma": "λόγος",
+  "glosa_interlineal": "Verbo",
+  "rango_semantico": [
+   "palabra, razón, discurso",
+   "el Verbo (Logos)"
+  ],
+  "construccion": "Nominativo sujeto: «el Verbo era Dios» (θεὸς ἦν ὁ λόγος).",
+  "sentido_en_contexto": "Título de Cristo en el prólogo: la Palabra eterna, preexistente, agente de la creación y de la revelación. Combina la «palabra» creadora de Gn 1 con la Sabiduría personificada y el pensamiento griego del Logos.",
+  "matiz": "Sobre θεὸς sin artículo en la tercera cláusula: se discute si es cualitativo («era de naturaleza divina»), definido o indefinido («un dios»). La mayoría lo lee como cualitativo-definido: el Verbo es plenamente Dios y distinto del Padre («con Dios»). Traducciones como la de los Testigos de Jehová («un dios») son minoritarias.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "En el principio era el Verbo, y el Verbo era con Dios, y el Verbo era Dios."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 1:1-3 — «dijo Dios»",
+   "Sal 33:6 — «por la palabra de Jehová fueron hechos los cielos»",
+   "Ap 19:13 — «su nombre es: El Verbo de Dios»",
+   "Pr 8:22-31 — la Sabiduría con Dios"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.1",
+  "strong": "G746",
+  "forma": "ἀρχῇ",
+  "glosa_interlineal": "principio",
+  "rango_semantico": [
+   "principio, comienzo",
+   "autoridad"
+  ],
+  "construccion": "ἐν + dativo: «en el principio».",
+  "sentido_en_contexto": "Eco deliberado de Gn 1:1 (LXX ἐν ἀρχῇ). Indica que el Verbo ya existía cuando todo comenzó; no es una criatura que empieza en ese punto.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 1:1 — «En el principio creó Dios»",
+   "Col 1:17-18 — «él es antes de todas las cosas»",
+   "1 Jn 1:1 — «lo que era desde el principio»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.1",
+  "strong": "G4314",
+  "forma": "πρὸς",
+  "glosa_interlineal": "con",
+  "rango_semantico": [
+   "hacia, ante, junto a"
+  ],
+  "construccion": "πρὸς + acusativo: «el Verbo estaba πρὸς τὸν θεόν».",
+  "sentido_en_contexto": "Con acusativo, πρός indica movimiento hacia o relación personal: más que «al lado de», implica comunión y orientación mutua. El Verbo es distinto del Padre y está en relación íntima con él.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 1:2 — repetición",
+   "1 Jn 1:2 — «la vida eterna, la cual estaba con el Padre»",
+   "Jn 17:5 — «la gloria que tuve contigo antes que el mundo fuese»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.3",
+  "strong": "G1096",
+  "forma": "ἐγένετο",
+  "glosa_interlineal": "fue hecho",
+  "rango_semantico": [
+   "llegar a ser, hacerse, ser creado"
+  ],
+  "construccion": "Aoristo indicativo medio: «todas las cosas por medio de él fueron hechas».",
+  "sentido_en_contexto": "Contraste con «era» (ἦν) del v.1: el Verbo existía; las cosas «llegaron a ser». Todo lo creado vino a la existencia por medio del Verbo, y nada sin él.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Todas las cosas por él fueron hechas, y sin él nada de lo que ha sido hecho, fue hecho."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 1:16 — «todo fue creado por medio de él»",
+   "1 Co 8:6 — «un Señor… por medio del cual son todas las cosas»",
+   "Heb 1:2 — «por quien asimismo hizo el universo»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.4",
+  "strong": "G2222",
+  "forma": "ζωὴ",
+  "glosa_interlineal": "vida",
+  "rango_semantico": [
+   "vida"
+  ],
+  "construccion": "Nominativo: «en él estaba la vida».",
+  "sentido_en_contexto": "Primera aparición de «vida» (ζωή), tema central de Juan (unas 36 veces). Es vida con origen en el Verbo y comunicable a los hombres; se asocia a la luz.",
+  "matiz": "La puntuación del v.3-4 se debate: «lo que fue hecho, en él estaba la vida» (antiguos) o «sin él nada fue hecho de lo que ha sido hecho. En él estaba la vida» (lectura moderna más común). El sentido afecta a si la creación «era vida en él».",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "En él estaba la vida, y la vida era la luz de los hombres."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 5:26 — «el Padre tiene vida en sí mismo… así ha dado al Hijo»",
+   "Jn 11:25 — «yo soy la resurrección y la vida»",
+   "Jn 14:6 — «yo soy el camino, la verdad y la vida»",
+   "1 Jn 5:11-12"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.1.5",
+  "strong": "G2638",
+  "forma": "κατέλαβεν",
+  "glosa_interlineal": "comprendió",
+  "rango_semantico": [
+   "asir, apoderarse, comprender, vencer"
+  ],
+  "construccion": "Aoristo indicativo activo: «las tinieblas no la comprendieron (o no la vencieron)».",
+  "sentido_en_contexto": "Doble sentido deliberado del verbo καταλαμβάνω: «comprender» (intelectualmente) o «vencer, apoderarse» (hostilmente). La luz brilla en la oscuridad y esta no la sofoca ni la entiende.",
+  "matiz": "Las traducciones se dividen: «no la comprendieron» (RVR, Vulgata, tradición patrística griega), «no la vencieron / no la sofocaron» (BJ, NVI, NRSV). El contexto de conflicto luz-tinieblas (cf. 12:35) favorece «vencer», pero ambos matices pueden darse.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "La luz en las tinieblas resplandece, y las tinieblas no prevalecieron contra ella."
+   }
+  ],
+  "notas_traduccion": "RVR60 traduce «no prevalecieron»; otras versiones dicen «no la comprendieron». Las dos lecturas están defendidas.",
+  "otros_usos": [
+   "Jn 12:35 — «para que no os sorprendan las tinieblas»",
+   "1 Ts 5:4 — «no estáis en tinieblas para que aquel día os sorprenda»",
+   "Jn 8:12 — «el que me sigue no andará en tinieblas»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.1.7",
+  "strong": "G3141",
+  "forma": "μαρτυρίαν",
+  "glosa_interlineal": "testimonio",
+  "rango_semantico": [
+   "testimonio, atestación"
+  ],
+  "construccion": "εἰς + acusativo: «vino para testimonio».",
+  "sentido_en_contexto": "Juan el Bautista aparece como testigo de la luz. «Testimonio/testigo» (μαρτυρία, μαρτυρέω) es un tema jurídico central en el cuarto evangelio: se trata de un juicio entre Jesús y el mundo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Este vino por testimonio, para que diese testimonio de la luz, a fin de que todos creyesen por él."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 5:31-39 — los testigos de Jesús",
+   "Jn 15:26-27 — el Espíritu y los discípulos testifican",
+   "Hch 1:8 — «me seréis testigos»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.9",
+  "strong": "G228",
+  "forma": "ἀληθινόν",
+  "glosa_interlineal": "verdadera",
+  "rango_semantico": [
+   "verdadero, genuino, real"
+  ],
+  "construccion": "Adjetivo acusativo: «la luz verdadera».",
+  "sentido_en_contexto": "ἀληθινός no se opone a «falso», sino a «imperfecto o sombra»: la luz genuina, cumplimiento de lo que otras luces solo anticipan. Juan lo repite: pan verdadero, vid verdadera, Dios verdadero.",
+  "matiz": "Sintaxis ambigua: ἐρχόμενον puede referirse a «la luz» («la luz venía al mundo») o a «todo hombre» («todo hombre que viene al mundo»). La mayoría de las versiones modernas prefieren la primera.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Aquella luz verdadera, que alumbra a todo hombre, venía a este mundo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 6:32 — «el verdadero pan del cielo»",
+   "Jn 15:1 — «yo soy la vid verdadera»",
+   "1 Jn 5:20 — «el Dios verdadero y la vida eterna»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.9",
+  "strong": "G5461",
+  "forma": "φωτίζει",
+  "glosa_interlineal": "alumbra",
+  "rango_semantico": [
+   "iluminar, dar luz"
+  ],
+  "construccion": "Presente indicativo activo: «alumbra a todo hombre».",
+  "sentido_en_contexto": "La luz del Verbo ilumina a toda persona. Se discute el alcance: ¿revelación general a todos, o iluminación salvífica solo para los que creen?",
+  "matiz": "Lecturas: (a) revelación general (conciencia, creación) dada a todos; (b) la luz llega a todos para ser expuestos ante ella, aunque no todos la reciben (v.11); (c) universalismo, rechazado por el contexto inmediato.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 1:19-20 — «lo que de Dios se conoce les es manifiesto»",
+   "Ro 2:14-15 — la ley en el corazón",
+   "Ef 1:18 — «alumbrados los ojos de vuestro entendimiento»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.1.11",
+  "strong": "G2398",
+  "forma": "ἴδια",
+  "glosa_interlineal": "lo suyo",
+  "rango_semantico": [
+   "propio, lo que pertenece a uno"
+  ],
+  "construccion": "Neutro plural: «a lo suyo vino, y los suyos (οἱ ἴδιοι) no le recibieron».",
+  "sentido_en_contexto": "Primer «suyo» (neutro): su propia casa/tierra/pueblo; segundo (masculino): sus propios hombres, Israel. El Verbo vino a su territorio y a su pueblo, y estos no lo acogieron.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "A lo suyo vino, y los suyos no le recibieron."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 13:1 — «habiendo amado a los suyos»",
+   "Mt 21:33-39 — los labradores rechazan al hijo",
+   "Lc 19:14 — «no queremos que éste reine sobre nosotros»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.12",
+  "strong": "G1849",
+  "forma": "ἐξουσίαν",
+  "glosa_interlineal": "derecho",
+  "rango_semantico": [
+   "autoridad, potestad, derecho"
+  ],
+  "construccion": "Acusativo: «les dio potestad de ser hechos hijos de Dios».",
+  "sentido_en_contexto": "Quienes lo reciben, creyendo en su nombre, reciben el derecho o potestad de ser «hijos de Dios» (τέκνα θεοῦ). Juan reserva «hijo» (υἱός) para Jesús y usa «hijos» (τέκνα) para los creyentes.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Mas a todos los que le recibieron, a los que creen en su nombre, les dio potestad de ser hechos hijos de Dios;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Jn 3:1 — «para que seamos llamados hijos de Dios»",
+   "Gá 4:5-6 — «para que recibiésemos la adopción de hijos»",
+   "Ro 8:14-17 — hijos y herederos"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.13",
+  "strong": "G1080",
+  "forma": "ἐγεννήθησαν",
+  "glosa_interlineal": "nacieron",
+  "rango_semantico": [
+   "engendrar, nacer"
+  ],
+  "construccion": "Aoristo indicativo pasivo: «los cuales no nacieron de sangre ni de voluntad de carne ni de voluntad de varón, sino de Dios».",
+  "sentido_en_contexto": "El nuevo nacimiento viene de Dios, no de linaje, impulso natural ni decisión humana. Anticipa el diálogo con Nicodemo (cap. 3).",
+  "matiz": "Variante textual: unos pocos manuscritos latinos y patrísticos leen singular («el que nació», aplicado a Cristo, nacimiento virginal). Casi todos los manuscritos griegos tienen el plural y es la lectura aceptada.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "los cuales no son engendrados de sangre, ni de voluntad de carne, ni de voluntad de varón, sino de Dios."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 3:3-8 — «el que no nazca de nuevo»",
+   "1 P 1:23 — «renacidos… por la palabra de Dios»",
+   "Stg 1:18 — «de su voluntad nos hizo nacer»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.14",
+  "strong": "G4561",
+  "forma": "σὰρξ",
+  "glosa_interlineal": "carne",
+  "rango_semantico": [
+   "carne, cuerpo humano, naturaleza humana"
+  ],
+  "construccion": "Nominativo: «el Verbo se hizo carne».",
+  "sentido_en_contexto": "Afirmación central de la encarnación: el Verbo eterno asumió plena condición humana, débil y mortal. «Carne» (σάρξ) enfatiza la fragilidad, no el pecado.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y aquel Verbo fue hecho carne, y habitó entre nosotros (y vimos su gloria, gloria como del unigénito del Padre), lleno de gracia y de verdad."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Jn 4:2 — «Jesucristo ha venido en carne»",
+   "Ro 8:3 — «en semejanza de carne de pecado»",
+   "Fil 2:6-8 — «se despojó a sí mismo»",
+   "Heb 2:14 — «participó de carne y sangre»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.14",
+  "strong": "G4637",
+  "forma": "ἐσκήνωσεν",
+  "glosa_interlineal": "habitó (puso su tienda)",
+  "rango_semantico": [
+   "poner su tienda, residir, habitar"
+  ],
+  "construccion": "Aoristo indicativo activo: «habitó entre nosotros».",
+  "sentido_en_contexto": "Literalmente «plantó su tienda» (σκηνή). Alude al tabernáculo en el desierto, donde Dios moraba entre su pueblo: ahora la presencia de Dios es el Verbo hecho carne.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Éx 25:8-9 — «harán un santuario para que yo habite en medio de ellos»",
+   "Ap 21:3 — «el tabernáculo de Dios con los hombres»",
+   "Jn 2:19-21 — el templo de su cuerpo"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.14",
+  "strong": "G3439",
+  "forma": "μονογενοῦς",
+  "glosa_interlineal": "unigénito",
+  "rango_semantico": [
+   "único, unigénito, único en su clase"
+  ],
+  "construccion": "Genitivo: «gloria como del unigénito del Padre».",
+  "sentido_en_contexto": "μονογενής combina «único» y «engendrado/de una clase»: expresa a Jesús como Hijo único, con relación singular al Padre, distinta de la de los creyentes («hijos»).",
+  "matiz": "Discusión: «unigénito» (tradición latina, unigenitus, que subraya la generación eterna) o «único» (sin énfasis en la generación; usado de Isaac en Heb 11:17 y del hijo único de la viuda de Naín). La segunda es hoy la más común en las versiones críticas.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 3:16 — «su Hijo unigénito»",
+   "Heb 11:17 — «ofreció a su unigénito»",
+   "Lc 7:12 — «hijo único de su madre»",
+   "1 Jn 4:9"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.1.14",
+  "strong": "G5485",
+  "forma": "χάριτος",
+  "glosa_interlineal": "gracia",
+  "rango_semantico": [
+   "gracia, favor inmerecido"
+  ],
+  "construccion": "Genitivo: «lleno de gracia y de verdad».",
+  "sentido_en_contexto": "Par «gracia y verdad» (χάρις καὶ ἀλήθεια) recuerda el hebreo ḥesed we-’emet de Éx 34:6 («misericordioso… grande en misericordia y verdad»): la fidelidad del pacto manifestada en Cristo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Éx 34:6 — «grande en misericordia y verdad»",
+   "Jn 1:17 — «la gracia y la verdad vinieron por Jesucristo»",
+   "Tit 2:11 — «la gracia de Dios se ha manifestado»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.16",
+  "strong": "G4138",
+  "forma": "πληρώματος",
+  "glosa_interlineal": "plenitud",
+  "rango_semantico": [
+   "plenitud, cumplimiento"
+  ],
+  "construccion": "Genitivo: «de su plenitud tomamos todos».",
+  "sentido_en_contexto": "La plenitud de Cristo es la fuente de la que los creyentes reciben continuamente («gracia sobre gracia»). Se discute la expresión χάριν ἀντὶ χάριτος.",
+  "matiz": "«Gracia sobre gracia» (ἀντί) puede significar sucesión (una gracia tras otra), sustitución (gracia nueva en lugar de la anterior, aludiendo a la ley) o equivalencia. La primera es la más común.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque de su plenitud tomamos todos, y gracia sobre gracia."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 1:19 — «agradó al Padre que en él habitase toda plenitud»",
+   "Col 2:9 — «en él habita corporalmente toda la plenitud de la Deidad»",
+   "Ef 1:23; 3:19"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.1.17",
+  "strong": "G3551",
+  "forma": "νόμος",
+  "glosa_interlineal": "ley",
+  "rango_semantico": [
+   "ley, Torá"
+  ],
+  "construccion": "Nominativo: «la ley por medio de Moisés fue dada».",
+  "sentido_en_contexto": "Contraste entre la ley dada por Moisés y la gracia y verdad realizadas en Jesucristo. No es oposición radical, sino continuidad en la que Jesús es el cumplimiento.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque la ley por medio de Moisés fue dada, pero la gracia y la verdad vinieron por medio de Jesucristo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 6:14 — «no estáis bajo la ley, sino bajo la gracia»",
+   "Gá 3:24 — «la ley ha sido nuestro ayo»",
+   "Mt 5:17 — «no he venido para abrogar»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.18",
+  "strong": "G2316",
+  "forma": "θεὸν",
+  "glosa_interlineal": "Dios",
+  "rango_semantico": [
+   "Dios"
+  ],
+  "construccion": "Acusativo: «a Dios nadie le vio jamás».",
+  "sentido_en_contexto": "Eco de Éx 33:20: nadie puede ver a Dios y vivir. El Hijo lo da a conocer. Prólogo termina como empezó, con Jesús como Dios.",
+  "matiz": "Variante textual célebre en la segunda cláusula: μονογενὴς θεός («el Dios unigénito», P66, P75, Aleph, B) frente a ὁ μονογενὴς υἱός («el Hijo unigénito», A, C y la mayoría bizantina). La primera está mejor atestiguada y la prefieren las ediciones críticas; el texto Tisch aquí sigue la segunda.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "A Dios nadie le vio jamás; el unigénito Hijo, que está en el seno del Padre, él le ha dado a conocer."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 33:20 — «no me podrá ver hombre y vivir»",
+   "1 Jn 4:12 — «ninguno le ha visto jamás»",
+   "Jn 14:9 — «el que me ha visto a mí, ha visto al Padre»",
+   "Col 1:15"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.1.18",
+  "strong": "G1834",
+  "forma": "ἐξηγήσατο",
+  "glosa_interlineal": "dio a conocer",
+  "rango_semantico": [
+   "explicar, narrar, interpretar"
+  ],
+  "construccion": "Aoristo indicativo medio: «él le ha dado a conocer».",
+  "sentido_en_contexto": "De aquí viene «exégesis»: el Hijo es el exégeta del Padre, quien lo explica o revela con autoridad. Verbo sin complemento; el sentido es «lo ha revelado».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Jn 14:9 — «el que me ha visto, ha visto al Padre»",
+   "Mt 11:27 — «nadie conoce al Padre sino el Hijo»",
+   "Heb 1:1-3 — «el resplandor de su gloria»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.20",
+  "strong": "G3670",
+  "forma": "ὡμολόγησεν",
+  "glosa_interlineal": "confesó",
+  "rango_semantico": [
+   "confesar, declarar abiertamente"
+  ],
+  "construccion": "Aoristo indicativo activo: «confesó y no negó».",
+  "sentido_en_contexto": "Juan declara abiertamente que no es el Cristo. La insistencia («confesó, y no negó») subraya la humildad del Bautista: su misión es señalar a otro.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Confesó, y no negó, sino confesó: Yo no soy el Cristo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 3:28 — «yo no soy el Cristo, sino que soy enviado delante de él»",
+   "Jn 3:30 — «es necesario que él crezca, y que yo mengüe»",
+   "1 Jn 4:2 — confesión de Cristo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.21",
+  "strong": "G2243",
+  "forma": "Ἡλείας",
+  "glosa_interlineal": "Elías",
+  "rango_semantico": [
+   "Elías (profeta)"
+  ],
+  "construccion": "Nominativo: «¿eres tú Elías?».",
+  "sentido_en_contexto": "Los enviados preguntan si es Elías, cuyo regreso esperaba la tradición (Mal 4:5). Juan lo niega aquí, aunque Jesús dirá que «Elías ya vino» en sentido funcional (Mt 11:14; 17:12).",
+  "matiz": "Aparente tensión con Mt 11:14: Juan niega ser Elías en persona (el profeta resucitado), mientras Jesús lo identifica con el Elías esperado en cuanto a su misión (cf. Lc 1:17).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mal 4:5 — «os envío el profeta Elías»",
+   "Mt 11:14 — «él es aquel Elías que había de venir»",
+   "Lc 1:17 — «con el espíritu y el poder de Elías»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.1.21",
+  "strong": "G4396",
+  "forma": "προφήτης",
+  "glosa_interlineal": "el profeta",
+  "rango_semantico": [
+   "profeta"
+  ],
+  "construccion": "Nominativo con artículo: «¿eres tú el profeta?».",
+  "sentido_en_contexto": "«El profeta» alude al profeta como Moisés prometido en Dt 18:15-18. Juan lo niega; el pueblo vinculará más tarde a Jesús con esa figura.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Dt 18:15 — «profeta de en medio de ti… como yo»",
+   "Jn 6:14 — «éste verdaderamente es el profeta»",
+   "Jn 7:40",
+   "Hch 3:22-23 — aplicado a Jesús"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.23",
+  "strong": "G5456",
+  "forma": "φωνὴ",
+  "glosa_interlineal": "voz",
+  "rango_semantico": [
+   "voz, sonido"
+  ],
+  "construccion": "Nominativo: «yo soy la voz del que clama en el desierto».",
+  "sentido_en_contexto": "Juan se define con Is 40:3: no es la Palabra, sino la voz que anuncia. En Juan, la cita es abreviada y en primera persona.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Dijo: Yo soy la voz de uno que clama en el desierto: Enderezad el camino del Señor, como dijo el profeta Isaías."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 40:3 — texto base",
+   "Mt 3:3; Mr 1:3; Lc 3:4 — citas paralelas",
+   "Jn 1:1 — «el Verbo»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.26",
+  "strong": "G907",
+  "forma": "βαπτίζω",
+  "glosa_interlineal": "bautizo",
+  "rango_semantico": [
+   "sumergir, bautizar"
+  ],
+  "construccion": "Presente indicativo activo: «yo bautizo en agua».",
+  "sentido_en_contexto": "Juan contrasta su bautismo con agua con el de aquel que viene después, que bautizará en Espíritu Santo (v.33). Su bautismo prepara y señala; no confiere el Espíritu.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 3:11; Mr 1:8; Lc 3:16 — paralelos",
+   "Hch 1:5 — «Juan bautizó con agua, pero vosotros seréis bautizados con el Espíritu Santo»",
+   "Hch 19:1-5 — los discípulos de Juan en Éfeso"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.27",
+  "strong": "G2438",
+  "forma": "ἱμάντα",
+  "glosa_interlineal": "correa",
+  "rango_semantico": [
+   "correa, tira de cuero"
+  ],
+  "construccion": "Acusativo: «desatar la correa del calzado».",
+  "sentido_en_contexto": "Servicio que correspondía a un esclavo. Juan se declara indigno incluso de eso ante el que viene después.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Este es el que viene después de mí, el cual es antes de mí, del cual yo no soy digno de desatar la correa del calzado."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 1:7; Lc 3:16 — paralelos",
+   "Hch 13:25 — «no soy digno de desatar el calzado»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.28",
+  "strong": "G963",
+  "forma": "Βηθανίᾳ",
+  "glosa_interlineal": "Betania",
+  "rango_semantico": [
+   "Betania (de más allá del Jordán)"
+  ],
+  "construccion": "Dativo: «en Betania, al otro lado del Jordán».",
+  "sentido_en_contexto": "No es la Betania cercana a Jerusalén (11:1), sino otra al oriente del Jordán. Muchos manuscritos leen «Betabara», lectura de Orígenes; el lugar exacto es incierto.",
+  "matiz": "Variante: Βηθανίᾳ (la mayoría y las ediciones críticas) frente a Βηθαβαρᾷ (Orígenes y manuscritos tardíos). La identificación geográfica sigue debatida.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Estas cosas sucedieron en Betábara, al otro lado del Jordán, donde Juan estaba bautizando."
+   }
+  ],
+  "notas_traduccion": "RVR60 sigue la lectura «Betábara»; las ediciones críticas leen «Betania».",
+  "otros_usos": [
+   "Jn 11:1 — la otra Betania",
+   "Jn 10:40 — «al lugar donde Juan había estado bautizando al principio»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.1.29",
+  "strong": "G286",
+  "forma": "ἀμνὸς",
+  "glosa_interlineal": "cordero",
+  "rango_semantico": [
+   "cordero"
+  ],
+  "construccion": "Nominativo: «he aquí el Cordero de Dios».",
+  "sentido_en_contexto": "Título cristológico clave de Juan. El trasfondo es múltiple: el cordero pascual, el siervo de Is 53:7 y el sacrificio diario. «Que quita el pecado del mundo» expresa una obra expiatoria universal.",
+  "matiz": "Se discute el trasfondo principal del título: cordero pascual (Éx 12; cf. Jn 19:36), Siervo sufriente (Is 53), cordero apocalíptico triunfante, o la combinación de varios; probablemente Juan aprovecha varios.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "El siguiente día vio Juan a Jesús que venía a él, y dijo: He aquí el Cordero de Dios, que quita el pecado del mundo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 53:7 — «como cordero fue llevado al matadero»",
+   "Éx 12:3-13 — el cordero pascual",
+   "1 P 1:19 — «como de un cordero sin mancha»",
+   "Ap 5:6, 12 — «el Cordero inmolado»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.1.29",
+  "strong": "G142",
+  "forma": "αἴρων",
+  "glosa_interlineal": "que quita",
+  "rango_semantico": [
+   "levantar, quitar, llevar"
+  ],
+  "construccion": "Participio presente activo: «que quita el pecado del mundo».",
+  "sentido_en_contexto": "αἴρω significa «levantar» y «quitar»: el Cordero carga con el pecado y lo remueve. Habla de la obra del Cordero como una acción continua.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "1 Jn 3:5 — «para quitar nuestros pecados»",
+   "Is 53:11-12 — «llevó el pecado de muchos»",
+   "Heb 9:26 — «para quitar de en medio el pecado»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.32",
+  "strong": "G4058",
+  "forma": "περιστερὰν",
+  "glosa_interlineal": "paloma",
+  "rango_semantico": [
+   "paloma"
+  ],
+  "construccion": "Acusativo: «el Espíritu descender como paloma».",
+  "sentido_en_contexto": "Juan testifica que vio descender el Espíritu y permanecer sobre Jesús. El énfasis (en Juan) está en «permaneció», signo que identifica al que bautizará con Espíritu Santo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "También dio Juan testimonio, diciendo: Vi al Espíritu que descendía del cielo como paloma, y permaneció sobre él."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 3:16; Mr 1:10; Lc 3:22 — paralelos",
+   "Is 11:2 — «reposará sobre él el Espíritu de Jehová»",
+   "Is 42:1 — «he puesto sobre él mi Espíritu»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.34",
+  "strong": "G5207",
+  "forma": "υἱὸς",
+  "glosa_interlineal": "Hijo",
+  "rango_semantico": [
+   "hijo"
+  ],
+  "construccion": "Nominativo: «éste es el Hijo de Dios».",
+  "sentido_en_contexto": "Testimonio final de Juan: Jesús es el Hijo de Dios. Algunos manuscritos importantes leen «el Elegido de Dios» (ὁ ἐκλεκτός).",
+  "matiz": "Variante: «el Hijo de Dios» (mayoría) frente a «el Elegido de Dios» (P5, Aleph*, y otros; probable eco de Is 42:1 y Lc 9:35). La lectura «Elegido» tiene buen apoyo y algunos críticos la prefieren.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y yo le vi, y he dado testimonio de que éste es el Hijo de Dios."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 20:31 — «para que creáis que Jesús es el Cristo, el Hijo de Dios»",
+   "Is 42:1 — «mi escogido»",
+   "Lc 9:35 — «éste es mi Hijo, mi escogido»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.1.39",
+  "strong": "G3306",
+  "forma": "μένεις",
+  "glosa_interlineal": "vives (permaneces)",
+  "rango_semantico": [
+   "permanecer, morar, quedarse"
+  ],
+  "construccion": "Presente indicativo activo: «Maestro, ¿dónde moras?».",
+  "sentido_en_contexto": "Primera pregunta de los discípulos y primera aparición del verbo μένω, clave en Juan (40 veces): permanencia, comunión. Aquí es literal (alojamiento), con sentido espiritual de fondo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y ellos le dijeron: Rabí (que traducido es, Maestro), ¿dónde moras?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 15:4-10 — «permaneced en mí»",
+   "1 Jn 2:24-28 — permanecer",
+   "Jn 14:23 — «haremos morada con él»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.43",
+  "strong": "G2786",
+  "forma": "Κηφᾶς",
+  "glosa_interlineal": "Cefas",
+  "rango_semantico": [
+   "Cefas (arameo, «roca»)"
+  ],
+  "construccion": "Nominativo: «tú serás llamado Cefas (que significa Pedro)».",
+  "sentido_en_contexto": "Jesús cambia el nombre de Simón: Cefas (arameo) = Πέτρος (griego), «roca». Anticipa el papel de Pedro (cf. Mt 16:18).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y le trajo a Jesús. Y mirándole Jesús, dijo: Tú eres Simón, hijo de Jonás; tú serás llamado Cefas (que quiere decir, Pedro)."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 16:18 — «tú eres Pedro, y sobre esta roca»",
+   "1 Co 15:5 — «apareció a Cefas»",
+   "Gá 2:9 — «Jacobo, Cefas y Juan»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.46",
+  "strong": "G3478",
+  "forma": "Ναζαρέτ",
+  "glosa_interlineal": "Nazaret",
+  "rango_semantico": [
+   "Nazaret (aldea de Galilea)"
+  ],
+  "construccion": "Genitivo: «¿de Nazaret puede salir algo bueno?».",
+  "sentido_en_contexto": "Natanael expresa el desprecio hacia Nazaret, aldea insignificante sin mención en el AT. Contraste: Felipe responde «ven y ve».",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Natanael le dijo: ¿De Nazaret puede salir algo de bueno? Le dijo Felipe: Ven y ve."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 7:41, 52 — «¿de Galilea ha de venir el Cristo?»",
+   "Mt 2:23 — «será llamado nazareno»",
+   "Lc 4:22-24 — Nazaret rechaza a Jesús"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.48",
+  "strong": "G1388",
+  "forma": "δόλος",
+  "glosa_interlineal": "engaño",
+  "rango_semantico": [
+   "engaño, astucia, falsedad"
+  ],
+  "construccion": "Nominativo: «en quien no hay engaño».",
+  "sentido_en_contexto": "Jesús describe a Natanael como un verdadero israelita, sin engaño: lo contrario del «Jacob» del engaño (Gn 27:35). Alusión al nuevo Israel.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Cuando Jesús vio a Natanael que venía a él, dijo de él: He aquí un verdadero israelita, en quien no hay engaño."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 27:35 — «tu hermano vino con engaño»",
+   "Sal 32:2 — «en cuyo espíritu no hay engaño»",
+   "Is 53:9 — «ni hubo engaño en su boca»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.1.49",
+  "strong": "G4808",
+  "forma": "συκῆν",
+  "glosa_interlineal": "higuera",
+  "rango_semantico": [
+   "higuera"
+  ],
+  "construccion": "Acusativo: «debajo de la higuera».",
+  "sentido_en_contexto": "Jesús declara haber visto a Natanael «debajo de la higuera», lo que lo lleva a confesar su fe. El simbolismo de la higuera (estudio de la Torá, paz mesiánica) se discute.",
+  "matiz": "Se ha propuesto que sentarse bajo la higuera aludía a estudiar la Escritura o a la paz mesiánica (Mi 4:4, Zac 3:10). El texto no lo aclara; el punto es el conocimiento sobrenatural de Jesús.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Respondió Jesús y le dijo: Antes que Felipe te llamara, cuando estabas debajo de la higuera, te vi."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mi 4:4 — «cada uno debajo de su vid y de su higuera»",
+   "Zac 3:10",
+   "1 R 4:25"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.1.51",
+  "strong": "G32",
+  "forma": "ἀγγέλους",
+  "glosa_interlineal": "ángeles",
+  "rango_semantico": [
+   "ángel, mensajero"
+  ],
+  "construccion": "Acusativo plural: «los ángeles de Dios subiendo y descendiendo sobre el Hijo del Hombre».",
+  "sentido_en_contexto": "Alusión a la escalera de Jacob (Gn 28:12): Jesús mismo es el lugar de comunicación entre cielo y tierra, el nuevo Betel. «Hijo del Hombre» (título tomado de Dn 7).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y le dijo: De cierto, de cierto os digo: De aquí adelante veréis el cielo abierto, y a los ángeles de Dios que suben y descienden sobre el Hijo del Hombre."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 28:12 — la escalera de Jacob",
+   "Dn 7:13 — «el Hijo del Hombre»",
+   "Jn 3:13 — «el Hijo del Hombre, que está en el cielo»"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

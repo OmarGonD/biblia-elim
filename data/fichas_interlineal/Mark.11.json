@@ -1,0 +1,320 @@
+[
+ {
+  "ref": "Mark.11.4",
+  "strong": "G4454",
+  "forma": "πῶλον",
+  "glosa_interlineal": "pollino",
+  "rango_semantico": [
+   "pollino, cría de asno"
+  ],
+  "construccion": "Acusativo: «un pollino atado».",
+  "sentido_en_contexto": "Marcos (como Lucas) menciona solo el pollino, «sobre el cual ningún hombre ha montado» (v.2). Un animal nunca usado era apto para uso sagrado (Nm 19:2; 1 S 6:7).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 21:2 — asna y pollino",
+   "Zac 9:9 — la profecía",
+   "Nm 19:2 — animal «sobre el cual no se ha puesto yugo»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.11.9",
+  "strong": "G5614",
+  "forma": "ὡσαννά",
+  "glosa_interlineal": "Hosanna",
+  "rango_semantico": [
+   "Hosanna (hebreo: «salva, por favor»)",
+   "aclamación de alabanza"
+  ],
+  "construccion": "Exclamación; cita de Sal 118:25-26.",
+  "sentido_en_contexto": "Marcos omite «Hijo de David» (Mt) y dice «bendito el reino que viene, el de nuestro padre David» (v.10): la aclamación se centra en el Reino.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y los que iban delante y los que seguían, daban voces diciendo: ¡Hosanna! ¡Bendito el que viene en el nombre del Señor!"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 118:25-26 — fuente",
+   "Mt 21:9 — «¡Hosanna al Hijo de David!»",
+   "Jn 12:13 — «el Rey de Israel»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.11.11",
+  "strong": "G4017",
+  "forma": "περιβλεψάμενος",
+  "glosa_interlineal": "mirando alrededor",
+  "rango_semantico": [
+   "mirar alrededor, examinar con la vista"
+  ],
+  "construccion": "Participio aoristo medio: «habiendo mirado todo alrededor».",
+  "sentido_en_contexto": "Marcos cuenta que, al entrar a Jerusalén y al templo, Jesús miró todo y se retiró a Betania porque ya era tarde: una inspección previa a la purificación del día siguiente.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y entró Jesús en Jerusalén, y en el templo; y después de haber mirado alrededor todas las cosas, como ya fuese tarde, salió con los doce a Betania."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mal 3:1 — «vendrá súbitamente a su templo»",
+   "Mr 3:5 — «mirándolos alrededor con enojo»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.11.13",
+  "strong": "G4808",
+  "forma": "συκῆν",
+  "glosa_interlineal": "higuera",
+  "rango_semantico": [
+   "higuera"
+  ],
+  "construccion": "Acusativo: «una higuera que tenía hojas».",
+  "sentido_en_contexto": "Marcos cuenta la higuera en dos tiempos (vv.12-14 y 20-25), encuadrando la purificación del templo (vv.15-19): el templo es interpretado a la luz de la higuera, como Israel infructuoso. Marcos añade «no era tiempo de higos».",
+  "matiz": "Dificultad conocida: ¿por qué Jesús busca higos «cuando no era tiempo»? Soluciones: (a) acto simbólico (profético) más que botánico; (b) las higueras daban frutos tempranos (paggim) que se comían antes de las hojas; (c) la expresión significa «no era el tiempo de cosecha normal».",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y viendo de lejos una higuera que tenía hojas, fue a ver si tal vez hallaba en ella algo; pero cuando llegó a ella, nada halló sino hojas; porque no era tiempo de higos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 21:19 — paralelo",
+   "Os 9:10 — «como uvas en el desierto hallé a Israel»",
+   "Jer 8:13 — «no habrá uvas en la vid, ni higos en la higuera»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.11.15",
+  "strong": "G2690",
+  "forma": "κατέστρεψεν",
+  "glosa_interlineal": "volcó",
+  "rango_semantico": [
+   "derribar, volcar"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª singular: «volcó las mesas».",
+  "sentido_en_contexto": "Jesús expulsa a vendedores y compradores y vuelca las mesas de los cambistas. Marcos añade que impedía llevar objetos por el templo (v.16), una prohibición de convertir el atrio en atajo.",
+  "matiz": "Se discute el alcance: ¿protesta contra la explotación en el comercio del templo, contra el templo mismo (acción simbólica de juicio, ligada a la higuera) o ambas?",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Vinieron luego a Jerusalén; y entrando Jesús en el templo, comenzó a echar fuera a los que vendían y compraban en el templo; y volcó las mesas de los cambistas, y las sillas de los que vendían palomas;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 21:12 — paralelo",
+   "Jn 2:15 — «volcó las mesas»",
+   "Zac 14:21 — «no habrá más mercader en la casa de Jehová»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.11.17",
+  "strong": "G1484",
+  "forma": "ἔθνεσιν",
+  "glosa_interlineal": "naciones",
+  "rango_semantico": [
+   "pueblo, nación",
+   "gentiles"
+  ],
+  "construccion": "Dativo plural: «casa de oración para todas las naciones».",
+  "sentido_en_contexto": "Marcos es el único que cita completo Is 56:7: «casa de oración para todas las naciones». El atrio de los gentiles, donde ocurría el comercio, era el único lugar de oración para ellos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y les enseñaba, diciendo: ¿No está escrito: Mi casa será llamada casa de oración para todas las naciones? Mas vosotros la habéis hecho cueva de ladrones."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 56:7 — «mi casa será llamada casa de oración para todos los pueblos»",
+   "Jer 7:11 — «cueva de ladrones»",
+   "Mt 21:13 — sin «para todas las naciones»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.11.18",
+  "strong": "G622",
+  "forma": "ἀπολέσωσιν",
+  "glosa_interlineal": "destruirle",
+  "rango_semantico": [
+   "destruir, matar"
+  ],
+  "construccion": "Subjuntivo aoristo activo: «cómo destruirle».",
+  "sentido_en_contexto": "Los líderes buscan matar a Jesús, pero temen a la multitud, que «estaba admirada de su doctrina». Marcos recoge el temor y la admiración.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y lo oyeron los escribas y los principales sacerdotes, y buscaban cómo matarle; porque le tenían miedo, por cuanto toda la multitud estaba admirada de su doctrina."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 12:12 — «temían a la multitud»",
+   "Lc 19:47-48 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.11.22",
+  "strong": "G4102",
+  "forma": "πίστιν",
+  "glosa_interlineal": "fe",
+  "rango_semantico": [
+   "fe, confianza"
+  ],
+  "construccion": "Acusativo: «tened fe en Dios (πίστιν θεοῦ)».",
+  "sentido_en_contexto": "«Fe de Dios» puede ser genitivo objetivo (fe en Dios) o subjetivo (la fe que Dios da). La lectura habitual es «tened fe en Dios».",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Respondiendo Jesús, les dijo: Tened fe en Dios."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 3:22 — «la fe de Jesucristo»",
+   "Gá 2:16 — mismo problema gramatical"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.11.23",
+  "strong": "G3735",
+  "forma": "ὄρει",
+  "glosa_interlineal": "monte",
+  "rango_semantico": [
+   "monte, montaña"
+  ],
+  "construccion": "Dativo: «a este monte».",
+  "sentido_en_contexto": "«Este monte» (el monte del Templo o el de los Olivos, según el lugar) será arrojado al mar si se cree sin dudar: hipérbole de la fe eficaz. Se aplica al templo en algunas lecturas (el monte del templo como símbolo del orden que pasa).",
+  "matiz": "Debate: ¿«este monte» es el monte de los Olivos (el lugar del diálogo) o el monte del templo (con valor simbólico)? Es una hipérbole que subraya el poder de la fe.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque de cierto os digo que cualquiera que dijere a este monte: Quítate y échate en el mar, y no dudare en su corazón, sino creyere que será hecho lo que dice, lo que diga le será hecho."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 17:20 — «diréis a este monte»",
+   "1 Co 13:2 — «si tuviese toda la fe, de tal manera que trasladase los montes»",
+   "Zac 14:4 — el monte de los Olivos"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.11.24",
+  "strong": "G4336",
+  "forma": "προσεύχεσθε",
+  "glosa_interlineal": "oráis",
+  "rango_semantico": [
+   "orar, pedir en oración"
+  ],
+  "construccion": "Presente indicativo medio: «todo lo que oréis y pidáis, creed que lo recibisteis (aoristo) y os será dado».",
+  "sentido_en_contexto": "Promesa de oración con fe: el verbo «recibisteis» (ἐλάβετε, aoristo) pide considerar la respuesta como ya concedida. Muy discutido en su aplicación.",
+  "matiz": "El aoristo «ya recibisteis» ha generado debate textual y teológico: algunos manuscritos tienen futuro («recibiréis»). Su sentido práctico es confiar sin dudar, no que toda petición se cumpla automáticamente (ver Stg 4:3; 1 Jn 5:14).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Por tanto, os digo que todo lo que pidiereis orando, creed que lo recibiréis, y os vendrá."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 21:22 — paralelo",
+   "Jn 14:13-14 — «todo lo que pidiereis al Padre en mi nombre»",
+   "1 Jn 5:14 — «conforme a su voluntad»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.11.25",
+  "strong": "G863",
+  "forma": "ἀφίετε",
+  "glosa_interlineal": "perdonad",
+  "rango_semantico": [
+   "perdonar, dejar ir"
+  ],
+  "construccion": "Imperativo presente activo, 2ª plural: «perdonad».",
+  "sentido_en_contexto": "La oración exige perdonar a quien se tiene algo contra él: Marcos lo une a la fe y la oración, reflejando el Padrenuestro (Mt 6:14-15).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y cuando estéis orando, perdonad, si tenéis algo contra alguno, para que también vuestro Padre que está en los cielos os perdone a vosotros vuestras ofensas."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 6:12, 14-15 — el perdón en el Padrenuestro",
+   "Mt 18:35 — «si no perdonáis de corazón»",
+   "Col 3:13 — «perdonándoos unos a otros»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.11.28",
+  "strong": "G1849",
+  "forma": "ἐξουσίᾳ",
+  "glosa_interlineal": "autoridad",
+  "rango_semantico": [
+   "autoridad, potestad"
+  ],
+  "construccion": "ἐν + dativo: «¿con qué autoridad haces estas cosas?».",
+  "sentido_en_contexto": "Los líderes cuestionan a Jesús sobre su autoridad para actuar en el templo. Comienza un bloque de controversias (11:27-12:44).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y le dijeron: ¿Con qué autoridad haces estas cosas? ¿y quién te dio autoridad para hacer estas cosas?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 21:23 — paralelo",
+   "Lc 20:2 — paralelo",
+   "Mr 1:22, 27 — la autoridad de Jesús"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.11.30",
+  "strong": "G908",
+  "forma": "βάπτισμα",
+  "glosa_interlineal": "bautismo",
+  "rango_semantico": [
+   "inmersión, bautismo"
+  ],
+  "construccion": "Nominativo: «el bautismo de Juan».",
+  "sentido_en_contexto": "Contrapregunta de Jesús: ¿era del cielo o de los hombres? Los líderes quedan atrapados y responden «no sabemos». Muestra su falta de sinceridad.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "El bautismo de Juan, ¿era del cielo, o de los hombres? Respondedme."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 21:25 — paralelo",
+   "Lc 20:4 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

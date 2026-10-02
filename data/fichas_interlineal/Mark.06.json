@@ -1,0 +1,411 @@
+[
+ {
+  "ref": "Mark.6.3",
+  "strong": "G5045",
+  "forma": "τέκτων",
+  "glosa_interlineal": "carpintero",
+  "rango_semantico": [
+   "artesano, carpintero, constructor"
+  ],
+  "construccion": "Nominativo: «¿no es este el carpintero, el hijo de María?».",
+  "sentido_en_contexto": "Único lugar de los Evangelios donde se llama a Jesús mismo «carpintero» (Mateo dice «el hijo del carpintero»). Lo identifican por su madre, no por su padre, lo cual puede indicar que José ya había muerto.",
+  "matiz": "Algunos manuscritos de Marcos dicen «el hijo del carpintero» (como Mateo); es una variante conocida. Que lo llamen «hijo de María» ha sido interpretado como insulto o como señal de viudez de José.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¿No es éste el carpintero, hijo de María, hermano de Jacobo, de José, de Judas y de Simón? ¿No están también aquí con nosotros sus hermanas? Y se escandalizaban de él."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 13:55 — «el hijo del carpintero»",
+   "Jn 6:42 — «hijo de José»",
+   "Mr 6:4 — «sin honra… entre sus parientes»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.6.5",
+  "strong": "G1411",
+  "forma": "δύναμιν",
+  "glosa_interlineal": "milagro",
+  "rango_semantico": [
+   "poder, fuerza",
+   "acto de poder"
+  ],
+  "construccion": "Acusativo con negación: «no podía hacer allí ningún milagro».",
+  "sentido_en_contexto": "Marcos dice sin suavizar que Jesús «no podía» hacer milagros en Nazaret, salvo sanar a unos pocos imponiendo las manos. Mateo lo suaviza («no hizo muchos»).",
+  "matiz": "Debate: la frase no implica límite del poder de Jesús sino que la falta de fe impide el contexto de la acción salvadora. Es un caso de «dificultad» que se considera indicio de autenticidad.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y no pudo hacer allí ningún milagro, salvo que sanó a unos pocos enfermos, imponiéndoles las manos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 13:58 — «no hizo allí muchos milagros»",
+   "Mr 9:23 — «al que cree todo le es posible»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.6.7",
+  "strong": "G1417",
+  "forma": "δύο",
+  "glosa_interlineal": "de dos en dos",
+  "rango_semantico": [
+   "dos"
+  ],
+  "construccion": "Adverbio distributivo: «de dos en dos».",
+  "sentido_en_contexto": "Jesús envía a los doce en parejas (el testimonio de dos, Dt 19:15; apoyo mutuo). Es un detalle propio de Marcos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y llamó a los doce, y comenzó a enviarlos de dos en dos; y les dio autoridad sobre los espíritus inmundos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 10:1 — los setenta de dos en dos",
+   "Dt 19:15 — «por el testimonio de dos o tres testigos»",
+   "Ec 4:9 — «mejores son dos que uno»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.6.8",
+  "strong": "G4464",
+  "forma": "ῥάβδον",
+  "glosa_interlineal": "bordón",
+  "rango_semantico": [
+   "bastón, vara"
+  ],
+  "construccion": "Acusativo: «nada para el camino, sino solamente un bastón».",
+  "sentido_en_contexto": "En Marcos se permite un bastón y sandalias; en Mateo y Lucas se prohíben. La diferencia es conocida: Marcos recoge una instrucción de viaje ligero.",
+  "matiz": "Los especialistas discuten cómo conciliar las tres versiones: ¿el bastón y las sandalias eran equipamiento ya presente que no debían añadir? ¿Marcos y Mateo reflejan dos tradiciones de la instrucción?",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y les mandó que no llevasen nada para el camino, sino solamente bordón; ni alforja, ni pan, ni dinero en el cinto,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 10:9-10 — «ni bordón»",
+   "Lc 9:3 — «ni bordón»",
+   "Éx 12:11 — el cayado en la Pascua"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.6.11",
+  "strong": "G5522",
+  "forma": "χοῦν",
+  "glosa_interlineal": "polvo",
+  "rango_semantico": [
+   "polvo, tierra suelta"
+  ],
+  "construccion": "Gesto: «sacudid el polvo de vuestros pies».",
+  "sentido_en_contexto": "Marcos añade «en testimonio contra ellos». El gesto de sacudir el polvo declara que el pueblo se ha excluido a sí mismo.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 10:14 — paralelo",
+   "Hch 13:51 — «sacudiendo el polvo de sus pies»",
+   "Lc 10:11 — paralelo"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.6.13",
+  "strong": "G218",
+  "forma": "ἤλειφον",
+  "glosa_interlineal": "ungían",
+  "rango_semantico": [
+   "untar, ungir con aceite"
+  ],
+  "construccion": "Imperfecto indicativo activo, 3ª plural: «ungían con aceite».",
+  "sentido_en_contexto": "Solo Marcos menciona el uso de aceite en las sanaciones de los doce. Se debate su sentido (medicinal, simbólico o de la unción de enfermos). Santiago 5:14 menciona una práctica similar.",
+  "matiz": "Se discute si el aceite es medicinal (Lc 10:34), simbólico de la acción del Espíritu o precedente de la unción de los enfermos (Stg 5:14). Marcos no lo explica.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y echaban fuera muchos demonios, y ungían con aceite a muchos enfermos, y los sanaban."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Stg 5:14 — «que oren por él, ungiéndole con aceite»",
+   "Lc 10:34 — el buen samaritano vierte aceite y vino"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.6.20",
+  "strong": "G4933",
+  "forma": "συνετήρει",
+  "glosa_interlineal": "guardaba",
+  "rango_semantico": [
+   "proteger, conservar"
+  ],
+  "construccion": "Imperfecto indicativo activo, 3ª singular: «lo protegía».",
+  "sentido_en_contexto": "Marcos presenta a Herodes dividido: temía a Juan, sabía que era justo y santo, lo guardaba y lo escuchaba con gusto, aunque quedaba perplejo. Un retrato más matizado que el de Mateo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "porque Herodes temía a Juan, sabiendo que era varón justo y santo, y le guardaba a salvo; y oyéndole, se quedaba muy perplejo, pero le escuchaba de buena gana."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 14:5 — «quería matarle, pero temía al pueblo»",
+   "Lc 3:19-20 — Juan reprende a Herodes"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.6.23",
+  "strong": "G2255",
+  "forma": "ἡμίσους",
+  "glosa_interlineal": "mitad",
+  "rango_semantico": [
+   "mitad"
+  ],
+  "construccion": "Genitivo: «hasta la mitad de mi reino».",
+  "sentido_en_contexto": "Hipérbole de Herodes: promesa que recuerda a Asuero (Est 5:3). Herodes Antipas no era rey ni tenía reino que repartir (era tetrarca); la promesa es ostentación.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y le juró: Todo lo que me pidas te daré, hasta la mitad de mi reino."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Est 5:3 — «hasta la mitad del reino se te dará»",
+   "Est 7:2 — igual"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.6.27",
+  "strong": "G4688",
+  "forma": "σπεκουλάτορα",
+  "glosa_interlineal": "verdugo",
+  "rango_semantico": [
+   "guardaespaldas, ejecutor (latinismo: speculator)"
+  ],
+  "construccion": "Acusativo: «un guardia / verdugo».",
+  "sentido_en_contexto": "Latinismo exclusivo de Marcos: speculator era un soldado de la guardia, que a veces ejecutaba sentencias.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y en seguida el rey, enviando a uno de la guardia, mandó que fuese traída la cabeza de Juan."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 15:39 — «el centurión (κεντυρίων)» otro latinismo",
+   "Mr 15:15 — «azotar (φραγελλώσας)»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.6.30",
+  "strong": "G652",
+  "forma": "ἀπόστολοι",
+  "glosa_interlineal": "apóstoles",
+  "rango_semantico": [
+   "enviado, apóstol"
+  ],
+  "construccion": "Nominativo plural: «los apóstoles».",
+  "sentido_en_contexto": "Marcos usa «apóstoles» solo aquí (y en 3:14 en algunos manuscritos): son los enviados que regresan a informar tras su misión.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y los apóstoles se juntaron con Jesús, y le contaron todo lo que habían hecho, y lo que habían enseñado."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 9:10 — paralelo",
+   "Mr 3:14 — «los apartó para que estuviesen con él»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.6.31",
+  "strong": "G373",
+  "forma": "ἀναπαύσασθε",
+  "glosa_interlineal": "descansad",
+  "rango_semantico": [
+   "descansar, reposar"
+  ],
+  "construccion": "Imperativo aoristo medio, 2ª plural: «reposad un poco».",
+  "sentido_en_contexto": "Jesús invita a los apóstoles a retirarse a descansar. Detalle de cuidado pastoral, solo en Marcos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y él les dijo: Venid vosotros aparte a un lugar desierto, y descansad un poco. Porque eran muchos los que iban y venían, y ni aun tenían tiempo para comer."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 11:28 — «yo os haré descansar»",
+   "Sal 23:2 — «en lugares de delicados pastos me hará descansar»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.6.34",
+  "strong": "G4166",
+  "forma": "ποιμένα",
+  "glosa_interlineal": "pastor",
+  "rango_semantico": [
+   "pastor"
+  ],
+  "construccion": "Acusativo: «como ovejas que no tienen pastor».",
+  "sentido_en_contexto": "La compasión de Jesús responde a la falta de líderes (Nm 27:17; Ez 34). Marcos añade que «comenzó a enseñarles muchas cosas» (Mateo: los sana).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y salió Jesús y vio una gran multitud, y tuvo compasión de ellos, porque eran como ovejas que no tenían pastor; y comenzó a enseñarles muchas cosas."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Nm 27:17 — «para que la congregación de Jehová no sea como ovejas sin pastor»",
+   "Mt 9:36 — paralelo",
+   "Ez 34:5 — «fueron esparcidas por falta de pastor»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.6.39",
+  "strong": "G4849",
+  "forma": "συμπόσια",
+  "glosa_interlineal": "grupos de comensales",
+  "rango_semantico": [
+   "banquete, grupo que come junto"
+  ],
+  "construccion": "Acusativo plural: «por grupos (como banquetes)».",
+  "sentido_en_contexto": "Marcos dispone a la multitud en grupos ordenados sobre la hierba verde, de cien y de cincuenta. «Hierba verde» es dato de la primavera y ambienta la Pascua.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y les mandó que hiciesen recostar a todos por grupos sobre la hierba verde."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 6:10 — «había mucha hierba en aquel lugar»",
+   "Éx 18:21 — jefes de millares, centenas y cincuentenas"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.6.43",
+  "strong": "G2894",
+  "forma": "κοφίνων",
+  "glosa_interlineal": "cestas",
+  "rango_semantico": [
+   "cesto, canasta"
+  ],
+  "construccion": "Genitivo plural: «doce cestos llenos».",
+  "sentido_en_contexto": "Marcos añade que recogieron también los pedazos «de los peces». Doce cestas, una por apóstol.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y recogieron de los pedazos doce cestas llenas, y de lo que sobró de los peces."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 14:20 — paralelo",
+   "Jn 6:13 — paralelo",
+   "Mr 8:19-20 — Jesús recuerda las cestas"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.6.48",
+  "strong": "G928",
+  "forma": "βασανιζομένους",
+  "glosa_interlineal": "fatigados",
+  "rango_semantico": [
+   "atormentar, afligir",
+   "fatigarse (remando)"
+  ],
+  "construccion": "Participio presente pasivo: «viéndoles remar con gran fatiga».",
+  "sentido_en_contexto": "Marcos subraya que Jesús los ve desde la orilla y viene a ellos «queriendo pasarlos de largo» (v.48). Se debate el sentido de esta frase: ¿se pone a su lado o se revela en teofanía?",
+  "matiz": "Debate: «quería adelantárseles» (παρελθεῖν) evoca las teofanías del AT (Éx 33:19-22; 1 R 19:11), donde Dios «pasa» junto a sus siervos. No se dice que pasara de largo por indiferencia.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y viéndoles remar con gran fatiga, porque el viento les era contrario, cerca de la cuarta vigilia de la noche vino a ellos andando sobre el mar, y quería adelantárseles."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 33:19-22 — «yo haré pasar todo mi bien delante de tu rostro»",
+   "1 R 19:11 — «Jehová pasaba»",
+   "Job 9:8 — «anda sobre las olas del mar»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.6.50",
+  "strong": "G2293",
+  "forma": "θαρσεῖτε",
+  "glosa_interlineal": "tened ánimo",
+  "rango_semantico": [
+   "tener valor, animarse"
+  ],
+  "construccion": "Imperativo presente activo, 2ª plural.",
+  "sentido_en_contexto": "«Ánimo, yo soy, no temáis»: en Marcos y Mateo es el mismo trío de expresiones. El «yo soy» puede sonar como la fórmula divina.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 14:27 — paralelo",
+   "Jn 6:20 — «yo soy; no temáis»",
+   "Éx 3:14 — «YO SOY EL QUE SOY»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.6.52",
+  "strong": "G4456",
+  "forma": "πεπωρωμένη",
+  "glosa_interlineal": "endurecido",
+  "rango_semantico": [
+   "endurecer, volver insensible"
+  ],
+  "construccion": "Participio perfecto pasivo: «su corazón estaba endurecido».",
+  "sentido_en_contexto": "Marcos explica que los discípulos no entendieron «lo de los panes» y tenían el corazón endurecido: duro juicio sobre los doce, propio de Marcos. Mateo lo omite y habla de adoración.",
+  "matiz": "El tema de la incomprensión de los discípulos es característico de Marcos (4:13, 40; 6:52; 8:17-21). Se discute su propósito: realismo histórico, advertencia a los lectores o motivo literario.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque aún no habían entendido lo de los panes, por cuanto estaban endurecidos sus corazones."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 3:5 — dureza de los fariseos",
+   "Mr 8:17 — «¿aún tenéis endurecido vuestro corazón?»",
+   "Mt 14:33 — «le adoraron»"
+  ],
+  "nivel_certeza": "medio"
+ }
+]

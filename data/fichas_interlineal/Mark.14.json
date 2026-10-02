@@ -1,0 +1,507 @@
+[
+ {
+  "ref": "Mark.14.1",
+  "strong": "G106",
+  "forma": "ἄζυμα",
+  "glosa_interlineal": "panes sin levadura",
+  "rango_semantico": [
+   "sin levadura (pan ácimo)",
+   "fiesta de los Panes sin Levadura"
+  ],
+  "construccion": "Acusativo plural: «la Pascua y los Panes sin Levadura».",
+  "sentido_en_contexto": "Dos días antes de la Pascua y los Ázimos, los líderes buscan cómo matar a Jesús con engaño. Marcos inicia su relato de la pasión con una indicación temporal precisa.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 12:14-20 — la Pascua y los ázimos",
+   "Mt 26:2 — «dentro de dos días, la pascua»",
+   "Lc 22:1 — «la fiesta de los panes sin levadura»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.14.3",
+  "strong": "G3487",
+  "forma": "νάρδου",
+  "glosa_interlineal": "nardo",
+  "rango_semantico": [
+   "nardo (perfume costoso de la India)"
+  ],
+  "construccion": "Genitivo: «perfume de nardo puro, de mucho precio».",
+  "sentido_en_contexto": "Marcos detalla el perfume: nardo auténtico (πιστικῆς), carísimo. La mujer rompe el frasco y lo derrama en la cabeza. Un gesto de unción real o funeraria.",
+  "matiz": "El adjetivo πιστικῆς es discutido: puede significar «genuino» (de πίστις) o designar una variedad (pistaciaca). El sentido general es «auténtico y muy costoso».",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero estando él en Betania, en casa de Simón el leproso, y sentado a la mesa, vino una mujer con un vaso de alabastro de perfume de nardo puro de mucho precio; y quebrando el vaso de alabastro, se lo derramó sobre su cabeza."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 12:3 — «una libra de perfume de nardo puro»",
+   "Cnt 1:12 — «mi nardo dio su olor»",
+   "Mt 26:7 — paralelo"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.14.5",
+  "strong": "G1220",
+  "forma": "δηναρίων",
+  "glosa_interlineal": "denarios",
+  "rango_semantico": [
+   "denario (jornal de un obrero)"
+  ],
+  "construccion": "Genitivo plural: «más de trescientos denarios».",
+  "sentido_en_contexto": "Marcos dice que el perfume valía «más de trescientos denarios»: casi un año de salario. Los presentes se indignan por el desperdicio.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 12:5 — «trescientos denarios»",
+   "Mt 20:2 — un denario al día"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.14.8",
+  "strong": "G4301",
+  "forma": "προέλαβεν",
+  "glosa_interlineal": "se anticipó",
+  "rango_semantico": [
+   "anticiparse, adelantarse"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª singular: «se anticipó a ungir mi cuerpo».",
+  "sentido_en_contexto": "Jesús interpreta el gesto como unción anticipada para el entierro. Es el único relato donde la unción se vincula expresamente con la sepultura de antemano.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Esta ha hecho lo que podía; porque se ha anticipado a ungir mi cuerpo para la sepultura."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 16:1 — las mujeres vienen a ungirlo, pero ya no hace falta",
+   "Mt 26:12 — «para prepararme para la sepultura»",
+   "Jn 12:7 — «para el día de mi sepultura»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.14.9",
+  "strong": "G3422",
+  "forma": "μνημόσυνον",
+  "glosa_interlineal": "memoria",
+  "rango_semantico": [
+   "memorial, recuerdo"
+  ],
+  "construccion": "Acusativo: «en memoria de ella».",
+  "sentido_en_contexto": "Jesús promete que lo que esta mujer hizo será recordado dondequiera que se proclame el evangelio. Ironía: Marcos no recoge su nombre.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "De cierto os digo que dondequiera que se predique este evangelio, en todo el mundo, también se contará lo que ésta ha hecho, para memoria de ella."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:13 — paralelo",
+   "Hch 10:4 — «tus oraciones y tus limosnas han subido como memoria»",
+   "Éx 12:14 — «este día os será en memoria»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.14.11",
+  "strong": "G1861",
+  "forma": "ἐπηγγείλαντο",
+  "glosa_interlineal": "prometieron",
+  "rango_semantico": [
+   "prometer, comprometerse"
+  ],
+  "construccion": "Aoristo indicativo medio, 3ª plural: «prometieron darle dinero».",
+  "sentido_en_contexto": "Marcos cuenta que los sacerdotes se alegraron y prometieron pagar a Judas; no menciona la cantidad (Mateo: treinta piezas de plata).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Ellos, al oírlo, se alegraron, y prometieron darle dinero. Y buscaba oportunidad para entregarle."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:15 — «treinta piezas de plata»",
+   "Lc 22:5 — «convinieron en darle dinero»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.14.15",
+  "strong": "G508",
+  "forma": "ἀνώγεον",
+  "glosa_interlineal": "aposento alto",
+  "rango_semantico": [
+   "sala superior, habitación del piso alto"
+  ],
+  "construccion": "Acusativo: «un gran aposento alto amueblado».",
+  "sentido_en_contexto": "Los discípulos preparan la cena de Pascua en una sala superior grande, ya dispuesta. Marcos da la indicación del «hombre con un cántaro de agua» (v.13).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y él os mostrará un gran aposento alto ya dispuesto; preparad para nosotros allí."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 22:12 — paralelo",
+   "Hch 1:13 — «subieron al aposento alto»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.14.20",
+  "strong": "G1686",
+  "forma": "ἐμβαπτόμενος",
+  "glosa_interlineal": "el que moja",
+  "rango_semantico": [
+   "mojar, sumergir"
+  ],
+  "construccion": "Participio presente medio: «el que moja conmigo en el plato».",
+  "sentido_en_contexto": "Jesús anuncia que uno de los doce lo entregará: «el que moja conmigo en el plato». Alude a Sal 41:9 («el que comía mi pan alzó contra mí el calcañar»).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Él, respondiendo, les dijo: Es uno de los doce, el que moja conmigo en el plato."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 41:9 — «aun el hombre de mi paz, en quien yo confiaba»",
+   "Mt 26:23 — paralelo",
+   "Jn 13:26 — «a quien yo diere el pan mojado»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.14.22",
+  "strong": "G2806",
+  "forma": "ἔκλασεν",
+  "glosa_interlineal": "partió",
+  "rango_semantico": [
+   "partir, romper (el pan)"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª singular.",
+  "sentido_en_contexto": "En la Última Cena Jesús toma el pan, bendice, parte y da. Marcos no usa «comed»: dice «tomad, esto es mi cuerpo».",
+  "matiz": "Ver nota sobre «esto es mi cuerpo» en Mt 26:26: el sentido de «es» es objeto de debate eucarístico entre confesiones.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y mientras comían, Jesús tomó pan, y bendiciendo, lo partió y les dio, diciendo: Tomad, esto es mi cuerpo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:26 — paralelo",
+   "Lc 22:19 — «haced esto en memoria de mí»",
+   "1 Co 11:23-24 — la tradición recibida"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "Mark.14.24",
+  "strong": "G1632",
+  "forma": "ἐκχυννόμενον",
+  "glosa_interlineal": "derramada",
+  "rango_semantico": [
+   "derramar, verter"
+  ],
+  "construccion": "Participio presente pasivo: «que es derramada por muchos».",
+  "sentido_en_contexto": "Jesús interpreta la copa como su sangre «del pacto», derramada «por muchos» (ὑπὲρ πολλῶν): el sacrificio que sella la alianza (Éx 24:8) y lleva el pecado de muchos (Is 53:12).",
+  "matiz": "Marcos no incluye «para remisión de los pecados» (Mt 26:28); pone el énfasis en el pacto y en el «por muchos». Algunos manuscritos añaden «nuevo» antes de «pacto».",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y les dijo: Esto es mi sangre del nuevo pacto, que por muchos es derramada."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 24:8 — «la sangre del pacto»",
+   "Is 53:12 — «llevó el pecado de muchos»",
+   "Mr 10:45 — «dar su vida en rescate por muchos»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.14.31",
+  "strong": "G4880",
+  "forma": "συναποθανεῖν",
+  "glosa_interlineal": "morir con",
+  "rango_semantico": [
+   "morir juntamente con"
+  ],
+  "construccion": "Infinitivo aoristo: «aunque sea necesario morir contigo».",
+  "sentido_en_contexto": "Pedro jura que aunque deba morir con Jesús, no lo negará; «lo mismo decían todos». Contraste con las negaciones de los vv.66-72.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Mas él con mayor insistencia decía: Si me fuere necesario morir contigo, no te negaré. También todos decían lo mismo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 11:16 — Tomás: «vamos también nosotros, para que muramos con él»",
+   "2 Ti 2:11 — «si somos muertos con él»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.14.33",
+  "strong": "G1568",
+  "forma": "ἐκθαμβεῖσθαι",
+  "glosa_interlineal": "angustiarse",
+  "rango_semantico": [
+   "asombrarse y angustiarse, espantarse"
+  ],
+  "construccion": "Infinitivo presente pasivo: «comenzó a entristecerse y angustiarse».",
+  "sentido_en_contexto": "Marcos muestra a Jesús en Getsemaní con un lenguaje muy fuerte: «espantado y angustiado» (ἐκθαμβεῖσθαι y ἀδημονεῖν). Es una de las escenas más humanas del Evangelio.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y tomó consigo a Pedro, a Jacobo y a Juan, y comenzó a entristecerse y a angustiarse."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:37 — «entristecerse y angustiarse»",
+   "Mr 9:15 — la multitud «asombrada»",
+   "Heb 5:7 — «con gran clamor y lágrimas»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.14.36",
+  "strong": "G5",
+  "forma": "ἀββᾶ",
+  "glosa_interlineal": "Abba",
+  "rango_semantico": [
+   "Abba (arameo: «padre», forma familiar)"
+  ],
+  "construccion": "Palabra aramea conservada por Marcos, con traducción: «Padre».",
+  "sentido_en_contexto": "Única vez en los Evangelios que se conserva el arameo «Abba» en oración de Jesús. Expresa intimidad filial; Pablo lo usa para los creyentes (Ro 8:15; Gá 4:6).",
+  "matiz": "Se ha discutido si «abba» equivalía a «papá» (lenguaje infantil); la investigación posterior matiza que era una forma respetuosa y familiar, no solo infantil.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y decía: Abba, Padre, todo te es posible; aparta de mí esta copa; mas no lo que yo quiero, sino lo que tú."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 8:15 — «clamamos: ¡Abba, Padre!»",
+   "Gá 4:6 — «el Espíritu… que clama: ¡Abba, Padre!»",
+   "Mt 26:39 — «Padre mío»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.14.38",
+  "strong": "G1127",
+  "forma": "γρηγορεῖτε",
+  "glosa_interlineal": "velad",
+  "rango_semantico": [
+   "velar, estar despierto"
+  ],
+  "construccion": "Imperativo presente activo, 2ª plural: «velad y orad».",
+  "sentido_en_contexto": "Tres veces Jesús encuentra dormidos a sus discípulos. El tema de la vigilancia (13:34-37) se cumple aquí: duermen cuando debían velar.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Velad y orad, para que no entréis en tentación; el espíritu a la verdad está dispuesto, pero la carne es débil."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 13:37 — «lo que a vosotros digo, a todos lo digo: Velad»",
+   "Mt 26:41 — paralelo",
+   "1 P 5:8 — «sed sobrios, y velad»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.14.44",
+  "strong": "G4953",
+  "forma": "σύσσημον",
+  "glosa_interlineal": "señal convenida",
+  "rango_semantico": [
+   "señal, contraseña"
+  ],
+  "construccion": "Acusativo: «les había dado una señal».",
+  "sentido_en_contexto": "Judas acuerda una señal (el beso) para identificar a Jesús. Palabra rara, propia de Marcos en este uso.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y el que le entregaba les había dado señal, diciendo: Al que yo besare, ése es; prendedle, y llevadle con seguridad."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:48 — paralelo",
+   "Lc 22:47-48 — «¿con un beso entregas al Hijo del Hombre?»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.14.51",
+  "strong": "G3495",
+  "forma": "νεανίσκος",
+  "glosa_interlineal": "joven",
+  "rango_semantico": [
+   "joven, muchacho"
+  ],
+  "construccion": "Nominativo: «cierto joven le seguía, cubierto con una sábana».",
+  "sentido_en_contexto": "Episodio exclusivo de Marcos: un joven que huye desnudo al ser agarrado. Se ha discutido su identidad (el propio Marcos, según una tradición; otro seguidor; símbolo del abandono total).",
+  "matiz": "Debate: ¿el joven es una firma discreta del autor (Juan Marcos), un detalle testimonial o un símbolo? No hay certeza; el texto no lo dice.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero cierto joven le seguía, cubierto el cuerpo con una sábana; y le prendieron;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 16:5 — el «joven» en el sepulcro",
+   "Hch 12:12 — la casa de María, madre de Juan Marcos"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "Mark.14.58",
+  "strong": "G5499",
+  "forma": "χειροποίητον",
+  "glosa_interlineal": "hecho a mano",
+  "rango_semantico": [
+   "hecho por manos humanas"
+  ],
+  "construccion": "Adjetivo acusativo: «este templo hecho a mano».",
+  "sentido_en_contexto": "Los testigos falsos citan a Jesús: «derribaré este templo hecho a mano, y en tres días edificaré otro hecho sin mano». Marcos añade «hecho a mano / no hecho a mano», que no aparece en Mateo.",
+  "matiz": "Marcos presenta esto como falso testimonio, aunque contiene algo de lo que Jesús dijo (cf. Jn 2:19). El contraste «hecho a mano / sin mano» evoca el lenguaje bíblico sobre ídolos (Is 46:6) y el templo nuevo (Heb 9:11).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Nosotros le hemos oído decir: Yo derribaré este templo hecho a mano, y en tres días edificaré otro hecho sin manos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 2:19 — «destruid este templo, y en tres días lo levantaré»",
+   "Hch 7:48 — «el Altísimo no habita en templos hechos de mano»",
+   "Heb 9:11 — «no hecho de manos»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.14.62",
+  "strong": "G1473",
+  "forma": "ἐγώ",
+  "glosa_interlineal": "Yo soy",
+  "rango_semantico": [
+   "yo"
+  ],
+  "construccion": "ἐγώ εἰμι: «Yo soy».",
+  "sentido_en_contexto": "Respuesta de Jesús al sumo sacerdote en Marcos: «Yo soy» (Mateo: «tú lo has dicho»). Es afirmación directa, que añade la profecía de ver al Hijo del Hombre a la diestra del Poder (Sal 110:1; Dn 7:13).",
+  "matiz": "Algunos manuscritos de Marcos dicen «Tú lo has dicho»; la lectura «Yo soy» es mayoritaria. La relación con el «Yo soy» divino (Éx 3:14) es debatida.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Jesús le dijo: Yo soy; y veréis al Hijo del Hombre sentado a la diestra del poder de Dios, y viniendo en las nubes del cielo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:64 — «tú lo has dicho»",
+   "Sal 110:1 — «siéntate a mi diestra»",
+   "Dn 7:13 — «con las nubes del cielo»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.14.65",
+  "strong": "G4028",
+  "forma": "περικαλύπτειν",
+  "glosa_interlineal": "cubrir",
+  "rango_semantico": [
+   "cubrir, tapar"
+  ],
+  "construccion": "Infinitivo presente: «cubrirle el rostro».",
+  "sentido_en_contexto": "Burla: le cubren el rostro y lo golpean diciendo «profetiza». Marcos añade que los guardias también lo abofeteaban.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y algunos comenzaron a escupirle, y a cubrirle el rostro y a darle puñetazos, y a decirle: Profetiza. Y los alguaciles le daban de bofetadas."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:67-68 — paralelo",
+   "Lc 22:64 — «¿quién es el que te golpeó?»",
+   "Is 50:6 — «mis mejillas a los que me mesaban la barba»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.14.68",
+  "strong": "G720",
+  "forma": "ἠρνήσατο",
+  "glosa_interlineal": "negó",
+  "rango_semantico": [
+   "negar, rechazar"
+  ],
+  "construccion": "Aoristo indicativo medio, 3ª singular.",
+  "sentido_en_contexto": "Primera negación de Pedro; Marcos cuenta dos cantos del gallo (vv.68, 72), con «antes que el gallo cante dos veces» (v.30). Es una particularidad de su relato.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 26:70 — paralelo",
+   "Mr 14:30 — «antes que el gallo cante dos veces»",
+   "Mr 14:72 — segundo canto"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.14.72",
+  "strong": "G1911",
+  "forma": "ἐπιβαλὼν",
+  "glosa_interlineal": "pensando en ello",
+  "rango_semantico": [
+   "echar sobre, lanzarse, ponerse a (algo)"
+  ],
+  "construccion": "Participio aoristo activo: «y echándose a llorar» / «pensando en esto, lloraba».",
+  "sentido_en_contexto": "El sentido del participio es incierto: «pensando en esto» (RVR), «cubriéndose la cabeza», «echándose a llorar». Marcos termina el relato de las negaciones con el llanto de Pedro.",
+  "matiz": "Es una de las palabras más difíciles de Marcos: ἐπιβαλών puede significar «lanzarse a», «cubrirse», o «reflexionar». Cada traducción elige.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y el gallo cantó la segunda vez. Entonces Pedro se acordó de las palabras que Jesús le había dicho: Antes que el gallo cante dos veces, me negarás tres veces. Y pensando en esto, lloraba."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:75 — «lloró amargamente»",
+   "Lc 22:62 — paralelo",
+   "Jn 21:15-17 — la restauración"
+  ],
+  "nivel_certeza": "bajo"
+ }
+]

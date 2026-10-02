@@ -1,0 +1,431 @@
+[
+ {
+  "ref": "Mark.5.1",
+  "strong": "G1046",
+  "forma": "Γερασηνῶν",
+  "glosa_interlineal": "gerasenos",
+  "rango_semantico": [
+   "de Gerasa (región al este del lago de Galilea)"
+  ],
+  "construccion": "Genitivo: «la región de los gerasenos».",
+  "sentido_en_contexto": "Marcos dice «gerasenos»; Mateo, «gadarenos». Ambas ciudades están al sureste del lago. Los manuscritos varían (Gerasa/Gadara/Gergesa).",
+  "matiz": "La ubicación exacta es debatida: Gerasa está a unos 50 km del lago, por lo que muchos piensan que se refiere a la región o a una aldea cercana (tal vez Kursi/Gergesa).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y vinieron al otro lado del mar, a la región de los gadarenos."
+   }
+  ],
+  "notas_traduccion": "RVR dice «gadarenos» (siguiendo otro texto); el texto crítico de Marcos varía entre «gerasenos» y «gadarenos».",
+  "otros_usos": [
+   "Mt 8:28 — «la región de los gadarenos»",
+   "Lc 8:26 — «la tierra de los gadarenos»",
+   "Mr 5:20 — «la Decápolis»"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "Mark.5.3",
+  "strong": "G3418",
+  "forma": "μνήμασιν",
+  "glosa_interlineal": "sepulcros",
+  "rango_semantico": [
+   "tumba, sepulcro"
+  ],
+  "construccion": "ἐν + dativo: «en los sepulcros».",
+  "sentido_en_contexto": "El endemoniado vive entre las tumbas, un lugar impuro y de exclusión social. Marcos describe con detalle su fuerza y su autolesión.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Este tenía su morada entre los sepulcros, y nadie podía atarle, ni aun con cadenas."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 65:4 — «los que moran en los sepulcros»",
+   "Mt 8:28 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.5.7",
+  "strong": "G5310",
+  "forma": "ὑψίστου",
+  "glosa_interlineal": "Altísimo",
+  "rango_semantico": [
+   "altísimo",
+   "(título) el Dios Altísimo"
+  ],
+  "construccion": "Genitivo: «Hijo del Dios Altísimo».",
+  "sentido_en_contexto": "Título que los gentiles y los espíritus usan para el Dios de Israel. Marcos pone «Altísimo» en boca del demonio, en territorio no judío.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Gn 14:18 — «sacerdote del Dios Altísimo»",
+   "Hch 16:17 — la muchacha: «siervos del Dios Altísimo»",
+   "Lc 1:32 — «Hijo del Altísimo»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.5.7",
+  "strong": "G3726",
+  "forma": "ὁρκίζω",
+  "glosa_interlineal": "te conjuro",
+  "rango_semantico": [
+   "conjurar, hacer jurar"
+  ],
+  "construccion": "Presente indicativo activo, 1ª singular: «te conjuro por Dios».",
+  "sentido_en_contexto": "El demonio intenta invertir la situación y conjura a Jesús («no me atormentes»), como si quisiera tener poder sobre él.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "y clamando a gran voz, dijo: ¿Qué tienes conmigo, Jesús, Hijo del Dios Altísimo? Te conjuro por Dios que no me atormentes."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 19:13 — «os conjuro por Jesús»",
+   "1 Ts 5:27 — «os conjuro por el Señor»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.5.9",
+  "strong": "G3003",
+  "forma": "λεγιὼν",
+  "glosa_interlineal": "Legión",
+  "rango_semantico": [
+   "legión (unidad romana de unos 6.000 soldados)",
+   "multitud"
+  ],
+  "construccion": "Nominativo: «Legión es mi nombre».",
+  "sentido_en_contexto": "El nombre del espíritu es «Legión» porque son muchos. Término militar romano: evoca a un ejército de ocupación; muchos intérpretes ven una alusión política a la dominación romana.",
+  "matiz": "Se discute si el nombre alude solo a la multitud de demonios o también a una crítica velada a Roma (cf. los cerdos, animales impuros y la destrucción en el mar). Es una lectura propuesta, no un dato del texto.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y le preguntó: ¿Cómo te llamas? Y le respondió diciendo: Legión me llamo; porque somos muchos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:53 — «doce legiones de ángeles»",
+   "Lc 8:30 — paralelo"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.5.13",
+  "strong": "G2010",
+  "forma": "ἐπέτρεψεν",
+  "glosa_interlineal": "permitió",
+  "rango_semantico": [
+   "permitir, dejar"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª singular.",
+  "sentido_en_contexto": "Jesús permite que los demonios entren en los cerdos: el episodio es de los más debatidos por el costo para los dueños. La pérdida económica provoca el rechazo de la región.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y luego Jesús les dio permiso. Y saliendo los espíritus inmundos, entraron en los cerdos, los cuales eran como dos mil; y el hato se precipitó en el mar por un despeñadero, y en el mar se ahogaron."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Job 1:12 — «he aquí, todo lo que tiene está en tu mano»",
+   "Lc 22:31 — «Satanás os ha pedido para zarandearos»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.5.15",
+  "strong": "G4993",
+  "forma": "σωφρονοῦντα",
+  "glosa_interlineal": "en su sano juicio",
+  "rango_semantico": [
+   "estar en su sano juicio, ser sensato"
+  ],
+  "construccion": "Participio presente activo: «en su juicio cabal».",
+  "sentido_en_contexto": "El antes endemoniado ahora está «sentado, vestido y en su sano juicio». Marcos describe la restauración con tres rasgos: reposo, dignidad, razón.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Vienen a Jesús, y ven al que había sido atormentado del demonio, y que había tenido la legión, sentado, vestido y en su cabal juicio; y tuvieron miedo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 26:25 — «palabras de verdad y de cordura»",
+   "Ro 12:3 — «piense de sí con cordura»",
+   "1 P 4:7 — «sed, pues, sobrios»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.5.19",
+  "strong": "G1653",
+  "forma": "ἠλέησέν",
+  "glosa_interlineal": "tuvo misericordia",
+  "rango_semantico": [
+   "tener misericordia, compadecerse"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª singular: «cuánta misericordia tuvo de ti».",
+  "sentido_en_contexto": "Jesús no deja que el hombre lo siga, sino que lo envía a su casa a contar lo que el Señor hizo y la misericordia que tuvo. Él lo proclama en la Decápolis.",
+  "matiz": "Contraste con el «secreto mesiánico»: aquí, en tierra gentil, Jesús pide que cuente lo ocurrido; en territorio judío suele pedir silencio.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Mas Jesús no le permitió, sino que le dijo: Vete a tu casa, a los tuyos, y cuéntales cuán grandes cosas el Señor ha hecho contigo, y cómo ha tenido misericordia de ti."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 1:44 — «no digas a nadie»",
+   "Lc 8:39 — paralelo",
+   "Sal 66:16 — «contaré lo que ha hecho a mi alma»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.5.22",
+  "strong": "G752",
+  "forma": "ἀρχισυναγώγων",
+  "glosa_interlineal": "jefes de sinagoga",
+  "rango_semantico": [
+   "jefe de sinagoga"
+  ],
+  "construccion": "Genitivo plural: «uno de los jefes de la sinagoga, llamado Jairo».",
+  "sentido_en_contexto": "Marcos da el nombre de Jairo (Mateo solo dice «un jefe»). Era responsable del culto y administración de la sinagoga.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y vino uno de los principales de la sinagoga, llamado Jairo; y luego que le vio, se postró a sus pies,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 8:41 — paralelo",
+   "Hch 18:8 — «Crispo, el principal de la sinagoga»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.5.23",
+  "strong": "G2079",
+  "forma": "ἐσχάτως",
+  "glosa_interlineal": "a punto de morir",
+  "rango_semantico": [
+   "en las últimas, al borde de la muerte"
+  ],
+  "construccion": "Adverbio: «está agonizando».",
+  "sentido_en_contexto": "Frase propia de Marcos: «mi hija está en las últimas». El padre ruega que Jesús imponga las manos para que viva.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "y le rogaba mucho, diciendo: Mi hija está agonizando; ven y pon las manos sobre ella para que sea salva, y vivirá."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 8:42 — «estaba muriéndose»",
+   "Mt 9:18 — «mi hija acaba de morir»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.5.25",
+  "strong": "G4511",
+  "forma": "ῥύσει",
+  "glosa_interlineal": "flujo",
+  "rango_semantico": [
+   "flujo, hemorragia"
+  ],
+  "construccion": "ἐν + dativo: «con flujo de sangre».",
+  "sentido_en_contexto": "Mujer enferma doce años, ritualmente impura (Lv 15:25-27), que se acerca por detrás para tocarle el manto. Marcos describe con detalle sus gastos y empeoramiento.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Lv 15:25-30 — impureza por flujo",
+   "Mt 9:20 — paralelo",
+   "Lc 8:43 — paralelo"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.5.26",
+  "strong": "G2395",
+  "forma": "ἰατρῶν",
+  "glosa_interlineal": "médicos",
+  "rango_semantico": [
+   "médico"
+  ],
+  "construccion": "Genitivo plural: «habiendo sufrido mucho de muchos médicos».",
+  "sentido_en_contexto": "Marcos subraya los fracasos de los médicos: había gastado todo y «en vez de mejorar, empeoraba». Lucas, médico, lo suaviza.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "y había sufrido mucho de muchos médicos, y gastado todo lo que tenía, y nada había aprovechado, antes le iba peor,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 8:43 — «no pudo ser curada por ninguno»",
+   "2 Cr 16:12 — Asa «no buscó a Jehová, sino a los médicos»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.5.30",
+  "strong": "G1411",
+  "forma": "δύναμιν",
+  "glosa_interlineal": "poder",
+  "rango_semantico": [
+   "poder, fuerza",
+   "milagro"
+  ],
+  "construccion": "Acusativo: «el poder que había salido de él».",
+  "sentido_en_contexto": "Jesús siente que «ha salido poder» de él. Marcos presenta su poder como una energía real que fluye al tocarle con fe.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Luego Jesús, conociendo en sí mismo el poder que había salido de él, volviéndose a la multitud, dijo: ¿Quién ha tocado mis vestidos?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 6:19 — «salía de él poder y sanaba a todos»",
+   "Lc 8:46 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.5.34",
+  "strong": "G1515",
+  "forma": "εἰρήνην",
+  "glosa_interlineal": "paz",
+  "rango_semantico": [
+   "paz, bienestar (shalom)"
+  ],
+  "construccion": "εἰς + acusativo: «vete en paz».",
+  "sentido_en_contexto": "Jesús la llama «hija» y la despide en paz: restauración social (ya no es impura) y salvación completa. «Tu fe te ha salvado».",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y él le dijo: Hija, tu fe te ha hecho salva; ve en paz, y queda sana de tu azote."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 8:48 — paralelo",
+   "Mr 10:52 — «tu fe te ha salvado»",
+   "Jue 18:6 — «id en paz»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.5.36",
+  "strong": "G3878",
+  "forma": "παρακούσας",
+  "glosa_interlineal": "oyendo (sin hacer caso)",
+  "rango_semantico": [
+   "oír de pasada",
+   "desoír, no hacer caso"
+  ],
+  "construccion": "Participio aoristo activo: «habiendo oído de pasada / ignorando lo dicho».",
+  "sentido_en_contexto": "Jesús «pasa por alto» el mensaje de que la niña murió y dice al padre: «no temas, cree solamente». Verbo ambiguo: puede ser «oír» o «desoír».",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero Jesús, luego que oyó lo que se decía, dijo al principal de la sinagoga: No temas, cree solamente."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 18:17 — «si no los oyere (παρακούσῃ)»",
+   "Lc 8:50 — «cree solamente»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.5.38",
+  "strong": "G2351",
+  "forma": "θόρυβον",
+  "glosa_interlineal": "alboroto",
+  "rango_semantico": [
+   "tumulto, ruido",
+   "llanto ruidoso"
+  ],
+  "construccion": "Acusativo: «un alboroto, y gente que lloraba y daba grandes alaridos».",
+  "sentido_en_contexto": "El duelo oriental era ruidoso, con plañideras. Jesús los saca fuera antes de actuar.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 9:23 — «los flautistas y la gente que hacía alboroto»",
+   "Hch 20:10 — Pablo con Eutico: «no os alarméis»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.5.41",
+  "strong": "G5008",
+  "forma": "ταλιθὰ",
+  "glosa_interlineal": "niña (en arameo)",
+  "rango_semantico": [
+   "niña, muchacha (arameo talitá)"
+  ],
+  "construccion": "Palabra aramea conservada por Marcos: «talitá cum».",
+  "sentido_en_contexto": "Marcos conserva las palabras arameas de Jesús («Talita cumi»), traducidas: «niña, a ti te digo, levántate». Es una de las pocas veces que escuchamos su lengua materna.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y tomando la mano de la niña, le dijo: Talita cumi; que traducido es: Niña, a ti te digo, levántate."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 7:34 — «Efata»",
+   "Mr 14:36 — «Abba»",
+   "Mr 15:34 — «Eloi, Eloi, lama sabactani»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.5.43",
+  "strong": "G1291",
+  "forma": "διεστείλατο",
+  "glosa_interlineal": "ordenó",
+  "rango_semantico": [
+   "ordenar expresamente, mandar con insistencia"
+  ],
+  "construccion": "Aoristo indicativo medio, 3ª singular.",
+  "sentido_en_contexto": "Jesús ordena con insistencia que nadie lo sepa: parte del «secreto mesiánico». Y manda que le den de comer a la niña: detalle práctico.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero él les mandó mucho que nadie lo supiese, y dijo que se le diese de comer."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 7:36 — «les mandó que a nadie lo dijesen»",
+   "Mr 8:30 — «les mandó que no dijesen esto de él a ninguno»"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

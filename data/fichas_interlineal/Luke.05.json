@@ -1,0 +1,408 @@
+[
+ {
+  "ref": "Luke.5.1",
+  "strong": "G3041",
+  "forma": "λίμνην",
+  "glosa_interlineal": "lago",
+  "rango_semantico": [
+   "lago"
+  ],
+  "construccion": "Acusativo: «junto al lago de Genesaret».",
+  "sentido_en_contexto": "Lucas llama «lago» (λίμνη) a lo que Mateo y Marcos llaman «mar» de Galilea. Es una precisión de quien escribe para lectores acostumbrados a distinguir mares de lagos.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 4:18 — «el mar de Galilea»",
+   "Lc 8:22 — «al otro lado del lago»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.5.5",
+  "strong": "G1988",
+  "forma": "ἐπιστάτα",
+  "glosa_interlineal": "maestro",
+  "rango_semantico": [
+   "jefe, supervisor, maestro"
+  ],
+  "construccion": "Vocativo: «Maestro».",
+  "sentido_en_contexto": "Título lucano exclusivo (Lucas lo usa 7 veces) para dirigirse a Jesús, distinto de «rabí»; los discípulos lo llaman así. Pedro lo usa aquí al obedecer su palabra tras una noche sin pesca.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Lc 8:24 — «¡Maestro, Maestro, que perecemos!»",
+   "Lc 9:33, 49 — otros usos",
+   "Lc 17:13 — los diez leprosos"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.5.5",
+  "strong": "G4487",
+  "forma": "ῥήματί",
+  "glosa_interlineal": "palabra",
+  "rango_semantico": [
+   "palabra, dicho",
+   "cosa"
+  ],
+  "construccion": "ἐπὶ + dativo: «por tu palabra echaré la red».",
+  "sentido_en_contexto": "Pedro obedece «por tu palabra» a pesar del cansancio y de su experiencia de pescador. La obediencia precede al milagro.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Respondiendo Simón, le dijo: Maestro, toda la noche hemos trabajado, y nada hemos pescado; mas en tu palabra echaré la red."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 21:6 — paralelo en la resurrección",
+   "Lc 1:38 — «hágase conmigo conforme a tu palabra»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.5.8",
+  "strong": "G268",
+  "forma": "ἁμαρτωλός",
+  "glosa_interlineal": "pecador",
+  "rango_semantico": [
+   "pecador"
+  ],
+  "construccion": "Nominativo: «soy hombre pecador».",
+  "sentido_en_contexto": "Ante la pesca milagrosa, Pedro se postra y reconoce su pecaminosidad: «apártate de mí, Señor, porque soy un hombre pecador». Es la reacción típica ante la santidad (Is 6:5).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Al ver esto Simón Pedro, se postró a las rodillas de Jesús, diciendo: Apártate de mí, Señor, porque soy hombre pecador."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 6:5 — «¡ay de mí! que soy muerto»",
+   "Job 42:5-6 — «me aborrezco»",
+   "Lc 18:13 — «ten misericordia de mí, pecador»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.5.10",
+  "strong": "G2221",
+  "forma": "ζωγρῶν",
+  "glosa_interlineal": "pescar vivos",
+  "rango_semantico": [
+   "tomar vivo, capturar con vida"
+  ],
+  "construccion": "Participio presente activo: «serás pescador (de hombres) vivos».",
+  "sentido_en_contexto": "Lucas usa ζωγρέω («capturar con vida»), distinto del «hacer pescadores de hombres» de Marcos y Mateo. El verbo subraya que los hombres son atrapados para la vida, no para la muerte.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero Jesús dijo a Simón: No temas; desde ahora serás pescador de hombres."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Ti 2:26 — «cautivos por él (ἐζωγρημένοι) a voluntad suya»",
+   "Mt 4:19 — «pescadores de hombres»",
+   "Mr 1:17 — paralelo"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Luke.5.11",
+  "strong": "G863",
+  "forma": "ἀφέντες",
+  "glosa_interlineal": "dejando",
+  "rango_semantico": [
+   "dejar, abandonar"
+  ],
+  "construccion": "Participio aoristo: «dejándolo todo, le siguieron».",
+  "sentido_en_contexto": "En Lucas, tras la pesca milagrosa, los discípulos «lo dejan todo» para seguir a Jesús. La llamada va precedida por un milagro y por la confesión de Pedro.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y cuando trajeron a tierra las barcas, dejándolo todo, le siguieron."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 5:28 — Leví «dejándolo todo»",
+   "Lc 18:28 — «hemos dejado lo nuestro»",
+   "Mr 1:18 — «dejando luego sus redes»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.5.12",
+  "strong": "G3014",
+  "forma": "λέπρας",
+  "glosa_interlineal": "lepra",
+  "rango_semantico": [
+   "lepra"
+  ],
+  "construccion": "Genitivo: «un hombre lleno de lepra».",
+  "sentido_en_contexto": "Lucas el médico precisa que el hombre estaba «lleno de lepra», es decir, en estado avanzado de la enfermedad. Ante Jesús se postra y dice «si quieres, puedes limpiarme».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 8:2 — «un leproso»",
+   "Mr 1:40 — «un leproso»",
+   "Lv 13 — normas sobre la lepra"
+  ],
+  "otros_usos": "medio",
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.5.16",
+  "strong": "G5298",
+  "forma": "ὑποχωρῶν",
+  "glosa_interlineal": "se retiraba",
+  "rango_semantico": [
+   "retirarse, apartarse"
+  ],
+  "construccion": "Participio presente activo: «se retiraba a lugares desiertos».",
+  "sentido_en_contexto": "Lucas subraya el hábito de Jesús: se apartaba a lugares desiertos para orar, aun cuando las multitudes crecían. Presente continuo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Mas él se apartaba a lugares desiertos, y oraba."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 1:35 — «se fue a un lugar desierto, y allí oraba»",
+   "Lc 6:12 — «pasó la noche orando a Dios»",
+   "Lc 9:18 — «estaba Jesús orando aparte»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.5.17",
+  "strong": "G3547",
+  "forma": "νομοδιδάσκαλοι",
+  "glosa_interlineal": "maestros de la ley",
+  "rango_semantico": [
+   "maestro de la ley, doctor de la ley"
+  ],
+  "construccion": "Nominativo plural: «fariseos y doctores de la ley».",
+  "sentido_en_contexto": "Lucas menciona estos «maestros de la ley» (vocablo propio) que llegaron de todas las aldeas de Galilea, Judea y Jerusalén: indica la fama creciente de Jesús y el escrutinio de las autoridades.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y aconteció un día, que él estaba enseñando, y estaban sentados los fariseos y doctores de la ley, que habían venido de todas las aldeas de Galilea, y de Judea y de Jerusalén; y el poder del Señor estaba con él para sanar."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 5:34 — «Gamaliel, doctor de la ley»",
+   "1 Ti 1:7 — «doctores de la ley»",
+   "Mr 2:6 — «algunos de los escribas»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.5.19",
+  "strong": "G2766",
+  "forma": "κεράμων",
+  "glosa_interlineal": "tejas",
+  "rango_semantico": [
+   "teja, tejado de barro"
+  ],
+  "construccion": "Genitivo plural: «por entre las tejas».",
+  "sentido_en_contexto": "Lucas adapta el relato del tejado para lectores grecorromanos: en lugar de «descubrir el techo» de Marcos, dice que bajaron al enfermo «por el tejado (entre las tejas)».",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y no hallando por dónde meterle a causa de la multitud, subieron encima de la casa, y por el tejado le bajaron con el lecho, poniéndole en medio, delante de Jesús."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 2:4 — «descubrieron el techo»",
+   "Mt 9:2 — omite el detalle"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.5.20",
+  "strong": "G863",
+  "forma": "ἀφέωνταί",
+  "glosa_interlineal": "han sido perdonados",
+  "rango_semantico": [
+   "perdonar, dejar ir"
+  ],
+  "construccion": "Perfecto indicativo pasivo, 3ª plural: «tus pecados te han sido perdonados».",
+  "sentido_en_contexto": "Lucas usa «hombre» (ἄνθρωπε) en lugar de «hijo», y el perfecto («ya están perdonados»): el perdón es una realidad cumplida y vigente. El pasivo evita nombrar a Dios.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y al ver la fe de ellos, le dijo: Hombre, tus pecados te son perdonados."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 2:5 — «hijo, tus pecados te son perdonados»",
+   "Lc 7:48 — «tus pecados te son perdonados»",
+   "Lc 7:49 — «¿quién es éste, que también perdona pecados?»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.5.26",
+  "strong": "G3861",
+  "forma": "παράδοξα",
+  "glosa_interlineal": "cosas extraordinarias",
+  "rango_semantico": [
+   "increíble, paradójico, extraordinario"
+  ],
+  "construccion": "Acusativo plural: «hoy hemos visto cosas extraordinarias».",
+  "sentido_en_contexto": "Palabra única en el NT (de donde «paradoja»): la gente exclama que ha visto cosas inauditas «hoy». Lucas conecta con el tema del «hoy» de la salvación.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y todos, sobrecogidos de asombro, glorificaban a Dios; y llenos de temor, decían: Hoy hemos visto maravillas."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 4:21 — «hoy se ha cumplido esta Escritura»",
+   "Lc 19:9 — «hoy ha venido la salvación a esta casa»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.5.28",
+  "strong": "G2641",
+  "forma": "καταλιπὼν",
+  "glosa_interlineal": "dejándolo todo",
+  "rango_semantico": [
+   "dejar atrás, abandonar"
+  ],
+  "construccion": "Participio aoristo activo: «dejándolo todo, se levantó y le seguía».",
+  "sentido_en_contexto": "Solo Lucas dice que Leví «lo dejó todo»: abandona su oficio rentable de recaudador. El imperfecto «le seguía» indica seguimiento continuo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y dejándolo todo, se levantó y le siguió."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 5:11 — los pescadores",
+   "Lc 14:33 — «el que no renuncia a todo lo que posee»",
+   "Mr 2:14 — sin mención de que lo dejó todo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.5.29",
+  "strong": "G1403",
+  "forma": "δοχὴν",
+  "glosa_interlineal": "banquete",
+  "rango_semantico": [
+   "banquete, gran fiesta",
+   "recepción"
+  ],
+  "construccion": "Acusativo: «un gran banquete».",
+  "sentido_en_contexto": "Leví ofrece un gran banquete en su casa en honor a Jesús, con muchos publicanos. Lucas subraya la alegría y la acogida.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y Leví le hizo gran banquete en su casa; y había mucha compañía de publicanos y de otros, que estaban con ellos a la mesa."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 14:13 — «cuando hagas banquete, llama a los pobres»",
+   "Lc 15:2 — «este a los pecadores recibe, y con ellos come»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.5.32",
+  "strong": "G3341",
+  "forma": "μετάνοιαν",
+  "glosa_interlineal": "arrepentimiento",
+  "rango_semantico": [
+   "cambio de mente, arrepentimiento"
+  ],
+  "construccion": "εἰς + acusativo: «a pecadores, para que se arrepientan».",
+  "sentido_en_contexto": "Lucas es el único que añade «al arrepentimiento»: Jesús no llama a pecadores para dejarlos como están. Tema central lucano (15:7, 10; 24:47).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "No he venido a llamar a justos, sino a pecadores al arrepentimiento."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 15:7 — «más gozo… por un pecador que se arrepiente»",
+   "Lc 24:47 — «que se predicase… el arrepentimiento»",
+   "Mr 2:17 — sin «al arrepentimiento»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.5.36",
+  "strong": "G4977",
+  "forma": "σχίσας",
+  "glosa_interlineal": "rompiendo",
+  "rango_semantico": [
+   "rasgar, cortar"
+  ],
+  "construccion": "Participio aoristo activo: «rompiendo un trozo de un vestido nuevo».",
+  "sentido_en_contexto": "Lucas añade un detalle: el remiendo, además de no armonizar con lo viejo, estropea el vestido nuevo (se corta). Las parábolas del paño y el vino subrayan que lo nuevo no cabe en lo viejo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Les dijo también una parábola: Nadie corta un pedazo de un vestido nuevo y lo pone en un vestido viejo; pues si lo hace, no solamente rompe el nuevo, sino que el remiendo sacado de él no armoniza con el viejo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 9:16 — paralelo",
+   "Mr 2:21 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.5.39",
+  "strong": "G5543",
+  "forma": "χρηστός",
+  "glosa_interlineal": "bueno",
+  "rango_semantico": [
+   "bueno, agradable",
+   "suave"
+  ],
+  "construccion": "Adjetivo nominativo: «el viejo es mejor (χρηστός)».",
+  "sentido_en_contexto": "Versículo propio de Lucas: «nadie que beba vino viejo quiere el nuevo, porque dice: el viejo es el bueno». Expresa la resistencia a lo nuevo y puede entenderse como comentario irónico sobre quienes prefieren lo conocido.",
+  "matiz": "Se discute su sentido: ¿es una sentencia sobre la comodidad con lo antiguo (advertencia) o reconoce el valor de lo antiguo? El contexto sugiere lo primero, como crítica a quienes rechazan lo nuevo de Jesús.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y ninguno que beba del añejo, quiere luego el nuevo; porque dice: El añejo es mejor."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 9:17 — sin este versículo",
+   "Is 43:18-19 — «no os acordéis de las cosas pasadas»"
+  ],
+  "nivel_certeza": "medio"
+ }
+]

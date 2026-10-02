@@ -1,0 +1,407 @@
+[
+ {
+  "ref": "Gal.3.1",
+  "strong": "G940",
+  "forma": "ἐβάσκανεν",
+  "glosa_interlineal": "hechizó",
+  "rango_semantico": [
+   "embrujar, fascinar, echar mal de ojo"
+  ],
+  "construccion": "Aoristo indicativo activo: «¡oh gálatas insensatos! ¿Quién os fascinó para no obedecer a la verdad, a vosotros ante cuyos ojos Jesucristo fue ya presentado como crucificado?».",
+  "sentido_en_contexto": "Reproche fuerte: «insensatos» (ἀνόητοι: faltos de entendimiento, no ignorantes) y «hechizados» (como por mal de ojo). El Cristo crucificado fue «públicamente presentado» en la predicación. La imagen del «mal de ojo» describe el poder de los falsos maestros.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¡Oh gálatas insensatos! ¿Quién os fascinó para no obedecer a la verdad, a vosotros ante cuyos ojos Jesucristo ya fue presentado crucificado?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 2:2",
+   "Gá 1:6",
+   "Gá 5:7"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Gal.3.2",
+  "strong": "G189",
+  "forma": "ἀκοῆς",
+  "glosa_interlineal": "oír",
+  "rango_semantico": [
+   "oír, mensaje oído"
+  ],
+  "construccion": "Genitivo: «¿recibisteis el Espíritu por las obras de la ley, o por el oír con fe?».",
+  "sentido_en_contexto": "Argumento experiencial: los gálatas recibieron el Espíritu al oír el evangelio con fe, no al cumplir la ley. ἀκοὴ πίστεως puede ser «oír con fe» o «el mensaje de la fe». El Espíritu es la prueba de la aceptación divina.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Esto solo quiero saber de vosotros: ¿Recibisteis el Espíritu por las obras de la ley, o por el oír con fe?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 10:44-47",
+   "Ro 10:17",
+   "Gá 3:5, 14"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Gal.3.3",
+  "strong": "G1728",
+  "forma": "ἐναρξάμενοι",
+  "glosa_interlineal": "habiendo comenzado",
+  "rango_semantico": [
+   "comenzar"
+  ],
+  "construccion": "Participio aoristo medio: «¿tan necios sois? ¿Habiendo comenzado por el Espíritu, ahora vais a acabar por la carne?».",
+  "sentido_en_contexto": "Contraste Espíritu/carne: comenzar por el Espíritu y perfeccionarse por la carne (esfuerzo humano, ley) es contradictorio. La vida cristiana empieza y continúa por el Espíritu. La santificación no se logra con obras legales.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¿Tan necios sois? ¿Habiendo comenzado por el Espíritu, ahora vais a acabar por la carne?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Fil 1:6",
+   "Col 2:6",
+   "Gá 5:16-25"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Gal.3.6",
+  "strong": "G3049",
+  "forma": "ἐλογίσθη",
+  "glosa_interlineal": "le fue contado",
+  "rango_semantico": [
+   "contar, imputar"
+  ],
+  "construccion": "Aoristo indicativo pasivo: «así Abraham creyó a Dios, y le fue contado por justicia».",
+  "sentido_en_contexto": "Cita de Gn 15:6, texto clave de la justificación por la fe (Ro 4). Abraham, antes de la circuncisión y de la ley, fue considerado justo por creer. La fe de Abraham es el modelo de los gálatas. Cf. Ro 4:3, 9, 22 y Stg 2:23.",
+  "matiz": "Debate: «contado por justicia» como (a) imputación de justicia ajena o externa (Reforma); (b) reconocimiento de su fe como justa (Wright: «estatus de miembro del pacto»); (c) estimación de su fe como justicia (Santiago 2). La interpretación depende de la teología de la justificación.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Así Abraham creyó a Dios, y le fue contado por justicia."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 15:6",
+   "Ro 4:3, 9-22",
+   "Stg 2:23",
+   "Heb 11:8-12"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Gal.3.8",
+  "strong": "G4283",
+  "forma": "προευηγγελίσατο",
+  "glosa_interlineal": "anunció de antemano",
+  "rango_semantico": [
+   "proclamar el evangelio de antemano"
+  ],
+  "construccion": "Aoristo indicativo medio: «y la Escritura, previendo que Dios había de justificar por la fe a los gentiles, dio de antemano la buena nueva a Abraham, diciendo: En ti serán benditas todas las naciones».",
+  "sentido_en_contexto": "Pablo ve en Gn 12:3 el evangelio anticipado: el pacto abrahámico ya incluía a las naciones. La Escritura «previó» y «anunció el evangelio de antemano», es decir, da testimonio de la continuidad entre el AT y el evangelio.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y la Escritura, previendo que Dios había de justificar por la fe a los gentiles, dio de antemano la buena nueva a Abraham, diciendo: En ti serán benditas todas las naciones."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 12:3; 18:18; 22:18",
+   "Hch 3:25",
+   "Ro 4:16-17"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Gal.3.10",
+  "strong": "G2671",
+  "forma": "κατάραν",
+  "glosa_interlineal": "maldición",
+  "rango_semantico": [
+   "maldición"
+  ],
+  "construccion": "Acusativo: «porque todos los que dependen de las obras de la ley están bajo maldición, pues escrito está: Maldito todo aquel que no permaneciere en todas las cosas escritas en el libro de la ley, para hacerlas».",
+  "sentido_en_contexto": "Cita de Dt 27:26. Pablo argumenta que la ley condena a quien no la cumple íntegramente; por eso los que viven por las obras de la ley están bajo maldición. Se debate si el argumento supone que nadie puede cumplir la ley (lectura clásica) o que el exilio de Israel mostró la maldición del pacto (Wright).",
+  "matiz": "Debate: (a) imposibilidad de cumplir toda la ley (premisa implícita, lectura clásica reformada); (b) la maldición de Dt 27–30 se cumplió en Israel (exilio), y Cristo carga con ella (Wright, Hays); (c) los que se apoyan en la ley se colocan bajo su juicio.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque todos los que dependen de las obras de la ley están bajo maldición, pues escrito está: Maldito todo aquel que no permaneciere en todas las cosas escritas en el libro de la ley, para hacerlas."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 27:26",
+   "Dt 28",
+   "Stg 2:10",
+   "Ro 3:19-20"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Gal.3.11",
+  "strong": "G1342",
+  "forma": "δίκαιος",
+  "glosa_interlineal": "justo",
+  "rango_semantico": [
+   "justo, recto"
+  ],
+  "construccion": "Nominativo: «y que por la ley ninguno se justifica para con Dios es evidente, porque: El justo por la fe vivirá».",
+  "sentido_en_contexto": "Cita de Hab 2:4, central en Ro 1:17 y Heb 10:38. Se debate la puntuación: «el justo (por fe) vivirá» o «el justo, por la fe, vivirá». Importa para el sentido de la justificación.",
+  "matiz": "Debate sobre Hab 2:4: (a) «el que es justo por la fe vivirá» (ἐκ πίστεως modifica a «el justo»; lectura de Lutero y la Reforma); (b) «el justo vivirá por la fe» (ἐκ πίστεως modifica a «vivirá»; lectura más común hoy). LXX: «el justo vivirá por mi fe(lidad)» (de Dios) o la suya.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y que por la ley ninguno se justifica para con Dios es evidente, porque: El justo por la fe vivirá;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hab 2:4",
+   "Ro 1:17",
+   "Heb 10:38"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Gal.3.13",
+  "strong": "G1805",
+  "forma": "ἐξηγόρασεν",
+  "glosa_interlineal": "redimió",
+  "rango_semantico": [
+   "comprar, rescatar, redimir"
+  ],
+  "construccion": "Aoristo indicativo activo: «Cristo nos redimió de la maldición de la ley, hecho por nosotros maldición (pues está escrito: Maldito todo el que es colgado en un madero)».",
+  "sentido_en_contexto": "Cristo asume la maldición de la ley (Dt 21:23) para redimirnos de ella. ἐξαγοράζω: comprar en el mercado (liberar esclavos). La cruz es el lugar donde Cristo llevó la maldición. Muchos ven aquí sustitución penal. Dt 21:23 se refería a los ejecutados colgados; la cruz romana se interpretó así.",
+  "matiz": "Debate: (a) sustitución penal (Cristo lleva la maldición que merecíamos; lectura reformada); (b) identificación representativa con Israel bajo la maldición del exilio (Wright); (c) victoria sobre los poderes (Aulén). La mayoría combina elementos.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Cristo nos redimió de la maldición de la ley, hecho por nosotros maldición (porque está escrito: Maldito todo el que es colgado en un madero),"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 21:23",
+   "Gá 4:4-5",
+   "2 Co 5:21",
+   "1 P 2:24"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Gal.3.16",
+  "strong": "G4690",
+  "forma": "σπέρματι",
+  "glosa_interlineal": "descendencia",
+  "rango_semantico": [
+   "semilla, descendencia"
+  ],
+  "construccion": "Dativo: «a Abraham fueron hechas las promesas, y a su simiente. No dice: Y a las simientes, como si hablase de muchos, sino como de uno: Y a tu simiente, la cual es Cristo».",
+  "sentido_en_contexto": "Argumento exegético difícil: σπέρμα es singular colectivo en Gn 12:7; 13:15; Pablo lo lee como referido a Cristo (y por extensión a su pueblo, v.29). Para algunos es un argumento rabínico (midrásico) sin base gramatical; otros ven en «simiente» una referencia al representante colectivo de Israel (Cristo).",
+  "matiz": "Debate: (a) σπέρμα singular colectivo que culmina en Cristo, representante del pueblo (Wright, la mayoría); (b) exégesis midrásica con valor tipológico (no argumento gramatical estricto); (c) argumento literal que muchos judíos y críticos consideran forzado.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Ahora bien, a Abraham fueron hechas las promesas, y a su simiente. No dice: Y a las simientes, como si hablase de muchos, sino como de uno: Y a tu simiente, la cual es Cristo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 12:7; 13:15; 22:18",
+   "Gá 3:29",
+   "Ro 4:13-18"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Gal.3.17",
+  "strong": "G1242",
+  "forma": "διαθήκην",
+  "glosa_interlineal": "pacto",
+  "rango_semantico": [
+   "pacto, alianza, testamento"
+  ],
+  "construccion": "Acusativo: «esto, pues, digo: El pacto previamente ratificado por Dios para con Cristo, la ley que vino cuatrocientos treinta años después no lo abroga, para invalidar la promesa».",
+  "sentido_en_contexto": "La ley (Sinaí) vino 430 años después del pacto con Abraham (cf. Éx 12:40) y no lo invalida. La promesa precede y sobrepasa a la ley. διαθήκη se usa como «pacto» (Dios) y se juega con «testamento» (v.15).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Esto, pues, digo: El pacto previamente ratificado por Dios para con Cristo, la ley que vino cuatrocientos treinta años después no lo abroga, para invalidar la promesa."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 12:40",
+   "Ro 4:13-16",
+   "Heb 8:6-13"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Gal.3.19",
+  "strong": "G3847",
+  "forma": "παραβάσεων",
+  "glosa_interlineal": "transgresiones",
+  "rango_semantico": [
+   "transgresión"
+  ],
+  "construccion": "Genitivo plural: «¿para qué sirve la ley? Fue añadida a causa de las transgresiones, hasta que viniese la simiente a quien fue hecha la promesa; y fue ordenada por medio de ángeles en mano de un mediador».",
+  "sentido_en_contexto": "Pregunta central: si la ley no justifica, ¿para qué sirve? Respuesta: «por causa de las transgresiones» (para revelar o restringir el pecado), con carácter temporal. Pablo menciona que fue dada por ángeles (tradición judía; Hch 7:38, 53; Heb 2:2) y por un mediador (Moisés).",
+  "matiz": "Debate sobre «a causa de las transgresiones»: (a) para revelar el pecado como transgresión (Ro 3:20; 5:20); (b) para restringir el pecado como freno; (c) para provocar el pecado (Ro 7:7-13). La mayoría ve la primera y la tercera como parte del cuadro paulino.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces, ¿para qué sirve la ley? Fue añadida a causa de las transgresiones, hasta que viniese la simiente a quien fue hecha la promesa; y fue ordenada por medio de ángeles en mano de un mediador."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 3:20; 5:20; 7:7-13",
+   "Hch 7:38, 53",
+   "Heb 2:2"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Gal.3.24",
+  "strong": "G3807",
+  "forma": "παιδαγωγὸς",
+  "glosa_interlineal": "ayo",
+  "rango_semantico": [
+   "pedagogo, guardián encargado del niño"
+  ],
+  "construccion": "Nominativo: «de manera que la ley ha sido nuestro guía para llevarnos a Cristo, a fin de que fuésemos justificados por la fe».",
+  "sentido_en_contexto": "El παιδαγωγός era el esclavo que acompañaba y vigilaba al niño hasta la madurez (no era maestro). La ley cumplió esa función temporal hasta Cristo. «Hasta Cristo» (εἰς Χριστόν) puede ser temporal («hasta que venga») o final («para conducirnos a»). La imagen es de custodia y disciplina, no solo de instrucción.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "De manera que la ley ha sido nuestro ayo, para llevarnos a Cristo, a fin de que fuésemos justificados por la fe."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 3:23-25",
+   "Ro 10:4",
+   "1 Co 4:15"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Gal.3.26",
+  "strong": "G5207",
+  "forma": "υἱοὶ",
+  "glosa_interlineal": "hijos",
+  "rango_semantico": [
+   "hijo"
+  ],
+  "construccion": "Nominativo plural: «pues todos sois hijos de Dios por la fe en Cristo Jesús».",
+  "sentido_en_contexto": "Todos (judíos y gentiles, varones y mujeres) son «hijos de Dios» por la fe en Cristo Jesús, sin distinción. La filiación divina se adquiere por la fe y el bautismo (v.27), no por la ley ni por el linaje. Prepara 3:28.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "pues todos sois hijos de Dios por la fe en Cristo Jesús;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 1:12",
+   "Ro 8:14-17",
+   "Gá 4:4-7"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Gal.3.27",
+  "strong": "G907",
+  "forma": "ἐβαπτίσθητε",
+  "glosa_interlineal": "fuisteis bautizados",
+  "rango_semantico": [
+   "bautizar, sumergir"
+  ],
+  "construccion": "Aoristo indicativo pasivo: «porque todos los que habéis sido bautizados en Cristo, de Cristo estáis revestidos».",
+  "sentido_en_contexto": "El bautismo «en Cristo» significa unión con él: «revestirse de Cristo» (ἐνδύσασθε), imagen de ropa que cambia la identidad. Pablo une fe (v.26) y bautismo (v.27). Las tradiciones difieren sobre la eficacia del bautismo (instrumental, simbólico, sacramental).",
+  "matiz": "Debate sobre el bautismo: (a) rito que incorpora a Cristo (católica, ortodoxa, luterana: instrumento de gracia); (b) rito simbólico de una unión ya realizada por la fe (bautista, reformada en parte); (c) bautismo del Espíritu (metafórico). El texto no precisa.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "porque todos los que habéis sido bautizados en Cristo, de Cristo estáis revestidos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 6:3-4",
+   "Col 3:9-12",
+   "1 Co 12:13",
+   "Ef 4:24"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Gal.3.28",
+  "strong": "G1762",
+  "forma": "ἔνι",
+  "glosa_interlineal": "no hay",
+  "rango_semantico": [
+   "hay (no hay)"
+  ],
+  "construccion": "Presente: «ya no hay judío ni griego; no hay esclavo ni libre; no hay varón ni mujer; porque todos vosotros sois uno en Cristo Jesús».",
+  "sentido_en_contexto": "Tres pares de divisiones sociales superadas en Cristo: étnica, social y de género. Se ha debatido si es afirmación de igualdad de estatus en Cristo, de equivalencia de papeles en la iglesia, o de unidad soteriológica sin efectos sociales inmediatos. Pablo mantiene elementos de orden en otras cartas (1 Co 11; 14; Ef 5).",
+  "matiz": "Debate: (a) igualdad de acceso a la salvación y de dignidad, sin abolir diferencias de rol (lectura complementarista); (b) base para igualdad plena de roles en la iglesia y la sociedad (lectura igualitaria); (c) eco de Gn 1:27 («varón y mujer»: nueva creación). El texto afirma la unidad radical «en Cristo».",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Ya no hay judío ni griego; no hay esclavo ni libre; no hay varón ni mujer; porque todos vosotros sois uno en Cristo Jesús."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 12:13",
+   "Col 3:11",
+   "Ro 10:12",
+   "Gn 1:27"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Gal.3.29",
+  "strong": "G4690",
+  "forma": "σπέρμα",
+  "glosa_interlineal": "descendencia",
+  "rango_semantico": [
+   "semilla, descendencia"
+  ],
+  "construccion": "Nominativo: «y si vosotros sois de Cristo, ciertamente linaje de Abraham sois, y herederos según la promesa».",
+  "sentido_en_contexto": "Conclusión de la sección: los que pertenecen a Cristo son descendencia de Abraham y herederos según la promesa, sean judíos o gentiles. Define el pueblo de Dios por la fe en Cristo, no por el linaje. Se discute su relación con el Israel étnico.",
+  "matiz": "Debate: (a) la iglesia (judíos y gentiles) es el verdadero Israel (teología del reemplazo o cumplimiento); (b) la iglesia se une al Israel de Dios sin anularlo (continuidad con distinciones; ver Ro 11); (c) sentido espiritual para las promesas (dispensacionalismo distingue). Gá 6:16 se discute en el mismo debate.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y si vosotros sois de Cristo, ciertamente linaje de Abraham sois, y herederos según la promesa."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 4:11-16; 9:6-8",
+   "Gá 6:16",
+   "Ro 11:17-24"
+  ],
+  "nivel_certeza": "medio"
+ }
+]

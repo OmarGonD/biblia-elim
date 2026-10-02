@@ -1,0 +1,251 @@
+[
+ {
+  "ref": "Acts.6.1",
+  "strong": "G1675",
+  "forma": "Ἑλληνιστῶν",
+  "glosa_interlineal": "helenistas",
+  "rango_semantico": [
+   "judío de cultura y lengua griega"
+  ],
+  "construccion": "Genitivo plural: «hubo murmuración de los griegos (helenistas) contra los hebreos».",
+  "sentido_en_contexto": "Los helenistas eran judíos cristianos de lengua griega (de la diáspora); los «hebreos», judíos de lengua aramea de Palestina. Las viudas helenistas eran desatendidas en el reparto diario. Primer conflicto interno de la Iglesia.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "En aquellos días, como creciese el número de los discípulos, hubo murmuración de los griegos contra los hebreos, de que las viudas de aquellos eran desatendidas en la distribución diaria."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 9:29; 11:20",
+   "Dt 24:19-21 — cuidado de las viudas",
+   "1 Ti 5:3-16"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.6.2",
+  "strong": "G1247",
+  "forma": "διακονεῖν",
+  "glosa_interlineal": "servir",
+  "rango_semantico": [
+   "servir, atender, ministrar"
+  ],
+  "construccion": "Infinitivo presente: «servir a las mesas».",
+  "sentido_en_contexto": "Los Doce deciden no dejar la palabra de Dios para atender las mesas. Nombran siete hombres para el servicio práctico. De διακονέω viene «diácono»; aunque los Siete no son llamados diáconos aquí, la tradición los considera sus antecedentes.",
+  "matiz": "Debate: ¿los Siete son los primeros diáconos (tradición patrística y católica) o un cargo específico distinto, previo al diaconado de Fil 1:1 y 1 Ti 3? Lucas no los llama «diáconos».",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces los doce convocaron a la multitud de los discípulos, y dijeron: No es justo que nosotros dejemos la palabra de Dios, para servir a las mesas."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Fil 1:1",
+   "1 Ti 3:8-13",
+   "Hch 20:28"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Acts.6.3",
+  "strong": "G4678",
+  "forma": "σοφίας",
+  "glosa_interlineal": "sabiduría",
+  "rango_semantico": [
+   "sabiduría"
+  ],
+  "construccion": "Genitivo: «llenos del Espíritu Santo y de sabiduría».",
+  "sentido_en_contexto": "Requisitos para los Siete: buena reputación, llenos del Espíritu y de sabiduría. La comunidad los elige; los apóstoles los constituyen. Todos tienen nombres griegos, lo que sugiere que los helenistas eligieron a sus propios representantes.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Buscad, pues, hermanos, de entre vosotros siete varones de buen testimonio, llenos del Espíritu Santo y de sabiduría, a quienes encarguemos este trabajo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 6:5, 10",
+   "Éx 18:21 — jueces «varones de virtud»",
+   "1 Ti 3:7"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.6.5",
+  "strong": "G4736",
+  "forma": "Στέφανον",
+  "glosa_interlineal": "Esteban",
+  "rango_semantico": [
+   "Esteban («corona»)"
+  ],
+  "construccion": "Acusativo: «Esteban, varón lleno de fe y del Espíritu Santo».",
+  "sentido_en_contexto": "Primer nombrado de los Siete, primer mártir cristiano (cap. 7). Nombre griego que significa «corona». El caso de Felipe (cap. 8) muestra que los Siete también evangelizaban.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Agradó la propuesta a toda la multitud; y eligieron a Esteban, varón lleno de fe y del Espíritu Santo, a Felipe, a Prócoro, a Nicanor, a Timón, a Parmenas, y a Nicolás prosélito de Antioquía;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 6:8—7:60",
+   "Hch 8:5, 26-40; 21:8 — Felipe",
+   "Hch 11:19"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.6.6",
+  "strong": "G5495",
+  "forma": "χεῖρας",
+  "glosa_interlineal": "manos",
+  "rango_semantico": [
+   "mano"
+  ],
+  "construccion": "Acusativo plural: «oraron y les impusieron las manos».",
+  "sentido_en_contexto": "Primer rito de imposición de manos en Hechos como acto de comisión y bendición para un servicio, tras la oración. Es práctica del AT (Nm 27:18-23) adoptada por la Iglesia.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "A estos presentaron ante los apóstoles, los cuales, orando, les impusieron las manos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Nm 27:18-23",
+   "Hch 13:3; 14:23",
+   "1 Ti 4:14; 5:22",
+   "2 Ti 1:6"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.6.7",
+  "strong": "G837",
+  "forma": "ηὔξανεν",
+  "glosa_interlineal": "crecía",
+  "rango_semantico": [
+   "crecer, aumentar"
+  ],
+  "construccion": "Imperfecto indicativo activo: «la palabra de Dios crecía».",
+  "sentido_en_contexto": "Primer «sumario» estructural de Hechos (cf. 9:31; 12:24; 16:5; 19:20; 28:30-31): la palabra crece y el número de discípulos aumenta, incluso muchos sacerdotes obedecen a la fe.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y crecía la palabra del Señor, y el número de los discípulos se multiplicaba grandemente en Jerusalén; también muchos de los sacerdotes obedecían a la fe."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 9:31; 12:24; 19:20",
+   "Mt 13:31-32"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.6.9",
+  "strong": "G3032",
+  "forma": "Λιβερτίνων",
+  "glosa_interlineal": "libertos",
+  "rango_semantico": [
+   "liberto (esclavo liberado)"
+  ],
+  "construccion": "Genitivo plural: «la sinagoga llamada de los libertos».",
+  "sentido_en_contexto": "Sinagoga de judíos descendientes de esclavos romanos liberados, con miembros de Cirene, Alejandría, Cilicia y Asia. Probablemente Saulo de Tarso (de Cilicia) estaba entre quienes disputaron con Esteban.",
+  "matiz": "Se discute si hay una o varias sinagogas (libertos, cireneos, alejandrinos, cilicios, asiáticos). Algunos manuscritos y la gramática sugieren más de una; el texto es ambiguo.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces se levantaron unos de la sinagoga llamada de los libertos, y de los de Cirene, de Alejandría, de Cilicia y de Asia, disputando con Esteban."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 7:58; 8:1; 9:1 — Saulo",
+   "Hch 21:39; 22:3 — Tarso de Cilicia"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Acts.6.11",
+  "strong": "G989",
+  "forma": "βλάσφημα",
+  "glosa_interlineal": "blasfemas",
+  "rango_semantico": [
+   "blasfemo, injurioso"
+  ],
+  "construccion": "Acusativo neutro plural: «palabras blasfemas contra Moisés y contra Dios».",
+  "sentido_en_contexto": "Acusaciones falsas contra Esteban: blasfemar contra Moisés (la Ley) y contra Dios. Similares a las dirigidas a Jesús (Mr 14:56-58). Se presentan falsos testigos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces sobornaron a unos para que dijesen que le habían oído hablar palabras blasfemas contra Moisés y contra Dios."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 14:56-58",
+   "Hch 6:13-14",
+   "Dt 13:1-5"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.6.14",
+  "strong": "G2647",
+  "forma": "καταλύσει",
+  "glosa_interlineal": "destruirá",
+  "rango_semantico": [
+   "destruir, derribar, deshacer"
+  ],
+  "construccion": "Futuro indicativo activo: «ese Jesús de Nazaret destruirá este lugar».",
+  "sentido_en_contexto": "Los falsos testigos afirman que Esteban dijo que Jesús destruiría «este lugar» (el templo) y cambiaría las costumbres de Moisés. Eco de la acusación contra Jesús (Mr 14:58).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "pues le hemos oído decir que ese Jesús de Nazaret destruirá este lugar, y cambiará las costumbres que Moisés nos dio."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 14:58",
+   "Jn 2:19",
+   "Hch 7:48-50"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.6.15",
+  "strong": "G32",
+  "forma": "ἀγγέλου",
+  "glosa_interlineal": "de ángel",
+  "rango_semantico": [
+   "ángel, mensajero"
+  ],
+  "construccion": "Genitivo: «vieron su rostro como el rostro de un ángel».",
+  "sentido_en_contexto": "Rasgo de Esteban ante el concilio: su rostro refleja el resplandor de la presencia divina, como el de Moisés (Éx 34:29-35). Prepara el discurso y la visión de 7:55-56.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y todos los que estaban sentados en el concilio, al fijar los ojos en él, vieron su rostro como el rostro de un ángel."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 34:29-35",
+   "Mt 17:2",
+   "Lc 9:29"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

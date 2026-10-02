@@ -1,0 +1,341 @@
+[
+ {
+  "ref": "Mark.8.2",
+  "strong": "G4697",
+  "forma": "σπλαγχνίζομαι",
+  "glosa_interlineal": "tengo compasión",
+  "rango_semantico": [
+   "compadecerse"
+  ],
+  "construccion": "Presente indicativo medio, 1ª singular: «siento compasión».",
+  "sentido_en_contexto": "Segunda multiplicación de panes (cuatro mil). Jesús mismo expresa su compasión; el motivo es el hambre de quienes llevan tres días con él.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Tengo compasión de la gente, porque ya hace tres días que están conmigo, y no tienen qué comer;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 15:32 — paralelo",
+   "Mr 6:34 — compasión ante las multitudes",
+   "Mr 1:41 — compasión por el leproso"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.8.8",
+  "strong": "G2801",
+  "forma": "κλασμάτων",
+  "glosa_interlineal": "pedazos",
+  "rango_semantico": [
+   "pedazo, fragmento"
+  ],
+  "construccion": "Genitivo plural: «siete cestas de pedazos».",
+  "sentido_en_contexto": "Siete canastos de sobras; el número siete contrasta con los doce de la primera multiplicación. Marcos recuerda ambos números en 8:19-20.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mr 6:43 — doce cestas",
+   "Mr 8:19-21 — Jesús les pregunta cuántas",
+   "Mt 15:37 — paralelo"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.8.12",
+  "strong": "G389",
+  "forma": "ἀναστενάξας",
+  "glosa_interlineal": "suspirando profundamente",
+  "rango_semantico": [
+   "gemir profundamente"
+  ],
+  "construccion": "Participio aoristo activo: «habiendo gemido hondamente en su espíritu».",
+  "sentido_en_contexto": "Marcos subraya la reacción interior de Jesús ante la demanda de señal: suspiro profundo, de pena e indignación. Mateo no lo menciona.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y gimiendo en su espíritu, dijo: ¿Por qué pide señal esta generación? De cierto os digo que no se dará señal a esta generación."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 7:34 — «gimió» ante el sordomudo",
+   "Mt 16:4 — «la señal de Jonás»",
+   "Jn 11:33 — «se estremeció en espíritu»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.8.15",
+  "strong": "G2219",
+  "forma": "ζύμης",
+  "glosa_interlineal": "levadura",
+  "rango_semantico": [
+   "levadura, fermento",
+   "(figurado) influencia que se extiende"
+  ],
+  "construccion": "ἀπὸ + genitivo: «guardaos de la levadura de los fariseos y de la levadura de Herodes».",
+  "sentido_en_contexto": "En Marcos es «de los fariseos y de Herodes»; en Mateo, «de fariseos y saduceos». Esta versión se centra en el poder político y religioso.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y les mandaba, diciendo: Mirad, guardaos de la levadura de los fariseos, y de la levadura de Herodes."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 16:6 — «de los fariseos y de los saduceos»",
+   "Lc 12:1 — «la hipocresía»",
+   "1 Co 5:6-8 — la levadura en la comunidad"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.8.17",
+  "strong": "G3768",
+  "forma": "οὔπω",
+  "glosa_interlineal": "¿todavía no?",
+  "rango_semantico": [
+   "todavía no, aún no"
+  ],
+  "construccion": "Adverbio en pregunta retórica: «¿aún no entendéis ni comprendéis?».",
+  "sentido_en_contexto": "Cadena de siete preguntas severas de Jesús a los discípulos: tienen ojos y no ven, oídos y no oyen. Solo Marcos presenta esta reprimenda tan dura.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y entendiéndolo Jesús, les dijo: ¿Qué discutís, porque no tenéis pan? ¿No entendéis ni comprendéis? ¿Aún tenéis endurecido vuestro corazón?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 4:13, 40 — «¿cómo no tenéis fe?»",
+   "Mr 6:52 — corazón endurecido",
+   "Is 6:9-10 — «oíd… pero no entendáis»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.8.23",
+  "strong": "G1627",
+  "forma": "ἐξήνεγκεν",
+  "glosa_interlineal": "sacó fuera",
+  "rango_semantico": [
+   "llevar fuera, sacar"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª singular: «lo sacó fuera de la aldea».",
+  "sentido_en_contexto": "Sanación del ciego de Betsaida, exclusiva de Marcos. Jesús lo saca de la aldea, usa saliva y lo sana en dos etapas, lo cual es único.",
+  "matiz": "Se interpreta a menudo como símbolo de la visión gradual de los discípulos: ven «como árboles que andan» (confesión parcial de Pedro) antes de ver claramente. El relato queda entre 8:21 (incomprensión) y 8:29 (confesión).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 7:33 — también aparta al sordo",
+   "Mr 8:26 — «ni aun entres en la aldea»",
+   "Jn 9:6-7 — otra sanación con saliva"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.8.24",
+  "strong": "G1186",
+  "forma": "δένδρα",
+  "glosa_interlineal": "árboles",
+  "rango_semantico": [
+   "árbol"
+  ],
+  "construccion": "Acusativo plural: «veo a los hombres como árboles que caminan».",
+  "sentido_en_contexto": "Visión borrosa: distingue siluetas pero no con claridad. Es la primera etapa de la sanación, y a menudo se lee como imagen del discipulado.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y él, mirando, dijo: Veo los hombres como árboles, pero los veo que andan."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 8:25 — «vio claramente»",
+   "Is 29:18 — «los ojos de los ciegos verán»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.8.29",
+  "strong": "G5547",
+  "forma": "Χριστός",
+  "glosa_interlineal": "Cristo",
+  "rango_semantico": [
+   "ungido, Mesías"
+  ],
+  "construccion": "Nominativo, predicado: «tú eres el Cristo».",
+  "sentido_en_contexto": "Confesión de Pedro, centro de Marcos. Es más breve que en Mateo (que añade «el Hijo del Dios viviente»). Marca el paso de la primera a la segunda mitad del Evangelio: del poder al sufrimiento.",
+  "matiz": "Muchos ven en 8:27-33 el eje estructural de Marcos: ahora Jesús empieza a hablar de su pasión. «Cristo» aquí requiere una redefinición del Mesías (sufriente).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y él les preguntó: Y vosotros, ¿quién decís que soy? Respondiendo Pedro, le dijo: Tú eres el Cristo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 16:16 — «el Hijo del Dios viviente»",
+   "Lc 9:20 — «el Cristo de Dios»",
+   "Mr 14:61 — «¿eres tú el Cristo?»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.8.31",
+  "strong": "G1163",
+  "forma": "δεῖ",
+  "glosa_interlineal": "es necesario",
+  "rango_semantico": [
+   "ser necesario, deber"
+  ],
+  "construccion": "Presente impersonal: «es necesario que el Hijo del Hombre padezca mucho».",
+  "sentido_en_contexto": "Primer anuncio de la pasión. «Es necesario» indica la necesidad dentro del plan de Dios. Marcos añade que lo decía «claramente» (v.32).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y comenzó a enseñarles que le era necesario al Hijo del Hombre padecer mucho, y ser desechado por los ancianos, por los principales sacerdotes y por los escribas, y ser muerto, y resucitar después de tres días."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 16:21 — paralelo",
+   "Lc 24:26 — «¿no era necesario que el Cristo padeciese?»",
+   "Mr 9:31; 10:33-34 — anuncios siguientes"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.8.32",
+  "strong": "G3954",
+  "forma": "παρρησίᾳ",
+  "glosa_interlineal": "abiertamente",
+  "rango_semantico": [
+   "con franqueza, abiertamente"
+  ],
+  "construccion": "Dativo: «con claridad, sin ambages».",
+  "sentido_en_contexto": "Jesús habla del sufrimiento «abiertamente», sin parábolas. Contrasta con las parábolas de antes. Pedro reacciona de inmediato.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Esto les decía claramente. Entonces Pedro le tomó aparte y comenzó a reconvenirle."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 16:25 — «ya no os hablaré por alegorías»",
+   "Jn 18:20 — «públicamente he hablado al mundo»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.8.33",
+  "strong": "G4567",
+  "forma": "σατανᾶ",
+  "glosa_interlineal": "Satanás",
+  "rango_semantico": [
+   "Satanás, adversario"
+  ],
+  "construccion": "Vocativo: «¡apártate de mí, Satanás!».",
+  "sentido_en_contexto": "Jesús reprende a Pedro con las mismas palabras que a Satanás (Mt 4:10). Pedro se opone al plan del sufrimiento, y por eso hace el papel del tentador.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero él, volviéndose y mirando a sus discípulos, reprendió a Pedro, diciendo: ¡Quítate de delante de mí, Satanás! porque no pones la mira en las cosas de Dios, sino en las de los hombres."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 16:23 — paralelo",
+   "Mt 4:10 — «vete, Satanás»",
+   "Mr 1:13 — la tentación"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.8.34",
+  "strong": "G533",
+  "forma": "ἀπαρνησάσθω",
+  "glosa_interlineal": "niéguese",
+  "rango_semantico": [
+   "negar, renunciar"
+  ],
+  "construccion": "Imperativo aoristo medio, 3ª singular.",
+  "sentido_en_contexto": "Condiciones del discipulado: negarse a sí mismo, tomar la cruz, seguir. Marcos añade que Jesús llamó a la multitud, no solo a los discípulos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y llamando a la gente y a sus discípulos, les dijo: Si alguno quiere venir en pos de mí, niéguese a sí mismo, y tome su cruz, y sígame."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 16:24 — paralelo",
+   "Lc 9:23 — «cada día»",
+   "Mr 14:30 — Pedro será negado por el mismo verbo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.8.35",
+  "strong": "G2098",
+  "forma": "εὐαγγελίου",
+  "glosa_interlineal": "evangelio",
+  "rango_semantico": [
+   "buena noticia"
+  ],
+  "construccion": "Genitivo: «por causa de mí y del evangelio».",
+  "sentido_en_contexto": "Solo Marcos añade «y del evangelio»: perder la vida por Jesús y por la buena noticia. Muestra que el evangelio es ya una realidad por la que se vive y muere.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque todo el que quiera salvar su vida, la perderá; y todo el que pierda su vida por causa de mí y del evangelio, la salvará."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 10:29 — «por causa de mí y del evangelio»",
+   "Mr 13:10 — «el evangelio… predicado a todas las naciones»",
+   "Mt 16:25 — solo «por causa de mí»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.8.38",
+  "strong": "G1870",
+  "forma": "ἐπαισχυνθῇ",
+  "glosa_interlineal": "se avergüence",
+  "rango_semantico": [
+   "avergonzarse de, sentir vergüenza"
+  ],
+  "construccion": "Subjuntivo aoristo pasivo (deponente): «se avergonzare de mí».",
+  "sentido_en_contexto": "El discípulo no puede avergonzarse de Jesús y de sus palabras en una generación «adúltera y pecadora». Si lo hace, el Hijo del Hombre se avergonzará de él al venir.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque el que se avergonzare de mí y de mis palabras en esta generación adúltera y pecadora, el Hijo del Hombre se avergonzará también de él, cuando venga en la gloria de su Padre con los santos ángeles."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 1:16 — «no me avergüenzo del evangelio»",
+   "2 Ti 1:8 — «no te avergüences del testimonio»",
+   "Lc 9:26 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

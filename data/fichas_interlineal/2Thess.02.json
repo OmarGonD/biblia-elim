@@ -1,0 +1,307 @@
+[
+ {
+  "ref": "2Thess.2.1",
+  "strong": "G3952",
+  "forma": "παρουσίας",
+  "glosa_interlineal": "venida",
+  "rango_semantico": [
+   "venida, presencia"
+  ],
+  "construccion": "Genitivo: «pero con respecto a la venida de nuestro Señor Jesucristo, y nuestra reunión con él, os rogamos, hermanos».",
+  "sentido_en_contexto": "Motivo de la carta: aclarar un malentendido sobre la parusía. Algunos afirmaban que «el día del Señor ya había llegado» (v.2), quizá por profecía, mensaje o carta supuestamente de Pablo. Pablo lo corrige: antes vendrán la apostasía y la manifestación del «hombre de pecado».",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero con respecto a la venida de nuestro Señor Jesucristo, y nuestra reunión con él, os rogamos, hermanos,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Ts 4:15-17",
+   "Mt 24:31",
+   "Mr 13:27"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "2Thess.2.2",
+  "strong": "G1764",
+  "forma": "ἐνέστηκεν",
+  "glosa_interlineal": "ha llegado",
+  "rango_semantico": [
+   "estar presente, haber llegado"
+  ],
+  "construccion": "Perfecto indicativo activo: «que no os dejéis mover fácilmente de vuestro modo de pensar, ni os alarméis por espíritu, ni por palabra, ni por carta como si fuera nuestra, en el sentido de que el día del Señor está cerca».",
+  "sentido_en_contexto": "ἐνέστηκεν indica «ha llegado, está presente» (no solo «está cerca»): algunos creían que el día del Señor ya estaba en curso. Pablo advierte contra una falsa carta o profecía atribuida a él. Evidencia temprana de cartas pseudónimas y de preocupación por la autenticidad (3:17).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "que no os dejéis mover fácilmente de vuestro modo de pensar, ni os alarméis por espíritu, ni por palabra, ni por carta como si fuera nuestra, en el sentido de que el día del Señor está cerca."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Ts 3:17",
+   "1 Jn 4:1",
+   "Mt 24:23-26"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "2Thess.2.3",
+  "strong": "G646",
+  "forma": "ἀποστασία",
+  "glosa_interlineal": "apostasía",
+  "rango_semantico": [
+   "rebelión, apostasía, abandono"
+  ],
+  "construccion": "Nominativo: «nadie os engañe en ninguna manera; porque no vendrá sin que antes venga la apostasía, y se manifieste el hombre de pecado, el hijo de perdición».",
+  "sentido_en_contexto": "Dos señales previas al día del Señor: la «apostasía» (ἀποστασία: rebelión o abandono de la fe) y la revelación del «hombre de pecado» (varios manuscritos: «hombre de iniquidad/anomía»). Pasaje central y muy debatido de la escatología; ha dado lugar a muchas interpretaciones.",
+  "matiz": "Debate sobre ἀποστασία: (a) rebelión religiosa general al fin de los tiempos (la mayoría); (b) un levantamiento político o religioso específico (como el de Antíoco IV); (c) «partida» en el sentido de rapto (propuesta dispensacionalista, minoritaria entre los exégetas). Sobre «hombre de pecado»: ver v.4.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Nadie os engañe en ninguna manera; porque no vendrá sin que antes venga la apostasía, y se manifieste el hombre de pecado, el hijo de perdición,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:10-12",
+   "1 Ti 4:1",
+   "2 Ti 3:1-5",
+   "Dn 7:25; 11:36"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "2Thess.2.4",
+  "strong": "G3485",
+  "forma": "ναὸν",
+  "glosa_interlineal": "templo",
+  "rango_semantico": [
+   "templo, santuario"
+  ],
+  "construccion": "Acusativo: «el cual se opone y se levanta contra todo lo que se llama Dios o es objeto de culto; tanto que se sienta en el templo de Dios, haciéndose pasar por Dios».",
+  "sentido_en_contexto": "Descripción del «hombre de pecado»: se opone a Dios y se proclama Dios en el templo. Se discute su identidad (¿una persona futura, una institución, un sistema, el emperador romano, el papado según la tradición protestante clásica?) y el «templo» (¿el Templo de Jerusalén, la iglesia o un símbolo?). Evoca Dn 11:36 y la profanación por Antíoco IV y por Calígula.",
+  "matiz": "Debate sobre la identidad del «hombre de pecado» y el «templo»: (a) un individuo futuro (Anticristo; la mayoría de los premilenialistas) que se sienta en un Templo de Jerusalén reconstruido (dispensacionalismo) o en la iglesia (simbólico); (b) el poder del imperio romano o un emperador (Calígula, Nerón; preterismo); (c) el papado (identificación de la Reforma, Lutero y Calvino; hoy minoritaria); (d) fuerzas o principios de rebelión a lo largo de la historia (idealismo). El texto no da nombre.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "el cual se opone y se levanta contra todo lo que se llama Dios o es objeto de culto; tanto que se sienta en el templo de Dios, haciéndose pasar por Dios."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 9:27; 11:36",
+   "Mt 24:15",
+   "Ap 13:1-8",
+   "1 Jn 2:18"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "2Thess.2.6",
+  "strong": "G2722",
+  "forma": "κατέχον",
+  "glosa_interlineal": "lo que lo detiene",
+  "rango_semantico": [
+   "retener, detener"
+  ],
+  "construccion": "Participio presente activo neutro: «y ahora vosotros sabéis lo que lo detiene, a fin de que a su debido tiempo se manifieste».",
+  "sentido_en_contexto": "El «freno»: primero neutro (τὸ κατέχον, v.6) y luego masculino (ὁ κατέχων, v.7). Pablo dice que los lectores ya saben quién o qué es; hoy no se sabe. Entre las hipótesis: el Estado romano o el emperador; el Espíritu Santo o la iglesia; un ángel (Miguel); la predicación del evangelio; o Satanás.",
+  "matiz": "Debate sobre «el que detiene»: (a) el Imperio romano y su orden (Tertuliano, muchos Padres); (b) el Espíritu Santo (con la iglesia), cuyo rapto marca el comienzo de la tribulación (pretribulacionistas); (c) la proclamación del evangelio o Pablo mismo (Cullmann); (d) un ángel o poder celestial. Es uno de los enigmas más famosos del NT.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y ahora vosotros sabéis lo que lo detiene, a fin de que a su debido tiempo se manifieste."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Ts 2:7",
+   "Dn 10:13, 20-21",
+   "Ap 20:1-3"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "2Thess.2.7",
+  "strong": "G458",
+  "forma": "ἀνομίας",
+  "glosa_interlineal": "iniquidad",
+  "rango_semantico": [
+   "iniquidad, rebelión contra la ley"
+  ],
+  "construccion": "Genitivo: «porque ya está en acción el misterio de la iniquidad; sólo que hay quien al presente lo detiene, hasta que sea quitado de en medio».",
+  "sentido_en_contexto": "El «misterio de la anomía» (de la rebeldía contra Dios) ya actúa en la historia, en forma oculta, hasta que sea revelado. Muestra una escatología con presente y futuro: lo que se manifestará ya está operando.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque ya está en acción el misterio de la iniquidad; sólo que hay quien al presente lo detiene, hasta que sea quitado de en medio."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Jn 2:18; 4:3",
+   "Mt 24:12",
+   "Dn 8:23"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "2Thess.2.8",
+  "strong": "G459",
+  "forma": "ἄνομος",
+  "glosa_interlineal": "el inicuo",
+  "rango_semantico": [
+   "sin ley, inicuo"
+  ],
+  "construccion": "Nominativo: «y entonces se manifestará aquel inicuo, a quien el Señor matará con el espíritu de su boca, y destruirá con el resplandor de su venida».",
+  "sentido_en_contexto": "El «inicuo» (ὁ ἄνομος) será destruido sin esfuerzo por la sola presencia del Señor: «aliento de su boca» y «manifestación de su venida» (Is 11:4). La victoria de Cristo es inmediata y completa; no hay batalla prolongada.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y entonces se manifestará aquel inicuo, a quien el Señor matará con el espíritu de su boca, y destruirá con el resplandor de su venida;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 11:4",
+   "Ap 19:15, 20",
+   "Job 4:9"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "2Thess.2.9",
+  "strong": "G4592",
+  "forma": "σημείοις",
+  "glosa_interlineal": "señales",
+  "rango_semantico": [
+   "señal, milagro"
+  ],
+  "construccion": "Dativo plural: «inicuo cuyo advenimiento es por obra de Satanás, con gran poder y señales y prodigios mentirosos».",
+  "sentido_en_contexto": "Su venida va acompañada de poder de Satanás y señales y prodigios «de mentira»: pueden ser milagros falsos o que apoyan una mentira. Jesús advirtió de falsos mesías con señales (Mt 24:24).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "inicuo cuyo advenimiento es por obra de Satanás, con gran poder y señales y prodigios mentirosos,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:24",
+   "Ap 13:13-14",
+   "Dt 13:1-3"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "2Thess.2.11",
+  "strong": "G4106",
+  "forma": "πλάνης",
+  "glosa_interlineal": "engaño",
+  "rango_semantico": [
+   "error, engaño"
+  ],
+  "construccion": "Genitivo: «por esto Dios les envía un poder engañoso, para que crean la mentira».",
+  "sentido_en_contexto": "Dios entrega a quienes rechazan la verdad a la mentira: juicio judicial sobre quienes se negaron a amar la verdad (v.10). Se discute cómo conciliar esto con la bondad de Dios y la libertad humana: es una respuesta judicial a la elección previa de rechazar la verdad.",
+  "matiz": "Debate: (a) endurecimiento judicial por Dios como respuesta al rechazo previo (la mayoría); (b) Dios activamente envía el engaño (determinismo reformado); (c) Dios permite el engaño (lectura de permisión). Comparar con Ro 1:24-28; Ex 4:21.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Por esto Dios les envía un poder engañoso, para que crean la mentira,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 1:24-28",
+   "1 R 22:19-23",
+   "Ez 14:9",
+   "Jn 12:40"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "2Thess.2.13",
+  "strong": "G138",
+  "forma": "εἵλατο",
+  "glosa_interlineal": "escogió",
+  "rango_semantico": [
+   "escoger, elegir"
+  ],
+  "construccion": "Aoristo indicativo medio: «pero nosotros debemos dar siempre gracias a Dios respecto a vosotros, hermanos amados por el Señor, de que Dios os haya escogido desde el principio para salvación, mediante la santificación por el Espíritu y la fe en la verdad».",
+  "sentido_en_contexto": "Elección «desde el principio» (ἀπ᾿ ἀρχῆς; algunos manuscritos leen «primicias»: ἀπαρχήν) para salvación mediante santificación del Espíritu y fe. Contrasta con los que perecen (vv.10-12). Los medios incluyen santificación y fe.",
+  "matiz": "Variante textual: ἀπ᾿ ἀρχῆς («desde el principio»; B, D, mayoría) frente a ἀπαρχήν («primicias»; א, A). Debate sobre elección: ver Ef 1:4; aquí incluye los medios (santificación del Espíritu y fe en la verdad).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero nosotros debemos dar siempre gracias a Dios respecto a vosotros, hermanos amados por el Señor, de que Dios os haya escogido desde el principio para salvación, mediante la santificación por el Espíritu y la fe en la verdad,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ef 1:4",
+   "1 Ts 1:4",
+   "1 P 1:2",
+   "Ro 8:29-30"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "2Thess.2.15",
+  "strong": "G3862",
+  "forma": "παραδόσεις",
+  "glosa_interlineal": "tradiciones",
+  "rango_semantico": [
+   "tradición, enseñanza transmitida"
+  ],
+  "construccion": "Acusativo plural: «así que, hermanos, estad firmes, y retened la doctrina que habéis aprendido, sea por palabra, o por carta nuestra».",
+  "sentido_en_contexto": "Texto clave en el debate entre tradiciones: Pablo exhorta a mantener las «tradiciones» (παραδόσεις) recibidas «por palabra o por carta». Católicos y ortodoxos ven en él un apoyo a la Tradición como fuente junto a la Escritura; protestantes entienden que esas tradiciones apostólicas están hoy recogidas en el NT.",
+  "matiz": "Debate: (a) la Tradición apostólica oral es transmitida junto con la Escritura (católica, ortodoxa); (b) las «tradiciones» apostólicas (contenido de la predicación) se hallan ahora en el NT, único criterio normativo (sola Scriptura, protestante); (c) Pablo se refiere a la enseñanza apostólica, no a tradiciones posteriores humanas (Mr 7:8-9).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Así que, hermanos, estad firmes, y retened la doctrina que habéis aprendido, sea por palabra, o por carta nuestra."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 11:2",
+   "2 Ti 2:2",
+   "Jud 3",
+   "Mr 7:8"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "2Thess.2.16",
+  "strong": "G3874",
+  "forma": "παράκλησιν",
+  "glosa_interlineal": "consuelo",
+  "rango_semantico": [
+   "consuelo, aliento"
+  ],
+  "construccion": "Acusativo: «y el mismo Jesucristo Señor nuestro, y Dios nuestro Padre, el cual nos amó y nos dio consolación eterna y buena esperanza por gracia».",
+  "sentido_en_contexto": "Oración trinitaria implícita: Cristo y el Padre consuelan y afirman. El orden, «nuestro Señor Jesucristo» antes de «Dios nuestro Padre», y el verbo singular (ἀγαπήσας, δούς) tratan a ambos como una unidad de acción.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y el mismo Jesucristo Señor nuestro, y Dios nuestro Padre, el cual nos amó y nos dio consolación eterna y buena esperanza por gracia,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 1:3-4",
+   "1 Ts 3:11",
+   "Ro 15:13"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

@@ -1,0 +1,408 @@
+[
+ {
+  "ref": "Luke.13.1",
+  "strong": "G1057",
+  "forma": "Γαλιλαίων",
+  "glosa_interlineal": "galileos",
+  "rango_semantico": [
+   "galileo"
+  ],
+  "construccion": "Genitivo plural: «de los galileos cuya sangre Pilato mezcló con sus sacrificios».",
+  "sentido_en_contexto": "Alusión a un acto de Pilato no conocido por otras fuentes: la ejecución de galileos mientras sacrificaban. Jesús responde que ni esos galileos ni los muertos de la torre de Siloé eran peores pecadores: todos necesitan arrepentirse.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 11:50 — Caifás",
+   "Lc 23:12 — Pilato y Herodes"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.13.3",
+  "strong": "G3340",
+  "forma": "μετανοῆτε",
+  "glosa_interlineal": "os arrepintáis",
+  "rango_semantico": [
+   "cambiar de mente, arrepentirse"
+  ],
+  "construccion": "Subjuntivo aoristo activo: «si no os arrepentís, todos pereceréis igualmente».",
+  "sentido_en_contexto": "Jesús rechaza la idea de que la desgracia sea castigo proporcional al pecado individual y la reorienta: todos deben arrepentirse. El arrepentimiento es urgente, no solo para otros.",
+  "matiz": "Se discute a qué «perecer» se refiere: muerte repentina, la destrucción de Jerusalén (70 d.C.) o juicio final. El contexto lo deja abierto.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Os digo: No; antes si no os arrepentís, todos pereceréis igualmente."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 9:2-3 — «¿quién pecó… para que naciese ciego?»",
+   "Lc 13:5 — repite la advertencia",
+   "Job 4:7 — el pensamiento retributivo"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Luke.13.4",
+  "strong": "G4444",
+  "forma": "πύργος",
+  "glosa_interlineal": "torre",
+  "rango_semantico": [
+   "torre"
+  ],
+  "construccion": "Nominativo: «la torre de Siloé».",
+  "sentido_en_contexto": "Segundo ejemplo: dieciocho muertos por la caída de una torre en Siloé, accidente no atestiguado fuera de Lucas. Desastres naturales no prueban culpa particular.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Jn 9:7 — el estanque de Siloé",
+   "Is 8:6 — «las aguas de Siloé»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.13.6",
+  "strong": "G4808",
+  "forma": "Συκῆν",
+  "glosa_interlineal": "higuera",
+  "rango_semantico": [
+   "higuera"
+  ],
+  "construccion": "Acusativo: «una higuera plantada en su viña».",
+  "sentido_en_contexto": "Parábola de la higuera estéril (solo Lucas): tres años sin fruto; el viñador pide un año más. Es una parábola de paciencia y plazo final, que sigue al llamado al arrepentimiento (vv.1-5).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mr 11:12-14, 20-21 — la higuera sin fruto",
+   "Is 5:1-7 — la viña estéril",
+   "Os 9:10 — «como primicias de la higuera»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.13.8",
+  "strong": "G863",
+  "forma": "ἄφες",
+  "glosa_interlineal": "déjala",
+  "rango_semantico": [
+   "dejar, permitir"
+  ],
+  "construccion": "Imperativo aoristo activo: «déjala todavía este año».",
+  "sentido_en_contexto": "El viñador intercede: un año más para cavar y abonar. La parábola termina abierta: «si no, la cortarás». Dios da un plazo, pero no indefinido.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "El entonces, respondiendo, le dijo: Señor, déjala todavía este año, hasta que yo cave alrededor de ella, y la abone."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 P 3:9 — «el Señor… es paciente para con nosotros»",
+   "Ex 32:11-14 — Moisés intercede",
+   "Lc 23:34 — «Padre, perdónalos»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.13.11",
+  "strong": "G769",
+  "forma": "ἀσθενείας",
+  "glosa_interlineal": "enfermedad",
+  "rango_semantico": [
+   "debilidad, enfermedad"
+  ],
+  "construccion": "Genitivo: «espíritu de enfermedad».",
+  "sentido_en_contexto": "Una mujer, encorvada por dieciocho años, es sanada en sábado. Jesús dice que Satanás la había «atado»: la enfermedad se presenta como opresión espiritual. Milagro solo de Lucas.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Hch 10:38 — «sanando a todos los oprimidos por el diablo»",
+   "Lc 13:16 — «Satanás había atado»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.13.12",
+  "strong": "G630",
+  "forma": "ἀπολέλυσαι",
+  "glosa_interlineal": "eres libre",
+  "rango_semantico": [
+   "soltar, liberar"
+  ],
+  "construccion": "Perfecto indicativo pasivo: «has sido liberada de tu enfermedad».",
+  "sentido_en_contexto": "Jesús usa el verbo de «soltar» (ἀπολύω) con el perfecto: ya está libre. Después impone las manos y ella se endereza al instante.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Cuando Jesús la vio, la llamó y le dijo: Mujer, eres libre de tu enfermedad."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 4:18 — «a poner en libertad a los oprimidos»",
+   "Lc 13:16 — «¿no se le debía soltar?»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.13.14",
+  "strong": "G752",
+  "forma": "ἀρχισυνάγωγος",
+  "glosa_interlineal": "jefe de la sinagoga",
+  "rango_semantico": [
+   "jefe de sinagoga"
+  ],
+  "construccion": "Nominativo: «el jefe de la sinagoga, indignado».",
+  "sentido_en_contexto": "El jefe de la sinagoga protesta porque Jesús sanó en sábado, hablando a la multitud (no a Jesús). Jesús responde llamándolo «hipócrita» a él y a quienes comparten su postura.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mr 5:22 — Jairo",
+   "Hch 18:8 — Crispo",
+   "Lc 14:3 — otra controversia sabática"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.13.16",
+  "strong": "G11",
+  "forma": "Ἀβραὰμ",
+  "glosa_interlineal": "Abraham",
+  "rango_semantico": [
+   "Abraham"
+  ],
+  "construccion": "Genitivo: «hija de Abraham».",
+  "sentido_en_contexto": "Jesús llama a la mujer «hija de Abraham», afirmando su pertenencia plena a Israel y su derecho a ser liberada. Juega con las palabras: si un animal se suelta en sábado, ¡cuánto más una hija de Abraham!",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y a esta hija de Abraham, que Satanás había atado dieciocho años, ¿no se le debía soltar de esta ligadura en el día de reposo?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 19:9 — «hijo de Abraham»",
+   "Gá 3:7 — «los de la fe son hijos de Abraham»",
+   "Lc 1:55 — la promesa a Abraham"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.13.19",
+  "strong": "G2779",
+  "forma": "κῆπον",
+  "glosa_interlineal": "huerto",
+  "rango_semantico": [
+   "huerto, jardín"
+  ],
+  "construccion": "Acusativo: «un grano de mostaza… en su huerto».",
+  "sentido_en_contexto": "Parábola de la mostaza y de la levadura: el reino empieza pequeño y crece de manera sorprendente. Lucas las ubica aquí, tras la sanación de la mujer.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 13:31-33 — paralelo",
+   "Mr 4:30-32 — paralelo",
+   "Ez 17:22-24 — el cedro y las aves"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.13.22",
+  "strong": "G4197",
+  "forma": "πορείαν",
+  "glosa_interlineal": "viaje",
+  "rango_semantico": [
+   "viaje, camino"
+  ],
+  "construccion": "Acusativo: «haciendo su camino hacia Jerusalén».",
+  "sentido_en_contexto": "Lucas recuerda que Jesús está en camino a Jerusalén (9:51). Cada escena de esta sección está bajo ese horizonte.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Lc 9:51 — «afirmó su rostro para ir a Jerusalén»",
+   "Lc 17:11 — «yendo a Jerusalén»",
+   "Lc 19:28 — «subiendo a Jerusalén»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.13.24",
+  "strong": "G75",
+  "forma": "ἀγωνίζεσθε",
+  "glosa_interlineal": "esforzaos",
+  "rango_semantico": [
+   "luchar, esforzarse (como un atleta)"
+  ],
+  "construccion": "Imperativo presente medio: «esforzaos por entrar por la puerta estrecha».",
+  "sentido_en_contexto": "Pregunta: «¿son pocos los que se salvan?». Jesús no responde con cifras, sino con un llamado a esforzarse (de ἀγών, «competencia»). «Muchos procurarán entrar y no podrán».",
+  "matiz": "Debate sobre el sentido de «esforzaos» frente a la gracia: el verbo no implica ganar la salvación por esfuerzo, sino urgencia y decisión. «Procurar» (ζητέω) es insuficiente sin aceptar la puerta estrecha.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Esforzaos a entrar por la puerta angosta; porque os digo que muchos procurarán entrar, y no podrán."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 7:13-14 — puerta estrecha",
+   "1 Ti 6:12 — «pelea la buena batalla de la fe»",
+   "Heb 4:11 — «procuremos, pues, entrar en aquel reposo»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Luke.13.27",
+  "strong": "G93",
+  "forma": "ἀδικίας",
+  "glosa_interlineal": "injusticia",
+  "rango_semantico": [
+   "injusticia, maldad"
+  ],
+  "construccion": "Genitivo: «obreros de iniquidad».",
+  "sentido_en_contexto": "Los que llaman a la puerta, alegando haber comido y escuchado con Jesús, serán rechazados: «no os conozco… apartaos de mí, obreros de iniquidad». Cita Sal 6:8.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 7:23 — «nunca os conocí»",
+   "Sal 6:8 — «apartaos de mí, todos los hacedores de iniquidad»",
+   "Mt 25:12 — «no os conozco»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.13.29",
+  "strong": "G1005",
+  "forma": "Βορρᾶ",
+  "glosa_interlineal": "norte",
+  "rango_semantico": [
+   "norte"
+  ],
+  "construccion": "Genitivo: «del norte y del sur».",
+  "sentido_en_contexto": "Vendrán de los cuatro puntos cardinales a sentarse a la mesa del reino. Lucas ensancha el «oriente y occidente» de Mateo (8:11) a los cuatro vientos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque vendrán del oriente y del occidente, del norte y del sur, y se sentarán a la mesa en el reino de Dios."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 8:11 — «del oriente y del occidente»",
+   "Is 43:5-6 — «del norte… del sur»",
+   "Sal 107:3 — los redimidos reunidos de todas partes"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.13.32",
+  "strong": "G258",
+  "forma": "ἀλώπεκι",
+  "glosa_interlineal": "zorra",
+  "rango_semantico": [
+   "zorro, zorra (astuto)"
+  ],
+  "construccion": "Dativo: «decid a aquella zorra».",
+  "sentido_en_contexto": "Jesús llama «zorra» a Herodes Antipas: astuto, pero insignificante frente a un león. Solo Lucas incluye esta respuesta a los fariseos que advierten de la amenaza de Herodes.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y les dijo: Id, y decid a aquella zorra: He aquí, echo fuera demonios y hago curaciones hoy y mañana, y al tercer día termino mi obra."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 9:7-9 — Herodes perplejo",
+   "Lc 23:8-12 — Herodes y Jesús",
+   "Ez 13:4 — «como zorras en los desiertos»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.13.33",
+  "strong": "G1163",
+  "forma": "δεῖ",
+  "glosa_interlineal": "es necesario",
+  "rango_semantico": [
+   "ser necesario, deber"
+  ],
+  "construccion": "Presente impersonal: «es necesario que siga mi camino».",
+  "sentido_en_contexto": "Jesús sigue su camino a Jerusalén «porque no es posible que un profeta muera fuera de Jerusalén». Ironía y necesidad: la ciudad que mata a los profetas es el lugar de su destino.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero es necesario que hoy y mañana y pasado mañana siga mi camino; porque no es posible que un profeta muera fuera de Jerusalén."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 9:22 — «es necesario que el Hijo del Hombre padezca mucho»",
+   "Lc 24:26 — «¿no era necesario que el Cristo padeciese?»",
+   "Jer 26:20-23 — el profeta Urías"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.13.34",
+  "strong": "G3733",
+  "forma": "ὄρνιξ",
+  "glosa_interlineal": "gallina",
+  "rango_semantico": [
+   "gallina, ave de corral"
+  ],
+  "construccion": "Nominativo: «como la gallina junta sus polluelos debajo de sus alas».",
+  "sentido_en_contexto": "Lamento sobre Jerusalén, que Mateo coloca en el templo (23:37-39). Lucas lo sitúa en el camino. La imagen materna de Jesús: protección que Jerusalén rechazó.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¡Jerusalén, Jerusalén, que matas a los profetas, y apedreas a los que te son enviados! ¡Cuántas veces quise juntar a tus hijos, como la gallina a sus polluelos debajo de sus alas, y no quisiste!"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 23:37 — paralelo",
+   "Dt 32:11 — «como el águila»",
+   "Sal 91:4 — «con sus plumas te cubrirá»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.13.35",
+  "strong": "G2127",
+  "forma": "εὐλογημένος",
+  "glosa_interlineal": "bendito",
+  "rango_semantico": [
+   "bendecido, bendito"
+  ],
+  "construccion": "Participio perfecto pasivo: «bendito el que viene en el nombre del Señor».",
+  "sentido_en_contexto": "Cita Sal 118:26: Jesús anuncia que no lo verán hasta que digan esta aclamación. Será pronunciada en la entrada triunfal (19:38) y se ha leído también como futura aclamación escatológica.",
+  "matiz": "Debate: ¿se refiere a la entrada en Jerusalén (19:38), a un futuro reconocimiento de Israel (Ro 11:25-26) o al juicio final? El texto no lo precisa.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "He aquí vuestra casa os es dejada desierta; y os digo que no me veréis, hasta que llegue el tiempo en que digáis: Bendito el que viene en el nombre del Señor."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 118:26 — texto citado",
+   "Lc 19:38 — la entrada triunfal",
+   "Mt 23:39 — paralelo"
+  ],
+  "nivel_certeza": "bajo"
+ }
+]

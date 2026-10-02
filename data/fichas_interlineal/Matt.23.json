@@ -1,0 +1,501 @@
+[
+ {
+  "ref": "Matt.23.2",
+  "strong": "G2515",
+  "forma": "καθέδρας",
+  "glosa_interlineal": "cátedra",
+  "rango_semantico": [
+   "asiento, silla de enseñanza",
+   "cátedra"
+  ],
+  "construccion": "ἐπὶ + genitivo: «sobre la cátedra de Moisés».",
+  "sentido_en_contexto": "La «cátedra de Moisés» designa la autoridad de interpretar la Ley. Jesús reconoce esa autoridad pero critica la conducta de los fariseos.",
+  "matiz": "Debate: ¿Jesús ordena obedecer todo lo que dicen (v.3), o es irónico? En el contexto, muchos entienden que reconoce su función docente pero no sus tradiciones añadidas ni su ejemplo (vv.4-5).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "En la cátedra de Moisés se sientan los escribas y los fariseos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Neh 8:4 — Esdras sobre un estrado",
+   "Mt 15:3-6 — Jesús critica sus tradiciones",
+   "Ro 2:17-24 — «tú que te glorías en la ley… ¿deshonras a Dios?»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.23.4",
+  "strong": "G5413",
+  "forma": "φορτία",
+  "glosa_interlineal": "cargas",
+  "rango_semantico": [
+   "carga, peso"
+  ],
+  "construccion": "Acusativo plural: «cargas pesadas».",
+  "sentido_en_contexto": "Los líderes imponen exigencias pesadas sin ayudar a cumplirlas. Contrasta con el yugo suave de Jesús (11:28-30).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque atan cargas pesadas y difíciles de llevar, y las ponen sobre los hombros de los hombres; pero ellos ni con un dedo quieren moverlas."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 11:28-30 — «mi yugo es fácil, y ligera mi carga»",
+   "Lc 11:46 — «cargáis a los hombres con cargas que no pueden llevar»",
+   "Hch 15:10 — «un yugo que ni nuestros padres ni nosotros pudimos llevar»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.23.5",
+  "strong": "G5440",
+  "forma": "φυλακτήρια",
+  "glosa_interlineal": "filacterias",
+  "rango_semantico": [
+   "filacteria (cajita con textos de la Torá atada a la frente o el brazo)",
+   "amuleto"
+  ],
+  "construccion": "Acusativo plural: «sus filacterias».",
+  "sentido_en_contexto": "Cajitas con pasajes de la Torá (Éx 13; Dt 6; 11) atadas al brazo y la frente según Dt 6:8. Agrandarlas es una forma de exhibir piedad.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Antes, hacen todas sus obras para ser vistos por los hombres. Pues ensanchan sus filacterias, y extienden los flecos de sus mantos;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 6:8 — «las atarás como una señal en tu mano»",
+   "Nm 15:38-39 — flecos en el manto"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.23.6",
+  "strong": "G4410",
+  "forma": "πρωτοκαθεδρίας",
+  "glosa_interlineal": "primeros asientos",
+  "rango_semantico": [
+   "asiento de honor",
+   "lugar principal"
+  ],
+  "construccion": "Acusativo plural: «los primeros asientos en las sinagogas».",
+  "sentido_en_contexto": "Búsqueda de honores públicos en banquetes y sinagogas. Es la actitud contraria a la humildad que Jesús enseña.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "y aman los primeros asientos en las cenas, y las primeras sillas en las sinagogas,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 14:7-11 — «cuando fueres convidado… siéntate en el último lugar»",
+   "Stg 2:2-4 — el favoritismo en la asamblea"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.23.9",
+  "strong": "G3962",
+  "forma": "πατέρα",
+  "glosa_interlineal": "padre",
+  "rango_semantico": [
+   "padre",
+   "antepasado",
+   "(título de respeto)"
+  ],
+  "construccion": "Acusativo: «no llaméis padre a nadie en la tierra».",
+  "sentido_en_contexto": "Prohibición de usar títulos de honor religioso que usurpen el papel exclusivo de Dios. Es un llamado contra la autoexaltación de los líderes, no una norma sobre los nombres familiares.",
+  "matiz": "Se debate el alcance: ¿se prohíbe todo uso del título «padre» (en sentido religioso), o se condena la actitud de reclamar autoridad absoluta? Pablo mismo se llama «padre» de sus convertidos (1 Co 4:15).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y no llaméis padre vuestro a nadie en la tierra; porque uno es vuestro Padre, el que está en los cielos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 4:15 — «yo os engendré por medio del evangelio»",
+   "Mt 6:9 — «Padre nuestro que estás en los cielos»",
+   "Mal 2:10 — «¿no tenemos todos un mismo padre?»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.23.11",
+  "strong": "G1249",
+  "forma": "διάκονος",
+  "glosa_interlineal": "servidor",
+  "rango_semantico": [
+   "servidor, siervo",
+   "diácono"
+  ],
+  "construccion": "Nominativo: «vuestro servidor».",
+  "sentido_en_contexto": "El mayor entre los discípulos es quien sirve. Eco de 20:26.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "El mayor de vosotros será vuestro siervo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 20:26 — «el que quiera hacerse grande… será vuestro servidor»",
+   "Mr 10:43 — paralelo",
+   "Jn 13:14-15 — Jesús lava los pies"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.23.13",
+  "strong": "G3759",
+  "forma": "οὐαὶ",
+  "glosa_interlineal": "¡ay!",
+  "rango_semantico": [
+   "¡ay! (lamento y advertencia)"
+  ],
+  "construccion": "Interjección repetida siete veces (algunos manuscritos incluyen un octavo en 23:14).",
+  "sentido_en_contexto": "Serie de «ayes» sobre los escribas y fariseos, a modo de lamentos proféticos. No son meros insultos: expresan dolor y juicio.",
+  "matiz": "Contrasta con las bienaventuranzas (5:3-12): siete bienaventuranzas / siete ayes. Es un contraste intencional.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Mas ¡ay de vosotros, escribas y fariseos, hipócritas! porque cerráis el reino de los cielos delante de los hombres; pues ni vosotros entráis, ni dejáis entrar a los que están entrando."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 5:8-23 — serie de ayes",
+   "Hab 2:6-19 — cinco ayes",
+   "Lc 11:42-52 — paralelo"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.23.15",
+  "strong": "G4339",
+  "forma": "προσήλυτον",
+  "glosa_interlineal": "prosélito",
+  "rango_semantico": [
+   "converso al judaísmo",
+   "recién llegado"
+  ],
+  "construccion": "Acusativo: «un prosélito».",
+  "sentido_en_contexto": "Los fariseos hacían proselitismo con celo; Jesús dice que el resultado es un converso «hijo de la gehena el doble» que ellos, es decir, peor.",
+  "matiz": "Se debate qué tan extendido era el proselitismo activo de los fariseos en esa época; la frase puede referirse a conversos que adoptaban el legalismo sin transformación interior.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…porque recorréis mar y tierra para hacer un prosélito, y una vez hecho, le hacéis dos veces más hijo del infierno que vosotros."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 2:10 — «prosélitos» en Jerusalén",
+   "Hch 13:43 — «muchos de los judíos y de los prosélitos piadosos»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.23.16",
+  "strong": "G3485",
+  "forma": "ναῷ",
+  "glosa_interlineal": "santuario",
+  "rango_semantico": [
+   "santuario, templo (el edificio sagrado interior)"
+  ],
+  "construccion": "ἐν + dativo: «por el santuario».",
+  "sentido_en_contexto": "Los fariseos distinguían entre juramentos válidos e inválidos según su objeto (templo vs. oro del templo). Jesús lo ridiculiza: lo sagrado hace sagrado el oro, no al revés.",
+  "matiz": "ναός es el santuario propiamente dicho (distinto de ἱερόν, el recinto).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 5:33-37 — enseñanza sobre los juramentos",
+   "Mt 27:51 — «el velo del templo (ναοῦ) se rasgó»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.23.23",
+  "strong": "G586",
+  "forma": "ἀποδεκατοῦτε",
+  "glosa_interlineal": "diezmáis",
+  "rango_semantico": [
+   "dar el diezmo",
+   "pagar la décima parte"
+  ],
+  "construccion": "Presente indicativo activo, 2ª plural.",
+  "sentido_en_contexto": "Los fariseos cumplían el diezmo hasta en hierbas menores (menta, eneldo, comino), pero descuidaban lo esencial: justicia, misericordia y fe. Jesús no los desaprueba por diezmar, sino por no hacer lo más importante.",
+  "matiz": "El v.23 dice «esto era necesario hacer, sin dejar de hacer aquello»: Jesús no abole el diezmo sino que fija prioridades. Es un pasaje clave para la lectura de Jesús sobre la Ley.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…porque diezmáis la menta y el eneldo y el comino, y dejáis lo más importante de la ley: la justicia, la misericordia y la fe. Esto era necesario hacer, sin dejar de hacer aquello."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lv 27:30 — el diezmo de la tierra",
+   "Mi 6:8 — «hacer justicia, y amar misericordia»",
+   "Lc 11:42 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.23.24",
+  "strong": "G1368",
+  "forma": "διϋλίζοντες",
+  "glosa_interlineal": "coláis",
+  "rango_semantico": [
+   "colar, filtrar"
+  ],
+  "construccion": "Participio presente activo: «los que coláis».",
+  "sentido_en_contexto": "Imagen: colar un mosquito (impuro) y tragar un camello (impuro y enorme). Hipérbole sobre quienes se fijan en lo mínimo y descuidan lo gravísimo.",
+  "matiz": "Hay posible juego de palabras en arameo: mosquito (galma) y camello (gamla). No hay seguridad.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¡Guías ciegos, que coláis el mosquito, y tragáis el camello!"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lv 11:4, 41 — animales impuros",
+   "Mt 19:24 — otro uso hiperbólico del camello"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.23.27",
+  "strong": "G2867",
+  "forma": "κεκονιαμένοις",
+  "glosa_interlineal": "blanqueados",
+  "rango_semantico": [
+   "blanquear con cal, encalar"
+  ],
+  "construccion": "Participio perfecto pasivo: «blanqueados».",
+  "sentido_en_contexto": "Los sepulcros se encalaban para que la gente los viera y evitara tocarlos (Nm 19:16). Hermosos por fuera, llenos de impureza por dentro: imagen de la hipocresía.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¡Ay de vosotros, escribas y fariseos, hipócritas! porque sois semejantes a sepulcros blanqueados, que por fuera, a la verdad, se muestran hermosos, mas por dentro están llenos de huesos de muertos y de toda inmundicia."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Nm 19:16 — impureza por tocar un sepulcro",
+   "Lc 11:44 — «sois como sepulcros que no se ven»",
+   "Hch 23:3 — «¡pared blanqueada!»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.23.28",
+  "strong": "G458",
+  "forma": "ἀνομίας",
+  "glosa_interlineal": "iniquidad",
+  "rango_semantico": [
+   "ausencia de ley, iniquidad"
+  ],
+  "construccion": "Genitivo: «llenos de hipocresía e iniquidad».",
+  "sentido_en_contexto": "Dentro de la apariencia justa hay hipocresía e ilegalidad. «Ilegalidad» es irónico: los guardianes de la Ley viven contra su espíritu.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Así también vosotros por fuera, a la verdad, os mostráis justos a los hombres, pero por dentro estáis llenos de hipocresía e iniquidad."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 7:23 — «apartaos de mí, hacedores de maldad»",
+   "Mt 24:12 — «por haberse multiplicado la maldad»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.23.31",
+  "strong": "G3140",
+  "forma": "μαρτυρεῖτε",
+  "glosa_interlineal": "dais testimonio",
+  "rango_semantico": [
+   "testificar, dar testimonio"
+  ],
+  "construccion": "Presente indicativo activo, 2ª plural: «dais testimonio contra vosotros mismos».",
+  "sentido_en_contexto": "Al construir tumbas para los profetas, los fariseos reconocen que son hijos de quienes los mataron. Su aparente veneración es una forma de heredar la culpa.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Así que testificáis contra vosotros mismos, que sois hijos de aquellos que mataron a los profetas."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 11:47-48 — paralelo",
+   "Hch 7:51-52 — «¿a cuál de los profetas no persiguieron vuestros padres?»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.23.32",
+  "strong": "G3358",
+  "forma": "μέτρον",
+  "glosa_interlineal": "medida",
+  "rango_semantico": [
+   "medida",
+   "la medida llena"
+  ],
+  "construccion": "Acusativo: «completad la medida».",
+  "sentido_en_contexto": "Imperativo irónico: «llenad la medida de vuestros padres», es decir, completad lo que ellos empezaron. Anuncia el desenlace del rechazo (cf. la muerte de Jesús).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¡Vosotros también llenad la medida de vuestros padres!"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 15:16 — «aún no ha llegado a su colmo la maldad del amorreo»",
+   "1 Ts 2:16 — «para colmar siempre la medida de sus pecados»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.23.33",
+  "strong": "G1067",
+  "forma": "γεέννης",
+  "glosa_interlineal": "gehena",
+  "rango_semantico": [
+   "Gehena (valle de Hinom)",
+   "lugar de juicio final"
+  ],
+  "construccion": "ἀπὸ + genitivo: «de la condenación de la gehena».",
+  "sentido_en_contexto": "Pregunta retórica: ¿cómo escaparéis del juicio? Jesús advierte con dureza a los dirigentes. Mismo insulto que Juan Bautista (3:7).",
+  "matiz": "Ver nota sobre la gehena en 5:22.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¡Serpientes, generación de víboras! ¿Cómo escaparéis de la condenación del infierno?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 3:7 — «generación de víboras»",
+   "Mt 5:22 — «infierno de fuego»",
+   "Mt 10:28 — «destruir el alma y el cuerpo en el infierno»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.23.35",
+  "strong": "G129",
+  "forma": "αἷμα",
+  "glosa_interlineal": "sangre",
+  "rango_semantico": [
+   "sangre",
+   "vida (en el AT)",
+   "muerte violenta"
+  ],
+  "construccion": "Nominativo: «toda la sangre justa derramada».",
+  "sentido_en_contexto": "Jesús resume la historia de los asesinatos de justos: desde Abel (Gn 4) hasta Zacarías. Se discute quién es este Zacarías (2 Cr 24:20-22 es el más probable; la Biblia hebrea termina con 2 Crónicas).",
+  "matiz": "Se identifica con Zacarías hijo de Joyadá (2 Cr 24); Mateo lo llama «hijo de Berequías» (como el profeta Zacarías de Zac 1:1), lo que ha generado debate entre confusión de nombres, otro personaje o tradición diferente.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "para que venga sobre vosotros toda la sangre justa que se ha derramado sobre la tierra, desde la sangre de Abel el justo hasta la sangre de Zacarías hijo de Berequías, a quien matasteis entre el templo y el altar."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 4:8-10 — la sangre de Abel",
+   "2 Cr 24:20-22 — Zacarías apedreado en el atrio del templo",
+   "Lc 11:50-51 — paralelo"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.23.37",
+  "strong": "G1996",
+  "forma": "ἐπισυναγαγεῖν",
+  "glosa_interlineal": "juntar",
+  "rango_semantico": [
+   "reunir, congregar"
+  ],
+  "construccion": "Infinitivo aoristo activo: «reunir».",
+  "sentido_en_contexto": "Lamento sobre Jerusalén: Jesús quiso reunir a sus hijos como una gallina a sus polluelos, «y no quisieron». Imagen de protección y ternura.",
+  "matiz": "Se debate quién es el sujeto de «quise»: Jesús (aquí claramente) como el Dios que desea reunir a su pueblo (Dt 32:11; Sal 91:4). La frase en singular «quise» presupone que Jesús habla con voz de Dios.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¡Jerusalén, Jerusalén, que matas a los profetas, y apedreas a los que te son enviados! ¡Cuántas veces quise juntar a tus hijos, como la gallina junta sus polluelos debajo de las alas, y no quisiste!"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 32:11 — «como el águila que excita su nidada»",
+   "Sal 91:4 — «con sus plumas te cubrirá»",
+   "Lc 13:34 — paralelo"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.23.38",
+  "strong": "G2048",
+  "forma": "ἔρημος",
+  "glosa_interlineal": "desierta",
+  "rango_semantico": [
+   "desierto, abandonado"
+  ],
+  "construccion": "Adjetivo nominativo: «vuestra casa os es dejada desierta».",
+  "sentido_en_contexto": "Anuncio de juicio sobre el templo y la ciudad; se suele relacionar con la destrucción del 70 d.C. «Vuestra casa»: ya no es «mi casa» (21:13).",
+  "matiz": "Debate: ¿«la casa» es el templo, Jerusalén o el pueblo? Los comentaristas ven una referencia primaria al templo y su destrucción (24:1-2).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "He aquí vuestra casa os es dejada desierta."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jer 22:5 — «esta casa será desierta»",
+   "Mt 24:2 — «no quedará aquí piedra sobre piedra»",
+   "Mt 21:13 — «mi casa, casa de oración»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.23.39",
+  "strong": "G2127",
+  "forma": "εὐλογημένος",
+  "glosa_interlineal": "bendito",
+  "rango_semantico": [
+   "bendecido, bendito"
+  ],
+  "construccion": "Participio perfecto pasivo: «bendito el que viene en el nombre del Señor». Cita del Sal 118:26.",
+  "sentido_en_contexto": "Fin del discurso a la multitud: Jesús anuncia que no lo verán hasta que digan la aclamación del Salmo. Puede referirse a su venida final.",
+  "matiz": "Debate: ¿es un anuncio de conversión futura de Israel (Ro 11:25-27), el reconocimiento forzado en el juicio, o ambos? No hay consenso.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque os digo que desde ahora no me veréis, hasta que digáis: Bendito el que viene en el nombre del Señor."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 118:26 — texto citado",
+   "Mt 21:9 — la multitud lo aclama en la entrada",
+   "Ro 11:25-26 — «todo Israel será salvo»"
+  ],
+  "nivel_certeza": "bajo"
+ }
+]

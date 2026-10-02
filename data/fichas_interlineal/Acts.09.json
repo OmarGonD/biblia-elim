@@ -1,0 +1,500 @@
+[
+ {
+  "ref": "Acts.9.1",
+  "strong": "G1709",
+  "forma": "ἐμπνέων",
+  "glosa_interlineal": "respirando",
+  "rango_semantico": [
+   "respirar, exhalar"
+  ],
+  "construccion": "Participio presente activo: «respirando aún amenazas y muerte contra los discípulos».",
+  "sentido_en_contexto": "Imagen: Saulo «respira» amenaza y asesinato; es su atmósfera vital. Se dirige al sumo sacerdote para pedir cartas contra los seguidores del «Camino». Primer relato de la conversión de Saulo (hay otros dos: 22:3-16 y 26:9-18).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y Saulo, respirando aún amenazas y muerte contra los discípulos del Señor, vino al sumo sacerdote,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 8:3; 22:4-5; 26:9-11",
+   "Gá 1:13",
+   "1 Ti 1:13"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.9.2",
+  "strong": "G3598",
+  "forma": "ὁδοῦ",
+  "glosa_interlineal": "del Camino",
+  "rango_semantico": [
+   "camino, vía"
+  ],
+  "construccion": "Genitivo: «si hallaba algunos hombres o mujeres de este Camino».",
+  "sentido_en_contexto": "«El Camino» (ἡ ὁδός) es uno de los primeros nombres del cristianismo (cf. 19:9, 23; 22:4; 24:14, 22), probablemente inspirado en Jn 14:6. Saulo busca llevarlos presos a Jerusalén desde Damasco.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "y le pidió cartas para las sinagogas de Damasco, a fin de que si hallaba algunos hombres o mujeres de este Camino, los trajese presos a Jerusalén."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 19:9, 23; 22:4; 24:14",
+   "Jn 14:6",
+   "Gá 1:17"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.9.3",
+  "strong": "G5457",
+  "forma": "φῶς",
+  "glosa_interlineal": "luz",
+  "rango_semantico": [
+   "luz"
+  ],
+  "construccion": "Nominativo: «una luz del cielo le rodeó con su resplandor».",
+  "sentido_en_contexto": "Teofanía en el camino a Damasco: luz brillante (más que el sol, 26:13) y una voz. Saulo cae al suelo. La experiencia se repite en 22:6-11 y 26:12-18, con variaciones en los detalles.",
+  "matiz": "Variaciones entre los tres relatos (9:7 «oían la voz, sin ver a nadie»; 22:9 «vieron la luz, pero no oyeron la voz»; 26:14 todos cayeron): se suelen armonizar entendiendo φωνή como «sonido» o «voz con significado», y «oír» como «percibir» o «entender».",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Mas yendo por el camino, aconteció que al llegar cerca de Damasco, repentinamente le rodeó un resplandor de luz del cielo;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 22:6-9; 26:13-14",
+   "1 Co 15:8",
+   "2 Co 4:6"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Acts.9.4",
+  "strong": "G1377",
+  "forma": "διώκεις",
+  "glosa_interlineal": "persigues",
+  "rango_semantico": [
+   "perseguir, acosar"
+  ],
+  "construccion": "Presente indicativo activo: «Saulo, Saulo, ¿por qué me persigues?».",
+  "sentido_en_contexto": "El Cristo glorificado se identifica con su iglesia: perseguir a los discípulos es perseguirlo a él. Doctrina de la unión de Cristo con los suyos que Pablo desarrollará (cuerpo de Cristo).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "y cayendo en tierra, oyó una voz que le decía: Saulo, Saulo, ¿por qué me persigues?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 25:40, 45",
+   "Hch 22:7-8; 26:14",
+   "1 Co 12:12-27",
+   "Ef 5:30"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.9.5",
+  "strong": "G2962",
+  "forma": "κύριε",
+  "glosa_interlineal": "Señor",
+  "rango_semantico": [
+   "señor, amo",
+   "Señor"
+  ],
+  "construccion": "Vocativo: «¿Quién eres, Señor?».",
+  "sentido_en_contexto": "Saulo usa κύριε como respuesta respetuosa («señor») que se convierte en confesión: el que le habla es Jesús, a quien perseguía. Su pregunta revela que no sabía quién era.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Él dijo: ¿Quién eres, Señor? Y le dijo: Yo soy Jesús, a quien tú persigues; dura cosa te es dar coces contra el aguijón."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 22:8; 26:15",
+   "1 Co 9:1; 15:8",
+   "Gá 1:15-16"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.9.7",
+  "strong": "G1769",
+  "forma": "ἐνεοί",
+  "glosa_interlineal": "mudos",
+  "rango_semantico": [
+   "sin habla, mudo de asombro"
+  ],
+  "construccion": "Adjetivo nominativo plural: «los hombres que iban con él se pararon atónitos».",
+  "sentido_en_contexto": "Los acompañantes quedan mudos de asombro: oyen el sonido de la voz pero no ven a nadie. Detalle propio de la narración de Lucas.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y los hombres que iban con Saulo se pararon atónitos, oyendo a la verdad la voz, mas sin ver a nadie."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 22:9",
+   "Dn 10:7"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.9.11",
+  "strong": "G2117",
+  "forma": "εὐθεῖαν",
+  "glosa_interlineal": "Derecha",
+  "rango_semantico": [
+   "recto, derecho"
+  ],
+  "construccion": "Acusativo: «la calle que se llama Derecha».",
+  "sentido_en_contexto": "La «Calle Derecha» (Via Recta) es una calle principal de Damasco, hoy aún existente. Ananías debe buscar a Saulo en la casa de Judas, donde Saulo ora (v.11).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y el Señor le dijo: Levántate, y ve a la calle que se llama Derecha, y busca en casa de Judas a uno llamado Saulo, de Tarso; porque he aquí, él ora,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 22:10, 12"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.9.13",
+  "strong": "G40",
+  "forma": "ἁγίοις",
+  "glosa_interlineal": "santos",
+  "rango_semantico": [
+   "santo, consagrado"
+  ],
+  "construccion": "Dativo plural: «cuántos males ha hecho a tus santos en Jerusalén».",
+  "sentido_en_contexto": "Primera vez que los creyentes son llamados «santos» (ἅγιοι) en Hechos. Ananías objeta por la fama de Saulo. Los cristianos son llamados ἅγιοι como pueblo consagrado a Dios.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces Ananías respondió: Señor, he oído a muchos acerca de este hombre, cuántos males ha hecho a tus santos en Jerusalén;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 9:32, 41; 26:10",
+   "Ro 1:7; 1 Co 1:2",
+   "Dn 7:18"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.9.15",
+  "strong": "G1589",
+  "forma": "ἐκλογῆς",
+  "glosa_interlineal": "escogido",
+  "rango_semantico": [
+   "elección, selección"
+  ],
+  "construccion": "Genitivo: «instrumento escogido me es éste».",
+  "sentido_en_contexto": "σκεῦος ἐκλογῆς («vaso de elección»): instrumento elegido por Dios para llevar su nombre ante gentiles, reyes e israelitas. Resume la misión de Pablo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y le dijo el Señor: Ve, porque instrumento escogido me es éste, para llevar mi nombre en presencia de los gentiles, y de reyes, y de los hijos de Israel;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 22:14-15, 21; 26:16-18",
+   "Gá 1:15-16",
+   "Ro 1:5",
+   "2 Co 4:7"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.9.16",
+  "strong": "G3958",
+  "forma": "παθεῖν",
+  "glosa_interlineal": "padecer",
+  "rango_semantico": [
+   "sufrir, padecer"
+  ],
+  "construccion": "Infinitivo aoristo: «cuánto le es necesario padecer por mi nombre».",
+  "sentido_en_contexto": "El llamamiento de Pablo incluye el sufrimiento: el que perseguía a otros padecerá por Cristo. Es una constante de su ministerio (2 Co 11:23-28).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "porque yo le mostraré cuánto le es necesario padecer por mi nombre."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 11:23-28",
+   "Gá 6:17",
+   "Col 1:24",
+   "Fil 1:29"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.9.17",
+  "strong": "G80",
+  "forma": "ἀδελφέ",
+  "glosa_interlineal": "hermano",
+  "rango_semantico": [
+   "hermano"
+  ],
+  "construccion": "Vocativo: «Hermano Saulo».",
+  "sentido_en_contexto": "Ananías llama «hermano» a quien venía a perseguir: gesto de acogida radical. Le impone manos para que recobre la vista y sea lleno del Espíritu.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Fue entonces Ananías y entró en la casa, y poniendo sobre él las manos, dijo: Hermano Saulo, el Señor Jesús, que se te apareció en el camino por donde venías, me ha enviado para que recibas la vista y seas lleno del Espíritu Santo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 22:12-16",
+   "Gá 1:22-24"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.9.18",
+  "strong": "G3013",
+  "forma": "λεπίδες",
+  "glosa_interlineal": "escamas",
+  "rango_semantico": [
+   "escama"
+  ],
+  "construccion": "Nominativo plural: «cayeron de sus ojos como escamas».",
+  "sentido_en_contexto": "Detalle visual del momento de sanidad: algo como escamas cae de sus ojos, y Saulo recobra la vista y es bautizado. Simboliza el paso de la ceguera espiritual a la visión de Cristo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y al momento le cayeron de los ojos como escamas, y recibió la vista al instante; y levantándose, fue bautizado."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 22:16",
+   "2 Co 3:14-16",
+   "Jn 9"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.9.20",
+  "strong": "G2784",
+  "forma": "ἐκήρυσσεν",
+  "glosa_interlineal": "proclamaba",
+  "rango_semantico": [
+   "proclamar, predicar"
+  ],
+  "construccion": "Imperfecto indicativo activo: «en seguida predicaba a Cristo en las sinagogas».",
+  "sentido_en_contexto": "Saulo proclama de inmediato que Jesús es el Hijo de Dios (única vez en Hechos con este título), sorprendiendo a quienes lo conocían como perseguidor.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "En seguida predicaba a Cristo en las sinagogas, diciendo que éste era el Hijo de Dios."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 1:16",
+   "Hch 13:33",
+   "Ro 1:4"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.9.22",
+  "strong": "G4822",
+  "forma": "συμβιβάζων",
+  "glosa_interlineal": "demostrando",
+  "rango_semantico": [
+   "probar, demostrar, comparar"
+  ],
+  "construccion": "Participio presente activo: «demostrando que Jesús era el Cristo».",
+  "sentido_en_contexto": "συμβιβάζω es «unir, comparar, concluir»: Saulo compara las Escrituras con los hechos de Jesús y concluye que él es el Mesías. Su método rabínico se pone al servicio del evangelio.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero Saulo se esforzaba aún más, y confundía a los judíos que moraban en Damasco, demostrando que Jesús era el Cristo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 17:2-3; 18:28",
+   "Hch 9:20"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.9.25",
+  "strong": "G4711",
+  "forma": "σπυρίδι",
+  "glosa_interlineal": "canasta",
+  "rango_semantico": [
+   "cesta grande, canasto"
+  ],
+  "construccion": "Dativo: «descolgándole en una canasta por el muro».",
+  "sentido_en_contexto": "Para escapar de quienes vigilaban las puertas, los discípulos bajan a Saulo de noche por el muro en un cesto. Pablo lo recuerda en 2 Co 11:32-33 (con detalle sobre el gobernador del rey Aretas).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces los discípulos, tomándole de noche, le bajaron por el muro, descolgándole en una canasta."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 11:32-33",
+   "Jos 2:15 — Rajab descuelga a los espías"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.9.27",
+  "strong": "G921",
+  "forma": "Βαρναβᾶς",
+  "glosa_interlineal": "Bernabé",
+  "rango_semantico": [
+   "Bernabé (hijo de consolación)"
+  ],
+  "construccion": "Nominativo: «Bernabé, tomándole, lo trajo a los apóstoles».",
+  "sentido_en_contexto": "Bernabé interviene a favor de Saulo, a quien los discípulos de Jerusalén temían. Su generosidad abre el camino al futuro apóstol. Sigue su papel de «hijo de consolación» (4:36).",
+  "matiz": "Aparente tensión con Gá 1:18-19 (Pablo dice que vio solo a Pedro y a Jacobo): se suele armonizar entendiendo «los apóstoles» de Hechos como Pedro y Jacobo (los únicos presentes) en esos quince días.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces Bernabé, tomándole, lo trajo a los apóstoles, y les contó cómo Saulo había visto en el camino al Señor, el cual le había hablado, y cómo en Damasco había hablado valerosamente en el nombre de Jesús."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 4:36; 11:25-26; 13:1-3",
+   "Gá 1:18-19",
+   "Gá 2:1, 9, 13"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Acts.9.31",
+  "strong": "G1577",
+  "forma": "ἐκκλησία",
+  "glosa_interlineal": "iglesia",
+  "rango_semantico": [
+   "asamblea, iglesia"
+  ],
+  "construccion": "Nominativo singular: «la iglesia en toda Judea, Galilea y Samaria tenía paz».",
+  "sentido_en_contexto": "Sumario: la Iglesia (en singular, aunque presente en tres regiones) goza de paz, es edificada, anda en el temor del Señor y crece por el consuelo del Espíritu Santo. Texto central sobre la naturaleza de la Iglesia universal.",
+  "matiz": "Variante: algunos manuscritos leen el plural «las iglesias» (αἱ ἐκκλησίαι) y otros el singular (ἡ ἐκκλησία). El singular tiene mejor atestación y se interpreta como la Iglesia única extendida por varias regiones.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces las iglesias tenían paz por toda Judea, Galilea y Samaria, y eran edificadas, andando en el temor del Señor, y se acrecentaban fortalecidas por el Espíritu Santo."
+   }
+  ],
+  "notas_traduccion": "RVR60 lee el plural «las iglesias»; la mayoría de ediciones críticas leen el singular «la iglesia».",
+  "otros_usos": [
+   "Hch 6:7; 12:24; 16:5",
+   "Hch 2:47",
+   "1 Co 12:28"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Acts.9.36",
+  "strong": "G3102",
+  "forma": "μαθήτρια",
+  "glosa_interlineal": "discípula",
+  "rango_semantico": [
+   "discípula"
+  ],
+  "construccion": "Nominativo: «una discípula llamada Tabita».",
+  "sentido_en_contexto": "Única vez que el NT usa el femenino μαθήτρια. Tabita (arameo), traducida «Dorcas» (gacela), llena de buenas obras y limosnas. Su muerte y resurrección por Pedro recuerda la de la hija de Jairo (Lc 8:49-56).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Había entonces en Jope una discípula llamada Tabita, que traducido es Dorcas. Esta abundaba en buenas obras y en limosnas que hacía."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 8:49-56",
+   "1 R 17:17-24; 2 R 4:32-37 — Elías y Eliseo",
+   "Hch 9:40"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.9.40",
+  "strong": "G450",
+  "forma": "ἀνάστηθι",
+  "glosa_interlineal": "levántate",
+  "rango_semantico": [
+   "levantarse, resucitar"
+  ],
+  "construccion": "Imperativo aoristo activo: «Tabita, levántate».",
+  "sentido_en_contexto": "Pedro echa fuera a todos, ora de rodillas y manda a Tabita levantarse (eco de Mr 5:41: «Talita cumi»). Resucita y es presentada viva a los santos y a las viudas.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces Pedro, echando fuera a todos, se puso de rodillas y oró; y volviéndose al cuerpo, dijo: Tabita, levántate. Y ella abrió los ojos, y al ver a Pedro, se incorporó."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 5:41-42",
+   "Lc 7:14",
+   "Jn 11:43",
+   "1 R 17:21"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.9.43",
+  "strong": "G1038",
+  "forma": "βυρσεῖ",
+  "glosa_interlineal": "curtidor",
+  "rango_semantico": [
+   "curtidor de pieles"
+  ],
+  "construccion": "Dativo: «en casa de Simón, curtidor».",
+  "sentido_en_contexto": "Pedro se aloja con un curtidor, oficio considerado impuro por la Ley. El detalle prepara el cap. 10: Pedro, que vive ya con un curtidor, será enviado a casa del gentil Cornelio.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y se quedó muchos días en Jope en casa de un cierto Simón, curtidor."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 10:6, 32",
+   "Lv 11:39-40; Nm 19:11-13 — impureza por cadáveres"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

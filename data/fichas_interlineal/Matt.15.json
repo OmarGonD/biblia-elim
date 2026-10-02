@@ -1,0 +1,534 @@
+[
+ {
+  "ref": "Matt.15.2",
+  "strong": "G3862",
+  "forma": "παράδοσιν",
+  "glosa_interlineal": "tradición",
+  "rango_semantico": [
+   "tradición, lo transmitido",
+   "enseñanza recibida"
+  ],
+  "construccion": "Acusativo: «la tradición de los ancianos».",
+  "sentido_en_contexto": "Normas orales de los maestros judíos para aplicar la Ley (como lavarse las manos antes de comer). No estaban en la Torá escrita.",
+  "matiz": "Jesús no rechaza toda tradición (cf. 1 Co 11:2); critica la que anula el mandato de Dios (v.6).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¿Por qué tus discípulos quebrantan la tradición de los ancianos? Porque no se lavan las manos cuando comen pan."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 7:3 — «la tradición de los ancianos»",
+   "Gá 1:14 — «las tradiciones de mis padres»",
+   "1 Co 11:2 — «que retengáis las tradiciones»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.15.4",
+  "strong": "G5091",
+  "forma": "τίμα",
+  "glosa_interlineal": "honra",
+  "rango_semantico": [
+   "honrar, valorar",
+   "pagar el precio"
+  ],
+  "construccion": "Imperativo presente activo, 2ª singular: «honra». Cita de Éx 20:12.",
+  "sentido_en_contexto": "En el cuarto mandamiento, «honrar» incluye el sustento material a los padres ancianos. La tradición del «Corbán» permitía eludirlo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque Dios mandó diciendo: Honra a tu padre y a tu madre; y: El que maldiga al padre o a la madre, muera irremisiblemente."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 20:12 — mandamiento",
+   "Ef 6:2 — «honra a tu padre y a tu madre, que es el primer mandamiento con promesa»",
+   "1 Ti 5:3 — «honra a las viudas»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.15.5",
+  "strong": "G1435",
+  "forma": "δῶρον",
+  "glosa_interlineal": "ofrenda",
+  "rango_semantico": [
+   "don, regalo",
+   "ofrenda (consagrada a Dios)"
+  ],
+  "construccion": "Nominativo: «ofrenda (Corbán)». Marcos conserva la palabra aramea «Corbán».",
+  "sentido_en_contexto": "Fórmula por la que alguien declaraba sus bienes «ofrenda a Dios» y así quedaban exentos de ayudar a sus padres, aunque él mismo seguía usándolos.",
+  "matiz": "Los especialistas debaten si la práctica era generalizada o limitada a ciertos casos; Jesús la presenta como ejemplo de cómo la tradición invalida un mandamiento.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero vosotros decís: Cualquiera que diga a su padre o a su madre: Es mi ofrenda a Dios todo aquello con que pudiera ayudarte…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 7:11 — «Corbán (que quiere decir, mi ofrenda)»",
+   "Nm 30 — votos y su validez"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.15.6",
+  "strong": "G208",
+  "forma": "ἠκυρώσατε",
+  "glosa_interlineal": "invalidasteis",
+  "rango_semantico": [
+   "anular, privar de validez",
+   "hacer nulo"
+  ],
+  "construccion": "Aoristo indicativo activo, 2ª plural: «anulasteis».",
+  "sentido_en_contexto": "Acusación central: la tradición humana ha dejado sin efecto el mandato divino. Es lo opuesto al «cumplir» (5:17).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…ya no ha de honrar a su padre o a su madre. Así habéis invalidado el mandamiento de Dios por vuestra tradición."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 7:13 — «invalidando la palabra de Dios»",
+   "Gá 3:17 — «la ley… no lo abroga»",
+   "Mt 5:17 — «no he venido para abrogar, sino para cumplir»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.15.8",
+  "strong": "G5491",
+  "forma": "χείλεσίν",
+  "glosa_interlineal": "labios",
+  "rango_semantico": [
+   "labio",
+   "borde"
+  ],
+  "construccion": "Dativo instrumental: «con los labios».",
+  "sentido_en_contexto": "Cita de Is 29:13: honra de palabra, pero con el corazón alejado. Contraste labios-corazón central en la enseñanza de Jesús sobre la autenticidad.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Este pueblo de labios me honra; mas su corazón está lejos de mí."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 29:13 — texto citado",
+   "Mr 7:6 — paralelo",
+   "Mt 23:25 — «limpiáis lo de fuera del vaso»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.15.9",
+  "strong": "G3155",
+  "forma": "μάτην",
+  "glosa_interlineal": "en vano",
+  "rango_semantico": [
+   "en vano, sin efecto",
+   "inútilmente"
+  ],
+  "construccion": "Adverbio: «en vano».",
+  "sentido_en_contexto": "El culto basado en doctrinas de hombres es inútil. Mateo cita la LXX de Is 29:13.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pues en vano me honran, enseñando como doctrinas mandamientos de hombres."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 15:2 — «a menos que hayáis creído en vano»",
+   "Gá 2:21 — «Cristo murió en vano»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.15.11",
+  "strong": "G2840",
+  "forma": "κοινοῖ",
+  "glosa_interlineal": "contamina",
+  "rango_semantico": [
+   "hacer común, profano",
+   "contaminar, hacer impuro"
+  ],
+  "construccion": "Presente indicativo activo, 3ª singular: «hace impuro».",
+  "sentido_en_contexto": "Verbo clave de la sección (vv.11, 18, 20): lo que contamina no es lo que entra en la boca (comida) sino lo que sale del corazón. Jesús relativiza la pureza ritual alimentaria.",
+  "matiz": "Debate: ¿Jesús abroga las leyes de alimentos de Lv 11 aquí? Marcos lo explicita («haciendo limpios todos los alimentos», 7:19); Mateo omite esa frase. Muchos ven aquí una prioridad ética sobre lo ritual sin necesariamente abolir lo ritual.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "No lo que entra en la boca contamina al hombre; mas lo que sale de la boca, esto contamina al hombre."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 7:19 — «haciendo limpios todos los alimentos»",
+   "Hch 10:14-15 — «lo que Dios limpió, no lo llames tú común»",
+   "Ro 14:14 — «nada es inmundo en sí mismo»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.15.13",
+  "strong": "G5451",
+  "forma": "φυτεία",
+  "glosa_interlineal": "planta",
+  "rango_semantico": [
+   "planta, plantío",
+   "lo plantado"
+  ],
+  "construccion": "Nominativo: «toda planta».",
+  "sentido_en_contexto": "Imagen del campo: lo que Dios no plantó será arrancado. Aplicada a las enseñanzas de los fariseos que no vienen de Dios.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero respondiendo él, dijo: Toda planta que no plantó mi Padre celestial, será desarraigada."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 60:21 — «renuevo de mi plantío»",
+   "Jer 17:8 — «como el árbol plantado junto a las aguas»",
+   "Mt 13:24-30 — la cizaña"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.15.14",
+  "strong": "G3595",
+  "forma": "ὁδηγοί",
+  "glosa_interlineal": "guías",
+  "rango_semantico": [
+   "guía, conductor"
+  ],
+  "construccion": "Nominativo plural: «guías ciegos».",
+  "sentido_en_contexto": "Los fariseos como guías ciegos: no ven la verdad y conducen a otros al hoyo. Imagen que se repite en 23:16, 24.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Dejadlos; son ciegos guías de ciegos; y si el ciego guiare al ciego, ambos caerán en el hoyo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 23:16 — «¡ay de vosotros, guías ciegos!»",
+   "Lc 6:39 — «¿acaso puede un ciego guiar a otro ciego?»",
+   "Ro 2:19 — «guía de los ciegos»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.15.16",
+  "strong": "G801",
+  "forma": "ἀσύνετοί",
+  "glosa_interlineal": "sin entendimiento",
+  "rango_semantico": [
+   "necio, sin comprensión"
+  ],
+  "construccion": "Adjetivo nominativo plural: «¿también vosotros estáis sin entendimiento?».",
+  "sentido_en_contexto": "Jesús reprende suavemente a los discípulos: aún no entienden. El adjetivo es el negativo de συνίημι (entender).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y Jesús dijo: ¿También vosotros sois aún sin entendimiento?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 16:9 — «¿aún no entendéis?»",
+   "Ro 1:21 — «su necio corazón fue entenebrecido»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.15.19",
+  "strong": "G1261",
+  "forma": "διαλογισμοὶ",
+  "glosa_interlineal": "pensamientos",
+  "rango_semantico": [
+   "razonamiento, pensamiento",
+   "intención (con frecuencia negativa)"
+  ],
+  "construccion": "Nominativo plural: «malos pensamientos».",
+  "sentido_en_contexto": "Lista de males que salen del corazón. El corazón es el origen de las acciones que contaminan; las comidas, no.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque del corazón salen los malos pensamientos, los homicidios, los adulterios, las fornicaciones, los hurtos, los falsos testimonios, las blasfemias."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 7:21-22 — lista paralela más larga",
+   "Gá 5:19-21 — «las obras de la carne»",
+   "Ro 1:29-31 — lista de males"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.15.22",
+  "strong": "G5478",
+  "forma": "Χαναναία",
+  "glosa_interlineal": "cananea",
+  "rango_semantico": [
+   "cananea (habitante antigua de Canaán)"
+  ],
+  "construccion": "Nominativo: «una mujer cananea».",
+  "sentido_en_contexto": "Mateo emplea la designación arcaica «cananea» en lugar de «sirofenicia» (Marcos), para subrayar la oposición histórica entre Israel y los cananeos, y que aun así ella cree.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y he aquí una mujer cananea que había salido de aquella región clamaba, diciéndole: ¡Ten misericordia de mí, Señor, Hijo de David! Mi hija es gravemente atormentada por un demonio."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 7:26 — «mujer griega, sirofenicia de nación»",
+   "Gn 10:15-18 — los cananeos",
+   "Jos 2 — Rahab, otra gentil que cree"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.15.24",
+  "strong": "G649",
+  "forma": "ἀπεστάλην",
+  "glosa_interlineal": "fui enviado",
+  "rango_semantico": [
+   "enviar, mandar"
+  ],
+  "construccion": "Aoristo indicativo pasivo, 1ª singular: «fui enviado».",
+  "sentido_en_contexto": "Jesús dice que su misión está dirigida a Israel. La frase suena dura; la narración muestra que, aun así, la fe de la mujer es acogida.",
+  "matiz": "Se debate si es una prueba de la fe de la mujer, una expresión del plan histórico (primero Israel) o una limitación real temporal. Mateo muestra que se abre la puerta a los gentiles.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Él respondiendo, dijo: No soy enviado sino a las ovejas perdidas de la casa de Israel."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 10:5-6 — instrucciones a los doce",
+   "Ro 15:8 — «Cristo Jesús vino a ser siervo de la circuncisión»",
+   "Mt 28:19 — «haced discípulos a todas las naciones»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.15.26",
+  "strong": "G2952",
+  "forma": "κυναρίοις",
+  "glosa_interlineal": "perrillos",
+  "rango_semantico": [
+   "perrito (diminutivo)",
+   "perro doméstico"
+  ],
+  "construccion": "Dativo plural, diminutivo: «a los perritos».",
+  "sentido_en_contexto": "El diminutivo (perrillos) suaviza la imagen: perros de casa, no perros callejeros. Jesús usa un proverbio sobre el orden de prioridad: primero los hijos.",
+  "matiz": "Se discute el tono: ¿es una prueba de fe, una expresión de la prioridad de Israel, o un insulto atenuado por el diminutivo? El contexto de ironía y la respuesta de la mujer sugieren que Jesús la pone a prueba.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Respondiendo él, dijo: No está bien tomar el pan de los hijos, y echarlo a los perrillos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 7:27 — «deja primero que se sacien los hijos»",
+   "Mt 7:6 — «no deis lo santo a los perros»",
+   "Fil 3:2 — «guardaos de los perros»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.15.27",
+  "strong": "G5589",
+  "forma": "ψιχίων",
+  "glosa_interlineal": "migajas",
+  "rango_semantico": [
+   "migaja, pedacito"
+  ],
+  "construccion": "ἀπὸ + genitivo: «de las migajas».",
+  "sentido_en_contexto": "La mujer toma la imagen y la vuelve a su favor: no pide el pan de los hijos, solo las migajas. Su respuesta combina humildad y fe en la abundancia de Jesús.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y ella dijo: Sí, Señor; pero aun los perros comen de las migajas que caen de la mesa de sus amos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 7:28 — paralelo",
+   "Lc 16:21 — «las migajas que caían de la mesa del rico»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.15.28",
+  "strong": "G4102",
+  "forma": "πίστις",
+  "glosa_interlineal": "fe",
+  "rango_semantico": [
+   "fe, confianza"
+  ],
+  "construccion": "Nominativo: «grande es tu fe».",
+  "sentido_en_contexto": "Jesús elogia la fe de una gentil, como había hecho con el centurión (8:10). Contrasta con la poca fe de los discípulos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces respondiendo Jesús, dijo: Oh mujer, grande es tu fe; hágase contigo como quieres. Y su hija fue sanada desde aquella hora."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 8:10 — «ni aun en Israel he hallado tanta fe»",
+   "Mt 14:31 — «hombre de poca fe»",
+   "Mt 6:30 — «hombres de poca fe»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.15.30",
+  "strong": "G2948",
+  "forma": "κυλλούς",
+  "glosa_interlineal": "mancos",
+  "rango_semantico": [
+   "lisiado, manco",
+   "con un miembro deformado"
+  ],
+  "construccion": "Acusativo plural: «los mancos/lisiados».",
+  "sentido_en_contexto": "Lista de enfermos presentados a Jesús: cojos, ciegos, mudos, lisiados. Cumple la expectativa de Is 35:5-6.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y se le acercó mucha gente que traía consigo a cojos, ciegos, mudos, mancos y otros muchos enfermos…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 35:5-6 — «los cojos saltarán como ciervos»",
+   "Mt 11:5 — respuesta a Juan"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.15.31",
+  "strong": "G1392",
+  "forma": "ἐδόξασαν",
+  "glosa_interlineal": "glorificaron",
+  "rango_semantico": [
+   "dar gloria",
+   "glorificar"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª plural: «glorificaron al Dios de Israel».",
+  "sentido_en_contexto": "La expresión «Dios de Israel» sugiere que quienes glorifican son gentiles en la región de Decápolis. La obra de Jesús lleva a gentiles a reconocer al Dios de Israel.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…de manera que la multitud se maravillaba, viendo a los mudos hablar, a los mancos sanados, a los cojos andar, y a los ciegos ver; y glorificaban al Dios de Israel."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 9:8 — «glorificó a Dios»",
+   "Mt 5:16 — «glorifiquen a vuestro Padre»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.15.32",
+  "strong": "G4697",
+  "forma": "σπλαγχνίζομαι",
+  "glosa_interlineal": "tengo compasión",
+  "rango_semantico": [
+   "compadecerse"
+  ],
+  "construccion": "Presente indicativo medio (deponente), 1ª singular: «siento compasión».",
+  "sentido_en_contexto": "Aquí Jesús mismo lo dice en primera persona: «tengo compasión». Es el motivo de la segunda multiplicación de panes.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y Jesús, llamando a sus discípulos, dijo: Tengo compasión de la gente, porque ya hace tres días que están conmigo, y no tienen qué comer…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 14:14 — primera multiplicación",
+   "Mt 9:36 — compasión al ver a las multitudes",
+   "Mr 8:2 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.15.36",
+  "strong": "G2168",
+  "forma": "εὐχαριστήσας",
+  "glosa_interlineal": "dando gracias",
+  "rango_semantico": [
+   "dar gracias",
+   "agradecer"
+  ],
+  "construccion": "Participio aoristo activo: «habiendo dado gracias».",
+  "sentido_en_contexto": "Aquí Mateo usa «dar gracias» (εὐχαριστέω), donde en 14:19 usó «bendijo» (εὐλογέω). Ambos términos son intercambiables en este contexto.",
+  "matiz": "Es la raíz del término «Eucaristía», lo que ha reforzado la lectura eucarística de estas comidas en la tradición cristiana.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…y tomando los siete panes y los peces, dio gracias, los partió, y dio a sus discípulos, y los discípulos a la multitud."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:27 — «tomando la copa, y habiendo dado gracias»",
+   "1 Co 11:24 — «habiendo dado gracias, lo partió»",
+   "Mt 14:19 — «bendijo»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.15.37",
+  "strong": "G4711",
+  "forma": "σπυρίδας",
+  "glosa_interlineal": "canastas",
+  "rango_semantico": [
+   "cesto grande, canasta"
+  ],
+  "construccion": "Acusativo plural: «siete canastas».",
+  "sentido_en_contexto": "Siete canastas (σπυρίδες): cestas grandes, distintas de las «cestas» (κόφινοι) de la primera multiplicación. Los números (12 y 7) invitan a lecturas simbólicas (Israel y las naciones), aunque el texto no las explicita.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y comieron todos, y se saciaron; y recogieron lo que sobró de los pedazos, siete canastas llenas."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 14:20 — doce cestas",
+   "Mt 16:9-10 — Jesús recuerda ambos milagros",
+   "Hch 9:25 — Pablo descendido «en una canasta (σπυρίδι)»"
+  ],
+  "nivel_certeza": "medio"
+ }
+]

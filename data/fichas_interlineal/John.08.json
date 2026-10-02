@@ -1,0 +1,339 @@
+[
+ {
+  "ref": "John.8.4",
+  "strong": "G1598",
+  "forma": "ἐκπειράζοντες",
+  "glosa_interlineal": "tentándole",
+  "rango_semantico": [
+   "poner a prueba, tentar, tender una trampa"
+  ],
+  "construccion": "Participio presente activo: «esto decían tentándole, para tener de qué acusarle».",
+  "sentido_en_contexto": "Los escribas y fariseos le presentan una mujer sorprendida en adulterio para ponerlo en un dilema: si ordena apedrearla, contradice su misericordia (y la autoridad romana); si la perdona, parece violar la ley de Moisés.",
+  "matiz": "Pasaje de la mujer adúltera (Jn 7:53–8:11): ausente de los manuscritos griegos más antiguos (P66, P75, Aleph, B, A, C) y colocado en otros lugares por otros testimonios (tras Jn 7:36, 7:44, 21:25 o Lc 21:38). Hay amplio acuerdo en que no era parte del texto original de Juan; muchos lo consideran tradición antigua y auténtica sobre Jesús. Las ediciones críticas lo ponen entre corchetes.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lv 20:10; Dt 22:22-24 — la ley sobre el adulterio",
+   "Jn 18:31 — los judíos no tenían facultad de ejecutar",
+   "Mt 22:15-18 — otra trampa"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.8.5",
+  "strong": "G3034",
+  "forma": "λιθάζειν",
+  "glosa_interlineal": "apedrear",
+  "rango_semantico": [
+   "apedrear, lapidar"
+  ],
+  "construccion": "Infinitivo presente: «Moisés nos mandó apedrear a las tales».",
+  "sentido_en_contexto": "Apelan a la Torá, aunque Lv 20:10 y Dt 22:22 castigan a ambos adúlteros (aquí falta el hombre) y no precisan la lapidación en todos los casos.",
+  "matiz": "Pasaje de la mujer adúltera (Jn 7:53–8:11): ausente de los manuscritos griegos más antiguos (P66, P75, Aleph, B, A, C) y colocado en otros lugares por otros testimonios (tras Jn 7:36, 7:44, 21:25 o Lc 21:38). Hay amplio acuerdo en que no era parte del texto original de Juan; muchos lo consideran tradición antigua y auténtica sobre Jesús. Las ediciones críticas lo ponen entre corchetes.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lv 20:10",
+   "Dt 22:22-24",
+   "Ez 16:40"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.8.6",
+  "strong": "G1147",
+  "forma": "δακτύλῳ",
+  "glosa_interlineal": "con el dedo",
+  "rango_semantico": [
+   "dedo"
+  ],
+  "construccion": "Dativo instrumental: «escribía con el dedo en la tierra».",
+  "sentido_en_contexto": "Gesto enigmático: Jesús escribe en la tierra sin que el texto diga qué. Se han propuesto: ganar tiempo, rechazo de la trampa, evocación de Jer 17:13 («los que se apartan de ti serán escritos en el polvo»), o el «dedo de Dios» de Éx 31:18.",
+  "matiz": "No se sabe qué escribía. Hipótesis: pecados de los acusadores; Jer 17:13; simple gesto de silencio y no cooperar con la trampa; alusión al dedo de Dios en las tablas de la Ley. El texto no lo dice, y conviene no afirmar lo que no consta.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 31:18 — «escritas con el dedo de Dios»",
+   "Jer 17:13 — «escritos en el polvo»",
+   "Lc 11:20 — «por el dedo de Dios»"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "John.8.7",
+  "strong": "G361",
+  "forma": "ἀναμάρτητος",
+  "glosa_interlineal": "sin pecado",
+  "rango_semantico": [
+   "sin pecado, sin culpa"
+  ],
+  "construccion": "Adjetivo nominativo: «el que de vosotros esté sin pecado, sea el primero en arrojar la piedra».",
+  "sentido_en_contexto": "Palabra única en el NT. Jesús no niega la ley, sino que exige que quien aplique el castigo sea irreprochable; según la ley, los testigos eran los primeros en arrojar la piedra (Dt 17:7).",
+  "matiz": "Pasaje de la mujer adúltera (Jn 7:53–8:11): ausente de los manuscritos griegos más antiguos (P66, P75, Aleph, B, A, C) y colocado en otros lugares por otros testimonios (tras Jn 7:36, 7:44, 21:25 o Lc 21:38). Hay amplio acuerdo en que no era parte del texto original de Juan; muchos lo consideran tradición antigua y auténtica sobre Jesús. Las ediciones críticas lo ponen entre corchetes.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y como insistieron en preguntarle, se enderezó y les dijo: El que de vosotros esté sin pecado sea el primero en arrojar la piedra contra ella."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 17:7 — «la mano de los testigos será primero»",
+   "Ro 2:1, 21-23 — «en lo que juzgas a otro, te condenas»",
+   "Mt 7:1-5"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.8.11",
+  "strong": "G2632",
+  "forma": "κατακρίνω",
+  "glosa_interlineal": "condeno",
+  "rango_semantico": [
+   "condenar, dictar sentencia contra"
+  ],
+  "construccion": "Presente indicativo activo: «ni yo te condeno; vete, y no peques más».",
+  "sentido_en_contexto": "Jesús no condena a la mujer, pero tampoco aprueba su pecado: el perdón va unido a un llamado a cambiar de vida. Es el único que, estando sin pecado, podía arrojar la piedra.",
+  "matiz": "Pasaje de la mujer adúltera (Jn 7:53–8:11): ausente de los manuscritos griegos más antiguos (P66, P75, Aleph, B, A, C) y colocado en otros lugares por otros testimonios (tras Jn 7:36, 7:44, 21:25 o Lc 21:38). Hay amplio acuerdo en que no era parte del texto original de Juan; muchos lo consideran tradición antigua y auténtica sobre Jesús. Las ediciones críticas lo ponen entre corchetes.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y ella dijo: Ninguno, Señor. Entonces Jesús le dijo: Ni yo te condeno; vete, y no peques más."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 3:17 — «no envió Dios a su Hijo para condenar»",
+   "Ro 8:1 — «ninguna condenación hay»",
+   "Jn 5:14 — «no peques más»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.8.53",
+  "strong": "G5457",
+  "forma": "φῶς",
+  "glosa_interlineal": "luz",
+  "rango_semantico": [
+   "luz"
+  ],
+  "construccion": "Nominativo: «yo soy la luz del mundo» (Jn 8:12; el texto de Tisch concentra aquí las palabras de 7:53–8:20).",
+  "sentido_en_contexto": "Segunda gran declaración «Yo soy» de la fiesta de los Tabernáculos, cuando se encendían grandes candelabros en el templo. Jesús es la luz que guía a la vida; quien lo sigue no andará en tinieblas.",
+  "matiz": "Nota técnica: en el módulo Tisch usado por la app, las palabras de Jn 7:53–8:20 aparecen agrupadas bajo Jn 8:53 y faltan los versículos 8:21-52; por eso esta ficha se asocia a esa referencia, aunque corresponde a Jn 8:12.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Otra vez Jesús les habló, diciendo: Yo soy la luz del mundo; el que me sigue, no andará en tinieblas, sino que tendrá la luz de la vida."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 1:4-9 — la luz verdadera",
+   "Jn 9:5 — «luz del mundo»",
+   "Jn 12:35, 46",
+   "Is 49:6 — «luz de las naciones»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.8.53",
+  "strong": "G4653",
+  "forma": "σκοτίᾳ",
+  "glosa_interlineal": "tinieblas",
+  "rango_semantico": [
+   "oscuridad, tinieblas"
+  ],
+  "construccion": "Dativo: «no andará en tinieblas» (Jn 8:12).",
+  "sentido_en_contexto": "En Juan, las tinieblas son el ámbito de la incredulidad y del mal moral, opuesto a la luz y la vida. Seguir a Jesús significa salir de él.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 1:5 — «las tinieblas no la comprendieron»",
+   "Jn 3:19",
+   "1 Jn 1:5-7"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.8.53",
+  "strong": "G3141",
+  "forma": "μαρτυρία",
+  "glosa_interlineal": "testimonio",
+  "rango_semantico": [
+   "testimonio, atestación"
+  ],
+  "construccion": "Nominativo: «tu testimonio no es verdadero» (Jn 8:13-14).",
+  "sentido_en_contexto": "Los fariseos invocan la regla legal de los dos testigos; Jesús responde que su testimonio es válido porque sabe de dónde viene y a dónde va, y porque el Padre testifica con él (vv.17-18).",
+  "matiz": "Aparente contraste con 5:31 («si yo doy testimonio de mí mismo, mi testimonio no es verdadero»): allí Jesús habla de validez legal si estuviera solo; aquí afirma que su testimonio es verdadero porque no está solo.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 5:31-37",
+   "Dt 19:15 — dos o tres testigos",
+   "Jn 8:17-18"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.8.53",
+  "strong": "G4561",
+  "forma": "σάρκα",
+  "glosa_interlineal": "carne",
+  "rango_semantico": [
+   "carne, apariencia humana"
+  ],
+  "construccion": "Acusativo: «vosotros juzgáis según la carne» (Jn 8:15).",
+  "sentido_en_contexto": "Juzgar «según la carne» es hacerlo con criterios humanos y superficiales, sin conocer el origen divino de Jesús. Él, en cambio, no juzga a nadie por sí solo: el Padre está con él.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 7:24 — «no juzguéis según las apariencias»",
+   "1 S 16:7",
+   "2 Co 5:16"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.8.53",
+  "strong": "G1049",
+  "forma": "γαζοφυλακίῳ",
+  "glosa_interlineal": "tesoro del templo",
+  "rango_semantico": [
+   "tesoro, cámara del tesoro"
+  ],
+  "construccion": "Dativo: «estas palabras habló Jesús en el lugar del tesoro» (Jn 8:20).",
+  "sentido_en_contexto": "Espacio del templo, en el atrio de las mujeres, con cofres para las ofrendas. Jesús enseña en público, en pleno corazón del templo, y nadie lo prende porque «aún no había llegado su hora».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 12:41-44 — la ofrenda de la viuda",
+   "Lc 21:1",
+   "Jn 7:30; 8:20"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.8.54",
+  "strong": "G1392",
+  "forma": "δοξάσω",
+  "glosa_interlineal": "glorifico",
+  "rango_semantico": [
+   "glorificar, honrar"
+  ],
+  "construccion": "Subjuntivo aoristo activo: «si yo me glorifico a mí mismo, mi gloria nada es».",
+  "sentido_en_contexto": "Jesús no busca su propia gloria; es el Padre quien lo glorifica. El tema continúa hasta la declaración sobre Abraham.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Respondió Jesús: Si yo me glorifico a mí mismo, mi gloria nada es; mi Padre es el que me glorifica, el que vosotros decís que es vuestro Dios."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 5:41 — «gloria de los hombres no recibo»",
+   "Jn 17:1, 5 — «glorifica a tu Hijo»",
+   "Jn 12:28"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.8.55",
+  "strong": "G5583",
+  "forma": "ψεύστης",
+  "glosa_interlineal": "mentiroso",
+  "rango_semantico": [
+   "mentiroso"
+  ],
+  "construccion": "Nominativo: «sería mentiroso como vosotros».",
+  "sentido_en_contexto": "Jesús reafirma que conoce al Padre y guarda su palabra; negarlo sería mentir. Este versículo cierra la acusación de que los judíos no conocen verdaderamente a Dios.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "1 Jn 2:4 — «el que dice: Yo le conozco, y no guarda sus mandamientos, el tal es mentiroso»",
+   "Jn 8:44 — «mentiroso y padre de mentira»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.8.56",
+  "strong": "G21",
+  "forma": "ἠγαλλιάσατο",
+  "glosa_interlineal": "se gozó",
+  "rango_semantico": [
+   "alegrarse sobremanera, exultar"
+  ],
+  "construccion": "Aoristo indicativo medio: «Abraham vuestro padre se gozó de que había de ver mi día».",
+  "sentido_en_contexto": "Jesús afirma que Abraham se alegró anticipando «su día» y lo vio. Se discute si alude a la promesa de Isaac (Gn 22), a una visión profética, o a la revelación a Abraham en el cielo según tradiciones judías.",
+  "matiz": "«Vio mi día»: lecturas (a) visión profética en la fe (Gn 15, 17, 22); (b) tradiciones judías de una revelación del futuro a Abraham (Gn 15:17-21); (c) Abraham en el cielo, en el presente. Los oyentes lo entienden como pretensión de haber visto físicamente a Abraham.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Abraham vuestro padre se gozó de que había de ver mi día; y lo vio, y se gozó."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 11:13 — «vieron de lejos las promesas»",
+   "Gn 22:13-14 — «en el monte de Jehová será provisto»",
+   "Gá 3:8 — «el evangelio fue anunciado a Abraham»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.8.58",
+  "strong": "G1096",
+  "forma": "γενέσθαι",
+  "glosa_interlineal": "existiera",
+  "rango_semantico": [
+   "llegar a ser, nacer, existir"
+  ],
+  "construccion": "Infinitivo aoristo medio: «antes que Abraham fuese (γενέσθαι), yo soy (ἐγώ εἰμι)».",
+  "sentido_en_contexto": "El contraste entre γενέσθαι («llegar a ser», aoristo) y εἰμί («soy», presente atemporal) subraya la existencia eterna de Jesús. «Yo soy» absoluto evoca Éx 3:14 y Is 43:10-13. Los judíos lo entienden como blasfemia y toman piedras.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Jesús les dijo: De cierto, de cierto os digo: Antes que Abraham fuese, yo soy."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 3:14 — «Yo soy el que soy»",
+   "Is 43:10-13",
+   "Jn 1:1 — «en el principio era el Verbo»",
+   "Jn 17:5, 24",
+   "Jn 10:30-33"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.8.59",
+  "strong": "G3037",
+  "forma": "λίθους",
+  "glosa_interlineal": "piedras",
+  "rango_semantico": [
+   "piedra"
+  ],
+  "construccion": "Acusativo plural: «tomaron piedras para arrojárselas».",
+  "sentido_en_contexto": "Reacción de quienes entienden «yo soy» como reclamo divino: intentan lapidarlo por blasfemia (Lv 24:16). Jesús se oculta y sale del templo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Tomaron entonces piedras para arrojárselas; pero Jesús se escondió y salió del templo; y atravesando por medio de ellos, se fue."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lv 24:16 — pena de lapidación por blasfemia",
+   "Jn 10:31-33 — otro intento",
+   "Jn 11:8"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

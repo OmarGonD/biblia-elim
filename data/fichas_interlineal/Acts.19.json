@@ -1,0 +1,420 @@
+[
+ {
+  "ref": "Acts.19.2",
+  "strong": "G4151",
+  "forma": "πνεῦμα",
+  "glosa_interlineal": "Espíritu",
+  "rango_semantico": [
+   "espíritu"
+  ],
+  "construccion": "Nominativo/acusativo: «¿recibisteis el Espíritu Santo cuando creísteis?».",
+  "sentido_en_contexto": "Pablo encuentra en Éfeso a unos doce «discípulos» que solo conocían el bautismo de Juan y ni habían oído del Espíritu Santo. Tras ser bautizados en el nombre de Jesús y recibir la imposición de manos, reciben el Espíritu y hablan en lenguas y profetizan.",
+  "matiz": "Debate: ¿eran cristianos incompletos (los que ya creían, pero sin Espíritu), o discípulos de Juan Bautista sin fe cristiana plena? La mayoría ve discípulos del Bautista que no habían oído de Jesús como Mesías. El texto es usado para defender una «segunda experiencia» del Espíritu (pentecostales), aunque Pablo asume que todo creyente recibe el Espíritu al creer (Ro 8:9).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Les dijo: ¿Recibisteis el Espíritu Santo cuando creísteis? Y ellos le dijeron: Ni siquiera hemos oído si hay Espíritu Santo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 8:14-17; 10:44-48",
+   "Ro 8:9",
+   "1 Co 12:13",
+   "Ef 1:13"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Acts.19.5",
+  "strong": "G907",
+  "forma": "ἐβαπτίσθησαν",
+  "glosa_interlineal": "fueron bautizados",
+  "rango_semantico": [
+   "bautizar"
+  ],
+  "construccion": "Aoristo indicativo pasivo: «fueron bautizados en el nombre del Señor Jesús».",
+  "sentido_en_contexto": "Estos discípulos de Juan son bautizados de nuevo, ahora «en el nombre del Señor Jesús». Es el único caso en el NT de rebautismo explícito: marca la diferencia entre el bautismo de arrepentimiento de Juan y el bautismo cristiano.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Cuando oyeron esto, fueron bautizados en el nombre del Señor Jesús."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 2:38; 8:16; 10:48",
+   "Mt 28:19",
+   "Hch 18:25"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.19.6",
+  "strong": "G4395",
+  "forma": "ἐπροφήτευον",
+  "glosa_interlineal": "profetizaban",
+  "rango_semantico": [
+   "profetizar"
+  ],
+  "construccion": "Imperfecto indicativo activo: «hablaban en lenguas, y profetizaban».",
+  "sentido_en_contexto": "La recepción del Espíritu se acompaña de lenguas y profecía, como en Pentecostés (2:4) y en casa de Cornelio (10:46). Lucas cierra el paralelo: judíos (cap. 2), samaritanos (8), gentiles (10), y ahora seguidores del Bautista (19).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y habiéndoles impuesto Pablo las manos, vino sobre ellos el Espíritu Santo; y hablaban en lenguas, y profetizaban."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 2:4; 10:46",
+   "1 Co 14:1-5",
+   "Jl 2:28"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.19.9",
+  "strong": "G4981",
+  "forma": "σχολῇ",
+  "glosa_interlineal": "escuela",
+  "rango_semantico": [
+   "escuela, lugar de enseñanza, sala de conferencias"
+  ],
+  "construccion": "Dativo: «en la escuela de Tirano».",
+  "sentido_en_contexto": "Tras tres meses en la sinagoga, Pablo se traslada a la escuela de Tirano (un maestro o sala de conferencias). Allí enseña a diario durante dos años; la tradición occidental añade «de la hora quinta a la décima» (11:00-16:00, cuando se detenía el trabajo). Toda Asia oyó la palabra.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero endureciéndose algunos y no creyendo, maldiciendo el Camino delante de la multitud, se apartó Pablo de ellos y separó a los discípulos, discutiendo cada día en la escuela de uno llamado Tirano."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 19:10; 20:31",
+   "Col 1:6-7; 2:1; 4:13 — Colosas, Laodicea, Hierápolis",
+   "Ap 2—3 — siete iglesias"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.19.11",
+  "strong": "G1411",
+  "forma": "δυνάμεις",
+  "glosa_interlineal": "milagros",
+  "rango_semantico": [
+   "poder, obra de poder, milagro"
+  ],
+  "construccion": "Acusativo plural: «milagros extraordinarios (δυνάμεις οὐ τὰς τυχούσας)».",
+  "sentido_en_contexto": "Dios hace milagros «no comunes» por mano de Pablo: incluso pañuelos y delantales que han tocado su cuerpo sanan enfermos y expulsan espíritus malos. Es una excepción: Dios actúa a través de objetos asociados con Pablo, como con la sombra de Pedro (5:15).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y hacía Dios milagros extraordinarios por mano de Pablo,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 5:15; 8:13; 14:3",
+   "2 Co 12:12",
+   "Lc 8:44"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.19.13",
+  "strong": "G1845",
+  "forma": "ἐξορκιστῶν",
+  "glosa_interlineal": "exorcistas",
+  "rango_semantico": [
+   "exorcista (que conjura espíritus)"
+  ],
+  "construccion": "Genitivo plural: «algunos de los judíos, exorcistas ambulantes».",
+  "sentido_en_contexto": "Exorcistas judíos itinerantes intentan usar el nombre de Jesús «a quien Pablo predica» como fórmula mágica. Fracasan, y el espíritu malo los vence. El pasaje contrasta el poder auténtico de Jesús con la magia.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero algunos de los judíos, exorcistas ambulantes, intentaron invocar el nombre del Señor Jesús sobre los que tenían espíritus malos, diciendo: Os conjuro por Jesús, el que predica Pablo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 12:27",
+   "Mr 9:38-39",
+   "Hch 8:9-24; 13:6-12"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.19.15",
+  "strong": "G1097",
+  "forma": "γινώσκω",
+  "glosa_interlineal": "conozco",
+  "rango_semantico": [
+   "conocer, reconocer"
+  ],
+  "construccion": "Presente indicativo activo: «a Jesús conozco, y sé quién es Pablo; pero vosotros, ¿quiénes sois?».",
+  "sentido_en_contexto": "El espíritu malo reconoce a Jesús y a Pablo, pero no a los exorcistas: sin relación con Cristo, su fórmula no funciona. Los siete hijos de Esceva huyen desnudos y heridos. El episodio produce temor y glorifica el nombre de Jesús.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero respondiendo el espíritu malo, dijo: A Jesús conozco, y sé quién es Pablo; pero vosotros, ¿quiénes sois?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 1:24; 5:7",
+   "Stg 2:19",
+   "Mt 7:22-23"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.19.19",
+  "strong": "G4021",
+  "forma": "περίεργα",
+  "glosa_interlineal": "artes mágicas",
+  "rango_semantico": [
+   "cosas superfluas, magia, ocultismo"
+  ],
+  "construccion": "Acusativo plural: «los que habían practicado la magia (περίεργα)».",
+  "sentido_en_contexto": "Muchos nuevos creyentes confiesan sus prácticas y queman sus libros de magia delante de todos. El valor total: «cincuenta mil piezas de plata» (unos 50 000 denarios, equivalentes a 50 000 jornales). Éfeso era famosa por sus textos mágicos (Ἐφέσια γράμματα).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Asimismo muchos de los que habían practicado la magia trajeron los libros y los quemaron delante de todos; y hecha la cuenta de su precio, hallaron que era cincuenta mil piezas de plata."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 18:10-12",
+   "Hch 8:9-24",
+   "Gá 5:20"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.19.20",
+  "strong": "G2904",
+  "forma": "κράτος",
+  "glosa_interlineal": "poder",
+  "rango_semantico": [
+   "poder, fuerza, dominio"
+  ],
+  "construccion": "Acusativo: «así crecía y prevalecía poderosamente la palabra del Señor».",
+  "sentido_en_contexto": "Sumario característico de Hechos (cf. 6:7; 9:31; 12:24): la palabra de Dios crece y se fortalece frente a la magia y la idolatría de Éfeso. Cierra el paréntesis de los milagros y prepara el motín (vv.23-41).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Así crecía y prevalecía poderosamente la palabra del Señor."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 6:7; 12:24",
+   "Col 1:6"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.19.21",
+  "strong": "G1163",
+  "forma": "δεῖ",
+  "glosa_interlineal": "es necesario",
+  "rango_semantico": [
+   "ser necesario, deber"
+  ],
+  "construccion": "Presente impersonal: «me es necesario ver también a Roma».",
+  "sentido_en_contexto": "Pablo resuelve (en el Espíritu) ir a Jerusalén, pasando por Macedonia y Acaya, y luego «ver Roma». Es el plan que organiza el resto de Hechos: Jerusalén → Roma. Pablo llegará a Roma como prisionero (cap. 27-28).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pasadas estas cosas, Pablo se propuso en espíritu ir a Jerusalén, después de recorrer Macedonia y Acaya, diciendo: Después que haya estado allí, me será necesario ver también a Roma."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 23:11; 27:24",
+   "Ro 1:10-15; 15:22-29"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.19.24",
+  "strong": "G735",
+  "forma": "Ἀρτέμιδος",
+  "glosa_interlineal": "Ártemis",
+  "rango_semantico": [
+   "Ártemis (Diana de los efesios)"
+  ],
+  "construccion": "Genitivo: «templos de plata de Diana (Ártemis)».",
+  "sentido_en_contexto": "Demetrio, platero, fabricaba nichos de plata de Ártemis. El gran templo de Ártemis en Éfeso era una de las siete maravillas del mundo; su culto movía una gran economía. Pablo, al predicar que «no son dioses los hechos por manos», amenaza el negocio y el culto.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque un platero llamado Demetrio, que hacía de plata templecillos de Diana, daba no poca ganancia a los artífices;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 19:26-27",
+   "Hch 17:29",
+   "1 Ti 2:11—3:1 (contexto de Éfeso)"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.19.28",
+  "strong": "G2372",
+  "forma": "θυμοῦ",
+  "glosa_interlineal": "ira",
+  "rango_semantico": [
+   "ira, furor"
+  ],
+  "construccion": "Genitivo: «llenos de ira, gritaron: ¡Grande es Diana de los efesios!».",
+  "sentido_en_contexto": "El gremio de plateros y la multitud, enfurecidos por el riesgo económico y religioso, gritan la aclamación a Ártemis. El motín paraliza la ciudad durante unas dos horas (v.34). Lucas retrata con ironía el pánico por un negocio.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Cuando oyeron estas cosas, se llenaron de ira, y gritaron, diciendo: ¡Grande es Diana de los efesios!"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 19:34",
+   "Hch 17:5; 21:30"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.19.29",
+  "strong": "G2302",
+  "forma": "θέατρον",
+  "glosa_interlineal": "teatro",
+  "rango_semantico": [
+   "teatro"
+  ],
+  "construccion": "Acusativo: «se lanzaron unánimes al teatro».",
+  "sentido_en_contexto": "El teatro de Éfeso (con capacidad para unas 24 000 personas) era el lugar de las asambleas públicas. La multitud arrastra allí a Gayo y Aristarco, compañeros macedonios de Pablo. Pablo quiere entrar, pero los discípulos y algunos asiarcas amigos suyos se lo impiden.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y la ciudad se llenó de confusión, y a una se lanzaron al teatro, arrebatando a Gayo y a Aristarco, macedonios, compañeros de Pablo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 20:4; 27:2",
+   "Col 4:10",
+   "Flm 24"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.19.31",
+  "strong": "G775",
+  "forma": "Ἀσιαρχῶν",
+  "glosa_interlineal": "asiarcas",
+  "rango_semantico": [
+   "asiarca (alto dignatario de la provincia de Asia)"
+  ],
+  "construccion": "Genitivo plural: «algunas de las autoridades de Asia (asiarcas), que eran sus amigos».",
+  "sentido_en_contexto": "Los asiarcas eran magistrados y sacerdotes del culto imperial provincial, ricos y de alto rango. Que fueran amigos de Pablo muestra que la misión tenía simpatizantes en la élite local. Le aconsejan no arriesgarse en el teatro.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "También algunas de las autoridades de Asia, que eran sus amigos, enviaron a rogarle que no se presentase en el teatro."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 19:30",
+   "Hch 25:23"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.19.35",
+  "strong": "G1122",
+  "forma": "γραμματεὺς",
+  "glosa_interlineal": "escribano",
+  "rango_semantico": [
+   "escribano, secretario (de la ciudad)"
+  ],
+  "construccion": "Nominativo: «el escribano (secretario de la ciudad) apaciguó a la multitud».",
+  "sentido_en_contexto": "El secretario de la ciudad, alto funcionario local, calma a la multitud: Éfeso es «guardiana del templo» (νεωκόρος) de Ártemis, y la imagen caída del cielo (διοπετής; posiblemente un meteorito). Les recuerda que los acusados no han blasfemado contra la diosa y que hay cauces legales.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces el escribano, apaciguando a la multitud, dijo: Varones efesios, ¿y quién es el hombre que no sabe que la ciudad de los efesios es guardiana del templo de la gran diosa Diana, y de la imagen venida de Júpiter?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 19:38-40"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.19.37",
+  "strong": "G2417",
+  "forma": "ἱεροσύλους",
+  "glosa_interlineal": "sacrílegos",
+  "rango_semantico": [
+   "ladrón de templos, sacrílego"
+  ],
+  "construccion": "Acusativo plural: «ni sacrílegos ni blasfemos contra vuestra diosa».",
+  "sentido_en_contexto": "El escribano reconoce que Pablo y sus compañeros no han robado templos ni blasfemado contra Ártemis (testimonio de que Pablo evitaba insultar a los dioses paganos en su predicación). Subraya la inocencia legal de los cristianos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque habéis traído a estos hombres, sin ser sacrílegos ni blasfemadores de vuestra diosa."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 17:22-31",
+   "Ro 2:22"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Acts.19.39",
+  "strong": "G1772",
+  "forma": "ἐννόμῳ",
+  "glosa_interlineal": "legal",
+  "rango_semantico": [
+   "legal, regular, conforme a la ley"
+  ],
+  "construccion": "Dativo: «en legítima asamblea se puede decidir».",
+  "sentido_en_contexto": "El escribano distingue entre una asamblea regular (ἔννομος ἐκκλησία) y un tumulto: los reclamos deben tratarse legalmente. Teme que Roma acuse a la ciudad de sedición, lo que podría quitarle privilegios.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y si demandáis alguna otra cosa, en legítima asamblea se puede decidir."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 19:32, 41",
+   "Hch 18:14-15"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

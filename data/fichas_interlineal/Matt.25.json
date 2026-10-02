@@ -1,0 +1,599 @@
+[
+ {
+  "ref": "Matt.25.1",
+  "strong": "G3933",
+  "forma": "παρθένοις",
+  "glosa_interlineal": "vírgenes",
+  "rango_semantico": [
+   "virgen",
+   "doncella, joven soltera"
+  ],
+  "construccion": "Dativo plural: «a diez vírgenes».",
+  "sentido_en_contexto": "Parábola de las diez vírgenes: damas de honor que esperan al novio. Cinco son prudentes y cinco necias; la diferencia está en el aceite.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces el reino de los cielos será semejante a diez vírgenes que tomando sus lámparas, salieron a recibir al esposo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 22:2 — banquete de bodas",
+   "Ap 19:7-9 — las bodas del Cordero",
+   "2 Co 11:2 — «os he desposado con un solo esposo»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.25.2",
+  "strong": "G3474",
+  "forma": "μωραὶ",
+  "glosa_interlineal": "necias",
+  "rango_semantico": [
+   "necio, insensato"
+  ],
+  "construccion": "Adjetivo nominativo femenino plural: «cinco necias».",
+  "sentido_en_contexto": "Contrasta con «prudentes» (φρόνιμοι). La necedad no es falta de inteligencia sino de previsión: no pensaron en la tardanza.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Cinco de ellas eran prudentes, y cinco insensatas."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 7:26 — «hombre insensato, que edificó su casa sobre la arena»",
+   "Pr 1:7 — «los insensatos desprecian la sabiduría»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.25.3",
+  "strong": "G1637",
+  "forma": "ἔλαιον",
+  "glosa_interlineal": "aceite",
+  "rango_semantico": [
+   "aceite de oliva",
+   "(figurado) unción, alegría"
+  ],
+  "construccion": "Acusativo: «aceite».",
+  "sentido_en_contexto": "El aceite para las lámparas es el elemento decisivo. Se discute qué simboliza: obras, fe auténtica, el Espíritu Santo o disposición permanente. La parábola no lo dice.",
+  "matiz": "Es un caso típico de parábola cuyo detalle central se interpreta de modos diversos. Lo seguro es el mensaje: estar preparado para la tardanza.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Las insensatas, tomando sus lámparas, no tomaron consigo aceite;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 45:7 — «óleo de alegría»",
+   "Zac 4:2-6 — el aceite y el Espíritu",
+   "1 Jn 2:20 — «vosotros tenéis la unción del Santo»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.25.5",
+  "strong": "G5549",
+  "forma": "χρονίζοντος",
+  "glosa_interlineal": "tardando",
+  "rango_semantico": [
+   "tardar, demorar"
+  ],
+  "construccion": "Genitivo absoluto: «tardándose el esposo».",
+  "sentido_en_contexto": "El retraso del novio prueba la preparación de las vírgenes. Aplicado a la demora de la venida del Señor.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y tardándose el esposo, cabecearon todas y se durmieron."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:48 — «mi señor tarda en venir»",
+   "Hab 2:3 — «aunque tardare, espéralo»",
+   "2 P 3:9"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.25.6",
+  "strong": "G529",
+  "forma": "ἀπάντησιν",
+  "glosa_interlineal": "encuentro",
+  "rango_semantico": [
+   "encuentro, salir al encuentro de una autoridad que llega"
+  ],
+  "construccion": "εἰς ἀπάντησιν: «al encuentro».",
+  "sentido_en_contexto": "Término usado para la recepción oficial de un dignatario que llega a una ciudad: los ciudadanos salen a su encuentro y lo acompañan de regreso. Pablo lo emplea en 1 Ts 4:17.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y a la medianoche se oyó un clamor: ¡Aquí viene el esposo; salid a recibirle!"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Ts 4:17 — «a recibir al Señor en el aire»",
+   "Hch 28:15 — los hermanos salieron a recibir a Pablo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.25.8",
+  "strong": "G4570",
+  "forma": "σβέννυνται",
+  "glosa_interlineal": "se apagan",
+  "rango_semantico": [
+   "apagar, extinguir"
+  ],
+  "construccion": "Presente indicativo pasivo, 3ª plural: «se están apagando».",
+  "sentido_en_contexto": "Las necias piden aceite a las prudentes porque sus lámparas se apagan. La respuesta: «no sea que no alcance para todas». Imagen de que la preparación no se puede prestar.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y las insensatas dijeron a las prudentes: Dadnos de vuestro aceite; porque nuestras lámparas se apagan."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 12:20 — «el pábilo que humea no apagará»",
+   "1 Ts 5:19 — «no apaguéis al Espíritu»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.25.12",
+  "strong": "G1492",
+  "forma": "οἶδα",
+  "glosa_interlineal": "conozco",
+  "rango_semantico": [
+   "saber, conocer"
+  ],
+  "construccion": "Perfecto con valor presente, 1ª singular: «no os conozco».",
+  "sentido_en_contexto": "Rechazo final: «no os conozco». En el contexto bíblico, conocer implica relación; es el mismo rechazo de 7:23.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Mas él, respondiendo, dijo: De cierto os digo, que no os conozco."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 7:23 — «nunca os conocí»",
+   "Lc 13:25-27 — «no sé de dónde sois»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.25.14",
+  "strong": "G589",
+  "forma": "ἀποδημῶν",
+  "glosa_interlineal": "yéndose lejos",
+  "rango_semantico": [
+   "ir al extranjero, emprender un viaje"
+  ],
+  "construccion": "Participio presente activo: «que se iba de viaje».",
+  "sentido_en_contexto": "Parábola de los talentos: el dueño se ausenta y confía sus bienes a sus siervos. Se aplica al tiempo entre la partida de Jesús y su regreso.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque el reino de los cielos es como un hombre que yéndose lejos, llamó a sus siervos y les entregó sus bienes."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 13:34 — paralelo breve",
+   "Lc 19:12-13 — parábola de las minas"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.25.15",
+  "strong": "G5007",
+  "forma": "τάλαντα",
+  "glosa_interlineal": "talentos",
+  "rango_semantico": [
+   "talento (unidad de peso y moneda)",
+   "(figurado) capacidad"
+  ],
+  "construccion": "Acusativo plural: «cinco talentos, dos, uno».",
+  "sentido_en_contexto": "Un talento equivalía a unos 6.000 denarios (jornales): suma enorme, incluso el «uno». Este uso es el origen de «talento» como capacidad en español y otras lenguas.",
+  "matiz": "En la parábola, «talento» es dinero; la lectura de «habilidad» es derivada y posterior. Los «talentos» pueden representar dones, oportunidades o el mensaje del Reino.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "A uno dio cinco talentos, y a otro dos, y a otro uno, a cada uno conforme a su capacidad; y se fue lejos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 18:24 — «diez mil talentos»",
+   "Ex 38:25 — talentos de plata"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.25.18",
+  "strong": "G2928",
+  "forma": "ἔκρυψεν",
+  "glosa_interlineal": "escondió",
+  "rango_semantico": [
+   "esconder, ocultar"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª singular.",
+  "sentido_en_contexto": "El tercer siervo guarda el talento por miedo. No lo pierde ni lo roba, pero no lo hace trabajar. Es el fracaso por inacción.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero el que había recibido uno fue y cavó en la tierra, y escondió el dinero de su señor."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 19:20 — «lo he guardado en un pañuelo»",
+   "Mt 13:44 — el tesoro escondido"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.25.21",
+  "strong": "G4103",
+  "forma": "πιστέ",
+  "glosa_interlineal": "fiel",
+  "rango_semantico": [
+   "fiel, digno de confianza"
+  ],
+  "construccion": "Vocativo: «siervo bueno y fiel».",
+  "sentido_en_contexto": "El elogio del señor es por la fidelidad, no por el resultado: ambos siervos que duplican reciben la misma alabanza aunque uno ganó cinco y otro dos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Su señor le dijo: Bien, buen siervo y fiel; sobre poco has sido fiel, sobre mucho te pondré; entra en el gozo de tu señor."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 16:10 — «el que es fiel en lo muy poco, también en lo más es fiel»",
+   "1 Co 4:2 — «se requiere… que cada uno sea hallado fiel»",
+   "Ap 2:10 — «sé fiel hasta la muerte»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.25.21",
+  "strong": "G5479",
+  "forma": "χαρὰν",
+  "glosa_interlineal": "gozo",
+  "rango_semantico": [
+   "alegría, gozo"
+  ],
+  "construccion": "εἰς + acusativo: «entra en el gozo de tu señor».",
+  "sentido_en_contexto": "La recompensa es compartir la alegría del señor: relación, no solo posesiones. Eco del banquete del Reino.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…entra en el gozo de tu señor."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 12:2 — «por el gozo puesto delante de él»",
+   "Jn 15:11 — «para que mi gozo esté en vosotros»",
+   "Sal 16:11 — «en tu presencia hay plenitud de gozo»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.25.24",
+  "strong": "G4642",
+  "forma": "σκληρός",
+  "glosa_interlineal": "duro",
+  "rango_semantico": [
+   "duro, áspero",
+   "severo, exigente"
+  ],
+  "construccion": "Adjetivo nominativo: «hombre duro».",
+  "sentido_en_contexto": "El tercer siervo justifica su inacción diciendo que su señor es duro, que siega donde no sembró. Su imagen del señor es distorsionada y su miedo lo paraliza.",
+  "matiz": "Se discute si la parábola acepta que el señor sea «duro» o si se trata de la proyección del siervo. El señor responde: «si sabías esto…, debías haber…»: acepta el argumento solo para volverlo contra él.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero llegando también el que había recibido un talento, dijo: Señor, te conocía que eres hombre duro, que siegas donde no sembraste y recoges donde no esparciste;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 19:21 — paralelo: «eres hombre severo»",
+   "Ro 2:4 — «¿menosprecias las riquezas de su benignidad?»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.25.26",
+  "strong": "G3636",
+  "forma": "ὀκνηρέ",
+  "glosa_interlineal": "negligente",
+  "rango_semantico": [
+   "perezoso, indolente",
+   "remiso"
+  ],
+  "construccion": "Vocativo: «siervo malo y negligente».",
+  "sentido_en_contexto": "El señor califica la inacción como maldad: no es solo pereza sino rechazo de la responsabilidad recibida.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Respondiendo su señor, le dijo: Siervo malo y negligente, sabías que siego donde no sembré, y que recojo donde no esparcí."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 12:11 — «no perezosos en el cuidado»",
+   "Pr 6:6 — «ve a la hormiga, oh perezoso»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.25.27",
+  "strong": "G5133",
+  "forma": "τραπεζίταις",
+  "glosa_interlineal": "banqueros",
+  "rango_semantico": [
+   "cambista, banquero"
+  ],
+  "construccion": "Dativo plural: «a los banqueros».",
+  "sentido_en_contexto": "Como mínimo, debió depositar el dinero en un banco para ganar interés. Ni siquiera hizo lo mínimo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Por tanto, debías haber dado mi dinero a los banqueros, y al venir yo, hubiera recibido lo que es mío con los intereses."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 19:23 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.25.29",
+  "strong": "G4052",
+  "forma": "περισσευθήσεται",
+  "glosa_interlineal": "abundará",
+  "rango_semantico": [
+   "sobreabundar, tener de sobra"
+  ],
+  "construccion": "Futuro indicativo pasivo: «se le dará en abundancia».",
+  "sentido_en_contexto": "Principio de 13:12: quien ha recibido y usa, recibirá más; quien no, perderá lo que tiene.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque al que tiene, le será dado, y tendrá más; y al que no tiene, aun lo que tiene le será quitado."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 13:12 — mismo principio",
+   "Mr 4:25 — «al que tiene, se le dará»",
+   "Lc 8:18"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.25.30",
+  "strong": "G888",
+  "forma": "ἀχρεῖον",
+  "glosa_interlineal": "inútil",
+  "rango_semantico": [
+   "inútil, sin valor",
+   "sin provecho"
+  ],
+  "construccion": "Acusativo: «siervo inútil».",
+  "sentido_en_contexto": "Verdicto final: el siervo que no hizo nada es «inútil» y es echado a las tinieblas. No es acusación de robo, sino de esterilidad.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y al siervo inútil echadle en las tinieblas de afuera; allí será el lloro y el crujir de dientes."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 17:10 — «siervos inútiles somos»: contraste de actitud",
+   "Mt 8:12 — «tinieblas de afuera»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.25.31",
+  "strong": "G1391",
+  "forma": "δόξῃ",
+  "glosa_interlineal": "gloria",
+  "rango_semantico": [
+   "gloria, esplendor"
+  ],
+  "construccion": "ἐν + dativo: «en su gloria».",
+  "sentido_en_contexto": "Escena del juicio final: el Hijo del Hombre en su gloria con todos los ángeles, sentado en su trono. Cierra el discurso escatológico.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Cuando el Hijo del Hombre venga en su gloria, y todos los santos ángeles con él, entonces se sentará en su trono de gloria,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 7:13-14 — el hijo de hombre con gloria y dominio",
+   "Mt 16:27 — «vendrá en la gloria de su Padre»",
+   "Mt 19:28 — «cuando el Hijo del Hombre se siente en el trono de su gloria»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.25.32",
+  "strong": "G1484",
+  "forma": "ἔθνη",
+  "glosa_interlineal": "naciones",
+  "rango_semantico": [
+   "pueblos, naciones",
+   "gentiles"
+  ],
+  "construccion": "Nominativo plural: «todas las naciones».",
+  "sentido_en_contexto": "¿Quiénes son «todas las naciones» juzgadas? Se discute si son todos los pueblos (incluidos creyentes), solo los no creyentes (gentiles) o todos los individuos.",
+  "matiz": "Interpretaciones: (a) todo ser humano; (b) solo los gentiles, distintos de Israel y de la iglesia; (c) los pueblos como colectividades. Las posiciones varían según la teología del juicio.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "y serán reunidas delante de él todas las naciones; y apartará los unos de los otros, como aparta el pastor las ovejas de los cabritos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jl 3:2 — «reuniré a todas las naciones»",
+   "Ez 34:17 — «juzgaré entre oveja y oveja»",
+   "Ro 2:6-8 — juicio según las obras"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "Matt.25.34",
+  "strong": "G2816",
+  "forma": "κληρονομήσατε",
+  "glosa_interlineal": "heredad",
+  "rango_semantico": [
+   "heredar, recibir como posesión"
+  ],
+  "construccion": "Imperativo aoristo activo, 2ª plural: «heredad».",
+  "sentido_en_contexto": "El reino se «hereda»: se recibe como don, preparado desde antes de la creación. No dice «ganad» sino «heredad».",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces el Rey dirá a los de su derecha: Venid, benditos de mi Padre, heredad el reino preparado para vosotros desde la fundación del mundo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 5:5 — «recibirán la tierra por heredad»",
+   "Ro 8:17 — «herederos de Dios»",
+   "Ef 1:4 — «nos escogió antes de la fundación del mundo»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.25.36",
+  "strong": "G1980",
+  "forma": "ἐπεσκέψασθέ",
+  "glosa_interlineal": "visitasteis",
+  "rango_semantico": [
+   "visitar, cuidar de",
+   "inspeccionar"
+  ],
+  "construccion": "Aoristo indicativo medio, 2ª plural: «me visitasteis».",
+  "sentido_en_contexto": "Verbo de visita pastoral y cuidado: Dios «visita» a su pueblo (Lc 1:68). Aquí se aplica a visitar a enfermos y presos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…estuve desnudo, y me cubristeis; enfermo, y me visitasteis; en la cárcel, y vinisteis a mí."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 1:68 — «ha visitado y redimido a su pueblo»",
+   "Stg 1:27 — «visitar a los huérfanos y a las viudas»",
+   "Heb 13:3 — «acordaos de los presos»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.25.40",
+  "strong": "G1646",
+  "forma": "ἐλαχίστων",
+  "glosa_interlineal": "más pequeños",
+  "rango_semantico": [
+   "muy pequeño, el más pequeño",
+   "el más insignificante"
+  ],
+  "construccion": "Genitivo plural superlativo: «de estos mis hermanos más pequeños».",
+  "sentido_en_contexto": "Texto clave y muy debatido: ¿quiénes son «estos mis hermanos más pequeños»?",
+  "matiz": "Interpretaciones: (a) los discípulos de Jesús y los cristianos perseguidos (lectura tradicional exegética: «mis hermanos» = los suyos, como en 12:48-50 y 28:10); (b) todos los necesitados (lectura social, extendida); (c) los misioneros itinerantes. El contexto de Mateo (10:40-42; 18:6) favorece (a), pero muchos aplican el principio de forma amplia.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y respondiendo el Rey, les dirá: De cierto os digo que en cuanto lo hicisteis a uno de estos mis hermanos más pequeños, a mí lo hicisteis."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 10:40-42 — «el que os recibe a vosotros, a mí me recibe»",
+   "Mt 12:48-50 — «mis hermanos»",
+   "Pr 19:17 — «a Jehová presta el que da al pobre»"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "Matt.25.41",
+  "strong": "G2672",
+  "forma": "κατηραμένοι",
+  "glosa_interlineal": "malditos",
+  "rango_semantico": [
+   "maldecir, maldito"
+  ],
+  "construccion": "Participio perfecto pasivo: «malditos».",
+  "sentido_en_contexto": "Contraste con «benditos» (v.34). Nótese que el reino está «preparado para vosotros», pero el fuego «preparado para el diablo y sus ángeles»: no para los humanos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces dirá también a los de la izquierda: Apartaos de mí, malditos, al fuego eterno preparado para el diablo y sus ángeles."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 7:23 — «apartaos de mí»",
+   "Ap 20:10 — el diablo en el lago de fuego"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.25.46",
+  "strong": "G2851",
+  "forma": "κόλασιν",
+  "glosa_interlineal": "castigo",
+  "rango_semantico": [
+   "castigo, pena",
+   "corrección"
+  ],
+  "construccion": "Acusativo: «castigo eterno».",
+  "sentido_en_contexto": "Contraste con «vida eterna»: el mismo adjetivo (αἰώνιος) califica ambos. Se discute si «eterno» describe la duración del castigo (sin fin) o su calidad/origen (de la era venidera).",
+  "matiz": "Debate sobre la naturaleza del castigo final: (a) tormento consciente sin fin (visión tradicional); (b) aniquilación con efectos eternos; (c) salvación final de todos (universalismo, minoritaria). El paralelismo con «vida eterna» pesa en favor de la duración paralela en la lectura tradicional.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "E irán éstos al castigo eterno, y los justos a la vida eterna."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 12:2 — «unos para vida eterna, y otros para vergüenza y confusión perpetua»",
+   "2 Ts 1:9 — «sufrirán pena de eterna perdición»",
+   "Jud 7 — «castigo del fuego eterno»"
+  ],
+  "nivel_certeza": "bajo"
+ }
+]

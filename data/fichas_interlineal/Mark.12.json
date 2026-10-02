@@ -1,0 +1,432 @@
+[
+ {
+  "ref": "Mark.12.1",
+  "strong": "G290",
+  "forma": "ἀμπελῶνα",
+  "glosa_interlineal": "viña",
+  "rango_semantico": [
+   "viña, viñedo"
+  ],
+  "construccion": "Acusativo: «plantó una viña».",
+  "sentido_en_contexto": "Parábola de los labradores malvados, tomada de Is 5:1-7. Los siervos enviados representan a los profetas; el hijo amado, a Jesús.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 5:1-7 — el cantar de la viña",
+   "Mt 21:33-46 — paralelo",
+   "Lc 20:9-19 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.12.6",
+  "strong": "G27",
+  "forma": "ἀγαπητόν",
+  "glosa_interlineal": "amado",
+  "rango_semantico": [
+   "amado, querido",
+   "único"
+  ],
+  "construccion": "Adjetivo acusativo: «un hijo amado».",
+  "sentido_en_contexto": "Marcos subraya el carácter único del hijo («tenía aún uno, un hijo amado»), con eco de la voz del bautismo (1:11) y de la transfiguración (9:7). Alegoría de la identidad de Jesús.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Teniendo aún un hijo suyo, amado, lo envió también a ellos el último, diciendo: Respetarán a mi hijo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 1:11 — «tú eres mi Hijo amado»",
+   "Mr 9:7 — «este es mi Hijo amado»",
+   "Gn 22:2 — «tu hijo, tu único, a quien amas»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.12.10",
+  "strong": "G3037",
+  "forma": "λίθον",
+  "glosa_interlineal": "piedra",
+  "rango_semantico": [
+   "piedra"
+  ],
+  "construccion": "Acusativo: «la piedra que desecharon los edificadores». Cita de Sal 118:22-23.",
+  "sentido_en_contexto": "Jesús, rechazado por los líderes, será la piedra angular. Marcos relaciona la parábola con el Salmo 118, el mismo de la entrada triunfal.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¿Ni aun esta Escritura habéis leído: La piedra que desecharon los edificadores ha venido a ser cabeza del ángulo;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 118:22-23 — texto citado",
+   "Hch 4:11 — Pedro lo aplica a Jesús",
+   "1 P 2:7 — «la piedra que los edificadores desecharon»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.12.13",
+  "strong": "G2265",
+  "forma": "Ἡρῳδιανῶν",
+  "glosa_interlineal": "herodianos",
+  "rango_semantico": [
+   "herodiano (partidario de Herodes)"
+  ],
+  "construccion": "Genitivo plural.",
+  "sentido_en_contexto": "De nuevo fariseos y herodianos se unen para enredar a Jesús con la pregunta del tributo (como en 3:6).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 3:6 — primer complot",
+   "Mt 22:16 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.12.14",
+  "strong": "G227",
+  "forma": "ἀληθὴς",
+  "glosa_interlineal": "veraz",
+  "rango_semantico": [
+   "veraz, verdadero"
+  ],
+  "construccion": "Adjetivo nominativo: «sabemos que eres veraz».",
+  "sentido_en_contexto": "Halago que prepara la trampa: lo llaman veraz e imparcial, para forzar una respuesta política peligrosa.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Maestro, sabemos que eres amante de la verdad, y que no te cuidas de nadie, porque no miras la apariencia de los hombres, sino que con verdad enseñas el camino de Dios."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 22:16 — paralelo",
+   "Jn 14:6 — «yo soy el camino, y la verdad»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.12.15",
+  "strong": "G5272",
+  "forma": "ὑπόκρισιν",
+  "glosa_interlineal": "hipocresía",
+  "rango_semantico": [
+   "hipocresía, fingimiento"
+  ],
+  "construccion": "Acusativo: «conociendo su hipocresía».",
+  "sentido_en_contexto": "Jesús descubre la intención oculta tras la pregunta; pide un denario y plantea la cuestión de la imagen.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Mas él, percibiendo su hipocresía, les dijo: ¿Por qué me tentáis? Traedme la moneda para que la vea."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 22:18 — «conociendo Jesús la malicia de ellos»",
+   "Lc 20:23 — «la astucia de ellos»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.12.17",
+  "strong": "G2296",
+  "forma": "ἐξεθαύμαζον",
+  "glosa_interlineal": "se maravillaban",
+  "rango_semantico": [
+   "asombrarse mucho"
+  ],
+  "construccion": "Imperfecto indicativo activo, 3ª plural: «se admiraban grandemente».",
+  "sentido_en_contexto": "Respuesta de Jesús: «dad a César lo que es de César y a Dios lo que es de Dios». Los interlocutores quedan admirados. Marcos usa un verbo intensificado.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces respondiendo Jesús, les dijo: Dad a César lo que es de César, y a Dios lo que es de Dios. Y se maravillaron de ello."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 22:21-22 — paralelo",
+   "Ro 13:7 — «pagad a todos lo que debéis»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.12.24",
+  "strong": "G4105",
+  "forma": "πλανᾶσθε",
+  "glosa_interlineal": "erráis",
+  "rango_semantico": [
+   "errar, extraviarse"
+  ],
+  "construccion": "Presente indicativo pasivo, 2ª plural: «¿no erráis por eso?».",
+  "sentido_en_contexto": "Jesús diagnostica el error de los saduceos: ignoran las Escrituras y el poder de Dios (como en Mt 22:29). Marcos lo pone como pregunta retórica.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces respondiendo Jesús, les dijo: ¿No erráis por esto, porque ignoráis las Escrituras, y el poder de Dios?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 22:29 — paralelo",
+   "Jn 5:39 — «escudriñad las Escrituras»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.12.26",
+  "strong": "G942",
+  "forma": "βάτου",
+  "glosa_interlineal": "zarza",
+  "rango_semantico": [
+   "zarza, matorral"
+  ],
+  "construccion": "Genitivo: «en el pasaje de la zarza».",
+  "sentido_en_contexto": "Marcos cita el pasaje de la zarza ardiente (Éx 3:6) para argumentar la resurrección: «Dios de Abraham… no es Dios de muertos sino de vivos».",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Éx 3:6 — texto citado",
+   "Lc 20:37 — «en el pasaje de la zarza»",
+   "Hch 7:30-35 — Esteban cuenta la zarza"
+  ],
+  "otros_usos": "medio",
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.12.29",
+  "strong": "G2474",
+  "forma": "Ἰσραήλ",
+  "glosa_interlineal": "Israel",
+  "rango_semantico": [
+   "Israel"
+  ],
+  "construccion": "Vocativo: «Oye, Israel».",
+  "sentido_en_contexto": "Marcos (único) cita completo el Shemá de Dt 6:4: «Oye, Israel, el Señor nuestro Dios, el Señor uno es», antes de los dos mandamientos. Destaca el monoteísmo como base del amor a Dios.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Jesús le respondió: El primer mandamiento de todos es: Oye, Israel; el Señor nuestro Dios, el Señor uno es."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 6:4 — el Shemá",
+   "Mt 22:37 — sin el Shemá",
+   "Ro 3:30 — «Dios es uno»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.12.30",
+  "strong": "G2479",
+  "forma": "ἰσχύος",
+  "glosa_interlineal": "fuerza",
+  "rango_semantico": [
+   "fuerza, poder"
+  ],
+  "construccion": "ἐξ + genitivo: «con toda tu fuerza».",
+  "sentido_en_contexto": "Marcos tiene cuatro dimensiones (corazón, alma, mente, fuerza), más cercano al texto hebreo de Dt 6:5. El amor a Dios incluye toda la persona.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y amarás al Señor tu Dios con todo tu corazón, y con toda tu alma, y con toda tu mente, y con todas tus fuerzas. Este es el principal mandamiento."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 6:5 — texto citado",
+   "Mt 22:37 — tres dimensiones",
+   "Lc 10:27 — cuatro dimensiones"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.12.33",
+  "strong": "G3646",
+  "forma": "ὁλοκαυτωμάτων",
+  "glosa_interlineal": "holocaustos",
+  "rango_semantico": [
+   "holocausto, ofrenda quemada completa"
+  ],
+  "construccion": "Genitivo plural: «más que todos los holocaustos».",
+  "sentido_en_contexto": "El escriba añade que amar a Dios y al prójimo vale más que todos los holocaustos y sacrificios. Marcos solo da su reacción: Jesús le dice «no estás lejos del reino de Dios».",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "y amarle con todo el corazón, con todo el entendimiento, con toda el alma, y con todas las fuerzas, y amar al prójimo como a sí mismo, es más que todos los holocaustos y sacrificios."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Os 6:6 — «misericordia quiero, y no sacrificio»",
+   "1 S 15:22 — «el obedecer es mejor que los sacrificios»",
+   "Mi 6:6-8 — qué requiere Jehová"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.12.34",
+  "strong": "G3562",
+  "forma": "νουνεχῶς",
+  "glosa_interlineal": "sabiamente",
+  "rango_semantico": [
+   "con inteligencia, sensatamente"
+  ],
+  "construccion": "Adverbio: «había respondido con inteligencia».",
+  "sentido_en_contexto": "Jesús elogia al escriba con una frase única de Marcos: «no estás lejos del reino de Dios». Un escriba sincero, caso positivo entre los líderes.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Jesús entonces, viendo que había respondido sabiamente, le dijo: No estás lejos del reino de Dios. Y ya ninguno osaba preguntarle."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 22:34-40 — paralelo sin el elogio",
+   "Lc 10:28 — «bien has respondido»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.12.36",
+  "strong": "G5286",
+  "forma": "ὑποπόδιον",
+  "glosa_interlineal": "estrado",
+  "rango_semantico": [
+   "debajo de"
+  ],
+  "construccion": "ὑποκάτω + genitivo: «debajo de tus pies».",
+  "sentido_en_contexto": "Cita de Sal 110:1: David, «en el Espíritu Santo», llama Señor al Mesías. Jesús pregunta cómo puede ser su hijo, y deja la cuestión abierta.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque el mismo David dijo por el Espíritu Santo: Dijo el Señor a mi Señor: Siéntate a mi diestra, hasta que ponga a tus enemigos por estrado de tus pies."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 110:1 — texto citado",
+   "Hch 2:34-36 — aplicado a Jesús",
+   "Heb 1:13 — «siéntate a mi diestra»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.12.40",
+  "strong": "G2719",
+  "forma": "κατεσθίοντες",
+  "glosa_interlineal": "devoran",
+  "rango_semantico": [
+   "devorar, comer por completo"
+  ],
+  "construccion": "Participio presente activo: «los que devoran las casas de las viudas».",
+  "sentido_en_contexto": "Acusación a los escribas: aprovechan su posición para explotar a las viudas y fingen devoción con largas oraciones. Contrasta con la viuda del v.42.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "que devoran las casas de las viudas, y por pretexto hacen largas oraciones. Estos recibirán mayor condenación."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 20:47 — paralelo",
+   "Mt 23:14 — «devoráis las casas de las viudas» (en algunos manuscritos)",
+   "Is 10:2 — «despojar a las viudas»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.12.41",
+  "strong": "G1049",
+  "forma": "γαζοφυλακίου",
+  "glosa_interlineal": "tesoro (del templo)",
+  "rango_semantico": [
+   "tesoro, sala de ofrendas"
+  ],
+  "construccion": "Genitivo: «frente al tesoro».",
+  "sentido_en_contexto": "El «tesoro» eran cofres con forma de trompeta en el atrio de las mujeres donde se depositaban las ofrendas. Jesús, sentado, observa cómo la gente da.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Estando Jesús sentado delante del arca de la ofrenda, miraba cómo el pueblo echaba dinero en el arca; y muchos ricos echaban mucho."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 21:1 — paralelo",
+   "Jn 8:20 — «en el lugar del tesoro»",
+   "2 R 12:9 — el arca con un agujero en la tapa"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.12.42",
+  "strong": "G3016",
+  "forma": "λεπτὰ",
+  "glosa_interlineal": "blancas (monedas pequeñas)",
+  "rango_semantico": [
+   "leptón (la moneda más pequeña)",
+   "moneda de poco valor"
+  ],
+  "construccion": "Acusativo plural: «dos lepta».",
+  "sentido_en_contexto": "Dos «leptos», la moneda de cobre más pequeña; Marcos explica a sus lectores romanos que equivalen a un «cuadrante». El contraste de valor monetario y de entrega real es el punto central.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y vino una viuda pobre, y echó dos blancas, o sea un cuadrante."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 21:2 — «dos blancas»",
+   "Lc 12:59 — «hasta que pagues el último cuadrante»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.12.44",
+  "strong": "G5304",
+  "forma": "ὑστερήσεως",
+  "glosa_interlineal": "necesidad",
+  "rango_semantico": [
+   "carencia, pobreza"
+  ],
+  "construccion": "Genitivo: «de su pobreza».",
+  "sentido_en_contexto": "Los ricos dan de lo que les sobra (περισσεύοντος); ella, de su carencia, dio todo lo que tenía, «toda su vida» (βίον). Es una enseñanza sobre el valor de la entrega.",
+  "matiz": "Se debate si Jesús elogia a la viuda o lamenta la explotación del templo (v.40 la precede). La mayoría entiende un elogio de la entrega total, aunque algunos ven también una crítica al sistema.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "porque todos han echado de lo que les sobra; pero ésta, de su pobreza echó todo lo que tenía, todo su sustento."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 21:4 — paralelo",
+   "2 Co 8:2-3 — «su profunda pobreza abundó en riquezas de generosidad»",
+   "Fil 4:18 — otro uso de entrega"
+  ],
+  "nivel_certeza": "medio"
+ }
+]

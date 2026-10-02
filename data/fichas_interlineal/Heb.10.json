@@ -1,0 +1,361 @@
+[
+ {
+  "ref": "Heb.10.1",
+  "strong": "G4639",
+  "forma": "σκιὰν",
+  "glosa_interlineal": "sombra",
+  "rango_semantico": [
+   "sombra"
+  ],
+  "construccion": "Acusativo: «porque la ley, teniendo la sombra de los bienes venideros, y no la imagen misma de las cosas, nunca puede, por los mismos sacrificios que ofrecen continuamente cada año, hacer perfectos a los que se acercan».",
+  "sentido_en_contexto": "La ley es una «sombra» (σκιά) de los bienes futuros, no su realidad (εἰκών: forma verdadera). Los sacrificios repetidos prueban su incapacidad de perfeccionar: si hubieran bastado, habrían cesado (v.2).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque la ley, teniendo la sombra de los bienes venideros, y no la imagen misma de las cosas, nunca puede, por los mismos sacrificios que ofrecen continuamente cada año, hacer perfectos a los que se acercan."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Col 2:17",
+   "Heb 8:5",
+   "Heb 7:19"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Heb.10.4",
+  "strong": "G102",
+  "forma": "ἀδύνατον",
+  "glosa_interlineal": "imposible",
+  "rango_semantico": [
+   "imposible"
+  ],
+  "construccion": "Nominativo: «porque es imposible que la sangre de los toros y de los machos cabríos quite los pecados».",
+  "sentido_en_contexto": "Los sacrificios de animales no podían quitar el pecado en sentido definitivo; apuntaban a un sacrificio mejor. Se discute cómo se perdonaba el pecado en el AT: por fe, mirando adelante (sacrificios como tipos) y por la gracia de Dios.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque es imposible que la sangre de los toros y de los machos cabríos quite los pecados."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 40:6-8",
+   "Mi 6:6-8",
+   "Heb 9:9, 13-14",
+   "Ro 3:25"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Heb.10.5",
+  "strong": "G4983",
+  "forma": "σῶμα",
+  "glosa_interlineal": "cuerpo",
+  "rango_semantico": [
+   "cuerpo"
+  ],
+  "construccion": "Acusativo: «por lo cual, al entrar en el mundo dice: Sacrificio y ofrenda no quisiste; mas me preparaste cuerpo».",
+  "sentido_en_contexto": "Cita de Sal 40:6-8 según la LXX: «me preparaste un cuerpo» (el TM dice «me abriste los oídos»). Cristo habla al entrar en el mundo: su encarnación es la preparación de su sacrificio. La diferencia entre LXX y texto hebreo se explica por tradiciones textuales.",
+  "matiz": "Variante textual: LXX «un cuerpo me preparaste» frente a TM «me abriste los oídos» (obediencia). El autor sigue la LXX y subraya la encarnación. Algunos sostienen que la LXX interpretó libremente «oídos» como «cuerpo».",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Por lo cual, al entrar en el mundo dice: Sacrificio y ofrenda no quisiste; mas me preparaste cuerpo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 40:6-8",
+   "Heb 10:10",
+   "Fil 2:7",
+   "Jn 1:14"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Heb.10.7",
+  "strong": "G2240",
+  "forma": "ἥκω",
+  "glosa_interlineal": "he aquí que vengo",
+  "rango_semantico": [
+   "venir, estar presente"
+  ],
+  "construccion": "Presente indicativo activo: «entonces dije: He aquí que vengo, oh Dios, para hacer tu voluntad, como en el rollo del libro está escrito de mí».",
+  "sentido_en_contexto": "Cristo declara su disposición a cumplir la voluntad del Padre, por la cual somos santificados (v.10). «En el rollo del libro»: la Escritura que habla de él. Se aplica a la obediencia perfecta del Hijo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces dije: He aquí que vengo, oh Dios, para hacer tu voluntad, como en el rollo del libro está escrito de mí."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 40:7-8",
+   "Jn 4:34; 6:38",
+   "Lc 24:27"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Heb.10.10",
+  "strong": "G37",
+  "forma": "ἡγιασμένοι",
+  "glosa_interlineal": "santificados",
+  "rango_semantico": [
+   "santificar, consagrar"
+  ],
+  "construccion": "Participio perfecto pasivo: «en esta voluntad somos santificados mediante la ofrenda del cuerpo de Jesucristo hecha una vez para siempre».",
+  "sentido_en_contexto": "La santificación aquí es consagración definitiva (perfecto): hechos santos, apartados para Dios, por la ofrenda de una vez por todas de Cristo. Se distingue de la santificación progresiva (v.14: «los que son santificados»). Relevante para la doctrina de la santificación.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "En esa voluntad somos santificados mediante la ofrenda del cuerpo de Jesucristo hecha una vez para siempre."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 10:14; 13:12",
+   "1 Co 1:2",
+   "Jn 17:19"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Heb.10.14",
+  "strong": "G5048",
+  "forma": "τετελείωκεν",
+  "glosa_interlineal": "ha perfeccionado",
+  "rango_semantico": [
+   "perfeccionar, llevar a la meta"
+  ],
+  "construccion": "Perfecto indicativo activo: «porque con una sola ofrenda hizo perfectos para siempre a los santificados».",
+  "sentido_en_contexto": "Perfeccionados para siempre (perfecto: efecto permanente) por una sola ofrenda. Los creyentes están en proceso de santificación (presente: «los que son santificados») y a la vez perfeccionados en su posición ante Dios. Tensión entre posición y proceso.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "porque con una sola ofrenda hizo perfectos para siempre a los santificados."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 10:10",
+   "Col 2:10",
+   "Fil 3:12"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Heb.10.19",
+  "strong": "G3954",
+  "forma": "παρρησίαν",
+  "glosa_interlineal": "confianza",
+  "rango_semantico": [
+   "confianza, libertad de acceso"
+  ],
+  "construccion": "Acusativo: «así que, hermanos, teniendo libertad para entrar en el Lugar Santísimo por la sangre de Jesucristo, por el camino nuevo y vivo que él nos abrió a través del velo, esto es, de su carne».",
+  "sentido_en_contexto": "Comienza la sección de exhortación (10:19-39) con tres «acerquémonos» (v.22), «retengamos» (v.23) y «considerémonos» (v.24). El acceso a Dios se abrió por la sangre de Jesús, y el velo es su carne (su humanidad, dada en sacrificio). Puede aludir al velo del Templo rasgado (Mt 27:51).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Así que, hermanos, teniendo libertad para entrar en el Lugar Santísimo por la sangre de Jesucristo, por el camino nuevo y vivo que él nos abrió a través del velo, esto es, de su carne,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 4:16",
+   "Mt 27:51",
+   "Ef 2:18",
+   "Ro 5:2"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Heb.10.22",
+  "strong": "G4472",
+  "forma": "ῥεραντισμένοι",
+  "glosa_interlineal": "purificados por aspersión",
+  "rango_semantico": [
+   "rociar, purificar"
+  ],
+  "construccion": "Participio perfecto pasivo: «acerquémonos con corazón sincero, en plena certidumbre de fe, purificados los corazones de mala conciencia, y lavados los cuerpos con agua pura».",
+  "sentido_en_contexto": "Corazones rociados (con la sangre de Cristo) y cuerpos lavados con agua pura (probable alusión al bautismo). Imagen de la consagración sacerdotal (Éx 29:4, 21). La conciencia se limpia por la sangre; el cuerpo con agua.",
+  "matiz": "Debate: «cuerpos lavados con agua pura»: (a) bautismo (la mayoría; tradición católica, ortodoxa y protestante); (b) imagen de purificación espiritual (Ez 36:25). Se vincula con 9:14.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "acerquémonos con corazón sincero, en plena certidumbre de fe, purificados los corazones de mala conciencia, y lavados los cuerpos con agua pura."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ez 36:25",
+   "Éx 29:4",
+   "Heb 9:14",
+   "Tit 3:5"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Heb.10.25",
+  "strong": "G1997",
+  "forma": "ἐπισυναγωγὴν",
+  "glosa_interlineal": "congregación",
+  "rango_semantico": [
+   "reunión, asamblea"
+  ],
+  "construccion": "Acusativo: «no dejando de congregarnos, como algunos tienen por costumbre, sino exhortándonos; y tanto más, cuanto veis que aquel día se acerca».",
+  "sentido_en_contexto": "Exhortación a la asistencia regular a la reunión comunitaria: la fe se sostiene en la comunidad. «Aquel día» es el día del Señor (parusía o juicio, quizá también la destrucción de Jerusalén). Texto citado sobre la importancia de la congregación.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "no dejando de congregarnos, como algunos tienen por costumbre, sino exhortándonos; y tanto más, cuanto veis que aquel día se acerca."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 2:42",
+   "Heb 3:13",
+   "1 Ts 5:11",
+   "Mt 18:20"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Heb.10.26",
+  "strong": "G1596",
+  "forma": "Ἑκουσίως",
+  "glosa_interlineal": "voluntariamente",
+  "rango_semantico": [
+   "voluntariamente, deliberadamente"
+  ],
+  "construccion": "Adverbio: «porque si pecáremos voluntariamente después de haber recibido el conocimiento de la verdad, ya no queda más sacrificio por los pecados».",
+  "sentido_en_contexto": "Segunda advertencia fuerte (cf. 6:4-8): el pecado «voluntario» (deliberado, continuado, de apostasía: v.29) tras recibir la verdad excluye otro sacrificio. Se discute si se refiere a cualquier pecado voluntario o a la apostasía definitiva. La mayoría ve la apostasía deliberada y persistente.",
+  "matiz": "Debate: (a) apostasía deliberada de la fe, rechazando a Cristo (la mayoría); (b) cualquier pecado voluntario de un creyente (rigorismo novaciano, rechazado por la iglesia); (c) pérdida de la salvación (arminiana) o evidencia de que no era creyente genuino (reformada). Ver Heb 6:4-8.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque si pecáremos voluntariamente después de haber recibido el conocimiento de la verdad, ya no queda más sacrificio por los pecados,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 6:4-6",
+   "Nm 15:30-31",
+   "Mt 12:31-32",
+   "2 P 2:20-22"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Heb.10.29",
+  "strong": "G2662",
+  "forma": "καταπατήσας",
+  "glosa_interlineal": "pisoteó",
+  "rango_semantico": [
+   "pisotear, despreciar"
+  ],
+  "construccion": "Participio aoristo activo: «¿cuánto mayor castigo pensáis que merecerá el que pisoteare al Hijo de Dios, y tuviere por inmunda la sangre del pacto en la cual fue santificado, e hiciere afrenta al Espíritu de gracia?».",
+  "sentido_en_contexto": "Tres actos de apostasía: pisotear al Hijo, despreciar la sangre del pacto con la que fue santificado e insultar al Espíritu de gracia. «Fue santificado» (v.29) se usa en el debate sobre la naturaleza de quien apostata: ¿era creyente verdadero o solo santificado externamente en la comunidad del pacto?",
+  "matiz": "Debate sobre «fue santificado»: (a) el apóstata era creyente verdadero (arminiana, católica); (b) estaba santificado externamente (pertenencia a la comunidad del pacto; reformada); (c) se habla de Cristo («la sangre en la cual él fue santificado»; propuesta alternativa). Ver 6:4-8.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¿Cuánto mayor castigo pensáis que merecerá el que pisoteare al Hijo de Dios, y tuviere por inmunda la sangre del pacto en la cual fue santificado, e hiciere afrenta al Espíritu de gracia?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 6:6",
+   "Heb 10:10",
+   "Nm 15:30",
+   "Mt 12:31"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Heb.10.31",
+  "strong": "G5398",
+  "forma": "φοβερὸν",
+  "glosa_interlineal": "terrible",
+  "rango_semantico": [
+   "terrible, temible"
+  ],
+  "construccion": "Nominativo neutro: «horrenda cosa es caer en manos del Dios vivo».",
+  "sentido_en_contexto": "Cierre de la advertencia: caer en las manos del Dios vivo en juicio es terrible. Cita implícita de Dt 32:35-36 (v.30). Pero el autor confía en sus lectores (v.39): «no somos de los que retroceden para perdición».",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¡Horrenda cosa es caer en manos del Dios vivo!"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 32:35-36",
+   "Heb 12:29",
+   "Lc 12:4-5"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Heb.10.34",
+  "strong": "G5223",
+  "forma": "ὕπαρξιν",
+  "glosa_interlineal": "posesión",
+  "rango_semantico": [
+   "posesión, bienes"
+  ],
+  "construccion": "Acusativo: «porque de los presos también os compadecisteis, y el despojo de vuestros bienes sufristeis con gozo, sabiendo que tenéis en vosotros una mejor y perdurable herencia en los cielos».",
+  "sentido_en_contexto": "Los destinatarios sufrieron persecución anterior: insultos, prisión de líderes, pérdida de bienes. Soportaron con gozo por saber que tienen un bien mejor y duradero. Recordar esto fortalece la perseverancia presente.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque de los presos también os compadecisteis, y el despojo de vuestros bienes sufristeis con gozo, sabiendo que tenéis en vosotros una mejor y perdurable herencia en los cielos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 6:19-21",
+   "Fil 3:7-8",
+   "1 P 1:4",
+   "Heb 13:3"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Heb.10.38",
+  "strong": "G4102",
+  "forma": "πίστεως",
+  "glosa_interlineal": "fe",
+  "rango_semantico": [
+   "fe, fidelidad"
+  ],
+  "construccion": "Genitivo: «mas el justo vivirá por fe; y si retrocediere, no agradará a mi alma».",
+  "sentido_en_contexto": "Cita de Hab 2:3-4 (LXX con variaciones). «El justo por la fe vivirá» (Ro 1:17; Gá 3:11), aquí con énfasis en la perseverancia («si retrocede»). La fe como fidelidad perseverante, que prepara Hebreos 11.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Mas el justo vivirá por fe; y si retrocediere, no agradará a mi alma."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hab 2:3-4",
+   "Ro 1:17",
+   "Gá 3:11",
+   "Heb 11:1"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

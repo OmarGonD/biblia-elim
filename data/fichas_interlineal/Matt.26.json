@@ -1,0 +1,704 @@
+[
+ {
+  "ref": "Matt.26.2",
+  "strong": "G3957",
+  "forma": "πάσχα",
+  "glosa_interlineal": "Pascua",
+  "rango_semantico": [
+   "Pascua (fiesta judía)",
+   "cordero pascual"
+  ],
+  "construccion": "Nominativo: «la Pascua».",
+  "sentido_en_contexto": "Jesús sitúa su entrega en el marco de la Pascua, la fiesta de la liberación de Egipto. Mateo conecta su muerte con ese trasfondo.",
+  "matiz": "Debate cronológico (Sinópticos vs Juan): ¿fue la Última Cena una cena pascual (Mt 26:17-20) o precedió a la Pascua (Jn 18:28)? Se han propuesto varios calendarios y soluciones; no hay consenso.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Sabéis que dentro de dos días se celebra la pascua, y el Hijo del Hombre será entregado para ser crucificado."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 12 — la Pascua en Egipto",
+   "1 Co 5:7 — «nuestra pascua, que es Cristo, ya fue sacrificada»",
+   "Jn 18:28 — «para no contaminarse y poder comer la pascua»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.26.4",
+  "strong": "G1388",
+  "forma": "δόλῳ",
+  "glosa_interlineal": "con engaño",
+  "rango_semantico": [
+   "engaño, astucia, traición"
+  ],
+  "construccion": "Dativo instrumental: «con engaño».",
+  "sentido_en_contexto": "Los líderes buscan arrestar a Jesús en secreto, para evitar un tumulto en la fiesta. Judas les dará la oportunidad.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y consultaron en concilio para prender con astucia a Jesús, y matarle."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 55:21 — «suaves eran sus palabras, pero eran espadas desnudas»",
+   "Mr 14:1 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.26.7",
+  "strong": "G211",
+  "forma": "ἀλάβαστρον",
+  "glosa_interlineal": "vaso de alabastro",
+  "rango_semantico": [
+   "frasco de alabastro (piedra blanda)"
+  ],
+  "construccion": "Acusativo: «un frasco de alabastro».",
+  "sentido_en_contexto": "Una mujer unge a Jesús con perfume costoso en Betania. Mateo no la nombra; Juan la identifica con María de Betania (Jn 12:3).",
+  "matiz": "Los relatos de la unción difieren en detalles (cabeza/pies, lugar, nombre); se debate si son un mismo episodio o varios. Mateo y Marcos coinciden en la casa de Simón el leproso.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "vino a él una mujer, con un vaso de alabastro de perfume de mucho precio, y lo derramó sobre la cabeza de él, estando sentado a la mesa."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 14:3 — paralelo",
+   "Jn 12:3 — María unge los pies",
+   "Lc 7:37-38 — otra unción en casa de un fariseo"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.26.8",
+  "strong": "G684",
+  "forma": "ἀπώλεια",
+  "glosa_interlineal": "desperdicio",
+  "rango_semantico": [
+   "pérdida, destrucción",
+   "desperdicio"
+  ],
+  "construccion": "Nominativo: «¿para qué este desperdicio?».",
+  "sentido_en_contexto": "Los discípulos consideran un derroche el perfume. La misma palabra significa «perdición» en otros pasajes (7:13); aquí «desperdicio».",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Al ver esto, los discípulos se enojaron, diciendo: ¿Para qué este desperdicio?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 7:13 — «el camino que lleva a la perdición»",
+   "Jn 17:12 — «el hijo de perdición»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.26.10",
+  "strong": "G2570",
+  "forma": "καλὸν",
+  "glosa_interlineal": "buena",
+  "rango_semantico": [
+   "bello, bueno",
+   "hermoso, noble"
+  ],
+  "construccion": "Adjetivo acusativo: «una buena obra».",
+  "sentido_en_contexto": "Jesús califica la acción como «obra buena (καλόν)»: hermosa y noble. Contrasta con el juicio de los discípulos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y entendiéndolo Jesús, les dijo: ¿Por qué molestáis a esta mujer? pues ha hecho conmigo una buena obra."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 5:16 — «vean vuestras buenas obras»",
+   "Jn 10:32 — «muchas buenas obras»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.26.11",
+  "strong": "G4434",
+  "forma": "πτωχοὺς",
+  "glosa_interlineal": "pobres",
+  "rango_semantico": [
+   "pobre"
+  ],
+  "construccion": "Acusativo plural: «siempre tendréis pobres».",
+  "sentido_en_contexto": "Jesús no desprecia la ayuda a los pobres (alude a Dt 15:11, que manda ayudarlos); pone el acento en la ocasión única de honrarlo antes de su muerte.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque siempre tendréis pobres con vosotros, pero a mí no siempre me tendréis."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 15:11 — «siempre habrá menesterosos en la tierra»",
+   "Mr 14:7 — «podréis hacerles bien cuando queráis»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.26.12",
+  "strong": "G1779",
+  "forma": "ἐνταφιάσαι",
+  "glosa_interlineal": "preparar para la sepultura",
+  "rango_semantico": [
+   "preparar un cuerpo para el entierro",
+   "embalsamar"
+  ],
+  "construccion": "Infinitivo aoristo activo de finalidad: «para prepararme para la sepultura».",
+  "sentido_en_contexto": "Jesús interpreta el gesto como anticipo de su muerte y sepultura: el ungimiento prepara su cuerpo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque al derramar este perfume sobre mi cuerpo, lo ha hecho a fin de prepararme para la sepultura."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 19:39-40 — Nicodemo con mirra y áloes",
+   "Mr 16:1 — mujeres que van a ungirlo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.26.15",
+  "strong": "G694",
+  "forma": "ἀργύρια",
+  "glosa_interlineal": "piezas de plata",
+  "rango_semantico": [
+   "moneda de plata",
+   "dinero"
+  ],
+  "construccion": "Acusativo plural: «treinta monedas de plata».",
+  "sentido_en_contexto": "El precio de la traición: treinta monedas (precio de un esclavo muerto por un buey, Éx 21:32; cf. Zac 11:12-13). Mateo lo vincula con la profecía (27:9-10).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "y les dijo: ¿Qué me queréis dar, y yo os lo entregaré? Y ellos le asignaron treinta piezas de plata."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 21:32 — el precio de un esclavo",
+   "Zac 11:12-13 — «treinta piezas de plata»",
+   "Mt 27:3-10 — el desenlace del dinero"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.26.26",
+  "strong": "G2127",
+  "forma": "εὐλογήσας",
+  "glosa_interlineal": "bendiciendo",
+  "rango_semantico": [
+   "bendecir",
+   "dar gracias"
+  ],
+  "construccion": "Participio aoristo activo: «habiendo bendecido».",
+  "sentido_en_contexto": "Jesús toma el pan, lo bendice, lo parte y lo da: secuencia de la comida judía que él llena de nuevo significado: «esto es mi cuerpo».",
+  "matiz": "El sentido de «esto es mi cuerpo» (ἐστιν) es objeto de gran debate entre confesiones: transubstanciación (católica), presencia real (luterana), presencia espiritual (reformada), memorial simbólico (otras). El texto no resuelve la forma de la presencia.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Mientras comían, tomó Jesús el pan, y bendijo, y lo partió, y dio a sus discípulos, y dijo: Tomad, comed; esto es mi cuerpo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 22:19 — «haced esto en memoria de mí»",
+   "1 Co 11:23-26 — la tradición recibida por Pablo",
+   "Jn 6:53-56 — «el que come mi carne»"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "Matt.26.28",
+  "strong": "G1242",
+  "forma": "διαθήκης",
+  "glosa_interlineal": "pacto",
+  "rango_semantico": [
+   "pacto, alianza",
+   "testamento"
+  ],
+  "construccion": "Genitivo: «mi sangre del pacto».",
+  "sentido_en_contexto": "διαθήκη es «pacto» (hebreo berit). Jesús hace eco de Éx 24:8 («la sangre del pacto») y de Jer 31:31 (nuevo pacto). Algunos manuscritos añaden «nuevo», pues Lucas y Pablo lo dicen.",
+  "matiz": "Se discute si «nuevo» está en el texto original de Mateo: lo omiten los manuscritos antiguos; RVR sigue lo que lo incluye (como en Lucas y 1 Co).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y tomando la copa, y habiendo dado gracias, les dio, diciendo: Bebed de ella todos; porque esto es mi sangre del nuevo pacto, que por muchos es derramada para remisión de los pecados."
+   }
+  ],
+  "notas_traduccion": "RVR dice «del nuevo pacto» (como Lc 22:20 y 1 Co 11:25); el texto crítico de Mateo dice solo «del pacto».",
+  "otros_usos": [
+   "Éx 24:8 — «la sangre del pacto»",
+   "Jer 31:31 — «un nuevo pacto»",
+   "Heb 9:15-20 — Cristo mediador del pacto"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.26.28",
+  "strong": "G859",
+  "forma": "ἄφεσιν",
+  "glosa_interlineal": "perdón",
+  "rango_semantico": [
+   "remisión, perdón",
+   "liberación"
+  ],
+  "construccion": "εἰς + acusativo: «para perdón de los pecados».",
+  "sentido_en_contexto": "Propósito de la sangre derramada: perdón. Mateo es el único Evangelio que añade «para perdón de pecados» en la copa (cf. 1:21).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…que por muchos es derramada para remisión de los pecados."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 1:21 — «salvará a su pueblo de sus pecados»",
+   "Heb 9:22 — «sin derramamiento de sangre no se hace remisión»",
+   "Ef 1:7 — «redención por su sangre»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.26.29",
+  "strong": "G288",
+  "forma": "ἀμπέλου",
+  "glosa_interlineal": "vid",
+  "rango_semantico": [
+   "vid, viña"
+  ],
+  "construccion": "Genitivo: «del fruto de la vid».",
+  "sentido_en_contexto": "Jesús promete no beber más hasta el banquete del Reino: mira más allá de la cruz a la consumación gozosa.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y os digo que desde ahora no beberé más de este fruto de la vid, hasta aquel día en que lo beba nuevo con vosotros en el reino de mi Padre."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 14:25 — paralelo",
+   "Lc 22:18 — paralelo",
+   "Ap 19:9 — «las bodas del Cordero»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.26.31",
+  "strong": "G4624",
+  "forma": "σκανδαλισθήσεσθε",
+  "glosa_interlineal": "os escandalizaréis",
+  "rango_semantico": [
+   "tropezar, abandonar"
+  ],
+  "construccion": "Futuro indicativo pasivo, 2ª plural: «todos os apartaréis».",
+  "sentido_en_contexto": "Jesús predice que todos los discípulos lo abandonarán, citando Zac 13:7 («heriré al pastor»). Pedro lo niega con orgullo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces Jesús les dijo: Todos vosotros os escandalizaréis de mí esta noche; porque escrito está: Heriré al pastor, y las ovejas del rebaño serán dispersadas."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Zac 13:7 — «hiere al pastor, y serán dispersadas las ovejas»",
+   "Jn 16:32 — «seréis esparcidos cada uno por su lado»",
+   "Mt 26:56 — «todos los discípulos, dejándole, huyeron»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.26.36",
+  "strong": "G1068",
+  "forma": "Γεθσημανεί",
+  "glosa_interlineal": "Getsemaní",
+  "rango_semantico": [
+   "Getsemaní («prensa de aceite»)"
+  ],
+  "construccion": "Nombre propio: lugar al pie del monte de los Olivos.",
+  "sentido_en_contexto": "El nombre significa «lagar de aceite». Jesús va allí a orar antes de su arresto, con tres discípulos más cercanos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces llegó Jesús con ellos a un lugar que se llama Getsemaní, y dijo a sus discípulos: Sentaos aquí, entre tanto que voy allí y oro."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 14:32 — paralelo",
+   "Lc 22:39-40 — «como solía, al monte de los Olivos»",
+   "Jn 18:1 — «un huerto»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.26.38",
+  "strong": "G4036",
+  "forma": "περίλυπός",
+  "glosa_interlineal": "muy triste",
+  "rango_semantico": [
+   "muy afligido, abrumado de tristeza"
+  ],
+  "construccion": "Adjetivo nominativo: «mi alma está muy triste, hasta la muerte».",
+  "sentido_en_contexto": "Jesús confiesa una angustia profundísima, casi mortal. Es uno de los momentos más humanos de los Evangelios. Eco de Sal 42:5-6.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces Jesús les dijo: Mi alma está muy triste, hasta la muerte; quedaos aquí, y velad conmigo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 42:5 — «¿por qué te abates, oh alma mía?»",
+   "Heb 5:7 — «con gran clamor y lágrimas»",
+   "Jn 12:27 — «ahora está turbada mi alma»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.26.39",
+  "strong": "G4221",
+  "forma": "ποτήριον",
+  "glosa_interlineal": "copa",
+  "rango_semantico": [
+   "copa",
+   "(figurado) destino que uno debe aceptar"
+  ],
+  "construccion": "Nominativo: «pase de mí esta copa».",
+  "sentido_en_contexto": "La «copa» es la pasión y muerte (cf. 20:22). Jesús pide, si es posible, ser librado de ella, pero se somete a la voluntad del Padre.",
+  "matiz": "La petición «si es posible» y la sumisión final son centrales para la doctrina de las dos voluntades de Cristo (humana y divina), tema debatido en los concilios.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Yéndose un poco adelante, se postró sobre su rostro, orando y diciendo: Padre mío, si es posible, pase de mí esta copa; pero no sea como yo quiero, sino como tú."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 20:22 — «¿podéis beber la copa?»",
+   "Is 51:17 — «la copa de su ira»",
+   "Heb 5:8 — «aprendió la obediencia por lo que padeció»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.26.41",
+  "strong": "G3986",
+  "forma": "πειρασμόν",
+  "glosa_interlineal": "tentación",
+  "rango_semantico": [
+   "prueba, tentación"
+  ],
+  "construccion": "εἰς + acusativo: «entrar en tentación».",
+  "sentido_en_contexto": "Velar y orar para no caer en la prueba: eco de la petición del Padrenuestro (6:13). El contraste «espíritu dispuesto / carne débil» describe la condición humana.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Velad y orad, para que no entréis en tentación; el espíritu a la verdad está dispuesto, pero la carne es débil."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 6:13 — «no nos metas en tentación»",
+   "Ro 7:18 — «el querer el bien está en mí, pero no el hacerlo»",
+   "Gá 5:17 — «la carne desea contra el Espíritu»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.26.49",
+  "strong": "G2705",
+  "forma": "κατεφίλησεν",
+  "glosa_interlineal": "besó efusivamente",
+  "rango_semantico": [
+   "besar con afecto, besar repetidamente"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª singular: «lo besó con insistencia».",
+  "sentido_en_contexto": "El prefijo κατα- intensifica: Judas lo besa efusivamente, usando un gesto de afecto como señal de traición. Contraste cruel.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y en seguida se acercó a Jesús y dijo: ¡Salve, Maestro! Y le besó."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Pr 27:6 — «engañosos son los besos del que aborrece»",
+   "Lc 22:48 — «¿con un beso entregas al Hijo del Hombre?»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.26.52",
+  "strong": "G3162",
+  "forma": "μάχαιράν",
+  "glosa_interlineal": "espada",
+  "rango_semantico": [
+   "espada corta"
+  ],
+  "construccion": "Acusativo: «vuelve tu espada a su lugar».",
+  "sentido_en_contexto": "Jesús rechaza la defensa con violencia. «Todos los que tomen espada, a espada perecerán» es un principio general sobre la violencia.",
+  "matiz": "Se discute el alcance: ¿un principio de no violencia, o una advertencia sobre las consecuencias de la violencia? El contexto es el arresto, no una norma política general.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces Jesús le dijo: Vuelve tu espada a su lugar; porque todos los que tomen espada, a espada perecerán."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ap 13:10 — «el que a espada matare, a espada debe ser muerto»",
+   "Jn 18:36 — «mi reino no es de este mundo»",
+   "Gn 9:6 — «el que derramare sangre de hombre»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.26.53",
+  "strong": "G3003",
+  "forma": "λεγιῶνας",
+  "glosa_interlineal": "legiones",
+  "rango_semantico": [
+   "legión (unidad romana de unos 6.000 hombres)"
+  ],
+  "construccion": "Acusativo plural: «doce legiones de ángeles».",
+  "sentido_en_contexto": "Más de 70.000 ángeles: Jesús podría pedir ayuda al Padre, pero acepta el plan. Enfatiza su sumisión voluntaria.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¿Acaso piensas que no puedo ahora orar a mi Padre, y que él no me daría más de doce legiones de ángeles?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 R 6:17 — el monte lleno de caballos y carros de fuego",
+   "Mt 26:54 — «¿cómo se cumplirían las Escrituras?»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.26.59",
+  "strong": "G5577",
+  "forma": "ψευδομαρτυρίαν",
+  "glosa_interlineal": "falso testimonio",
+  "rango_semantico": [
+   "testimonio falso"
+  ],
+  "construccion": "Acusativo: «testimonio falso».",
+  "sentido_en_contexto": "El Sanedrín busca falsos testigos para condenar a Jesús. Violación de Éx 20:16 y Dt 19:16-19.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y los principales sacerdotes y los ancianos y todo el concilio, buscaban falso testimonio contra Jesús, para entregarle a la muerte,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 20:16 — «no hablarás falso testimonio»",
+   "Dt 19:16-19 — castigo del falso testigo",
+   "Sal 27:12 — «se han levantado contra mí testigos falsos»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.26.63",
+  "strong": "G1844",
+  "forma": "ἐξορκίζω",
+  "glosa_interlineal": "te conjuro",
+  "rango_semantico": [
+   "hacer jurar, conjurar",
+   "tomar juramento"
+  ],
+  "construccion": "Presente indicativo activo, 1ª singular: «te conjuro por el Dios viviente».",
+  "sentido_en_contexto": "El sumo sacerdote obliga a Jesús, con un juramento solemne, a responder si es el Cristo, el Hijo de Dios. Jesús, antes callado, responde.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Mas Jesús callaba. Entonces el sumo sacerdote le dijo: Te conjuro por el Dios viviente, que nos digas si eres tú el Cristo, el Hijo de Dios."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 19:13 — «os conjuro por Jesús»",
+   "Mr 14:61 — paralelo",
+   "Mt 16:16 — la confesión de Pedro"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.26.64",
+  "strong": "G3708",
+  "forma": "ὄψεσθε",
+  "glosa_interlineal": "veréis",
+  "rango_semantico": [
+   "ver, mirar"
+  ],
+  "construccion": "Futuro indicativo medio, 2ª plural: «veréis».",
+  "sentido_en_contexto": "Jesús responde con «tú lo has dicho» y añade una profecía: veréis al Hijo del Hombre sentado a la diestra del Poder y viniendo en las nubes (Sal 110:1 y Dn 7:13). Combina dos textos mesiánicos.",
+  "matiz": "Debate: «tú lo has dicho» (σὺ εἶπας) es una respuesta afirmativa pero indirecta; los especialistas discuten si es un «sí» matizado o una evasiva. La reacción del sumo sacerdote (v.65) la entiende como afirmación.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Jesús le dijo: Tú lo has dicho; y además os digo, que desde ahora veréis al Hijo del Hombre sentado a la diestra del poder de Dios, y viniendo en las nubes del cielo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 110:1 — «siéntate a mi diestra»",
+   "Dn 7:13 — «con las nubes del cielo venía uno como un hijo de hombre»",
+   "Hch 7:56 — Esteban ve al Hijo del Hombre a la diestra de Dios"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.26.65",
+  "strong": "G987",
+  "forma": "ἐβλασφήμησεν",
+  "glosa_interlineal": "ha blasfemado",
+  "rango_semantico": [
+   "blasfemar, injuriar"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª singular.",
+  "sentido_en_contexto": "El sumo sacerdote rasga sus vestiduras: gesto de duelo y condena. Entiende que Jesús, al reclamar un lugar a la diestra de Dios, se iguala a Dios.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces el sumo sacerdote rasgó sus vestiduras, diciendo: ¡Ha blasfemado! ¿Qué más necesidad tenemos de testigos? He aquí, ahora mismo habéis oído su blasfemia."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lv 24:16 — la blasfemia merece la muerte",
+   "Mt 9:3 — «este blasfema»",
+   "Jn 10:33 — «por blasfemia, porque tú, siendo hombre, te haces Dios»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.26.67",
+  "strong": "G1716",
+  "forma": "ἐνέπτυσαν",
+  "glosa_interlineal": "escupieron",
+  "rango_semantico": [
+   "escupir sobre"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª plural.",
+  "sentido_en_contexto": "Burla y humillación: escupen, golpean y se burlan («profetiza, Cristo»). Se cumple Is 50:6 sobre el Siervo sufriente.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces le escupieron en el rostro, y le dieron de puñetazos; y otros le abofeteaban,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 50:6 — «no escondí mi rostro de injurias y de esputos»",
+   "Mt 27:30 — también los soldados le escupieron"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.26.70",
+  "strong": "G720",
+  "forma": "ἠρνήσατο",
+  "glosa_interlineal": "negó",
+  "rango_semantico": [
+   "negar, rechazar",
+   "repudiar"
+  ],
+  "construccion": "Aoristo indicativo medio, 3ª singular.",
+  "sentido_en_contexto": "Primera negación de Pedro, ante una criada: «no sé lo que dices». Cumple la predicción de 26:34.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Mas él negó delante de todos, diciendo: No sé lo que dices."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:34 — «me negarás tres veces»",
+   "Mt 10:33 — «a cualquiera que me niegue delante de los hombres»",
+   "Jn 18:17 — primera negación"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.26.74",
+  "strong": "G2653",
+  "forma": "καταθεματίζειν",
+  "glosa_interlineal": "maldecir",
+  "rango_semantico": [
+   "maldecir, lanzar una maldición",
+   "jurar bajo maldición"
+  ],
+  "construccion": "Infinitivo presente: «comenzó a maldecir y a jurar».",
+  "sentido_en_contexto": "En la tercera negación, Pedro refuerza con maldiciones y juramentos: «no conozco al hombre». Contraste con 16:16.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces comenzó a maldecir, y a jurar: No conozco al hombre. Y en seguida cantó el gallo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 14:71 — paralelo",
+   "Mt 16:16 — «tú eres el Cristo»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.26.75",
+  "strong": "G3403",
+  "forma": "ἐμνήσθη",
+  "glosa_interlineal": "se acordó",
+  "rango_semantico": [
+   "recordar, acordarse"
+  ],
+  "construccion": "Aoristo indicativo pasivo (deponente), 3ª singular.",
+  "sentido_en_contexto": "El canto del gallo hace que Pedro recuerde la palabra de Jesús, y su arrepentimiento es inmediato: sale y llora amargamente. A diferencia de Judas (27:3-5), Pedro será restaurado.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y Pedro se acordó de las palabras de Jesús, que le había dicho: Antes que cante el gallo, me negarás tres veces. Y saliendo fuera, lloró amargamente."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 22:61-62 — «el Señor, volviéndose, miró a Pedro»",
+   "Jn 21:15-17 — la restauración de Pedro"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

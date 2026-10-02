@@ -1,0 +1,540 @@
+[
+ {
+  "ref": "Luke.6.1",
+  "strong": "G1207",
+  "forma": "δευτεροπρώτῳ",
+  "glosa_interlineal": "segundo-primer (sábado)",
+  "rango_semantico": [
+   "segundo primero (término obscuro)"
+  ],
+  "construccion": "Dativo: «en el sábado segundo-primero» (palabra única en Lucas y omitida en algunos manuscritos).",
+  "sentido_en_contexto": "Término misterioso, de significado incierto: puede referirse al primer sábado después del segundo día de la Pascua, o a un sábado especial del calendario judío.",
+  "matiz": "Se discute su sentido desde la antigüedad; muchos editores críticos lo omiten por ser una lectura difícil, apoyada por manuscritos antiguos pero extraña. Las versiones suelen traducir «un sábado».",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Aconteció en un día de reposo, que pasaba Jesús por los sembrados; y sus discípulos arrancaban espigas y comían, restregándolas con las manos."
+   }
+  ],
+  "notas_traduccion": "RVR dice simplemente «un día de reposo»; el griego añade un adjetivo raro (δευτεροπρώτῳ) cuyo sentido es incierto.",
+  "otros_usos": null,
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "Luke.6.9",
+  "strong": "G15",
+  "forma": "ἀγαθοποιῆσαι",
+  "glosa_interlineal": "hacer el bien",
+  "rango_semantico": [
+   "hacer bien, obrar bien"
+  ],
+  "construccion": "Infinitivo aoristo activo: «¿es lícito en sábado hacer bien o hacer mal?».",
+  "sentido_en_contexto": "El dilema que Jesús plantea al sanar la mano seca: ¿hacer el bien o el mal, salvar la vida o destruirla? No actuar equivale a elegir el mal.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces Jesús les dijo: Os preguntaré una cosa: ¿Es lícito en día de reposo hacer bien, o hacer mal; salvar la vida, o quitarla?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 3:4 — paralelo",
+   "Mt 12:12 — «es lícito hacer el bien»",
+   "Hch 10:38 — Jesús «pasó haciendo bienes»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.6.11",
+  "strong": "G454",
+  "forma": "ἀνοίας",
+  "glosa_interlineal": "furor insensato",
+  "rango_semantico": [
+   "falta de juicio, locura, rabia"
+  ],
+  "construccion": "Genitivo: «se llenaron de furor (de ἄνοια)».",
+  "sentido_en_contexto": "Los fariseos y escribas se llenan de ira insensata y discuten qué hacer con Jesús. Lucas lo describe como un furor irracional.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y ellos se llenaron de furor, y hablaban entre sí qué podrían hacer contra Jesús."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Ti 3:9 — «su insensatez (ἄνοια) será manifiesta a todos»",
+   "Mr 3:6 — consejo con los herodianos"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.6.12",
+  "strong": "G1273",
+  "forma": "διανυκτερεύων",
+  "glosa_interlineal": "pasando la noche",
+  "rango_semantico": [
+   "pasar la noche entera"
+  ],
+  "construccion": "Participio presente activo: «pasando la noche en oración a Dios».",
+  "sentido_en_contexto": "Solo Lucas dice que Jesús pasó toda la noche orando antes de elegir a los doce. Subraya la oración antes de decisiones cruciales.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "En aquellos días fue al monte a orar, y pasó la noche orando a Dios."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 3:21 — oró antes de ser bautizado",
+   "Lc 9:18, 28-29 — oración antes de la confesión y transfiguración",
+   "Lc 22:41-46 — Getsemaní"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.6.13",
+  "strong": "G652",
+  "forma": "ἀποστόλους",
+  "glosa_interlineal": "apóstoles",
+  "rango_semantico": [
+   "enviado, apóstol"
+  ],
+  "construccion": "Acusativo plural: «a los cuales también llamó apóstoles».",
+  "sentido_en_contexto": "Lucas dice que Jesús «dio el nombre de apóstoles» a los doce: el título nace de su llamada, no de una función espontánea. «Apóstol» es la palabra clave en Hechos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y cuando era de día, llamó a sus discípulos, y escogió a doce de ellos, a los cuales también llamó apóstoles:"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 3:14 — «constituyó a doce, para que estuviesen con él»",
+   "Hch 1:2 — «a los apóstoles que había escogido»",
+   "Hch 1:26 — Matías «contado con los once apóstoles»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.6.15",
+  "strong": "G2207",
+  "forma": "ζηλωτήν",
+  "glosa_interlineal": "zelote",
+  "rango_semantico": [
+   "zelote, celoso (miembro del partido nacionalista o celoso por la Ley)"
+  ],
+  "construccion": "Acusativo: «Simón llamado el Zelote».",
+  "sentido_en_contexto": "Lucas traduce al griego el sobrenombre arameo que Mateo y Marcos conservan («cananista»). Simón el Zelote era «celoso» (por la Ley o miembro del movimiento nacionalista).",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Mt 10:4 — «Simón el cananista»",
+   "Hch 1:13 — «Simón el Zelote»",
+   "Hch 21:20 — «todos son celosos de la ley»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.6.16",
+  "strong": "G4273",
+  "forma": "προδότης",
+  "glosa_interlineal": "traidor",
+  "rango_semantico": [
+   "traidor, el que entrega"
+  ],
+  "construccion": "Nominativo: «Judas Iscariote, que llegó a ser traidor».",
+  "sentido_en_contexto": "Lucas lo llama προδότης («traidor»), vocablo más fuerte que el «el que le entregó» de Mateo y Marcos. Judas «llegó a ser» (ἐγένετο) traidor: Lucas insinúa un proceso.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "y Judas hermano de Jacobo, y Judas Iscariote, que llegó a ser traidor."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 7:52 — «de quien vosotros ahora habéis sido entregadores (προδόται)»",
+   "Hch 1:16-17 — la defección de Judas",
+   "2 Ti 3:4 — «traidores»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.6.17",
+  "strong": "G3977",
+  "forma": "πεδινοῦ",
+  "glosa_interlineal": "llano",
+  "rango_semantico": [
+   "llano, plano"
+  ],
+  "construccion": "Genitivo: «en un lugar llano».",
+  "sentido_en_contexto": "A diferencia de Mateo (que sitúa el sermón «en el monte»), Lucas lo sitúa «en un lugar llano» después de pasar la noche en el monte. Es el «Sermón del Llano», versión más breve y con bienaventuranzas y ayes.",
+  "matiz": "Debate sobre la relación entre Mateo 5-7 y Lucas 6:20-49: ¿dos discursos distintos o dos versiones de uno solo (con fuentes comunes)? Las diferencias de lugar y extensión se explican de formas diversas.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y descendió con ellos, y se detuvo en un lugar llano, en compañía de muchos de sus discípulos, y de una gran multitud de gente de toda Judea, y de Jerusalén, y de la costa de Tiro y de Sidón,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 5:1 — «subió al monte»",
+   "Is 40:4 — «los lugares ásperos allanados»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Luke.6.19",
+  "strong": "G1411",
+  "forma": "δύναμις",
+  "glosa_interlineal": "poder",
+  "rango_semantico": [
+   "poder, fuerza"
+  ],
+  "construccion": "Nominativo: «poder salía de él y sanaba a todos».",
+  "sentido_en_contexto": "Lucas describe el poder sanador de Jesús como una fuerza que sale de él; la gente procura tocarlo. Similar a la mujer con flujo (8:46).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y toda la gente procuraba tocarle, porque poder salía de él y sanaba a todos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 8:46 — «he conocido que ha salido poder de mí»",
+   "Mr 5:30 — paralelo",
+   "Hch 19:12 — «paños… llevaban… y las enfermedades se iban»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.6.20",
+  "strong": "G4434",
+  "forma": "πτωχοί",
+  "glosa_interlineal": "pobres",
+  "rango_semantico": [
+   "pobre"
+  ],
+  "construccion": "Adjetivo nominativo plural: «bienaventurados los pobres».",
+  "sentido_en_contexto": "Lucas formula las bienaventuranzas en segunda persona («vosotros»), sin «en espíritu» (Mt 5:3) y las acompaña de cuatro ayes. El tono es más social: pobres, hambrientos, los que lloran y los perseguidos.",
+  "matiz": "Debate: ¿Lucas habla de pobreza material, Mateo de pobreza espiritual? Muchos creen que ambos subrayan lo mismo desde ángulos distintos: los pobres que dependen de Dios.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y alzando los ojos hacia sus discípulos, decía: Bienaventurados vosotros los pobres, porque vuestro es el reino de Dios."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 5:3 — «los pobres en espíritu»",
+   "Lc 4:18 — «a predicar buenas nuevas a los pobres»",
+   "Lc 16:19-31 — el rico y Lázaro"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Luke.6.21",
+  "strong": "G1070",
+  "forma": "γελάσετε",
+  "glosa_interlineal": "reiréis",
+  "rango_semantico": [
+   "reír"
+  ],
+  "construccion": "Futuro indicativo activo, 2ª plural: «reiréis».",
+  "sentido_en_contexto": "Las bienaventuranzas de Lucas son bivalentes: «ahora» sufren, «entonces» (futuro) recibirán: saciedad, risa, recompensa. Las hace corresponder con los ayes del v.24-26.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Bienaventurados los que ahora tenéis hambre, porque seréis saciados. Bienaventurados los que ahora lloráis, porque reiréis."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 126:2 — «nuestra boca se llenó de risa»",
+   "Lc 6:25 — «¡ay de los que ahora reís!»",
+   "Jn 16:20 — «vuestra tristeza se convertirá en gozo»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.6.24",
+  "strong": "G3759",
+  "forma": "οὐαὶ",
+  "glosa_interlineal": "¡ay!",
+  "rango_semantico": [
+   "¡ay! (lamento y advertencia)"
+  ],
+  "construccion": "Interjección: «¡ay de vosotros, ricos!».",
+  "sentido_en_contexto": "Solo Lucas incluye cuatro ayes, correspondientes a las cuatro bienaventuranzas: ricos, saciados, los que ríen ahora, los que son bien hablados por todos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Mas ¡ay de vosotros, ricos! porque ya tenéis vuestro consuelo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 6:20-23 — bienaventuranzas",
+   "Am 6:1-7 — ayes proféticos",
+   "Stg 5:1-6 — «ricos, llorad y aullad»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.6.27",
+  "strong": "G25",
+  "forma": "ἀγαπᾶτε",
+  "glosa_interlineal": "amad",
+  "rango_semantico": [
+   "amar"
+  ],
+  "construccion": "Imperativo presente activo, 2ª plural: «amad a vuestros enemigos».",
+  "sentido_en_contexto": "Lucas desarrolla el amor a los enemigos con cuatro mandatos (amad, haced bien, bendecid, orad) y ejemplos concretos (mejilla, manto, pedir). El criterio es la imitación de Dios que es «benigno con los ingratos y malos».",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero a vosotros los que oís, os digo: Amad a vuestros enemigos, haced bien a los que os aborrecen;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 5:44 — paralelo",
+   "Ro 12:14-21 — «bendecid a los que os persiguen»",
+   "1 P 3:9 — «no devolviendo mal por mal»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.6.31",
+  "strong": "G2309",
+  "forma": "θέλετε",
+  "glosa_interlineal": "queréis",
+  "rango_semantico": [
+   "querer, desear"
+  ],
+  "construccion": "Presente indicativo activo, 2ª plural: «como queréis que os hagan los hombres».",
+  "sentido_en_contexto": "La «regla de oro» aparece aquí en medio del pasaje sobre los enemigos (en Mt 7:12 aparece al final del Sermón). Formulada positivamente: hacer, no solo abstenerse.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y como queréis que hagan los hombres con vosotros, haced vosotros con ellos de la misma manera."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 7:12 — paralelo",
+   "Tob 4:15 — forma negativa",
+   "Lv 19:18 — «amarás a tu prójimo como a ti mismo»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.6.35",
+  "strong": "G560",
+  "forma": "ἀπελπίζοντες",
+  "glosa_interlineal": "sin esperar nada",
+  "rango_semantico": [
+   "no esperar nada a cambio, desesperar"
+  ],
+  "construccion": "Participio presente activo: «no esperando nada a cambio».",
+  "sentido_en_contexto": "«Prestad sin esperar recompensa». Algunos manuscritos leen «sin desesperar de nadie», con otro sentido. Lucas relaciona la generosidad con el comportamiento del Altísimo.",
+  "matiz": "Hay una variante textual notable: ἀπελπίζοντες («no esperando nada») o μηδὲν ἀπελπίζοντες / μηδένα ἀπελπίζοντες («sin desesperar de nadie»). La mayoría de las lecturas favorece la primera.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Amad, pues, a vuestros enemigos, y haced bien, y prestad, no esperando nada a cambio; y vuestro galardón será grande, y seréis hijos del Altísimo; porque él es benigno para con los ingratos y malos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 14:12-14 — «no llames a tus amigos… llama a los pobres»",
+   "Sal 37:26 — «todos los días tiene misericordia y presta»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Luke.6.36",
+  "strong": "G3629",
+  "forma": "οἰκτίρμονες",
+  "glosa_interlineal": "misericordiosos",
+  "rango_semantico": [
+   "compasivo, misericordioso"
+  ],
+  "construccion": "Adjetivo nominativo plural: «sed misericordiosos».",
+  "sentido_en_contexto": "Lucas dice «misericordiosos» donde Mateo (5:48) dice «perfectos»: el modelo es la compasión del Padre. Ambas formulaciones se explican mutuamente.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Sed, pues, misericordiosos, como también vuestro Padre es misericordioso."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 5:48 — «sed perfectos»",
+   "Éx 34:6 — «misericordioso y piadoso»",
+   "Stg 5:11 — «el Señor es muy misericordioso»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.6.37",
+  "strong": "G630",
+  "forma": "ἀπολύετε",
+  "glosa_interlineal": "perdonad",
+  "rango_semantico": [
+   "soltar, perdonar, liberar"
+  ],
+  "construccion": "Imperativo presente activo, 2ª plural: «perdonad (soltad), y seréis perdonados».",
+  "sentido_en_contexto": "Lucas usa ἀπολύω («soltar») para perdonar; Mateo usa ἀφίημι. Mandatos paralelos: no juzguéis, no condenéis, perdonad, dad.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "No juzguéis, y no seréis juzgados; no condenéis, y no seréis condenados; perdonad, y seréis perdonados."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 7:1-2 — «no juzguéis»",
+   "Mt 6:14-15 — perdón recíproco",
+   "Col 3:13 — «perdonándoos unos a otros»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.6.38",
+  "strong": "G5240",
+  "forma": "ὑπερεκχυννόμενον",
+  "glosa_interlineal": "rebosando",
+  "rango_semantico": [
+   "desbordarse, rebosar"
+  ],
+  "construccion": "Participio presente pasivo: «rebosando».",
+  "sentido_en_contexto": "Imagen de generosidad comercial: medida buena, apretada, sacudida y desbordante, derramada en el regazo (el pliegue del manto). Dios da con abundancia.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Dad, y se os dará; medida buena, apretada, remecida y rebosando darán en vuestro regazo; porque con la misma medida con que medís, os volverán a medir."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 4:24 — «con la medida con que medís, os será medido»",
+   "Sal 23:5 — «mi copa está rebosando»",
+   "2 Co 9:6 — «el que siembra generosamente»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.6.40",
+  "strong": "G2675",
+  "forma": "κατηρτισμένος",
+  "glosa_interlineal": "perfeccionado",
+  "rango_semantico": [
+   "preparar, restaurar, equipar plenamente"
+  ],
+  "construccion": "Participio perfecto pasivo: «todo el que fuere perfeccionado será como su maestro».",
+  "sentido_en_contexto": "El discípulo plenamente formado será como su maestro. El mismo verbo se usa para remendar redes (Mt 4:21) y restaurar a un caído (Gá 6:1).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "El discípulo no es superior a su maestro; mas todo el que fuere perfeccionado, será como su maestro."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 10:25 — «bástale al discípulo ser como su maestro»",
+   "Jn 13:16 — «el siervo no es mayor que su señor»",
+   "Ef 4:12 — «perfeccionar a los santos»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.6.45",
+  "strong": "G2344",
+  "forma": "θησαυροῦ",
+  "glosa_interlineal": "tesoro",
+  "rango_semantico": [
+   "tesoro, depósito"
+  ],
+  "construccion": "ἐκ + genitivo: «del buen tesoro de su corazón».",
+  "sentido_en_contexto": "Lucas ancla el discurso en el corazón: de lo que hay dentro sale lo bueno o lo malo, y la boca lo manifiesta. Se une con la imagen del árbol y su fruto.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "El hombre bueno, del buen tesoro de su corazón saca lo bueno; y el hombre malo, del mal tesoro de su corazón saca lo malo; porque de la abundancia del corazón habla la boca."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 12:34-35 — paralelo",
+   "Mt 6:21 — «donde está vuestro tesoro, allí estará vuestro corazón»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.6.46",
+  "strong": "G2962",
+  "forma": "κύριε",
+  "glosa_interlineal": "Señor",
+  "rango_semantico": [
+   "amo, señor",
+   "título de respeto o divino"
+  ],
+  "construccion": "Vocativo repetido: «Señor, Señor».",
+  "sentido_en_contexto": "Cierre del sermón: no basta llamarlo Señor, hay que hacer lo que dice. Lucas lo pone como pregunta retórica («¿por qué me llamáis Señor, Señor, y no hacéis lo que yo digo?»).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¿Por qué me llamáis, Señor, Señor, y no hacéis lo que yo digo?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 7:21 — «no todo el que me dice: Señor, Señor»",
+   "Jn 14:15 — «si me amáis, guardad mis mandamientos»",
+   "Stg 1:22 — «sed hacedores de la palabra»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Luke.6.48",
+  "strong": "G2310",
+  "forma": "θεμέλιον",
+  "glosa_interlineal": "cimiento",
+  "rango_semantico": [
+   "fundamento, cimiento"
+  ],
+  "construccion": "Acusativo: «puso el fundamento sobre la roca».",
+  "sentido_en_contexto": "En Lucas, el constructor sabio cava hondo hasta llegar a la roca; el necio construye «sin cimiento». Mateo habla de roca y arena. Lucas subraya el trabajo de profundizar.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "semejante es al hombre que al edificar una casa, cavó y ahondó y puso el fundamento sobre la roca; y cuando vino una inundación, el río dio con ímpetu contra aquella casa, pero no la pudo mover, porque estaba fundada sobre la roca."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 7:24-27 — paralelo con arena",
+   "1 Co 3:11 — «nadie puede poner otro fundamento»",
+   "Ef 2:20 — «sobre el fundamento de los apóstoles»"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

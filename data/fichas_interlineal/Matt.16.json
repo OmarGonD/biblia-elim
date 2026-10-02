@@ -1,0 +1,535 @@
+[
+ {
+  "ref": "Matt.16.1",
+  "strong": "G4523",
+  "forma": "Σαδδουκαῖοι",
+  "glosa_interlineal": "saduceos",
+  "rango_semantico": [
+   "saduceo (miembro del partido sacerdotal aristocrático)"
+  ],
+  "construccion": "Nominativo plural.",
+  "sentido_en_contexto": "Aliados circunstanciales de los fariseos contra Jesús. Rechazaban la resurrección y las tradiciones orales, y dominaban el templo y el Sanedrín.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Vinieron los fariseos y los saduceos para tentarle, y le pidieron que les mostrase señal del cielo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 22:23 — «los saduceos, que dicen que no hay resurrección»",
+   "Hch 23:8 — «los saduceos dicen que no hay resurrección, ni ángel, ni espíritu»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.16.4",
+  "strong": "G4592",
+  "forma": "σημεῖον",
+  "glosa_interlineal": "señal",
+  "rango_semantico": [
+   "señal, signo",
+   "milagro como prueba"
+  ],
+  "construccion": "Acusativo: «una señal».",
+  "sentido_en_contexto": "Petición de una señal celestial como prueba. Jesús repite la respuesta de 12:39: solo la señal de Jonás.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "La generación mala y adúltera demanda señal; pero señal no le será dada, sino la señal del profeta Jonás. Y dejándolos, se fue."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 12:39 — misma respuesta",
+   "Mr 8:11-12 — paralelo",
+   "Jn 6:30 — «¿qué señal haces?»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.16.6",
+  "strong": "G2219",
+  "forma": "ζύμης",
+  "glosa_interlineal": "levadura",
+  "rango_semantico": [
+   "levadura, fermento",
+   "(figurado) influencia que se extiende"
+  ],
+  "construccion": "ἀπὸ + genitivo: «guardaos de la levadura».",
+  "sentido_en_contexto": "Aquí «levadura» es una influencia corruptora que se propaga: la enseñanza de fariseos y saduceos (v.12). Contrasta con la levadura del Reino (13:33).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y Jesús les dijo: Mirad, guardaos de la levadura de los fariseos y de los saduceos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 13:33 — levadura del Reino",
+   "Lc 12:1 — «la levadura de los fariseos, que es la hipocresía»",
+   "1 Co 5:6-8 — «un poco de levadura»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.16.9",
+  "strong": "G3539",
+  "forma": "νοεῖτε",
+  "glosa_interlineal": "entendéis",
+  "rango_semantico": [
+   "percibir con la mente, comprender"
+  ],
+  "construccion": "Presente indicativo activo, 2ª plural: «¿aún no entendéis?».",
+  "sentido_en_contexto": "Los discípulos se preocupan por el pan olvidado y no captan el sentido metafórico. Jesús les recuerda las multiplicaciones.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¿Aún no entendéis ni os acordáis de los cinco panes entre cinco mil hombres, y cuántas cestas recogisteis?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 8:17-21 — paralelo",
+   "Mt 15:16 — «¿también vosotros sois aún sin entendimiento?»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.16.13",
+  "strong": "G2542",
+  "forma": "Καισαρείας",
+  "glosa_interlineal": "Cesarea",
+  "rango_semantico": [
+   "Cesarea de Filipo (ciudad al pie del monte Hermón)"
+  ],
+  "construccion": "Genitivo: «la región de Cesarea de Filipo».",
+  "sentido_en_contexto": "Ciudad pagana, con templo dedicado a Pan y al emperador. En este entorno de poderes humanos y paganos, Jesús pregunta su identidad.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Viniendo Jesús a la región de Cesarea de Filipo, preguntó a sus discípulos, diciendo: ¿Quién dicen los hombres que es el Hijo del Hombre?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 8:27 — paralelo",
+   "Lc 9:18 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.16.16",
+  "strong": "G2198",
+  "forma": "ζῶντος",
+  "glosa_interlineal": "viviente",
+  "rango_semantico": [
+   "vivo, que vive"
+  ],
+  "construccion": "Genitivo participial: «del Dios viviente».",
+  "sentido_en_contexto": "«Dios viviente» contrasta con los ídolos de la región. La confesión de Pedro: Jesús es el Mesías (Χριστός) y el Hijo del Dios vivo.",
+  "matiz": "Se debate el alcance de «Hijo de Dios» en boca de Pedro: título mesiánico (Sal 2:7) o filiación divina en sentido pleno. Mateo lo sitúa como revelación del Padre (v.17).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Respondiendo Simón Pedro, dijo: Tú eres el Cristo, el Hijo del Dios viviente."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jos 3:10 — «el Dios vivo está en medio de vosotros»",
+   "Mt 26:63 — «el Cristo, el Hijo de Dios»",
+   "Jn 6:69 — «tú eres el Santo de Dios»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.16.17",
+  "strong": "G601",
+  "forma": "ἀπεκάλυψέν",
+  "glosa_interlineal": "reveló",
+  "rango_semantico": [
+   "revelar, descubrir",
+   "hacer manifiesto"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª singular: «reveló».",
+  "sentido_en_contexto": "La confesión de Pedro no es obra de su razón humana («carne y sangre») sino revelación del Padre. Contrasta con 11:25-27.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces le respondió Jesús: Bienaventurado eres, Simón, hijo de Jonás, porque no te lo reveló carne ni sangre, sino mi Padre que está en los cielos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 11:25-27 — «el Hijo… a quien el Hijo lo quiera revelar»",
+   "Gá 1:16 — «revelar a su Hijo en mí»",
+   "1 Co 2:10 — «Dios nos lo reveló a nosotros por el Espíritu»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.16.18",
+  "strong": "G4074",
+  "forma": "Πέτρος",
+  "glosa_interlineal": "Pedro",
+  "rango_semantico": [
+   "Pedro (griego Πέτρος, «piedra»; arameo Kefa)"
+  ],
+  "construccion": "Nominativo, nombre propio: «tú eres Pedro».",
+  "sentido_en_contexto": "Juego de palabras con πέτρα («roca»). Jesús da a Simón un nombre nuevo que apunta a una función.",
+  "matiz": "Pasaje muy debatido entre confesiones: «esta roca» (πέτρα) puede ser (a) Pedro mismo (interpretación católica); (b) la confesión de Pedro, es decir, la fe en Cristo (muchas interpretaciones protestantes y ortodoxas); (c) Cristo mismo (cf. 1 Co 10:4). En griego, Πέτρος (masculino) y πέτρα (femenino) difieren, pero en arameo ambos serían kefa.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y yo también te digo, que tú eres Pedro, y sobre esta roca edificaré mi iglesia; y las puertas del Hades no prevalecerán contra ella."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 1:42 — «tú serás llamado Cefas (que quiere decir Pedro)»",
+   "1 Co 10:4 — «la roca era Cristo»",
+   "Ef 2:20 — «edificados sobre el fundamento de los apóstoles»"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "Matt.16.18",
+  "strong": "G1577",
+  "forma": "ἐκκλησίαν",
+  "glosa_interlineal": "iglesia",
+  "rango_semantico": [
+   "asamblea, congregación",
+   "iglesia (comunidad de los creyentes)"
+  ],
+  "construccion": "Acusativo: «mi iglesia».",
+  "sentido_en_contexto": "En Mateo, ἐκκλησία aparece solo aquí y en 18:17. Traduce el hebreo qahal («asamblea de Israel»). Jesús anuncia que edificará su propia comunidad.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…sobre esta roca edificaré mi iglesia…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 18:17 — «dilo a la iglesia»",
+   "Hch 7:38 — «la congregación en el desierto»",
+   "Ef 5:25 — «Cristo amó a la iglesia»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.16.18",
+  "strong": "G2729",
+  "forma": "κατισχύσουσιν",
+  "glosa_interlineal": "prevalecerán",
+  "rango_semantico": [
+   "tener fuerza contra, vencer",
+   "prevalecer"
+  ],
+  "construccion": "Futuro indicativo activo, 3ª plural.",
+  "sentido_en_contexto": "«Las puertas del Hades» pueden representar el poder de la muerte (el lugar de los muertos) o las fuerzas del mal. Jesús promete que no vencerán a su iglesia.",
+  "matiz": "Debate: ¿«las puertas» atacan o resisten? Se discute si el sentido es defensivo (la iglesia no será vencida) u ofensivo (la iglesia asaltará las puertas del Hades). Muchos prefieren la primera.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…y las puertas del Hades no prevalecerán contra ella."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 107:18 — «llegaron hasta las puertas de la muerte»",
+   "Is 38:10 — «a las puertas del Seol»",
+   "1 Co 15:55 — «¿dónde está, oh sepulcro, tu victoria?»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.16.19",
+  "strong": "G2807",
+  "forma": "κλεῖδας",
+  "glosa_interlineal": "llaves",
+  "rango_semantico": [
+   "llave"
+  ],
+  "construccion": "Acusativo plural: «las llaves del reino de los cielos».",
+  "sentido_en_contexto": "Las llaves simbolizan autoridad para abrir y cerrar (Is 22:22). A Pedro se le da una autoridad de administración en el reino; en 18:18 se extiende a toda la comunidad.",
+  "matiz": "Se debate el alcance: ¿una autoridad especial de Pedro y sus sucesores (tradición católica), una función compartida por todos los apóstoles y la iglesia (18:18), o la autoridad de predicar el evangelio abriendo la puerta a judíos (Hch 2) y gentiles (Hch 10)?",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y a ti te daré las llaves del reino de los cielos…"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 22:22 — «pondré la llave de la casa de David sobre su hombro»",
+   "Ap 3:7 — Cristo «tiene la llave de David»",
+   "Mt 18:18 — la autoridad de atar y desatar a la comunidad"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "Matt.16.19",
+  "strong": "G1210",
+  "forma": "δήσῃς",
+  "glosa_interlineal": "atares",
+  "rango_semantico": [
+   "atar, ligar",
+   "declarar prohibido"
+  ],
+  "construccion": "Subjuntivo aoristo activo: «lo que ates».",
+  "sentido_en_contexto": "«Atar y desatar» es lenguaje rabínico: declarar prohibido o permitido (interpretar la Ley), y también quizá imponer o levantar una disciplina.",
+  "matiz": "Los verbos en griego están en futuro perfecto perifrástico: «habrá sido atado» (ἔσται δεδεμένον): lo decidido en la tierra refleja lo ya decidido en el cielo, no al revés. Es una frase muy discutida.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…y todo lo que atares en la tierra será atado en los cielos; y todo lo que desatares en la tierra será desatado en los cielos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 18:18 — vuelve a la comunidad",
+   "Jn 20:23 — «a quienes perdonéis los pecados»"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "Matt.16.21",
+  "strong": "G1163",
+  "forma": "δεῖ",
+  "glosa_interlineal": "es necesario",
+  "rango_semantico": [
+   "ser necesario, deber",
+   "ser inevitable por designio divino"
+  ],
+  "construccion": "Presente impersonal: «es necesario».",
+  "sentido_en_contexto": "δεῖ expresa necesidad dentro del plan de Dios, no obligación humana. El sufrimiento del Mesías es parte del plan.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Desde entonces comenzó Jesús a declarar a sus discípulos que le era necesario ir a Jerusalén y padecer mucho de los ancianos, de los principales sacerdotes y de los escribas; y ser muerto, y resucitar al tercer día."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 24:26 — «¿no era necesario que el Cristo padeciese estas cosas?»",
+   "Mt 26:54 — «¿cómo, pues, se cumplirían las Escrituras, de que es necesario que así se haga?»",
+   "Hch 17:3 — «era necesario que el Cristo padeciese»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.16.22",
+  "strong": "G2436",
+  "forma": "ἵλεώς",
+  "glosa_interlineal": "Dios te libre",
+  "rango_semantico": [
+   "propicio, misericordioso",
+   "¡Dios no lo permita!"
+  ],
+  "construccion": "Adjetivo en uso exclamativo: «¡Dios tenga piedad de ti / que Dios te libre!».",
+  "sentido_en_contexto": "Pedro reacciona con horror ante el anuncio de la pasión: una frase corta, en tono de súplica y de reprensión.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces Pedro, tomándolo aparte, comenzó a reconvenirle, diciendo: Señor, ten compasión de ti; en ninguna manera esto te acontezca."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Heb 8:12 — «seré propicio a sus injusticias»",
+   "1 Cr 11:19 — «Dios me libre de hacer esto» (LXX)"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.16.23",
+  "strong": "G4625",
+  "forma": "σκάνδαλον",
+  "glosa_interlineal": "tropiezo",
+  "rango_semantico": [
+   "trampa, piedra de tropiezo",
+   "ocasión de caer"
+  ],
+  "construccion": "Nominativo, predicado: «tropiezo eres para mí».",
+  "sentido_en_contexto": "Jesús llama a Pedro «Satanás» y «tropiezo»: el mismo a quien dio las llaves se vuelve obstáculo cuando se opone al plan de Dios. Contraste con el v.18.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero él, volviéndose, dijo a Pedro: ¡Quítate de delante de mí, Satanás! Me eres tropiezo, porque no pones la mira en las cosas de Dios, sino en las de los hombres."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 4:10 — «vete, Satanás» (en la tentación)",
+   "Mt 18:7 — «¡ay del mundo por los tropiezos!»",
+   "Ro 9:33 — «piedra de tropiezo»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.16.23",
+  "strong": "G5426",
+  "forma": "φρονεῖς",
+  "glosa_interlineal": "piensas, pones la mira",
+  "rango_semantico": [
+   "pensar, tener una mentalidad",
+   "tener en mente"
+  ],
+  "construccion": "Presente indicativo activo, 2ª singular.",
+  "sentido_en_contexto": "«No piensas las cosas de Dios sino las de los hombres»: φρονέω es una actitud de la mente que determina los planes. Pedro piensa en términos humanos de poder y éxito.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…porque no pones la mira en las cosas de Dios, sino en las de los hombres."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Fil 2:5 — «haya en vosotros este sentir (φρονεῖτε) que hubo también en Cristo Jesús»",
+   "Col 3:2 — «poned la mira en las cosas de arriba»",
+   "Ro 8:5 — «los que viven según la carne piensan en las cosas de la carne»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.16.24",
+  "strong": "G533",
+  "forma": "ἀπαρνησάσθω",
+  "glosa_interlineal": "niéguese",
+  "rango_semantico": [
+   "negar, renunciar",
+   "rechazar a uno mismo"
+  ],
+  "construccion": "Imperativo aoristo medio, 3ª singular: «renuncie a sí mismo».",
+  "sentido_en_contexto": "Primera exigencia del discipulado: renunciar a uno mismo (no a las cosas, sino a ser el centro). Es el mismo verbo de la negación de Pedro (26:34).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces Jesús dijo a sus discípulos: Si alguno quiere venir en pos de mí, niéguese a sí mismo, y tome su cruz, y sígame."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 26:34 — «antes que cante el gallo, me negarás»",
+   "Lc 9:23 — «cada día»",
+   "Gá 2:20 — «ya no vivo yo»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.16.25",
+  "strong": "G5590",
+  "forma": "ψυχὴν",
+  "glosa_interlineal": "vida",
+  "rango_semantico": [
+   "vida, alma",
+   "persona"
+  ],
+  "construccion": "Acusativo: «su vida».",
+  "sentido_en_contexto": "Juego de palabras: quien quiere salvar su ψυχή (vida) la pierde, quien la pierde por Jesús la gana. El mismo término se traduce «vida» y «alma» en la misma frase, según el contexto.",
+  "matiz": "El v.26 usa también ψυχή («alma»): se debate si «alma» aquí es la vida física, la persona entera o el ser espiritual. En el contexto de entrega por Cristo, parece ser «vida entera».",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque todo el que quiera salvar su vida, la perderá; y todo el que pierda su vida por causa de mí, la hallará."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 10:39 — paralelo",
+   "Jn 12:25 — «el que ama su vida, la perderá»",
+   "Mr 8:35-37 — paralelo"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.16.26",
+  "strong": "G465",
+  "forma": "ἀντάλλαγμα",
+  "glosa_interlineal": "a cambio",
+  "rango_semantico": [
+   "precio de intercambio, rescate"
+  ],
+  "construccion": "Acusativo: «¿qué dará el hombre a cambio de su alma?».",
+  "sentido_en_contexto": "Pregunta retórica: no hay precio equivalente a la propia vida; nada del mundo compensa su pérdida.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque ¿qué aprovechará al hombre, si ganare todo el mundo, y perdiere su alma? ¿O qué recompensa dará el hombre por su alma?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 49:7-8 — «ninguno de ellos podrá en manera alguna redimir al hermano»",
+   "Mr 8:37 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.16.27",
+  "strong": "G591",
+  "forma": "ἀποδώσει",
+  "glosa_interlineal": "retribuirá",
+  "rango_semantico": [
+   "devolver, pagar",
+   "dar lo que corresponde"
+  ],
+  "construccion": "Futuro indicativo activo, 3ª singular.",
+  "sentido_en_contexto": "En la venida del Hijo del Hombre cada uno recibirá según sus obras. El juicio final está ligado a la conducta de cada uno.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque el Hijo del Hombre vendrá en la gloria de su Padre con sus ángeles, y entonces pagará a cada uno conforme a sus obras."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 62:12 — «tú pagas a cada uno conforme a su obra»",
+   "Ro 2:6 — «el cual pagará a cada uno conforme a sus obras»",
+   "Ap 22:12 — «mi galardón conmigo»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.16.28",
+  "strong": "G1089",
+  "forma": "γεύσωνται",
+  "glosa_interlineal": "gusten",
+  "rango_semantico": [
+   "probar, gustar",
+   "experimentar"
+  ],
+  "construccion": "Subjuntivo aoristo medio: «no gustarán la muerte».",
+  "sentido_en_contexto": "Expresión hebrea para «morir». Jesús afirma que algunos de sus oyentes verán «al Hijo del Hombre viniendo en su reino» antes de morir.",
+  "matiz": "Debate muy conocido: ¿a qué se refiere? (a) la Transfiguración (que sigue de inmediato, 17:1-8); (b) la resurrección y exaltación; (c) Pentecostés; (d) la destrucción de Jerusalén en 70 d.C.; (e) la venida final (y «algunos» serían los que quedaran hasta entonces). No hay consenso.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "De cierto os digo que hay algunos de los que están aquí, que no gustarán la muerte, hasta que hayan visto al Hijo del Hombre viniendo en su reino."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 17:1-8 — la Transfiguración",
+   "Mt 10:23 — «antes que venga el Hijo del Hombre»",
+   "Heb 2:9 — «gustase la muerte por todos»"
+  ],
+  "nivel_certeza": "bajo"
+ }
+]

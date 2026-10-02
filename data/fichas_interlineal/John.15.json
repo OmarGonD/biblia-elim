@@ -1,0 +1,485 @@
+[
+ {
+  "ref": "John.15.1",
+  "strong": "G288",
+  "forma": "ἄμπελος",
+  "glosa_interlineal": "vid",
+  "rango_semantico": [
+   "vid, viña"
+  ],
+  "construccion": "Nominativo: «yo soy la vid verdadera».",
+  "sentido_en_contexto": "Séptima y última declaración «Yo soy» con predicado. En el AT, Israel es la viña/vid de Dios (Is 5:1-7; Sal 80:8-16), que con frecuencia resulta infructuosa. Jesús es la vid verdadera: el Israel fiel en persona, y sus discípulos son los pámpanos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Yo soy la vid verdadera, y mi Padre es el labrador."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 5:1-7 — el cantar de la viña",
+   "Sal 80:8-16",
+   "Jer 2:21 — «yo te planté de vid escogida»",
+   "Os 10:1"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.15.2",
+  "strong": "G142",
+  "forma": "αἴρει",
+  "glosa_interlineal": "quita",
+  "rango_semantico": [
+   "levantar, quitar, llevarse"
+  ],
+  "construccion": "Presente indicativo activo: «todo pámpano que en mí no lleva fruto, lo quita».",
+  "sentido_en_contexto": "αἴρω es «levantar» y «quitar». Se ha propuesto que el viticultor «levanta» (sostiene) los sarmientos caídos en lugar de cortarlos, pero el contraste con «echado fuera» en v.6 favorece «quitar». El Padre poda (καθαίρει) los que llevan fruto para que den más.",
+  "matiz": "Debate: ¿«en mí» describe a verdaderos creyentes que pueden perderse (arminianos), a creyentes solo en apariencia como Judas (reformados), o a cristianos infructuosos disciplinados sin perder la salvación? El verbo αἴρω («levantar» o «quitar») también influye. Hay amplio debate teológico.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Todo pámpano que en mí no lleva fruto, lo quitará; y todo aquel que lleva fruto, lo limpiará, para que lleve más fruto."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 15:6",
+   "Heb 12:5-11 — la disciplina",
+   "Mt 3:10; 7:19 — árbol sin fruto cortado",
+   "Ro 11:17-22"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.15.3",
+  "strong": "G2513",
+  "forma": "καθαροί",
+  "glosa_interlineal": "limpios",
+  "rango_semantico": [
+   "limpio, puro"
+  ],
+  "construccion": "Adjetivo nominativo plural: «ya vosotros estáis limpios por la palabra».",
+  "sentido_en_contexto": "Juego de palabras con καθαίρει (v.2, «limpia/poda»): los discípulos ya están «podados/limpios» por la palabra de Jesús. Alude al lavado en 13:10.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Ya vosotros estáis limpios por la palabra que os he hablado."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 13:10",
+   "Ef 5:26 — «lavamiento del agua por la palabra»",
+   "Jn 17:17 — «santifícalos en tu verdad»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.15.4",
+  "strong": "G3306",
+  "forma": "μείνατε",
+  "glosa_interlineal": "permaneced",
+  "rango_semantico": [
+   "permanecer, morar, quedarse"
+  ],
+  "construccion": "Imperativo aoristo activo: «permaneced en mí, y yo en vosotros».",
+  "sentido_en_contexto": "Verbo clave del capítulo (11 veces): μένω expresa comunión estable y mutua. Sin permanecer en Cristo no hay fruto, como el sarmiento no vive separado de la vid.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Permaneced en mí, y yo en vosotros. Como el pámpano no puede llevar fruto por sí mismo, si no permanece en la vid, así tampoco vosotros, si no permanecéis en mí."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 6:56 — «en mí permanece, y yo en él»",
+   "1 Jn 2:6, 24, 27–28; 3:24; 4:13",
+   "Jn 14:23"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.15.5",
+  "strong": "G5565",
+  "forma": "χωρὶς",
+  "glosa_interlineal": "separados",
+  "rango_semantico": [
+   "aparte de, sin, separado de"
+  ],
+  "construccion": "Preposición con genitivo: «separados de mí nada podéis hacer».",
+  "sentido_en_contexto": "Declaración de dependencia total del creyente respecto de Cristo para dar fruto espiritual. «Nada» (οὐδέν) es absoluto.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Yo soy la vid, vosotros los pámpanos; el que permanece en mí, y yo en él, éste lleva mucho fruto; porque separados de mí nada podéis hacer."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 1:3 — «sin él nada de lo que ha sido hecho, fue hecho»",
+   "Fil 4:13 — «todo lo puedo en Cristo»",
+   "2 Co 3:5"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.15.6",
+  "strong": "G906",
+  "forma": "ἐβλήθη",
+  "glosa_interlineal": "fue echado",
+  "rango_semantico": [
+   "echar, arrojar"
+  ],
+  "construccion": "Aoristo indicativo pasivo: «será echado fuera como pámpano, y se secará».",
+  "sentido_en_contexto": "Aoristo gnómico (verdad general). Los sarmientos sin vida se echan al fuego: imagen del juicio sobre quienes no permanecen. La interpretación del destino varía según la teología.",
+  "matiz": "El debate sobre si describe la pérdida de la salvación (arminianos), la manifestación de que nunca fueron verdaderos creyentes (reformados) o la pérdida de fruto y de recompensa (algunos evangélicos) es antiguo. La imagen y el contexto (Judas, 13:30) apoyan que se trate del juicio sobre quien se separa de Cristo.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "El que en mí no permanece, será echado fuera como pámpano, y se secará; y los recogen, y los echan en el fuego, y arden."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ez 15:1-8 — la vid inútil, al fuego",
+   "Mt 3:10; 13:40-42",
+   "1 Jn 2:19 — «salieron de nosotros, pero no eran de nosotros»",
+   "Heb 6:4-8"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.15.7",
+  "strong": "G4487",
+  "forma": "ῥήματά",
+  "glosa_interlineal": "palabras",
+  "rango_semantico": [
+   "palabra, dicho"
+  ],
+  "construccion": "Nominativo plural: «si mis palabras permanecen en vosotros».",
+  "sentido_en_contexto": "Permanecer en Cristo implica que sus palabras permanezcan en el discípulo; de ahí nace una oración eficaz («pedid todo lo que queréis»), pues el deseo del discípulo se alinea con la voluntad de Jesús.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Si permanecéis en mí, y mis palabras permanecen en vosotros, pedid todo lo que queréis, y os será hecho."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 14:13-14",
+   "1 Jn 3:22; 5:14-15",
+   "Sal 37:4 — «deléitate asimismo en Jehová»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.15.8",
+  "strong": "G3101",
+  "forma": "μαθηταί",
+  "glosa_interlineal": "discípulos",
+  "rango_semantico": [
+   "discípulo, aprendiz, seguidor"
+  ],
+  "construccion": "Nominativo plural: «seáis así mis discípulos».",
+  "sentido_en_contexto": "El fruto abundante glorifica al Padre y es la marca del verdadero discipulado. El texto pasa del fruto a ser discípulo, como si fuese una evidencia, no una condición de mérito.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "En esto es glorificado mi Padre, en que llevéis mucho fruto, y seáis así mis discípulos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 13:35",
+   "Mt 7:16-20",
+   "Gá 5:22-23 — el fruto del Espíritu"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.15.9",
+  "strong": "G26",
+  "forma": "ἀγάπῃ",
+  "glosa_interlineal": "amor",
+  "rango_semantico": [
+   "amor"
+  ],
+  "construccion": "Dativo: «permaneced en mi amor».",
+  "sentido_en_contexto": "Cadena de amor: el Padre ama al Hijo, el Hijo ama a los discípulos, estos permanecen en su amor y se aman entre sí. Permanecer en el amor de Jesús equivale a obedecer sus mandamientos (v.10).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Como el Padre me ha amado, yo también os he amado; permaneced en mi amor."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 17:23, 26",
+   "1 Jn 4:16 — «el que permanece en amor, permanece en Dios»",
+   "Jud 21 — «conservaos en el amor de Dios»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.15.11",
+  "strong": "G5479",
+  "forma": "χαρὰ",
+  "glosa_interlineal": "gozo",
+  "rango_semantico": [
+   "gozo, alegría"
+  ],
+  "construccion": "Nominativo: «para que mi gozo esté en vosotros, y vuestro gozo sea cumplido».",
+  "sentido_en_contexto": "Jesús habla de su propio gozo compartido con los discípulos, un gozo pleno que brota de la obediencia y la comunión, y que ni la cruz anulará (16:20-24).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Estas cosas os he hablado, para que mi gozo esté en vosotros, y vuestro gozo sea cumplido."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 16:20-24",
+   "Jn 17:13",
+   "1 Jn 1:4",
+   "Gá 5:22"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.15.13",
+  "strong": "G5384",
+  "forma": "φίλων",
+  "glosa_interlineal": "amigos",
+  "rango_semantico": [
+   "amigo"
+  ],
+  "construccion": "Genitivo plural: «que uno ponga su vida por sus amigos».",
+  "sentido_en_contexto": "Definición del amor mayor: dar la vida por los amigos. Jesús lo hará por sus discípulos (y, según Ro 5:8, también por sus enemigos). Es el modelo del mandamiento «amaos unos a otros como yo os he amado» (v.12).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Nadie tiene mayor amor que este, que uno ponga su vida por sus amigos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 10:11, 15",
+   "Ro 5:7-8",
+   "1 Jn 3:16 — «debemos poner nuestras vidas por los hermanos»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.15.15",
+  "strong": "G1401",
+  "forma": "δούλους",
+  "glosa_interlineal": "siervos",
+  "rango_semantico": [
+   "esclavo, siervo"
+  ],
+  "construccion": "Acusativo plural: «ya no os llamaré siervos».",
+  "sentido_en_contexto": "Cambio de estatus: los discípulos pasan de siervos (que no saben lo que hace su señor) a amigos (a quienes se les comunica todo lo oído del Padre). Sin abolir el servicio (cf. 13:16), el énfasis es en la intimidad y la confianza.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Ya no os llamaré siervos, porque el siervo no sabe lo que hace su señor; pero os he llamado amigos, porque todas las cosas que oí de mi Padre, os las he dado a conocer."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 33:11 — «Jehová hablaba a Moisés cara a cara, como habla cualquiera a su compañero»",
+   "Gn 18:17 — Abraham amigo de Dios",
+   "Stg 2:23",
+   "Gá 4:7"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.15.16",
+  "strong": "G1586",
+  "forma": "ἐξελέξασθε",
+  "glosa_interlineal": "escogisteis",
+  "rango_semantico": [
+   "elegir, escoger"
+  ],
+  "construccion": "Aoristo indicativo medio: «no me elegisteis vosotros a mí, sino que yo os elegí a vosotros».",
+  "sentido_en_contexto": "La iniciativa de la relación es de Jesús. Los discípulos son elegidos y puestos (ἔθηκα) para ir y llevar fruto que permanezca. El fruto es el objetivo de la elección.",
+  "matiz": "Texto central en el debate sobre elección: ¿habla de la elección para el ministerio apostólico (aquí, a los Doce), o de la elección para la salvación? Ambas lecturas se defienden; el contexto inmediato apunta a la misión apostólica.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "No me elegisteis vosotros a mí, sino que yo os elegí a vosotros, y os he puesto para que vayáis y llevéis fruto, y vuestro fruto permanezca; para que todo lo que pidiereis al Padre en mi nombre, él os lo dé."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 6:70 — «¿no os he escogido yo a vosotros los doce?»",
+   "Jn 13:18",
+   "Ef 1:4 — «nos escogió en él antes de la fundación del mundo»",
+   "Lc 6:13"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.15.18",
+  "strong": "G3404",
+  "forma": "μισεῖ",
+  "glosa_interlineal": "aborrece",
+  "rango_semantico": [
+   "odiar, aborrecer"
+  ],
+  "construccion": "Presente indicativo activo: «si el mundo os aborrece, sabed que a mí me ha aborrecido antes que a vosotros».",
+  "sentido_en_contexto": "Los discípulos no deben extrañarse de la hostilidad del mundo: es la misma que sufrió Jesús. «Mundo» aquí es el sistema humano que se opone a Dios.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Si el mundo os aborrece, sabed que a mí me ha aborrecido antes que a vosotros."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Jn 3:13 — «no os extrañéis… si el mundo os aborrece»",
+   "Mt 10:22",
+   "Jn 17:14",
+   "2 Ti 3:12"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.15.20",
+  "strong": "G1377",
+  "forma": "ἐδίωξαν",
+  "glosa_interlineal": "persiguieron",
+  "rango_semantico": [
+   "perseguir, acosar"
+  ],
+  "construccion": "Aoristo indicativo activo: «si a mí me han perseguido, también a vosotros os perseguirán».",
+  "sentido_en_contexto": "Jesús recuerda lo dicho en 13:16: el siervo no es mayor que su señor. La suerte del Maestro será la de los discípulos, también en la persecución, y los que guardaron su palabra, guardarán también la de ellos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Acordaos de la palabra que yo os he dicho: El siervo no es mayor que su señor. Si a mí me han perseguido, también a vosotros os perseguirán; si han guardado mi palabra, también guardarán la vuestra."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 13:16",
+   "Mt 10:24-25",
+   "2 Ti 3:12 — «todos los que quieren vivir piadosamente… padecerán persecución»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.15.22",
+  "strong": "G266",
+  "forma": "ἁμαρτίαν",
+  "glosa_interlineal": "pecado",
+  "rango_semantico": [
+   "pecado"
+  ],
+  "construccion": "Acusativo: «no tendrían pecado».",
+  "sentido_en_contexto": "Si Jesús no hubiera venido y hablado, no serían culpables de rechazar la revelación; ahora no tienen excusa (πρόφασιν). No dice que no tuvieran pecado, sino que su pecado de incredulidad es inexcusable.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Si no hubiera venido, ni les hubiera hablado, no tendrían pecado; pero ahora no tienen excusa por su pecado."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 9:41",
+   "Jn 3:19",
+   "Ro 1:20 — «de modo que no tienen excusa»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.15.25",
+  "strong": "G1432",
+  "forma": "δωρεάν",
+  "glosa_interlineal": "sin causa",
+  "rango_semantico": [
+   "gratuitamente, sin razón"
+  ],
+  "construccion": "Adverbio: «me aborrecieron sin causa».",
+  "sentido_en_contexto": "Cita de Sal 35:19 o 69:4 (a menudo citado en Jn): el odio contra Jesús es inmotivado, y cumple la Escritura del justo perseguido.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero esto es para que se cumpla la palabra que está escrita en su ley: Sin causa me aborrecieron."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 35:19",
+   "Sal 69:4",
+   "Jn 2:17 — otro uso del Salmo 69"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.15.26",
+  "strong": "G1607",
+  "forma": "ἐκπορεύεται",
+  "glosa_interlineal": "procede",
+  "rango_semantico": [
+   "proceder, salir de"
+  ],
+  "construccion": "Presente indicativo medio: «el Espíritu de verdad, el cual procede del Padre».",
+  "sentido_en_contexto": "Texto clave en el desarrollo trinitario: el Espíritu «procede» (ἐκπορεύεται) del Padre; Jesús lo «envía» desde el Padre. Dio lugar a la controversia del Filioque entre Oriente y Occidente.",
+  "matiz": "Debate: la tradición oriental ve aquí la procesión eterna del Espíritu solo desde el Padre. La occidental (Filioque) añade «y del Hijo» apoyándose en otros textos (Jn 16:7; 20:22; Gá 4:6). El pasaje habla de la misión del Espíritu en el tiempo, que lo envía el Hijo desde el Padre.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero cuando venga el Consolador, a quien yo os enviaré del Padre, el Espíritu de verdad, el cual procede del Padre, él dará testimonio acerca de mí."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 14:26 — «a quien el Padre enviará en mi nombre»",
+   "Jn 16:7",
+   "Jn 20:22",
+   "Gá 4:6 — «el Espíritu de su Hijo»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.15.27",
+  "strong": "G3140",
+  "forma": "μαρτυρεῖτε",
+  "glosa_interlineal": "testificáis",
+  "rango_semantico": [
+   "dar testimonio, testificar"
+  ],
+  "construccion": "Presente indicativo (o imperativo): «vosotros daréis testimonio también».",
+  "sentido_en_contexto": "El testimonio del Espíritu y el de los discípulos, que han estado con Jesús desde el principio, van de la mano. Prepara el mandato de Hch 1:8.",
+  "matiz": "El verbo μαρτυρεῖτε puede ser indicativo («testificáis») o imperativo («testificad»); el contexto (futuro con el Espíritu) apoya el sentido de continuidad.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y vosotros daréis testimonio también, porque habéis estado conmigo desde el principio."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 1:8 — «me seréis testigos»",
+   "Hch 5:32",
+   "1 Jn 1:1-3"
+  ],
+  "nivel_certeza": "medio"
+ }
+]

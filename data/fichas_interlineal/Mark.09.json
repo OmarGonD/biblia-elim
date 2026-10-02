@@ -1,0 +1,494 @@
+[
+ {
+  "ref": "Mark.9.1",
+  "strong": "G1089",
+  "forma": "γεύσωνται",
+  "glosa_interlineal": "gusten",
+  "rango_semantico": [
+   "probar, gustar",
+   "experimentar"
+  ],
+  "construccion": "Subjuntivo aoristo medio: «no gustarán la muerte».",
+  "sentido_en_contexto": "Promesa de que algunos de los presentes verán «el reino de Dios venido con poder». La escena siguiente (transfiguración, v.2) la hace pensar.",
+  "matiz": "Debate: ¿se cumple en la Transfiguración, la resurrección, Pentecostés, la destrucción de Jerusalén o la venida final? Ver notas de Mt 16:28. Marcos añade «con poder».",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "También les dijo: De cierto os digo que hay algunos de los que están aquí que no gustarán la muerte hasta que hayan visto el reino de Dios venido con poder."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 16:28 — paralelo",
+   "Lc 9:27 — paralelo",
+   "2 P 1:16-18 — Pedro recuerda la transfiguración"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "Mark.9.3",
+  "strong": "G4744",
+  "forma": "στίλβοντα",
+  "glosa_interlineal": "resplandecientes",
+  "rango_semantico": [
+   "brillar, resplandecer"
+  ],
+  "construccion": "Participio presente activo: «resplandecientes».",
+  "sentido_en_contexto": "Marcos añade un detalle: sus vestidos eran «muy blancos, como ningún lavandero (γναφεύς) en la tierra los podría blanquear». Marca la gloria de otro mundo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y sus vestidos se volvieron resplandecientes, muy blancos, como la nieve, tanto que ningún lavador en la tierra los puede hacer tan blancos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 17:2 — «su rostro resplandeció como el sol»",
+   "Dn 7:9 — vestido blanco como la nieve",
+   "Ap 3:4 — «andarán conmigo en vestiduras blancas»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.9.4",
+  "strong": "G2243",
+  "forma": "Ἡλείας",
+  "glosa_interlineal": "Elías",
+  "rango_semantico": [
+   "Elías"
+  ],
+  "construccion": "Nominativo: «Elías con Moisés».",
+  "sentido_en_contexto": "Marcos nombra a Elías antes que a Moisés (Mateo, al revés). Quizá porque Elías es el precursor ligado al Bautista (v.11-13).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y les apareció Elías con Moisés, que hablaban con Jesús."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mal 4:5 — «os envío al profeta Elías»",
+   "Mt 17:3 — «Moisés y Elías»",
+   "Lc 9:30-31 — hablaban de su partida"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.9.6",
+  "strong": "G1630",
+  "forma": "ἔκφοβοι",
+  "glosa_interlineal": "aterrados",
+  "rango_semantico": [
+   "espantado, aterrorizado"
+  ],
+  "construccion": "Adjetivo nominativo plural: «se espantaron».",
+  "sentido_en_contexto": "Marcos explica la propuesta de Pedro: «no sabía lo que decía, pues estaban aterrados». Mateo omite esta excusa.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque no sabía lo que hablaba, pues estaban espantados."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 9:33 — «no sabiendo lo que decía»",
+   "Heb 12:21 — «estoy espantado y temblando»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.9.7",
+  "strong": "G1982",
+  "forma": "ἐπισκιάζουσα",
+  "glosa_interlineal": "que cubría con su sombra",
+  "rango_semantico": [
+   "cubrir con sombra",
+   "envolver"
+  ],
+  "construccion": "Participio presente activo: «una nube que los cubría con su sombra».",
+  "sentido_en_contexto": "La nube es la presencia de Dios. Marcos no dice «luminosa» (Mateo) ni «en quien tengo complacencia»; solo «a él oíd».",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces vino una nube que les hizo sombra, y desde la nube una voz que decía: Este es mi Hijo amado; a él oíd."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 40:35 — la nube sobre el tabernáculo",
+   "Lc 1:35 — «el poder del Altísimo te cubrirá con su sombra»",
+   "Mt 17:5 — paralelo"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.9.10",
+  "strong": "G450",
+  "forma": "ἀναστῆναι",
+  "glosa_interlineal": "resucitar",
+  "rango_semantico": [
+   "levantarse, resucitar"
+  ],
+  "construccion": "Infinitivo aoristo: «resucitar de los muertos».",
+  "sentido_en_contexto": "Los tres discípulos guardan silencio y discuten «qué es eso de resucitar de los muertos»: no entienden la idea de la resurrección del Mesías, aunque creían en la resurrección general.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y guardaron la palabra entre sí, discutiendo qué sería aquello de resucitar de los muertos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 9:9 — «hasta que hubiese resucitado»",
+   "Jn 20:9 — «aún no habían entendido la Escritura»",
+   "Hch 26:23 — «el primero de la resurrección de los muertos»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.9.12",
+  "strong": "G600",
+  "forma": "ἀποκαθιστάνει",
+  "glosa_interlineal": "restaura",
+  "rango_semantico": [
+   "restablecer, restaurar"
+  ],
+  "construccion": "Presente indicativo activo, 3ª singular: «restaura todas las cosas».",
+  "sentido_en_contexto": "Elías debe venir primero para restaurarlo todo (Mal 4:6). Jesús dice que Elías ya vino (Juan Bautista) y lo trataron «como quisieron».",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Respondiendo él, les dijo: Elías viene primero, y restaurará todas las cosas; ¿y cómo está escrito del Hijo del Hombre, que padezca mucho y sea tenido en nada?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mal 4:5-6 — Elías restaurará",
+   "Mt 17:11 — paralelo",
+   "Hch 3:21 — «la restauración de todas las cosas»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.9.15",
+  "strong": "G1568",
+  "forma": "ἐξεθαμβήθησαν",
+  "glosa_interlineal": "se asombraron mucho",
+  "rango_semantico": [
+   "asombrarse profundamente, espantarse"
+  ],
+  "construccion": "Aoristo indicativo pasivo, 3ª plural.",
+  "sentido_en_contexto": "Verbo intensificado, propio de Marcos: la gente queda asombrada al ver a Jesús bajar del monte. Posiblemente aún con resplandor.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y en seguida toda la gente, viéndole, quedó asombrada, y corriendo a él, le saludaron."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 14:33 — «comenzó a entristecerse y a angustiarse»",
+   "Mr 16:5 — las mujeres ante el joven"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.9.19",
+  "strong": "G571",
+  "forma": "ἄπιστος",
+  "glosa_interlineal": "incrédula",
+  "rango_semantico": [
+   "incrédulo, sin fe",
+   "infiel"
+  ],
+  "construccion": "Adjetivo nominativo: «generación incrédula».",
+  "sentido_en_contexto": "Jesús reprende a «la generación incrédula», incluidos los discípulos que no pudieron expulsar el espíritu. Marcos describe con detalle el estado del muchacho (vv.18, 20-22).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y respondiéndole, les dijo: ¡Oh generación incrédula! ¿Hasta cuándo he de estar con vosotros? ¿Hasta cuándo os he de soportar? Traédmele."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 17:17 — «incrédula y perversa»",
+   "Dt 32:20 — «generación perversa, hijos infieles»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.9.23",
+  "strong": "G4100",
+  "forma": "πιστεύοντι",
+  "glosa_interlineal": "al que cree",
+  "rango_semantico": [
+   "creer, confiar"
+  ],
+  "construccion": "Participio presente activo, dativo: «al que cree».",
+  "sentido_en_contexto": "«Si puedes… todo es posible al que cree»: Jesús devuelve al padre su «si puedes». La fe, no el poder de Jesús, es la cuestión.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Jesús le dijo: Si puedes creer, al que cree todo le es posible."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 17:20 — «nada os será imposible»",
+   "Mr 11:23 — «lo que diga le será hecho»",
+   "Heb 11:6 — «sin fe es imposible agradar a Dios»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.9.24",
+  "strong": "G570",
+  "forma": "ἀπιστίᾳ",
+  "glosa_interlineal": "incredulidad",
+  "rango_semantico": [
+   "incredulidad, falta de fe"
+  ],
+  "construccion": "Dativo: «ayuda mi incredulidad».",
+  "sentido_en_contexto": "Una de las oraciones más humanas del NT: «creo; ayuda mi incredulidad». Expresa la tensión entre fe y duda en un mismo corazón.",
+  "matiz": "El texto no resuelve si «incredulidad» es duda parcial o falta de fe que el padre pide que Jesús supere. Muchos la leen como modelo de oración.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "E inmediatamente el padre del muchacho clamó y dijo con lágrimas: Creo; ayuda mi incredulidad."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 17:5 — «auméntanos la fe»",
+   "Jn 20:27 — Tomás",
+   "Jud 22 — «a algunos que dudan, convencedlos»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.9.29",
+  "strong": "G4335",
+  "forma": "προσευχῇ",
+  "glosa_interlineal": "oración",
+  "rango_semantico": [
+   "oración"
+  ],
+  "construccion": "ἐν + dativo: «con oración».",
+  "sentido_en_contexto": "Los discípulos preguntan por qué no pudieron expulsarlo; Jesús responde que ese tipo solo sale con oración. Muchos manuscritos añaden «y ayuno».",
+  "matiz": "El texto original más antiguo dice solo «con oración»; «y ayuno» fue añadido en muchos manuscritos tardíos (y aparece en RVR). Las ediciones críticas lo omiten.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": "RVR dice «con oración y ayuno»; los manuscritos más antiguos solo dicen «con oración».",
+  "otros_usos": [
+   "Mt 17:21 — versículo con «ayuno» en manuscritos tardíos",
+   "Mr 11:24 — «todo lo que pidiereis orando»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.9.31",
+  "strong": "G3860",
+  "forma": "παραδίδοται",
+  "glosa_interlineal": "es entregado",
+  "rango_semantico": [
+   "entregar"
+  ],
+  "construccion": "Presente indicativo pasivo, 3ª singular: «será entregado».",
+  "sentido_en_contexto": "Segundo anuncio de la pasión: «el Hijo del Hombre es entregado en manos de hombres». El presente indica certeza. Los discípulos no entienden y temen preguntar (v.32).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque enseñaba a sus discípulos, y les decía: El Hijo del Hombre será entregado en manos de hombres, y le matarán; pero después de muerto, resucitará al tercer día."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 17:22 — paralelo",
+   "Mr 8:31 — primer anuncio",
+   "Mr 10:33 — tercer anuncio"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.9.34",
+  "strong": "G1256",
+  "forma": "διελέχθησαν",
+  "glosa_interlineal": "discutieron",
+  "rango_semantico": [
+   "discutir, conversar, argumentar"
+  ],
+  "construccion": "Aoristo indicativo pasivo (deponente), 3ª plural: «habían discutido entre sí».",
+  "sentido_en_contexto": "Mientras Jesús anuncia su muerte, los discípulos discuten quién es el mayor: contraste cruel que Marcos subraya. Callan avergonzados.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero ellos callaron, porque en el camino habían disputado entre sí quién había de ser el mayor."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 18:1 — «¿quién es el mayor?»",
+   "Lc 9:46 — «entraron en discusión»",
+   "Lc 22:24 — otra disputa"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.9.36",
+  "strong": "G1723",
+  "forma": "ἐναγκαλισάμενος",
+  "glosa_interlineal": "abrazando",
+  "rango_semantico": [
+   "tomar en brazos, abrazar"
+  ],
+  "construccion": "Participio aoristo medio: «habiéndolo abrazado».",
+  "sentido_en_contexto": "Detalle propio de Marcos: Jesús abraza al niño. La ternura acompaña la enseñanza sobre el servicio.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y tomando a un niño, lo puso en medio de ellos; y tomándole en los brazos, les dijo:"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 10:16 — «tomándolos en los brazos»",
+   "Mt 18:2 — «llamando Jesús a un niño»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.9.38",
+  "strong": "G3686",
+  "forma": "ὀνόματί",
+  "glosa_interlineal": "en tu nombre",
+  "rango_semantico": [
+   "nombre, autoridad"
+  ],
+  "construccion": "ἐν ὀνόματι: «en tu nombre».",
+  "sentido_en_contexto": "Juan informa que vieron a uno expulsar demonios en nombre de Jesús sin ser de su grupo, y se lo impidieron. Jesús les corrige: «el que no es contra nosotros, por nosotros es».",
+  "matiz": "Tensión con Mt 12:30 («el que no está conmigo, contra mí está»): ambas frases se refieren a contextos distintos (confrontación con el mal vs. acogida de otros obreros).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Juan le respondió diciendo: Maestro, hemos visto a uno que echaba fuera demonios en tu nombre, y se lo prohibimos, porque no nos seguía."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Nm 11:26-29 — Josué y Moisés: «¡ojalá todos profetizaran!»",
+   "Lc 9:49-50 — paralelo",
+   "Mt 12:30 — «el que no es conmigo, contra mí es»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.9.41",
+  "strong": "G4221",
+  "forma": "ποτήριον",
+  "glosa_interlineal": "vaso",
+  "rango_semantico": [
+   "copa, vaso"
+  ],
+  "construccion": "Acusativo: «un vaso de agua».",
+  "sentido_en_contexto": "El gesto más pequeño hecho «porque sois de Cristo» no pierde su recompensa. Marcos dice «porque sois de Cristo» (en nombre de Cristo).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y cualquiera que os diere un vaso de agua en mi nombre, por cuanto sois de Cristo, de cierto os digo que no perderá su recompensa."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 10:42 — paralelo",
+   "Mt 25:40 — «lo hicisteis a uno de estos mis hermanos»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Mark.9.48",
+  "strong": "G4663",
+  "forma": "σκώληξ",
+  "glosa_interlineal": "gusano",
+  "rango_semantico": [
+   "gusano, larva"
+  ],
+  "construccion": "Nominativo: «donde su gusano no muere».",
+  "sentido_en_contexto": "Cita de Is 66:24. Imagen del juicio: el gusano que consume y el fuego que no se apaga, tomados del Valle de Hinom. Marcos repite el estribillo en los vv.44, 46, 48 (algunos manuscritos).",
+  "matiz": "Los vv.44 y 46 son una repetición del 48 que falta en los manuscritos más antiguos; las versiones modernas los omiten, RVR los incluye.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "donde el gusano de ellos no muere, y el fuego nunca se apaga."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 66:24 — «su gusano nunca morirá, ni su fuego se apagará»",
+   "Mt 5:22 — la gehena",
+   "Jud 7 — castigo del fuego eterno"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Mark.9.49",
+  "strong": "G233",
+  "forma": "ἁλισθήσεται",
+  "glosa_interlineal": "será salado",
+  "rango_semantico": [
+   "salar, sazonar con sal"
+  ],
+  "construccion": "Futuro indicativo pasivo, 3ª singular: «todo será salado con fuego».",
+  "sentido_en_contexto": "Versículo muy oscuro: «todo será salado con fuego». Puede referirse a la purificación por pruebas o al juicio; la sal evoca los sacrificios (Lv 2:13).",
+  "matiz": "Interpretaciones diversas: (a) el fuego del juicio como sal que preserva o destruye; (b) el fuego de la prueba como purificación del discípulo; (c) enlace por palabra clave («fuego», «sal»). Ninguna es definitiva.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque todos serán salados con fuego, y todo sacrificio será salado con sal."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lv 2:13 — «sazonarás con sal todas tus ofrendas»",
+   "1 Co 3:13-15 — el fuego probará la obra",
+   "Mt 5:13 — «vosotros sois la sal de la tierra»"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "Mark.9.50",
+  "strong": "G358",
+  "forma": "ἄναλον",
+  "glosa_interlineal": "insípida",
+  "rango_semantico": [
+   "sin sal, insípido"
+  ],
+  "construccion": "Adjetivo acusativo: «si la sal se hace insípida».",
+  "sentido_en_contexto": "Cierra la sección con «tened sal en vosotros mismos; y tened paz unos con otros» (vuelve al contexto de la disputa de los discípulos, v.34).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Buena es la sal; mas si la sal se hiciere insípida, ¿con qué la sazonaréis? Tened sal en vosotros mismos; y tened paz los unos con los otros."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 5:13 — paralelo",
+   "Lc 14:34 — paralelo",
+   "Col 4:6 — «sazonada con sal»"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

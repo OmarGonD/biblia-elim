@@ -1,0 +1,259 @@
+[
+ {
+  "ref": "1Cor.13.1",
+  "strong": "G26",
+  "forma": "ἀγάπην",
+  "glosa_interlineal": "amor",
+  "rango_semantico": [
+   "amor (ágape)"
+  ],
+  "construccion": "Acusativo: «si no tengo amor, vengo a ser como metal que resuena, o címbalo que retiñe».",
+  "sentido_en_contexto": "El «himno al amor» (cap. 13) está entre dos capítulos sobre los dones: sin ágape, los dones más espectaculares (lenguas de hombres y de ángeles, profecía, fe, entrega) no valen nada. Ágape es el amor que se entrega por el bien del otro, modelado en Cristo.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Si yo hablase lenguas humanas y angélicas, y no tengo amor, vengo a ser como metal que resuena, o címbalo que retiñe."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Jn 4:7-21",
+   "Jn 13:34-35",
+   "Ro 13:8-10",
+   "Gá 5:22"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Cor.13.3",
+  "strong": "G5595",
+  "forma": "ψωμίσω",
+  "glosa_interlineal": "diere de comer",
+  "rango_semantico": [
+   "dar de comer, repartir (en pedazos)"
+  ],
+  "construccion": "Subjuntivo aoristo activo: «si repartiese toda mi hacienda para dar de comer a los pobres, y si entregase mi cuerpo para ser quemado, y no tengo amor, de nada me sirve».",
+  "sentido_en_contexto": "Hasta el sacrificio extremo (repartir bienes, entregar el cuerpo) sin amor es vano. Variante textual: «para ser quemado» (καυθήσομαι) o «para jactarme» (καυχήσωμαι); la primera es la preferida por muchos, la segunda por otros. Ambas subrayan que el sacrificio sin amor es vacío.",
+  "matiz": "Variante: καυθήσομαι (futuro, «para ser quemado»; Aleph, A, B?) frente a καυχήσωμαι (subjuntivo, «para jactarme»; C, D, F, G, P46). La segunda tiene fuerte apoyo antiguo (P46) y encaja en el contexto del orgullo corintio; la primera es la de RVR y la tradición.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y si repartiese toda mi hacienda para dar de comer a los pobres, y si entregase mi cuerpo para ser quemado, y no tengo amor, de nada me sirve."
+   }
+  ],
+  "notas_traduccion": "RVR60 lee «para ser quemado»; P46 y otros leen «para gloriarme».",
+  "otros_usos": [
+   "Mt 6:1-4",
+   "Dn 3:28",
+   "Fil 1:17"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "1Cor.13.4",
+  "strong": "G3114",
+  "forma": "μακροθυμεῖ",
+  "glosa_interlineal": "es paciente",
+  "rango_semantico": [
+   "ser paciente, ser longánime"
+  ],
+  "construccion": "Presente indicativo activo: «el amor es sufrido (paciente), es benigno; el amor no tiene envidia».",
+  "sentido_en_contexto": "Catálogo de quince rasgos del ágape (vv.4-7): ocho verbos positivos y negativos en la lista inicial. Los verbos son activos (el amor «hace»), no solo cualidades. Cada rasgo contrasta con una falta corintia (envidia, jactancia, orgullo, buscar lo suyo…).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "El amor es sufrido, es benigno; el amor no tiene envidia, el amor no es jactancioso, no se envanece;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gá 5:22",
+   "Col 3:12-14",
+   "Ef 4:2",
+   "1 Co 3:3; 4:6, 18-19"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Cor.13.5",
+  "strong": "G2212",
+  "forma": "ζητεῖ",
+  "glosa_interlineal": "busca",
+  "rango_semantico": [
+   "buscar, procurar"
+  ],
+  "construccion": "Presente indicativo activo: «no busca lo suyo, no se irrita, no guarda rencor».",
+  "sentido_en_contexto": "El amor no busca lo propio (cf. 10:24, 33): es lo contrario del egoísmo corintio. «No guarda rencor» (λογίζεται τὸ κακόν): no lleva la cuenta del mal recibido; mismo verbo λογίζομαι de «imputar» (Ro 4).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "no hace nada indebido, no busca lo suyo, no se irrita, no guarda rencor;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Fil 2:4",
+   "1 Co 10:24",
+   "Ro 4:8",
+   "Zac 8:17"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Cor.13.7",
+  "strong": "G4722",
+  "forma": "στέγει",
+  "glosa_interlineal": "soporta",
+  "rango_semantico": [
+   "cubrir, soportar, aguantar"
+  ],
+  "construccion": "Presente indicativo activo: «todo lo sufre, todo lo cree, todo lo espera, todo lo soporta».",
+  "sentido_en_contexto": "Cuatro «todo» que cierran la lista: el amor aguanta todo, confía, espera y persevera. «Todo lo cree» no es credulidad, sino disposición a confiar y no sospechar sin razón. Prepara el v.8: el amor nunca deja de ser.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "todo lo sufre, todo lo cree, todo lo espera, todo lo soporta."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 P 4:8",
+   "Pr 10:12",
+   "Ro 15:1"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Cor.13.8",
+  "strong": "G3973",
+  "forma": "παύσονται",
+  "glosa_interlineal": "cesarán",
+  "rango_semantico": [
+   "cesar, terminar"
+  ],
+  "construccion": "Futuro indicativo medio: «el amor nunca deja de ser; pero las profecías se acabarán, cesarán las lenguas, y la ciencia acabará».",
+  "sentido_en_contexto": "El amor es eterno; los dones (profecía, lenguas, conocimiento) son temporales. Versículo central en el debate sobre cesacionismo: ¿cuándo cesan? El texto liga el fin de los dones a la llegada de «lo perfecto» (τὸ τέλειον, v.10), cuya identidad es debatida. Obsérvese que el verbo de «lenguas» es medio (παύσονται, cesarán por sí mismas) y el de profecía y conocimiento pasivo (καταργηθήσονται, serán abolidos).",
+  "matiz": "Debate sobre «lo perfecto» (v.10): (a) la parusía/estado final (la mayoría histórica y continuista: dones vigentes hasta el regreso de Cristo); (b) el canon completo del NT (cesacionistas); (c) madurez de la iglesia; (d) la perfección escatológica general. El contraste entre ver «como en espejo» y «cara a cara» (v.12) apunta a la plenitud escatológica.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "El amor nunca deja de ser; pero las profecías se acabarán, y cesarán las lenguas, y la ciencia acabará."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 13:10, 12",
+   "Ef 4:11-13",
+   "1 Jn 3:2",
+   "Ap 21:3-4"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "1Cor.13.10",
+  "strong": "G5046",
+  "forma": "τέλειον",
+  "glosa_interlineal": "lo perfecto",
+  "rango_semantico": [
+   "perfecto, completo, maduro"
+  ],
+  "construccion": "Neutro nominativo: «cuando venga lo perfecto, entonces lo que es en parte se acabará».",
+  "sentido_en_contexto": "τὸ τέλειον («lo perfecto/completo») es el momento de plenitud que deja obsoleto lo parcial. Contrastado con la niñez (v.11) y el espejo (v.12). La mayoría lo asocia con la consumación (cara a cara con Dios), no con un acontecimiento intermedio.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "mas cuando venga lo perfecto, entonces lo que es en parte se acabará."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 13:12",
+   "1 Jn 3:2",
+   "Ef 4:13",
+   "Fil 3:12"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Cor.13.11",
+  "strong": "G3516",
+  "forma": "νήπιος",
+  "glosa_interlineal": "niño",
+  "rango_semantico": [
+   "niño, infante"
+  ],
+  "construccion": "Nominativo: «cuando yo era niño, hablaba como niño, pensaba como niño».",
+  "sentido_en_contexto": "Ilustración: el niño pasa a la madurez y deja lo infantil; así los dones parciales dejarán paso a lo perfecto. Pablo se incluye. No desprecia los dones, sino que muestra su carácter provisional frente al amor.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Cuando yo era niño, hablaba como niño, pensaba como niño, razonaba como niño; mas cuando ya fui hombre, dejé lo que era de niño."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 3:1",
+   "1 Co 14:20",
+   "Ef 4:14"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Cor.13.12",
+  "strong": "G2072",
+  "forma": "ἐσόπτρου",
+  "glosa_interlineal": "espejo",
+  "rango_semantico": [
+   "espejo (de bronce pulido)"
+  ],
+  "construccion": "Genitivo: «ahora vemos por espejo, oscuramente; pero entonces veremos cara a cara».",
+  "sentido_en_contexto": "Los espejos de la antigüedad (bronce de Corinto, famosos) daban imagen imperfecta: «en enigma». Ahora el conocimiento es parcial; entonces será directo («cara a cara») y pleno: «conoceré como fui conocido». Es la esperanza escatológica de la visión de Dios.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Ahora vemos por espejo, oscuramente; pero entonces veremos cara a cara; ahora conozco en parte, pero entonces conoceré como fui conocido."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Éx 33:11; Nm 12:8",
+   "2 Co 3:18",
+   "1 Jn 3:2",
+   "Ap 22:4"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "1Cor.13.13",
+  "strong": "G3173",
+  "forma": "μείζων",
+  "glosa_interlineal": "mayor",
+  "rango_semantico": [
+   "mayor, más grande"
+  ],
+  "construccion": "Comparativo nominativo: «ahora permanecen la fe, la esperanza y el amor, estos tres; pero el mayor de ellos es el amor».",
+  "sentido_en_contexto": "La tríada fe-esperanza-amor aparece en Pablo (1 Ts 1:3; Ro 5:1-5; Col 1:4-5). El amor es el mayor porque es eterno, es el carácter de Dios (1 Jn 4:8) y es el criterio de los demás dones. «Ahora permanecen» (νυνὶ δὲ μένει) puede entenderse como «ahora permanecen» (en esta era) o «finalmente permanecen» (en la eternidad).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y ahora permanecen la fe, la esperanza y el amor, estos tres; pero el mayor de ellos es el amor."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Ts 1:3; 5:8",
+   "Col 1:4-5",
+   "Gá 5:6",
+   "1 Jn 4:8, 16"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

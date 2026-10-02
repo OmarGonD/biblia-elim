@@ -1,0 +1,407 @@
+[
+ {
+  "ref": "John.2.1",
+  "strong": "G2580",
+  "forma": "Κανὰ",
+  "glosa_interlineal": "Caná",
+  "rango_semantico": [
+   "Caná de Galilea"
+  ],
+  "construccion": "Genitivo: «en Caná de Galilea».",
+  "sentido_en_contexto": "Aldea de Galilea (ubicación incierta). Allí Jesús hace su primer «signo». Juan la menciona de nuevo en 4:46 y 21:2.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 4:46 — «Caná de Galilea, donde había convertido el agua en vino»",
+   "Jn 21:2 — Natanael de Caná"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.2.3",
+  "strong": "G3631",
+  "forma": "οἶνον",
+  "glosa_interlineal": "vino",
+  "rango_semantico": [
+   "vino"
+  ],
+  "construccion": "Acusativo: «no tienen vino».",
+  "sentido_en_contexto": "Falta de vino en una boda era vergüenza social grave. La madre de Jesús informa la necesidad sin pedir explícitamente. El vino es también imagen de gozo mesiánico.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y faltando el vino, la madre de Jesús le dijo: No tienen vino."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Am 9:13-14 — «los montes destilarán mosto»",
+   "Is 25:6 — banquete de vinos añejos",
+   "Mt 9:17 — «vino nuevo en odres nuevos»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.2.4",
+  "strong": "G1135",
+  "forma": "γύναι",
+  "glosa_interlineal": "mujer",
+  "rango_semantico": [
+   "mujer, señora"
+  ],
+  "construccion": "Vocativo: «¿qué tengo yo contigo, mujer?».",
+  "sentido_en_contexto": "«Mujer» (γύναι) no era grosería: era un trato respetuoso (cf. 19:26, desde la cruz). La expresión «¿qué a mí y a ti?» (τί ἐμοὶ καὶ σοί) es un modismo semítico que marca distancia: la acción de Jesús depende de su «hora», no de la petición humana.",
+  "matiz": "Se debate el tono de τί ἐμοὶ καὶ σοί: rechazo cortés (RVR: «¿qué tienes conmigo?»), distancia respetuosa o simple «¿qué nos incumbe?». Marcos 1:24 y 5:7 la usan para repeler. Juan la sitúa antes de su «hora» (cruz y glorificación).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Jesús le dijo: ¿Qué tienes conmigo, mujer? Aún no ha venido mi hora."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 19:26 — «Mujer, he ahí tu hijo»",
+   "Mr 5:7 — «¿Qué tienes conmigo, Jesús?»",
+   "Jue 11:12 — mismo modismo en hebreo"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.2.4",
+  "strong": "G5610",
+  "forma": "ὥρα",
+  "glosa_interlineal": "hora",
+  "rango_semantico": [
+   "hora, momento"
+  ],
+  "construccion": "Nominativo: «aún no ha venido mi hora».",
+  "sentido_en_contexto": "En Juan, «la hora» de Jesús es el momento de su glorificación en la cruz y resurrección. Aquí avisa que su obra sigue el calendario del Padre, no la agenda humana.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Jn 7:30; 8:20 — «aún no había llegado su hora»",
+   "Jn 12:23 — «ha llegado la hora»",
+   "Jn 13:1; 17:1 — «ha llegado la hora»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.2.5",
+  "strong": "G1249",
+  "forma": "διακόνοις",
+  "glosa_interlineal": "sirvientes",
+  "rango_semantico": [
+   "siervo, ayudante (de mesa)"
+  ],
+  "construccion": "Dativo plural: «dijo su madre a los que servían».",
+  "sentido_en_contexto": "María indica obediencia plena a Jesús: «haced todo lo que os diga». Es su última palabra registrada en Juan.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Su madre dijo a los que servían: Haced todo lo que os dijere."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 41:55 — «id a José, y haced lo que él os dijere»",
+   "Éx 19:8 — «todo lo que Jehová ha dicho, haremos»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.2.6",
+  "strong": "G5201",
+  "forma": "ὑδρίαι",
+  "glosa_interlineal": "tinajas",
+  "rango_semantico": [
+   "jarra grande, tinaja de agua"
+  ],
+  "construccion": "Nominativo plural: «seis tinajas de piedra».",
+  "sentido_en_contexto": "Seis tinajas para las purificaciones judías, de unos 80-120 litros cada una (dos o tres metretas). La cantidad enorme (500-700 litros) subraya la abundancia del vino. El número seis (incompleto) sugiere simbólicamente lo imperfecto de la antigua purificación.",
+  "matiz": "Se discute si hay simbolismo en el seis o si es un detalle de narrador. Muchos intérpretes ven en el pasaje un contraste entre purificación ritual (agua) y el gozo del reino (vino).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y estaban allí seis tinajas de piedra para las purificaciones de los judíos, en cada una de las cuales cabían dos o tres cántaros."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 7:3-4 — purificaciones judías",
+   "Jn 3:25 — «una cuestión sobre la purificación»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.2.9",
+  "strong": "G755",
+  "forma": "ἀρχιτρίκλινος",
+  "glosa_interlineal": "maestresala",
+  "rango_semantico": [
+   "jefe del banquete, maestro de ceremonias"
+  ],
+  "construccion": "Nominativo: «el maestresala probó el agua hecha vino».",
+  "sentido_en_contexto": "El encargado del banquete ignora el origen del vino; solo los sirvientes lo saben. Rasgo de ironía joánica: el que debería entender no sabe, y los humildes sí.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Jn 7:27-28 — «no sabéis de dónde soy»",
+   "Jn 9:29-30 — «no sabemos de dónde sea»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.2.10",
+  "strong": "G737",
+  "forma": "ἄρτι",
+  "glosa_interlineal": "ahora",
+  "rango_semantico": [
+   "ahora, hasta ahora"
+  ],
+  "construccion": "Adverbio: «tú has reservado el buen vino hasta ahora».",
+  "sentido_en_contexto": "Elogio del maestresala: lo normal era servir primero el mejor vino y luego el peor. Jesús invierte el orden: el vino mejor es el último, imagen del tiempo mesiánico.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Heb 1:1-2 — «en estos postreros días nos ha hablado por el Hijo»",
+   "Jn 2:11 — «manifestó su gloria»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.2.11",
+  "strong": "G4592",
+  "forma": "σημείων",
+  "glosa_interlineal": "señales",
+  "rango_semantico": [
+   "señal, signo, milagro"
+  ],
+  "construccion": "Genitivo plural: «principio de las señales».",
+  "sentido_en_contexto": "Juan llama «signos» (σημεῖα) a los milagros: no son prodigios para asombrar, sino señales que apuntan a quién es Jesús. Éste es el primero (archē); el segundo es 4:54. Revelan su «gloria» y provocan fe en los discípulos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Este principio de señales hizo Jesús en Caná de Galilea, y manifestó su gloria; y sus discípulos creyeron en él."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 4:54 — «la segunda señal»",
+   "Jn 20:30-31 — «estas se han escrito para que creáis»",
+   "Jn 12:37"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.2.14",
+  "strong": "G2411",
+  "forma": "ἱερῷ",
+  "glosa_interlineal": "templo",
+  "rango_semantico": [
+   "templo (el recinto completo)"
+  ],
+  "construccion": "ἐν + dativo: «halló en el templo a los que vendían».",
+  "sentido_en_contexto": "Se refiere al recinto exterior (atrio de los gentiles) donde se vendían animales para sacrificios y se cambiaba dinero. Juan sitúa esta purificación al principio del ministerio; los sinópticos, al final.",
+  "matiz": "Dos escenas o una: la mayoría de los comentaristas piensa que Jesús purificó el templo dos veces (inicio y final), otros que Juan reubicó teológicamente el relato. Los detalles difieren (látigo de cuerdas, ovejas y bueyes solo en Juan).",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 21:12-13; Mr 11:15-17; Lc 19:45-46 — paralelos al final del ministerio",
+   "Mal 3:1-3 — «vendrá súbitamente a su templo»",
+   "Zac 14:21"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.2.15",
+  "strong": "G5416",
+  "forma": "φραγέλλιον",
+  "glosa_interlineal": "azote",
+  "rango_semantico": [
+   "látigo, azote de cuerdas"
+  ],
+  "construccion": "Acusativo: «hizo un azote de cuerdas».",
+  "sentido_en_contexto": "Detalle exclusivo de Juan: Jesús improvisa un látigo de cuerdas para expulsar a los animales y volcar mesas. El texto no dice que golpeara a personas; el látigo se dirige a ovejas y bueyes.",
+  "matiz": "Debate sobre el alcance de la fuerza: la lectura habitual es que echó a las ovejas y bueyes (πάντας) y no que azotara a los hombres.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 11:15-16 — paralelo",
+   "Lc 19:45"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.2.16",
+  "strong": "G1712",
+  "forma": "ἐμπορίου",
+  "glosa_interlineal": "de mercado",
+  "rango_semantico": [
+   "comercio, mercado"
+  ],
+  "construccion": "Genitivo: «no hagáis de la casa de mi Padre casa de mercado».",
+  "sentido_en_contexto": "Jesús llama al templo «casa de mi Padre»: afirma una relación filial única. Su queja es que el culto se haya convertido en comercio.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y dijo a los que vendían palomas: Quitad de aquí esto, y no hagáis de la casa de mi Padre casa de mercado."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Zac 14:21 — «no habrá más mercader en la casa de Jehová»",
+   "Is 56:7 — «mi casa será llamada casa de oración»",
+   "Lc 2:49 — «en los negocios de mi Padre»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.2.17",
+  "strong": "G2205",
+  "forma": "ζῆλος",
+  "glosa_interlineal": "celo",
+  "rango_semantico": [
+   "celo, ardor"
+  ],
+  "construccion": "Nominativo: «el celo de tu casa me consume».",
+  "sentido_en_contexto": "Cita de Sal 69:9. Los discípulos lo recuerdan después. El salmo del justo sufriente se aplica a Jesús; el celo que le lleva a purificar el templo le llevará a la muerte.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces se acordaron sus discípulos que está escrito: El celo de tu casa me consume."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Sal 69:9 — texto base",
+   "Jn 15:25 — otro uso del Sal 69",
+   "Ro 15:3 — «los vituperios… cayeron sobre mí»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.2.19",
+  "strong": "G3485",
+  "forma": "ναὸν",
+  "glosa_interlineal": "santuario",
+  "rango_semantico": [
+   "templo (el santuario interior)",
+   "cuerpo de Jesús (en sentido figurado)"
+  ],
+  "construccion": "Acusativo: «destruid este templo y en tres días lo levantaré».",
+  "sentido_en_contexto": "Juan usa ναός (santuario) para el v.19 y explica en el v.21 que «hablaba del templo de su cuerpo». Anticipa la resurrección y el nuevo templo. Los sinópticos recogen esta frase como falsa acusación (Mr 14:58).",
+  "matiz": "Juego de sentido: los oyentes entienden el templo de piedra, Jesús habla de sí mismo. El verbo «levantar» (ἐγείρω) es el verbo de la resurrección, y alude también a que Jesús es el verdadero lugar de encuentro con Dios.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Respondió Jesús y les dijo: Destruid este templo, y en tres días lo levantaré."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 14:58 — falsa acusación",
+   "Jn 4:21-24 — adorar en espíritu y en verdad",
+   "1 Co 6:19 — «vuestro cuerpo es templo del Espíritu Santo»",
+   "Ap 21:22 — «el Señor Dios Todopoderoso es el templo»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.2.20",
+  "strong": "G3618",
+  "forma": "οἰκοδομήθη",
+  "glosa_interlineal": "fue edificado",
+  "rango_semantico": [
+   "edificar, construir"
+  ],
+  "construccion": "Aoristo indicativo pasivo: «en cuarenta y seis años fue edificado este templo».",
+  "sentido_en_contexto": "Herodes comenzó la reconstrucción hacia el 20-19 a.C.; sumando 46 años se llega aproximadamente al 27-28 d.C., lo que sirve de dato cronológico para el ministerio de Jesús.",
+  "matiz": "Debate sobre el cómputo: se ve como indicio del año de la primera Pascua del ministerio (27 o 28 d.C.), con diferencias según el cálculo del inicio de la obra.",
+  "traducciones_comparadas": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 3:1 — «el año quince de Tiberio»",
+   "Mr 13:1-2 — «no quedará piedra sobre piedra»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "John.2.22",
+  "strong": "G1124",
+  "forma": "γραφῇ",
+  "glosa_interlineal": "Escritura",
+  "rango_semantico": [
+   "escritura, pasaje escrito"
+  ],
+  "construccion": "Dativo: «creyeron la Escritura y la palabra que Jesús había dicho».",
+  "sentido_en_contexto": "Tras la resurrección, los discípulos comprenden. Juan pone al mismo nivel «la Escritura» y «la palabra de Jesús». Es una pauta joánica: la fe pospascual interpreta lo dicho antes.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Por tanto, cuando resucitó de entre los muertos, sus discípulos se acordaron que había dicho esto; y creyeron la Escritura y la palabra que Jesús había dicho."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 12:16 — «esto no lo entendieron sus discípulos al principio»",
+   "Jn 14:26 — «os recordará todo»",
+   "Lc 24:8 — «ellas se acordaron de sus palabras»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.2.23",
+  "strong": "G4100",
+  "forma": "ἐπίστευσαν",
+  "glosa_interlineal": "creyeron",
+  "rango_semantico": [
+   "creer, confiar"
+  ],
+  "construccion": "Aoristo indicativo activo: «muchos creyeron en su nombre».",
+  "sentido_en_contexto": "Muchos creyeron al ver las señales, pero Jesús «no se fiaba de ellos». Juan distingue entre una fe basada en milagros y una fe plena.",
+  "matiz": null,
+  "traducciones_comparadas": null,
+  "notas_traduccion": [
+   "Jn 4:48 — «si no viereis señales…»",
+   "Jn 6:26 — «me buscáis… porque comisteis»",
+   "Jn 20:29 — «bienaventurados los que no vieron»"
+  ],
+  "otros_usos": null,
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "John.2.25",
+  "strong": "G1097",
+  "forma": "ἐγίνωσκεν",
+  "glosa_interlineal": "conocía",
+  "rango_semantico": [
+   "conocer, saber"
+  ],
+  "construccion": "Imperfecto indicativo activo: «él sabía lo que había en el hombre».",
+  "sentido_en_contexto": "Jesús conoce por dentro a cada ser humano, sin necesidad de testigos. Es un atributo divino (cf. 1 R 8:39) y prepara el diálogo con Nicodemo (cap. 3).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "y no tenía necesidad de que nadie le diese testimonio del hombre, pues él sabía lo que había en el hombre."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 1:47-48 — conoce a Natanael",
+   "Jn 21:17 — «Señor, tú lo sabes todo»",
+   "1 R 8:39 — «tú solo conoces el corazón de todos»"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

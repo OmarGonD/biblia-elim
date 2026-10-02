@@ -1,0 +1,383 @@
+[
+ {
+  "ref": "Rom.5.1",
+  "strong": "G1515",
+  "forma": "εἰρήνην",
+  "glosa_interlineal": "paz",
+  "rango_semantico": [
+   "paz, shalom, reconciliación"
+  ],
+  "construccion": "Acusativo: «tenemos paz para con Dios».",
+  "sentido_en_contexto": "Resultado de la justificación: paz con Dios (no solo sensación de calma, sino fin de la hostilidad). Variante textual: ἔχομεν (indicativo: «tenemos paz») o ἔχωμεν (subjuntivo: «tengamos paz»), con diferencia de sentido; el indicativo tiene mejor apoyo contextual.",
+  "matiz": "Variante: ἔχωμεν (subjuntivo exhortativo «tengamos paz», Aleph*, B*, C, D, la mayoría antigua) frente a ἔχομεν (indicativo «tenemos paz», Aleph², B², algunos otros). Por apoyo textual muchos críticos prefieren el subjuntivo, pero el contexto doctrinal sugiere el indicativo; ambas lecturas se defienden. RVR adopta el indicativo.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Justificados, pues, por la fe, tenemos paz para con Dios por medio de nuestro Señor Jesucristo;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 5:10-11",
+   "Ef 2:14-17",
+   "Col 1:20",
+   "Jn 14:27"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Rom.5.2",
+  "strong": "G4318",
+  "forma": "προσαγωγὴν",
+  "glosa_interlineal": "acceso",
+  "rango_semantico": [
+   "acceso, entrada, introducción"
+  ],
+  "construccion": "Acusativo: «por quien también tenemos entrada (acceso) por la fe a esta gracia».",
+  "sentido_en_contexto": "El creyente tiene acceso (προσαγωγή) a la presencia de Dios, imagen de ser introducido ante un rey. «Esta gracia en la cual estamos firmes» y «nos gloriamos en la esperanza de la gloria de Dios»: tres características de la vida del justificado.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "por quien también tenemos entrada por la fe a esta gracia en la cual estamos firmes, y nos gloriamos en la esperanza de la gloria de Dios."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ef 2:18; 3:12",
+   "Heb 4:16; 10:19-22",
+   "1 P 3:18"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Rom.5.3",
+  "strong": "G2347",
+  "forma": "θλίψεσιν",
+  "glosa_interlineal": "tribulaciones",
+  "rango_semantico": [
+   "tribulación, aflicción, presión"
+  ],
+  "construccion": "Dativo plural: «nos gloriamos en las tribulaciones».",
+  "sentido_en_contexto": "Cadena de la perseverancia (vv.3-5): tribulación → paciencia → prueba (carácter probado) → esperanza. Pablo se gloría en las aflicciones porque producen madurez y confirman la esperanza; no es masoquismo sino fe en el propósito de Dios.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y no sólo esto, sino que también nos gloriamos en las tribulaciones, sabiendo que la tribulación produce paciencia;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Stg 1:2-4",
+   "1 P 1:6-7",
+   "2 Co 4:17",
+   "Ro 8:18"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Rom.5.5",
+  "strong": "G1632",
+  "forma": "ἐκκέχυται",
+  "glosa_interlineal": "ha sido derramado",
+  "rango_semantico": [
+   "derramar, verter"
+  ],
+  "construccion": "Perfecto indicativo pasivo: «el amor de Dios ha sido derramado en nuestros corazones por el Espíritu Santo».",
+  "sentido_en_contexto": "Primera mención explícita en Romanos del Espíritu Santo como don dado a los creyentes: derrama el amor de Dios. «Amor de Dios» (genitivo) es el amor con que Dios nos ama, como lo muestra el v.8. Eco de la promesa de Jl 2:28 (Hch 2:17).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "y la esperanza no avergüenza; porque el amor de Dios ha sido derramado en nuestros corazones por el Espíritu Santo que nos fue dado."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 2:17-18",
+   "Ro 8:15-16",
+   "1 Jn 4:19",
+   "Gá 4:6"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Rom.5.6",
+  "strong": "G765",
+  "forma": "ἀσεβῶν",
+  "glosa_interlineal": "impíos",
+  "rango_semantico": [
+   "impío, sin temor de Dios"
+  ],
+  "construccion": "Genitivo plural: «Cristo murió por los impíos».",
+  "sentido_en_contexto": "Pablo describe a los beneficiarios de la muerte de Cristo con cuatro términos: débiles (v.6), impíos (v.6), pecadores (v.8), enemigos (v.10). Cristo murió por quienes no tenían mérito alguno.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque Cristo, cuando aún éramos débiles, a su tiempo murió por los impíos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 4:5",
+   "1 P 3:18",
+   "Gá 2:20",
+   "2 Co 5:14-15"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Rom.5.8",
+  "strong": "G4921",
+  "forma": "συνίστησιν",
+  "glosa_interlineal": "demuestra",
+  "rango_semantico": [
+   "demostrar, mostrar, probar"
+  ],
+  "construccion": "Presente indicativo activo: «Dios muestra su amor para con nosotros, en que siendo aún pecadores, Cristo murió por nosotros».",
+  "sentido_en_contexto": "Versículo central sobre el amor de Dios: la muerte de Cristo por pecadores demuestra el amor de Dios. El verbo en presente indica un acto continuo de demostración. Texto clave contra la idea de que la cruz sea solo aplacar un Dios airado: es el amor de Dios que actúa.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Mas Dios muestra su amor para con nosotros, en que siendo aún pecadores, Cristo murió por nosotros."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jn 3:16; 15:13",
+   "1 Jn 4:9-10",
+   "Ef 2:4-5",
+   "Ro 8:32"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Rom.5.9",
+  "strong": "G3709",
+  "forma": "ὀργῆς",
+  "glosa_interlineal": "ira",
+  "rango_semantico": [
+   "ira, enojo"
+  ],
+  "construccion": "Genitivo: «seremos salvos de la ira por medio de él».",
+  "sentido_en_contexto": "Argumento de menor a mayor: si fuimos justificados por su sangre, mucho más seremos salvos de la ira (el juicio final) por él. La justificación presente garantiza la salvación futura. Contraste con la ira revelada en 1:18.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pues mucho más, estando ya justificados en su sangre, por él seremos salvos de la ira."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 1:18; 2:5",
+   "1 Ts 1:10; 5:9",
+   "Ro 8:1"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Rom.5.10",
+  "strong": "G2644",
+  "forma": "κατηλλάγημεν",
+  "glosa_interlineal": "fuimos reconciliados",
+  "rango_semantico": [
+   "reconciliar, restablecer la paz"
+  ],
+  "construccion": "Aoristo indicativo pasivo: «siendo enemigos, fuimos reconciliados con Dios por la muerte de su Hijo».",
+  "sentido_en_contexto": "La reconciliación (καταλλαγή) pone fin a la enemistad entre Dios y el ser humano. La iniciativa es de Dios (v.8, 2 Co 5:18-20); el hombre es reconciliado, no reconcilia a Dios. Se debate si Dios también es reconciliado (apaciguado) o solo el hombre.",
+  "matiz": "Debate: ¿quién necesita reconciliarse? Lectura habitual: la hostilidad es mutua (enemistad del hombre y ira de Dios); la reconciliación quita ambas. Otras (Dodd): solo el hombre se aleja. Pablo usa tanto el lenguaje de ira (1:18) como el de reconciliación.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque si siendo enemigos, fuimos reconciliados con Dios por la muerte de su Hijo, mucho más, estando reconciliados, seremos salvos por su vida."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "2 Co 5:18-21",
+   "Col 1:20-22",
+   "Ef 2:14-16"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Rom.5.12",
+  "strong": "G264",
+  "forma": "ἥμαρτον",
+  "glosa_interlineal": "pecaron",
+  "rango_semantico": [
+   "pecar, errar"
+  ],
+  "construccion": "Aoristo indicativo activo: «por cuanto todos pecaron».",
+  "sentido_en_contexto": "Pasaje clave sobre el pecado original (5:12-21): el pecado entró por un hombre (Adán) y por el pecado la muerte pasó a todos «por cuanto todos pecaron» (ἐφ’ ᾧ πάντες ἥμαρτον). El sentido de ἐφ’ ᾧ y la relación de la culpa de Adán con la humanidad son muy debatidos.",
+  "matiz": "Debate sobre ἐφ’ ᾧ πάντες ἥμαρτον: (a) «en quien (Adán) todos pecaron» (Vulgata in quo; Agustín; doctrina del pecado original heredado); (b) «por cuanto/porque todos pecaron» (lectura mayoritaria actual, con variaciones: todos pecan por solidaridad con Adán o por imitación o por nacer con inclinación al pecado); (c) todos pecaron «en Adán» como cabeza federal (reformada). El texto no resuelve todo detalle.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Por tanto, como el pecado entró en el mundo por un hombre, y por el pecado la muerte, así la muerte pasó a todos los hombres, por cuanto todos pecaron."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 3:6, 19",
+   "1 Co 15:21-22, 45-49",
+   "Sal 51:5",
+   "Ef 2:1-3"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Rom.5.14",
+  "strong": "G5179",
+  "forma": "τύπος",
+  "glosa_interlineal": "tipo",
+  "rango_semantico": [
+   "figura, ejemplo, tipo"
+  ],
+  "construccion": "Nominativo: «Adán, el cual es figura (tipo) del que había de venir».",
+  "sentido_en_contexto": "Adán es «tipo» (τύπος) de Cristo: ambos son cabezas de una humanidad (una en pecado y muerte; otra en justicia y vida). La analogía se mueve por contraste: lo que Adán hizo (desobediencia) trae muerte; lo que Cristo hizo (obediencia) trae justificación y vida.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Sin embargo, reinó la muerte desde Adán hasta Moisés, aun en los que no pecaron a la manera de la transgresión de Adán, el cual es figura del que había de venir."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 15:45-49",
+   "Ro 5:15-21",
+   "Lc 3:38"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Rom.5.15",
+  "strong": "G5486",
+  "forma": "χάρισμα",
+  "glosa_interlineal": "don",
+  "rango_semantico": [
+   "don de gracia"
+  ],
+  "construccion": "Nominativo: «pero el don no es como la transgresión».",
+  "sentido_en_contexto": "Pablo señala que el paralelo no es simétrico: el don de gracia supera la ofensa. «Si por la transgresión de uno murieron muchos, ¡cuánto más la gracia de Dios… abundó para los muchos!». Superabundancia de la gracia.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero el don no es como la transgresión; porque si por la transgresión de aquel uno murieron los muchos, abundó mucho más sobre los muchos la gracia y el don de Dios por la gracia de un hombre, Jesucristo."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 5:20",
+   "Ef 2:7",
+   "1 Ti 1:14"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Rom.5.18",
+  "strong": "G2631",
+  "forma": "κατάκριμα",
+  "glosa_interlineal": "condenación",
+  "rango_semantico": [
+   "condenación, sentencia condenatoria"
+  ],
+  "construccion": "Nominativo: «por la transgresión de uno vino la condenación a todos los hombres».",
+  "sentido_en_contexto": "Paralelo Adán-Cristo: una transgresión → condenación para todos; un acto de justicia → justificación de vida para todos. El alcance de «todos» en la segunda parte se debate (universalismo, universalidad de la oferta o los «en Cristo»).",
+  "matiz": "Debate sobre «todos» (v.18) y «muchos» (v.19): (a) universalismo (Barth y algunos); (b) universalidad de la oferta, con efecto en quienes creen (v.17: «los que reciben»); (c) «todos los en Cristo» frente a «todos los en Adán». El contexto (v.17 «los que reciben la abundancia de gracia») favorece (b) o (c).",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Así que, como por la transgresión de uno vino la condenación a todos los hombres, de la misma manera por la justicia de uno vino a todos los hombres la justificación de vida."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Co 15:22",
+   "Ro 5:17; 8:1",
+   "2 Co 5:14-15"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Rom.5.19",
+  "strong": "G3876",
+  "forma": "παρακοῆς",
+  "glosa_interlineal": "desobediencia",
+  "rango_semantico": [
+   "desobediencia, rechazo de oír"
+  ],
+  "construccion": "Genitivo: «por la desobediencia de un hombre los muchos fueron constituidos pecadores».",
+  "sentido_en_contexto": "παρακοή es literalmente «oír mal» (no atender): la desobediencia de Adán. Contraste con la ὑπακοή («obediencia») de Cristo, que Pablo ve culminada en la cruz (Fil 2:8). «Constituidos pecadores/justos» expresa una condición declarada o realizada.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque así como por la desobediencia de un hombre los muchos fueron constituidos pecadores, así también por la obediencia de uno los muchos serán constituidos justos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Fil 2:8",
+   "Heb 5:8-9",
+   "Gn 3:6, 17"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Rom.5.20",
+  "strong": "G3922",
+  "forma": "παρεισῆλθεν",
+  "glosa_interlineal": "se introdujo",
+  "rango_semantico": [
+   "entrar subrepticiamente, intervenir"
+  ],
+  "construccion": "Aoristo indicativo activo: «la ley se introdujo para que el pecado abundase».",
+  "sentido_en_contexto": "La ley se «coló» entre Adán y Cristo como medio para multiplicar la transgresión (hacerla visible y formal), no para generar el pecado. Cuando el pecado aumentó, la gracia sobreabundó (ὑπερεπερίσσευσεν): la gracia siempre supera.",
+  "matiz": "Debate sobre ἵνα («para que»): ¿finalidad real (la ley incrementa el pecado por diseño divino), o resultado (la ley hace visible el pecado)? Cf. Ro 7:7-13; Gá 3:19. La mayoría: ley como revelación del pecado y no como su causa; el pecado, no la ley, es el agente.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero la ley se introdujo para que el pecado abundase; mas cuando el pecado creció, sobreabundó la gracia;"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 7:7-13",
+   "Gá 3:19, 23",
+   "1 Ti 1:14"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Rom.5.21",
+  "strong": "G936",
+  "forma": "ἐβασίλευσεν",
+  "glosa_interlineal": "reinó",
+  "rango_semantico": [
+   "reinar, gobernar"
+  ],
+  "construccion": "Aoristo indicativo activo: «como el pecado reinó para muerte, así también la gracia reine por la justicia».",
+  "sentido_en_contexto": "Clímax del capítulo: dos reinos (pecado-muerte vs gracia-justicia-vida eterna) por medio de dos cabezas. Prepara el cap. 6: el creyente ha pasado de un reinado al otro, y no debe seguir bajo el dominio del pecado.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "para que así como el pecado reinó para muerte, así también la gracia reine por la justicia para vida eterna mediante Jesucristo, Señor nuestro."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 6:12-14",
+   "1 Co 15:25-26",
+   "Ap 22:5"
+  ],
+  "nivel_certeza": "alto"
+ }
+]

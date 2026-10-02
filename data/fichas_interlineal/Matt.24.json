@@ -1,0 +1,688 @@
+[
+ {
+  "ref": "Matt.24.2",
+  "strong": "G2647",
+  "forma": "καταλυθήσεται",
+  "glosa_interlineal": "será derribada",
+  "rango_semantico": [
+   "deshacer, demoler",
+   "destruir (un edificio)"
+  ],
+  "construccion": "Futuro indicativo pasivo, 3ª singular: «será derribada».",
+  "sentido_en_contexto": "Jesús anuncia que no quedará «piedra sobre piedra» del templo. Se cumplió con la destrucción romana en el año 70 d.C.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Respondiendo él, les dijo: ¿Veis todo esto? De cierto os digo, que no quedará aquí piedra sobre piedra, que no sea destruida."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 13:2 — paralelo",
+   "Lc 21:6 — paralelo",
+   "Jer 26:18 — «Sion será arada como campo»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.24.3",
+  "strong": "G3952",
+  "forma": "παρουσίας",
+  "glosa_interlineal": "venida",
+  "rango_semantico": [
+   "presencia, llegada",
+   "venida (especialmente la de un rey o dignatario)"
+  ],
+  "construccion": "Genitivo: «de tu venida».",
+  "sentido_en_contexto": "Los discípulos preguntan por tres cosas: cuándo será (la destrucción del templo), la señal de «tu venida» y el fin del siglo. παρουσία es el término técnico para la visita de un rey o la manifestación de una divinidad.",
+  "matiz": "Se debate si las tres preguntas se refieren al mismo evento (visión «preterista» unificada) o a eventos distintos: la destrucción del 70 y la venida final. La estructura del discurso (vv.4-35 vs 36-51) admite ambas lecturas.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…Dinos, ¿cuándo serán estas cosas, y qué señal habrá de tu venida, y del fin del siglo?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Ts 4:15 — «la venida del Señor»",
+   "2 P 3:4 — «¿dónde está la promesa de su advenimiento?»",
+   "Mt 24:27, 37, 39 — «la venida del Hijo del Hombre»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.24.4",
+  "strong": "G4105",
+  "forma": "πλανήσῃ",
+  "glosa_interlineal": "engañe",
+  "rango_semantico": [
+   "extraviar, engañar",
+   "descarriar"
+  ],
+  "construccion": "Subjuntivo aoristo activo con μή: «que nadie os engañe».",
+  "sentido_en_contexto": "Primera advertencia: cuidado con falsos mesías. El engaño es el peligro principal que Jesús destaca (vv.5, 11, 24).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Respondiendo Jesús, les dijo: Mirad que nadie os engañe."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:11, 24 — «engañarán a muchos»",
+   "1 Jn 2:26 — «os engañan»",
+   "Ap 12:9 — «el que engaña al mundo entero»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.24.6",
+  "strong": "G2360",
+  "forma": "θροεῖσθε",
+  "glosa_interlineal": "os alarméis",
+  "rango_semantico": [
+   "alarmarse, asustarse",
+   "gritar de miedo"
+  ],
+  "construccion": "Imperativo presente pasivo con μή: «no os alarméis».",
+  "sentido_en_contexto": "Las guerras y rumores de guerras no son la señal del fin («aún no es el fin»): hay que mantener la calma.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y oiréis de guerras y rumores de guerras; mirad que no os turbéis, porque es necesario que todo esto acontezca; pero aún no es el fin."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 13:7 — paralelo",
+   "2 Ts 2:2 — «que no os conmováis fácilmente»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.24.8",
+  "strong": "G5604",
+  "forma": "ὠδίνων",
+  "glosa_interlineal": "dolores de parto",
+  "rango_semantico": [
+   "dolor de parto",
+   "angustia intensa"
+  ],
+  "construccion": "Genitivo plural: «principio de dolores (de parto)».",
+  "sentido_en_contexto": "Los desastres son «principio de dolores de parto»: imagen de un proceso que lleva a un nacimiento nuevo, no solo a la destrucción.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y todo esto será principio de dolores."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 66:8 — «¿dará a luz una tierra en un día?»",
+   "Ro 8:22 — «toda la creación gime a una, y sufre dolores de parto»",
+   "1 Ts 5:3 — «como los dolores a la mujer encinta»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.24.12",
+  "strong": "G5594",
+  "forma": "ψυγήσεται",
+  "glosa_interlineal": "se enfriará",
+  "rango_semantico": [
+   "enfriarse"
+  ],
+  "construccion": "Futuro indicativo pasivo, 3ª singular: «se enfriará».",
+  "sentido_en_contexto": "Una consecuencia dolorosa de la multiplicación de la maldad: el amor de muchos se enfría. Verbo único en el NT.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y por haberse multiplicado la maldad, el amor de muchos se enfriará."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ap 2:4 — «has dejado tu primer amor»",
+   "Mt 7:23 — «hacedores de maldad»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.24.14",
+  "strong": "G3625",
+  "forma": "οἰκουμένῃ",
+  "glosa_interlineal": "mundo habitado",
+  "rango_semantico": [
+   "tierra habitada",
+   "el mundo conocido, el imperio romano"
+  ],
+  "construccion": "ἐν + dativo: «en todo el mundo habitado».",
+  "sentido_en_contexto": "El evangelio será predicado a todo el mundo conocido «como testimonio a todas las naciones». Solo entonces vendrá el fin.",
+  "matiz": "Se discute si «el fin» se refiere a la destrucción de Jerusalén (que Pablo pudo considerar cumplida con la misión al imperio, cf. Col 1:6, 23) o al fin último. La respuesta depende de la lectura del discurso.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y será predicado este evangelio del reino en todo el mundo, para testimonio a todas las naciones; y entonces vendrá el fin."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ro 10:18 — «por toda la tierra ha salido su voz»",
+   "Col 1:23 — «predicado en toda la creación que está debajo del cielo»",
+   "Mt 28:19 — «haced discípulos a todas las naciones»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.24.15",
+  "strong": "G946",
+  "forma": "βδέλυγμα",
+  "glosa_interlineal": "abominación",
+  "rango_semantico": [
+   "cosa detestable, abominación",
+   "ídolo (en el AT)"
+  ],
+  "construccion": "Acusativo: «la abominación desoladora».",
+  "sentido_en_contexto": "Cita de Dn 9:27; 11:31; 12:11. En tiempos de Antíoco IV (167 a.C.) se refirió a un altar pagano en el templo. Jesús la proyecta al futuro: «el que lee, entienda».",
+  "matiz": "Debate: ¿se refiere a (a) la profanación romana del templo en el 70 d.C. (lectura habitual, cf. Lc 21:20), (b) un evento futuro de un anticristo, o (c) ambos como cumplimiento doble? Mateo dice «el que lee, entienda», sin precisar.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Por tanto, cuando veáis en el lugar santo la abominación desoladora de que habló el profeta Daniel (el que lee, entienda),"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 9:27 — «sobre el ala del templo vendrá la abominación desoladora»",
+   "Dn 11:31; 12:11",
+   "Lc 21:20 — «cuando viereis a Jerusalén rodeada de ejércitos»",
+   "2 Ts 2:3-4 — «el hombre de pecado… se sienta en el templo de Dios»"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "Matt.24.16",
+  "strong": "G5343",
+  "forma": "φευγέτωσαν",
+  "glosa_interlineal": "huyan",
+  "rango_semantico": [
+   "huir, escapar"
+  ],
+  "construccion": "Imperativo presente activo, 3ª plural: «huyan a los montes».",
+  "sentido_en_contexto": "Instrucción urgente: ante la señal, los habitantes de Judea deben huir sin demora (vv.17-18). La tradición cristiana relata que la comunidad de Jerusalén huyó a Pella antes del asedio (Eusebio).",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "entonces los que estén en Judea, huyan a los montes."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 21:21 — «los que estén en Judea, huyan a los montes»",
+   "Gn 19:17 — «escapa por tu vida»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.24.21",
+  "strong": "G2347",
+  "forma": "θλῖψις",
+  "glosa_interlineal": "tribulación",
+  "rango_semantico": [
+   "aflicción, tribulación",
+   "angustia, presión"
+  ],
+  "construccion": "Nominativo: «gran tribulación».",
+  "sentido_en_contexto": "Tribulación sin precedentes, como la que Dn 12:1 describe. Mateo usa el lenguaje de Daniel para el tiempo del juicio sobre Jerusalén y quizá el final.",
+  "matiz": "Se discute si «la gran tribulación» es la del 70 d.C., un período futuro, o una realidad extendida a lo largo de la historia de la iglesia. Cada tradición la lee distinto.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque habrá entonces gran tribulación, cual no la ha habido desde el principio del mundo hasta ahora, ni la habrá."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 12:1 — «tiempo de angustia, cual nunca fue»",
+   "Ap 7:14 — «los que han salido de la gran tribulación»",
+   "Mr 13:19 — paralelo"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "Matt.24.22",
+  "strong": "G1588",
+  "forma": "ἐκλεκτοὺς",
+  "glosa_interlineal": "escogidos",
+  "rango_semantico": [
+   "escogido, elegido"
+  ],
+  "construccion": "διά + acusativo: «por causa de los escogidos».",
+  "sentido_en_contexto": "Dios abrevia los días «por causa de los escogidos»: sin eso nadie se salvaría. Muestra la protección de los suyos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y si aquellos días no fuesen acortados, nadie sería salvo; mas por causa de los escogidos, aquellos días serán acortados."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 24:24, 31 — los escogidos",
+   "Ro 8:33 — «los escogidos de Dios»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.24.24",
+  "strong": "G5580",
+  "forma": "ψευδόχριστοι",
+  "glosa_interlineal": "falsos cristos",
+  "rango_semantico": [
+   "falso mesías"
+  ],
+  "construccion": "Nominativo plural.",
+  "sentido_en_contexto": "Surgirán falsos mesías y falsos profetas con grandes señales y prodigios, capaces de engañar incluso a los escogidos, si fuera posible.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque se levantarán falsos Cristos, y falsos profetas, y harán grandes señales y prodigios, de tal manera que engañarán, si fuera posible, aun a los escogidos."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dt 13:1-3 — falsos profetas con señales",
+   "2 Ts 2:9 — «con gran poder y señales y prodigios mentirosos»",
+   "1 Jn 2:18 — «muchos anticristos»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.24.27",
+  "strong": "G796",
+  "forma": "ἀστραπὴ",
+  "glosa_interlineal": "relámpago",
+  "rango_semantico": [
+   "relámpago, rayo"
+  ],
+  "construccion": "Nominativo: «como el relámpago».",
+  "sentido_en_contexto": "La venida del Hijo del Hombre será visible y repentina, no secreta ni localizada: se ve de oriente a occidente.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque como el relámpago que sale del oriente y se muestra hasta el occidente, así será también la venida del Hijo del Hombre."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 17:24 — paralelo",
+   "Ap 1:7 — «todo ojo le verá»",
+   "Mt 24:26 — «he aquí está en el desierto… no salgáis»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.24.28",
+  "strong": "G4430",
+  "forma": "πτῶμα",
+  "glosa_interlineal": "cadáver",
+  "rango_semantico": [
+   "cadáver, cuerpo caído"
+  ],
+  "construccion": "Nominativo: «donde esté el cadáver».",
+  "sentido_en_contexto": "Proverbio: donde está el cadáver, se juntan las águilas (o buitres). Se interpreta como imagen de la evidencia indiscutible del juicio, o de la certeza de la venida.",
+  "matiz": "El proverbio es oscuro: puede aludir al juicio sobre Jerusalén (águilas romanas) o a lo inconfundible de la venida. No hay interpretación segura.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Porque dondequiera que estuviere el cuerpo muerto, allí se juntarán las águilas."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 17:37 — «donde estuviere el cuerpo, allí se juntarán también las águilas»",
+   "Job 39:30 — «donde hay cadáveres, allí está ella»"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "Matt.24.29",
+  "strong": "G4654",
+  "forma": "σκοτισθήσεται",
+  "glosa_interlineal": "se oscurecerá",
+  "rango_semantico": [
+   "oscurecerse, ser entenebrecido"
+  ],
+  "construccion": "Futuro indicativo pasivo, 3ª singular.",
+  "sentido_en_contexto": "Lenguaje apocalíptico de las señales cósmicas: sol oscurecido, luna sin luz, estrellas cayendo. Tomado de Is 13:10; 34:4.",
+  "matiz": "Debate: ¿lenguaje literal (fenómenos cósmicos reales) o figurado (derrumbe de potestades políticas y religiosas, como en los profetas)? Ambas lecturas tienen seguidores.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "E inmediatamente después de la tribulación de aquellos días, el sol se oscurecerá, y la luna no dará su resplandor, y las estrellas caerán del cielo, y las potencias de los cielos serán conmovidas."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 13:10 — «el sol se oscurecerá al nacer»",
+   "Is 34:4 — «todo el ejército de los cielos se disolverá»",
+   "Jl 2:31 — «el sol se convertirá en tinieblas»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.24.30",
+  "strong": "G4592",
+  "forma": "σημεῖον",
+  "glosa_interlineal": "señal",
+  "rango_semantico": [
+   "señal, signo"
+  ],
+  "construccion": "Nominativo: «la señal del Hijo del Hombre».",
+  "sentido_en_contexto": "No se dice cuál es la señal: se discute si es el Hijo del Hombre mismo, una luz, la cruz, o una manifestación visible. La imagen de Dn 7:13 (venir en las nubes) sostiene el cuadro.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces aparecerá la señal del Hijo del Hombre en el cielo; y entonces lamentarán todas las tribus de la tierra, y verán al Hijo del Hombre viniendo sobre las nubes del cielo, con poder y gran gloria."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Dn 7:13 — «con las nubes del cielo venía uno como un hijo de hombre»",
+   "Zac 12:10 — «mirarán a mí, a quien traspasaron»",
+   "Ap 1:7 — «he aquí que viene con las nubes»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.24.31",
+  "strong": "G4536",
+  "forma": "σάλπιγγος",
+  "glosa_interlineal": "trompeta",
+  "rango_semantico": [
+   "trompeta",
+   "toque de trompeta"
+  ],
+  "construccion": "μετὰ + genitivo: «con gran trompeta».",
+  "sentido_en_contexto": "La trompeta convoca a los escogidos de los cuatro vientos: eco de Is 27:13 y de la trompeta del Sinaí. Los ángeles reúnen a los elegidos.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Y enviará sus ángeles con gran voz de trompeta, y juntarán a sus escogidos, de los cuatro vientos, desde un extremo del cielo hasta el otro."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 27:13 — «se tocará con gran trompeta»",
+   "1 Co 15:52 — «a la final trompeta»",
+   "1 Ts 4:16 — «con trompeta de Dios»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.24.32",
+  "strong": "G4808",
+  "forma": "συκῆς",
+  "glosa_interlineal": "higuera",
+  "rango_semantico": [
+   "higuera"
+  ],
+  "construccion": "ἀπὸ + genitivo: «de la higuera aprended la parábola».",
+  "sentido_en_contexto": "Parábola de la higuera: cuando sus ramas se ponen tiernas y brotan hojas, se sabe que el verano está cerca. Así, ante las señales, se sabe que «está cerca, a las puertas».",
+  "matiz": "No se dice a qué se refiere «esto» ni «él/ello está cerca»: puede ser el Hijo del Hombre o el fin. El texto griego admite «él» o «ello».",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "De la higuera aprended la parábola: Cuando ya su rama está tierna, y brotan las hojas, sabéis que el verano está cerca."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 21:29-31 — paralelo («el reino de Dios está cerca»)",
+   "Mt 21:19 — la higuera estéril",
+   "Os 9:10 — «como uvas en el desierto hallé a Israel»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.24.34",
+  "strong": "G1074",
+  "forma": "γενεὰ",
+  "glosa_interlineal": "generación",
+  "rango_semantico": [
+   "generación",
+   "raza, linaje",
+   "época"
+  ],
+  "construccion": "Nominativo: «no pasará esta generación».",
+  "sentido_en_contexto": "Una de las frases más discutidas del discurso: «no pasará esta generación hasta que todo esto acontezca».",
+  "matiz": "Interpretaciones principales: (a) los oyentes de Jesús (se cumplió en el 70 d.C. o se refiere a su generación en un sentido extendido); (b) la generación que vea las señales descritas (futuro); (c) «raza» de la humanidad o del pueblo judío; (d) la generación mala e incrédula de 23:36. Es un texto muy debatido.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "De cierto os digo, que no pasará esta generación hasta que todo esto acontezca."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 23:36 — «todo esto vendrá sobre esta generación»",
+   "Mt 16:28 — «no gustarán la muerte hasta que vean al Hijo del Hombre»",
+   "Mr 13:30 — paralelo"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "Matt.24.36",
+  "strong": "G1492",
+  "forma": "οἶδεν",
+  "glosa_interlineal": "sabe",
+  "rango_semantico": [
+   "saber, conocer"
+  ],
+  "construccion": "Perfecto con sentido presente, 3ª singular: «sabe».",
+  "sentido_en_contexto": "El día y la hora no los conoce nadie: ni los ángeles ni el Hijo, solo el Padre. Declaración notable sobre el límite del conocimiento del Hijo durante su ministerio terrenal.",
+  "matiz": "Algunos manuscritos omiten «ni el Hijo» (de ahí que RVR lo omita); la mayoría lo incluye, igual que Marcos 13:32. Se discute cómo conciliarlo con la divinidad plena de Cristo: muchos lo entienden como limitación voluntaria en la encarnación.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero del día y la hora nadie sabe, ni aun los ángeles de los cielos, sino sólo mi Padre."
+   }
+  ],
+  "notas_traduccion": "RVR omite «ni el Hijo» (siguiendo el texto base de los manuscritos tardíos); la mayoría de las ediciones críticas modernas lo incluyen, siguiendo manuscritos antiguos como el Sinaítico.",
+  "otros_usos": [
+   "Mr 13:32 — «ni aun los ángeles… ni el Hijo»",
+   "Hch 1:7 — «no os toca a vosotros saber los tiempos o las sazones»",
+   "Fil 2:6-7 — «se despojó a sí mismo»"
+  ],
+  "nivel_certeza": "medio"
+ },
+ {
+  "ref": "Matt.24.37",
+  "strong": "G3575",
+  "forma": "Νῶε",
+  "glosa_interlineal": "Noé",
+  "rango_semantico": [
+   "Noé"
+  ],
+  "construccion": "Genitivo: «los días de Noé».",
+  "sentido_en_contexto": "Jesús compara el momento de su venida con los días de Noé: la gente vive con normalidad hasta que el diluvio las sorprende. Subraya lo inesperado, no la maldad.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Mas como en los días de Noé, así será la venida del Hijo del Hombre."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Gn 6-9 — el diluvio",
+   "Lc 17:26-27 — paralelo",
+   "2 P 2:5 — «Noé, pregonero de justicia»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.24.40",
+  "strong": "G3880",
+  "forma": "παραλαμβάνεται",
+  "glosa_interlineal": "es tomado",
+  "rango_semantico": [
+   "tomar consigo, llevarse",
+   "aceptar"
+  ],
+  "construccion": "Presente indicativo pasivo, 3ª singular: «es tomado».",
+  "sentido_en_contexto": "«Uno será tomado y el otro dejado»: se debate si ser «tomado» es ser salvado (como en el v.31, reunir a los escogidos) o ser arrebatado para juicio (como en el diluvio, donde se «llevó» a los injustos, v.39).",
+  "matiz": "Dos lecturas: (a) el «tomado» es salvo, reunido con Cristo (relacionada con la doctrina del «arrebatamiento» de 1 Ts 4:17); (b) el «tomado» es juzgado, como en el paralelo del diluvio («se llevó a todos»). En el contexto de Mt 24:39, la segunda es defendible; es debate abierto.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Entonces estarán dos en el campo; el uno será tomado, y el otro dejado."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "1 Ts 4:17 — «seremos arrebatados juntamente con ellos»",
+   "Lc 17:34-37 — paralelo",
+   "Mt 24:39 — «y se los llevó a todos»"
+  ],
+  "nivel_certeza": "bajo"
+ },
+ {
+  "ref": "Matt.24.42",
+  "strong": "G1127",
+  "forma": "γρηγορεῖτε",
+  "glosa_interlineal": "velad",
+  "rango_semantico": [
+   "estar despierto, vigilar",
+   "estar alerta"
+  ],
+  "construccion": "Imperativo presente activo, 2ª plural: «mantened la vigilia».",
+  "sentido_en_contexto": "Mandato central del discurso: velar, porque no se sabe el día. Se repite en 25:13 y 26:38-41.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Velad, pues, porque no sabéis a qué hora ha de venir vuestro Señor."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 25:13 — «velad, porque no sabéis el día ni la hora»",
+   "Mt 26:41 — «velad y orad»",
+   "1 Ts 5:6 — «velemos y seamos sobrios»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.24.43",
+  "strong": "G2812",
+  "forma": "κλέπτης",
+  "glosa_interlineal": "ladrón",
+  "rango_semantico": [
+   "ladrón, el que roba sin violencia"
+  ],
+  "construccion": "Nominativo: «si el padre de familia supiese a qué hora vendría el ladrón».",
+  "sentido_en_contexto": "Imagen de lo imprevisible: el ladrón no avisa. Se aplica a la venida del Hijo del Hombre. La imagen se repite en 1 Ts 5:2 y Ap 3:3.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero sabed esto, que si el padre de familia supiese a qué hora el ladrón habría de venir, velaría, y no dejaría minar su casa."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 12:39-40 — paralelo",
+   "1 Ts 5:2 — «el día del Señor vendrá así como ladrón en la noche»",
+   "Ap 3:3 — «vendré sobre ti como ladrón»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.24.45",
+  "strong": "G4103",
+  "forma": "πιστὸς",
+  "glosa_interlineal": "fiel",
+  "rango_semantico": [
+   "fiel, digno de confianza",
+   "creyente"
+  ],
+  "construccion": "Adjetivo nominativo: «el siervo fiel y prudente».",
+  "sentido_en_contexto": "Parábola del mayordomo: el siervo encargado de alimentar a los de la casa durante la ausencia del señor. Fidelidad cotidiana frente a la tardanza.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "¿Quién es, pues, el siervo fiel y prudente, al cual puso su señor sobre su casa para que les dé el alimento a tiempo?"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 12:42-46 — paralelo",
+   "1 Co 4:2 — «se requiere de los administradores que cada uno sea hallado fiel»",
+   "Mt 25:21 — «bien, buen siervo y fiel»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.24.48",
+  "strong": "G5549",
+  "forma": "χρονίζει",
+  "glosa_interlineal": "tarda",
+  "rango_semantico": [
+   "tardar, demorarse"
+  ],
+  "construccion": "Presente indicativo activo, 3ª singular: «mi señor se demora».",
+  "sentido_en_contexto": "El siervo malo se aprovecha de la tardanza: maltrata a sus consiervos y se emborracha. Advertencia contra el abuso de la demora.",
+  "matiz": null,
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "Pero si aquel siervo malo dijere en su corazón: Mi señor tarda en venir,"
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 25:5 — «tardándose el esposo»",
+   "Hab 2:3 — «aunque tardare, espéralo»",
+   "2 P 3:9 — «el Señor no retarda su promesa»"
+  ],
+  "nivel_certeza": "alto"
+ },
+ {
+  "ref": "Matt.24.51",
+  "strong": "G1371",
+  "forma": "διχοτομήσει",
+  "glosa_interlineal": "cortará en dos",
+  "rango_semantico": [
+   "cortar en dos",
+   "castigar con severidad"
+  ],
+  "construccion": "Futuro indicativo activo, 3ª singular.",
+  "sentido_en_contexto": "Castigo severo: «lo partirá por la mitad» (sentido literal) o «lo separará» (sentido figurado). Su suerte será con los hipócritas, con lloro y crujir de dientes.",
+  "matiz": "Se discute si el verbo significa literalmente cortar en dos o es una expresión idiomática de castigo severo / expulsión. Ambas lecturas son posibles.",
+  "traducciones_comparadas": [
+   {
+    "version": "RVR1960",
+    "texto": "…y le castigará duramente, y pondrá su parte con los hipócritas; allí será el lloro y el crujir de dientes."
+   }
+  ],
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 8:12 — «lloro y crujir de dientes»",
+   "Lc 12:46 — «lo castigará duramente»",
+   "Dn 2:5 — «seréis descuartizados»"
+  ],
+  "nivel_certeza": "medio"
+ }
+]
