@@ -1,0 +1,147 @@
+import copy, json, os, sys, tempfile, unittest
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "tools", "tagnt"))
+try:
+    import jsonschema  # noqa: F401
+    import pipeline
+    HAY = os.path.exists(pipeline.alinear.SALIDA)
+except ImportError:
+    HAY = False
+
+
+def respuesta_valida(sol):
+    """Respuesta sintética correcta para la solicitud (contenido de relleno: prueba la estructura)."""
+    out = []
+    for w in sol["palabras"]:
+        basica = w["nivel"] == "basico"
+        marcada = w.get("variante") or w.get("no_en_na28")
+        out.append({"pos_tisch": w["pos"], "strong": w["strong"], "glosa_interlineal": "x",
+                    "rango_semantico": ["a"], "construccion": ("caso %s" % w["caso_regido"][:5]) if w.get("caso_regido") else "c",
+                    "sentido_en_contexto": None if basica else "s", "matiz": None,
+                    "variantes_textuales": "v" if marcada else None, "notas_traduccion": None, "otros_usos": None,
+                    "nivel_certeza": "medio" if "caso_regido_ambiguo" in w else "alto"})
+    return out
+
+
+@unittest.skipUnless(HAY, "faltan jsonschema o los datos")
+class PipelineTest(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.datos = pipeline.Datos()
+
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp()
+        self.log = os.path.join(self.tmp, "err.jsonl")
+        self.cache = pipeline.Cache("modelo-prueba", raiz=self.tmp)
+
+    def test_solicitud_jn_1_1(self):
+        s = pipeline.solicitud(self.datos, "John.1.1")
+        self.assertEqual(len(s["palabras"]), 17)
+        self.assertEqual([w["nivel"] for w in s["palabras"]].count("basico"), 6)
+        self.assertEqual(s["palabras"][9]["caso_regido"], "acusativo")   # πρὸς τὸν θεόν
+
+    def test_respuesta_valida_y_errores(self):
+        s = pipeline.solicitud(self.datos, "John.1.2")
+        ok = respuesta_valida(s)
+        self.assertEqual(pipeline.validar(ok, s), [])
+        mal = copy.deepcopy(ok)
+        mal[0]["traducciones_comparadas"] = []
+        self.assertTrue(pipeline.validar(mal, s))                      # clave no permitida
+        mal = copy.deepcopy(ok)
+        mal[1]["glosa_interlineal"] = "RVR1960 dice"
+        self.assertTrue(pipeline.validar(mal, s))                      # cita de versión
+        self.assertTrue(pipeline.validar(ok[:-1], s))                  # falta una palabra
+        basica = copy.deepcopy(ok)
+        i = next(n for n, w in enumerate(s["palabras"]) if w["nivel"] == "basico")
+        basica[i]["matiz"] = "no debería"
+        self.assertTrue(pipeline.validar(basica, s))
+
+    def test_reintento_y_cache(self):
+        s = pipeline.solicitud(self.datos, "John.1.2")
+        llamadas = []
+
+        class Falso:
+            modelo = "modelo-prueba"
+
+            def generar(self, sol, error_previo=None):
+                llamadas.append(error_previo)
+                return [] if len(llamadas) == 1 else respuesta_valida(sol)
+
+        self.assertEqual(pipeline.procesar(self.datos, "John.1.2", Falso(), self.cache, self.log), "ok")
+        self.assertEqual(len(llamadas), 2)                             # un reintento con el error
+        self.assertTrue(llamadas[1])
+        self.assertEqual(len(open(self.log).read().splitlines()), 1)   # el primer intento quedó en el registro
+        self.assertEqual(pipeline.procesar(self.datos, "John.1.2", Falso(), self.cache, self.log), "cache")
+        self.assertEqual(len(llamadas), 2)                             # reanudable: no vuelve a llamar
+
+    def test_fallo_tras_un_reintento(self):
+        class Malo:
+            modelo = "modelo-prueba"
+
+            def generar(self, sol, error_previo=None):
+                return []
+
+        self.assertEqual(pipeline.procesar(self.datos, "John.1.2", Malo(), self.cache, self.log), "fallo")
+        self.assertEqual(len(open(self.log).read().splitlines()), 2)
+        self.assertIsNone(self.cache.get("John.1.2"))
+
+    def test_manual_queda_pendiente(self):
+        self.assertEqual(pipeline.procesar(self.datos, "John.1.2", pipeline.GeneradorManual(),
+                                           pipeline.Cache(pipeline.MODELO_MANUAL, raiz=self.tmp), self.log), "pendiente")
+
+    def test_cache_separada_por_prompt_y_modelo(self):
+        a = pipeline.Cache("a", raiz=self.tmp)
+        b = pipeline.Cache("b", raiz=self.tmp)
+        self.assertNotEqual(a.dir, b.dir)
+        self.assertIn(pipeline.prompt_hash(), a.dir)
+
+    def test_api_cliente_falso_y_batch(self):
+        s = pipeline.solicitud(self.datos, "John.1.2")
+
+        class Bloque:
+            type = "text"
+            text = "```json\n" + json.dumps(respuesta_valida(s)) + "\n```"
+
+        class Cli:
+            class messages:
+                @staticmethod
+                def create(**kw):
+                    assert kw["system"][0]["cache_control"] and kw["model"] == "m"
+                    return type("R", (), {"content": [Bloque()]})()
+
+        g = pipeline.GeneradorAPI("m", cliente=Cli())
+        self.assertEqual(pipeline.procesar(self.datos, "John.1.2", g, pipeline.Cache("m", raiz=self.tmp), self.log), "ok")
+        lote = os.path.join(self.tmp, "lote.jsonl")
+        pipeline.batch_export(self.datos, ["John.1.2"], lote, "m")
+        self.assertEqual(json.loads(open(lote).readline())["custom_id"], "John.1.2")
+        res = os.path.join(self.tmp, "res.jsonl")
+        with open(res, "w") as f:
+            f.write(json.dumps({"custom_id": "John.1.2", "result": {"type": "succeeded",
+                    "message": {"content": [{"type": "text", "text": Bloque.text}]}}}) + "\n")
+            f.write(json.dumps({"custom_id": "John.1.3", "result": {"type": "errored"}}) + "\n")
+        c2 = pipeline.Cache("m2", raiz=self.tmp)
+        self.assertEqual(pipeline.batch_import(self.datos, res, "m2", c2, self.log), {"ok": 1, "error": 1})
+
+    def test_ensamblar_con_versiones_pd(self):
+        s = pipeline.solicitud(self.datos, "John.1.2")
+        self.cache.put("John.1.2", respuesta_valida(s))
+        ver = {("John", 1, 2): [{"version": "V", "texto": "t"}]}
+        r = pipeline.ensamblar(self.datos, ["John.1.2"], "modelo-prueba", ver, self.cache,
+                               os.path.join(self.tmp, "v3"))
+        self.assertEqual(r, {"John.01": 7})
+        with open(os.path.join(self.tmp, "v3", "John.01.json")) as fh:
+            f = json.load(fh)
+        self.assertEqual(f[0]["traducciones_comparadas"], [{"version": "V", "texto": "t"}])
+        self.assertEqual(f[2]["caso_regido"], "dativo")
+        self.assertNotIn("glosa_tagnt", f[0])
+
+    def test_versiones_exactas(self):
+        todo = pipeline.textos_versiones()
+        self.assertEqual(todo[("John", 1, 2)][1]["texto"], "Él estaba en el principio en Dios")   # sin marcador 'f'
+        self.assertNotIn("$", todo[("John", 1, 3)][1]["texto"])
+        v = todo[("John", 1, 1)]
+        self.assertEqual([x["version"] for x in v],
+                         ["La Santa Biblia Reina-Valera (1909)", "La Sagrada Biblia (Torres Amat)"])
+
+
+if __name__ == "__main__":
+    unittest.main()

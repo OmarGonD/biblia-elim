@@ -71,7 +71,9 @@ def leer_tisch(imp=None):
             for m in RE_W.finditer(linea):
                 st = re.search(r"strong:G(\d+)", m[1])
                 mo = re.search(r"robinson:(\S+)", m[2])
+                lm = re.search(r"lemma\.Strong:(\S+)", m[1])
                 res[actual].append({"pos": len(res[actual]) + 1,
+                                    "lema": unicodedata.normalize("NFC", lm[1]) if lm else "",
                                     "forma": unicodedata.normalize("NFC", m[3].strip()),
                                     "strong": "G%d" % int(st[1]) if st else "",
                                     "morph": mo[1] if mo else ""})
