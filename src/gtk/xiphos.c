@@ -243,12 +243,16 @@ void frontend_display(const char *tabs)
 
 void shutdown_frontend(void)
 {
-	if (pixbufs->pixbuf_closed)
-		g_object_unref(pixbufs->pixbuf_closed);
-	if (pixbufs->pixbuf_opened)
-		g_object_unref(pixbufs->pixbuf_opened);
-	if (pixbufs->pixbuf_helpdoc)
-		g_object_unref(pixbufs->pixbuf_helpdoc);
+	/* El árbol de módulos se crea de forma perezosa: con la barra lateral
+	 * oculta, `pixbufs` nunca se asignó. Es un estado legítimo al salir. */
+	if (pixbufs) {
+		if (pixbufs->pixbuf_closed)
+			g_object_unref(pixbufs->pixbuf_closed);
+		if (pixbufs->pixbuf_opened)
+			g_object_unref(pixbufs->pixbuf_opened);
+		if (pixbufs->pixbuf_helpdoc)
+			g_object_unref(pixbufs->pixbuf_helpdoc);
+	}
 
 	/* free verse list used for saving search results */
 	if (list_of_verses) {
