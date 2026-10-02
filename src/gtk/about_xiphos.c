@@ -131,7 +131,8 @@ GtkWidget *gui_create_about_xiphos(void)
 	{
 		static const gchar *stepbible[] = {
 			"STEPBible.org, Tyndale House, Cambridge (CC BY 4.0)",
-			"https://github.com/STEPBible/STEPBible-Data", NULL};
+			"https://github.com/STEPBible/STEPBible-Data",
+			"Cambios respecto al TAGNT https://github.com/OmarGonD/biblia-elim/blob/master/data/sources/tagnt/SOURCE.md", NULL};
 		gtk_about_dialog_add_credit_section(GTK_ABOUT_DIALOG(about1),
 						    _("Datos del texto griego (TAGNT)"),
 						    stepbible);

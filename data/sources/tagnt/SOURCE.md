@@ -27,3 +27,12 @@ Tipos: N=NA, K=TR/KJV, O=otros; minúscula = diferencia menor.
   `TR»1` o `Byz«3` significa que la palabra está en esa edición pero desplazada (`ediciones_desplazadas`).
 - `traducciones`: NIV, KJV.
 - `manuscritos`: testigos (01, 02, 03, 04, 05, 06, 032, P66, P66*) y versiones antiguas (Coptic, Latin, Syriac).
+
+## Cambios respecto al TAGNT
+Registro de correcciones o normalizaciones del CONTENIDO del TAGNT (lema, Strong, morfología, glosa, ediciones). No se anotan cambios de formato ni de Unicode que no alteren el contenido.
+
+| Fecha | Palabra | Campo | TAGNT | Aquí | Motivo |
+|---|---|---|---|---|---|
+| (ninguno hasta ahora) | | | | | |
+
+Nota: el parser pasa las formas griegas y los lemas a NFC (solo forma de codificación; el contenido no cambia) y quita los ceros del Strong (G0976 → G976) en el campo `strong`; el campo `dstrong` conserva el valor original.
