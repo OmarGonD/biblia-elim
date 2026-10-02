@@ -209,9 +209,9 @@ Cómo se refleja: (a) υἱός queda alineada con el θεός del TAGNT por Str
 - **Variantes textuales:** Lectura de Tisch: υἱός. NA28, NA27, SBL, WH y Treg leen θεός (apoyada por manuscritos alejandrinos antiguos según los aparatos críticos); Tyn, TR y Byz leen υἱός. Aquí la ficha sigue a Tisch y deja constancia de la lectura de NA28.
 - **Notas de traducción:** La Santa Biblia Reina-Valera (1909) lee «el unigénito Hijo», siguiendo el Textus Receptus; La Sagrada Biblia (Torres Amat), «El Hijo unigénito». Ninguna de las dos traduce la lectura «Dios unigénito» de NA28.
 - **Certeza:** medio
-- **Traducciones comparadas del versículo:**
-  - *La Santa Biblia Reina-Valera (1909)*: A Dios nadie le vió jamás: el unigénito Hijo, que está en el seno del Padre, él le declaró.
-  - *La Sagrada Biblia (Torres Amat)*: A Dios nadie le ha visto jamás: El Hijo unigénito, existente ab eterno en el seno del Padre, él mismo en persona es quien le ha hecho conocer ú los hombres.
+- **Citas del versículo (tabla `citas`, numeración estándar):**
+  - *La Santa Biblia Reina-Valera (1909)* (Jn 1:18): A Dios nadie le vió jamás: el unigénito Hijo, que está en el seno del Padre, él le declaró.
+  - *La Sagrada Biblia (Torres Amat)* (Jn 1:18): A Dios nadie le ha visto jamás: El Hijo unigénito, existente ab eterno en el seno del Padre, él mismo en persona es quien le ha hecho conocer ú los hombres.
 
 ### 3.3 Jn 1:28: Βηθανίᾳ vs. Βηθαβαρᾷ (TR)
 
@@ -231,9 +231,9 @@ Cuando la Reina-Valera 1909 sigue al TR, la ficha muestra la lectura de Tisch y 
 - **Notas de traducción:** La Santa Biblia Reina-Valera (1909) lee «Betábara», siguiendo el Textus Receptus; La Sagrada Biblia (Torres Amat), «Bethania». Ambas versiones traducen distinto porque parten de lecturas griegas distintas.
 - **Otros usos:** Jn 11:1 — otra Betania, junto a Jerusalén · Jn 10:40 — Jesús volvió al lugar donde Juan bautizaba antes · Jn 3:23 — Juan bautizaba en Ainón, cerca de Salim
 - **Certeza:** medio
-- **Traducciones comparadas del versículo:**
-  - *La Santa Biblia Reina-Valera (1909)*: Estas cosas acontecieron en Betábara, de la otra parte del Jordán, donde Juan bautizaba.
-  - *La Sagrada Biblia (Torres Amat)*: Todo esto sucedió en Bethania, la que está á la otra parte del Jordan, donde Juan estaba hautizando.
+- **Citas del versículo (tabla `citas`, numeración estándar):**
+  - *La Santa Biblia Reina-Valera (1909)* (Jn 1:28): Estas cosas acontecieron en Betábara, de la otra parte del Jordán, donde Juan bautizaba.
+  - *La Sagrada Biblia (Torres Amat)* (Jn 1:28): Todo esto sucedió en Bethania, la que está á la otra parte del Jordan, donde Juan estaba hautizando.
 
 ### 3.4 Palabras con variante o fuera de NA28 (18)
 
