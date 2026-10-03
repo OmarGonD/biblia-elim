@@ -1,0 +1,163 @@
+{
+ "ref": "2Cor.2.6",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-03T08:45:01-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G2425",
+   "glosa_interlineal": "basta",
+   "rango_semantico": [
+    "suficiente, bastante",
+    "capaz",
+    "considerable"
+   ],
+   "construccion": "Adjetivo: nominativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: dativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G5108",
+   "glosa_interlineal": "con tal persona",
+   "rango_semantico": [
+    "tal, de esa clase"
+   ],
+   "construccion": "Pronombre demostrativo: dativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: nominativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G2009",
+   "glosa_interlineal": "reprensión",
+   "rango_semantico": [
+    "castigo, censura"
+   ],
+   "construccion": "Sustantivo: nominativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G3778",
+   "glosa_interlineal": "éste",
+   "rango_semantico": [
+    "este, esta, esto",
+    "él, ella (con fuerza demostrativa)"
+   ],
+   "construccion": "Pronombre demostrativo: nominativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: nominativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G5259",
+   "glosa_interlineal": "por",
+   "rango_semantico": [
+    "debajo de, bajo",
+    "en sujeción a",
+    "(con dativo) bajo"
+   ],
+   "construccion": "Preposición con genitivo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: genitivo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G4119",
+   "glosa_interlineal": "la mayoría",
+   "rango_semantico": [
+    "más, mayor número"
+   ],
+   "construccion": "Adjetivo: genitivo plural masculino (comparativo).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}
