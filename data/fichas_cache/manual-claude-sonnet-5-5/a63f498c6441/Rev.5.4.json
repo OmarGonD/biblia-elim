@@ -1,0 +1,217 @@
+{
+ "ref": "Rev.5.4",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-03T10:45:02-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G2799",
+   "glosa_interlineal": "lloraba",
+   "rango_semantico": [
+    "llorar"
+   ],
+   "construccion": "Imperfecto indicativo, voz activa, 1.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G4183",
+   "glosa_interlineal": "mucho",
+   "rango_semantico": [
+    "mucho, muchos",
+    "grande"
+   ],
+   "construccion": "Adjetivo: acusativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": "Esta palabra de Tischendorf no está en TR; sí en NA28, NA27, Tyn, SBL, WH, Treg, Byz.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G3754",
+   "glosa_interlineal": "porque",
+   "rango_semantico": [
+    "que (contenido)",
+    "porque",
+    "puesto que"
+   ],
+   "construccion": "Conjunción.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G3762",
+   "glosa_interlineal": "nadie",
+   "rango_semantico": [
+    "ninguno, nadie",
+    "nada"
+   ],
+   "construccion": "Adjetivo: nominativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G514",
+   "glosa_interlineal": "digno",
+   "rango_semantico": [
+    "digno, merecedor",
+    "apropiado, conveniente"
+   ],
+   "construccion": "Adjetivo: nominativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G2147",
+   "glosa_interlineal": "fue hallado",
+   "rango_semantico": [
+    "hallar, encontrar",
+    "descubrir",
+    "conseguir"
+   ],
+   "construccion": "Aoristo indicativo, voz pasiva, 3.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G455",
+   "glosa_interlineal": "abrir",
+   "rango_semantico": [
+    "abrir",
+    "desatar"
+   ],
+   "construccion": "Infinitivo aoristo, voz activa.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: acusativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G975",
+   "glosa_interlineal": "libro",
+   "rango_semantico": [
+    "libro, rollo"
+   ],
+   "construccion": "Sustantivo: acusativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G3777",
+   "glosa_interlineal": "ni",
+   "rango_semantico": [
+    "ni, tampoco"
+   ],
+   "construccion": "Conjunción (negativo).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G991",
+   "glosa_interlineal": "mirar",
+   "rango_semantico": [
+    "ver, mirar",
+    "percibir",
+    "prestar atención"
+   ],
+   "construccion": "Infinitivo presente, voz activa.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G846",
+   "glosa_interlineal": "la",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal: acusativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}

@@ -1,0 +1,399 @@
+{
+ "ref": "Rev.4.6",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-03T10:45:02-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G1799",
+   "glosa_interlineal": "delante de",
+   "rango_semantico": [
+    "delante de, en presencia de"
+   ],
+   "construccion": "Preposición con genitivo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G2362",
+   "glosa_interlineal": "trono",
+   "rango_semantico": [
+    "trono"
+   ],
+   "construccion": "Sustantivo: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G5613",
+   "glosa_interlineal": "como",
+   "rango_semantico": [
+    "como, así como",
+    "aproximadamente",
+    "cuando"
+   ],
+   "construccion": "Partícula.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": "Esta palabra de Tischendorf no está en TR; sí en NA28, NA27, Tyn, SBL, WH, Treg, Byz.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G2281",
+   "glosa_interlineal": "mar",
+   "rango_semantico": [
+    "mar, lago"
+   ],
+   "construccion": "Sustantivo: nominativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G5193",
+   "glosa_interlineal": "de vidrio",
+   "rango_semantico": [
+    "de cristal, vítreo"
+   ],
+   "construccion": "Adjetivo: nominativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G3664",
+   "glosa_interlineal": "semejante",
+   "rango_semantico": [
+    "semejante, parecido"
+   ],
+   "construccion": "Adjetivo: nominativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G2930",
+   "glosa_interlineal": "cristal",
+   "rango_semantico": [
+    "hielo, cristal"
+   ],
+   "construccion": "Sustantivo: dativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G1722",
+   "glosa_interlineal": "en",
+   "rango_semantico": [
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
+   ],
+   "construccion": "Preposición con dativo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G3319",
+   "glosa_interlineal": "medio",
+   "rango_semantico": [
+    "medio, en medio",
+    "central"
+   ],
+   "construccion": "Adjetivo: dativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G2362",
+   "glosa_interlineal": "trono",
+   "rango_semantico": [
+    "trono"
+   ],
+   "construccion": "Sustantivo: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G2945",
+   "glosa_interlineal": "alrededor de",
+   "rango_semantico": [
+    "en círculo, alrededor"
+   ],
+   "construccion": "Adverbio.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 18,
+   "strong": "G2362",
+   "glosa_interlineal": "trono",
+   "rango_semantico": [
+    "trono"
+   ],
+   "construccion": "Sustantivo: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 19,
+   "strong": "G5064",
+   "glosa_interlineal": "cuatro",
+   "rango_semantico": [
+    "cuatro"
+   ],
+   "construccion": "Adjetivo: nominativo plural neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": "Lectura de Tischendorf: τέσσερα. Ninguna de las ocho ediciones del TAGNT la trae: todas leen τέσσαρα.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 20,
+   "strong": "G2226",
+   "glosa_interlineal": "seres vivientes",
+   "rango_semantico": [
+    "ser viviente, criatura viva"
+   ],
+   "construccion": "Sustantivo: nominativo plural neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 21,
+   "strong": "G1073",
+   "glosa_interlineal": "llenos de",
+   "rango_semantico": [
+    "estar lleno"
+   ],
+   "construccion": "Participio presente, voz activa, nominativo plural neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 22,
+   "strong": "G3788",
+   "glosa_interlineal": "de los ojos",
+   "rango_semantico": [
+    "ojo"
+   ],
+   "construccion": "Sustantivo: genitivo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 23,
+   "strong": "G1715",
+   "glosa_interlineal": "por delante",
+   "rango_semantico": [
+    "delante de, ante",
+    "en presencia de",
+    "(adv.) delante"
+   ],
+   "construccion": "Preposición; caso regido ambiguo (se interpone CONJ (καὶ)).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": "Lectura de Tischendorf: ἔνπροσθεν. Ninguna de las ocho ediciones del TAGNT la trae: todas leen ἔμπροσθεν.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 24,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 25,
+   "strong": "G3693",
+   "glosa_interlineal": "por detrás",
+   "rango_semantico": [
+    "por detrás, atrás"
+   ],
+   "construccion": "Preposición; caso regido ambiguo (sin elemento con caso en las 3 palabras siguientes).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "medio"
+  }
+ ]
+}

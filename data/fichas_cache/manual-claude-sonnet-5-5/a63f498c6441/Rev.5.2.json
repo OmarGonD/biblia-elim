@@ -1,0 +1,297 @@
+{
+ "ref": "Rev.5.2",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-03T10:45:02-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G3708",
+   "glosa_interlineal": "vi",
+   "rango_semantico": [
+    "ver, mirar",
+    "percibir",
+    "experimentar"
+   ],
+   "construccion": "Aoristo (2.º) indicativo, voz activa, 1.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G32",
+   "glosa_interlineal": "ángel",
+   "rango_semantico": [
+    "anunciar, informar"
+   ],
+   "construccion": "Sustantivo: acusativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G2478",
+   "glosa_interlineal": "al fuerte",
+   "rango_semantico": [
+    "fuerte, poderoso"
+   ],
+   "construccion": "Adjetivo: acusativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G2784",
+   "glosa_interlineal": "proclamando",
+   "rango_semantico": [
+    "predicar, proclamar"
+   ],
+   "construccion": "Participio presente, voz activa, acusativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G1722",
+   "glosa_interlineal": "con",
+   "rango_semantico": [
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
+   ],
+   "construccion": "Preposición con dativo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": "Esta palabra de Tischendorf no está en TR; sí en NA28, NA27, Tyn, SBL, WH, Treg, Byz.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G5456",
+   "glosa_interlineal": "con voz",
+   "rango_semantico": [
+    "voz",
+    "sonido",
+    "mensaje"
+   ],
+   "construccion": "Sustantivo: dativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G3173",
+   "glosa_interlineal": "grande",
+   "rango_semantico": [
+    "grande, mayor",
+    "importante",
+    "poderoso"
+   ],
+   "construccion": "Adjetivo: dativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G5101",
+   "glosa_interlineal": "¿quién",
+   "rango_semantico": [
+    "alguien, algo",
+    "cierto, uno"
+   ],
+   "construccion": "Pronombre interrogativo: nominativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G514",
+   "glosa_interlineal": "digno",
+   "rango_semantico": [
+    "digno, merecedor",
+    "apropiado, conveniente"
+   ],
+   "construccion": "Adjetivo: nominativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G455",
+   "glosa_interlineal": "abrir",
+   "rango_semantico": [
+    "abrir",
+    "desatar"
+   ],
+   "construccion": "Infinitivo aoristo, voz activa.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: acusativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G975",
+   "glosa_interlineal": "libro",
+   "rango_semantico": [
+    "libro, rollo"
+   ],
+   "construccion": "Sustantivo: acusativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G3089",
+   "glosa_interlineal": "desatar",
+   "rango_semantico": [
+    "desatar, soltar",
+    "quebrantar, violar"
+   ],
+   "construccion": "Infinitivo aoristo, voz activa.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: acusativo plural femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G4973",
+   "glosa_interlineal": "sellos",
+   "rango_semantico": [
+    "sello, señal de autenticidad"
+   ],
+   "construccion": "Sustantivo: acusativo plural femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 18,
+   "strong": "G846",
+   "glosa_interlineal": "él",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal: genitivo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}
