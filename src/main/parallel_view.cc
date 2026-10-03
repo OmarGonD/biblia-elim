@@ -25,6 +25,9 @@
 #include <stdio.h>
 #include <string.h>
 
+#include <map>
+#include <string>
+
 #include <gtk/gtk.h>
 
 #include <swmodule.h>
@@ -515,209 +518,154 @@ static std::string parallel_content(const char *module, const char *key)
     return html;
 }
 
-/******************************************************************************
- * Name
- *   gui_update_parallel_page
- *
- * Synopsis
- *   #include "main/parallel_view.h
- *
- *   void gui_update_parallel_page(void)
- *
- * Description
- *
- *
- * Return value
- *   void
- */
+/* The docked «Vista paralela» page: two versions side by side, each a
+ * whole window of chapters laid out like the main pane, kept on the same
+ * verse by gui/parallel_view.c as either one scrolls. */
+
+/* cvparallel is native to the main pane's Bible: the same passage in
+ * `module`'s own numbering, or NULL when it has none. */
+static gchar *parallel_key_for(const char *module)
+{
+	const char *passage = settings.cvparallel ? settings.cvparallel
+						  : settings.currentverse;
+	if (!passage || !settings.MainWindowModule)
+		return NULL;
+	return main_reference_for_module(settings.MainWindowModule, passage,
+					 module);
+}
+
+gboolean main_parallel_render_pane(GtkWidget *html, const char *module)
+{
+	if (!html || !module || !*module || !bible_backend ||
+	    !gtk_widget_get_realized(html))
+		return FALSE;
+	const char *real_mod = main_abbrev_to_name(module);
+	if (real_mod)
+		module = real_mod;
+
+	BibleBackend &reader = parallel_backend(module);
+	gchar *key = reader.hasModule(module) ? parallel_key_for(module) : NULL;
+	gboolean shown = key && main_display_bible_side_pane(html, &reader,
+							     module, key);
+	g_free(key);
+	if (!shown) {
+		gchar *page = g_strdup_printf(
+		    "<html><body bgcolor=\"%s\" text=\"%s\">%s</body></html>",
+		    settings.bible_bg_color, settings.bible_text_color,
+		    no_content);
+		HtmlOutput(page, html, NULL, NULL);
+		g_free(page);
+	}
+	return shown;
+}
+
+gint main_parallel_current_position(const char *module, gchar **book)
+{
+	if (book)
+		*book = NULL;
+	if (!module || !bible_backend)
+		return 0;
+	const char *real_mod = main_abbrev_to_name(module);
+	if (real_mod)
+		module = real_mod;
+	BibleBackend &reader = parallel_backend(module);
+	gchar *key = reader.hasModule(module) ? parallel_key_for(module) : NULL;
+	BibleKeyInfo info;
+	gint anchor = 0;
+	if (key && reader.resolveKey(module, key, info)) {
+		anchor = info.reference.chapter * 1000 + info.reference.verse;
+		if (book)
+			*book = g_strdup(info.osisBook.c_str());
+	}
+	g_free(key);
+	return anchor;
+}
+
+gint main_parallel_current_anchor(const char *module)
+{
+	return main_parallel_current_position(module, NULL);
+}
+
+gint main_parallel_map_anchor(const char *from_mod, const char *to_mod,
+			      gint anchor)
+{
+	if (anchor < 1000 || !from_mod || !to_mod || !bible_backend)
+		return 0;
+	BibleBackend &from = parallel_backend(from_mod);
+	BibleBackend &to = parallel_backend(to_mod);
+	if (!from.hasModule(from_mod) || !to.hasModule(to_mod))
+		return 0;
+	/* Both panes hold the same passage: under one versification an
+	 * anchor names the same verse in either. */
+	if (!strcmp(from_mod, to_mod) ||
+	    from.versification(from_mod) == to.versification(to_mod))
+		return anchor;
+
+	/* Otherwise verse by verse, never chapter + offset (KJV Psalm 147:12
+	 * is Vulgate 147:1), and only into the book the other pane holds.
+	 * The books the two panes hold are worked out once per passage, and
+	 * a verse once per pair of Bibles and book: lining up the rows of a
+	 * window of chapters asks for every verse in it again and again. */
+	static std::string context_key, from_book, to_book;
+	static std::map<std::string, gint> verses;
+	const char *passage = settings.cvparallel ? settings.cvparallel
+						  : settings.currentverse;
+	const std::string key_now = std::string(from_mod) + "\t" + to_mod + "\t" +
+				    (passage ? passage : "");
+	if (key_now != context_key) {
+		gchar *from_key = parallel_key_for(from_mod);
+		gchar *to_key = parallel_key_for(to_mod);
+		BibleKeyInfo from_info, to_info;
+		const bool known = from_key && to_key &&
+			from.resolveKey(from_mod, from_key, from_info) &&
+			to.resolveKey(to_mod, to_key, to_info);
+		g_free(from_key);
+		g_free(to_key);
+		from_book = known ? from_info.osisBook : std::string();
+		to_book = known ? to_info.osisBook : std::string();
+		context_key = key_now;
+	}
+	if (from_book.empty() || to_book.empty())
+		return 0;
+
+	const std::string verse_key = std::string(from_mod) + "\t" + to_mod + "\t" +
+				      from_book + "\t" + to_book + "\t" +
+				      std::to_string(anchor);
+	auto known = verses.find(verse_key);
+	if (known != verses.end())
+		return known->second;
+
+	const int chapter = anchor / 1000, verse = anchor % 1000;
+	BibleKeyInfo mapped_info;
+	gint mapped = 0;
+	/* a chapter's heading goes with its first verse */
+	gchar *key = g_strdup_printf("%s %d:%d", from_book.c_str(),
+				     chapter, verse ? verse : 1);
+	gchar *other = main_reference_for_module(from_mod, key, to_mod);
+	if (other && to.resolveKey(to_mod, other, mapped_info) &&
+	    mapped_info.osisBook == to_book)
+		mapped = mapped_info.reference.chapter * 1000 +
+			 (verse ? mapped_info.reference.verse : 0);
+	g_free(other);
+	g_free(key);
+	if (verses.size() > 50000)	/* a few books' worth: start over */
+		verses.clear();
+	verses[verse_key] = mapped;
+	return mapped;
+}
 
 void main_update_parallel_page(void)
 {
-	gchar *tmpBuf;
-	gint modidx;
-	gboolean is_rtol = FALSE;
-	GString *data;
+	/* A new passage may already be laid out in both panes (the next
+	 * verse, say): they only move to it. The same passage again is a
+	 * change of how it is shown (Preferences, options): laid out anew. */
+	const gboolean moved = g_strcmp0(settings.cvparallel, settings.currentverse) != 0;
 
 	gui_reassign_strdup(&settings.cvparallel, settings.currentverse);
-	backend_p->get_mgr()->setGlobalOption("Footnotes", "Off");
-
-	tmpBuf = g_strdup_printf(HTML_START
-				 "<body bgcolor=\"%s\" text=\"%s\" link=\"%s\"><table>",
-				 (settings.parallel_italic_headings ? "italic" : "bold"),
-				 "", // null CSS headers
-				 "", // null CSS headers
-				 "", // null CSS headers
-				 settings.bible_bg_color,
-				 settings.bible_text_color, settings.link_color);
-	data = g_string_new(tmpBuf);
-	g_free(tmpBuf);
-
-	/* franja alternada: un 10% de mezcla hacia el color del texto,
-	 * en vez del truco anterior de usar bible_text_color entero como
-	 * fondo -- ver el comentario de blend_hex_color() arriba. */
-	gchar *row_tint = blend_hex_color(settings.bible_bg_color,
-					  settings.bible_text_color, 0.10);
-	gchar *link_tint = blend_hex_color(settings.bible_bg_color,
-					   settings.bible_text_color, 0.55);
-	/* etiqueta de módulo en dorado en vez del azul de número de
-	 * versículo -- un tono cálido y elegante, con su propio matiz
-	 * para cada tema (el mismo dorado #E6C989 que ya usa el resto de
-	 * la interfaz oscura de Biblia Elim; en el tema claro uno más
-	 * oscuro para que se lea bien sobre el fondo papel). */
-	const gchar *mod_label_color = settings.darktheme ? "#E6C989" : "#8A6D1E";
-	/* fondo del "chip" con el nombre del módulo: un toque de ese
-	 * dorado mezclado sobre el fondo, para que combine con cualquier
-	 * tema sin depender de un color fijo. */
-	gchar *badge_bg = blend_hex_color(settings.bible_bg_color,
-					  mod_label_color, 0.22);
-	/* separador entre versiones: esta tabla no soporta <hr> real (el
-	 * parser HTML propio de Biblia Elim lo trata como un simple
-	 * salto de línea, sin trazo -- ver insert_break() en
-	 * wk-html.c), así que se simula con una fila angosta de un solo
-	 * caracter en tamaño mínimo y fondo propio, a modo de raya fina
-	 * entre un módulo y el siguiente. */
-	gchar *divider_color = blend_hex_color(settings.bible_bg_color,
-					       settings.bible_text_color, 0.30);
-
-	if (settings.parallel_list) {
-		gchar *mod_name;
-		for (modidx = 0;
-		     (mod_name = settings.parallel_list[modidx]);
-		     modidx++) {
-			const gchar *rowcolor, *textcolor;
-			const char *real_mod = main_abbrev_to_name(mod_name);
-			if (real_mod)
-				mod_name = (gchar *)real_mod;
-
-			// if a module was deleted, but still in parallels list,
-			// we will segfault when looking for content for the
-			// nonexistent module.  avoid this.
-			if (!parallel_backend(mod_name).hasModule(mod_name)) {
-				gui_generic_warning((unknown_parallel +
-						     (SWBuf)mod_name).c_str());
-				continue;
-			}
-
-			is_rtol = main_is_mod_rtol(mod_name);
-
-			/* franja alternada: el color de texto se mantiene
-			 * siempre igual (legible sobre ambos tonos de
-			 * fondo), solo cambia el fondo. */
-			rowcolor = (settings.alternation && (modidx % 2 == 1))
-				       ? row_tint
-				       : settings.bible_bg_color;
-			textcolor = settings.bible_text_color;
-
-			if (modidx == 0) {
-				tmpBuf = g_strdup_printf(
-				    "<tr><td><i><font color=\"%s\" size=\"%d\">[%s]</font></i></td></tr>",
-				    settings.bible_verse_num_color,
-				    settings.verse_num_font_size + settings.base_font_size,
-				    settings.currentverse);
-				g_string_append(data, tmpBuf);
-				g_free(tmpBuf);
-			}
-
-			/* <hr> ahora dibuja una raya real (ver insert_hr()
-			 * en wk-html.c); antes había que simularla con una
-			 * fila angosta a mano. */
-			if (modidx > 0) {
-				tmpBuf = g_strdup_printf(
-				    "<tr><td><hr color=\"%s\"></td></tr>",
-				    divider_color);
-				g_string_append(data, tmpBuf);
-				g_free(tmpBuf);
-			}
-
-			MOD_FONT *mf = get_font(mod_name);
-			apply_bible_body_font(mf);
-			gchar *fontstring = g_strdup_printf((((strlen(mf->old_font) < 2) ||
-							      !strncmp(mf->old_font, "none", 4))
-							     ? "<font size=\"%+d\">"
-							     : "<font size=\"%+d\" face=\"%s\">"),
-							    mf->old_font_size_value, mf->old_font);
-			free_font(mf);
-
-			const char *abbreviation = main_name_to_abbrev(mod_name);
-			/* etiqueta de módulo como "chip": un fondo sutil
-			 * propio la distingue del cuerpo del versículo, en
-			 * vez de flotar como texto suelto entre corchetes. */
-			tmpBuf = g_strdup_printf(
-			    "<tr bgcolor=\"%s\"><td>%s<b><a href=\"passagestudy.jsp?action=showModInfo&value=%s&module=%s\">"
-			    "<font color=\"%s\" size=\"%+d\"><span style=\"background-color:%s\"> %s </span></font></a></b><br/>",
-			    rowcolor,
-			    fontstring,
-			    main_get_module_description(mod_name),
-			    mod_name,
-			    mod_label_color,
-			    settings.verse_num_font_size + settings.base_font_size,
-			    badge_bg,
-			    (abbreviation ? abbreviation : mod_name));
-			g_free(fontstring);
-			g_string_append(data, tmpBuf);
-			g_free(tmpBuf);
-
-			if (is_rtol)
-				g_string_append(data, "<br/><div align=right>");
-
-			/* cvparallel is native to the main pane's Bible;
-			 * each module reads the same passage under its own
-			 * numbering, or shows nothing when it has none. */
-			gchar *modkey = main_reference_for_module(
-			    settings.MainWindowModule, settings.cvparallel,
-			    mod_name);
-			// does this verse exist for this module?
-			if (!modkey ||
-			    !main_is_Bible_key(mod_name, modkey)) {
-				g_string_append(data, no_content);
-			} else {
-				gchar *marca = highlight_note_marker_for(mod_name, modkey);
-				if (marca)
-					g_string_append(data, marca);
-				g_free(marca);
-
-				gchar *utf8str = g_strdup(parallel_content(mod_name, modkey).c_str());
-				if (utf8str) {
-					char fontcolor[32];
-
-					sprintf(fontcolor, "<font color=%s>", textcolor);
-					g_string_append(data, fontcolor);
-					g_string_append(data, utf8str);
-					g_string_append(data, "</font>");
-					g_free(utf8str);
-				}
-			}
-			g_free(modkey);
-
-			if (is_rtol)
-				g_string_append(data, "</div><br/>");
-
-			/* "ver contexto" no llevaba color propio y heredaba
-			 * el de la fila -- invisible cuando esa fila usaba
-			 * el fondo crema del bug de arriba. Le damos un tono
-			 * atenuado explícito (a mitad de camino entre texto
-			 * y fondo) para que se lea como enlace secundario,
-			 * en cualquier tema. */
-			tmpBuf = g_strdup_printf(
-			    "<small><br/>[<a href=\"passagestudy.jsp?action=showParallel&"
-			    "type=swap&value=%s\"><font color=\"%s\">%s</font></a>]</small></font></td></tr>",
-			    mod_name, link_tint, _("view context"));
-			g_string_append(data, tmpBuf);
-			g_free(tmpBuf);
-		}
-	}
-
-	g_string_append(data, "</table></body></html>");
-	HtmlOutput((char *)(settings.imageresize
-				? AnalyzeForImageSize(data->str, 1,
-						      widgets.html_parallel)
-				: data->str),
-		   widgets.html_parallel, NULL, NULL);
-	g_string_free(data, TRUE);
-	g_free(row_tint);
-	g_free(link_tint);
-	g_free(badge_bg);
-	g_free(divider_color);
+	if (moved)
+		gui_parallel_panes_follow(TRUE);
+	else
+		gui_parallel_panes_update(FALSE);
 }
 
 /******************************************************************************

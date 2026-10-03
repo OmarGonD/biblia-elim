@@ -111,6 +111,11 @@ void metadataAndCapabilities()
 void navigationBoundaries()
 {
 	SqliteBibleBackend backend(fixtureDirectory);
+	/* A bare chapter, as reading plans give it, means its first verse. */
+	BibleKeyInfo chapterOnly;
+	g_assert_true(backend.resolveKey("FakeBible", "Genesis 1", chapterOnly));
+	g_assert_cmpstr(chapterOnly.key.c_str(), ==, "Genesis 1:1");
+	g_assert_false(backend.resolveKey("FakeBible", "Genesis", chapterOnly));
 	g_assert_cmpstr(backend.navigate("FakeBible", "Genesis 1:1", -1).c_str(),
 		==, "Genesis 1:1");
 	g_assert_cmpstr(backend.navigate("FakeBible", "Genesis 1:1", 1).c_str(),

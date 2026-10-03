@@ -10500,6 +10500,208 @@
     (~40 ms); a fresh build directory fails copying the `.gmo` files
     (`process-pot-file` stages them before they exist), unrelated to speed.
 
+- [x] PARALLEL-SYNC-101 Docked «Vista paralela»: two versions side by side, scrolled together
+  - Status: DONE (2026-09-28)
+  - Request: the parallel view must show two modules at once, and scrolling
+    or moving with the arrows in one must move the other, to compare two
+    Bibles while reading.
+  - Before: the docked page (bottom tab «Vista paralela») showed only the
+    current verse of each parallel module, stacked; the chapter table lived
+    only in the detached dialog / tab and in reading mode.
+  - Change:
+    - `gui_create_parallel_page()` (`src/gtk/parallel_view.c`) builds a
+      version picker (searchable, long titles ellipsized, full in the list)
+      over each of two chapter panes, with a ⇄ swap button. The panes show
+      the first two entries of `modules/parallels` (the list Preferences,
+      the detached table and reading-mode comparison already use); a
+      choice or swap is written back there.
+    - Each pane is laid out like the main pane (window of chapters, verse
+      anchors `chapter*1000+verse`, headings, notes markers) by the new
+      `main_display_bible_side_pane()` (`src/main/display.cc`): neutral
+      path for Bibles SQLite reads, SWModule path for Bibles SWORD reads
+      (the neutral path numbers books canonically, which SWORD does not).
+      It sets aside and restores what the main pane published about itself:
+      rendered chapter range, note cache, verse style, `valid_scripture_key`.
+    - Sync: the pane last scrolled, clicked or typed in leads
+      (`gui_parallel_pane_take_lead()`, capture-phase controllers that do
+      not consume); on its `value-changed` the other pane puts the verse at
+      the leader's top line at the same height, as far into that verse.
+      `main_parallel_map_anchor()` maps anchors across versifications verse
+      by verse (identity under one versification; only into the book the
+      other pane holds; never fabricated). Arrow keys keep their existing
+      meaning (next/previous verse); both panes follow the new verse.
+    - The panes render only while the page is showing; navigation while it
+      is hidden marks them stale and the tab switch lays them out once.
+    - `wk_html_zoom()` now restyles every live pane of the zoomed surface
+      (`src/webkit/wk-html.c`), so zooming one version zooms both.
+  - Tests: `gtk_lifecycle_smoke` gains `check_parallel_page()`: both panes
+    hold the chapter; after laying out another Bible last, the note cache
+    still lists a highlight only the main Bible has; left→right and
+    right→left following; a pane that is not leading moves nothing. Proven
+    meaningful: dropping the note-cache restore fails
+    «laying out another Bible in the parallel page took the main Bible's
+    notes»; disabling the follow fails the three sync checks. Full CTest
+    (`-j4 --timeout 300`): 73/75 PASS, the two Torres Amat 1835 audits
+    timed out under load and PASS alone (2/2, 640 s). Fixture note:
+    it stores John as book_id 40, so chapter panes (canonical ids) find no
+    John verses; the check uses Genesis 1:1.
+  - Evidence (real app, isolated copy of the user profile under Xvfb, SQLite):
+    Luke 24 SpaPlatense | SpaRV, wheel in the left pane → right follows
+    (37–40 on both); wheel in the right → left follows; 12×Down → navbar
+    24:47, both panes on 47; Psalms: Platense 120 beside RV 121 at start,
+    scrolling across chapters keeps Vulgate/KJV counterparts (Plat 119 ↔ RV
+    120, Plat 121 ↔ RV 122); swap and picker (KJV) re-align; Ctrl+Minus
+    shrinks both panes; no Gtk warnings. `--backend=sword`: same Psalms
+    alignment (Plat 121 ↔ RV 122). Both panes lay out in ~25 ms per
+    navigation step (Debug build, Luke 24).
+  - Not done: the panes keep the main pane's window of chapters (previous,
+    current, next); reading past it needs a navigation (navbar or arrows),
+    the window does not slide by itself as the main pane's does.
+
+- [x] PARALLEL-SYNC-102 Verse rules and the focus band in both panes of «Vista paralela»
+  - Status: DONE (2026-09-28)
+  - Request: horizontal visual aids separating verses, to compare better;
+    the focus band was missing in both Bibles of the parallel view.
+  - Change:
+    - `wk_html_set_verse_rules()` (`src/webkit/wk-html.c`): `WkTextView`
+      draws, in its below-text layer, a thin line (text colour at 25%)
+      under each verse on screen, half way to what follows (at most 6 px).
+      Drawn outside the buffer: nothing to select, copy or find; the
+      rendered HTML and the main pane are unchanged. Only the two parallel
+      panes turn it on.
+    - Focus band: each pane marks with the main pane's band
+      (`wk_html_reading_focus_set()`) the verse on its reading line
+      (`READING_FOCUS_LINE_RATIO`, the main pane's); the other pane marks
+      the mapped counterpart and brings its start to the same height, so
+      both bands sit side by side (a longer verse carries the line past the
+      shorter counterpart's end; the other pane waits for the next verse).
+      After each layout the band starts on the current verse, placed on the
+      reading line. A chapter heading on the line leaves the bands where
+      they were.
+    - A reading reserve under the last verse (tag spacing, the main pane's
+      `reading_focus_bottom_reserve()`), so the last verse reaches the line.
+    - The line in the gap before the next chapter's title, or under the
+      last verse, belongs to the verse it has just passed (fixed a stall
+      found at Psalm 120/121 ends, where the follower stopped following).
+  - Tests: `gtk_lifecycle_smoke` `check_parallel_page()`: rules on both
+    parallel panes and not on the main one; band on the current verse in
+    both at layout; left leads to Genesis 1:2 on its reading line → right's
+    reading line in its 1:2 and both bands move to 1:2 (off 1:1); right
+    leads back to 1:1 → left follows with both bands there; an idle pane
+    moves nothing. The smoke runner adds Genesis 1:2 to both fixture
+    modules (Genesis is the only book the fixture numbers canonically).
+    Proven meaningful: dropping the follower's band fails «focus band did
+    not move to the same verse in both parallel panes» (and the reverse
+    check); not enabling the rules fails «verse rules not on the parallel
+    panes alone». CTest `-j4` without the two slow Torres Amat 1835 audits
+    (unchanged OCR code, PASS alone in PARALLEL-SYNC-101): 73/73 PASS.
+  - Evidence (real app, isolated profile copy, Xvfb): Luke 24 opens with
+    both bands on 24:34 side by side, rules under every verse; scrolling
+    either pane moves both bands together (36 ↔ 36); end of chapter: 53 ↔
+    53 aligned; Psalms: Platense 120:8 ↔ RV 121:8 aligned across the
+    chapter end; `--backend=sword`: Platense 120:1 ↔ RV 121:1 bands side by
+    side. No Gtk warnings.
+
+- [x] PARALLEL-ROWS-103 Equivalent verses start at the same height in both panes
+  - Status: DONE (2026-09-28)
+  - Request (screenshot, Luke 24): equivalent verses were not side by side
+    once their lengths differed; however long each is, they must line up for
+    a quick comparison.
+  - Change:
+    - `wk_html_anchor_row()` (`src/webkit/wk-html.c`): where a verse's row
+      starts, the first line after the previous anchor's text, so headings
+      in front of a verse belong to its row; FALSE for verses running on in
+      a paragraph (no line of their own).
+    - `align_rows()` (`src/gtk/parallel_view.c`): walks the left pane's
+      rows with their counterparts (`main_parallel_map_anchor()`, so across
+      versifications too) and adds paragraph spacing, never text:
+      pixels-below-lines under the previous row where it ended higher, so
+      both rows start together; pixels-above-lines on the verse's first line
+      where there is less heading in front of it, so both verses' text starts
+      together (Platense «Los discípulos de Emaús» before Luke 24:13 leaves
+      the same room empty on the Reina-Valera side). Measured as laid out
+      without the space already added; reruns on every height change at
+      `G_PRIORITY_LOW`, after GTK's own validation, and stops once nothing
+      changes. A chapter's anchor (after its title) aligns by its row only.
+    - Verse rules now drawn where each row starts, so they meet across the
+      panes; sync follows the leader by the same distance from the verse's
+      start (rows aligned, no clamp needed). Before anyone scrolls, a
+      realignment puts the current verse back on the reading line.
+    - `main_parallel_map_anchor()` keeps the panes' books per passage and
+      each verse's counterpart per pair of Bibles and book (bounded cache).
+  - Tests: smoke runner makes the second Bible's Genesis 1:1 longer and gives
+    the first a heading at 1:2; `check_parallel_page()` requires 1:2's row
+    and its text to start at the same height in both panes (row above text).
+    Proven meaningful: not applying the space fails «equivalent verses do not
+    start at the same height in the parallel panes». Earlier sync, band and
+    rule checks still pass.
+    CTest `-j4` without the two slow Torres Amat 1835 audits: 73/73 PASS.
+  - Evidence (real app, isolated profile copy, Xvfb): Luke 24:10–19 SQLite,
+    rows and rules aligned, 13 aligned under the Platense heading; Psalms
+    Platense 120–121 ↔ RV 121–122 aligned through chapter titles and the
+    psalm title; Psalm 119 aligned through the stanza headings (VAU);
+    ⇄ swap and `--backend=sword` aligned; Ctrl+Minus realigns. Cost, Psalm
+    119 window (Debug): first alignment 274 ms (604 ms before the mapping
+    cache), later passes 36 ms, only on layout changes. Two bugs found and
+    fixed on the way: rows were skipped where a chapter's anchor shares the
+    line of the psalm title; alignment measured before GTK had laid out
+    lines off screen (now below its validation's priority).
+
+- [x] PARALLEL-GLIDE-104 Moving to the next verse in «Vista paralela» glides instead of relaying out
+  - Status: DONE (2026-09-28)
+  - Request: going from one verse to the next, everything moved, as if it
+    were all worked out again; it did not feel fluid.
+  - Cause: every navigation called `main_update_parallel_page()`, which laid
+    both panes out again (render, row alignment, placement), even when the
+    new verse was already on screen in both.
+  - Change:
+    - `main_update_parallel_page()` tells a new passage (navigation) from the
+      same one again (Preferences, options): the first goes to
+      `gui_parallel_panes_follow()`, the second still lays out anew.
+    - `gui_parallel_panes_follow()`: when both panes hold the new verse (same
+      Bible and book as laid out, `main_parallel_current_position()`, anchor
+      present), only the focus bands move and each pane glides its verse to
+      the reading line (frame-clock tick, ease-out, 220 ms, from wherever a
+      glide under way is); otherwise a full layout as before. The reader
+      scrolling, clicking or typing stops a glide.
+  - Tests: `check_parallel_page()` navigates the main pane Genesis 1:1 → 1:2
+    (no new layout, `gui_parallel_panes_layouts()` unchanged; both bands on
+    1:2) and → John 3:16 (another book: laid out). Proven meaningful: forcing
+    a full layout on every navigation fails «moving to a verse the parallel
+    panes hold laid them out again». CTest `-j4` without the two slow Torres
+    Amat 1835 audits: 73/73 PASS.
+  - Evidence (real app, isolated profile copy, Xvfb): Luke 24:12 → 18 with
+    Down: 2 layouts at opening, then only in-place follows; glide frames
+    logged every ~16 ms from value 3178 to 3260 with ease-out; Psalms
+    RV 121:6 → 122:2 across the psalm boundary in place, bands aligned
+    (Platense 121:2 ↔ RV 122:2). No Gtk warnings.
+  - Not done: past the window of chapters laid out (previous, current,
+    next) a navigation still lays both panes out again.
+
+- [x] GTK4-KEYS-101 Keyboard shortcuts: stop firing while typing, fill gaps, add a help window
+  - Status: DONE
+  - Description:
+    `on_vbox1_key_press_event()` (capture phase on the window child) ran the
+    bare-letter shortcuts (n/p/j/k, Shift+N/P) while an entry had the focus,
+    so typing in the lookup box moved the chapter; `Ctrl+X` fell through into
+    the next-tab case and Ctrl+1…9 into the F1 case.
+  - Change:
+    - `main_key_reaches_shortcuts()` (main_window_layout.c): bare and
+      Shift-only keys stay with a focused editable; Ctrl/Alt/Super chords,
+      F-keys, Escape and Page Up/Down still pass.
+    - Missing `break`s after Alt+X and Ctrl+digit.
+    - Alt+Left / Alt+Right: history back / forward (`main_navigate_tab_history`).
+    - Ctrl+= / Ctrl++ / keypad +/−: text zoom (Ctrl+Shift++ kept).
+    - Ctrl+/ and «Ayuda › Atajos de teclado»: `gui_atajos_mostrar()`
+      (atajos.c), one window listing the shortcuts. Own window: GtkShortcutsSection
+      with three or more groups logs «reported min width -3» Gtk warnings in
+      GTK 4.22, which the lifecycle smoke rejects.
+  - Tests: `main_window_layout_test` (now registered in CTest) covers the
+    editable rule; `gtk_lifecycle_smoke` checks the `shortcuts` action opens
+    exactly one window. Both PASS.
+  - Not done: no real key-event test in the running app (the rule is
+    unit-tested, the handler wiring is compile- and smoke-tested only).
+
 # Future / not scheduled
 
 - Human-readable grammatical decoding of morphology codes.

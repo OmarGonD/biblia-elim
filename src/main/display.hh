@@ -195,6 +195,14 @@ class GTKPrintChapDisp : public GTKPrintEntryDisp
 	MOD_FONT *mf;
 };
 
+/* Lays out MODULE's window of chapters around KEY (in MODULE's own
+ * versification) in HTML, a Bible pane other than the main one, the way
+ * the main pane lays out its own. What the main pane published about
+ * itself -- the chapter range it holds, the note cache of its Bible, the
+ * verse style -- is left as it was. */
+gboolean main_display_bible_side_pane(GtkWidget *html, BibleBackend *be,
+				      const char *module, const char *key);
+
 extern "C" {
 #endif /* __cplusplus */
 

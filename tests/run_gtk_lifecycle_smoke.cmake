@@ -33,6 +33,18 @@ if(NOT fixture_status EQUAL 0)
   message(FATAL_ERROR "Could not create second GTK smoke fixture: ${fixture_stderr}")
 endif()
 
+# A second verse where chapter panes find verses (Genesis is the only book
+# the fixture numbers canonically), so the parallel page's focus band has
+# somewhere to move to.
+foreach(smoke_module smoke other)
+  execute_process(COMMAND "${SQLITE3}" "${module_dir}/${smoke_module}.sqlite"
+    "INSERT INTO verses(book_id, chapter, verse, text) VALUES(1, 1, 2, 'The waters were gathered together.'); INSERT INTO verses_fts(rowid, text) SELECT rowid, text FROM verses WHERE book_id = 1 AND chapter = 1 AND verse = 2;"
+    RESULT_VARIABLE verse_status)
+  if(NOT verse_status EQUAL 0)
+    message(FATAL_ERROR "Could not add the second Genesis verse to the smoke fixture")
+  endif()
+endforeach()
+
 # Parallel headings must come from the SQLite content model.
 foreach(smoke_module smoke other)
   execute_process(COMMAND "${SQLITE3}" "${module_dir}/${smoke_module}.sqlite"
@@ -42,6 +54,22 @@ foreach(smoke_module smoke other)
     message(FATAL_ERROR "Could not add SQLite heading fixture")
   endif()
 endforeach()
+
+# Parallel rows: the second Bible's Genesis 1:1 runs longer and only the
+# first gives 1:2 a heading, so lining the rows up takes space on both
+# sides.
+execute_process(COMMAND "${SQLITE3}" "${module_dir}/other.sqlite"
+  "UPDATE verses SET text = 'In the beginning God created the heaven and the earth, and the earth was without form, and void, and darkness was upon the face of the deep, and the Spirit moved upon the face of the waters.' WHERE book_id = 1 AND chapter = 1 AND verse = 1;"
+  RESULT_VARIABLE row_status)
+if(NOT row_status EQUAL 0)
+  message(FATAL_ERROR "Could not lengthen the second Bible's Genesis 1:1")
+endif()
+execute_process(COMMAND "${SQLITE3}" "${module_dir}/smoke.sqlite"
+  "INSERT INTO headings VALUES(1,1,2,0,'The waters gathered');"
+  RESULT_VARIABLE row_status)
+if(NOT row_status EQUAL 0)
+  message(FATAL_ERROR "Could not add a Genesis 1:2 heading to the first Bible")
+endif()
 
 execute_process(
   COMMAND "${XVFB_RUN}" -a -s "-screen 0 1280x800x24"

@@ -888,6 +888,12 @@ gint sword_uri(const gchar *url, gboolean clicked)
 				key = g_strdup(settings.currentverse);
 			} else {
 				key = main_update_nav_controls(mod, tmpkey);
+				/* the module could not resolve the reference
+				 * (e.g. a reading-plan passage it lacks): leave
+				 * the current view alone instead of passing
+				 * NULL down to the display and sync code. */
+				if (!key)
+					break;
 				main_display_bible(mod, key);
 			}
 			if (settings.comm_showing)

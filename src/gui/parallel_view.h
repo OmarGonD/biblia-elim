@@ -26,6 +26,25 @@ extern "C" {
 #endif
 
 void gui_create_parallel_page(void);
+/* Lays both versions of the docked page out again around the current
+ * passage -- now if the page is showing or `force`, otherwise the next
+ * time it is shown. */
+void gui_parallel_panes_update(gboolean force);
+/* The current passage moved (navigation): when both panes already hold
+ * it, they glide there and the focus bands move, nothing is laid out
+ * again; otherwise as gui_parallel_panes_update(). `animate` FALSE jumps. */
+void gui_parallel_panes_follow(gboolean animate);
+/* The docked page was just brought to the front. */
+void gui_parallel_page_shown(void);
+/* The reader is reading in pane `pane` (0 left, 1 right): as it scrolls,
+ * the other pane follows it. Scrolling, clicking or typing in a pane does
+ * this. */
+void gui_parallel_pane_take_lead(gint pane);
+/* Which versions the two panes show (not owned), for tests. */
+const char *gui_parallel_pane_module(gint pane);
+GtkWidget *gui_parallel_pane(gint pane);
+/* How many times a pane has been laid out, for tests. */
+guint gui_parallel_panes_layouts(void);
 void gui_create_parallel_popup(void);
 void gui_popup_menu_parallel(GtkWidget *relative);
 void on_undockInt_activate(gpointer unused);

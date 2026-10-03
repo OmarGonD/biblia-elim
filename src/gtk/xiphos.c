@@ -107,7 +107,8 @@ void frontend_init(void)
 		main_check_parallel_modules();
 		main_init_parallel_view();
 		gui_create_parallel_page();
-		gtk_widget_realize(widgets.html_parallel);
+		gtk_widget_realize(gui_parallel_pane(0));
+		gtk_widget_realize(gui_parallel_pane(1));
 		main_set_parallel_options_at_start();
 	}
 

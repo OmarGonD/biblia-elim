@@ -17,7 +17,7 @@
 #
 
 # build editor
-add_library (editor STATIC link_dialog.c)
+add_library (editor STATIC link_dialog.c docx_import.c study_library.c)
 
 # Add alias
 add_library(Xiphos::Editor ALIAS editor)

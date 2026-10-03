@@ -325,12 +325,17 @@ bool splitReference(const std::string &key, std::string &book,
 			    int &chapter, int &verse)
 {
 	const std::size_t space = key.find_last_of(' ');
-	const std::size_t colon = space == std::string::npos
-		? std::string::npos : key.find(':', space + 1);
-	if (space == std::string::npos || colon == std::string::npos) return false;
+	if (space == std::string::npos) return false;
+	const std::size_t colon = key.find(':', space + 1);
 	book = key.substr(0, space);
-	return !book.empty() &&
-	       positiveNumber(key.substr(space + 1, colon - space - 1), chapter) &&
+	if (book.empty()) return false;
+	/* A bare chapter («John 16», as reading plans give it) means its
+	 * first verse. */
+	if (colon == std::string::npos) {
+		verse = 1;
+		return positiveNumber(key.substr(space + 1), chapter);
+	}
+	return positiveNumber(key.substr(space + 1, colon - space - 1), chapter) &&
 	       positiveNumber(key.substr(colon + 1), verse);
 }
 

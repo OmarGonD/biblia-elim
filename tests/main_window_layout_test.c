@@ -189,6 +189,19 @@ expect_escape_action(void)
 		     main_escape_action(FALSE, TRUE, TRUE), MAIN_ESCAPE_NONE);
 }
 
+static void
+expect_key_reaches_shortcuts(void)
+{
+	EXPECT_FIELD("letters reach shortcuts outside an entry",
+		     main_key_reaches_shortcuts(FALSE, FALSE, FALSE), TRUE);
+	EXPECT_FIELD("typed letters stay in the entry",
+		     main_key_reaches_shortcuts(TRUE, FALSE, FALSE), FALSE);
+	EXPECT_FIELD("Ctrl/Alt chords pass from an entry",
+		     main_key_reaches_shortcuts(TRUE, TRUE, FALSE), TRUE);
+	EXPECT_FIELD("function keys pass from an entry",
+		     main_key_reaches_shortcuts(TRUE, FALSE, TRUE), TRUE);
+}
+
 int
 main(void)
 {
@@ -202,6 +215,7 @@ main(void)
 	expect_hpaned_position();
 	expect_reading_column();
 	expect_escape_action();
+	expect_key_reaches_shortcuts();
 
 	printf("main_window_layout_failures=%d\n", failures);
 	return failures ? 1 : 0;

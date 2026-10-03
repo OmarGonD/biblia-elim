@@ -82,6 +82,15 @@ MainEscapeAction main_escape_action(gboolean ficha_active,
 				    gboolean reading_mode,
 				    gboolean focus_is_editable);
 
+/* Whether a key press may reach the main window's global shortcuts while
+ * an editable has the focus. Bare and Shift-only keys are typed text (the
+ * single-letter j/k/n/p/arrows navigation must not fire while the user
+ * types "john" in the lookup entry); a Ctrl/Alt/Super chord or a
+ * function/Escape key is a command and still passes. */
+gboolean main_key_reaches_shortcuts(gboolean focus_is_editable,
+				    gboolean command_modifier,
+				    gboolean non_text_key);
+
 StudyReadingColumn main_study_reading_column(gint available_width,
 					     gint max_width,
 					     gint min_pad);

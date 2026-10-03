@@ -102,6 +102,7 @@ void on_testimonios_activate(gpointer menuitem,
 			     gpointer user_data);
 void on_buscar_notas_activate(gpointer menuitem,
 			      gpointer user_data);
+void on_studypad_activate(gpointer menuitem, gpointer user_data);
 void on_attach_detach_sidebar_activate(gpointer menuitem,
 				       gpointer user_data);
 void on_sidebar_showhide_activate(gpointer menuitem,

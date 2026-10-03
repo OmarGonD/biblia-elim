@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <object class="GtkWindow" id="window">
-    <property name="default-width">900</property>
-    <property name="default-height">650</property>
+    <property name="default-width">1180</property>
+    <property name="default-height">760</property>
     <child>
       <object class="GtkBox" id="vbox1">
         <property name="orientation">vertical</property>
@@ -12,57 +12,82 @@
           </object>
         </child>
         <child>
-          <object class="GtkBox" id="toolbar1">
-            <property name="spacing">4</property>
-            <property name="margin-start">6</property>
-            <property name="margin-end">6</property>
-            <property name="margin-top">6</property>
-            <property name="margin-bottom">3</property>
-            <child><object class="GtkButton" id="toolbutton_new"><property name="label">Nuevo</property></object></child>
-            <child><object class="GtkButton" id="toolbutton_open"><property name="label">Abrir</property></object></child>
-            <child><object class="GtkButton" id="toolbutton_save"><property name="label">Guardar</property></object></child>
-            <child><object class="GtkButton" id="toolbutton_delete"><property name="label">Eliminar</property></object></child>
-            <child><object class="GtkButton" id="toolbutton_find"><property name="label">Buscar</property></object></child>
-            <child><object class="GtkButton" id="toolbutton_replace"><property name="label">Reemplazar</property></object></child>
-          </object>
-        </child>
-        <child>
-          <object class="GtkBox" id="toolbar2">
-            <property name="spacing">4</property>
-            <property name="margin-start">6</property>
-            <property name="margin-end">6</property>
-            <property name="margin-bottom">6</property>
-            <child><object class="GtkToggleButton" id="toolbutton_bold"><property name="label">Negrita</property></object></child>
-            <child><object class="GtkToggleButton" id="toolbutton_italic"><property name="label">Cursiva</property></object></child>
-            <child><object class="GtkToggleButton" id="toolbuttonunderline"><property name="label">Subrayado</property></object></child>
-            <child><object class="GtkToggleButton" id="toolbutton_strikethrough"><property name="label">Tachado</property></object></child>
+          <object class="GtkBox" id="ribbon">
+            <property name="orientation">vertical</property>
+            <style><class name="studypad-ribbon"/></style>
             <child>
-              <object class="GtkDropDown" id="comboboxtext1">
-                <property name="model">
-                  <object class="GtkStringList">
-                    <items>
-                  <item>Normal</item>
-                  <item>Encabezado 1</item>
-                  <item>Encabezado 2</item>
-                  <item>Encabezado 3</item>
-                  <item>Encabezado 4</item>
-                  <item>Encabezado 5</item>
-                  <item>Encabezado 6</item>
-                  <item>Dirección</item>
-                  <item>Preformateado</item>
-                  <item>Lista con viñetas</item>
-                  <item>Lista romana</item>
-                  <item>Lista numerada</item>
-                  <item>Lista alfabética</item>
-                </items>
-                  </object>
-                </property>
+              <object class="GtkBox" id="ribbon_tabs">
+                <property name="spacing">2</property>
+                <property name="margin-start">14</property>
+                <property name="margin-top">6</property>
+                <child><object class="GtkLabel"><property name="label">MIS ESTUDIOS</property><style><class name="ribbon-brand"/></style></object></child>
+                <child><object class="GtkToggleButton"><property name="label">Inicio</property><property name="active">True</property><style><class name="ribbon-tab"/></style></object></child>
+                <child><object class="GtkButton"><property name="label">Insertar</property><style><class name="ribbon-tab"/></style></object></child>
+                <child><object class="GtkButton"><property name="label">Vista</property><style><class name="ribbon-tab"/></style></object></child>
               </object>
             </child>
-            <child><object class="GtkColorDialogButton" id="colorbutton1"/></child>
-            <child><object class="GtkColorDialogButton" id="colorbutton_highlight"/></child>
-            <child><object class="GtkButton" id="toolbutton_image"><property name="label">Imagen</property></object></child>
-            <child><object class="GtkButton" id="toolbutton_sword_link"><property name="label">Enlace Xiphos</property></object></child>
+            <child>
+              <object class="GtkBox" id="toolbar1">
+                <property name="spacing">10</property>
+                <property name="margin-start">14</property><property name="margin-end">14</property>
+                <property name="margin-top">6</property><property name="margin-bottom">8</property>
+                <child><object class="GtkBox"><property name="orientation">vertical</property><style><class name="ribbon-group"/></style>
+                  <child><object class="GtkBox"><property name="spacing">3</property>
+                    <child><object class="GtkButton" id="toolbutton_new"><property name="label">Nuevo</property><property name="icon-name">document-new-symbolic</property><property name="tooltip-text">Crear estudio</property></object></child>
+                    <child><object class="GtkButton" id="toolbutton_open"><property name="label">Abrir</property><property name="icon-name">document-open-symbolic</property><property name="tooltip-text">Abrir estudio o Word (.docx)</property></object></child>
+                    <child><object class="GtkButton" id="toolbutton_save"><property name="icon-name">media-floppy-symbolic</property><property name="tooltip-text">Guardar el estudio (Ctrl+S)</property><style><class name="studypad-save-primary"/></style></object></child>
+                  </object></child><child><object class="GtkLabel"><property name="label">Archivo</property><style><class name="ribbon-group-title"/></style></object></child>
+                </object></child>
+                <child><object class="GtkBox"><property name="orientation">vertical</property><style><class name="ribbon-group"/></style>
+                  <child><object class="GtkBox"><property name="spacing">3</property>
+                    <child><object class="GtkButton" id="toolbutton_cut"><property name="label">Cortar</property><property name="icon-name">edit-cut-symbolic</property></object></child>
+                    <child><object class="GtkButton" id="toolbutton_copy"><property name="label">Copiar</property><property name="icon-name">edit-copy-symbolic</property></object></child>
+                    <child><object class="GtkButton" id="toolbutton_paste"><property name="label">Pegar</property><property name="icon-name">edit-paste-symbolic</property></object></child>
+                    <child><object class="GtkButton" id="toolbutton_find"><property name="label">Buscar</property><property name="icon-name">edit-find-symbolic</property></object></child>
+                    <child><object class="GtkButton" id="toolbutton_replace"><property name="label">Reemplazar</property><property name="icon-name">edit-find-replace-symbolic</property></object></child>
+                  </object></child><child><object class="GtkLabel"><property name="label">Portapapeles y edición</property><style><class name="ribbon-group-title"/></style></object></child>
+                </object></child>
+                <child><object class="GtkBox"><property name="orientation">vertical</property><style><class name="ribbon-group"/></style>
+                  <child><object class="GtkBox"><property name="spacing">3</property>
+                    <child><object class="GtkButton" id="toolbutton_image"><property name="label">Imagen</property><property name="icon-name">insert-image-symbolic</property></object></child>
+                    <child><object class="GtkButton" id="toolbutton_sword_link"><property name="label">Versículo</property><property name="icon-name">insert-link-symbolic</property><property name="tooltip-text">Insertar enlace bíblico</property></object></child>
+                  </object></child><child><object class="GtkLabel"><property name="label">Insertar</property><style><class name="ribbon-group-title"/></style></object></child>
+                </object></child>
+                <child><object class="GtkBox"><property name="orientation">vertical</property><style><class name="ribbon-group"/></style>
+                  <child><object class="GtkBox"><property name="spacing">3</property>
+                    <child><object class="GtkButton" id="toolbutton_library"><property name="label">Biblioteca</property><property name="icon-name">folder-symbolic</property></object></child>
+                    <child><object class="GtkButton" id="toolbutton_organize"><property name="label">Organizar</property><property name="icon-name">tag-symbolic</property></object></child>
+                  </object></child><child><object class="GtkLabel"><property name="label">Estudios</property><style><class name="ribbon-group-title"/></style></object></child>
+                </object></child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox" id="toolbar2">
+                <property name="spacing">10</property>
+                <property name="margin-start">14</property><property name="margin-end">14</property><property name="margin-bottom">10</property>
+                <child><object class="GtkBox"><property name="orientation">vertical</property><style><class name="ribbon-group"/></style>
+                  <child><object class="GtkBox"><property name="spacing">3</property>
+                    <child><object class="GtkToggleButton" id="toolbutton_bold"><property name="icon-name">format-text-bold-symbolic</property><property name="tooltip-text">Negrita</property><style><class name="ribbon-format-button"/></style></object></child>
+                    <child><object class="GtkToggleButton" id="toolbutton_italic"><property name="icon-name">format-text-italic-symbolic</property><property name="tooltip-text">Cursiva</property><style><class name="ribbon-format-button"/></style></object></child>
+                    <child><object class="GtkToggleButton" id="toolbuttonunderline"><property name="icon-name">format-text-underline-symbolic</property><property name="tooltip-text">Subrayado</property><style><class name="ribbon-format-button"/></style></object></child>
+                    <child><object class="GtkToggleButton" id="toolbutton_strikethrough"><property name="icon-name">format-text-strikethrough-symbolic</property><property name="tooltip-text">Tachado</property></object></child>
+                    <child><object class="GtkDropDown" id="comboboxtext1"><property name="model"><object class="GtkStringList"><items>
+                      <item>Normal</item><item>Encabezado 1</item><item>Encabezado 2</item><item>Encabezado 3</item><item>Encabezado 4</item><item>Encabezado 5</item><item>Encabezado 6</item><item>Dirección</item><item>Preformateado</item><item>Lista con viñetas</item><item>Lista romana</item><item>Lista numerada</item><item>Lista alfabética</item>
+                    </items></object></property></object></child>
+                    <child><object class="GtkColorDialogButton" id="colorbutton1"><property name="tooltip-text">Color del texto</property></object></child>
+                    <child><object class="GtkColorDialogButton" id="colorbutton_highlight"><property name="tooltip-text">Resaltado</property></object></child>
+                  </object></child><child><object class="GtkLabel"><property name="label">Fuente y estilo</property><style><class name="ribbon-group-title"/></style></object></child>
+                </object></child>
+                <child><object class="GtkBox"><property name="orientation">vertical</property><style><class name="ribbon-group"/></style>
+                  <child><object class="GtkBox"><property name="spacing">3</property>
+                    <child><object class="GtkButton" id="toolbutton_align_left"><property name="icon-name">format-justify-left-symbolic</property><property name="tooltip-text">Alinear a la izquierda</property></object></child>
+                    <child><object class="GtkButton" id="toolbutton_align_center"><property name="icon-name">format-justify-center-symbolic</property><property name="tooltip-text">Centrar</property></object></child>
+                    <child><object class="GtkButton" id="toolbutton_align_right"><property name="icon-name">format-justify-right-symbolic</property><property name="tooltip-text">Alinear a la derecha</property></object></child>
+                    <child><object class="GtkButton" id="toolbutton_align_justify"><property name="icon-name">format-justify-fill-symbolic</property><property name="tooltip-text">Justificar</property></object></child>
+                  </object></child><child><object class="GtkLabel"><property name="label">Párrafo</property><style><class name="ribbon-group-title"/></style></object></child>
+                </object></child>
+              </object>
+            </child>
           </object>
         </child>
         <child>

@@ -69,6 +69,7 @@ extern void gui_open_sqlite_module_manager(void);
 #include "main/sword.h"
 #include "main/search_dialog.h"
 #include "main/tab_history.h"
+#include "gui/atajos.h"
 #include "main/url.hh"
 #include "main/xml.h"
 
@@ -920,6 +921,12 @@ on_buscar_notas_activate(gpointer menuitem, gpointer user_data)
 }
 
 G_MODULE_EXPORT void
+on_studypad_activate(gpointer menuitem, gpointer user_data)
+{
+	editor_open_studypad();
+}
+
+G_MODULE_EXPORT void
 on_testimonios_activate(gpointer menuitem, gpointer user_data)
 {
 	gui_testimonios_dialog(widgets.app ? GTK_WINDOW(widgets.app) : NULL);
@@ -953,6 +960,7 @@ MENU_ACTION(quit_action, on_quit_activate)
 MENU_ACTION(search_action, on_search_activate)
 MENU_ACTION(advanced_search_action, on_advanced_search_activate)
 MENU_ACTION(notes_search_action, on_buscar_notas_activate)
+MENU_ACTION(studypad_action, on_studypad_activate)
 MENU_ACTION(dictionary_dialog_action, on_diccionario_activate)
 MENU_ACTION(cloud_action, on_nube_palabras_activate)
 MENU_ACTION(testimonies_action, on_testimonios_activate)
@@ -966,6 +974,8 @@ MENU_ACTION(sidebar_action, on_sidebar_showhide_activate)
 MENU_ACTION(open_session_action, on_open_session_activate)
 MENU_ACTION(save_session_action, on_save_session_activate)
 MENU_ACTION(help_action, on_help_contents_activate)
+static void shortcuts_action(GSimpleAction *action, GVariant *parameter, gpointer data)
+{ (void)action; (void)parameter; (void)data; gui_atajos_mostrar(); }
 MENU_ACTION(report_action, on_report_bug_activate)
 MENU_ACTION(about_action, on_about_xiphos_activate)
 MENU_ACTION(sword_action, on_about_the_sword_project_activate)
@@ -1096,13 +1106,14 @@ GtkWidget *gui_create_main_menu(void)
 		{"preferences", preferences_action}, {"navigation", navigation_action},
 		{"quit", quit_action}, {"search", search_action},
 		{"advanced-search", advanced_search_action}, {"notes-search", notes_search_action},
+		{"studypad", studypad_action},
 		{"dictionary-dialog", dictionary_dialog_action}, {"cloud", cloud_action},
 		{"testimonies", testimonies_action}, {"plans", plans_action},
 		{"progress", progress_action}, {"daily-verse", daily_verse_action},
 		{"memorize", memorize_action}, {"pulpit", pulpit_action},
 		{"devotion", devotion_action}, {"sidebar", sidebar_action},
 		{"open-session", open_session_action}, {"save-session", save_session_action},
-		{"help", help_action}, {"report", report_action}, {"about", about_action},
+		{"help", help_action}, {"shortcuts", shortcuts_action}, {"report", report_action}, {"about", about_action},
 		{"sword", sword_action}, {"biblesync", biblesync_action},
 		{"translation", translation_action}
 	};
@@ -1152,6 +1163,7 @@ GtkWidget *gui_create_main_menu(void)
 	add_submenu(bar, _("_Buscar"), m);
 
 	m = section();
+	append(m, _("_Mis estudios…"), "menu.studypad", NULL);
 	append(m, _("Biblia _interlineal"), "menu.interlinear", NULL);
 	append(m, _("Di_ccionario…"), "menu.dictionary-dialog", NULL);
 	append(m, _("_Nube de palabras…"), "menu.cloud", NULL);
@@ -1217,6 +1229,7 @@ GtkWidget *gui_create_main_menu(void)
 	m = section();
 	s = section();
 	append(s, _("_Contenido"), "menu.help", "F1");
+	append(s, _("_Atajos de teclado"), "menu.shortcuts", "<Control>slash");
 	append(s, _("Informar de un _error"), "menu.report", NULL);
 	add_section(m, s);
 	s = section();

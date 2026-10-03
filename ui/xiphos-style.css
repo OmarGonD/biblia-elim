@@ -30,6 +30,90 @@ textview.elim-html text {
 	font-size: 12.5pt;
 }
 
+/* StudyPad's ribbon borrows Word's information hierarchy without imitating
+ * its proprietary artwork: tabs first, grouped commands second, document
+ * canvas last.  It stays legible under every Biblia Elim theme. */
+.studypad-ribbon {
+	background-color: alpha(@elim_navy, 0.075);
+	border-bottom: 1px solid alpha(@elim_navy, 0.20);
+}
+.ribbon-brand {
+	margin: 0 14px 0 2px;
+	font-size: 8pt;
+	font-weight: 800;
+	letter-spacing: 0.10em;
+	color: alpha(@elim_navy, 0.82);
+}
+.ribbon-tab {
+	border-radius: 6px 6px 0 0;
+	min-height: 26px;
+	padding: 2px 12px;
+	background: transparent;
+	border: 1px solid transparent;
+	box-shadow: none;
+}
+.ribbon-tab:checked {
+	background-color: @elim_paper;
+	border-color: alpha(@elim_navy, 0.18);
+	border-bottom-color: @elim_paper;
+	color: @elim_navy;
+	font-weight: 700;
+}
+.ribbon-group {
+	border-right: 1px solid alpha(@elim_navy, 0.16);
+	padding: 1px 10px 0 0;
+}
+.ribbon-group:last-child { border-right: 0; }
+.ribbon-group button,
+.ribbon-group dropdown {
+	min-height: 30px;
+	border-radius: 5px;
+	box-shadow: none;
+}
+.ribbon-group button { padding: 2px 8px; }
+.ribbon-group button.studypad-save-primary {
+	min-width: 56px;
+	background-image: none;
+	background-color: alpha(@elim_navy, 0.14);
+	border-color: alpha(@elim_navy, 0.30);
+	font-weight: 700;
+}
+.ribbon-group button.studypad-save-primary:hover {
+	background-color: alpha(@elim_navy, 0.23);
+}
+.ribbon-group-title {
+	margin-top: 3px;
+	font-size: 8pt;
+	color: alpha(@elim_ink, 0.58);
+}
+.ribbon-format-button {
+	min-width: 32px;
+	font-family: Georgia, serif;
+	font-weight: 700;
+}
+.ribbon-format-button:nth-child(2) { font-style: italic; }
+.ribbon-format-button:nth-child(3) { text-decoration-line: underline; }
+textview.studypad-document,
+textview.studypad-document text {
+	background-color: #fffefa;
+	color: #25221f;
+	font-family: "Aptos", "Calibri", "Noto Serif", serif;
+	font-size: 13pt;
+}
+.studypad-canvas {
+	background-color: alpha(@elim_navy, 0.08);
+}
+.studypad-save-dialog {
+	background-color: @elim_panel;
+}
+.studypad-save-dialog .studypad-save-title {
+	font-size: 14pt;
+	color: @elim_ink;
+}
+.studypad-save-dialog image {
+	color: #c48125;
+}
+
 /* The outer pane and scroller are painted before the renderer has a body.
  * Keep every layer on the live application palette so no toolkit/WebKit
  * default-white edge can appear during the first document load. */
@@ -954,4 +1038,25 @@ button.elim-swap-ord:hover {
 .elim-barra-busqueda button {
 	border-radius: 8px;
 	min-width: 28px;
+}
+
+/* Lista de notas del versículo: tarjetas discretas, acciones con iconos
+ * que solo se acentúan al pasar el ratón. */
+.elim-nota-card {
+	border: 1px solid @elim_line;
+	border-radius: 8px;
+	padding: 8px 8px 8px 12px;
+}
+.elim-nota-acciones button {
+	min-width: 24px;
+	min-height: 24px;
+	padding: 2px;
+	border-radius: 6px;
+	opacity: 0.55;
+}
+.elim-nota-card:hover .elim-nota-acciones button {
+	opacity: 1;
+}
+.elim-nota-acciones button.elim-nota-borrar:hover {
+	color: @error_color;
 }

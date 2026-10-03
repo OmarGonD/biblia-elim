@@ -81,6 +81,64 @@ wk_text_view_size_allocate(GtkWidget *widget, int width, int height,
 	g_signal_emit(widget, view_signals[VIEW_SIZE_ALLOCATED], 0, &allocation);
 }
 
+static gboolean
+collect_rule_anchor(const gchar *name, gint top, gint bottom, gpointer data)
+{
+	(void)top;
+	(void)bottom;
+	g_ptr_array_add((GPtrArray *)data, g_strdup(name));
+	return TRUE;
+}
+
+/* wk_html_set_verse_rules(): a line where each verse's row starts, above
+ * the headings in front of it. Rows of panes laid side by side start at
+ * the same height, so their lines meet.
+ * Anchors are chapter * 1000 + verse; a chapter's own (verse 0) has its
+ * title, and "TOP"/"0hdr" are not verses. */
+static void
+wk_text_view_snapshot_layer(GtkTextView *text_view, GtkTextViewLayer layer,
+			    GtkSnapshot *snapshot)
+{
+	WkHtml *html = g_object_get_data(G_OBJECT(text_view), "wk-html");
+	GdkRectangle vis;
+	GtkTextIter row;
+	gint y, h;
+	GdkRGBA ink;
+	GPtrArray *names;
+	gint left, width;
+	guint i;
+
+	if (GTK_TEXT_VIEW_CLASS(wk_text_view_parent_class)->snapshot_layer)
+		GTK_TEXT_VIEW_CLASS(wk_text_view_parent_class)
+		    ->snapshot_layer(text_view, layer, snapshot);
+	if (layer != GTK_TEXT_VIEW_LAYER_BELOW_TEXT || !html ||
+	    !html->priv->verse_rules)
+		return;
+	gtk_text_view_get_visible_rect(text_view, &vis);
+	left = gtk_text_view_get_left_margin(text_view);
+	width = vis.width - left - gtk_text_view_get_right_margin(text_view);
+	if (vis.height <= 1 || width <= 0)
+		return;
+	gtk_widget_get_color(GTK_WIDGET(text_view), &ink);
+	ink.alpha *= 0.25f;
+
+	names = g_ptr_array_new_with_free_func(g_free);
+	wk_html_foreach_anchor_block(html, vis.y, vis.y + vis.height,
+				     collect_rule_anchor, names);
+	for (i = 0; i < names->len; i++) {
+		const gchar *name = g_ptr_array_index(names, i);
+		gint anchor = atoi(name);
+
+		if (anchor < 1000 || anchor % 1000 == 0 ||
+		    !wk_html_anchor_row(html, name, &row))
+			continue;
+		gtk_text_view_get_line_yrange(text_view, &row, &y, &h);
+		gtk_snapshot_append_color(snapshot, &ink,
+					  &GRAPHENE_RECT_INIT(vis.x + left, y, width, 1));
+	}
+	g_ptr_array_free(names, TRUE);
+}
+
 static void
 wk_text_view_frame_painted(GdkFrameClock *clock, gpointer data)
 {
@@ -120,6 +178,7 @@ wk_text_view_class_init(WkTextViewClass *klass)
 	widget_class->size_allocate = wk_text_view_size_allocate;
 	widget_class->realize = wk_text_view_realize;
 	widget_class->unrealize = wk_text_view_unrealize;
+	GTK_TEXT_VIEW_CLASS(klass)->snapshot_layer = wk_text_view_snapshot_layer;
 	view_signals[VIEW_SIZE_ALLOCATING] =
 	    g_signal_new("size-allocating", G_TYPE_FROM_CLASS(klass),
 			 G_SIGNAL_RUN_LAST, 0, NULL, NULL,
@@ -142,6 +201,9 @@ wk_text_view_init(WkTextView *view)
 	(void)view;
 }
 static WkHtml *active_zoom_surface = NULL;
+/* Every pane alive, so a zoom reaches all the panes of its surface (the
+ * two versions of the parallel page), not only the one it was made in. */
+static GList *live_panes = NULL;
 static WkHtmlZoomObserver zoom_observer = NULL;
 static gpointer zoom_observer_data = NULL;
 
@@ -2785,6 +2847,23 @@ on_zoom_surface_focus(GtkEventControllerFocus *focus, gpointer data)
 	}
 }
 
+/* The surface's zoom, already changed through `html`, on each of its
+ * panes; the others keep their own reading position as `html` does. */
+static void
+apply_zoom_to_surface(WkHtml *html)
+{
+	for (GList *l = live_panes; l; l = l->next) {
+		WkHtml *pane = l->data;
+
+		if (pane == html ||
+		    pane->priv->zoom_surface != html->priv->zoom_surface)
+			continue;
+		capture_zoom_anchor(pane);
+		apply_surface_style(pane);
+	}
+	apply_surface_style(html);
+}
+
 void
 wk_html_zoom(WkHtml *html, gboolean increase)
 {
@@ -2797,7 +2876,7 @@ wk_html_zoom(WkHtml *html, gboolean increase)
 	main_settings_zoom_adjust(html->priv->zoom_surface,
 				  increase ? ZOOM_PERCENT_STEP
 					   : -ZOOM_PERCENT_STEP);
-	apply_surface_style(html);
+	apply_zoom_to_surface(html);
 	notify_zoom_observer();
 }
 
@@ -2816,7 +2895,7 @@ wk_html_zoom_active_reset(void)
 	capture_zoom_anchor(active_zoom_surface);
 	main_settings_zoom_set(active_zoom_surface->priv->zoom_surface,
 			       ZOOM_PERCENT_DEFAULT);
-	apply_surface_style(active_zoom_surface);
+	apply_zoom_to_surface(active_zoom_surface);
 	notify_zoom_observer();
 }
 
@@ -3105,6 +3184,45 @@ wk_html_anchor_bounds(WkHtml *html, const gchar *anchor,
 	return FALSE;
 }
 
+/* Where anchor i's row starts: the first line after anchor i-1's text, so
+ * the headings in front of a verse are part of its row. FALSE when the
+ * anchor has no line of its own (verses running on in a paragraph). */
+static gboolean
+anchor_row_at(WkHtmlPrivate *priv, guint i, GtkTextIter *row)
+{
+	Anchor *a = g_ptr_array_index(priv->anchor_list, i);
+	GtkTextIter prev_start, prev_end, mark;
+
+	if (i == 0 || !a->mark || gtk_text_mark_get_deleted(a->mark) ||
+	    !anchor_bounds_at(priv, i - 1, &prev_start, &prev_end))
+		return FALSE;
+	gtk_text_buffer_get_iter_at_mark(priv->buffer, &mark, a->mark);
+	*row = prev_end;
+	if (!gtk_text_iter_starts_line(row) && !gtk_text_iter_forward_line(row))
+		return FALSE;
+	/* running on in a paragraph, the next line start is past the verse */
+	return gtk_text_iter_compare(row, &mark) <= 0 &&
+	       gtk_text_iter_compare(row, &prev_start) >= 0;
+}
+
+gboolean
+wk_html_anchor_row(WkHtml *html, const gchar *anchor, GtkTextIter *row)
+{
+	WkHtmlPrivate *priv;
+	guint i;
+
+	g_return_val_if_fail(WK_HTML_IS_HTML(html), FALSE);
+	if (!anchor || !*anchor)
+		return FALSE;
+	priv = html->priv;
+	for (i = 0; i < priv->anchor_list->len; i++) {
+		Anchor *a = g_ptr_array_index(priv->anchor_list, i);
+		if (a->name && !strcmp(a->name, anchor))
+			return anchor_row_at(priv, i, row);
+	}
+	return FALSE;
+}
+
 /* Vertical extent, in buffer coordinates, of the text between start and
  * end: from the top of start's display line to the bottom of the line
  * holding the last character. */
@@ -3270,6 +3388,15 @@ ensure_curverse_tag(GtkTextBuffer *buf)
 }
 
 void
+wk_html_set_verse_rules(WkHtml *html, gboolean enabled)
+{
+	g_return_if_fail(WK_HTML_IS_HTML(html));
+	html->priv->verse_rules = enabled;
+	if (html->priv->view)
+		gtk_widget_queue_draw(GTK_WIDGET(html->priv->view));
+}
+
+void
 wk_html_reading_focus_set(WkHtml *html, GtkTextIter *start, GtkTextIter *end,
 			  const gchar *bg_color, const gchar *fg_color)
 {
@@ -3365,6 +3492,7 @@ html_finalize(GObject *object)
 	wk_html_zoom_anchor_clear(&priv->zoom_anchor);
 	if (active_zoom_surface == html)
 		active_zoom_surface = NULL;
+	live_panes = g_list_remove(live_panes, html);
 	if (priv->css)
 		g_object_unref(priv->css);
 	parent_class->finalize(object);
@@ -3383,6 +3511,7 @@ wk_html_init(WkHtml *html)
 	priv->links = g_array_sized_new(FALSE, FALSE, sizeof(Link), 256);
 	priv->zoom_surface = ZOOM_SURFACE_INVALID;
 	wk_html_zoom_anchor_init(&priv->zoom_anchor);
+	live_panes = g_list_prepend(live_panes, html);
 	panel_load_model_init(&priv->load_model);
 
 	gtk_orientable_set_orientation(GTK_ORIENTABLE(html), GTK_ORIENTATION_VERTICAL);
@@ -3391,6 +3520,7 @@ wk_html_init(WkHtml *html)
 	wk_html_surface_prepare(GTK_WIDGET(html));
 
 	priv->view = GTK_TEXT_VIEW(g_object_new(WK_TYPE_TEXT_VIEW, NULL));
+	g_object_set_data(G_OBJECT(priv->view), "wk-html", html);
 	wk_html_surface_prepare(GTK_WIDGET(priv->view));
 	priv->buffer = gtk_text_view_get_buffer(priv->view);
 	gtk_text_view_set_wrap_mode(priv->view, GTK_WRAP_WORD_CHAR);

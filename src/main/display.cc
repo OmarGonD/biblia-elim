@@ -3880,6 +3880,58 @@ GTKChapDisp::displayCommon()
 	return 0;
 }
 
+gboolean
+main_display_bible_side_pane(GtkWidget *html, BibleBackend *be,
+			     const char *module, const char *key)
+{
+	if (!html || !be || !module || !key)
+		return FALSE;
+
+	/* The main pane's own state, set aside while this one renders:
+	 * its in-place shortcut reads the chapter range, and the note
+	 * cache answers for the main Bible (notes panel, verse tools). */
+	const int first = main_rendered_first_chapter;
+	const int last = main_rendered_last_chapter;
+	const int versestyle = settings.versestyle;
+	const gboolean valid = valid_scripture_key;
+	NoteCache main_cache;
+	main_cache.swap(note_cache);
+	gchar *main_modname = note_cache_modname;
+	gchar *main_book = note_cache_book;
+	note_cache_modname = g_strdup("");
+	note_cache_book = g_strdup("");
+
+	valid_scripture_key = main_is_Bible_key(module, key);
+	GTKChapDisp pane(html, be);
+	gboolean shown;
+	/* A Bible SWORD reads is laid out from its SWModule, as the main
+	 * pane lays it out; the neutral path numbers books canonically,
+	 * which is SQLite's numbering and not SWORD's. The module's key is
+	 * put back: it may be the one the main pane shows. */
+	BackEnd *sword = dynamic_cast<BackEnd *>(be);
+	SWModule *swmod = sword ? sword->get_SWModule(module) : NULL;
+	if (swmod) {
+		const SWBuf previous = swmod->getKeyText();
+		swmod->setKey(key);
+		shown = gtk_widget_get_realized(html);
+		pane.display(*swmod);
+		swmod->setKey(previous.c_str());
+	} else
+		shown = pane.displayNeutral(module, key);
+
+	free_note_cache();
+	note_cache.swap(main_cache);
+	g_free(note_cache_modname);
+	g_free(note_cache_book);
+	note_cache_modname = main_modname;
+	note_cache_book = main_book;
+	valid_scripture_key = valid;
+	settings.versestyle = versestyle;
+	main_rendered_first_chapter = first;
+	main_rendered_last_chapter = last;
+	return shown;
+}
+
 //
 // display of commentary by chapter.
 //

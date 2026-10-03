@@ -75,6 +75,20 @@ if (BUILD_TESTING AND UNIX)
   endif ()
 endif ()
 
+# STUDY-DOCX-101: import Word's documented OOXML subset without invoking an
+# external office suite; invalid archives are rejected before touching a study.
+add_executable (study_docx_import_test
+  study_docx_import_test.c
+  ${PROJECT_SOURCE_DIR}/src/editor/docx_import.c
+  )
+target_include_directories (study_docx_import_test PRIVATE
+  ${PROJECT_SOURCE_DIR}/src ${PROJECT_BINARY_DIR})
+target_link_libraries (study_docx_import_test PRIVATE
+  PkgConfig::Core PkgConfig::Gnome)
+if (BUILD_TESTING)
+  add_test (NAME study_docx_import_test COMMAND study_docx_import_test)
+endif ()
+
 # CLOUD-CASE-101: nombres propios aprendidos del texto.
 add_executable (nube_mayusculas_test
   nube_mayusculas_test.c
@@ -405,6 +419,8 @@ target_link_libraries (main_window_layout_test
   PRIVATE
   PkgConfig::Core
   )
+
+add_test (NAME main_window_layout_test COMMAND main_window_layout_test)
 
 add_executable (verse_navigation_readiness_test
   EXCLUDE_FROM_ALL

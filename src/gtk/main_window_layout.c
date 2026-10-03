@@ -123,3 +123,10 @@ main_escape_action(gboolean ficha_active, gboolean reading_mode,
 		return MAIN_ESCAPE_EXIT_READING_MODE;
 	return MAIN_ESCAPE_NONE;
 }
+
+gboolean
+main_key_reaches_shortcuts(gboolean focus_is_editable,
+			   gboolean command_modifier, gboolean non_text_key)
+{
+	return !focus_is_editable || command_modifier || non_text_key;
+}

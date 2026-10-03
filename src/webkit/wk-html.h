@@ -101,6 +101,7 @@ struct _WkHtmlPriv
 	guint word_click_timeout;
 	gdouble word_press_x;
 	gdouble word_press_y;
+	gboolean verse_rules;	/* a rule under each verse */
 };
 struct _WkHtmlClass
 {
@@ -221,6 +222,16 @@ void wk_html_foreach_anchor_block_reverse(WkHtml *html,
  * distinct from wk_html_highlight_* above's user-created highlights --
  * so callers can track "the verse currently in view" without
  * re-rendering the pane (which would fight the user's own scrolling). */
+/* Where anchor `anchor`'s row starts: the first line after the previous
+ * anchor's text, so the headings in front of a verse belong to its row.
+ * FALSE when the anchor has no line of its own (verses running on in a
+ * paragraph) or is not there. Panes laid side by side line their rows up
+ * from here. */
+gboolean wk_html_anchor_row(WkHtml *html, const gchar *anchor, GtkTextIter *row);
+/* Draws a thin horizontal rule under each verse, so verses can be told
+ * apart and compared across two panes side by side. Drawn under the text,
+ * outside the buffer: nothing to select, copy or find. */
+void wk_html_set_verse_rules(WkHtml *html, gboolean enabled);
 void wk_html_reading_focus_set(WkHtml *html, GtkTextIter *start, GtkTextIter *end,
 			       const gchar *bg_color, const gchar *fg_color);
 

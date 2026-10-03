@@ -57,6 +57,8 @@
 #include "main/settings.h"
 #include "main/sword.h"
 #include "main/parallel_view.h"
+#include "gui/parallel_view.h"
+#include "main/reading_focus.h"
 #include "main/module_dialogs.h"
 #include "main/url.hh"
 #include "main/xml.h"
@@ -274,6 +276,269 @@ finish_smoke(gpointer unused)
 	return G_SOURCE_REMOVE;
 }
 
+static void pump_events(void);
+static void pump_until(gboolean (*done)(GtkWidget *), GtkWidget *widget,
+		       gint64 limit_us);
+
+/* The docked «Vista paralela» page: two versions side by side, each its
+ * own chapter pane, the other following whichever one the reader scrolls. */
+
+static gboolean
+parallel_panes_mapped(GtkWidget *unused)
+{
+	(void)unused;
+	return gui_parallel_pane(0) && gui_parallel_pane(1) &&
+	       gtk_widget_get_mapped(GTK_WIDGET(wk_html_get_view(WK_HTML(gui_parallel_pane(0))))) &&
+	       gtk_widget_get_mapped(GTK_WIDGET(wk_html_get_view(WK_HTML(gui_parallel_pane(1)))));
+}
+
+static gchar *
+pane_text(gint pane)
+{
+	GtkTextBuffer *buf = gtk_text_view_get_buffer(
+	    wk_html_get_view(WK_HTML(gui_parallel_pane(pane))));
+	GtkTextIter s, e;
+
+	gtk_text_buffer_get_bounds(buf, &s, &e);
+	return gtk_text_buffer_get_text(buf, &s, &e, FALSE);
+}
+
+static GtkAdjustment *
+pane_adjustment(gint pane)
+{
+	return gtk_scrollable_get_vadjustment(GTK_SCROLLABLE(
+	    wk_html_get_view(WK_HTML(gui_parallel_pane(pane)))));
+}
+
+/* The pane's reading line, in its buffer's coordinates. */
+static gint
+pane_line(gint pane)
+{
+	GdkRectangle vis;
+
+	gtk_text_view_get_visible_rect(
+	    wk_html_get_view(WK_HTML(gui_parallel_pane(pane))), &vis);
+	return vis.y + (gint)(vis.height * READING_FOCUS_LINE_RATIO);
+}
+
+/* Whether the pane's focus band is on verse `anchor`'s text. */
+static gboolean
+band_on(gint pane, const char *anchor)
+{
+	WkHtml *html = WK_HTML(gui_parallel_pane(pane));
+	GtkTextTag *band = gtk_text_tag_table_lookup(
+	    gtk_text_buffer_get_tag_table(html->priv->buffer), "curverse");
+	GtkTextIter s, e;
+
+	if (!band || !wk_html_anchor_bounds(html, anchor, &s, &e))
+		return FALSE;
+	while (gtk_text_iter_compare(&s, &e) < 0 && !gtk_text_iter_has_tag(&s, band))
+		gtk_text_iter_forward_char(&s);
+	return gtk_text_iter_compare(&s, &e) < 0;
+}
+
+/* Where verse `anchor`'s row and its text start in pane (buffer y). */
+static gboolean
+row_and_text(gint pane, const char *anchor, gint *row_y, gint *text_y)
+{
+	WkHtml *html = WK_HTML(gui_parallel_pane(pane));
+	GtkTextIter row;
+	gint h, bottom;
+
+	if (!wk_html_anchor_row(html, anchor, &row) ||
+	    !wk_html_anchor_block(html, anchor, text_y, &bottom))
+		return FALSE;
+	gtk_text_view_get_line_yrange(wk_html_get_view(html), &row, row_y, &h);
+	return TRUE;
+}
+
+/* Genesis 1:2 starts at the same height in both panes, row and text,
+ * though 1:1 runs longer on the right and 1:2 has a heading on the left. */
+static gboolean
+rows_aligned(GtkWidget *unused)
+{
+	gint row[2], text[2];
+
+	(void)unused;
+	return row_and_text(0, "1002", &row[0], &text[0]) &&
+	       row_and_text(1, "1002", &row[1], &text[1]) &&
+	       ABS(row[0] - row[1]) <= 1 && ABS(text[0] - text[1]) <= 1 &&
+	       text[0] > row[0];
+}
+
+static gboolean
+bands_on_1002(GtkWidget *unused)
+{
+	(void)unused;
+	return band_on(0, "1002") && band_on(1, "1002") &&
+	       !band_on(0, "1001") && !band_on(1, "1001");
+}
+
+/* Both panes can scroll far enough to put their first verse on top. */
+static gboolean
+panes_scroll(GtkWidget *unused)
+{
+	gint i;
+
+	(void)unused;
+	for (i = 0; i < 2; i++)
+		if (gtk_adjustment_get_upper(pane_adjustment(i)) -
+			    gtk_adjustment_get_page_size(pane_adjustment(i)) < 80.0)
+			return FALSE;
+	return TRUE;
+}
+
+/* Top of the pane's viewport, in its buffer's coordinates. */
+static gint
+pane_top(gint pane)
+{
+	GdkRectangle vis;
+
+	gtk_text_view_get_visible_rect(
+	    wk_html_get_view(WK_HTML(gui_parallel_pane(pane))), &vis);
+	return vis.y;
+}
+
+static gboolean
+check_parallel_page(gpointer unused)
+{
+	gchar **saved = settings.parallel_list;
+	gchar *list[] = { (gchar *)"FakeBible", (gchar *)"OtherBible", NULL };
+	HighlightSegment seg = { (gchar *)"Gen.1.1", (gchar *)"God", 17 };
+	GList *segs = g_list_append(NULL, &seg);
+	GList *notes;
+	gchar *gid, *text;
+	gboolean own_highlight = FALSE;
+	GtkNotebook *nb = GTK_NOTEBOOK(widgets.notebook_bible_parallel);
+	gint zoom, top, bottom, i;
+
+	(void)unused;
+	/* Genesis: the fixture numbers its books canonically only there,
+	 * which is what a chapter pane lays out by */
+	main_display_bible(settings.MainWindowModule, "Genesis 1:1");
+	/* a highlight only the main Bible has: the note cache answers for
+	 * that Bible after the page laid out another one (last, on the
+	 * right) beside it */
+	gid = highlight_create_group(settings.MainWindowModule, segs, NULL);
+	highlight_set_note(gid, "subrayado propio");
+	g_list_free(segs);
+	notesCacheFill(settings.MainWindowModule, (gchar *)"Genesis 1:1");
+
+	settings.parallel_list = g_strdupv(list);
+	check(!g_strcmp0(gui_parallel_pane_module(0), "FakeBible") &&
+	      !g_strcmp0(gui_parallel_pane_module(1), "OtherBible"),
+	      "parallel panes do not show the first two parallel versions");
+	gtk_notebook_set_current_page(nb, 1);
+	pump_until(parallel_panes_mapped, NULL, 3 * G_USEC_PER_SEC);
+	check(parallel_panes_mapped(NULL), "parallel panes did not map");
+	pump_events();
+	for (i = 0; i < 2; i++) {
+		text = pane_text(i);
+		/* the left one is the main Bible: its highlight's note
+		 * marker sits inside the verse */
+		check(strstr(text, "In the beginning God") != NULL,
+		      "parallel pane does not hold the current chapter");
+		g_free(text);
+	}
+
+	pump_until(rows_aligned, NULL, 3 * G_USEC_PER_SEC);
+	check(rows_aligned(NULL),
+	      "equivalent verses do not start at the same height in the parallel panes");
+
+	notes = highlight_list_notes("Gen.1.1");
+	for (GList *l = notes; l; l = l->next)
+		if (!g_strcmp0(((HighlightNote *)l->data)->group_id, gid))
+			own_highlight = TRUE;
+	check(own_highlight,
+	      "laying out another Bible in the parallel page took the main Bible's notes");
+	g_list_free_full(notes, (GDestroyNotify)highlight_note_free);
+	highlight_remove(gid);
+	g_free(gid);
+
+	/* The fixture chapter is short: zoom in until the panes scroll. A
+	 * zoom reaches both panes of the surface. */
+	for (zoom = 0; zoom < 12 && !panes_scroll(NULL); zoom++) {
+		wk_html_zoom(WK_HTML(gui_parallel_pane(0)), TRUE);
+		pump_until(panes_scroll, NULL, G_USEC_PER_SEC / 2);
+	}
+	check(panes_scroll(NULL), "zoomed parallel panes never became scrollable");
+
+	check(WK_HTML(gui_parallel_pane(0))->priv->verse_rules &&
+	      WK_HTML(gui_parallel_pane(1))->priv->verse_rules &&
+	      !WK_HTML(widgets.html_text)->priv->verse_rules,
+	      "verse rules not on the parallel panes alone");
+
+	/* The band starts on the current verse; the reader scrolls the left
+	 * pane's verse 2 onto its reading line, the right one brings its
+	 * verse 2 to the same height, and both bands move there. */
+	check(band_on(0, "1001") && band_on(1, "1001"),
+	      "focus band not on the current verse in both parallel panes");
+	gui_parallel_pane_take_lead(0);
+	if (wk_html_anchor_block(WK_HTML(gui_parallel_pane(0)), "1002", &top, &bottom))
+		gtk_adjustment_set_value(pane_adjustment(0),
+					 gtk_adjustment_get_value(pane_adjustment(0)) +
+						 top + 2 - pane_line(0));
+	pump_events();
+	check(wk_html_anchor_block(WK_HTML(gui_parallel_pane(1)), "1002", &top, &bottom) &&
+	      pane_line(1) >= top && pane_line(1) < bottom,
+	      "right parallel pane did not follow the left one to its verse");
+	check(band_on(0, "1002") && band_on(1, "1002") &&
+	      !band_on(0, "1001") && !band_on(1, "1001"),
+	      "focus band did not move to the same verse in both parallel panes");
+
+	/* ...and back: the right one leads, the left follows. */
+	gui_parallel_pane_take_lead(1);
+	if (wk_html_anchor_block(WK_HTML(gui_parallel_pane(1)), "1001", &top, &bottom))
+		gtk_adjustment_set_value(pane_adjustment(1),
+					 gtk_adjustment_get_value(pane_adjustment(1)) +
+						 top + 2 - pane_line(1));
+	pump_events();
+	check(wk_html_anchor_block(WK_HTML(gui_parallel_pane(0)), "1001", &top, &bottom) &&
+	      pane_line(0) >= top && pane_line(0) < bottom &&
+	      band_on(0, "1001") && band_on(1, "1001"),
+	      "left parallel pane did not follow the right one");
+
+	/* Moving to a verse both panes already hold lays nothing out again:
+	 * the bands move and the panes glide there. Another book does. */
+	{
+		guint before = gui_parallel_panes_layouts();
+
+		main_display_bible(settings.MainWindowModule, "Genesis 1:2");
+		pump_until(bands_on_1002, NULL, 2 * G_USEC_PER_SEC);
+		check(gui_parallel_panes_layouts() == before,
+		      "moving to a verse the parallel panes hold laid them out again");
+		check(bands_on_1002(NULL),
+		      "moving to a verse did not move both parallel focus bands");
+		main_display_bible(settings.MainWindowModule, "John 3:16");
+		pump_events();
+		check(gui_parallel_panes_layouts() > before,
+		      "moving to another book did not lay the parallel panes out");
+		main_display_bible(settings.MainWindowModule, "Genesis 1:1");
+		pump_events();
+	}
+
+	/* A pane nobody is reading in moves nothing. */
+	{
+		gdouble left = gtk_adjustment_get_value(pane_adjustment(0));
+
+		gui_parallel_pane_take_lead(0);
+		gtk_adjustment_set_value(pane_adjustment(1),
+					 gtk_adjustment_get_upper(pane_adjustment(1)));
+		pump_events();
+		check(gtk_adjustment_get_value(pane_adjustment(0)) == left,
+		      "a parallel pane followed one the reader is not using");
+	}
+
+	while (zoom-- > 0)
+		wk_html_zoom(WK_HTML(gui_parallel_pane(0)), FALSE);
+	g_strfreev(settings.parallel_list);
+	settings.parallel_list = saved;
+	gtk_notebook_set_current_page(nb, 0);
+	panel_checks += 17;
+	g_idle_add(finish_smoke, NULL);
+	return G_SOURCE_REMOVE;
+}
+
 static gboolean
 show_panels(gpointer unused)
 {
@@ -347,7 +612,7 @@ show_panels(gpointer unused)
 	check(gtk_widget_get_visible(widgets.html_lectura_sync),
 	      "compare renderer stayed hidden after the panel reopened");
 	panel_checks += 16;
-	g_idle_add(finish_smoke, NULL);
+	g_idle_add(check_parallel_page, NULL);
 	return G_SOURCE_REMOVE;
 }
 
@@ -1926,7 +2191,8 @@ check_menu_bar(void)
 	GActionGroup *actions = gui_main_menu_actions();
 	check(actions && g_action_group_has_action(actions, "read-aloud") &&
 	      g_action_group_has_action(actions, "interlinear") &&
-	      g_action_group_has_action(actions, "reading-mode"),
+	      g_action_group_has_action(actions, "reading-mode") &&
+	      g_action_group_has_action(actions, "studypad"),
 	      "main menu state actions missing");
 	GVariant *state = actions ? g_action_group_get_action_state(
 	    actions, "interlinear") : NULL;
@@ -1934,6 +2200,26 @@ check_menu_bar(void)
 			(settings.show_interlineal != 0),
 	      "main menu interlinear state lost its setting");
 	g_clear_pointer(&state, g_variant_unref);
+
+	/* KEYS-101: «Atajos de teclado» opens the shortcuts window, once. */
+	check(actions && g_action_group_has_action(actions, "shortcuts"),
+	      "main menu has no shortcuts action");
+	if (actions) {
+		g_action_group_activate_action(actions, "shortcuts", NULL);
+		g_action_group_activate_action(actions, "shortcuts", NULL);
+		guint n = 0;
+		GListModel *tops = gtk_window_get_toplevels();
+		for (guint i = 0; i < g_list_model_get_n_items(tops); ++i) {
+			GObject *w = g_list_model_get_item(tops, i);
+			if (GTK_IS_WINDOW(w) &&
+			    !g_strcmp0(gtk_widget_get_name(GTK_WIDGET(w)), "elim-atajos")) {
+				n++;
+				gtk_window_destroy(GTK_WINDOW(w));
+			}
+			g_object_unref(w);
+		}
+		check(n == 1, "shortcuts window not opened exactly once");
+	}
 
 	gchar *mode = g_strdup(settings.ui_mode);
 	gui_elim_tema_set(!g_strcmp0(mode, "oscuro") ? "claro" : "oscuro");

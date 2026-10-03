@@ -128,6 +128,7 @@ add_executable (biblia-elim
   about_modules.c
   about_sword.c
   about_trans.c
+  atajos.c
   about_xiphos.c
   bibletext.c
   bibletext_dialog.c

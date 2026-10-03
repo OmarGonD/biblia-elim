@@ -181,15 +181,26 @@ static void notas_lista_reconstruir(void)
 	items = highlight_list_notes(notas_osis);
 	for (it = items; it; it = it->next) {
 		HighlightNote *note = it->data;
+		GtkWidget *card = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 8);
 		GtkWidget *row = gtk_box_new(GTK_ORIENTATION_VERTICAL, 4);
 		GtkWidget *text = gtk_label_new(note->note ? note->note : "");
-		GtkWidget *actions = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 4);
-		GtkWidget *edit = gtk_button_new_with_label(_("Editar"));
-		GtkWidget *del = gtk_button_new_with_label(_("Eliminar"));
+		GtkWidget *actions = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 2);
+		GtkWidget *edit = gtk_button_new_from_icon_name("document-edit-symbolic");
+		GtkWidget *del = gtk_button_new_from_icon_name("user-trash-symbolic");
 		NotaFila *fila = g_new0(NotaFila, 1);
 		fila->key = g_strdup(note->note_key);
 		fila->text = g_strdup(note->note);
+		gtk_widget_add_css_class(card, "elim-nota-card");
+		gtk_widget_add_css_class(actions, "elim-nota-acciones");
+		gtk_widget_set_hexpand(row, TRUE);
+		gtk_widget_set_valign(actions, GTK_ALIGN_START);
+		gtk_widget_set_tooltip_text(edit, _("Editar"));
+		gtk_widget_set_tooltip_text(del, _("Eliminar"));
+		gtk_widget_add_css_class(edit, "flat");
+		gtk_widget_add_css_class(del, "flat");
+		gtk_widget_add_css_class(del, "elim-nota-borrar");
 		gtk_label_set_wrap(GTK_LABEL(text), TRUE);
+		gtk_label_set_xalign(GTK_LABEL(text), 0);
 		gtk_widget_set_halign(text, GTK_ALIGN_START);
 		gtk_box_append(GTK_BOX(row), text);
 		if (note->module && notas_mod &&
@@ -215,13 +226,14 @@ static void notas_lista_reconstruir(void)
 		}
 		gtk_box_append(GTK_BOX(actions), edit);
 		gtk_box_append(GTK_BOX(actions), del);
-		gtk_box_append(GTK_BOX(row), actions);
+		gtk_box_append(GTK_BOX(card), row);
+		gtk_box_append(GTK_BOX(card), actions);
 		g_object_set_data_full(G_OBJECT(edit), "nota-fila", fila,
 				       nota_fila_free);
 		g_object_set_data(G_OBJECT(del), "nota-fila", fila);
 		g_signal_connect(edit, "clicked", G_CALLBACK(on_nota_fila_editar), NULL);
 		g_signal_connect(del, "clicked", G_CALLBACK(on_nota_fila_borrar), NULL);
-		gui_box_pack(GTK_BOX(notas_lista), row, FALSE, FALSE, 6);
+		gui_box_pack(GTK_BOX(notas_lista), card, FALSE, FALSE, 4);
 	}
 	g_list_free_full(items, (GDestroyNotify)highlight_note_free);
 	gtk_widget_show(notas_lista);

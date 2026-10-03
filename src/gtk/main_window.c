@@ -40,6 +40,8 @@
 #include "gui/xiphos.h"
 #include "gui/main_window.h"
 #include "main_window_layout.h"
+#include "main/tab_history.h"
+#include "gui/atajos.h"
 #include "zoom_indicator.h"
 #include "gui/main_menu.h"
 #include "gui/sidebar.h"
@@ -1854,7 +1856,7 @@ static void on_notebook_bible_parallel_switch_page(GtkNotebook *notebook,
 	(void)arg;
 	(void)tl;
 	if (page_num == 1)
-		main_update_parallel_page();
+		gui_parallel_page_shown();
 }
 
 static void on_notebook_comm_book_switch_page(GtkNotebook *notebook,
@@ -2085,7 +2087,17 @@ static gboolean on_vbox1_key_press_event(GtkWidget *widget, GuiKeyEvent *event,
 	guint state =
 	    event->state & (GDK_SHIFT_MASK | GDK_CONTROL_MASK |
 			    GDK_ALT_MASK | GDK_SUPER_MASK);
-	
+
+	/* Typing in an entry is not a shortcut: "n" in the lookup box must
+	 * not turn the chapter. */
+	if (!main_key_reaches_shortcuts(
+		main_focus_is_editable(widget),
+		(state & (GDK_CONTROL_MASK | GDK_ALT_MASK | GDK_SUPER_MASK)) != 0,
+		event->keyval == XK_Escape ||
+		    (event->keyval >= XK_F1 && event->keyval <= XK_F12) ||
+		    event->keyval == XK_Page_Up || event->keyval == XK_Page_Down))
+		return FALSE;
+
 	switch (event->keyval) {
 	case XK_Escape:
 		if (state != 0)
@@ -2379,6 +2391,24 @@ static gboolean on_vbox1_key_press_event(GtkWidget *widget, GuiKeyEvent *event,
 			kbd_toggle_option((main_check_for_global_option(sM, "ThMLScripref") ||
 					   main_check_for_global_option(sM, "OSISScripref")),
 					  "Cross-references");
+		break;
+
+	case XK_Left:
+	case XK_KP_Left:
+		if (state == GDK_ALT_MASK) { // Alt-Left  history back
+			main_navigate_tab_history(0);
+			return TRUE;
+		}
+		break;
+
+	case XK_Right:
+	case XK_KP_Right:
+		if (state == GDK_ALT_MASK) { // Alt-Right  history forward
+			main_navigate_tab_history(1);
+			return TRUE;
+		}
+		break;
+
 	case XK_Tab:
 		if (state == GDK_CONTROL_MASK) // Ctrl-Tab  next tab
 			if (GTK_NOTEBOOK(widgets.notebook_main) != NULL) {
@@ -2432,13 +2462,21 @@ static gboolean on_vbox1_key_press_event(GtkWidget *widget, GuiKeyEvent *event,
 		break;
 
 	case XK_plus: // Ctrl-Plus  Increase the focused surface's text
-		if (state == (GDK_CONTROL_MASK | GDK_SHIFT_MASK))
+	case XK_equal: // Ctrl-=  same key without Shift
+	case XK_KP_Add:
+		if (state == GDK_CONTROL_MASK ||
+		    state == (GDK_CONTROL_MASK | GDK_SHIFT_MASK)) {
 			wk_html_zoom_active(TRUE);
+			return TRUE;
+		}
 		break;
 
 	case XK_minus: // Ctrl-Minus  Decrease the focused surface's text
-		if (state == GDK_CONTROL_MASK)
+	case XK_KP_Subtract:
+		if (state == GDK_CONTROL_MASK) {
 			wk_html_zoom_active(FALSE);
+			return TRUE;
+		}
 		break;
 
 	case XK_0: // Ctrl-0 (zero)  Reset the focused surface.
@@ -2458,6 +2496,16 @@ static gboolean on_vbox1_key_press_event(GtkWidget *widget, GuiKeyEvent *event,
 	case XK_9:
 		if (state == GDK_CONTROL_MASK)
 			gui_select_nth_tab((event->keyval - XK_0) - 1); /* 0-based list */
+		break;
+
+	case XK_slash: // Ctrl-/  keyboard shortcuts
+	case XK_question:
+		if (state == GDK_CONTROL_MASK ||
+		    state == (GDK_CONTROL_MASK | GDK_SHIFT_MASK)) {
+			gui_atajos_mostrar();
+			return TRUE;
+		}
+		break;
 
 	case XK_F1: // F1 help
 		if (state == 0)

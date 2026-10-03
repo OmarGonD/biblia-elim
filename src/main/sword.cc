@@ -2234,6 +2234,10 @@ void main_display_bible(const char *mod_name,
 	extern guint scroll_adj_signal;
 	extern GtkAdjustment *adjustment;
 
+	if (!key) {
+		g_free(bs_key);
+		return;
+	}
 	if (!gtk_widget_get_realized(GTK_WIDGET(widgets.html_text)))
 		return;
 	if (!mod_name)

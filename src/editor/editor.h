@@ -88,6 +88,7 @@ void editor_load_note(EDITOR *e, const gchar *module_name,
 void editor_load_book(EDITOR *e);
 gint editor_create_new(const gchar *filename, const gchar *key,
 		       gint note);
+void editor_open_studypad(void);
 void editor_save_book(EDITOR *e);
 void editor_maybe_save_all(void);
 GtkWidget *editor_new(const gchar *title, EDITOR *e);
