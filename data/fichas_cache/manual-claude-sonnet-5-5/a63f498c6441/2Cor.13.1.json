@@ -1,0 +1,232 @@
+{
+ "ref": "2Cor.13.1",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-03T08:59:22-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G5154",
+   "glosa_interlineal": "tercera vez",
+   "rango_semantico": [
+    "tercero"
+   ],
+   "construccion": "Adjetivo: acusativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G3778",
+   "glosa_interlineal": "esto",
+   "rango_semantico": [
+    "este, esta, esto",
+    "él, ella (con fuerza demostrativa)"
+   ],
+   "construccion": "Pronombre demostrativo: acusativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G2064",
+   "glosa_interlineal": "voy",
+   "rango_semantico": [
+    "venir, ir",
+    "llegar",
+    "aparecer"
+   ],
+   "construccion": "Presente indicativo, voz media o pasiva (deponente), 1.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G4314",
+   "glosa_interlineal": "a",
+   "rango_semantico": [
+    "hacia, a, junto a",
+    "con (de relación)",
+    "para"
+   ],
+   "construccion": "Preposición con acusativo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G5210",
+   "glosa_interlineal": "vosotros",
+   "rango_semantico": [
+    "tú",
+    "vosotros"
+   ],
+   "construccion": "Pronombre personal: 2.ª persona, acusativo plural.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G1909",
+   "glosa_interlineal": "por",
+   "rango_semantico": [
+    "sobre, en",
+    "junto a",
+    "a causa de"
+   ],
+   "construccion": "Preposición con genitivo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G4750",
+   "glosa_interlineal": "boca",
+   "rango_semantico": [
+    "boca"
+   ],
+   "construccion": "Sustantivo: genitivo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G1417",
+   "glosa_interlineal": "dos",
+   "rango_semantico": [
+    "dos"
+   ],
+   "construccion": "Adjetivo numeral indeclinable.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G3144",
+   "glosa_interlineal": "testigos",
+   "rango_semantico": [
+    "testigo, mártir"
+   ],
+   "construccion": "Sustantivo: genitivo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G5140",
+   "glosa_interlineal": "tres",
+   "rango_semantico": [
+    "tres"
+   ],
+   "construccion": "Adjetivo: genitivo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G2476",
+   "glosa_interlineal": "se decidirá",
+   "rango_semantico": [
+    "ser establecido, confirmarse"
+   ],
+   "construccion": "Futuro indicativo, voz pasiva, 3.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G3956",
+   "glosa_interlineal": "todo",
+   "rango_semantico": [
+    "todo, cada",
+    "todos",
+    "cualquier"
+   ],
+   "construccion": "Adjetivo: nominativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G4487",
+   "glosa_interlineal": "palabra",
+   "rango_semantico": [
+    "palabra, dicho",
+    "cosa, asunto",
+    "mandato"
+   ],
+   "construccion": "Sustantivo: nominativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}
