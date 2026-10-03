@@ -1157,7 +1157,7 @@
   "strong": "G1510",
   "forma": "εἰμί·",
   "lema": "εἰμί",
-  "glosa_interlineal": "lo soy",
+  "glosa_interlineal": "soy",
   "rango_semantico": [
    "ser, existir",
    "estar",
@@ -5006,7 +5006,7 @@
   "ausente_en": [],
   "variante": false,
   "caso_regido": null,
-  "caso_regido_ambiguo": "se interpone CONJ (γὰρ)",
+  "caso_regido_ambiguo": "artículo (D) y G no concuerdan",
   "ref_estandar": "1Cor.9.9",
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
@@ -10750,7 +10750,7 @@
   "strong": "G1510",
   "forma": "ἔστιν",
   "lema": "εἰμί",
-  "glosa_interlineal": "tengo",
+  "glosa_interlineal": "es",
   "rango_semantico": [
    "ser, existir",
    "estar",
@@ -12185,7 +12185,7 @@
   "strong": "G5087",
   "forma": "θήσω",
   "lema": "τίθημι",
-  "glosa_interlineal": "presente",
+  "glosa_interlineal": "ofrezca",
   "rango_semantico": [
    "poner, colocar",
    "servir",

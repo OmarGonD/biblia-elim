@@ -579,7 +579,6 @@
   "ausente_en": [],
   "variante": false,
   "caso_regido": null,
-  "caso_regido_ambiguo": "se interpone V (ἦν)",
   "ref_estandar": "John.18.1",
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",

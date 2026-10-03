@@ -6422,7 +6422,7 @@
   "strong": "G1223",
   "forma": "δι’",
   "lema": "διά",
-  "glosa_interlineal": "estando en",
+  "glosa_interlineal": "a través de",
   "rango_semantico": [
    "a través de, por",
    "por medio de (agente intermediario)",
@@ -13460,8 +13460,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "caso_regido": null,
-  "caso_regido_ambiguo": "se interpone CONJ (δὲ)",
+  "caso_regido": "acusativo",
   "ref_estandar": "Rom.4.20",
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",

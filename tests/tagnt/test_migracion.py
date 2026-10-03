@@ -24,6 +24,20 @@ class CasoRegidoTest(unittest.TestCase):
         v = [P("διὰ", "PREP"), P("τοῦ", "T-GSN"), P("λόγον", "N-ASM")]
         self.assertTrue(contexto.caso_regido(v, 0)[1])
 
+    def test_pospositiva_no_interrumpe(self):
+        v = [P("ἐν", "PREP"), P("δὲ", "CONJ"), P("τῷ", "T-DSM"), P("οἴκῳ", "N-DSM")]
+        self.assertEqual(contexto.caso_regido(v, 0)[:2], ("D", False))
+
+    def test_infinitivo_articular_rige_el_articulo(self):
+        v = [P("πρὸ", "PREP"), P("τοῦ", "T-GSN"), P("φωνῆσαι", "V-AAN"), P("σε", "P-2AS")]
+        self.assertEqual(contexto.caso_regido(v, 0)[:2], ("G", False))
+
+    def test_conjuncion_ante_verbo_no_es_ambigua(self):
+        v = [P("ὅπου", "PREP"), P("ἦν", "V-IAI-3S")]
+        self.assertEqual(contexto.caso_regido(v, 0)[:2], (None, False))
+        v = [P("ἕως", "PREP"), P("ἄρτι", "ADV")]
+        self.assertEqual(contexto.caso_regido(v, 0)[:2], (None, False))
+
 
 @unittest.skipUnless(glob.glob(os.path.join(V2, "*.json")), "fichas_v2 no generadas")
 class FichasV2Test(unittest.TestCase):

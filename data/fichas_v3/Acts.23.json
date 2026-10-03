@@ -12276,8 +12276,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "caso_regido": null,
-  "caso_regido_ambiguo": "artículo (G) y A no concuerdan",
+  "caso_regido": "genitivo",
   "ref_estandar": "Acts.23.15",
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
@@ -17655,7 +17654,7 @@
   "strong": "G3383",
   "forma": "μήτε",
   "lema": "μήτε",
-  "glosa_interlineal": "a no",
+  "glosa_interlineal": "ni",
   "rango_semantico": [
    "ni, ni siquiera"
   ],

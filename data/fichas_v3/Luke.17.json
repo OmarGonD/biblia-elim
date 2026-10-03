@@ -5586,7 +5586,6 @@
   "ausente_en": [],
   "variante": false,
   "caso_regido": null,
-  "caso_regido_ambiguo": "se interpone V (φάγω)",
   "ref_estandar": "Luke.17.8",
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
@@ -7192,7 +7191,7 @@
   "strong": "G1722",
   "forma": "ἐν",
   "lema": "ἐν",
-  "glosa_interlineal": "yendo",
+  "glosa_interlineal": "al",
   "rango_semantico": [
    "en (lugar)",
    "en (tiempo)",
@@ -7277,7 +7276,7 @@
   "strong": "G4198",
   "forma": "πορεύεσθαι",
   "lema": "πορεύομαι",
-  "glosa_interlineal": "a",
+  "glosa_interlineal": "ir",
   "rango_semantico": [
    "ir, caminar"
   ],
@@ -9151,8 +9150,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "caso_regido": null,
-  "caso_regido_ambiguo": "artículo (D) y A no concuerdan",
+  "caso_regido": "dativo",
   "ref_estandar": "Luke.17.14",
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
@@ -13762,7 +13760,6 @@
   "ausente_en": [],
   "variante": false,
   "caso_regido": null,
-  "caso_regido_ambiguo": "se interpone V (ἐπιθυμήσετε)",
   "ref_estandar": "Luke.17.22",
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",

@@ -21006,7 +21006,7 @@
   "strong": "G3049",
   "forma": "λογισθῆναι,",
   "lema": "λογίζομαι",
-  "glosa_interlineal": "nada",
+  "glosa_interlineal": "ser estimada",
   "rango_semantico": [
    "considerar, atribuir, contar"
   ],
@@ -21046,7 +21046,7 @@
   "strong": "G3195",
   "forma": "μέλλειν",
   "lema": "μέλλω",
-  "glosa_interlineal": "y",
+  "glosa_interlineal": "va a",
   "rango_semantico": [
    "estar a punto de, ir a"
   ],
@@ -21086,7 +21086,7 @@
   "strong": "G5037",
   "forma": "τε",
   "lema": "τέ",
-  "glosa_interlineal": "que",
+  "glosa_interlineal": "y",
   "rango_semantico": [
    "y, tanto"
   ],
@@ -24958,8 +24958,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "caso_regido": null,
-  "caso_regido_ambiguo": "se interpone CONJ (δὲ)",
+  "caso_regido": "genitivo",
   "ref_estandar": "Acts.19.33",
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
@@ -27770,7 +27769,7 @@
   "strong": "G3778",
   "forma": "τούτων",
   "lema": "οὗτος",
-  "glosa_interlineal": "que éstas",
+  "glosa_interlineal": "éstas",
   "rango_semantico": [
    "este, esta, esto",
    "él, ella (con fuerza demostrativa)"
@@ -27811,7 +27810,7 @@
   "strong": "G1163",
   "forma": "δέον",
   "lema": "δεῖ",
-  "glosa_interlineal": "es necesario",
+  "glosa_interlineal": "necesario",
   "rango_semantico": [
    "ser necesario, deber"
   ],
@@ -27851,7 +27850,7 @@
   "strong": "G1510",
   "forma": "ἐστὶν",
   "lema": "εἰμί",
-  "glosa_interlineal": "que",
+  "glosa_interlineal": "es",
   "rango_semantico": [
    "ser, existir",
    "estar",

@@ -9513,7 +9513,6 @@
   "ausente_en": [],
   "variante": false,
   "caso_regido": null,
-  "caso_regido_ambiguo": "se interpone V (παρέλθῃ)",
   "ref_estandar": "Matt.5.18",
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
@@ -18283,7 +18282,6 @@
   "ausente_en": [],
   "variante": false,
   "caso_regido": null,
-  "caso_regido_ambiguo": "se interpone V (ἀποδῷς)",
   "ref_estandar": "Matt.5.26",
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
@@ -22018,7 +22016,7 @@
   "strong": "G1519",
   "forma": "εἰς",
   "lema": "εἰς",
-  "glosa_interlineal": "vaya",
+  "glosa_interlineal": "a",
   "rango_semantico": [
    "a, hacia (movimiento)",
    "en, dentro de",
@@ -22103,7 +22101,7 @@
   "strong": "G565",
   "forma": "ἀπέλθῃ.",
   "lema": "ἀπέρχομαι",
-  "glosa_interlineal": "a",
+  "glosa_interlineal": "vaya",
   "rango_semantico": [
    "irse, retirarse"
   ],

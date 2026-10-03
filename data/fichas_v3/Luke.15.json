@@ -2556,7 +2556,6 @@
   "ausente_en": [],
   "variante": false,
   "caso_regido": null,
-  "caso_regido_ambiguo": "se interpone V (εὕρῃ)",
   "ref_estandar": "Luke.15.4",
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",

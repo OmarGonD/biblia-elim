@@ -11152,7 +11152,7 @@
   "strong": "G1096",
   "forma": "γενέσθαι",
   "lema": "γίνομαι",
-  "glosa_interlineal": "de",
+  "glosa_interlineal": "llegar a ser",
   "rango_semantico": [
    "que no sea, ¡jamás!"
   ],
@@ -22019,8 +22019,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "caso_regido": null,
-  "caso_regido_ambiguo": "se interpone CONJ (δὲ)",
+  "caso_regido": "genitivo",
   "ref_estandar": "Acts.27.33",
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",

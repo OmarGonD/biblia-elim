@@ -4,6 +4,7 @@ import os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import tagnt
 
+RE_INF = re.compile(r"^V-[2]?[PIFARL][AMPEDO]N$")
 RE_CASO = re.compile(r"^[123]?([NGDAV])([SP])[MFN]?$")
 NOMBRE_CASO = {"N": "nominativo", "G": "genitivo", "D": "dativo", "A": "acusativo", "V": "vocativo"}
 
@@ -18,6 +19,12 @@ def caso(p):
     return None
 
 
+# Partículas pospositivas: no interrumpen el régimen de la preposición (ἐν δὲ τῷ…, περὶ γὰρ τοῦ…).
+POSPOSITIVAS = {"δέ", "δὲ", "γάρ", "γὰρ", "τε", "οὖν", "μέν", "μὲν", "δ’", "γ’"}
+# Léxemas que TAGNT etiqueta PREP pero que se usan como conjunción/adverbio ante verbo u oración.
+USO_CONJUNTIVO = {"ἕως", "ὅπου", "ὅτε", "ἄχρι", "ἄχρις", "μέχρι", "μέχρις", "πρίν", "ὡς"}
+
+
 def caso_regido(pals, i):
     """Caso que rige la preposición pals[i] -> (caso|None, ambiguo: bool, motivo).
     Se toma el primer elemento con caso dentro de las 3 palabras siguientes; es ambiguo si
@@ -29,18 +36,26 @@ def caso_regido(pals, i):
     for d, q in enumerate(sig):
         c = caso(q)
         tipo = q.gramatica.split(" + ")[0].split("-")[0]
+        if c is None and q.griego.lower() in POSPOSITIVAS:
+            continue
         if c is None:
             if tipo in ("CONJ", "V", "COND", "PREP", "INJ"):
+                if tipo == "V" and pals[i].griego.lower() in USO_CONJUNTIVO:
+                    return None, False, "uso conjuntivo ante verbo"
                 return None, True, "se interpone %s (%s)" % (tipo, q.griego)
             continue                                   # PRT / ADV: se salta
         if tipo == "T":                                # artículo: debe concordar con el siguiente nominal
             for q2 in pals[i + 2 + d:i + 5 + d]:
+                if RE_INF.match(q2.gramatica.split(" + ")[0]):
+                    break                              # infinitivo articular (πρὸ τοῦ + inf.): rige el artículo
                 c2 = caso(q2)
                 if c2 is not None and q2.gramatica.split("-")[0] != "T":
                     if c2 != c:
                         return None, True, "artículo (%s) y %s no concuerdan" % (c, c2)
                     break
         return c, False, ""
+    if pals[i].griego.lower() in USO_CONJUNTIVO:
+        return None, False, "uso conjuntivo/adverbial"
     return None, True, "sin elemento con caso en las 3 palabras siguientes"
 
 

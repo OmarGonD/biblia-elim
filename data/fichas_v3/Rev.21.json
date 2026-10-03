@@ -3926,7 +3926,7 @@
   "strong": "G3756",
   "forma": "οὐκ",
   "lema": "οὐ",
-  "glosa_interlineal": "habrá",
+  "glosa_interlineal": "no",
   "rango_semantico": [
    "no, ni",
    "nada"
@@ -3967,7 +3967,7 @@
   "strong": "G1510",
   "forma": "ἔσται",
   "lema": "εἰμί",
-  "glosa_interlineal": "será",
+  "glosa_interlineal": "habrá",
   "rango_semantico": [
    "ser, existir",
    "estar",
@@ -24371,7 +24371,7 @@
   "strong": "G1487",
   "forma": "εἰ",
   "lema": "εἰ",
-  "glosa_interlineal": "sino",
+  "glosa_interlineal": "si",
   "rango_semantico": [
    "si (condicional)",
    "a no ser, salvo",
@@ -24413,7 +24413,7 @@
   "strong": "G3361",
   "forma": "μὴ",
   "lema": "μή",
-  "glosa_interlineal": "los",
+  "glosa_interlineal": "no",
   "rango_semantico": [
    "no (prohibición o duda)",
    "para que no"

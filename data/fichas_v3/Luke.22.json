@@ -11063,8 +11063,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "caso_regido": null,
-  "caso_regido_ambiguo": "artículo (A) y N no concuerdan",
+  "caso_regido": "acusativo",
   "ref_estandar": "Luke.22.20",
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
@@ -13331,7 +13330,7 @@
   "strong": "G687",
   "forma": "ἄρα",
   "lema": "ἆρα",
-  "glosa_interlineal": "de ellos",
+  "glosa_interlineal": "pues",
   "rango_semantico": [
    "¿acaso?, pues"
   ],

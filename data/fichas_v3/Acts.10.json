@@ -12367,7 +12367,7 @@
   "strong": "G235",
   "forma": "ἀλλὰ",
   "lema": "ἀλλά",
-  "glosa_interlineal": "levántate",
+  "glosa_interlineal": "pero",
   "rango_semantico": [
    "pero",
    "sino",
@@ -27369,8 +27369,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "caso_regido": null,
-  "caso_regido_ambiguo": "se interpone CONJ (τε)",
+  "caso_regido": "dativo",
   "ref_estandar": "Acts.10.39",
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",

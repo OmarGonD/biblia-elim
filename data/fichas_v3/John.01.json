@@ -5400,7 +5400,7 @@
   "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
-   "Jn 19:27 — el discípulo tomó a la madre «a lo suyo» (a su casa)",
+   "Jn 19:27 — el discípulo tomó a la madre a lo suyo (a su casa)",
    "Hch 21:6 — volvieron a sus casas",
    "Jn 13:1 — los suyos que estaban en el mundo"
   ],
@@ -6373,7 +6373,7 @@
   "strong": "G846",
   "forma": "αὐτοῦ,",
   "lema": "αὐτός",
-  "glosa_interlineal": "suyo",
+  "glosa_interlineal": "su",
   "rango_semantico": [
    "él, ella, ello",
    "mismo (con artículo)",
@@ -7288,7 +7288,7 @@
   "notas_traduccion": null,
   "otros_usos": [
    "Jn 1:3 — ἐγένετο para lo creado",
-   "Jn 1:6 — Juan «apareció»",
+   "Jn 1:6 — Juan apareció",
    "Flp 2:7 — hecho semejante a los hombres"
   ],
   "nivel_certeza": "alto",
@@ -7672,7 +7672,7 @@
   "strong": "G846",
   "forma": "αὐτοῦ,",
   "lema": "αὐτός",
-  "glosa_interlineal": "suya",
+  "glosa_interlineal": "su",
   "rango_semantico": [
    "él, ella, ello",
    "mismo (con artículo)",
@@ -9226,7 +9226,7 @@
   "strong": "G846",
   "forma": "αὐτοῦ",
   "lema": "αὐτός",
-  "glosa_interlineal": "suya",
+  "glosa_interlineal": "su",
   "rango_semantico": [
    "él, ella, ello",
    "mismo (con artículo)",
@@ -17178,7 +17178,6 @@
   "ausente_en": [],
   "variante": false,
   "caso_regido": null,
-  "caso_regido_ambiguo": "se interpone V (ἦν)",
   "ref_estandar": "John.1.28",
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
@@ -18636,7 +18635,7 @@
   "variantes_textuales": null,
   "notas_traduccion": null,
   "otros_usos": [
-   "Jn 1:13 — ἀνήρ en «voluntad de varón»",
+   "Jn 1:13 — ἀνήρ en voluntad de varón",
    "Hch 2:22 — Jesús de Nazaret, varón aprobado por Dios",
    "1 Tm 2:5 — un hombre, Cristo Jesús"
   ],
@@ -22662,7 +22661,7 @@
   "strong": "G846",
   "forma": "αὐτοῦ",
   "lema": "αὐτός",
-  "glosa_interlineal": "suyos",
+  "glosa_interlineal": "su",
   "rango_semantico": [
    "él, ella, ello",
    "mismo (con artículo)",
@@ -23380,7 +23379,7 @@
   "strong": "G846",
   "forma": "αὐτοῦ",
   "lema": "αὐτός",
-  "glosa_interlineal": "suyos",
+  "glosa_interlineal": "su",
   "rango_semantico": [
    "él, ella, ello",
    "mismo (con artículo)",

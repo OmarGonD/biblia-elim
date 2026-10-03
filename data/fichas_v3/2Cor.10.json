@@ -10127,7 +10127,7 @@
   "ausente_en": [],
   "variante": false,
   "caso_regido": null,
-  "caso_regido_ambiguo": "se interpone CONJ (γὰρ)",
+  "caso_regido_ambiguo": "se interpone CONJ (καὶ)",
   "ref_estandar": "2Cor.10.14",
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",

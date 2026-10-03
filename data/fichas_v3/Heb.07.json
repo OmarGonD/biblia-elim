@@ -5009,8 +5009,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "caso_regido": null,
-  "caso_regido_ambiguo": "se interpone CONJ (δὲ)",
+  "caso_regido": "genitivo",
   "ref_estandar": "Heb.7.7",
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
@@ -7562,7 +7561,7 @@
   "strong": "G2089",
   "forma": "ἔτι",
   "lema": "ἔτι",
-  "glosa_interlineal": "necesidad",
+  "glosa_interlineal": "aún",
   "rango_semantico": [
    "todavía, aún"
   ],
@@ -15846,8 +15845,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "caso_regido": null,
-  "caso_regido_ambiguo": "artículo (A) y G no concuerdan",
+  "caso_regido": "acusativo",
   "ref_estandar": "Heb.7.25",
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",

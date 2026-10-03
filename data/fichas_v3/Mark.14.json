@@ -20547,7 +20547,7 @@
   "strong": "G2228",
   "forma": "ἢ",
   "lema": "ἤ",
-  "glosa_interlineal": "dos",
+  "glosa_interlineal": "o",
   "rango_semantico": [
    "o",
    "que (en comparación)"
@@ -22228,7 +22228,6 @@
   "ausente_en": [],
   "variante": false,
   "caso_regido": null,
-  "caso_regido_ambiguo": "se interpone V (προσεύξωμαι.)",
   "ref_estandar": "Mark.14.32",
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",

@@ -16181,8 +16181,7 @@
    "SBL"
   ],
   "variante": true,
-  "caso_regido": null,
-  "caso_regido_ambiguo": "se interpone CONJ (τε)",
+  "caso_regido": "genitivo",
   "ref_estandar": "Rom.16.26",
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",

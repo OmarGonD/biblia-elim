@@ -1024,7 +1024,7 @@
   "strong": "G1161",
   "forma": "δὲ",
   "lema": "δέ",
-  "glosa_interlineal": "que",
+  "glosa_interlineal": "y",
   "rango_semantico": [
    "pero, y",
    "por otra parte"
@@ -17049,8 +17049,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "caso_regido": null,
-  "caso_regido_ambiguo": "artículo (A) y G no concuerdan",
+  "caso_regido": "acusativo",
   "ref_estandar": "Acts.12.20",
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",

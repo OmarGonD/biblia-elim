@@ -7353,8 +7353,7 @@
   ],
   "ausente_en": [],
   "variante": false,
-  "caso_regido": null,
-  "caso_regido_ambiguo": "se interpone CONJ (δὲ)",
+  "caso_regido": "genitivo",
   "ref_estandar": "Matt.11.12",
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
@@ -10276,7 +10275,7 @@
   "strong": "G3383",
   "forma": "μήτε",
   "lema": "μήτε",
-  "glosa_interlineal": "sin",
+  "glosa_interlineal": "ni",
   "rango_semantico": [
    "ni, ni siquiera"
   ],
@@ -19002,7 +19001,7 @@
   "strong": "G1909",
   "forma": "ἐφ’",
   "lema": "ἐπί",
-  "glosa_interlineal": "yugo",
+  "glosa_interlineal": "sobre",
   "rango_semantico": [
    "sobre, en",
    "junto a",

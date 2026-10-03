@@ -4662,7 +4662,7 @@
   "strong": "G846",
   "forma": "αὐτός",
   "lema": "αὐτός",
-  "glosa_interlineal": "es el mismo",
+  "glosa_interlineal": "él mismo",
   "rango_semantico": [
    "él, ella, ello",
    "mismo (con artículo)",
@@ -4704,7 +4704,7 @@
   "strong": "G1510",
   "forma": "ἐστιν",
   "lema": "εἰμί",
-  "glosa_interlineal": "que",
+  "glosa_interlineal": "es",
   "rango_semantico": [
    "ser, existir",
    "estar",
@@ -6495,7 +6495,6 @@
   "ausente_en": [],
   "variante": false,
   "caso_regido": null,
-  "caso_regido_ambiguo": "se interpone V (καταντήσωμεν)",
   "ref_estandar": "Eph.4.13",
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
