@@ -1,0 +1,263 @@
+{
+ "ref": "John.18.23",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T21:06:38-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G611",
+   "glosa_interlineal": "respondió",
+   "rango_semantico": [
+    "responder, contestar",
+    "replicar",
+    "tomar la palabra"
+   ],
+   "construccion": "Aoristo indicativo, voz media (deponente), 3.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G846",
+   "glosa_interlineal": "le",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal: dativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G2424",
+   "glosa_interlineal": "Jesús",
+   "rango_semantico": [
+    "Jesús (forma griega del hebreo Yehoshúa, «Yahvé salva»)"
+   ],
+   "construccion": "Sustantivo: nominativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G1487",
+   "glosa_interlineal": "si",
+   "rango_semantico": [
+    "si (condicional)",
+    "a no ser, salvo",
+    "que (en preguntas)"
+   ],
+   "construccion": "Partícula condicional.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G2560",
+   "glosa_interlineal": "mal",
+   "rango_semantico": [
+    "mal, indebidamente"
+   ],
+   "construccion": "Adverbio.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G2980",
+   "glosa_interlineal": "hablé",
+   "rango_semantico": [
+    "hablar, decir"
+   ],
+   "construccion": "Aoristo indicativo, voz activa, 1.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G3140",
+   "glosa_interlineal": "da testimonio",
+   "rango_semantico": [
+    "dar testimonio, testificar",
+    "hablar bien de",
+    "confirmar"
+   ],
+   "construccion": "Aoristo imperativo, voz activa, 2.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G4012",
+   "glosa_interlineal": "acerca de",
+   "rango_semantico": [
+    "acerca de, sobre",
+    "por causa de",
+    "alrededor de"
+   ],
+   "construccion": "Preposición con genitivo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: genitivo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G2556",
+   "glosa_interlineal": "lo malo",
+   "rango_semantico": [
+    "malo, malvado"
+   ],
+   "construccion": "Adjetivo: genitivo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G1487",
+   "glosa_interlineal": "si",
+   "rango_semantico": [
+    "si (condicional)",
+    "a no ser, salvo",
+    "que (en preguntas)"
+   ],
+   "construccion": "Partícula condicional.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G1161",
+   "glosa_interlineal": "pero / y",
+   "rango_semantico": [
+    "pero, y",
+    "por otra parte"
+   ],
+   "construccion": "Conjunción postpositiva.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G2573",
+   "glosa_interlineal": "bien",
+   "rango_semantico": [
+    "bien, correctamente"
+   ],
+   "construccion": "Adverbio.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G5101",
+   "glosa_interlineal": "¿por qué?",
+   "rango_semantico": [
+    "alguien, algo",
+    "cierto, uno"
+   ],
+   "construccion": "Pronombre interrogativo: acusativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G1473",
+   "glosa_interlineal": "me",
+   "rango_semantico": [
+    "yo",
+    "mí"
+   ],
+   "construccion": "Pronombre personal: 1.ª persona, acusativo singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G1194",
+   "glosa_interlineal": "me golpeas",
+   "rango_semantico": [
+    "golpear, azotar"
+   ],
+   "construccion": "Presente indicativo, voz activa, 2.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}
