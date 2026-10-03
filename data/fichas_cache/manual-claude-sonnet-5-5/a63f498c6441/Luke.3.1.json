@@ -1,0 +1,533 @@
+{
+ "ref": "Luke.3.1",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-03T07:00:36-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G1722",
+   "glosa_interlineal": "en",
+   "rango_semantico": [
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
+   ],
+   "construccion": "Preposición con dativo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G2094",
+   "glosa_interlineal": "año",
+   "rango_semantico": [
+    "año"
+   ],
+   "construccion": "Sustantivo: dativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G1161",
+   "glosa_interlineal": "pero / y",
+   "rango_semantico": [
+    "pero, y",
+    "por otra parte"
+   ],
+   "construccion": "Conjunción postpositiva.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G4003",
+   "glosa_interlineal": "decimoquinto",
+   "rango_semantico": [
+    "decimoquinto"
+   ],
+   "construccion": "Adjetivo: dativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G2231",
+   "glosa_interlineal": "reinado",
+   "rango_semantico": [
+    "gobierno, mando, reinado"
+   ],
+   "construccion": "Sustantivo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G5086",
+   "glosa_interlineal": "Tiberio",
+   "rango_semantico": [
+    "Tiberio"
+   ],
+   "construccion": "Sustantivo: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G2541",
+   "glosa_interlineal": "César",
+   "rango_semantico": [
+    "César, emperador"
+   ],
+   "construccion": "Sustantivo: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G2230",
+   "glosa_interlineal": "siendo gobernador",
+   "rango_semantico": [
+    "gobernar, ser gobernador"
+   ],
+   "construccion": "Participio presente, voz activa, genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G4194",
+   "glosa_interlineal": "Poncio",
+   "rango_semantico": [
+    "Poncio"
+   ],
+   "construccion": "Sustantivo: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G4091",
+   "glosa_interlineal": "Pilato",
+   "rango_semantico": [
+    "Pilato"
+   ],
+   "construccion": "Sustantivo: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G2449",
+   "glosa_interlineal": "Judea",
+   "rango_semantico": [
+    "Judea"
+   ],
+   "construccion": "Sustantivo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G5075",
+   "glosa_interlineal": "siendo tetrarca",
+   "rango_semantico": [
+    "tetrarca, gobernante de una cuarta parte"
+   ],
+   "construccion": "Participio presente, voz activa, genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G1056",
+   "glosa_interlineal": "de Galilea",
+   "rango_semantico": [
+    "Galilea"
+   ],
+   "construccion": "Sustantivo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 18,
+   "strong": "G2264",
+   "glosa_interlineal": "Herodes",
+   "rango_semantico": [
+    "Herodes Antipas, tetrarca de Galilea"
+   ],
+   "construccion": "Sustantivo: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 19,
+   "strong": "G5376",
+   "glosa_interlineal": "Felipe",
+   "rango_semantico": [
+    "Felipe (nombre griego, «amigo de caballos»)"
+   ],
+   "construccion": "Sustantivo: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 20,
+   "strong": "G1161",
+   "glosa_interlineal": "pero / y",
+   "rango_semantico": [
+    "pero, y",
+    "por otra parte"
+   ],
+   "construccion": "Conjunción postpositiva.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 21,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 22,
+   "strong": "G80",
+   "glosa_interlineal": "hermano",
+   "rango_semantico": [
+    "hermano",
+    "compañero, correligionario",
+    "prójimo"
+   ],
+   "construccion": "Sustantivo: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 23,
+   "strong": "G846",
+   "glosa_interlineal": "su",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 24,
+   "strong": "G5075",
+   "glosa_interlineal": "siendo tetrarca",
+   "rango_semantico": [
+    "tetrarca, gobernante de una cuarta parte"
+   ],
+   "construccion": "Participio presente, voz activa, genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 25,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 26,
+   "strong": "G2484",
+   "glosa_interlineal": "Iturea",
+   "rango_semantico": [
+    "Iturea"
+   ],
+   "construccion": "Sustantivo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 27,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 28,
+   "strong": "G5139",
+   "glosa_interlineal": "Traconite",
+   "rango_semantico": [
+    "Traconítide"
+   ],
+   "construccion": "Sustantivo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 29,
+   "strong": "G5561",
+   "glosa_interlineal": "región",
+   "rango_semantico": [
+    "campo, región"
+   ],
+   "construccion": "Sustantivo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 30,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 31,
+   "strong": "G3078",
+   "glosa_interlineal": "Lisanias",
+   "rango_semantico": [
+    "Lisanias"
+   ],
+   "construccion": "Sustantivo: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 32,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 33,
+   "strong": "G9",
+   "glosa_interlineal": "Abilinia",
+   "rango_semantico": [
+    "Abilinia"
+   ],
+   "construccion": "Sustantivo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 34,
+   "strong": "G5075",
+   "glosa_interlineal": "siendo tetrarca",
+   "rango_semantico": [
+    "tetrarca, gobernante de una cuarta parte"
+   ],
+   "construccion": "Participio presente, voz activa, genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}
