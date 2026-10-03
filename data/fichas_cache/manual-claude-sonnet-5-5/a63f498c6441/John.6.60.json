@@ -2,7 +2,7 @@
  "ref": "John.6.60",
  "modelo": "manual-claude-sonnet-5-5",
  "prompt_hash": "a63f498c6441",
- "generado": "2026-10-02T20:01:12-0500",
+ "generado": "2026-10-02T20:05:40-0500",
  "fichas": [
   {
    "pos_tisch": 1,
@@ -190,10 +190,7 @@
    "strong": "G3056",
    "glosa_interlineal": "palabra",
    "rango_semantico": [
-    "palabra, expresión",
-    "razón, cuenta",
-    "mensaje, enseñanza",
-    "Palabra personal de Dios"
+    "palabra, dicho"
    ],
    "construccion": "Sustantivo: nominativo singular masculino.",
    "sentido_en_contexto": "Enseñanza: el discurso del pan de vida.",

@@ -2,7 +2,7 @@
  "ref": "John.6.69",
  "modelo": "manual-claude-sonnet-5-5",
  "prompt_hash": "a63f498c6441",
- "generado": "2026-10-02T20:01:12-0500",
+ "generado": "2026-10-02T20:05:41-0500",
  "fichas": [
   {
    "pos_tisch": 1,
@@ -167,8 +167,8 @@
    "variantes_textuales": "Esta palabra de Tischendorf no está en TR, Byz; sí en NA28, NA27, Tyn, SBL, WH, Treg.",
    "notas_traduccion": null,
    "otros_usos": [
-    "Mc 1:24 — el Santo de Dios (el espíritu inmundo)",
-    "Mt 16:16 — tú eres el Cristo, el Hijo del Dios viviente"
+    "Mc 1:24",
+    "Mt 16:16"
    ],
    "nivel_certeza": "alto"
   },

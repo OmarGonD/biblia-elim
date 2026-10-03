@@ -2,7 +2,7 @@
  "ref": "John.6.40",
  "modelo": "manual-claude-sonnet-5-5",
  "prompt_hash": "a63f498c6441",
- "generado": "2026-10-02T20:00:41-0500",
+ "generado": "2026-10-02T20:05:29-0500",
  "fichas": [
   {
    "pos_tisch": 1,
@@ -138,9 +138,7 @@
    "strong": "G2443",
    "glosa_interlineal": "que",
    "rango_semantico": [
-    "para que (finalidad)",
-    "de modo que (resultado)",
-    "que (contenido)"
+    "para que, de que"
    ],
    "construccion": "Preposición con nominativo.",
    "sentido_en_contexto": null,
