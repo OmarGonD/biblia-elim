@@ -1,0 +1,132 @@
+{
+ "ref": "Heb.12.4",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-03T10:16:30-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G3768",
+   "glosa_interlineal": "aún no",
+   "rango_semantico": [
+    "todavía no, aún no"
+   ],
+   "construccion": "Adverbio (negativo).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G3360",
+   "glosa_interlineal": "hasta",
+   "rango_semantico": [
+    "hasta, hasta que"
+   ],
+   "construccion": "Preposición con genitivo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G129",
+   "glosa_interlineal": "sangre",
+   "rango_semantico": [
+    "sangre",
+    "vida",
+    "muerte violenta"
+   ],
+   "construccion": "Sustantivo: genitivo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G478",
+   "glosa_interlineal": "habéis resistido",
+   "rango_semantico": [
+    "resistir, hacer frente"
+   ],
+   "construccion": "Aoristo (2.º) indicativo, voz activa, 2.ª persona plural.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G4314",
+   "glosa_interlineal": "contra",
+   "rango_semantico": [
+    "hacia, a, junto a",
+    "con (de relación)",
+    "para"
+   ],
+   "construccion": "Preposición con acusativo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: acusativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G266",
+   "glosa_interlineal": "pecado",
+   "rango_semantico": [
+    "adulterio"
+   ],
+   "construccion": "Sustantivo: acusativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G464",
+   "glosa_interlineal": "combatiendo",
+   "rango_semantico": [
+    "luchar contra, combatir"
+   ],
+   "construccion": "Participio presente, voz media o pasiva (deponente), nominativo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}
