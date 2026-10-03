@@ -1,0 +1,300 @@
+{
+ "ref": "2Cor.3.5",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-03T08:46:10-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G3756",
+   "glosa_interlineal": "no",
+   "rango_semantico": [
+    "no, ni",
+    "nada"
+   ],
+   "construccion": "Partícula (negativo).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G3754",
+   "glosa_interlineal": "que",
+   "rango_semantico": [
+    "que (contenido)",
+    "porque",
+    "puesto que"
+   ],
+   "construccion": "Conjunción.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G575",
+   "glosa_interlineal": "de",
+   "rango_semantico": [
+    "de, desde (origen)",
+    "fuera de",
+    "a partir de"
+   ],
+   "construccion": "Preposición con genitivo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G1438",
+   "glosa_interlineal": "nosotros mismos",
+   "rango_semantico": [
+    "sí mismo, uno mismo"
+   ],
+   "construccion": "Pronombre reflexivo: 1.ª persona, genitivo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G2425",
+   "glosa_interlineal": "muchos",
+   "rango_semantico": [
+    "suficiente, bastante",
+    "capaz",
+    "considerable"
+   ],
+   "construccion": "Adjetivo: nominativo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G1510",
+   "glosa_interlineal": "seamos",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Presente indicativo, voz activa, 1.ª persona plural.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G3049",
+   "glosa_interlineal": "capaces de pensar",
+   "rango_semantico": [
+    "considerar, atribuir, contar"
+   ],
+   "construccion": "Infinitivo aoristo, voz media.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G5100",
+   "glosa_interlineal": "algo",
+   "rango_semantico": [
+    "alguno, algo",
+    "cierto, un",
+    "cualquiera"
+   ],
+   "construccion": "Pronombre indefinido: acusativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G5613",
+   "glosa_interlineal": "como",
+   "rango_semantico": [
+    "como, así como",
+    "aproximadamente",
+    "cuando"
+   ],
+   "construccion": "Partícula.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G1537",
+   "glosa_interlineal": "de",
+   "rango_semantico": [
+    "de, desde (origen)",
+    "fuera de",
+    "a partir de"
+   ],
+   "construccion": "Preposición con genitivo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G1438",
+   "glosa_interlineal": "nosotros mismos",
+   "rango_semantico": [
+    "sí mismo, uno mismo"
+   ],
+   "construccion": "Pronombre reflexivo: 1.ª persona, genitivo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": "Esta palabra de Tischendorf no está en SBL, WH, Treg; sí en NA28, NA27, Tyn, TR, Byz.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G235",
+   "glosa_interlineal": "sino",
+   "rango_semantico": [
+    "pero",
+    "sino",
+    "sin embargo"
+   ],
+   "construccion": "Conjunción.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: nominativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G2426",
+   "glosa_interlineal": "nuestra capacidad",
+   "rango_semantico": [
+    "suficiencia, capacidad"
+   ],
+   "construccion": "Sustantivo: nominativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G2249",
+   "glosa_interlineal": "nuestro",
+   "rango_semantico": [
+    "yo",
+    "nosotros"
+   ],
+   "construccion": "Pronombre personal: 1.ª persona, genitivo plural.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G1537",
+   "glosa_interlineal": "de",
+   "rango_semantico": [
+    "de, desde (origen)",
+    "fuera de",
+    "a partir de"
+   ],
+   "construccion": "Preposición con genitivo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 18,
+   "strong": "G2316",
+   "glosa_interlineal": "Dios",
+   "rango_semantico": [
+    "Dios (el único Dios)",
+    "dios, divinidad",
+    "ser divino"
+   ],
+   "construccion": "Sustantivo: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}
