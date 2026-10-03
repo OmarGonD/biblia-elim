@@ -117,28 +117,54 @@ _glosas = None
 
 
 def glosas():
-    """Última glosa conocida por (Strong, morfología TAGNT): v2 < v3 < caché manual."""
-    global _glosas
+    """Glosa más frecuente por (Strong, morfología TAGNT): v2 + v3 + caché manual (la última no manda: un desliz
+    aislado no se propaga)."""
+    global _glosas, _conteo
     if _glosas is None:
-        _glosas = {}
+        _conteo = {}
         for d in ("fichas_v2", "fichas_v3"):
             for ruta in sorted(glob.glob(os.path.join(alinear.RAIZ, "data", d, "*.json"))):
                 for f in json.load(open(ruta, encoding="utf-8")):
                     if f.get("glosa_interlineal") and f.get("morfologia_tagnt"):
-                        _glosas[(f["strong"], f["morfologia_tagnt"])] = f["glosa_interlineal"]
+                        _anotar(f["strong"], f["morfologia_tagnt"], f["glosa_interlineal"])
         for ruta in sorted(glob.glob(os.path.join(CACHE.dir, "*.json"))):
             d = json.load(open(ruta, encoding="utf-8"))
             sol = pipeline.solicitud(D, d["ref"])
             for f, w in zip(d["fichas"], sol["palabras"]):
                 if f.get("glosa_interlineal") and w.get("morfologia_tagnt"):
-                    _glosas[(w["strong"], w["morfologia_tagnt"])] = f["glosa_interlineal"]
+                    _anotar(w["strong"], w["morfologia_tagnt"], f["glosa_interlineal"])
+        _glosas = _Glosas()
     return _glosas
+
+
+_conteo = {}
+
+
+def _anotar(strong, morf, glosa):
+    c = _conteo.setdefault((strong, morf), {})
+    c[glosa] = c.get(glosa, 0) + 1
+
+
+class _Glosas:
+    def get(self, clave, defecto=None):
+        c = _conteo.get(clave)
+        return max(c, key=lambda g: (c[g], g)) if c else defecto
+
+    def __setitem__(self, clave, glosa):
+        _anotar(clave[0], clave[1], glosa)
+
+
+# Sentido o mayúscula distintos según el contexto (Hijo/hijo, Dios/dios, Verbo/palabra, Espíritu/viento…): siempre explícitos.
+SENTIDO_VARIABLE = {"G5207", "G2316", "G3056", "G4151", "G3962", "G2962", "G5547"}
 
 
 def reutilizable(w):
     """Solo sustantivos, adjetivos y pronombres: verbos, preposiciones, conjunciones y adverbios cambian de sentido
     con el contexto y se redactan siempre."""
-    return (w.get("morfologia_tagnt") or w["morfologia"]).split("-")[0] in ("N", "A", "P", "T", "D", "R", "K", "S", "F", "X")
+    morf = w.get("morfologia_tagnt") or w["morfologia"]
+    if w["strong"] in SENTIDO_VARIABLE or (w["strong"] == "G846" and morf.startswith("P-N")):
+        return False
+    return morf.split("-")[0] in ("N", "A", "P", "T", "D", "R", "K", "S", "F", "X")
 
 
 def _trim(forma):
@@ -166,6 +192,8 @@ def ficha(w, spec):
     """Ficha completa (dict del esquema) para la palabra `w` de la solicitud."""
     spec = spec if isinstance(spec, tuple) else ((spec,) if spec else ())
     glosa = spec[0] if spec else None
+    if len(spec) > 1 and isinstance(spec[1], dict):      # (glosa, {extras}) sin sentido
+        spec = (spec[0], None, spec[1])
     sentido = spec[1] if len(spec) > 1 else None
     if not sentido or len(sentido) < 28:
         sentido = None            # relleno («Sujeto.», «Aoristo.»): mejor vacío que sin información

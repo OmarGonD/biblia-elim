@@ -39,7 +39,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:38:56-0500"
+  "generado_en": "2026-10-02T19:50:57-0500"
  },
  {
   "ref": "John.2.1",
@@ -79,7 +79,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:38:56-0500"
+  "generado_en": "2026-10-02T19:50:57-0500"
  },
  {
   "ref": "John.2.1",
@@ -121,7 +121,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:38:56-0500"
+  "generado_en": "2026-10-02T19:50:57-0500"
  },
  {
   "ref": "John.2.1",
@@ -162,7 +162,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:38:56-0500"
+  "generado_en": "2026-10-02T19:50:57-0500"
  },
  {
   "ref": "John.2.1",
@@ -202,7 +202,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:38:56-0500"
+  "generado_en": "2026-10-02T19:50:57-0500"
  },
  {
   "ref": "John.2.1",
@@ -243,7 +243,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:38:56-0500"
+  "generado_en": "2026-10-02T19:50:57-0500"
  },
  {
   "ref": "John.2.1",
@@ -253,10 +253,7 @@
   "lema": "γίνομαι",
   "glosa_interlineal": "hubo",
   "rango_semantico": [
-   "llegar a ser, hacerse",
-   "suceder, ocurrir",
-   "aparecer, surgir",
-   "nacer"
+   "llegar a ser, ocurrir"
   ],
   "construccion": "Aoristo (2.º) indicativo, voz media (deponente), 3.ª persona singular. Con sujeto γάμος: «hubo una boda».",
   "sentido_en_contexto": "Verbo de «tener lugar»: se narra el hecho sin presentar aún a los novios.",
@@ -286,7 +283,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:38:56-0500"
+  "generado_en": "2026-10-02T19:50:57-0500"
  },
  {
   "ref": "John.2.1",
@@ -330,7 +327,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:38:56-0500"
+  "generado_en": "2026-10-02T19:50:57-0500"
  },
  {
   "ref": "John.2.1",
@@ -370,7 +367,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:38:56-0500"
+  "generado_en": "2026-10-02T19:50:57-0500"
  },
  {
   "ref": "John.2.1",
@@ -410,7 +407,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:38:56-0500"
+  "generado_en": "2026-10-02T19:50:57-0500"
  },
  {
   "ref": "John.2.1",
@@ -450,7 +447,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:38:56-0500"
+  "generado_en": "2026-10-02T19:50:57-0500"
  },
  {
   "ref": "John.2.1",
@@ -492,7 +489,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:38:56-0500"
+  "generado_en": "2026-10-02T19:50:57-0500"
  },
  {
   "ref": "John.2.1",
@@ -534,7 +531,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:38:56-0500"
+  "generado_en": "2026-10-02T19:50:57-0500"
  },
  {
   "ref": "John.2.1",
@@ -574,7 +571,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:38:56-0500"
+  "generado_en": "2026-10-02T19:50:57-0500"
  },
  {
   "ref": "John.2.1",
@@ -617,7 +614,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:38:56-0500"
+  "generado_en": "2026-10-02T19:50:57-0500"
  },
  {
   "ref": "John.2.1",
@@ -657,7 +654,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:38:56-0500"
+  "generado_en": "2026-10-02T19:50:57-0500"
  },
  {
   "ref": "John.2.1",
@@ -697,7 +694,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:38:56-0500"
+  "generado_en": "2026-10-02T19:50:57-0500"
  },
  {
   "ref": "John.2.1",
@@ -737,7 +734,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:38:56-0500"
+  "generado_en": "2026-10-02T19:50:57-0500"
  },
  {
   "ref": "John.2.2",
@@ -779,7 +776,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:06-0500"
+  "generado_en": "2026-10-02T19:51:06-0500"
  },
  {
   "ref": "John.2.2",
@@ -820,7 +817,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:06-0500"
+  "generado_en": "2026-10-02T19:51:06-0500"
  },
  {
   "ref": "John.2.2",
@@ -862,7 +859,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:06-0500"
+  "generado_en": "2026-10-02T19:51:06-0500"
  },
  {
   "ref": "John.2.2",
@@ -902,7 +899,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:06-0500"
+  "generado_en": "2026-10-02T19:51:06-0500"
  },
  {
   "ref": "John.2.2",
@@ -942,7 +939,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:06-0500"
+  "generado_en": "2026-10-02T19:51:06-0500"
  },
  {
   "ref": "John.2.2",
@@ -984,7 +981,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:06-0500"
+  "generado_en": "2026-10-02T19:51:06-0500"
  },
  {
   "ref": "John.2.2",
@@ -1024,7 +1021,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:06-0500"
+  "generado_en": "2026-10-02T19:51:06-0500"
  },
  {
   "ref": "John.2.2",
@@ -1066,7 +1063,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:06-0500"
+  "generado_en": "2026-10-02T19:51:06-0500"
  },
  {
   "ref": "John.2.2",
@@ -1108,7 +1105,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:06-0500"
+  "generado_en": "2026-10-02T19:51:06-0500"
  },
  {
   "ref": "John.2.2",
@@ -1152,7 +1149,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:06-0500"
+  "generado_en": "2026-10-02T19:51:06-0500"
  },
  {
   "ref": "John.2.2",
@@ -1192,7 +1189,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:06-0500"
+  "generado_en": "2026-10-02T19:51:06-0500"
  },
  {
   "ref": "John.2.2",
@@ -1233,7 +1230,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:06-0500"
+  "generado_en": "2026-10-02T19:51:06-0500"
  },
  {
   "ref": "John.2.3",
@@ -1275,7 +1272,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.3",
@@ -1328,7 +1325,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.3",
@@ -1355,7 +1352,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.3",
@@ -1410,7 +1407,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.3",
@@ -1438,7 +1435,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.3",
@@ -1465,7 +1462,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.3",
@@ -1491,7 +1488,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.3",
@@ -1517,7 +1514,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.3",
@@ -1543,7 +1540,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.3",
@@ -1570,7 +1567,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.3",
@@ -1596,7 +1593,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.3",
@@ -1639,7 +1636,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.3",
@@ -1679,7 +1676,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.3",
@@ -1719,7 +1716,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.3",
@@ -1759,7 +1756,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.3",
@@ -1799,7 +1796,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.3",
@@ -1842,7 +1839,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.3",
@@ -1884,7 +1881,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.3",
@@ -1937,7 +1934,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.3",
@@ -1978,7 +1975,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.3",
@@ -2006,7 +2003,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.4",
@@ -2049,7 +2046,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.4",
@@ -2091,7 +2088,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.4",
@@ -2131,7 +2128,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.4",
@@ -2171,7 +2168,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.4",
@@ -2212,7 +2209,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.4",
@@ -2253,7 +2250,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.4",
@@ -2295,7 +2292,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.4",
@@ -2335,7 +2332,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.4",
@@ -2380,7 +2377,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.4",
@@ -2420,7 +2417,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.4",
@@ -2460,7 +2457,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.4",
@@ -2500,7 +2497,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.4",
@@ -2546,7 +2543,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.4",
@@ -2587,7 +2584,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.5",
@@ -2630,7 +2627,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.5",
@@ -2670,7 +2667,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.5",
@@ -2710,7 +2707,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.5",
@@ -2752,7 +2749,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.5",
@@ -2792,7 +2789,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.5",
@@ -2833,7 +2830,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.5",
@@ -2874,7 +2871,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.5",
@@ -2917,7 +2914,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.5",
@@ -2957,7 +2954,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.5",
@@ -3000,7 +2997,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.5",
@@ -3041,7 +3038,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.5",
@@ -3081,7 +3078,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.6",
@@ -3123,7 +3120,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.6",
@@ -3164,7 +3161,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.6",
@@ -3204,7 +3201,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.6",
@@ -3244,7 +3241,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.6",
@@ -3284,7 +3281,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.6",
@@ -3324,7 +3321,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.6",
@@ -3368,7 +3365,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.6",
@@ -3408,7 +3405,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.6",
@@ -3448,7 +3445,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.6",
@@ -3488,7 +3485,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.6",
@@ -3530,7 +3527,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.6",
@@ -3571,7 +3568,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.6",
@@ -3612,7 +3609,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.6",
@@ -3654,7 +3651,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.6",
@@ -3694,7 +3691,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.6",
@@ -3734,7 +3731,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.6",
@@ -3775,7 +3772,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.6",
@@ -3815,7 +3812,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.7",
@@ -3858,7 +3855,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.7",
@@ -3900,7 +3897,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.7",
@@ -3940,7 +3937,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.7",
@@ -3980,7 +3977,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.7",
@@ -4020,7 +4017,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.7",
@@ -4060,7 +4057,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.7",
@@ -4100,7 +4097,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.7",
@@ -4140,7 +4137,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.7",
@@ -4182,7 +4179,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.7",
@@ -4222,7 +4219,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.7",
@@ -4264,7 +4261,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.7",
@@ -4307,7 +4304,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.7",
@@ -4347,7 +4344,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.8",
@@ -4389,7 +4386,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.8",
@@ -4432,7 +4429,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.8",
@@ -4474,7 +4471,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.8",
@@ -4514,7 +4511,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.8",
@@ -4554,7 +4551,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.8",
@@ -4596,7 +4593,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.8",
@@ -4636,7 +4633,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.8",
@@ -4676,7 +4673,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.8",
@@ -4716,7 +4713,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.8",
@@ -4757,7 +4754,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.8",
@@ -4799,7 +4796,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.8",
@@ -4839,7 +4836,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -4881,7 +4878,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -4922,7 +4919,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -4963,7 +4960,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5003,7 +5000,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5043,7 +5040,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5083,7 +5080,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5123,7 +5120,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5163,7 +5160,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5173,10 +5170,7 @@
   "lema": "γίνομαι",
   "glosa_interlineal": "convertida",
   "rango_semantico": [
-   "llegar a ser, hacerse",
-   "suceder, ocurrir",
-   "aparecer, surgir",
-   "nacer"
+   "llegar a ser, ocurrir"
   ],
   "construccion": "Participio perfecto, voz pasiva, acusativo singular neutro. Perfecto: resultado ya presente.",
   "sentido_en_contexto": "Participio perfecto: agua que había llegado a ser vino.",
@@ -5206,7 +5200,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5248,7 +5242,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5289,7 +5283,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5300,8 +5294,7 @@
   "glosa_interlineal": "sabía",
   "rango_semantico": [
    "saber, conocer",
-   "entender",
-   "reconocer"
+   "entender"
   ],
   "construccion": "Pluscuamperfecto (2.º) indicativo, voz activa, 3.ª persona singular.",
   "sentido_en_contexto": "Pluscuamperfecto con sentido de imperfecto.",
@@ -5331,7 +5324,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5371,7 +5364,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5413,7 +5406,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5453,7 +5446,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5494,7 +5487,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5535,7 +5528,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5546,8 +5539,7 @@
   "glosa_interlineal": "sabían",
   "rango_semantico": [
    "saber, conocer",
-   "entender",
-   "reconocer"
+   "entender"
   ],
   "construccion": "Pluscuamperfecto (2.º) indicativo, voz activa, 3.ª persona plural.",
   "sentido_en_contexto": "Pluscuamperfecto: tenían el conocimiento.",
@@ -5577,7 +5569,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5617,7 +5609,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5657,7 +5649,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5697,7 +5689,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5737,7 +5729,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5747,7 +5739,7 @@
   "lema": "φωνέω",
   "glosa_interlineal": "llama",
   "rango_semantico": [
-   "llamar, invitar",
+   "llamar",
    "hablar",
    "dar voz"
   ],
@@ -5779,7 +5771,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5819,7 +5811,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5859,7 +5851,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5899,7 +5891,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.9",
@@ -5939,7 +5931,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.10",
@@ -5981,7 +5973,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.10",
@@ -6024,7 +6016,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.10",
@@ -6066,7 +6058,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.10",
@@ -6108,7 +6100,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.10",
@@ -6150,7 +6142,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.10",
@@ -6190,7 +6182,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.10",
@@ -6230,7 +6222,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.10",
@@ -6271,7 +6263,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.10",
@@ -6311,7 +6303,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.10",
@@ -6353,7 +6345,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.10",
@@ -6395,7 +6387,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.10",
@@ -6435,7 +6427,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.10",
@@ -6475,7 +6467,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.10",
@@ -6515,7 +6507,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.10",
@@ -6555,7 +6547,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.10",
@@ -6595,7 +6587,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.10",
@@ -6636,7 +6628,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.10",
@@ -6676,7 +6668,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.10",
@@ -6717,7 +6709,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.10",
@@ -6757,7 +6749,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.10",
@@ -6800,7 +6792,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.10",
@@ -6840,7 +6832,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.11",
@@ -6881,7 +6873,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.11",
@@ -6921,7 +6913,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.11",
@@ -6963,7 +6955,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.11",
@@ -7003,7 +6995,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.11",
@@ -7043,7 +7035,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.11",
@@ -7083,7 +7075,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.11",
@@ -7123,7 +7115,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.11",
@@ -7167,7 +7159,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.11",
@@ -7207,7 +7199,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.11",
@@ -7247,7 +7239,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.11",
@@ -7287,7 +7279,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.11",
@@ -7329,7 +7321,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.11",
@@ -7369,7 +7361,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.11",
@@ -7409,7 +7401,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.11",
@@ -7455,7 +7447,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.11",
@@ -7497,7 +7489,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.11",
@@ -7539,7 +7531,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.11",
@@ -7581,7 +7573,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.11",
@@ -7625,7 +7617,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.11",
@@ -7667,7 +7659,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.11",
@@ -7707,7 +7699,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.11",
@@ -7749,7 +7741,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.11",
@@ -7791,7 +7783,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -7834,7 +7826,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -7875,7 +7867,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -7917,7 +7909,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -7961,7 +7953,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -8001,7 +7993,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -8043,7 +8035,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -8085,7 +8077,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -8125,7 +8117,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -8165,7 +8157,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -8207,7 +8199,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -8249,7 +8241,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -8289,7 +8281,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -8331,7 +8323,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -8374,7 +8366,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -8416,7 +8408,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -8456,7 +8448,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -8498,7 +8490,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -8540,7 +8532,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -8582,7 +8574,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -8622,7 +8614,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -8664,7 +8656,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -8705,7 +8697,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -8746,7 +8738,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.12",
@@ -8788,7 +8780,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.13",
@@ -8830,7 +8822,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.13",
@@ -8872,7 +8864,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.13",
@@ -8914,7 +8906,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.13",
@@ -8954,7 +8946,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.13",
@@ -8999,7 +8991,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.13",
@@ -9039,7 +9031,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.13",
@@ -9081,7 +9073,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.13",
@@ -9123,7 +9115,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.13",
@@ -9164,7 +9156,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.13",
@@ -9208,7 +9200,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.13",
@@ -9248,7 +9240,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.13",
@@ -9288,7 +9280,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.13",
@@ -9328,7 +9320,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.14",
@@ -9370,7 +9362,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.14",
@@ -9412,7 +9404,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.14",
@@ -9456,7 +9448,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.14",
@@ -9496,7 +9488,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.14",
@@ -9537,7 +9529,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.14",
@@ -9577,7 +9569,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.14",
@@ -9617,7 +9609,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.14",
@@ -9657,7 +9649,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.14",
@@ -9699,7 +9691,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.14",
@@ -9739,7 +9731,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.14",
@@ -9781,7 +9773,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.14",
@@ -9821,7 +9813,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.14",
@@ -9863,7 +9855,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.14",
@@ -9903,7 +9895,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.14",
@@ -9943,7 +9935,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.14",
@@ -9983,7 +9975,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10025,7 +10017,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10065,7 +10057,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10105,7 +10097,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10148,7 +10140,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10188,7 +10180,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10230,7 +10222,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10270,7 +10262,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10313,7 +10305,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10353,7 +10345,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10394,7 +10386,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10434,7 +10426,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10475,7 +10467,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10515,7 +10507,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10557,7 +10549,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10597,7 +10589,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10637,7 +10629,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10679,7 +10671,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10719,7 +10711,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10759,7 +10751,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10799,7 +10791,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10840,7 +10832,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10881,7 +10873,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10923,7 +10915,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -10963,7 +10955,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -11003,7 +10995,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.15",
@@ -11047,7 +11039,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:08-0500"
+  "generado_en": "2026-10-02T19:51:09-0500"
  },
  {
   "ref": "John.2.16",
@@ -11089,7 +11081,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:17-0500"
+  "generado_en": "2026-10-02T19:51:18-0500"
  },
  {
   "ref": "John.2.16",
@@ -11129,7 +11121,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:17-0500"
+  "generado_en": "2026-10-02T19:51:18-0500"
  },
  {
   "ref": "John.2.16",
@@ -11169,7 +11161,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:17-0500"
+  "generado_en": "2026-10-02T19:51:18-0500"
  },
  {
   "ref": "John.2.16",
@@ -11209,7 +11201,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:17-0500"
+  "generado_en": "2026-10-02T19:51:18-0500"
  },
  {
   "ref": "John.2.16",
@@ -11249,7 +11241,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:17-0500"
+  "generado_en": "2026-10-02T19:51:18-0500"
  },
  {
   "ref": "John.2.16",
@@ -11292,7 +11284,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:17-0500"
+  "generado_en": "2026-10-02T19:51:18-0500"
  },
  {
   "ref": "John.2.16",
@@ -11332,7 +11324,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:17-0500"
+  "generado_en": "2026-10-02T19:51:18-0500"
  },
  {
   "ref": "John.2.16",
@@ -11373,7 +11365,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:17-0500"
+  "generado_en": "2026-10-02T19:51:18-0500"
  },
  {
   "ref": "John.2.16",
@@ -11413,7 +11405,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:17-0500"
+  "generado_en": "2026-10-02T19:51:18-0500"
  },
  {
   "ref": "John.2.16",
@@ -11454,7 +11446,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:17-0500"
+  "generado_en": "2026-10-02T19:51:18-0500"
  },
  {
   "ref": "John.2.16",
@@ -11494,7 +11486,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:17-0500"
+  "generado_en": "2026-10-02T19:51:18-0500"
  },
  {
   "ref": "John.2.16",
@@ -11534,7 +11526,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:17-0500"
+  "generado_en": "2026-10-02T19:51:18-0500"
  },
  {
   "ref": "John.2.16",
@@ -11574,7 +11566,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:17-0500"
+  "generado_en": "2026-10-02T19:51:18-0500"
  },
  {
   "ref": "John.2.16",
@@ -11614,7 +11606,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:17-0500"
+  "generado_en": "2026-10-02T19:51:18-0500"
  },
  {
   "ref": "John.2.16",
@@ -11659,7 +11651,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:17-0500"
+  "generado_en": "2026-10-02T19:51:18-0500"
  },
  {
   "ref": "John.2.16",
@@ -11700,7 +11692,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:17-0500"
+  "generado_en": "2026-10-02T19:51:18-0500"
  },
  {
   "ref": "John.2.16",
@@ -11740,7 +11732,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:17-0500"
+  "generado_en": "2026-10-02T19:51:18-0500"
  },
  {
   "ref": "John.2.16",
@@ -11780,7 +11772,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:17-0500"
+  "generado_en": "2026-10-02T19:51:18-0500"
  },
  {
   "ref": "John.2.17",
@@ -11820,7 +11812,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:32-0500"
+  "generado_en": "2026-10-02T19:51:32-0500"
  },
  {
   "ref": "John.2.17",
@@ -11860,7 +11852,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:32-0500"
+  "generado_en": "2026-10-02T19:51:32-0500"
  },
  {
   "ref": "John.2.17",
@@ -11902,7 +11894,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:32-0500"
+  "generado_en": "2026-10-02T19:51:32-0500"
  },
  {
   "ref": "John.2.17",
@@ -11944,7 +11936,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:32-0500"
+  "generado_en": "2026-10-02T19:51:32-0500"
  },
  {
   "ref": "John.2.17",
@@ -11986,7 +11978,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:32-0500"
+  "generado_en": "2026-10-02T19:51:32-0500"
  },
  {
   "ref": "John.2.17",
@@ -12030,7 +12022,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:32-0500"
+  "generado_en": "2026-10-02T19:51:32-0500"
  },
  {
   "ref": "John.2.17",
@@ -12072,7 +12064,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:32-0500"
+  "generado_en": "2026-10-02T19:51:32-0500"
  },
  {
   "ref": "John.2.17",
@@ -12112,7 +12104,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:32-0500"
+  "generado_en": "2026-10-02T19:51:32-0500"
  },
  {
   "ref": "John.2.17",
@@ -12153,7 +12145,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:32-0500"
+  "generado_en": "2026-10-02T19:51:32-0500"
  },
  {
   "ref": "John.2.17",
@@ -12193,7 +12185,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:32-0500"
+  "generado_en": "2026-10-02T19:51:32-0500"
  },
  {
   "ref": "John.2.17",
@@ -12233,7 +12225,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:32-0500"
+  "generado_en": "2026-10-02T19:51:32-0500"
  },
  {
   "ref": "John.2.17",
@@ -12273,7 +12265,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:32-0500"
+  "generado_en": "2026-10-02T19:51:32-0500"
  },
  {
   "ref": "John.2.17",
@@ -12314,7 +12306,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:32-0500"
+  "generado_en": "2026-10-02T19:51:32-0500"
  },
  {
   "ref": "John.2.17",
@@ -12355,7 +12347,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:32-0500"
+  "generado_en": "2026-10-02T19:51:32-0500"
  },
  {
   "ref": "John.2.18",
@@ -12397,7 +12389,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.18",
@@ -12438,7 +12430,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.18",
@@ -12478,7 +12470,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.18",
@@ -12520,7 +12512,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.18",
@@ -12562,7 +12554,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.18",
@@ -12605,7 +12597,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.18",
@@ -12647,7 +12639,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.18",
@@ -12688,7 +12680,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.18",
@@ -12728,7 +12720,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.18",
@@ -12768,7 +12760,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.18",
@@ -12809,7 +12801,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.18",
@@ -12851,7 +12843,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.18",
@@ -12892,7 +12884,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.18",
@@ -12932,7 +12924,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.19",
@@ -12974,7 +12966,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.19",
@@ -13014,7 +13006,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.19",
@@ -13056,7 +13048,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.19",
@@ -13099,7 +13091,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.19",
@@ -13141,7 +13133,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.19",
@@ -13183,7 +13175,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.19",
@@ -13223,7 +13215,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.19",
@@ -13266,7 +13258,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.19",
@@ -13307,7 +13299,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.19",
@@ -13349,7 +13341,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.19",
@@ -13393,7 +13385,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.19",
@@ -13433,7 +13425,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.19",
@@ -13475,7 +13467,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.19",
@@ -13519,7 +13511,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.19",
@@ -13561,7 +13553,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.20",
@@ -13604,7 +13596,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.20",
@@ -13645,7 +13637,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.20",
@@ -13685,7 +13677,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.20",
@@ -13727,7 +13719,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.20",
@@ -13767,7 +13759,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.20",
@@ -13809,7 +13801,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.20",
@@ -13849,7 +13841,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.20",
@@ -13889,7 +13881,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.20",
@@ -13929,7 +13921,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.20",
@@ -13969,7 +13961,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.20",
@@ -14009,7 +14001,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.20",
@@ -14050,7 +14042,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.20",
@@ -14092,7 +14084,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.20",
@@ -14132,7 +14124,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.20",
@@ -14176,7 +14168,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.20",
@@ -14216,7 +14208,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.20",
@@ -14258,7 +14250,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.20",
@@ -14299,7 +14291,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.20",
@@ -14341,7 +14333,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.21",
@@ -14382,7 +14374,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.21",
@@ -14423,7 +14415,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.21",
@@ -14466,7 +14458,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.21",
@@ -14509,7 +14501,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.21",
@@ -14549,7 +14541,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.21",
@@ -14589,7 +14581,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.21",
@@ -14629,7 +14621,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.21",
@@ -14672,7 +14664,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.21",
@@ -14714,7 +14706,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.22",
@@ -14754,7 +14746,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.22",
@@ -14795,7 +14787,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.22",
@@ -14836,7 +14828,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.22",
@@ -14879,7 +14871,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.22",
@@ -14919,7 +14911,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.22",
@@ -14959,7 +14951,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.22",
@@ -14999,7 +14991,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.22",
@@ -15041,7 +15033,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.22",
@@ -15049,7 +15041,7 @@
   "strong": "G846",
   "forma": "αὐτοῦ",
   "lema": "αὐτός",
-  "glosa_interlineal": "suyo",
+  "glosa_interlineal": "su",
   "rango_semantico": [
    "él, ella, ello",
    "mismo (con artículo)",
@@ -15083,7 +15075,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.22",
@@ -15125,7 +15117,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.22",
@@ -15166,7 +15158,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.22",
@@ -15209,7 +15201,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.22",
@@ -15251,7 +15243,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.22",
@@ -15293,7 +15285,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.22",
@@ -15333,7 +15325,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.22",
@@ -15373,7 +15365,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.22",
@@ -15415,7 +15407,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.22",
@@ -15455,7 +15447,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.22",
@@ -15498,7 +15490,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.22",
@@ -15540,7 +15532,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.22",
@@ -15583,7 +15575,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.22",
@@ -15623,7 +15615,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.22",
@@ -15663,7 +15655,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -15705,7 +15697,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -15746,7 +15738,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -15788,7 +15780,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -15832,7 +15824,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -15873,7 +15865,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -15913,7 +15905,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -15957,7 +15949,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -15997,7 +15989,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -16038,7 +16030,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -16082,7 +16074,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -16122,7 +16114,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -16162,7 +16154,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -16203,7 +16195,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -16245,7 +16237,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -16289,7 +16281,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -16329,7 +16321,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -16372,7 +16364,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -16414,7 +16406,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -16455,7 +16447,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -16497,7 +16489,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -16537,7 +16529,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -16577,7 +16569,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -16618,7 +16610,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.23",
@@ -16658,7 +16650,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.24",
@@ -16700,7 +16692,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.24",
@@ -16741,7 +16733,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.24",
@@ -16781,7 +16773,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.24",
@@ -16822,7 +16814,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.24",
@@ -16864,7 +16856,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.24",
@@ -16907,7 +16899,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.24",
@@ -16949,7 +16941,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.24",
@@ -16993,7 +16985,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.24",
@@ -17033,7 +17025,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.24",
@@ -17075,7 +17067,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.24",
@@ -17086,9 +17078,8 @@
   "glosa_interlineal": "conocer",
   "rango_semantico": [
    "conocer",
-   "reconocer, aceptar",
-   "saber",
-   "tener relación"
+   "entender",
+   "reconocer"
   ],
   "construccion": "Infinitivo presente, voz activa.",
   "sentido_en_contexto": "Infinitivo: porque los conocía a todos.",
@@ -17118,7 +17109,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.24",
@@ -17160,7 +17151,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.25",
@@ -17202,7 +17193,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.25",
@@ -17244,7 +17235,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.25",
@@ -17285,7 +17276,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.25",
@@ -17325,7 +17316,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.25",
@@ -17367,7 +17358,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.25",
@@ -17409,7 +17400,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.25",
@@ -17450,7 +17441,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.25",
@@ -17492,7 +17483,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.25",
@@ -17535,7 +17526,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.25",
@@ -17575,7 +17566,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.25",
@@ -17617,7 +17608,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.25",
@@ -17659,7 +17650,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.25",
@@ -17700,7 +17691,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.25",
@@ -17711,9 +17702,8 @@
   "glosa_interlineal": "conocía",
   "rango_semantico": [
    "conocer",
-   "reconocer, aceptar",
-   "saber",
-   "tener relación"
+   "entender",
+   "reconocer"
   ],
   "construccion": "Imperfecto indicativo, voz activa, 3.ª persona singular.",
   "sentido_en_contexto": null,
@@ -17743,7 +17733,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.25",
@@ -17784,7 +17774,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.25",
@@ -17826,7 +17816,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.25",
@@ -17870,7 +17860,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.25",
@@ -17910,7 +17900,7 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  },
  {
   "ref": "John.2.25",
@@ -17952,6 +17942,6 @@
   "generador": "manual",
   "modelo": "manual-claude-sonnet-5-5",
   "prompt_hash": "a63f498c6441",
-  "generado_en": "2026-10-02T19:39:20-0500"
+  "generado_en": "2026-10-02T19:51:21-0500"
  }
 ]

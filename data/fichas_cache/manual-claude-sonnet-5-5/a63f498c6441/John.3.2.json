@@ -2,12 +2,12 @@
  "ref": "John.3.2",
  "modelo": "manual-claude-sonnet-5-5",
  "prompt_hash": "a63f498c6441",
- "generado": "2026-10-02T19:41:40-0500",
+ "generado": "2026-10-02T19:52:59-0500",
  "fichas": [
   {
    "pos_tisch": 1,
    "strong": "G3778",
-   "glosa_interlineal": "este",
+   "glosa_interlineal": "éste",
    "rango_semantico": [
     "este, esta, esto",
     "él, ella (con fuerza demostrativa)"
@@ -124,7 +124,7 @@
   {
    "pos_tisch": 8,
    "strong": "G846",
-   "glosa_interlineal": "él",
+   "glosa_interlineal": "le",
    "rango_semantico": [
     "él, ella, ello",
     "mismo (con artículo)",
@@ -206,7 +206,7 @@
   {
    "pos_tisch": 13,
    "strong": "G2316",
-   "glosa_interlineal": "de Dios",
+   "glosa_interlineal": "Dios",
    "rango_semantico": [
     "Dios (el único Dios)",
     "dios, divinidad",
@@ -510,7 +510,7 @@
   {
    "pos_tisch": 32,
    "strong": "G846",
-   "glosa_interlineal": "suyas",
+   "glosa_interlineal": "su",
    "rango_semantico": [
     "él, ella, ello",
     "mismo (con artículo)",

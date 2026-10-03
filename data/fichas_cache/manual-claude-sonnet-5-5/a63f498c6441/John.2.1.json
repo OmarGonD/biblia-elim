@@ -2,7 +2,7 @@
  "ref": "John.2.1",
  "modelo": "manual-claude-sonnet-5-5",
  "prompt_hash": "a63f498c6441",
- "generado": "2026-10-02T19:38:56-0500",
+ "generado": "2026-10-02T19:50:57-0500",
  "fichas": [
   {
    "pos_tisch": 1,
@@ -104,10 +104,7 @@
    "strong": "G1096",
    "glosa_interlineal": "hubo",
    "rango_semantico": [
-    "llegar a ser, hacerse",
-    "suceder, ocurrir",
-    "aparecer, surgir",
-    "nacer"
+    "llegar a ser, ocurrir"
    ],
    "construccion": "Aoristo (2.º) indicativo, voz media (deponente), 3.ª persona singular. Con sujeto γάμος: «hubo una boda».",
    "sentido_en_contexto": "Verbo de «tener lugar»: se narra el hecho sin presentar aún a los novios.",
