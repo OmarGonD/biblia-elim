@@ -1,0 +1,357 @@
+{
+ "ref": "1Cor.7.36",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-03T08:30:03-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G1487",
+   "glosa_interlineal": "si",
+   "rango_semantico": [
+    "si (condicional)",
+    "a no ser, salvo",
+    "que (en preguntas)"
+   ],
+   "construccion": "Partícula condicional.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G1161",
+   "glosa_interlineal": "pero / y",
+   "rango_semantico": [
+    "pero, y",
+    "por otra parte"
+   ],
+   "construccion": "Conjunción postpositiva.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G5100",
+   "glosa_interlineal": "alguien",
+   "rango_semantico": [
+    "alguno, algo",
+    "cierto, un",
+    "cualquiera"
+   ],
+   "construccion": "Pronombre indefinido: nominativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G807",
+   "glosa_interlineal": "se comporta indecorosamente",
+   "rango_semantico": [
+    "actuar indecentemente, comportarse mal"
+   ],
+   "construccion": "Infinitivo presente, voz activa.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G1909",
+   "glosa_interlineal": "con",
+   "rango_semantico": [
+    "sobre, en",
+    "junto a",
+    "a causa de"
+   ],
+   "construccion": "Preposición con acusativo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: acusativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G3933",
+   "glosa_interlineal": "virgen",
+   "rango_semantico": [
+    "virgen, casto"
+   ],
+   "construccion": "Sustantivo: acusativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G846",
+   "glosa_interlineal": "su",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G3543",
+   "glosa_interlineal": "piensa",
+   "rango_semantico": [
+    "pensar, suponer",
+    "creer"
+   ],
+   "construccion": "Presente indicativo, voz activa, 3.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G1437",
+   "glosa_interlineal": "si",
+   "rango_semantico": [
+    "si (con subjuntivo)",
+    "a menos que"
+   ],
+   "construccion": "Partícula condicional.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G1510",
+   "glosa_interlineal": "es",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Presente subjuntivo, voz activa, 3.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G5230",
+   "glosa_interlineal": "de edad avanzada",
+   "rango_semantico": [
+    "pasada la flor de la edad"
+   ],
+   "construccion": "Adjetivo: nominativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G3779",
+   "glosa_interlineal": "así",
+   "rango_semantico": [
+    "así, de este modo"
+   ],
+   "construccion": "Adverbio.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G3784",
+   "glosa_interlineal": "debe",
+   "rango_semantico": [
+    "deber, estar obligado"
+   ],
+   "construccion": "Presente indicativo, voz activa, 3.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G1096",
+   "glosa_interlineal": "ser",
+   "rango_semantico": [
+    "que no sea, ¡jamás!"
+   ],
+   "construccion": "Infinitivo presente, voz media o pasiva (deponente).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G3739",
+   "glosa_interlineal": "lo que",
+   "rango_semantico": [
+    "que, el que, lo que",
+    "quien"
+   ],
+   "construccion": "Pronombre relativo: acusativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 18,
+   "strong": "G2309",
+   "glosa_interlineal": "quiere",
+   "rango_semantico": [
+    "querer, desear",
+    "decidir",
+    "tener intención"
+   ],
+   "construccion": "Presente indicativo, voz activa, 3.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 19,
+   "strong": "G4160",
+   "glosa_interlineal": "haga",
+   "rango_semantico": [
+    "hacer, practicar"
+   ],
+   "construccion": "Presente imperativo, voz activa, 3.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 20,
+   "strong": "G3756",
+   "glosa_interlineal": "no",
+   "rango_semantico": [
+    "no, ni",
+    "nada"
+   ],
+   "construccion": "Partícula (negativo).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 21,
+   "strong": "G264",
+   "glosa_interlineal": "peca",
+   "rango_semantico": [
+    "pecar, errar"
+   ],
+   "construccion": "Presente indicativo, voz activa, 3.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 22,
+   "strong": "G1060",
+   "glosa_interlineal": "cásense",
+   "rango_semantico": [
+    "casarse, tomar esposa"
+   ],
+   "construccion": "Presente imperativo, voz activa, 3.ª persona plural.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}

@@ -1,0 +1,344 @@
+{
+ "ref": "1Cor.7.17",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-03T08:30:03-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G1487",
+   "glosa_interlineal": "sólo",
+   "rango_semantico": [
+    "si (condicional)",
+    "a no ser, salvo",
+    "que (en preguntas)"
+   ],
+   "construccion": "Partícula condicional.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G3361",
+   "glosa_interlineal": "que",
+   "rango_semantico": [
+    "no (prohibición o duda)",
+    "para que no"
+   ],
+   "construccion": "Partícula (negativo).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G1538",
+   "glosa_interlineal": "a cada",
+   "rango_semantico": [
+    "cada uno"
+   ],
+   "construccion": "Adjetivo: dativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G5613",
+   "glosa_interlineal": "como",
+   "rango_semantico": [
+    "como, así como",
+    "aproximadamente",
+    "cuando"
+   ],
+   "construccion": "Partícula.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G3307",
+   "glosa_interlineal": "ha repartido",
+   "rango_semantico": [
+    "dividir, repartir"
+   ],
+   "construccion": "Aoristo indicativo, voz activa, 3.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": "Lectura de Tischendorf: μεμέρικεν. El TAGNT lee ἐμέρισεν en NA28, NA27, Tyn, SBL, TR, Byz.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: nominativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G2962",
+   "glosa_interlineal": "el Señor",
+   "rango_semantico": [
+    "señor, amo",
+    "Señor (Dios, Jesús)",
+    "dueño"
+   ],
+   "construccion": "Sustantivo: nominativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G1538",
+   "glosa_interlineal": "a cada uno",
+   "rango_semantico": [
+    "cada uno"
+   ],
+   "construccion": "Adjetivo: acusativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G5613",
+   "glosa_interlineal": "como",
+   "rango_semantico": [
+    "como, así como",
+    "aproximadamente",
+    "cuando"
+   ],
+   "construccion": "Partícula.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G2564",
+   "glosa_interlineal": "ha llamado",
+   "rango_semantico": [
+    "llamar, invitar",
+    "nombrar",
+    "dar nombre"
+   ],
+   "construccion": "Perfecto indicativo, voz activa, 3.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: nominativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G2316",
+   "glosa_interlineal": "Dios",
+   "rango_semantico": [
+    "Dios (el único Dios)",
+    "dios, divinidad",
+    "ser divino"
+   ],
+   "construccion": "Sustantivo: nominativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G3779",
+   "glosa_interlineal": "así",
+   "rango_semantico": [
+    "así, de este modo"
+   ],
+   "construccion": "Adverbio.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G4043",
+   "glosa_interlineal": "ande",
+   "rango_semantico": [
+    "caminar, andar",
+    "vivir, conducirse"
+   ],
+   "construccion": "Presente imperativo, voz activa, 3.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G3779",
+   "glosa_interlineal": "así",
+   "rango_semantico": [
+    "así, de este modo"
+   ],
+   "construccion": "Adverbio.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G1722",
+   "glosa_interlineal": "en",
+   "rango_semantico": [
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
+   ],
+   "construccion": "Preposición con dativo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 18,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: dativo plural femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 19,
+   "strong": "G1577",
+   "glosa_interlineal": "iglesias",
+   "rango_semantico": [
+    "asamblea, iglesia"
+   ],
+   "construccion": "Sustantivo: dativo plural femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 20,
+   "strong": "G3956",
+   "glosa_interlineal": "todos",
+   "rango_semantico": [
+    "todo, cada",
+    "todos",
+    "cualquier"
+   ],
+   "construccion": "Adjetivo: dativo plural femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 21,
+   "strong": "G1299",
+   "glosa_interlineal": "ordeno",
+   "rango_semantico": [
+    "ordenar, dar instrucciones"
+   ],
+   "construccion": "Presente indicativo, voz media, 1.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}
