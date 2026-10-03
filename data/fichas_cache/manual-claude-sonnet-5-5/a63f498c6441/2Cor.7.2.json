@@ -1,0 +1,132 @@
+{
+ "ref": "2Cor.7.2",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-03T08:50:49-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G5562",
+   "glosa_interlineal": "recibidnos",
+   "rango_semantico": [
+    "abarcar, captar"
+   ],
+   "construccion": "Aoristo imperativo, voz activa, 2.ª persona plural.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G2249",
+   "glosa_interlineal": "nos",
+   "rango_semantico": [
+    "yo",
+    "nosotros"
+   ],
+   "construccion": "Pronombre personal: 1.ª persona, acusativo plural.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G3762",
+   "glosa_interlineal": "a nadie",
+   "rango_semantico": [
+    "ninguno, nadie",
+    "nada"
+   ],
+   "construccion": "Adjetivo: acusativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G91",
+   "glosa_interlineal": "hemos agraviado",
+   "rango_semantico": [
+    "ser tratado injustamente"
+   ],
+   "construccion": "Aoristo indicativo, voz activa, 1.ª persona plural.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G3762",
+   "glosa_interlineal": "a nadie",
+   "rango_semantico": [
+    "ninguno, nadie",
+    "nada"
+   ],
+   "construccion": "Adjetivo: acusativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G5351",
+   "glosa_interlineal": "hemos corrompido",
+   "rango_semantico": [
+    "corromper, destruir"
+   ],
+   "construccion": "Aoristo indicativo, voz activa, 1.ª persona plural.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G3762",
+   "glosa_interlineal": "a nadie",
+   "rango_semantico": [
+    "ninguno, nadie",
+    "nada"
+   ],
+   "construccion": "Adjetivo: acusativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G4122",
+   "glosa_interlineal": "hemos explotado",
+   "rango_semantico": [
+    "sacar ventaja, aprovecharse de"
+   ],
+   "construccion": "Aoristo indicativo, voz activa, 1.ª persona plural.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}
