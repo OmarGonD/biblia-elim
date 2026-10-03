@@ -1,19 +1,17 @@
 {
- "ref": "Heb.4.5",
+ "ref": "Heb.5.10",
  "modelo": "manual-claude-sonnet-5-5",
  "prompt_hash": "a63f498c6441",
- "generado": "2026-10-03T10:07:02-0500",
+ "generado": "2026-10-03T10:07:39-0500",
  "fichas": [
   {
    "pos_tisch": 1,
-   "strong": "G2532",
-   "glosa_interlineal": "y",
+   "strong": "G4316",
+   "glosa_interlineal": "proclamado",
    "rango_semantico": [
-    "y",
-    "también, incluso",
-    "pero (con matiz adversativo)"
+    "saludar, designar públicamente"
    ],
-   "construccion": "Conjunción coordinante.",
+   "construccion": "Participio aoristo, voz pasiva, nominativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -23,15 +21,14 @@
   },
   {
    "pos_tisch": 2,
-   "strong": "G1722",
-   "glosa_interlineal": "en",
+   "strong": "G5259",
+   "glosa_interlineal": "por",
    "rango_semantico": [
-    "en (lugar)",
-    "en (tiempo)",
-    "entre",
-    "por medio de"
+    "debajo de, bajo",
+    "en sujeción a",
+    "(con dativo) bajo"
    ],
-   "construccion": "Preposición con dativo.",
+   "construccion": "Preposición con genitivo.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -41,13 +38,12 @@
   },
   {
    "pos_tisch": 3,
-   "strong": "G3778",
-   "glosa_interlineal": "a éste",
+   "strong": "G3588",
+   "glosa_interlineal": "el",
    "rango_semantico": [
-    "este, esta, esto",
-    "él, ella (con fuerza demostrativa)"
+    "el, la, lo (artículo definido)"
    ],
-   "construccion": "Pronombre demostrativo: dativo singular masculino.",
+   "construccion": "Artículo: genitivo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -57,14 +53,14 @@
   },
   {
    "pos_tisch": 4,
-   "strong": "G3825",
-   "glosa_interlineal": "otra vez",
+   "strong": "G2316",
+   "glosa_interlineal": "Dios",
    "rango_semantico": [
-    "otra vez, de nuevo",
-    "además",
-    "a su vez"
+    "Dios (el único Dios)",
+    "dios, divinidad",
+    "ser divino"
    ],
-   "construccion": "Adverbio.",
+   "construccion": "Sustantivo: genitivo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -74,14 +70,14 @@
   },
   {
    "pos_tisch": 5,
-   "strong": "G1487",
-   "glosa_interlineal": "si",
+   "strong": "G749",
+   "glosa_interlineal": "sumo sacerdote",
    "rango_semantico": [
-    "si (condicional)",
-    "a no ser, salvo",
-    "que (en preguntas)"
+    "jefe de sacerdotes",
+    "sumo sacerdote (cargo individual)",
+    "miembros de las familias sacerdotales dirigentes"
    ],
-   "construccion": "Partícula condicional.",
+   "construccion": "Sustantivo: nominativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -91,30 +87,13 @@
   },
   {
    "pos_tisch": 6,
-   "strong": "G1525",
-   "glosa_interlineal": "entrarán",
+   "strong": "G2596",
+   "glosa_interlineal": "según",
    "rango_semantico": [
-    "entrar",
-    "ir a",
-    "venir a"
-   ],
-   "construccion": "Futuro indicativo, voz media (deponente), 3.ª persona plural.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 7,
-   "strong": "G1519",
-   "glosa_interlineal": "en",
-   "rango_semantico": [
-    "a, hacia (movimiento)",
-    "en, dentro de",
-    "para, con el fin de",
-    "como"
+    "según, conforme a",
+    "contra",
+    "por",
+    "a lo largo de"
    ],
    "construccion": "Preposición con acusativo.",
    "sentido_en_contexto": null,
@@ -125,7 +104,7 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 8,
+   "pos_tisch": 7,
    "strong": "G3588",
    "glosa_interlineal": "el",
    "rango_semantico": [
@@ -140,11 +119,11 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 9,
-   "strong": "G2663",
-   "glosa_interlineal": "reposo",
+   "pos_tisch": 8,
+   "strong": "G5010",
+   "glosa_interlineal": "orden",
    "rango_semantico": [
-    "reposo, descanso"
+    "orden, arreglo ordenado"
    ],
    "construccion": "Sustantivo: acusativo singular femenino.",
    "sentido_en_contexto": null,
@@ -155,14 +134,13 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 10,
-   "strong": "G1473",
-   "glosa_interlineal": "mí",
+   "pos_tisch": 9,
+   "strong": "G3198",
+   "glosa_interlineal": "Melquisedec",
    "rango_semantico": [
-    "yo",
-    "mí"
+    "Melquisedec"
    ],
-   "construccion": "Pronombre personal: 1.ª persona, genitivo singular.",
+   "construccion": "Sustantivo: genitivo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
