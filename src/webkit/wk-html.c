@@ -2508,13 +2508,14 @@ on_motion(GtkEventControllerMotion *motion, gdouble mx, gdouble my,
  * margin beside it starts a perfectly good line selection, is left
  * alone even if a widget happens to be anchored in it as well. Only
  * button 1 gets this far; the right-click menu is handled above. */
+/* TRUE when the line holding @at carries nothing but child anchors (and
+ * whitespace) and at least one anchor. */
 static gboolean
-press_on_anchor_line(GtkTextView *view, GuiButtonEvent *event)
+line_is_anchor_only(const GtkTextIter *at)
 {
-	GtkTextIter iter, end;
+	GtkTextIter iter = *at, end;
 	gboolean anchored = FALSE;
 
-	iter_at_xy(view, event, &iter);
 	gtk_text_iter_set_line_offset(&iter, 0);
 	end = iter;
 	if (!gtk_text_iter_ends_line(&end))
@@ -2530,6 +2531,49 @@ press_on_anchor_line(GtkTextView *view, GuiButtonEvent *event)
 			break;
 	}
 	return anchored;
+}
+
+static gboolean
+press_on_anchor_line(GtkTextView *view, GuiButtonEvent *event)
+{
+	GtkTextIter iter;
+
+	iter_at_xy(view, event, &iter);
+	return line_is_anchor_only(&iter);
+}
+
+/* Opening the interlinear's «Ficha de estudio» expander is a press that
+ * must reach the anchored widget, so it cannot be swallowed above. The
+ * view's own handler still sees it and drops the cursor on the anchor
+ * line, which is exactly what paints the side-margin strip black. Once
+ * the press is done, move the cursor to the first line that carries real
+ * text -- the strip repaints normally -- and put the scroll position back
+ * so the pane does not jump. */
+static gboolean
+park_cursor_off_anchor_line(gpointer data)
+{
+	GtkTextView *view = GTK_TEXT_VIEW(data);
+	GtkTextBuffer *buf = gtk_text_view_get_buffer(view);
+	GtkAdjustment *adj = gtk_scrollable_get_vadjustment(GTK_SCROLLABLE(view));
+	gdouble keep = adj ? gtk_adjustment_get_value(adj) : 0;
+	GtkTextIter cur, it;
+	gint line, last;
+
+	gtk_text_buffer_get_iter_at_mark(buf, &cur, gtk_text_buffer_get_insert(buf));
+	if (line_is_anchor_only(&cur)) {
+		last = gtk_text_buffer_get_line_count(buf);
+		for (line = 0; line < last; line++) {
+			gtk_text_buffer_get_iter_at_line(buf, &it, line);
+			if (!line_is_anchor_only(&it)) {
+				gtk_text_buffer_place_cursor(buf, &it);
+				break;
+			}
+		}
+		if (adj)
+			gtk_adjustment_set_value(adj, keep);
+	}
+	g_object_unref(view);
+	return G_SOURCE_REMOVE;
 }
 
 static gboolean
@@ -2577,6 +2621,17 @@ on_button_press(GtkWidget *widget, GuiButtonEvent *event, gpointer data)
 	if (event->button != 1)
 		return FALSE;
 	cancel_pending_word(html);
+
+	/* A press over a widget anchored in the text (the interlinear
+	 * table's «Ficha de estudio» expander, its buttons) belongs to that
+	 * widget. Swallowing it here in the capture phase kept it from ever
+	 * arriving, so the expander did nothing on click. */
+	if (event->target && event->target != widget &&
+	    gtk_widget_is_ancestor(event->target, widget)) {
+		g_idle_add_full(G_PRIORITY_LOW, park_cursor_off_anchor_line,
+				g_object_ref(widget), NULL);
+		return FALSE;
+	}
 
 	if (press_on_anchor_line(GTK_TEXT_VIEW(widget), event))
 		return TRUE;
