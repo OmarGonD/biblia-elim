@@ -1,0 +1,230 @@
+{
+ "ref": "Luke.22.55",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-03T07:33:56-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G681",
+   "glosa_interlineal": "habiendo encendido",
+   "rango_semantico": [
+    "tocar, asir"
+   ],
+   "construccion": "Participio aoristo, voz activa, genitivo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": "Esta palabra de Tischendorf no está en TR, Byz; sí en NA28, NA27, Tyn, SBL, WH, Treg.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G1161",
+   "glosa_interlineal": "pero / y",
+   "rango_semantico": [
+    "pero, y",
+    "por otra parte"
+   ],
+   "construccion": "Conjunción postpositiva.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G4442",
+   "glosa_interlineal": "fuego",
+   "rango_semantico": [
+    "fuego",
+    "juicio, prueba",
+    "pasión"
+   ],
+   "construccion": "Sustantivo: acusativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G1722",
+   "glosa_interlineal": "en medio de",
+   "rango_semantico": [
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
+   ],
+   "construccion": "Preposición con dativo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G3319",
+   "glosa_interlineal": "medio",
+   "rango_semantico": [
+    "medio, en medio",
+    "central"
+   ],
+   "construccion": "Adjetivo: dativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G833",
+   "glosa_interlineal": "redil",
+   "rango_semantico": [
+    "redil, patio"
+   ],
+   "construccion": "Sustantivo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G4776",
+   "glosa_interlineal": "habiéndose sentado juntos",
+   "rango_semantico": [
+    "sentarse juntos"
+   ],
+   "construccion": "Participio aoristo, voz activa, genitivo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": "Lectura de Tischendorf: συνκαθισάντων. Ninguna de las ocho ediciones del TAGNT la trae: todas leen συγκαθισάντων.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G2521",
+   "glosa_interlineal": "estaba sentado",
+   "rango_semantico": [
+    "estar sentado, sentarse"
+   ],
+   "construccion": "Imperfecto indicativo, voz media o pasiva (deponente), 3.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: nominativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G4074",
+   "glosa_interlineal": "Pedro",
+   "rango_semantico": [
+    "Pedro (nombre griego, «piedra»)"
+   ],
+   "construccion": "Sustantivo: nominativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G3319",
+   "glosa_interlineal": "en medio de",
+   "rango_semantico": [
+    "medio, en medio",
+    "central"
+   ],
+   "construccion": "Adjetivo: nominativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": "Esta palabra de Tischendorf no está en TR, Byz; sí en NA28, NA27, Tyn, SBL, WH, Treg.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G846",
+   "glosa_interlineal": "ellos",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal: genitivo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}
