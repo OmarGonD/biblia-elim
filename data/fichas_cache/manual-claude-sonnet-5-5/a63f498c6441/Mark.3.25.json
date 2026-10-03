@@ -1,0 +1,198 @@
+{
+ "ref": "Mark.3.25",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T22:18:09-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G1437",
+   "glosa_interlineal": "si",
+   "rango_semantico": [
+    "si (con subjuntivo)",
+    "a menos que"
+   ],
+   "construccion": "Partícula condicional.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G3614",
+   "glosa_interlineal": "casa",
+   "rango_semantico": [
+    "casa, familia"
+   ],
+   "construccion": "Sustantivo: nominativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G1909",
+   "glosa_interlineal": "contra",
+   "rango_semantico": [
+    "sobre, en",
+    "junto a",
+    "a causa de"
+   ],
+   "construccion": "Preposición con acusativo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G1438",
+   "glosa_interlineal": "sí misma",
+   "rango_semantico": [
+    "sí mismo, uno mismo"
+   ],
+   "construccion": "Pronombre reflexivo: 3.ª persona, acusativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G3307",
+   "glosa_interlineal": "fuere dividida",
+   "rango_semantico": [
+    "dividir, repartir"
+   ],
+   "construccion": "Aoristo subjuntivo, voz pasiva, 3.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G3756",
+   "glosa_interlineal": "no",
+   "rango_semantico": [
+    "no, ni",
+    "nada"
+   ],
+   "construccion": "Partícula (negativo).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G1410",
+   "glosa_interlineal": "podrá",
+   "rango_semantico": [
+    "poder, ser capaz",
+    "ser posible",
+    "tener derecho"
+   ],
+   "construccion": "Futuro indicativo, voz media (deponente), 3.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": "Esta palabra de Tischendorf no está en TR, Byz; sí en NA28, NA27, Tyn, SBL, WH, Treg.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: nominativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G3614",
+   "glosa_interlineal": "casa",
+   "rango_semantico": [
+    "casa, familia"
+   ],
+   "construccion": "Sustantivo: nominativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G1565",
+   "glosa_interlineal": "aquélla",
+   "rango_semantico": [
+    "aquel, ese",
+    "él (enfático)"
+   ],
+   "construccion": "Pronombre demostrativo: nominativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G2476",
+   "glosa_interlineal": "mantenerse en pie",
+   "rango_semantico": [
+    "estar de pie",
+    "permanecer"
+   ],
+   "construccion": "Infinitivo aoristo, voz pasiva.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": "Esta palabra de Tischendorf no está en Tyn, WH, Treg; sí en NA28, NA27, SBL, TR, Byz.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}
