@@ -1,0 +1,253 @@
+{
+ "ref": "2Pet.2.14",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-03T10:34:15-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G3788",
+   "glosa_interlineal": "ojos",
+   "rango_semantico": [
+    "ojo"
+   ],
+   "construccion": "Sustantivo: acusativo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G2192",
+   "glosa_interlineal": "teniendo",
+   "rango_semantico": [
+    "tener, concebir"
+   ],
+   "construccion": "Participio presente, voz activa, nominativo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G3324",
+   "glosa_interlineal": "rebosantes",
+   "rango_semantico": [
+    "lleno"
+   ],
+   "construccion": "Adjetivo: acusativo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G3428",
+   "glosa_interlineal": "de adulterio",
+   "rango_semantico": [
+    "adúltera"
+   ],
+   "construccion": "Adjetivo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G180",
+   "glosa_interlineal": "insaciables",
+   "rango_semantico": [
+    "que no cesa, incesante"
+   ],
+   "construccion": "Adjetivo: acusativo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G266",
+   "glosa_interlineal": "pecado",
+   "rango_semantico": [
+    "adulterio"
+   ],
+   "construccion": "Sustantivo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G1185",
+   "glosa_interlineal": "seduciendo",
+   "rango_semantico": [
+    "cebar con cebo, seducir"
+   ],
+   "construccion": "Participio presente, voz activa, nominativo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G5590",
+   "glosa_interlineal": "vidas",
+   "rango_semantico": [
+    "vida, alma, persona"
+   ],
+   "construccion": "Sustantivo: acusativo plural femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G793",
+   "glosa_interlineal": "inestables",
+   "rango_semantico": [
+    "no firme, inestable"
+   ],
+   "construccion": "Adjetivo: acusativo plural femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G2588",
+   "glosa_interlineal": "corazón",
+   "rango_semantico": [
+    "corazón, interior"
+   ],
+   "construccion": "Sustantivo: acusativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G1128",
+   "glosa_interlineal": "ejercitado",
+   "rango_semantico": [
+    "entrenar, ejercitarse"
+   ],
+   "construccion": "Participio perfecto, voz pasiva, acusativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G4124",
+   "glosa_interlineal": "en avaricia",
+   "rango_semantico": [
+    "codicia, afán de tener más",
+    "avaricia"
+   ],
+   "construccion": "Sustantivo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": "Esta palabra de Tischendorf no está en TR; sí en NA28, NA27, Tyn, SBL, WH, Treg, Byz.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G2192",
+   "glosa_interlineal": "teniendo",
+   "rango_semantico": [
+    "tener, concebir"
+   ],
+   "construccion": "Participio presente, voz activa, nominativo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G2671",
+   "glosa_interlineal": "la maldición",
+   "rango_semantico": [
+    "maldición"
+   ],
+   "construccion": "Sustantivo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G5043",
+   "glosa_interlineal": "hijos",
+   "rango_semantico": [
+    "hijo, niño",
+    "descendiente",
+    "discípulo"
+   ],
+   "construccion": "Sustantivo: nominativo plural neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}
