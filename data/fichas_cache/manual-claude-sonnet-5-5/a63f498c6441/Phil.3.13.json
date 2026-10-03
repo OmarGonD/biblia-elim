@@ -1,0 +1,103 @@
+{
+ "ref": "Phil.3.13",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-03T09:19:02-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G80",
+   "glosa_interlineal": "hermanos",
+   "rango_semantico": [
+    "hermano",
+    "compañero, correligionario",
+    "prójimo"
+   ],
+   "construccion": "Sustantivo: vocativo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G1473",
+   "glosa_interlineal": "yo",
+   "rango_semantico": [
+    "yo",
+    "mí"
+   ],
+   "construccion": "Pronombre personal: 1.ª persona, nominativo singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G1683",
+   "glosa_interlineal": "a mí mismo",
+   "rango_semantico": [
+    "mí mismo"
+   ],
+   "construccion": "Pronombre reflexivo: 1.ª persona, acusativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G3768",
+   "glosa_interlineal": "aún no",
+   "rango_semantico": [
+    "todavía no, aún no"
+   ],
+   "construccion": "Partícula (negativo).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": "Lectura de Tischendorf: οὔπω. El TAGNT lee οὐ en NA28, NA27, Tyn, SBL, Treg, Byz.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G3049",
+   "glosa_interlineal": "pienso",
+   "rango_semantico": [
+    "considerar, atribuir, contar"
+   ],
+   "construccion": "Presente indicativo, voz media o pasiva (deponente), 1.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G2638",
+   "glosa_interlineal": "haberlo alcanzado",
+   "rango_semantico": [
+    "alcanzar, sorprender, dominar",
+    "apoderarse de",
+    "comprender, captar"
+   ],
+   "construccion": "Infinitivo perfecto (2.º), voz activa.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}
