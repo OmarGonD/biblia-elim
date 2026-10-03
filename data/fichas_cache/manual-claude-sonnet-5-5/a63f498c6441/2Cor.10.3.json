@@ -1,0 +1,143 @@
+{
+ "ref": "2Cor.10.3",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-03T08:54:23-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G1722",
+   "glosa_interlineal": "en",
+   "rango_semantico": [
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
+   ],
+   "construccion": "Preposición con dativo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G4561",
+   "glosa_interlineal": "carne",
+   "rango_semantico": [
+    "carne, cuerpo",
+    "naturaleza humana",
+    "debilidad humana",
+    "existencia terrena"
+   ],
+   "construccion": "Sustantivo: dativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G1063",
+   "glosa_interlineal": "porque",
+   "rango_semantico": [
+    "porque, pues",
+    "en efecto"
+   ],
+   "construccion": "Conjunción postpositiva causal o explicativa.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G4043",
+   "glosa_interlineal": "andando",
+   "rango_semantico": [
+    "caminar, andar",
+    "vivir, conducirse"
+   ],
+   "construccion": "Participio presente, voz activa, nominativo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G3756",
+   "glosa_interlineal": "no",
+   "rango_semantico": [
+    "no, ni",
+    "nada"
+   ],
+   "construccion": "Partícula (negativo).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G2596",
+   "glosa_interlineal": "según",
+   "rango_semantico": [
+    "según, conforme a",
+    "contra",
+    "por",
+    "a lo largo de"
+   ],
+   "construccion": "Preposición con acusativo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G4561",
+   "glosa_interlineal": "carne",
+   "rango_semantico": [
+    "carne, cuerpo",
+    "naturaleza humana",
+    "debilidad humana",
+    "existencia terrena"
+   ],
+   "construccion": "Sustantivo: acusativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G4754",
+   "glosa_interlineal": "militamos",
+   "rango_semantico": [
+    "servir en el ejército, combatir"
+   ],
+   "construccion": "Presente indicativo, voz media, 1.ª persona plural.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}
