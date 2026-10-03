@@ -1,0 +1,281 @@
+{
+ "ref": "Matt.9.13",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T21:49:53-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G4198",
+   "glosa_interlineal": "habiendo ido",
+   "rango_semantico": [
+    "ir, caminar"
+   ],
+   "construccion": "Participio aoristo, voz pasiva (deponente), nominativo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G1161",
+   "glosa_interlineal": "pero / y",
+   "rango_semantico": [
+    "pero, y",
+    "por otra parte"
+   ],
+   "construccion": "Conjunción postpositiva.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G3129",
+   "glosa_interlineal": "aprended",
+   "rango_semantico": [
+    "aprender"
+   ],
+   "construccion": "Aoristo (2.º) imperativo, voz activa, 2.ª persona plural.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G5101",
+   "glosa_interlineal": "qué",
+   "rango_semantico": [
+    "alguien, algo",
+    "cierto, uno"
+   ],
+   "construccion": "Pronombre interrogativo: nominativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G1510",
+   "glosa_interlineal": "significa",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Presente indicativo, voz activa, 3.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G1656",
+   "glosa_interlineal": "misericordia",
+   "rango_semantico": [
+    "misericordia, compasión"
+   ],
+   "construccion": "Sustantivo: acusativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G2309",
+   "glosa_interlineal": "quiero",
+   "rango_semantico": [
+    "querer, desear",
+    "decidir",
+    "tener intención"
+   ],
+   "construccion": "Presente indicativo, voz activa, 1.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G3756",
+   "glosa_interlineal": "no",
+   "rango_semantico": [
+    "no, ni",
+    "nada"
+   ],
+   "construccion": "Partícula (negativo).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G2378",
+   "glosa_interlineal": "sacrificio",
+   "rango_semantico": [
+    "sacrificio"
+   ],
+   "construccion": "Sustantivo: acusativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G3756",
+   "glosa_interlineal": "no",
+   "rango_semantico": [
+    "no, ni",
+    "nada"
+   ],
+   "construccion": "Partícula (negativo).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G1063",
+   "glosa_interlineal": "porque",
+   "rango_semantico": [
+    "porque, pues",
+    "en efecto"
+   ],
+   "construccion": "Conjunción postpositiva causal o explicativa.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G2064",
+   "glosa_interlineal": "vine",
+   "rango_semantico": [
+    "venir, ir",
+    "llegar",
+    "aparecer"
+   ],
+   "construccion": "Aoristo (2.º) indicativo, voz activa, 1.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G2564",
+   "glosa_interlineal": "a llamar",
+   "rango_semantico": [
+    "llamar, invitar",
+    "nombrar",
+    "dar nombre"
+   ],
+   "construccion": "Infinitivo aoristo, voz activa.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G1342",
+   "glosa_interlineal": "justos",
+   "rango_semantico": [
+    "justo, recto"
+   ],
+   "construccion": "Adjetivo: acusativo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G235",
+   "glosa_interlineal": "sino",
+   "rango_semantico": [
+    "pero",
+    "sino",
+    "sin embargo"
+   ],
+   "construccion": "Conjunción.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": "Lectura de Tischendorf: ἀλλὰ. Ninguna de las ocho ediciones del TAGNT la trae: todas leen ἀλλ᾽.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G268",
+   "glosa_interlineal": "pecadores",
+   "rango_semantico": [
+    "pecador",
+    "(en uso social) persona excluida por su conducta o su oficio"
+   ],
+   "construccion": "Adjetivo: acusativo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}
