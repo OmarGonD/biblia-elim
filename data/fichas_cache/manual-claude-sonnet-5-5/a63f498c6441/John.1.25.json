@@ -1,0 +1,353 @@
+{
+ "ref": "John.1.25",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:56:26-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; abre la nueva pregunta.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G2065",
+   "glosa_interlineal": "preguntaron",
+   "rango_semantico": [
+    "preguntar, pedir",
+    "rogar",
+    "interrogar"
+   ],
+   "construccion": "Aoristo indicativo activo de ἐρωτάω, 3.ª plural.",
+   "sentido_en_contexto": "Los fariseos reanudan el interrogatorio.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G846",
+   "glosa_interlineal": "le",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal acusativo masculino singular; objeto de ἠρώτησαν.",
+   "sentido_en_contexto": "Se refiere a Juan.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; une las dos acciones (preguntar y decir).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G3004",
+   "glosa_interlineal": "dijeron",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Aoristo indicativo activo de λέγω (εἶπαν), 3.ª plural.",
+   "sentido_en_contexto": "Formulan la pregunta directa.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G846",
+   "glosa_interlineal": "le",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal dativo masculino singular; complemento de εἶπαν.",
+   "sentido_en_contexto": "Se refiere a Juan.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G5101",
+   "glosa_interlineal": "por qué",
+   "rango_semantico": [
+    "quién, qué",
+    "cuál",
+    "por qué (acusativo de causa)"
+   ],
+   "construccion": "Pronombre interrogativo en acusativo neutro (τί): «¿por qué?» o «¿con qué derecho?».",
+   "sentido_en_contexto": "Pregunta por la autoridad de Juan: bautizar suponía un título que ellos no le reconocen.",
+   "matiz": "τί como «¿por qué?» es uso frecuente; aquí se pide una justificación de su actuar.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G3767",
+   "glosa_interlineal": "entonces",
+   "rango_semantico": [
+    "pues, entonces",
+    "por tanto"
+   ],
+   "construccion": "Conjunción inferencial (οὖν).",
+   "sentido_en_contexto": "Saca la consecuencia de las tres negaciones.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G907",
+   "glosa_interlineal": "bautizas",
+   "rango_semantico": [
+    "bautizar",
+    "sumergir",
+    "lavar"
+   ],
+   "construccion": "Presente indicativo activo de βαπτίζω, 2.ª singular.",
+   "sentido_en_contexto": "Cuestionan el rito: bautizar suponía una autoridad escatológica que Juan niega tener.",
+   "matiz": "El bautismo de Juan era un acto de preparación y purificación; la pregunta busca su legitimidad.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Mc 1:4 — Juan bautizaba predicando arrepentimiento",
+    "Mt 3:11 — yo os bautizo en agua",
+    "Hch 1:5 — Juan bautizó con agua, vosotros con el Espíritu"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G1487",
+   "glosa_interlineal": "si",
+   "rango_semantico": [
+    "si",
+    "(si) acaso",
+    "que (en preguntas indirectas)"
+   ],
+   "construccion": "Conjunción condicional (εἰ) que introduce la condición real: «si tú no eres».",
+   "sentido_en_contexto": "Plantea la condición de la que parte su objeción: dado que niegas ser esas figuras…",
+   "matiz": "Condición real: se da por válido el hecho de que Juan ha negado esas identidades.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G4771",
+   "glosa_interlineal": "tú",
+   "rango_semantico": [
+    "tú"
+   ],
+   "construccion": "Pronombre personal nominativo de segunda persona singular, enfático.",
+   "sentido_en_contexto": "Insiste en que es él, Juan, quien actúa sin ser ninguna figura reconocida.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G3756",
+   "glosa_interlineal": "no",
+   "rango_semantico": [
+    "no, ni",
+    "nada"
+   ],
+   "construccion": "Negación objetiva (οὐκ).",
+   "sentido_en_contexto": "Recapitula las tres negaciones de Juan.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G1510",
+   "glosa_interlineal": "eres",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Presente indicativo de εἰμί, 2.ª singular.",
+   "sentido_en_contexto": "Verbo común de la serie de tres.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular; concuerda con Χριστός.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G5547",
+   "glosa_interlineal": "Cristo",
+   "rango_semantico": [
+    "Cristo, Mesías, Ungido"
+   ],
+   "construccion": "Nominativo masculino singular con artículo, predicado: «el Cristo».",
+   "sentido_en_contexto": "Primera de las tres figuras escatológicas que Juan había negado ser.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:20 — Juan confesó que no era el Cristo",
+    "Jn 3:28 — no soy el Cristo, sino enviado delante de él",
+    "Jn 20:31 — para que creáis que Jesús es el Cristo"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G3761",
+   "glosa_interlineal": "ni",
+   "rango_semantico": [
+    "ni, ni siquiera",
+    "tampoco",
+    "y no"
+   ],
+   "construccion": "Conjunción negativa (οὐδέ) que enlaza los miembros de la negación. TR y Byz leen οὔτε («ni… ni») en lugar de οὐδέ.",
+   "sentido_en_contexto": "Enlaza las tres negaciones: ni el Cristo, ni Elías, ni el profeta.",
+   "matiz": "La variante οὔτε (TR, Byz) forma una serie «ni… ni… ni» más regular; οὐδέ da el mismo sentido.",
+   "variantes_textuales": "Ausente en TR y Byz, que leen οὔτε. Presente en NA28, NA27, Tyn, SBL, WH y Treg.",
+   "notas_traduccion": "Mismo sentido en ambos casos: no cambia la traducción.",
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G2243",
+   "glosa_interlineal": "Elías",
+   "rango_semantico": [
+    "Elías"
+   ],
+   "construccion": "Nombre propio, nominativo; Tisch escribe Ἡλείας, el TAGNT Ἠλίας (grafías distintas del mismo nombre).",
+   "sentido_en_contexto": "Segunda figura escatológica, la del precursor.",
+   "matiz": "La diferencia de escritura es ortográfica.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Mal 4:5 — Elías antes del día del Señor",
+    "Mt 17:10-13 — Elías ya vino",
+    "Lc 1:17 — con el espíritu de Elías"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 18,
+   "strong": "G3761",
+   "glosa_interlineal": "ni",
+   "rango_semantico": [
+    "ni, ni siquiera",
+    "tampoco",
+    "y no"
+   ],
+   "construccion": "Conjunción negativa (οὐδέ). TR y Byz leen οὔτε.",
+   "sentido_en_contexto": "Enlaza el último miembro de la serie.",
+   "matiz": "Igual que el anterior οὐδέ: serie de tres negaciones coordinadas.",
+   "variantes_textuales": "Ausente en TR y Byz, que leen οὔτε. Presente en NA28, NA27, Tyn, SBL, WH y Treg.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 19,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular; concuerda con προφήτης.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 20,
+   "strong": "G4396",
+   "glosa_interlineal": "profeta",
+   "rango_semantico": [
+    "profeta",
+    "portavoz de Dios",
+    "intérprete inspirado"
+   ],
+   "construccion": "Nominativo masculino singular con artículo, predicado: «el profeta» (Dt 18:15).",
+   "sentido_en_contexto": "Tercera figura escatológica negada: el profeta como Moisés.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Dt 18:15 — un profeta como yo",
+    "Jn 6:14 — el profeta que había de venir",
+    "Hch 3:22 — la promesa aplicada a Cristo"
+   ],
+   "nivel_certeza": "alto"
+  }
+ ]
+}

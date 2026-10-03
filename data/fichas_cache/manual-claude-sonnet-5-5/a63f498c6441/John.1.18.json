@@ -1,0 +1,294 @@
+{
+ "ref": "John.1.18",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:52:19-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G2316",
+   "glosa_interlineal": "a Dios",
+   "rango_semantico": [
+    "Dios (el único Dios)",
+    "dios, divinidad",
+    "ser divino"
+   ],
+   "construccion": "Acusativo masculino singular sin artículo, objeto de ἑώρακεν, colocado al comienzo de la frase para dar énfasis.",
+   "sentido_en_contexto": "Nadie ha visto jamás a Dios, en línea con la tradición del Antiguo Testamento (Ex 33:20); aquí «Dios» sin artículo designa a Dios como tal.",
+   "matiz": "La posición inicial resalta el contraste con la última frase: a Dios nadie lo vio; el Hijo lo dio a conocer.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Ex 33:20 — nadie puede ver mi rostro y vivir",
+    "1 Jn 4:12 — a Dios nadie le vio jamás",
+    "Jn 6:46 — no que alguno haya visto al Padre, sino el que viene de Dios"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G3762",
+   "glosa_interlineal": "nadie",
+   "rango_semantico": [
+    "ninguno, nadie",
+    "nada"
+   ],
+   "construccion": "Adjetivo sustantivado nominativo masculino singular, negativo; el segundo elemento (οὐδείς) equivale a «ni uno».",
+   "sentido_en_contexto": "Universal negativa: ningún ser humano ha visto a Dios.",
+   "matiz": "οὐδείς es una negación fuerte: «ni uno».",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G3708",
+   "glosa_interlineal": "ha visto",
+   "rango_semantico": [
+    "ver, mirar",
+    "percibir",
+    "experimentar"
+   ],
+   "construccion": "Perfecto indicativo activo de ὁράω (con reduplicación ática, ἑώρακεν), 3.ª singular. El perfecto expresa estado resultante.",
+   "sentido_en_contexto": "«Nadie ha visto» jamás: el efecto de ver sigue siendo nulo; solo el Hijo vino a mostrarlo.",
+   "matiz": "El perfecto subraya que no existe visión de Dios que permanezca; los hombres no tienen experiencia directa.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 14:9 — el que me ha visto ha visto al Padre",
+    "1 Jn 4:12 — a Dios nadie le ha visto jamás",
+    "1 Jn 4:20 — el que no ama no ha visto a Dios"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G4455",
+   "glosa_interlineal": "jamás",
+   "rango_semantico": [
+    "alguna vez",
+    "jamás (con negación)"
+   ],
+   "construccion": "Adverbio de tiempo (πώποτε), que se usa casi siempre en frases negativas.",
+   "sentido_en_contexto": "Refuerza la negación: ningún momento de la historia.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular antepuesto a μονογενής. Tisch lo trae, igual que Tyn, TR y Byz; NA28, NA27, SBL, WH y Treg no lo traen.",
+   "sentido_en_contexto": "Con el artículo, la frase se lee «el unigénito Hijo»; sin él, «unigénito Dios» o «Dios, el único», según la lectura que acompañe.",
+   "matiz": "El artículo está ligado a la lectura υἱός: sin él, μονογενὴς θεός suena como una apelación.",
+   "variantes_textuales": "Presente en Tyn, TR y Byz; ausente en NA28, NA27, SBL, WH y Treg. La palabra pertenece a la lectura de Tisch (ὁ μονογενὴς υἱός).",
+   "notas_traduccion": "La presencia o ausencia del artículo no cambia la gramática del resto del versículo; sí interviene en cómo se comprende θεός/υἱός.",
+   "otros_usos": null,
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G3439",
+   "glosa_interlineal": "unigénito / único",
+   "rango_semantico": [
+    "único en su género, único hijo",
+    "unigénito",
+    "singular, sin igual"
+   ],
+   "construccion": "Adjetivo nominativo masculino singular, atributivo de υἱός (o de θεός, según la lectura).",
+   "sentido_en_contexto": "Hijo único, el de una relación irrepetible con el Padre; Juan lo había dicho en 1:14.",
+   "matiz": "«Unigénito» es tradición latina; «único» es lo que el griego asegura.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:14 — gloria de un unigénito del Padre",
+    "Jn 3:16 — su Hijo unigénito",
+    "1 Jn 4:9 — Dios envió a su Hijo único"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G5207",
+   "glosa_interlineal": "Hijo",
+   "rango_semantico": [
+    "hijo",
+    "descendiente",
+    "hijo de Dios"
+   ],
+   "construccion": "Nominativo masculino singular. Tisch lee υἱός; NA28, NA27, SBL, WH y Treg leen θεός (μονογενὴς θεός, «Dios unigénito» o «el Único, Dios»); Tyn, TR y Byz leen υἱός como Tisch.",
+   "sentido_en_contexto": "Con υἱός, el versículo cierra con una relación personal: el Hijo único, que está junto al Padre, lo ha dado a conocer; el contraste con «a Dios nadie lo vio» es de naturaleza invisible frente a revelación en el Hijo. Con θεός, la afirmación es que el único Dios unigénito (o: «el único, que es Dios») ha dado a conocer al Padre, y se acerca a la afirmación de 1:1c.",
+   "matiz": "Las dos lecturas no son contradictorias en el Evangelio; la primera es la más fácil de entender, la segunda la más difícil, y por eso muchos críticos la prefieren como más antigua y como origen de la otra. Es una cuestión abierta.",
+   "variantes_textuales": "Lectura de Tisch: υἱός. NA28, NA27, SBL, WH y Treg leen θεός (apoyada por manuscritos alejandrinos antiguos según los aparatos críticos); Tyn, TR y Byz leen υἱός. Aquí la ficha sigue a Tisch y deja constancia de la lectura de NA28.",
+   "notas_traduccion": "La Santa Biblia Reina-Valera (1909) lee «el unigénito Hijo», siguiendo el Textus Receptus; La Sagrada Biblia (Torres Amat), «El Hijo unigénito». Ninguna de las dos traduce la lectura «Dios unigénito» de NA28.",
+   "otros_usos": null,
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular; hace sustantivo al participio ὤν.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G1510",
+   "glosa_interlineal": "que está",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Participio presente activo de εἰμί, nominativo masculino singular, con artículo: «el que está / el que es».",
+   "sentido_en_contexto": "El presente es atemporal: el Hijo está siempre en el seno del Padre, aun encarnado; no «estaba».",
+   "matiz": "El presente se debe a que la relación sigue vigente, incluso durante la encarnación; no es una descripción del pasado.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 3:13 — el Hijo del hombre, que está en el cielo",
+    "Jn 1:1 — el Verbo era con Dios",
+    "Jn 8:58 — antes que Abrahán fuese, yo soy"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G1519",
+   "glosa_interlineal": "en / hacia",
+   "rango_semantico": [
+    "a, hacia (movimiento)",
+    "en, dentro de",
+    "para, con el fin de",
+    "como"
+   ],
+   "construccion": "Preposición con acusativo (εἰς τὸν κόλπον): ordinariamente «hacia», pero con verbo de estado equivale a ἐν («en») con matiz de dirección. Recuerda a πρός del v. 1.",
+   "sentido_en_contexto": "Sugiere intimidad y orientación al Padre: no solo estar en, sino estar vuelto hacia.",
+   "matiz": "εἰς con verbo de estado se llama a veces «construcción pregnante»: el estado resulta de un movimiento previo.",
+   "variantes_textuales": null,
+   "notas_traduccion": "Muchos traducen «en»; «hacia» conserva el matiz de dirección que el texto parece buscar.",
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo acusativo masculino singular; concuerda con κόλπον.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G2859",
+   "glosa_interlineal": "seno",
+   "rango_semantico": [
+    "seno, pecho",
+    "regazo",
+    "golfo (de mar)"
+   ],
+   "construccion": "Acusativo masculino singular, regido por εἰς. Imagen de intimidad: el lugar del hijo en el pecho del padre, o del comensal junto al anfitrión.",
+   "sentido_en_contexto": "Lugar de intimidad y favor; en Jn 13:23 el discípulo amado reposa en el κόλπος de Jesús, y el Hijo está en el del Padre.",
+   "matiz": "κόλπος es la parte del cuerpo donde se sostiene a un niño; aquí es imagen de comunión, no localización.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 13:23 — el discípulo amado recostado en el seno de Jesús",
+    "Lc 16:22 — Lázaro en el seno de Abrahán",
+    "Lc 6:38 — medida llena en vuestro regazo"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo genitivo masculino singular; concuerda con πατρός.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G3962",
+   "glosa_interlineal": "Padre",
+   "rango_semantico": [
+    "padre",
+    "antepasado",
+    "Padre (Dios)"
+   ],
+   "construccion": "Genitivo masculino singular con artículo, complemento de κόλπον.",
+   "sentido_en_contexto": "Con artículo, designa a Dios como el Padre del Hijo; es la relación que da sentido a todo el versículo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G1565",
+   "glosa_interlineal": "aquél",
+   "rango_semantico": [
+    "aquel, ese",
+    "él (enfático)"
+   ],
+   "construccion": "Pronombre demostrativo nominativo masculino singular, sujeto enfático de ἐξηγήσατο.",
+   "sentido_en_contexto": "Enfático: «él, y solo él»; recoge a ὁ ὢν εἰς τὸν κόλπον y cierra el prólogo apuntando a su identidad.",
+   "matiz": "El demostrativo enfático sirve para señalar que nadie más puede hacerlo.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G1834",
+   "glosa_interlineal": "dio a conocer",
+   "rango_semantico": [
+    "explicar, relatar",
+    "dar a conocer",
+    "interpretar"
+   ],
+   "construccion": "Aoristo indicativo medio-deponente de ἐξηγέομαι, 3.ª singular, sin complemento. De la misma raíz viene «exégesis».",
+   "sentido_en_contexto": "El Hijo narra o explica al Padre invisible: su vida entera es la revelación de Dios. El texto no dice qué se da a conocer; lo supone: a Dios.",
+   "matiz": "Sin objeto explícito el verbo queda abierto: «lo dio a conocer», «lo explicó», «lo reveló».",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Lc 24:35 — contaron lo sucedido en el camino",
+    "Hch 15:12 — Bernabé y Pablo contaban las señales",
+    "Jn 14:9 — quien me ha visto ha visto al Padre"
+   ],
+   "nivel_certeza": "alto"
+  }
+ ]
+}

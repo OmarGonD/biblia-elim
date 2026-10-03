@@ -1,0 +1,269 @@
+{
+ "ref": "John.1.17",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:52:19-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G3754",
+   "glosa_interlineal": "porque",
+   "rango_semantico": [
+    "que (contenido)",
+    "porque",
+    "puesto que"
+   ],
+   "construccion": "Conjunción (ὅτι) explicativa o causal, que justifica el v. 16.",
+   "sentido_en_contexto": "Explica la gracia sobre gracia: la ley fue dada por Moisés, la gracia y la verdad llegaron por Jesucristo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular; concuerda con νόμος.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G3551",
+   "glosa_interlineal": "ley",
+   "rango_semantico": [
+    "ley",
+    "norma",
+    "la Escritura (la Torá)"
+   ],
+   "construccion": "Nominativo masculino singular con artículo, sujeto de ἐδόθη. En Juan «la ley» es la ley de Moisés.",
+   "sentido_en_contexto": "La ley se presenta como don dado por medio de Moisés, no como contraria a la gracia; el contraste del versículo es de «dar» frente a «llegar a ser»: se recibe lo dado, se hace realidad lo que llega.",
+   "matiz": "El texto no dice que la ley sea mala: la sitúa como un don anterior que apuntaba a Cristo.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:45 — de quien escribió Moisés en la ley",
+    "Jn 7:19 — Moisés os dio la ley",
+    "Rm 3:21 — la ley y los profetas dan testimonio"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G1223",
+   "glosa_interlineal": "por medio de",
+   "rango_semantico": [
+    "a través de, por",
+    "por medio de (agente intermediario)",
+    "durante",
+    "a causa de"
+   ],
+   "construccion": "Preposición con genitivo (διὰ Μωϋσέως): agente intermediario.",
+   "sentido_en_contexto": "Moisés es el mediador de la ley, no su autor: Dios da, Moisés transmite.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:3 — todo por medio del Verbo",
+    "Gál 3:19 — la ley fue dada por medio de ángeles en mano de un mediador",
+    "Hch 7:38 — Moisés recibió palabras vivas"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G3475",
+   "glosa_interlineal": "Moisés",
+   "rango_semantico": [
+    "Moisés"
+   ],
+   "construccion": "Nombre propio, genitivo, regido por διά.",
+   "sentido_en_contexto": "El mediador de la ley, figura central del judaísmo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G1325",
+   "glosa_interlineal": "fue dada",
+   "rango_semantico": [
+    "dar",
+    "conceder",
+    "entregar"
+   ],
+   "construccion": "Aoristo indicativo pasivo de δίδωμι, 3.ª singular. Pasivo teológico: Dios es quien da.",
+   "sentido_en_contexto": "La ley es don divino, entregado de una vez (aoristo) en el pasado histórico.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo femenino singular; concuerda con χάρις.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G5485",
+   "glosa_interlineal": "gracia",
+   "rango_semantico": [
+    "gracia, favor inmerecido",
+    "bondad",
+    "agradecimiento"
+   ],
+   "construccion": "Nominativo femenino singular con artículo, sujeto de ἐγένετο.",
+   "sentido_en_contexto": "La gracia, ya mencionada (vv. 14 y 16), llega ahora de forma plena por Jesucristo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante que une gracia y verdad.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo femenino singular; concuerda con ἀλήθεια.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G225",
+   "glosa_interlineal": "verdad",
+   "rango_semantico": [
+    "verdad",
+    "realidad",
+    "fidelidad"
+   ],
+   "construccion": "Nominativo femenino singular con artículo, sujeto de ἐγένετο.",
+   "sentido_en_contexto": "La verdad como realidad plena de Dios, que se identifica con Jesús en 14:6.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G1223",
+   "glosa_interlineal": "por medio de",
+   "rango_semantico": [
+    "a través de, por",
+    "por medio de (agente intermediario)",
+    "durante",
+    "a causa de"
+   ],
+   "construccion": "Preposición con genitivo (διὰ Ἰησοῦ Χριστοῦ): agente intermediario.",
+   "sentido_en_contexto": "Mismo mecanismo que διὰ Μωϋσέως: paralelo y contraste entre los dos mediadores.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G2424",
+   "glosa_interlineal": "Jesús",
+   "rango_semantico": [
+    "Jesús (forma griega del hebreo Yehoshúa, «Yahvé salva»)"
+   ],
+   "construccion": "Nombre propio, genitivo, regido por διά.",
+   "sentido_en_contexto": "Primera vez que el prólogo da el nombre al Verbo encarnado; hasta aquí se ha hablado de él como Verbo, luz, vida.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G5547",
+   "glosa_interlineal": "Cristo",
+   "rango_semantico": [
+    "Cristo, Mesías, Ungido"
+   ],
+   "construccion": "Genitivo masculino singular. Con Ἰησοῦ forma el nombre «Jesucristo», en el que Χριστός funciona ya como nombre más que como título.",
+   "sentido_en_contexto": "Une el nombre personal con el título mesiánico; identifica al Verbo con el Mesías esperado.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:41 — hemos hallado al Mesías, que traducido es Cristo",
+    "Jn 20:31 — para que creáis que Jesús es el Cristo",
+    "1 Jn 2:22 — quién es el mentiroso, sino el que niega que Jesús es el Cristo"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G1096",
+   "glosa_interlineal": "llegó a ser / vino",
+   "rango_semantico": [
+    "llegar a ser, hacerse",
+    "ocurrir, suceder",
+    "nacer, aparecer"
+   ],
+   "construccion": "Aoristo indicativo deponente de γίνομαι, 3.ª singular, con sujeto doble (ἡ χάρις καὶ ἡ ἀλήθεια); el verbo concuerda con el más cercano.",
+   "sentido_en_contexto": "Contrasta con ἐδόθη: la ley fue dada, la gracia y la verdad «llegaron a ser», se hicieron realidad en una persona.",
+   "matiz": "Con sujeto plural de dos nombres el verbo va en singular por concordancia con el último.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:14 — el Verbo llegó a ser carne",
+    "Jn 14:6 — yo soy la verdad",
+    "Rm 5:20 — donde abundó el pecado, sobreabundó la gracia"
+   ],
+   "nivel_certeza": "alto"
+  }
+ ]
+}

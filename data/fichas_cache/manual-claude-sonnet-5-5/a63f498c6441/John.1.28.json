@@ -1,0 +1,207 @@
+{
+ "ref": "John.1.28",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:56:26-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G3778",
+   "glosa_interlineal": "estas cosas",
+   "rango_semantico": [
+    "este, esta, esto",
+    "él, ella (con fuerza demostrativa)"
+   ],
+   "construccion": "Pronombre demostrativo nominativo neutro plural, sujeto de ἐγένετο.",
+   "sentido_en_contexto": "Resume el interrogatorio de los vv. 19-27 y lo sitúa geográficamente.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G1722",
+   "glosa_interlineal": "en",
+   "rango_semantico": [
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
+   ],
+   "construccion": "Preposición con dativo (ἐν Βηθανίᾳ): lugar, «en».",
+   "sentido_en_contexto": "Localiza el interrogatorio.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G963",
+   "glosa_interlineal": "Betania",
+   "rango_semantico": [
+    "Betania"
+   ],
+   "construccion": "Nombre propio, dativo femenino singular, regido por ἐν. La lectura de Tisch es Βηθανίᾳ, como en NA28; TR lee Βηθαβαρᾷ («Betábara»).",
+   "sentido_en_contexto": "Lugar «al otro lado del Jordán», distinto de la Betania cercana a Jerusalén (Jn 11:1). La lectura Βηθαβαρᾷ, la del TR, parece una sustitución por conjetura, pues Orígenes no hallaba una Betania junto al Jordán y propuso Betábara.",
+   "matiz": "La Betania de Juan 1:28 es un lugar que no se puede ubicar con certeza; se discute su situación.",
+   "variantes_textuales": "Lectura de Tisch y de NA28, NA27, Tyn, SBL, WH, Treg y Byz: Βηθανίᾳ. TR lee Βηθαβαρᾷ. La Reina-Valera 1909 sigue ahí al TR.",
+   "notas_traduccion": "La Santa Biblia Reina-Valera (1909) lee «Betábara», siguiendo el Textus Receptus; La Sagrada Biblia (Torres Amat), «Bethania». Ambas versiones traducen distinto porque parten de lecturas griegas distintas.",
+   "otros_usos": [
+    "Jn 11:1 — otra Betania, junto a Jerusalén",
+    "Jn 10:40 — Jesús volvió al lugar donde Juan bautizaba antes",
+    "Jn 3:23 — Juan bautizaba en Ainón, cerca de Salim"
+   ],
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G1096",
+   "glosa_interlineal": "ocurrió",
+   "rango_semantico": [
+    "llegar a ser, hacerse",
+    "ocurrir, suceder",
+    "nacer, aparecer"
+   ],
+   "construccion": "Aoristo indicativo deponente de γίνομαι, 3.ª singular, con sujeto neutro plural.",
+   "sentido_en_contexto": "Cierra el relato del interrogatorio con una nota de lugar.",
+   "matiz": "Verbo en singular con sujeto neutro plural (ταῦτα): regla normal.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G4008",
+   "glosa_interlineal": "al otro lado",
+   "rango_semantico": [
+    "más allá, al otro lado",
+    "(adv.) al otro lado"
+   ],
+   "construccion": "Adverbio de lugar (πέραν) con genitivo, funciona como preposición: «al otro lado del Jordán».",
+   "sentido_en_contexto": "Marca la orilla oriental del Jordán, el lado opuesto a Jerusalén.",
+   "matiz": "πέραν τοῦ Ἰορδάνου es expresión corriente para decir «al otro lado del Jordán».",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Mt 4:15 — al otro lado del Jordán",
+    "Jn 10:40 — otra vez al otro lado del Jordán",
+    "Mc 3:8 — de más allá del Jordán"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo genitivo masculino singular; concuerda con Ἰορδάνου.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G2446",
+   "glosa_interlineal": "Jordán",
+   "rango_semantico": [
+    "Jordán"
+   ],
+   "construccion": "Nombre propio, genitivo masculino singular, complemento de πέραν.",
+   "sentido_en_contexto": "El río en que Juan bautizaba.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G3699",
+   "glosa_interlineal": "donde",
+   "rango_semantico": [
+    "donde, en donde"
+   ],
+   "construccion": "Adverbio de lugar (ὅπου) que introduce una oración relativa de lugar. El etiquetado automático lo trata como preposición y marca la construcción como ambigua; aquí es adverbio, no rige caso.",
+   "sentido_en_contexto": "Precisa el lugar: donde Juan estaba bautizando.",
+   "matiz": "La marca de «caso ambiguo» viene de la herramienta, no del texto: ὅπου no es preposición.",
+   "variantes_textuales": null,
+   "notas_traduccion": "El TAGNT clasifica ὅπου como preposición (PREP) por una convención de etiquetado; el sentido es sencillo: «donde».",
+   "otros_usos": null,
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G1510",
+   "glosa_interlineal": "estaba",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Imperfecto de εἰμί, 3.ª singular, con el participio βαπτίζων forma una perífrasis: «estaba bautizando».",
+   "sentido_en_contexto": "Presenta la actividad de Juan como habitual y continuada.",
+   "matiz": "La perífrasis ἦν βαπτίζων es habitual en Juan y en Lucas para describir acciones en curso.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular; concuerda con Ἰωάννης. TR y Byz no lo traen.",
+   "sentido_en_contexto": "Determina a Ἰωάννης.",
+   "matiz": "La ausencia del artículo ante un nombre propio no cambia el sentido.",
+   "variantes_textuales": "Ausente en TR y Byz. Presente en NA28, NA27, Tyn, SBL, WH y Treg.",
+   "notas_traduccion": "Diferencia de escritura sin efecto de traducción.",
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G2491",
+   "glosa_interlineal": "Juan",
+   "rango_semantico": [
+    "Juan (nombre hebreo Yohanán, «Dios ha tenido gracia»)"
+   ],
+   "construccion": "Nombre propio, nominativo masculino singular, sujeto de ἦν.",
+   "sentido_en_contexto": "Es Juan el Bautista.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G907",
+   "glosa_interlineal": "bautizando",
+   "rango_semantico": [
+    "bautizar",
+    "sumergir",
+    "lavar"
+   ],
+   "construccion": "Participio presente activo de βαπτίζω, nominativo masculino singular; con ἦν, perífrasis imperfecta.",
+   "sentido_en_contexto": "Su actividad en el sitio indicado: bautizaba, no era un hecho aislado.",
+   "matiz": "El participio presente con ἦν señala una actividad continuada.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}

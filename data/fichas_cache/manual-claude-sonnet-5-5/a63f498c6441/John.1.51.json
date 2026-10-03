@@ -1,0 +1,754 @@
+{
+ "ref": "John.1.51",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T17:03:25-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G611",
+   "glosa_interlineal": "respondió",
+   "rango_semantico": [
+    "responder, contestar",
+    "replicar",
+    "tomar la palabra"
+   ],
+   "construccion": "Aoristo indicativo deponente de ἀποκρίνομαι, 3.ª singular.",
+   "sentido_en_contexto": "Jesús responde al reconocimiento de Natanael.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G2424",
+   "glosa_interlineal": "Jesús",
+   "rango_semantico": [
+    "Jesús (forma griega del hebreo Yehoshúa, «Yahvé salva»)"
+   ],
+   "construccion": "Nombre propio, nominativo masculino singular, sujeto de ἀπεκρίθη.",
+   "sentido_en_contexto": "Jesús habla para ampliar el horizonte de Natanael.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; une dos verbos de habla.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G3004",
+   "glosa_interlineal": "dijo",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Aoristo 2.º indicativo activo de λέγω (εἶπεν), 3.ª singular.",
+   "sentido_en_contexto": "Introduce la respuesta.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G846",
+   "glosa_interlineal": "le",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal dativo masculino singular, complemento de εἶπεν.",
+   "sentido_en_contexto": "Se refiere a Natanael.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G3754",
+   "glosa_interlineal": "¿porque…?",
+   "rango_semantico": [
+    "que (contenido)",
+    "porque",
+    "puesto que"
+   ],
+   "construccion": "Conjunción (ὅτι) causal o interrogativa: «¿porque te dije…?».",
+   "sentido_en_contexto": "Plantea una pregunta retórica: ¿crees solo por esto?",
+   "matiz": "La pregunta es retórica: Jesús hace ver que hay cosas mayores.",
+   "variantes_textuales": null,
+   "notas_traduccion": "La puntuación decide: «¿porque te dije…, crees?» (pregunta) o «porque te dije…, crees» (afirmación).",
+   "otros_usos": null,
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G3004",
+   "glosa_interlineal": "dije",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Aoristo 2.º indicativo activo de λέγω (εἶπον), 1.ª singular.",
+   "sentido_en_contexto": "Remite a su palabra del v. 50: «te vi bajo la higuera».",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G4771",
+   "glosa_interlineal": "te",
+   "rango_semantico": [
+    "tú"
+   ],
+   "construccion": "Pronombre personal dativo de segunda persona singular, complemento de εἶπον.",
+   "sentido_en_contexto": "Es Natanael.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G3754",
+   "glosa_interlineal": "que",
+   "rango_semantico": [
+    "que (contenido)",
+    "porque",
+    "puesto que"
+   ],
+   "construccion": "Conjunción (ὅτι) declarativa que introduce lo dicho a Natanael. TR y Byz no la traen.",
+   "sentido_en_contexto": "Introduce el contenido de lo dicho: «te vi».",
+   "matiz": "La presencia o ausencia del segundo ὅτι no cambia el sentido.",
+   "variantes_textuales": "Ausente en TR y Byz. Presente en NA28, NA27, Tyn, SBL, WH y Treg.",
+   "notas_traduccion": "Con dos ὅτι seguidos la frase es recitativa; sin el segundo es más compacta.",
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G3708",
+   "glosa_interlineal": "vi",
+   "rango_semantico": [
+    "ver, mirar",
+    "percibir",
+    "experimentar"
+   ],
+   "construccion": "Aoristo 2.º indicativo activo de ὁράω (εἶδον), 1.ª singular.",
+   "sentido_en_contexto": "Retoma lo que Jesús dijo a Natanael: su conocimiento previo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G4771",
+   "glosa_interlineal": "te",
+   "rango_semantico": [
+    "tú"
+   ],
+   "construccion": "Pronombre personal acusativo de segunda persona singular, objeto de εἶδον.",
+   "sentido_en_contexto": "Es Natanael.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G5270",
+   "glosa_interlineal": "debajo de",
+   "rango_semantico": [
+    "debajo de, bajo",
+    "en sujeción a",
+    "(con dativo) bajo"
+   ],
+   "construccion": "Adverbio impropio (ὑποκάτω) con genitivo: «debajo de».",
+   "sentido_en_contexto": "Repite la ubicación: bajo la higuera.",
+   "matiz": "Variante de ὑπό con genitivo; igual sentido.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo genitivo femenino singular; concuerda con συκῆς.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G4808",
+   "glosa_interlineal": "higuera",
+   "rango_semantico": [
+    "higuera"
+   ],
+   "construccion": "Genitivo femenino singular, regido por ὑποκάτω.",
+   "sentido_en_contexto": "Repite la higuera del v. 49.",
+   "matiz": "Igual que el v. 49.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G4100",
+   "glosa_interlineal": "¿crees?",
+   "rango_semantico": [
+    "creer, confiar",
+    "confiar a, encomendar",
+    "tener fe"
+   ],
+   "construccion": "Presente indicativo activo de πιστεύω, 2.ª singular, en pregunta.",
+   "sentido_en_contexto": "Natanael cree porque Jesús lo conoció; Jesús dice que verá cosas mayores: la fe fundada en un signo es el comienzo, no la meta.",
+   "matiz": "En Juan, creer por un signo es el comienzo de la fe, no la meta (cf. 2:23-25; 20:29).",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 2:23-25 — muchos creyeron al ver los signos",
+    "Jn 4:48 — si no veis señales, no creeréis",
+    "Jn 20:29 — bienaventurados los que no vieron y creyeron"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G3173",
+   "glosa_interlineal": "cosas mayores",
+   "rango_semantico": [
+    "grande, mayor",
+    "importante",
+    "poderoso"
+   ],
+   "construccion": "Adjetivo comparativo acusativo neutro plural (μείζω), objeto de ὄψῃ.",
+   "sentido_en_contexto": "Promesa de cosas mayores que ver la higuera: lo que sigue, el cielo abierto.",
+   "matiz": "El comparativo apunta a lo que sigue: el cielo abierto y los ángeles.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 5:20 — obras mayores que éstas",
+    "Jn 14:12 — obras mayores hará",
+    "Jn 1:51 — verás cosas mayores"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G3778",
+   "glosa_interlineal": "que éstas",
+   "rango_semantico": [
+    "este, esta, esto",
+    "él, ella (con fuerza demostrativa)"
+   ],
+   "construccion": "Pronombre demostrativo genitivo neutro plural, complemento comparativo de μείζω.",
+   "sentido_en_contexto": "Segundo término de comparación: mayores que éstas (que lo de la higuera).",
+   "matiz": "El genitivo es comparativo: «mayores que éstas».",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 18,
+   "strong": "G3708",
+   "glosa_interlineal": "verás",
+   "rango_semantico": [
+    "ver, mirar",
+    "percibir",
+    "experimentar"
+   ],
+   "construccion": "Futuro deponente de ὁράω (ὄψῃ), 2.ª singular.",
+   "sentido_en_contexto": "Promesa dirigida a Natanael en singular; en la frase siguiente se amplía al plural ὄψεσθε.",
+   "matiz": "El cambio de singular a plural indica que la promesa alcanza a todos los presentes y lectores.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:39 — veréis",
+    "Jn 1:51 — veréis el cielo abierto",
+    "Jn 11:40 — verás la gloria de Dios"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 19,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; añade una nueva declaración de Jesús.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 20,
+   "strong": "G3004",
+   "glosa_interlineal": "dice",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Presente indicativo activo de λέγω, 3.ª singular. Presente histórico.",
+   "sentido_en_contexto": "Jesús introduce una afirmación solemne.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 21,
+   "strong": "G846",
+   "glosa_interlineal": "le",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal dativo masculino singular, complemento de λέγει.",
+   "sentido_en_contexto": "Se refiere a Natanael.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 22,
+   "strong": "G281",
+   "glosa_interlineal": "amén",
+   "rango_semantico": [
+    "amén, de cierto",
+    "así sea",
+    "en verdad"
+   ],
+   "construccion": "Transliteración del hebreo ʼamen (aquí partícula, ἀμήν). Dicho al comienzo de una frase, es fórmula solemne de autoridad.",
+   "sentido_en_contexto": "Fórmula de autoridad que Jesús usa al comienzo de sus declaraciones; en Juan se duplica siempre («amén, amén»).",
+   "matiz": "El «amén» inicial es peculiar de Jesús; en Juan siempre doble.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 3:3 — amén, amén te digo",
+    "Jn 5:24 — amén, amén os digo",
+    "Jn 8:58 — amén, amén os digo"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 23,
+   "strong": "G281",
+   "glosa_interlineal": "amén",
+   "rango_semantico": [
+    "amén, de cierto",
+    "así sea",
+    "en verdad"
+   ],
+   "construccion": "Transliteración del hebreo ʼamen (aquí partícula, ἀμήν), segunda mención.",
+   "sentido_en_contexto": "Duplicación característica de Jn: da énfasis y solemnidad.",
+   "matiz": "La duplicación aparece 25 veces en Juan.",
+   "variantes_textuales": null,
+   "notas_traduccion": "El doble «amén» es exclusivo de Juan; los sinópticos usan uno solo.",
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 24,
+   "strong": "G3004",
+   "glosa_interlineal": "digo",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Presente indicativo activo de λέγω, 1.ª singular.",
+   "sentido_en_contexto": "Jesús habla con autoridad propia: «yo os digo».",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 25,
+   "strong": "G5210",
+   "glosa_interlineal": "os",
+   "rango_semantico": [
+    "tú",
+    "vosotros"
+   ],
+   "construccion": "Pronombre personal dativo de segunda persona plural, complemento de λέγω.",
+   "sentido_en_contexto": "El plural indica que la promesa va más allá de Natanael: incluye a los discípulos y al lector.",
+   "matiz": "Cambio notable de singular (σοι) a plural (ὑμῖν) en el mismo versículo.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:39 — veréis",
+    "Jn 6:53 — de cierto os digo",
+    "Jn 16:20 — de cierto os digo"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 26,
+   "strong": "G3708",
+   "glosa_interlineal": "veréis",
+   "rango_semantico": [
+    "ver, mirar",
+    "percibir",
+    "experimentar"
+   ],
+   "construccion": "Futuro deponente de ὁράω (ὄψεσθε), 2.ª plural.",
+   "sentido_en_contexto": "Promesa de ver el cielo abierto: no una visión momentánea sino una realidad que se extiende desde ahora.",
+   "matiz": "El futuro de «ver» es característico de Juan para la revelación escatológica y presente.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:39 — veréis dónde mora",
+    "Jn 14:19 — vosotros me veréis",
+    "Jn 16:16 — me veréis"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 27,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo acusativo masculino singular; concuerda con οὐρανόν.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 28,
+   "strong": "G3772",
+   "glosa_interlineal": "cielo",
+   "rango_semantico": [
+    "cielo",
+    "firmamento",
+    "Dios (por metonimia)"
+   ],
+   "construccion": "Acusativo masculino singular, objeto de ὄψεσθε.",
+   "sentido_en_contexto": "El cielo abierto: la comunicación entre Dios y los hombres, realizada en el Hijo del hombre.",
+   "matiz": "Evoca la visión de Jacob en Betel (Gn 28:12), donde los ángeles suben y bajan.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Gn 28:12 — ángeles subiendo y bajando",
+    "Mc 1:10 — el cielo abierto en el bautismo",
+    "Hch 7:56 — veo los cielos abiertos"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 29,
+   "strong": "G455",
+   "glosa_interlineal": "abierto",
+   "rango_semantico": [
+    "abrir",
+    "desatar"
+   ],
+   "construccion": "Participio perfecto activo de ἀνοίγω (ἀνεῳγότα), acusativo masculino singular, predicativo de οὐρανόν. El perfecto indica estado resultante: «abierto».",
+   "sentido_en_contexto": "El cielo abierto como estado permanente, no un momento: la apertura es definitiva.",
+   "matiz": "El perfecto subraya que el cielo queda abierto.",
+   "variantes_textuales": null,
+   "notas_traduccion": "«Abierto» traduce un estado; el aoristo habría sido «que se abrió».",
+   "otros_usos": [
+    "Ez 1:1 — se abrieron los cielos",
+    "Hch 10:11 — el cielo abierto",
+    "Ap 19:11 — el cielo abierto"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 30,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; une el cielo abierto con los ángeles.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 31,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo acusativo masculino plural; concuerda con ἀγγέλους.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 32,
+   "strong": "G32",
+   "glosa_interlineal": "ángeles",
+   "rango_semantico": [
+    "ángel, mensajero",
+    "enviado"
+   ],
+   "construccion": "Acusativo masculino plural, objeto de ὄψεσθε.",
+   "sentido_en_contexto": "Los ángeles de Dios suben y bajan: imagen tomada de Gn 28:12, aplicada ahora al Hijo del hombre.",
+   "matiz": "En el sueño de Jacob los ángeles suben y bajan por la escalera; aquí lo hacen sobre el Hijo del hombre.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Gn 28:12 — escalera con ángeles",
+    "Mt 4:11 — ángeles le servían",
+    "Lc 22:43 — un ángel del cielo le fortalecía"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 33,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo genitivo masculino singular; concuerda con θεοῦ.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 34,
+   "strong": "G2316",
+   "glosa_interlineal": "de Dios",
+   "rango_semantico": [
+    "Dios (el único Dios)",
+    "dios, divinidad",
+    "ser divino"
+   ],
+   "construccion": "Genitivo masculino singular con artículo, complemento de ἀγγέλους.",
+   "sentido_en_contexto": "Los ángeles pertenecen a Dios y le sirven.",
+   "matiz": "Fórmula común: ángeles de Dios.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 35,
+   "strong": "G305",
+   "glosa_interlineal": "subiendo",
+   "rango_semantico": [
+    "subir, ascender",
+    "ir hacia arriba"
+   ],
+   "construccion": "Participio presente activo de ἀναβαίνω, acusativo masculino plural, predicativo.",
+   "sentido_en_contexto": "Los ángeles suben primero y luego bajan: el orden refleja la imagen de Gn 28:12 (suben, bajan).",
+   "matiz": "El orden «subiendo y bajando» sigue Gn 28:12; los ángeles ya están en la tierra.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Gn 28:12 — suben y bajan",
+    "Jn 3:13 — nadie ha subido al cielo",
+    "Jn 6:62 — subir adonde estaba antes"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 36,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; une subir y bajar.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 37,
+   "strong": "G2597",
+   "glosa_interlineal": "bajando",
+   "rango_semantico": [
+    "descender, bajar",
+    "caer",
+    "ir hacia abajo"
+   ],
+   "construccion": "Participio presente activo de καταβαίνω, acusativo masculino plural, predicativo.",
+   "sentido_en_contexto": "Segundo movimiento: bajar, que completa la imagen.",
+   "matiz": "Presente en ambos participios: acción continua.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 38,
+   "strong": "G1909",
+   "glosa_interlineal": "sobre",
+   "rango_semantico": [
+    "sobre, encima de",
+    "a, hacia",
+    "contra",
+    "(con acusativo) en dirección a"
+   ],
+   "construccion": "Preposición con acusativo (ἐπὶ τὸν υἱὸν): dirección y reposo, «sobre».",
+   "sentido_en_contexto": "El Hijo del hombre es el lugar de comunicación entre cielo y tierra, como la escalera de Jacob.",
+   "matiz": "ἐπί con acusativo: movimiento hacia; con los ángeles subiendo y bajando «sobre» el Hijo del hombre.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Gn 28:12 — la escalera",
+    "Jn 1:32 — el Espíritu permaneció sobre él",
+    "Jn 3:14 — el Hijo del hombre levantado"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 39,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo acusativo masculino singular; concuerda con υἱόν.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 40,
+   "strong": "G5207",
+   "glosa_interlineal": "Hijo",
+   "rango_semantico": [
+    "hijo",
+    "descendiente",
+    "hijo de Dios"
+   ],
+   "construccion": "Acusativo masculino singular, regido por ἐπί; en la fórmula «el Hijo del hombre».",
+   "sentido_en_contexto": "«Hijo del hombre» es el título que Jesús usa de sí mismo en este Evangelio; aquí se une a Dan 7:13 y a la escalera de Jacob.",
+   "matiz": "El título aparece 13 veces en Juan, siempre en boca de Jesús.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Dn 7:13 — uno como hijo de hombre",
+    "Jn 3:14 — el Hijo del hombre levantado",
+    "Jn 12:23 — ha llegado la hora de que sea glorificado el Hijo del hombre"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 41,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo genitivo masculino singular; concuerda con ἀνθρώπου.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 42,
+   "strong": "G444",
+   "glosa_interlineal": "del hombre",
+   "rango_semantico": [
+    "hombre, persona",
+    "ser humano",
+    "marido (rara vez)"
+   ],
+   "construccion": "Genitivo masculino singular, complemento de υἱόν: «Hijo del hombre».",
+   "sentido_en_contexto": "«Hijo del hombre»: título que combina humanidad y autoridad celestial (Dn 7:13).",
+   "matiz": "Es expresión semítica: «ser humano»; en Dan 7 designa a una figura celestial.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Dn 7:13 — uno como hijo de hombre",
+    "Mc 14:62 — verán al Hijo del hombre",
+    "Jn 3:13 — el Hijo del hombre que está en el cielo"
+   ],
+   "nivel_certeza": "alto"
+  }
+ ]
+}

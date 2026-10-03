@@ -251,30 +251,48 @@ gui_interlineal_ficha(const char *strong)
 void
 gui_interlineal_ficha_morf(const char *strong, const char *morph)
 {
-	gui_interlineal_ficha_ctx(strong, morph, NULL);
+	gui_interlineal_ficha_ctx(strong, morph, NULL, 0);
 }
 
-/* La ficha enriquecida es de la palabra en su pasaje (key), no del número. */
+/* Referencia OSIS ("John.1.39") del versículo `key` en el módulo Tisch (su numeración, que puede diferir de la
+ * estándar), o NULL. Es la ref_tisch de las fichas. */
 static gchar *
-ficha_enriquecida(const char *strong, const char *key)
+ref_tisch_de(const char *key)
 {
-	static gboolean cargado;
-	const char *mod, *osis;
+	gchar *mapped;
+	const char *osis;
+	gchar *res;
 
-	if (!cargado) {
-		cargado = TRUE;
-		main_interl_enriq_cargar_de(settings.gSwordDir);
-	}
-	mod = settings.MainWindowModule;
-	if (!key || !*key || !mod)
+	mapped = main_reference_for_module(settings.MainWindowModule, key, "Tisch");
+	if (!mapped)
 		return NULL;
-	osis = main_get_osisref_from_key(mod, key);
-	return osis && *osis ? main_interl_enriq_html(osis, strong) : NULL;
+	osis = main_get_osisref_from_key("Tisch", mapped);
+	res = osis && *osis ? g_strdup(osis) : NULL;
+	g_free(mapped);
+	return res;
+}
+
+/* La ficha enriquecida es de la palabra en su pasaje (versículo de Tisch + posición), no del número. */
+static gchar *
+ficha_enriquecida(const char *strong, const char *key, int pos)
+{
+	gchar *ref, *html;
+
+	if (!key || !*key)
+		key = main_interlineal_verso_actual();
+	if (!key || !*key)
+		return NULL;
+	ref = ref_tisch_de(key);
+	if (!ref)
+		return NULL;
+	html = main_interl_enriq_html(ref, pos, strong);
+	g_free(ref);
+	return html;
 }
 
 void
 gui_interlineal_ficha_ctx(const char *strong, const char *morph,
-			  const char *key)
+			  const char *key, int pos)
 {
 	const InterlStrong *info;
 	const DiccEntrada *dicc;
@@ -330,7 +348,7 @@ gui_interlineal_ficha_ctx(const char *strong, const char *morph,
 		g_free(m_cod);
 	}
 	{
-		gchar *enr = ficha_enriquecida(strong, key);
+		gchar *enr = ficha_enriquecida(strong, key, pos);
 
 		if (enr)
 			g_string_append(body, enr);
@@ -602,7 +620,8 @@ on_il_strong(GtkButton *button, gpointer data)
 	(void)data;
 	if (num && *num)
 		gui_interlineal_ficha_ctx(num, morf,
-					  g_object_get_data(G_OBJECT(button), "key"));
+					  g_object_get_data(G_OBJECT(button), "key"),
+					  GPOINTER_TO_INT(g_object_get_data(G_OBJECT(button), "pos")));
 }
 
 static GtkWidget *
@@ -717,6 +736,7 @@ il_row_widget(InterlFila *f, gboolean reverse, const char *key)
 		if (key)
 			g_object_set_data_full(G_OBJECT(btn), "key",
 					       g_strdup(key), g_free);
+		g_object_set_data(G_OBJECT(btn), "pos", GINT_TO_POINTER(f->pos));
 		if (f->morph && *f->morph)
 			g_object_set_data_full(G_OBJECT(btn), "morph",
 					       g_strdup(f->morph), g_free);
@@ -740,6 +760,7 @@ il_row_widget(InterlFila *f, gboolean reverse, const char *key)
 			if (key)
 				g_object_set_data_full(G_OBJECT(fb), "key",
 						       g_strdup(key), g_free);
+			g_object_set_data(G_OBJECT(fb), "pos", GINT_TO_POINTER(f->pos));
 			if (f->morph && *f->morph)
 				g_object_set_data_full(G_OBJECT(fb), "morph",
 						       g_strdup(f->morph),

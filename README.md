@@ -104,3 +104,24 @@ versículo, notas, marcadores, resaltados, interlineal, ventana de capítulos).
 Las comprobaciones completas de cada módulo (referencias, Strong, morfología) se
 recuerdan en `.validation-cache` dentro del directorio de módulos, por archivo;
 un módulo reemplazado se vuelve a comprobar.
+
+## Atribución
+
+Datos textuales y gramaticales del TAGNT: STEPBible.org, Tyndale House Cambridge, CC BY 4.0 (https://github.com/STEPBible/STEPBible-Data).
+
+## Fichas de estudio del interlineal (`fichas.sqlite`)
+
+Las fichas (sentido en contexto, construcción, variantes textuales, citas de la Reina-Valera 1909 y Torres Amat) se leen
+de una base SQLite **local de solo lectura**; la app no necesita conexión a internet.
+
+- **Fuente versionada:** `data/fichas_v2/` (fichas heredadas), `data/fichas_v3/` (fichas nuevas; si coincide la clave gana v3) y
+  `data/citas/citas_nt.json`. Todos en el mismo formato.
+- **Generación:** `fichas.sqlite` **no se commitea**. El build la genera con `tools/construir_fichas_sqlite.py`
+  (solo biblioteca estándar de Python; el mismo patrón que `strongs-elim.sqlite`) y es reproducible: mismas entradas, mismo archivo.
+  A mano: `python3 tools/construir_fichas_sqlite.py --output data/fichas.sqlite`.
+- **Instalación:** `make install` copia `fichas.sqlite` a `<prefijo>/share/biblia-elim/fichas.sqlite` (junto a `strongs-elim.sqlite`).
+- **Dónde la busca la app** (se abre en la primera consulta, no al arrancar): 1) `$BIBLIA_ELIM_FICHAS` (ruta explícita, exclusiva);
+  2) la del árbol de build; 3) `SHARE_DIR/fichas.sqlite`. Si no existe, la ficha básica funciona igual, sin enriquecimiento.
+- **Clave de una ficha:** `ref_tisch` (numeración del módulo Tisch) + `posicion` de la palabra en el versículo + `strong`.
+  El clic en una palabra del interlineal lleva la posición; sin posición solo se resuelve un Strong único en el versículo.
+- Atribución de los datos del texto griego: STEPBible.org, Tyndale House, Cambridge (CC BY 4.0); ver `data/sources/tagnt/SOURCE.md`.

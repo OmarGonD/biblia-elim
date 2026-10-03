@@ -1,0 +1,281 @@
+{
+ "ref": "John.1.31",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:59:21-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G2504",
+   "glosa_interlineal": "y yo",
+   "rango_semantico": [
+    "yo",
+    "y yo (crasis)"
+   ],
+   "construccion": "Crasis de καὶ ἐγώ (κἀγώ), nominativo de primera persona singular, enfático.",
+   "sentido_en_contexto": "Reafirma el «yo» del testigo: tampoco yo le conocía; subraya que el testimonio de Juan no es previo conocimiento personal.",
+   "matiz": "La crasis κἀγώ es muy común en Juan: «y yo también».",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G3756",
+   "glosa_interlineal": "no",
+   "rango_semantico": [
+    "no, ni",
+    "nada"
+   ],
+   "construccion": "Negación objetiva (οὐκ).",
+   "sentido_en_contexto": "Niega el conocimiento previo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G1492",
+   "glosa_interlineal": "conocía",
+   "rango_semantico": [
+    "saber, conocer",
+    "entender",
+    "reconocer"
+   ],
+   "construccion": "Pluscuamperfecto de οἶδα (ᾔδειν), 1.ª singular. Pluscuamperfecto de forma, imperfecto de sentido: «sabía, conocía».",
+   "sentido_en_contexto": "Juan no conocía al Mesías de antemano: lo reconoció por la señal dada por Dios (v. 33), no por conocimiento previo.",
+   "matiz": "οἶδα con aspecto de estado: «yo no le conocía» no significa que no lo hubiera visto, sino que no lo reconocía como Mesías.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:33 — tampoco yo le conocía",
+    "Jn 7:28 — a quien vosotros no conocéis",
+    "Jn 8:55 — no le conocéis, pero yo le conozco"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G846",
+   "glosa_interlineal": "le",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal acusativo masculino singular, objeto de ᾔδειν.",
+   "sentido_en_contexto": "Se refiere a Jesús.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G235",
+   "glosa_interlineal": "sino",
+   "rango_semantico": [
+    "pero",
+    "sino",
+    "sin embargo"
+   ],
+   "construccion": "Conjunción adversativa (ἀλλά, elidida) tras la negación.",
+   "sentido_en_contexto": "Corrige: no le conocía, pero [vine] para que fuera manifestado.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G2443",
+   "glosa_interlineal": "para que",
+   "rango_semantico": [
+    "para que (finalidad)",
+    "de modo que (resultado)",
+    "que (contenido)"
+   ],
+   "construccion": "Conjunción final con subjuntivo (φανερωθῇ).",
+   "sentido_en_contexto": "El propósito de la actividad de Juan: que Jesús fuera manifestado a Israel.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G5319",
+   "glosa_interlineal": "fuese manifestado",
+   "rango_semantico": [
+    "manifestar, hacer visible",
+    "dar a conocer",
+    "mostrarse"
+   ],
+   "construccion": "Aoristo subjuntivo pasivo de φανερόω, 3.ª singular. Pasivo teológico: Dios manifiesta.",
+   "sentido_en_contexto": "El Mesías oculto es dado a conocer: la revelación es acción de Dios que Juan facilita.",
+   "matiz": "φανερόω es un verbo característico de Juan para la revelación de Dios en Cristo.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 2:11 — manifestó su gloria",
+    "1 Jn 1:2 — la vida fue manifestada",
+    "1 Jn 3:5 — él apareció para quitar los pecados"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo dativo masculino singular; concuerda con Ἰσραήλ.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G2474",
+   "glosa_interlineal": "a Israel",
+   "rango_semantico": [
+    "Israel"
+   ],
+   "construccion": "Nombre propio indeclinable (aquí dativo), complemento de φανερωθῇ.",
+   "sentido_en_contexto": "El pueblo ante quien debía ser manifestado el Mesías.",
+   "matiz": "Ἰσραήλ aquí designa al pueblo de la alianza como destinatario de la revelación.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:49 — rey de Israel",
+    "Jn 3:10 — maestro de Israel",
+    "Jn 12:13 — rey de Israel"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G1223",
+   "glosa_interlineal": "por esto",
+   "rango_semantico": [
+    "por, a causa de",
+    "a través de (con genitivo)"
+   ],
+   "construccion": "Preposición con acusativo (διὰ τοῦτο): causa, «por esto».",
+   "sentido_en_contexto": "Remite a lo que acaba de decir: por esta razón vino Juan bautizando.",
+   "matiz": "Con acusativo διά significa «a causa de»; con genitivo, «por medio de».",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G3778",
+   "glosa_interlineal": "esto",
+   "rango_semantico": [
+    "este, esta, esto",
+    "él, ella (con fuerza demostrativa)"
+   ],
+   "construccion": "Pronombre demostrativo acusativo neutro singular, regido por διά.",
+   "sentido_en_contexto": "Anuncia la razón que ya está enunciada en la cláusula ἵνα.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G2064",
+   "glosa_interlineal": "vine",
+   "rango_semantico": [
+    "venir, ir",
+    "llegar",
+    "aparecer"
+   ],
+   "construccion": "Aoristo indicativo de ἔρχομαι, 1.ª singular.",
+   "sentido_en_contexto": "Su venida tiene un fin: bautizar para que el Mesías sea conocido.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G1473",
+   "glosa_interlineal": "yo",
+   "rango_semantico": [
+    "yo"
+   ],
+   "construccion": "Pronombre personal nominativo de primera persona singular, enfático.",
+   "sentido_en_contexto": "Insiste en que es él quien vino y bautiza.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G1722",
+   "glosa_interlineal": "en",
+   "rango_semantico": [
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
+   ],
+   "construccion": "Preposición con dativo (ἐν ὕδατι): medio, «en agua».",
+   "sentido_en_contexto": "Su bautismo es en agua.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G5204",
+   "glosa_interlineal": "agua",
+   "rango_semantico": [
+    "agua"
+   ],
+   "construccion": "Dativo neutro singular, regido por ἐν.",
+   "sentido_en_contexto": "Elemento del bautismo de Juan, preparatorio.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G907",
+   "glosa_interlineal": "bautizando",
+   "rango_semantico": [
+    "bautizar",
+    "sumergir",
+    "lavar"
+   ],
+   "construccion": "Participio presente activo de βαπτίζω, nominativo masculino singular, adverbial de modo.",
+   "sentido_en_contexto": "Su venida se describe como un bautizar en agua, es decir, como actividad continuada.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}

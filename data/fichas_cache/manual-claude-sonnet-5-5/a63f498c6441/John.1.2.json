@@ -1,0 +1,130 @@
+{
+ "ref": "John.1.2",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:46:51-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G3778",
+   "glosa_interlineal": "este",
+   "rango_semantico": [
+    "este, esta, esto",
+    "él, ella (con fuerza demostrativa)"
+   ],
+   "construccion": "Pronombre demostrativo nominativo masculino singular; sujeto de ἦν.",
+   "sentido_en_contexto": "Resume en una palabra lo dicho en 1:1: el Verbo, tal como se acaba de describir.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G1510",
+   "glosa_interlineal": "era",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Imperfecto de εἰμί, 3.ª singular.",
+   "sentido_en_contexto": "Repite el imperfecto de 1:1: la existencia del Verbo es anterior a todo comienzo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G1722",
+   "glosa_interlineal": "en",
+   "rango_semantico": [
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
+   ],
+   "construccion": "Preposición con dativo (ἐν ἀρχῇ), igual que en 1:1.",
+   "sentido_en_contexto": "Remite a 1:1: la existencia con Dios se sitúa en el principio absoluto.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G746",
+   "glosa_interlineal": "principio",
+   "rango_semantico": [
+    "principio, comienzo",
+    "primer lugar, origen",
+    "autoridad, gobierno"
+   ],
+   "construccion": "Dativo singular femenino sin artículo, regido por ἐν.",
+   "sentido_en_contexto": "Retoma ἐν ἀρχῇ de 1:1 para atar las dos afirmaciones («era» y «con Dios») al mismo momento.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G4314",
+   "glosa_interlineal": "con / junto a",
+   "rango_semantico": [
+    "hacia (movimiento)",
+    "junto a, con",
+    "en relación con",
+    "contra",
+    "para"
+   ],
+   "construccion": "Preposición con acusativo (πρὸς τὸν θεόν); con verbo de estado indica relación o compañía personal.",
+   "sentido_en_contexto": "Repite la relación del Verbo con Dios sin añadir nada nuevo: es una conclusión que resume 1:1b.",
+   "matiz": "Mismo uso que en 1:1b; aquí la frase queda sin el artículo de ὁ λόγος porque ya se dijo quién es.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:1 — misma construcción",
+    "1 Jn 1:2 — la vida estaba πρὸς τὸν πατέρα"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo acusativo masculino singular; acompaña a θεόν, regido por πρός.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G2316",
+   "glosa_interlineal": "Dios",
+   "rango_semantico": [
+    "Dios (el único Dios)",
+    "dios, divinidad",
+    "ser divino"
+   ],
+   "construccion": "Acusativo singular masculino con artículo, objeto de πρός.",
+   "sentido_en_contexto": "Dios, con quien estaba el Verbo desde el principio; aquí, igual que en 1:1b, el artículo lo señala como persona definida.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}

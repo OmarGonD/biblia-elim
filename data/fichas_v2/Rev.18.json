@@ -1,0 +1,498 @@
+[
+ {
+  "ref": "Rev.18.2",
+  "pos_tisch": 9,
+  "strong": "G897",
+  "forma": "Βαβυλὼν",
+  "lema": "Βαβυλών",
+  "glosa_interlineal": "Babilonia",
+  "rango_semantico": [
+   "Babilonia"
+  ],
+  "construccion": "Nominativo: «y clamó con voz potente, diciendo: Ha caído, ha caído la gran Babilonia, y se ha hecho habitación de demonios y guarida de todo espíritu inmundo, y albergue de toda ave inmunda y aborrecible».",
+  "sentido_en_contexto": "Capítulo 18: lamentación sobre la caída de Babilonia, en forma de elegía (cf. Ez 26–28 sobre Tiro; Is 13–14; 47; Jer 50–51). Imagen de una ciudad convertida en ruina habitada por espíritus y aves inmundas (Is 13:21-22; 34:11-14; Jer 50:39). Las tres lamentaciones: reyes (vv.9-10), mercaderes (vv.11-17a), marinos (vv.17b-19); y el gozo del cielo (v.20).",
+  "matiz": null,
+  "variantes_textuales": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 13:19-22; 21:9; 34:11-14",
+   "Jer 50:39; 51:8",
+   "Ap 14:8; 16:19"
+  ],
+  "nivel_certeza": "alto",
+  "alineacion": "forma",
+  "tagnt": "Rev.18.2#10",
+  "ref_estandar": "Rev.18.2",
+  "morfologia_tagnt": "N-NSF-L",
+  "dstrong": "G0897",
+  "strong_tagnt": "G897",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ },
+ {
+  "ref": "Rev.18.3",
+  "pos_tisch": 24,
+  "strong": "G1713",
+  "forma": "ἔμποροι",
+  "lema": "ἔμπορος",
+  "glosa_interlineal": "mercaderes",
+  "rango_semantico": [
+   "mercader, comerciante"
+  ],
+  "construccion": "Nominativo plural: «porque todas las naciones han bebido del vino del furor de su fornicación; y los reyes de la tierra han fornicado con ella; y los mercaderes de la tierra se han enriquecido de la potencia de sus deleites».",
+  "sentido_en_contexto": "La caída de Babilonia es económica: los mercaderes se enriquecieron con su lujo (vv.11-19). Crítica a la economía imperial que explota a los pueblos, y a los sistemas que seducen con prosperidad. La «fornicación» incluye la complicidad política y económica con un sistema idolátrico (cf. Is 23:17-18, Tiro).",
+  "matiz": null,
+  "variantes_textuales": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 23:17-18",
+   "Ez 27",
+   "Ap 18:11-19",
+   "Stg 5:1-6"
+  ],
+  "nivel_certeza": "medio",
+  "alineacion": "forma",
+  "tagnt": "Rev.18.3#24",
+  "ref_estandar": "Rev.18.3",
+  "morfologia_tagnt": "N-NPM",
+  "dstrong": "G1713",
+  "strong_tagnt": "G1713",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ },
+ {
+  "ref": "Rev.18.4",
+  "pos_tisch": 9,
+  "strong": "G1831",
+  "forma": "ἐξέλθατε",
+  "lema": "ἐξέρχομαι",
+  "glosa_interlineal": "salid",
+  "rango_semantico": [
+   "salir, apartarse"
+  ],
+  "construccion": "Imperativo aoristo activo: «y oí otra voz del cielo, que decía: Salid de ella, pueblo mío, para que no seáis partícipes de sus pecados, ni recibáis de sus plagas».",
+  "sentido_en_contexto": "Llamado a separarse de Babilonia: eco de Is 48:20; 52:11; Jer 50:8; 51:6, 45. «Pueblo mío» indica que hay creyentes dentro del sistema babilónico. La separación es ética y espiritual (no ser partícipes de sus pecados), no necesariamente física. Cf. 2 Co 6:17.",
+  "matiz": null,
+  "variantes_textuales": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 48:20; 52:11",
+   "Jer 51:6, 45",
+   "2 Co 6:17",
+   "Gn 19:12-22"
+  ],
+  "nivel_certeza": "alto",
+  "alineacion": "forma",
+  "tagnt": "Rev.18.4#09",
+  "ref_estandar": "Rev.18.4",
+  "morfologia_tagnt": "V-2AAM-2P",
+  "dstrong": "G1831",
+  "strong_tagnt": "G1831",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR"
+  ],
+  "ausente_en": [
+   "Byz"
+  ],
+  "variante": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ },
+ {
+  "ref": "Rev.18.6",
+  "pos_tisch": 8,
+  "strong": "G1363",
+  "forma": "διπλώσατε",
+  "lema": "διπλόω",
+  "glosa_interlineal": "dad el doble",
+  "rango_semantico": [
+   "doblar, pagar el doble"
+  ],
+  "construccion": "Imperativo aoristo activo: «dadle a ella como ella os ha dado, y pagadle doble según sus obras; en el cáliz en que ella preparó bebida, preparadle a ella el doble».",
+  "sentido_en_contexto": "Ley del talión extendida (Jer 50:29; Sal 137:8): retribución proporcional («como ella dio»), y «doble» (en hebreo, «doble» significa plena y suficiente: Is 40:2). Los destinatarios del mandato son los agentes de juicio (¿los ángeles? ¿los reyes de 17:16?), no los creyentes, a los que se pide salir.",
+  "matiz": null,
+  "variantes_textuales": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jer 50:29; 51:24",
+   "Sal 137:8",
+   "Is 40:2",
+   "Ap 16:6"
+  ],
+  "nivel_certeza": "medio",
+  "alineacion": "forma",
+  "tagnt": "Rev.18.6#09",
+  "ref_estandar": "Rev.18.6",
+  "morfologia_tagnt": "V-AAM-2P",
+  "dstrong": "G1363",
+  "strong_tagnt": "G1363",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ },
+ {
+  "ref": "Rev.18.7",
+  "pos_tisch": 20,
+  "strong": "G938",
+  "forma": "βασίλισσα",
+  "lema": "βασίλισσα",
+  "glosa_interlineal": "reina",
+  "rango_semantico": [
+   "reina"
+  ],
+  "construccion": "Nominativo: «cuanto ella se glorificó y vivió en deleites, tanto dadle de tormento y llanto; porque dice en su corazón: Yo estoy sentada como reina, y no soy viuda, y no veré llanto».",
+  "sentido_en_contexto": "Soberbia de Babilonia: «Yo soy reina, no soy viuda» (Is 47:7-9: Babilonia). Roma se proclamaba «eterna» (Roma aeterna). Su caída será súbita («en un solo día», v.8). La arrogancia autosuficiente es la raíz de su juicio.",
+  "matiz": null,
+  "variantes_textuales": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 47:7-9",
+   "Sof 2:15",
+   "Ez 28:2",
+   "Ap 3:17"
+  ],
+  "nivel_certeza": "alto",
+  "alineacion": "forma",
+  "tagnt": "Rev.18.7#20",
+  "ref_estandar": "Rev.18.7",
+  "morfologia_tagnt": "N-NSF",
+  "dstrong": "G0938G",
+  "strong_tagnt": "G938",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ },
+ {
+  "ref": "Rev.18.12",
+  "pos_tisch": 13,
+  "strong": "G4209",
+  "forma": "πορφύρας",
+  "lema": "πορφύρα",
+  "glosa_interlineal": "púrpura",
+  "rango_semantico": [
+   "púrpura"
+  ],
+  "construccion": "Genitivo: «mercadería de oro, de plata, de piedras preciosas, de perlas, de lino fino, de púrpura, de seda, de escarlata, de toda clase de maderas olorosas, de todo objeto de marfil, de toda clase de objetos de madera preciosa, de cobre, de hierro y de mármol».",
+  "sentido_en_contexto": "Lista de 28 productos (vv.12-13) del comercio de lujo romano, inspirada en Ez 27:12-24 (comercio de Tiro). Culmina con «cuerpos (σωμάτων, esclavos) y almas de hombres» (v.13): crítica al tráfico de esclavos como pináculo de la explotación. La caída económica de Roma provoca el llanto de los mercaderes.",
+  "matiz": null,
+  "variantes_textuales": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ez 27:12-24",
+   "Ap 18:13",
+   "Stg 5:1-6"
+  ],
+  "nivel_certeza": "alto",
+  "alineacion": "forma",
+  "tagnt": "Rev.18.12#13",
+  "ref_estandar": "Rev.18.12",
+  "morfologia_tagnt": "N-GSF",
+  "dstrong": "G4209",
+  "strong_tagnt": "G4209",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR"
+  ],
+  "ausente_en": [
+   "Byz"
+  ],
+  "variante": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ },
+ {
+  "ref": "Rev.18.13",
+  "pos_tisch": 28,
+  "strong": "G4983",
+  "forma": "σωμάτων",
+  "lema": "σῶμα",
+  "glosa_interlineal": "cuerpos",
+  "rango_semantico": [
+   "cuerpo, esclavo"
+  ],
+  "construccion": "Genitivo plural: «y canela, especias aromáticas, incienso, mirra, olíbano, vino, aceite, flor de harina, trigo, bestias, ovejas, caballos y carros, y esclavos, almas de hombres».",
+  "sentido_en_contexto": "Final de la lista: σώματα καὶ ψυχὰς ἀνθρώπων («cuerpos y almas de hombres»): esclavos. Culmina la lista de mercancías con la trata humana (Ez 27:13). El texto condena la reducción de las personas a mercancía. El eco bíblico (Gn 37:28; Dt 24:7) es la repulsa del comercio de personas.",
+  "matiz": null,
+  "variantes_textuales": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Ez 27:13",
+   "Dt 24:7",
+   "Gn 37:28",
+   "1 Ti 1:10"
+  ],
+  "nivel_certeza": "alto",
+  "alineacion": "forma",
+  "tagnt": "Rev.18.13#28",
+  "ref_estandar": "Rev.18.13",
+  "morfologia_tagnt": "N-GPN",
+  "dstrong": "G4983",
+  "strong_tagnt": "G4983",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ },
+ {
+  "ref": "Rev.18.20",
+  "pos_tisch": 1,
+  "strong": "G2165",
+  "forma": "εὐφραίνου",
+  "lema": "εὐφραίνω",
+  "glosa_interlineal": "alégrate",
+  "rango_semantico": [
+   "alegrarse, regocijarse"
+  ],
+  "construccion": "Imperativo presente medio: «alégrate sobre ella, cielo, y vosotros, santos, apóstoles y profetas; porque Dios os ha hecho justicia en ella».",
+  "sentido_en_contexto": "Contraste: mientras la tierra llora, el cielo se alegra. La alegría de los santos no es venganza, sino vindicación de la justicia de Dios (v.20, ἔκρινεν τὸ κρίμα ὑμῶν: «juzgó vuestra causa»). Respuesta a la petición de 6:10.",
+  "matiz": null,
+  "variantes_textuales": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jer 51:48",
+   "Dt 32:43",
+   "Ap 6:10; 19:1-2",
+   "Sal 58:10"
+  ],
+  "nivel_certeza": "alto",
+  "alineacion": "forma",
+  "tagnt": "Rev.18.20#01",
+  "ref_estandar": "Rev.18.20",
+  "morfologia_tagnt": "V-PPM-2S",
+  "dstrong": "G2165",
+  "strong_tagnt": "G2165",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ },
+ {
+  "ref": "Rev.18.21",
+  "pos_tisch": 8,
+  "strong": "G3458",
+  "forma": "μύλον",
+  "lema": "μύλος",
+  "glosa_interlineal": "piedra de molino",
+  "rango_semantico": [
+   "piedra de molino"
+  ],
+  "construccion": "Acusativo: «y un ángel poderoso tomó una piedra como una gran piedra de molino, y la arrojó en el mar, diciendo: Con el mismo ímpetu será derribada Babilonia, la gran ciudad, y nunca más será hallada».",
+  "sentido_en_contexto": "Acción simbólica (Jer 51:63-64): la piedra arrojada al mar significa la caída definitiva y sin retorno de Babilonia. «Nunca más será hallada» (vv.21-23: seis «nunca más»: música, artesanos, molino, lámpara, voz de novios). La ciudad desaparece sin vestigio de vida, y de la actividad cotidiana.",
+  "matiz": null,
+  "variantes_textuales": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Jer 51:63-64",
+   "Ez 26:21",
+   "Ap 18:22-23",
+   "Éx 15:5"
+  ],
+  "nivel_certeza": "alto",
+  "alineacion": "strong",
+  "tagnt": "Rev.18.21#08",
+  "ref_estandar": "Rev.18.21",
+  "morfologia_tagnt": "A-ASM",
+  "dstrong": "G6061",
+  "strong_tagnt": "G6061",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH"
+  ],
+  "ausente_en": [
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "variante": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ },
+ {
+  "ref": "Rev.18.23",
+  "pos_tisch": 33,
+  "strong": "G5331",
+  "forma": "φαρμακίᾳ",
+  "lema": "φαρμακεία",
+  "glosa_interlineal": "hechicería",
+  "rango_semantico": [
+   "hechicería, uso de drogas"
+  ],
+  "construccion": "Dativo: «y luz de lámpara no alumbrará más en ti, ni voz de esposo y de esposa se oirá más en ti; porque tus mercaderes eran los grandes de la tierra; por tus hechicerías fueron engañadas todas las naciones».",
+  "sentido_en_contexto": "φαρμακεία: hechicería y seducción por drogas y magia; en sentido figurado, el poder de seducción de Roma sobre las naciones. Aquí «hechicerías» se refiere al engaño de las naciones por la prosperidad y la idolatría. Cf. 9:21; 21:8; 22:15.",
+  "matiz": null,
+  "variantes_textuales": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Is 47:9-12",
+   "Nah 3:4",
+   "Ap 9:21; 21:8; 22:15",
+   "Jer 25:10"
+  ],
+  "nivel_certeza": "alto",
+  "alineacion": "strong",
+  "tagnt": "Rev.18.23#33",
+  "ref_estandar": "Rev.18.23",
+  "morfologia_tagnt": "N-DSF",
+  "dstrong": "G5331",
+  "strong_tagnt": "G5331",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ },
+ {
+  "ref": "Rev.18.24",
+  "pos_tisch": 4,
+  "strong": "G129",
+  "forma": "αἷμα",
+  "lema": "αἷμα",
+  "glosa_interlineal": "sangre",
+  "rango_semantico": [
+   "sangre"
+  ],
+  "construccion": "Nominativo: «y en ella se halló la sangre de los profetas y de los santos, y de todos los que han sido muertos en la tierra».",
+  "sentido_en_contexto": "Cierre del cap. 18: Babilonia es responsable de toda la sangre inocente («de todos los que han sido muertos en la tierra»), como Jerusalén en Mt 23:35. La ciudad representa el sistema de violencia y opresión de la historia. Motiva el Aleluya del cap. 19.",
+  "matiz": null,
+  "variantes_textuales": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 23:35",
+   "Ap 6:9-10; 16:6; 17:6",
+   "Jer 51:49"
+  ],
+  "nivel_certeza": "alto",
+  "alineacion": "forma",
+  "tagnt": "Rev.18.24#04",
+  "ref_estandar": "Rev.18.24",
+  "morfologia_tagnt": "N-NSN",
+  "dstrong": "G0129G",
+  "strong_tagnt": "G129",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg"
+  ],
+  "ausente_en": [
+   "TR",
+   "Byz"
+  ],
+  "variante": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ }
+]

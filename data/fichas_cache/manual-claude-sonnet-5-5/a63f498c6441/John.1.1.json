@@ -1,0 +1,323 @@
+{
+ "ref": "John.1.1",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:46:51-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G1722",
+   "glosa_interlineal": "en",
+   "rango_semantico": [
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
+   ],
+   "construccion": "Preposición con dativo (ἐν ἀρχῇ). Con un sustantivo de tiempo marca el momento en que algo ocurre.",
+   "sentido_en_contexto": "Fija el punto de partida absoluto: cuando todo comenzó, el Verbo ya era. Es eco deliberado de ἐν ἀρχῇ al inicio de Génesis en la versión griega.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Gn 1:1 (LXX) — mismo giro al abrir la creación",
+    "Hch 17:28 — ἐν con dativo para la esfera en que se vive",
+    "Mt 2:1 — ἐν con dativo de tiempo (en los días de Herodes)"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G746",
+   "glosa_interlineal": "principio",
+   "rango_semantico": [
+    "principio, comienzo",
+    "primer lugar, origen",
+    "autoridad, gobierno"
+   ],
+   "construccion": "Dativo singular femenino, regido por ἐν. Sin artículo, funciona casi como un nombre propio de un momento.",
+   "sentido_en_contexto": "No es un comienzo dentro del tiempo sino el origen de todo lo creado; el verbo ἦν (imperfecto) dice que el Verbo ya existía entonces.",
+   "matiz": "Sin artículo igual que en Gn 1:1; con ἀπ᾽ ἀρχῆς (1 Jn 1:1) el acento cambia a «desde el comienzo de la revelación».",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Mc 1:1 — ἀρχή como inicio del evangelio",
+    "Col 1:18 — Cristo como ἀρχή (origen, primero)",
+    "Lc 12:11 — ἀρχαί como autoridades"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G1510",
+   "glosa_interlineal": "era",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Imperfecto indicativo de εἰμί, 3.ª singular. El imperfecto de «ser» expresa estado continuo sin comienzo marcado.",
+   "sentido_en_contexto": "Afirma que el Verbo ya existía en el principio. No dice que fue hecho ni que comenzó; contrasta con ἐγένετο («llegó a ser») en 1:3 y 1:14.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 8:58 — presente εἰμί frente a γενέσθαι de Abrahán",
+    "Jn 1:3 — ἐγένετο para lo creado",
+    "Jn 1:14 — ἐγένετο para la encarnación"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular; determina a λόγος (sujeto).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G3056",
+   "glosa_interlineal": "Verbo / Palabra",
+   "rango_semantico": [
+    "palabra, expresión",
+    "razón, cuenta",
+    "mensaje, enseñanza",
+    "Palabra personal de Dios"
+   ],
+   "construccion": "Nominativo singular masculino con artículo; sujeto de ἦν. El artículo lo marca como sujeto frente al predicado θεός sin artículo (v. 1c).",
+   "sentido_en_contexto": "Primera aparición de ὁ λόγος en el Evangelio: aún no se dice quién es (se identificará en 1:14). Reúne ecos de la palabra con que Dios crea (Gn 1), de la Sabiduría personificada y del uso de «palabra» para la autocomunicación de Dios, sin que el texto indique cuál predomina.",
+   "matiz": "«Verbo» (del latín verbum) subraya la persona; «Palabra» conserva la idea de comunicación. Ninguno agota el término.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Gn 1:3 (LXX) — Dios crea hablando",
+    "Pr 8:22-31 — Sabiduría junto a Dios en el principio",
+    "Ap 19:13 — ὁ λόγος τοῦ θεοῦ aplicado a Cristo"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; añade la segunda afirmación sobre el Verbo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular; retoma ὁ λόγος como sujeto de la segunda cláusula.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G3056",
+   "glosa_interlineal": "Verbo / Palabra",
+   "rango_semantico": [
+    "palabra, expresión",
+    "razón, cuenta",
+    "mensaje, enseñanza",
+    "Palabra personal de Dios"
+   ],
+   "construccion": "Nominativo con artículo, sujeto de ἦν en la segunda cláusula.",
+   "sentido_en_contexto": "La repetición encadena las frases (principio → Verbo → Dios → Verbo) y reafirma el sujeto antes de decir dónde estaba: «con Dios».",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G1510",
+   "glosa_interlineal": "era",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Imperfecto de εἰμί, 3.ª singular, con complemento de relación (πρὸς τὸν θεόν).",
+   "sentido_en_contexto": "Repite que el Verbo existía, ahora en relación con Dios: de «ser» absoluto (v. 1a) a «estar con» (v. 1b).",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G4314",
+   "glosa_interlineal": "con / junto a",
+   "rango_semantico": [
+    "hacia (movimiento)",
+    "junto a, con",
+    "en relación con",
+    "contra",
+    "para"
+   ],
+   "construccion": "Preposición con acusativo (πρὸς τὸν θεόν). Con acusativo y verbo de estado no indica movimiento sino relación o compañía personal.",
+   "sentido_en_contexto": "Expresa una relación personal y distinta: el Verbo está orientado hacia Dios, cara a cara, sin identificarse con él en persona. Con ἐν («en Dios») se habría perdido esa distinción.",
+   "matiz": "Con verbo de estado, πρός más acusativo subraya relación activa, no simple cercanía física.",
+   "variantes_textuales": null,
+   "notas_traduccion": "El español «con» no recoge la orientación mutua de πρός; «junto a» o «cara a cara con» la sugieren mejor.",
+   "otros_usos": [
+    "1 Jn 1:2 — la vida eterna estaba πρὸς τὸν πατέρα",
+    "Mc 6:3 — las hermanas de Jesús están πρὸς ἡμᾶς (aquí, con nosotros)",
+    "Jn 1:2 — repite la afirmación"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo acusativo masculino singular; acompaña a θεόν, regido por πρός.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G2316",
+   "glosa_interlineal": "Dios",
+   "rango_semantico": [
+    "Dios (el único Dios)",
+    "dios, divinidad",
+    "ser divino"
+   ],
+   "construccion": "Acusativo singular masculino con artículo (τὸν θεόν), objeto de πρός. En el NT, ὁ θεός suele designar a Dios como persona definida, normalmente al Padre.",
+   "sentido_en_contexto": "Dios mismo, con quien está el Verbo. El artículo marca aquí identidad personal; en la cláusula siguiente θεός sin artículo se predica del Verbo, y la diferencia entre ambos usos es parte de lo que el pasaje afirma.",
+   "matiz": "Contraste con θεὸς ἦν (v. 1c): con artículo, el «Dios» a quien el Verbo se dirige; sin artículo, la categoría o naturaleza que se le atribuye. Esta regla no es absoluta: Juan usa θεός sin artículo para Dios en 1:6, 1:13 y 1:18.",
+   "variantes_textuales": null,
+   "notas_traduccion": "El español no puede marcar la diferencia artículo/sin artículo; se traduce «Dios» en ambos casos y el contraste se pierde.",
+   "otros_usos": [
+    "Jn 1:18 — θεὸν οὐδεὶς ἑώρακεν (sin artículo, referido a Dios)",
+    "Jn 17:3 — ὁ μόνος ἀληθινὸς θεός",
+    "1 Co 8:6 — εἷς θεὸς ὁ πατήρ"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; introduce la tercera afirmación, la más debatida.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G2316",
+   "glosa_interlineal": "Dios / divino",
+   "rango_semantico": [
+    "Dios",
+    "dios, deidad",
+    "de naturaleza divina"
+   ],
+   "construccion": "Nominativo singular masculino sin artículo; predicado nominal de ἦν, colocado antes del verbo y del sujeto (θεὸς ἦν ὁ λόγος). El predicado antepuesto y sin artículo es enfático y suele ser cualitativo o categorial; por sí solo no decide entre las lecturas posibles.",
+   "sentido_en_contexto": "Atribuye al Verbo la condición de θεός sin identificarlo con ὁ θεός de la cláusula anterior. Se leen tres cosas: (1) identidad o predicado definido: «el Verbo era Dios» (se apoya en que un predicado definido antepuesto suele omitir el artículo, regla de Colwell); (2) predicado cualitativo: el Verbo tenía la naturaleza o condición de Dios, «era divino» en sentido pleno; (3) predicado indefinido: «era un dios», que defienden algunos traductores por la falta de artículo y que otros rechazan por el contexto monoteísta del Evangelio. Cada posición se apoya en la gramática y en la teología de Juan en conjunto (1:18; 20:28), no solo en el artículo.",
+   "matiz": "Ningún orden de palabras ni artículo resuelve la cuestión por sí solo. El artículo de ὁ λόγος sí marca cuál es el sujeto y cuál el predicado, de modo que la frase no es reversible («Dios era el Verbo»).",
+   "variantes_textuales": null,
+   "notas_traduccion": "El español «Dios» no distingue 1b de 1c. «Divino» y «un dios» son opciones de traducción que ya toman partido por (2) o (3).",
+   "otros_usos": [
+    "Jn 1:6 — παρὰ θεοῦ, θεός sin artículo referido a Dios",
+    "Jn 1:18 — θεὸν οὐδεὶς ἑώρακεν, sin artículo y referido a Dios",
+    "Jn 20:28 — ὁ θεός μου dicho a Jesús"
+   ],
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G1510",
+   "glosa_interlineal": "era",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Imperfecto de εἰμί, 3.ª singular; verbo copulativo entre el predicado θεός y el sujeto ὁ λόγος.",
+   "sentido_en_contexto": "Tercera repetición con valor distinto: existir (1a), estar con (1b), ser (1c). Cada cláusula añade algo que la anterior no decía.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular; marca ὁ λόγος como sujeto.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G3056",
+   "glosa_interlineal": "Verbo / Palabra",
+   "rango_semantico": [
+    "palabra, expresión",
+    "razón, cuenta",
+    "mensaje, enseñanza",
+    "Palabra personal de Dios"
+   ],
+   "construccion": "Nominativo con artículo, sujeto de ἦν; el artículo lo distingue del predicado sin artículo θεός.",
+   "sentido_en_contexto": "Cierra el círculo del versículo: el sujeto es el Verbo, y de él se ha dicho que existía, que estaba con Dios y que era θεός.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}

@@ -1,0 +1,559 @@
+{
+ "ref": "John.1.33",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:59:21-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G2504",
+   "glosa_interlineal": "y yo",
+   "rango_semantico": [
+    "yo",
+    "y yo (crasis)"
+   ],
+   "construccion": "Crasis de καὶ ἐγώ (κἀγώ), nominativo de primera persona singular.",
+   "sentido_en_contexto": "Repite el «tampoco yo le conocía» del v. 31; el conocimiento de Jesús vino por revelación.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G3756",
+   "glosa_interlineal": "no",
+   "rango_semantico": [
+    "no, ni",
+    "nada"
+   ],
+   "construccion": "Negación objetiva (οὐκ).",
+   "sentido_en_contexto": "Niega el conocimiento previo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G1492",
+   "glosa_interlineal": "conocía",
+   "rango_semantico": [
+    "saber, conocer",
+    "entender",
+    "reconocer"
+   ],
+   "construccion": "Pluscuamperfecto de οἶδα (ᾔδειν), 1.ª singular, con sentido de imperfecto.",
+   "sentido_en_contexto": "No sabía quién era hasta recibir la señal prometida.",
+   "matiz": "El texto no dice que no lo hubiera visto antes, sino que no lo reconocía como Mesías.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G846",
+   "glosa_interlineal": "le",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal acusativo masculino singular, objeto de ᾔδειν.",
+   "sentido_en_contexto": "Se refiere a Jesús.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G235",
+   "glosa_interlineal": "sino",
+   "rango_semantico": [
+    "pero",
+    "sino",
+    "sin embargo"
+   ],
+   "construccion": "Conjunción adversativa (ἀλλά, elidida) tras la negación.",
+   "sentido_en_contexto": "Corrige: no le conocía, pero el que me envió me lo indicó.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular; sustantiva al participio πέμψας.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G3992",
+   "glosa_interlineal": "que envió",
+   "rango_semantico": [
+    "enviar, mandar",
+    "despachar",
+    "enviar con un encargo"
+   ],
+   "construccion": "Participio aoristo activo de πέμπω, nominativo masculino singular con artículo: «el que me envió».",
+   "sentido_en_contexto": "Dios mismo es quien envió a Juan; la fuente de su autoridad es el envío divino.",
+   "matiz": "πέμπω es verbo frecuente en Juan para el envío del Hijo por el Padre.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:6 — Juan enviado por Dios",
+    "Jn 4:34 — hacer la voluntad del que me envió",
+    "Jn 5:23 — el Padre que me envió"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G1473",
+   "glosa_interlineal": "me",
+   "rango_semantico": [
+    "yo",
+    "mí"
+   ],
+   "construccion": "Pronombre personal acusativo de primera persona singular, objeto de πέμψας.",
+   "sentido_en_contexto": "Es Juan, el enviado.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G907",
+   "glosa_interlineal": "bautizar",
+   "rango_semantico": [
+    "bautizar",
+    "sumergir",
+    "lavar"
+   ],
+   "construccion": "Infinitivo presente activo de βαπτίζω, de propósito: «para bautizar».",
+   "sentido_en_contexto": "Su misión se define como bautizar en agua, es decir, como una tarea preparatoria.",
+   "matiz": "El infinitivo presente expresa propósito de una actividad continuada.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G1722",
+   "glosa_interlineal": "en",
+   "rango_semantico": [
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
+   ],
+   "construccion": "Preposición con dativo (ἐν ὕδατι): medio, «en agua».",
+   "sentido_en_contexto": "Su bautismo es en agua.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G5204",
+   "glosa_interlineal": "agua",
+   "rango_semantico": [
+    "agua"
+   ],
+   "construccion": "Dativo neutro singular, regido por ἐν.",
+   "sentido_en_contexto": "El elemento del bautismo de Juan.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G1565",
+   "glosa_interlineal": "aquél",
+   "rango_semantico": [
+    "aquel, ese",
+    "él (enfático)"
+   ],
+   "construccion": "Pronombre demostrativo nominativo masculino singular, sujeto enfático de εἶπεν.",
+   "sentido_en_contexto": "Señala a quien envió: «él me dijo».",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G1473",
+   "glosa_interlineal": "me",
+   "rango_semantico": [
+    "yo",
+    "mí"
+   ],
+   "construccion": "Pronombre personal dativo de primera persona singular, complemento de εἶπεν.",
+   "sentido_en_contexto": "Es Juan, destinatario del anuncio.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G3004",
+   "glosa_interlineal": "dijo",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Aoristo 2.º indicativo activo de λέγω (εἶπεν), 3.ª singular.",
+   "sentido_en_contexto": "La comunicación de Dios a Juan: él recibió una señal anticipada.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G1909",
+   "glosa_interlineal": "sobre",
+   "rango_semantico": [
+    "sobre, encima de",
+    "a, hacia",
+    "contra",
+    "(con acusativo) en dirección a"
+   ],
+   "construccion": "Preposición con acusativo (ἐφ᾽ ὅν): dirección y reposo, «sobre quien».",
+   "sentido_en_contexto": "Introduce la señal: el Espíritu sobre aquel.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G3739",
+   "glosa_interlineal": "quien",
+   "rango_semantico": [
+    "que, el que, lo que",
+    "quien"
+   ],
+   "construccion": "Pronombre relativo acusativo masculino singular, regido por ἐπί.",
+   "sentido_en_contexto": "Introduce la identidad del Mesías por una señal.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G302",
+   "glosa_interlineal": "(quiera)",
+   "rango_semantico": [
+    "si, siempre que (con subjuntivo)",
+    "(partícula modal)"
+   ],
+   "construccion": "Partícula modal (ἄν) que da carácter eventual a la oración relativa: «sobre quien veas».",
+   "sentido_en_contexto": "Hace de la señal una regla general: aquel sobre quien veas esto será el que bautiza en Espíritu.",
+   "matiz": "ἄν con subjuntivo en relativas expresa eventualidad: «quienquiera que».",
+   "variantes_textuales": null,
+   "notas_traduccion": "No tiene equivalente léxico en español; se expresa con modo subjuntivo y «quien».",
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 18,
+   "strong": "G3708",
+   "glosa_interlineal": "veas",
+   "rango_semantico": [
+    "ver, mirar",
+    "percibir",
+    "experimentar"
+   ],
+   "construccion": "Aoristo 2.º subjuntivo activo de ὁράω (ἴδῃς), 2.ª singular, tras ἄν.",
+   "sentido_en_contexto": "La señal que Juan debía ver.",
+   "matiz": "ἴδῃς es el aoristo de ὁράω: una visión puntual.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 19,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo acusativo neutro singular; concuerda con πνεῦμα.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 20,
+   "strong": "G4151",
+   "glosa_interlineal": "Espíritu",
+   "rango_semantico": [
+    "espíritu",
+    "aliento, soplo",
+    "Espíritu (de Dios)",
+    "viento"
+   ],
+   "construccion": "Acusativo neutro singular, objeto de ἴδῃς.",
+   "sentido_en_contexto": "La señal prometida: el Espíritu de Dios.",
+   "matiz": "Véase 1:32: el contexto exige el Espíritu de Dios.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 21,
+   "strong": "G2597",
+   "glosa_interlineal": "que desciende",
+   "rango_semantico": [
+    "descender, bajar",
+    "caer",
+    "ir hacia abajo"
+   ],
+   "construccion": "Participio presente activo de καταβαῖνον, acusativo neutro singular, predicativo.",
+   "sentido_en_contexto": "Acción del Espíritu: descender sobre alguien.",
+   "matiz": "Repite la imagen de 1:32.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 22,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; añade la segunda parte de la señal.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 23,
+   "strong": "G3306",
+   "glosa_interlineal": "que permanece",
+   "rango_semantico": [
+    "permanecer, quedarse",
+    "habitar",
+    "durar"
+   ],
+   "construccion": "Participio presente activo de μένω, acusativo neutro singular, predicativo.",
+   "sentido_en_contexto": "El Espíritu descendiendo y permaneciendo: la permanencia distingue a Jesús de quienes recibían el Espíritu de forma pasajera.",
+   "matiz": "La permanencia es lo característico: en el Antiguo Testamento el Espíritu venía sobre los profetas de modo temporal.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:32 — permaneció sobre él",
+    "Is 11:2 — reposará sobre él",
+    "Jn 14:17 — el Espíritu permanece con vosotros"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 24,
+   "strong": "G1909",
+   "glosa_interlineal": "sobre",
+   "rango_semantico": [
+    "sobre, encima de",
+    "a, hacia",
+    "contra",
+    "(con acusativo) en dirección a"
+   ],
+   "construccion": "Preposición con acusativo (ἐπ᾽ αὐτόν).",
+   "sentido_en_contexto": "Reposo del Espíritu sobre Jesús.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 25,
+   "strong": "G846",
+   "glosa_interlineal": "él",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal acusativo masculino singular, regido por ἐπί.",
+   "sentido_en_contexto": "Se refiere a aquel sobre quien se vea la señal.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 26,
+   "strong": "G3778",
+   "glosa_interlineal": "éste",
+   "rango_semantico": [
+    "este, esta, esto",
+    "él, ella (con fuerza demostrativa)"
+   ],
+   "construccion": "Pronombre demostrativo nominativo masculino singular, sujeto de ἐστιν.",
+   "sentido_en_contexto": "Identifica a Jesús mediante la señal.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 27,
+   "strong": "G1510",
+   "glosa_interlineal": "es",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Presente indicativo de εἰμί, 3.ª singular, copulativo.",
+   "sentido_en_contexto": "Presente de identificación.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 28,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular; sustantiva al participio βαπτίζων.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 29,
+   "strong": "G907",
+   "glosa_interlineal": "que bautiza",
+   "rango_semantico": [
+    "bautizar",
+    "sumergir",
+    "lavar"
+   ],
+   "construccion": "Participio presente activo de βαπτίζω, nominativo masculino singular, sustantivado: «el que bautiza».",
+   "sentido_en_contexto": "Título del Mesías en este pasaje: el que bautiza en Espíritu Santo; contrasta con Juan, que bautiza en agua.",
+   "matiz": "Es el contraste central del versículo: agua frente a Espíritu.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Mt 3:11 — él os bautizará con el Espíritu Santo",
+    "Hch 1:5 — seréis bautizados con el Espíritu Santo",
+    "Hch 11:16 — recordé la palabra del Señor"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 30,
+   "strong": "G1722",
+   "glosa_interlineal": "en",
+   "rango_semantico": [
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
+   ],
+   "construccion": "Preposición con dativo (ἐν πνεύματι ἁγίῳ): medio o elemento, «en».",
+   "sentido_en_contexto": "El elemento del bautismo de Jesús: el Espíritu Santo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 31,
+   "strong": "G4151",
+   "glosa_interlineal": "Espíritu",
+   "rango_semantico": [
+    "espíritu",
+    "aliento, soplo",
+    "Espíritu (de Dios)",
+    "viento"
+   ],
+   "construccion": "Dativo neutro singular, regido por ἐν.",
+   "sentido_en_contexto": "El Espíritu de Dios como elemento del bautismo mesiánico.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 32,
+   "strong": "G40",
+   "glosa_interlineal": "Santo",
+   "rango_semantico": [
+    "santo, sagrado",
+    "apartado para Dios",
+    "(sustantivo) santo"
+   ],
+   "construccion": "Adjetivo dativo neutro singular, concuerda con πνεύματι: «Espíritu Santo».",
+   "sentido_en_contexto": "Califica al Espíritu: es el santo, el que pertenece a Dios.",
+   "matiz": "ἅγιος es «apartado para Dios»: la santidad es separación para Dios.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 14:26 — el Espíritu Santo que el Padre enviará",
+    "Jn 20:22 — recibid el Espíritu Santo",
+    "Hch 2:4 — fueron llenos del Espíritu Santo"
+   ],
+   "nivel_certeza": "alto"
+  }
+ ]
+}

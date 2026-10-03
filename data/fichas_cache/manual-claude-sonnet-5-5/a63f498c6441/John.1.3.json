@@ -1,0 +1,231 @@
+{
+ "ref": "John.1.3",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:46:51-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G3956",
+   "glosa_interlineal": "todas las cosas",
+   "rango_semantico": [
+    "todo, cada",
+    "todos",
+    "cualquier"
+   ],
+   "construccion": "Adjetivo plural neutro sustantivado, nominativo, sujeto de ἐγένετο. Sin artículo y sin sustantivo, «todo» tomado en conjunto.",
+   "sentido_en_contexto": "Designa la totalidad de lo creado; la segunda mitad del versículo lo refuerza negando que haya excepciones.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Col 1:16 — todas las cosas creadas en él",
+    "Heb 1:2 — por medio del Hijo hizo el universo",
+    "1 Co 8:6 — todo por medio de un solo Señor"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G1223",
+   "glosa_interlineal": "por medio de",
+   "rango_semantico": [
+    "a través de, por",
+    "por medio de (agente intermediario)",
+    "durante",
+    "a causa de"
+   ],
+   "construccion": "Preposición con genitivo (διὰ + αὐτοῦ). Con genitivo indica agente intermediario, no causa última. El apóstrofo marca la elisión de διά ante vocal.",
+   "sentido_en_contexto": "Presenta al Verbo como el medio por el cual todo fue hecho; el origen último sigue siendo Dios (1:1b). No dice que él sea el único agente, sino el intermediario.",
+   "matiz": "Con acusativo διά significaría «a causa de»; la diferencia es importante y aquí el genitivo es claro.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "1 Co 8:6 — todo existe por medio de Jesucristo",
+    "Col 1:16 — todo fue creado por medio de él y para él",
+    "Rm 11:36 — todas las cosas proceden de Dios, son por él y para él"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G846",
+   "glosa_interlineal": "él / ello",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal genitivo masculino singular, regido por διά.",
+   "sentido_en_contexto": "Se refiere a ὁ λόγος de 1:1-2; es lo que une el prólogo, repetido luego en χωρὶς αὐτοῦ.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G1096",
+   "glosa_interlineal": "fue hecho / llegó a ser",
+   "rango_semantico": [
+    "llegar a ser, ser hecho",
+    "ocurrir, suceder",
+    "nacer, aparecer"
+   ],
+   "construccion": "Aoristo indicativo de γίνομαι (2.º aoristo deponente), 3.ª singular. El sujeto neutro plural πάντα lleva el verbo en singular, regla habitual del griego.",
+   "sentido_en_contexto": "El aoristo contempla la creación como hecho puntual y completo. Contrasta con ἦν (1:1): lo creado «llegó a ser», el Verbo «era».",
+   "matiz": "El aoristo en singular no equivale a un solo acto: es la forma natural con sujeto neutro plural.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Gn 1:3 (LXX) — γενηθήτω φῶς",
+    "Jn 1:14 — ἐγένετο para la encarnación",
+    "Col 1:16 — creación por medio de él"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; añade la afirmación negativa que refuerza la anterior.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G5565",
+   "glosa_interlineal": "sin",
+   "rango_semantico": [
+    "sin, aparte de, fuera de",
+    "separado de"
+   ],
+   "construccion": "Adverbio impropio que rige genitivo (χωρὶς αὐτοῦ). Equivale a una preposición.",
+   "sentido_en_contexto": "Refuerza la afirmación positiva con su negación: no hay ninguna cosa hecha al margen del Verbo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 15:5 — sin mí no podéis hacer nada",
+    "Heb 11:6 — sin fe es imposible agradar a Dios",
+    "Ef 2:12 — sin Cristo"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G846",
+   "glosa_interlineal": "él / ello",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal genitivo masculino singular, regido por χωρίς.",
+   "sentido_en_contexto": "Mismo referente que el αὐτοῦ anterior: el Verbo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G1096",
+   "glosa_interlineal": "fue hecho / llegó a ser",
+   "rango_semantico": [
+    "llegar a ser, ser hecho",
+    "ocurrir, suceder",
+    "nacer, aparecer"
+   ],
+   "construccion": "Aoristo indicativo de γίνομαι, 3.ª singular, con sujeto οὐδὲ ἕν.",
+   "sentido_en_contexto": "Repite el verbo de la primera mitad para negar toda excepción: nada llegó a ser sin él.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G3761",
+   "glosa_interlineal": "ni (siquiera)",
+   "rango_semantico": [
+    "ni, ni siquiera",
+    "tampoco",
+    "y no"
+   ],
+   "construccion": "Conjunción negativa (οὐδέ) que aquí refuerza la negación: «ni una sola cosa».",
+   "sentido_en_contexto": "Intensifica: no solo no se hizo la mayor parte sin él; ni una sola cosa.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G1520",
+   "glosa_interlineal": "una cosa",
+   "rango_semantico": [
+    "uno",
+    "uno solo, único",
+    "el mismo"
+   ],
+   "construccion": "Adjetivo numeral neutro nominativo, sujeto de ἐγένετο. En οὐδὲ ἕν el neutro significa «ni una sola cosa».",
+   "sentido_en_contexto": "Cierra el alcance de πάντα: sin excepciones.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G3739",
+   "glosa_interlineal": "lo que",
+   "rango_semantico": [
+    "que, el que, lo que",
+    "quien"
+   ],
+   "construccion": "Pronombre relativo neutro singular, nominativo; sujeto de γέγονεν. Su antecedente es οὐδὲ ἕν, o bien introduce una oración nueva (véase γέγονεν).",
+   "sentido_en_contexto": "Introduce la frase final del versículo. Si se une a lo anterior, precisa el alcance («nada de lo que existe»); si se une al v. 4, el relativo abre la oración siguiente.",
+   "matiz": "La puntuación de este versículo decide la lectura (véase γέγονεν); el texto antiguo no tenía signos de puntuación.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G1096",
+   "glosa_interlineal": "ha sido hecho / existe",
+   "rango_semantico": [
+    "llegar a ser, ser hecho",
+    "ocurrir, suceder",
+    "existir"
+   ],
+   "construccion": "Perfecto indicativo de γίνομαι, 3.ª singular. El perfecto expresa un estado resultante: lo que ha llegado a ser y sigue existiendo.",
+   "sentido_en_contexto": "Tisch y el TAGNT cierran aquí el v. 3, de modo que ὃ γέγονεν califica a οὐδὲ ἕν: «nada de lo que ha llegado a existir llegó a existir sin él». Existe otra puntuación antigua que pone un punto tras οὐδὲ ἕν y une ὃ γέγονεν con el v. 4: «lo que ha llegado a ser, en él era vida». La diferencia afecta el sentido del v. 4 y se discutió ya en los padres de la Iglesia; los manuscritos más antiguos no tienen puntuación y las ediciones modernas no coinciden entre sí.",
+   "matiz": "El perfecto (estado presente de lo creado) frente a ἐγένετο (acto puntual) matiza la lectura: lo hecho sigue subsistiendo en él si se une al v. 4.",
+   "variantes_textuales": null,
+   "notas_traduccion": "El módulo Tischendorf pone el límite del versículo aquí y no marca ningún punto tras ἕν. En el griego sin puntuación del texto original ambas lecturas son posibles; aquí no se toma partido.",
+   "otros_usos": [
+    "Col 1:17 — todo subsiste en él",
+    "Heb 1:3 — sostiene todas las cosas con su palabra",
+    "Jn 1:4 — vida en él"
+   ],
+   "nivel_certeza": "medio"
+  }
+ ]
+}

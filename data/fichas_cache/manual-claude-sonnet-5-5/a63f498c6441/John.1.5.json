@@ -1,0 +1,243 @@
+{
+ "ref": "John.1.5",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:46:54-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; enlaza con la luz del v. 4 y abre una nueva afirmación.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo neutro singular; acompaña a φῶς.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G5457",
+   "glosa_interlineal": "luz",
+   "rango_semantico": [
+    "luz",
+    "claridad",
+    "lo que ilumina, revelación"
+   ],
+   "construccion": "Nominativo singular neutro con artículo, sujeto de φαίνει.",
+   "sentido_en_contexto": "Retoma τὸ φῶς del v. 4 como sujeto; ahora se habla de su acción en medio de la oscuridad.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G1722",
+   "glosa_interlineal": "en",
+   "rango_semantico": [
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
+   ],
+   "construccion": "Preposición con dativo (ἐν τῇ σκοτίᾳ).",
+   "sentido_en_contexto": "Sitúa la luz dentro de la oscuridad, no fuera de ella: brilla donde hay tinieblas.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 12:35 — caminar mientras hay luz, para que no os sorprendan las tinieblas",
+    "1 Jn 2:8-9 — la luz verdadera ya brilla",
+    "Ef 5:8 — antes tinieblas, ahora luz en el Señor"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo dativo femenino singular; concuerda con σκοτίᾳ.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G4653",
+   "glosa_interlineal": "oscuridad",
+   "rango_semantico": [
+    "oscuridad, tinieblas",
+    "ignorancia moral",
+    "el reino del mal"
+   ],
+   "construccion": "Dativo singular femenino con artículo, regido por ἐν.",
+   "sentido_en_contexto": "Imagen del mundo opuesto a Dios, no solo de la ignorancia; es el ámbito en el que la luz brilla y que no la vence.",
+   "matiz": "En Juan «tinieblas» no es una realidad neutra sino un poder opuesto a la luz.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 8:12 — el que me sigue no andará en tinieblas",
+    "Jn 12:46 — nadie que crea en él permanece en tinieblas",
+    "1 Jn 2:8 — las tinieblas pasan y la luz verdadera ya alumbra"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G5316",
+   "glosa_interlineal": "brilla",
+   "rango_semantico": [
+    "brillar, alumbrar",
+    "aparecer, hacerse visible",
+    "mostrarse"
+   ],
+   "construccion": "Presente indicativo activo de φαίνω, 3.ª singular.",
+   "sentido_en_contexto": "El presente describe una acción continua que se mantiene: la luz sigue brillando. No es un resplandor pasado.",
+   "matiz": "El presente contrasta con los pretéritos de la segunda parte (κατέλαβεν): la luz brilla ahora, la oscuridad no la alcanzó.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 5:35 — Juan era lámpara que ardía y alumbraba",
+    "Ap 1:16 — el rostro como el sol cuando brilla",
+    "2 Pe 1:19 — como lámpara que alumbra en lugar oscuro"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; añade la segunda parte del versículo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo femenino singular; concuerda con σκοτία.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G4653",
+   "glosa_interlineal": "oscuridad",
+   "rango_semantico": [
+    "oscuridad, tinieblas",
+    "ignorancia moral",
+    "el reino del mal"
+   ],
+   "construccion": "Nominativo singular femenino con artículo, sujeto de κατέλαβεν.",
+   "sentido_en_contexto": "Ahora la oscuridad es sujeto activo: es lo que no pudo vencer o comprender la luz.",
+   "matiz": "La oscuridad de la segunda frase actúa contra la luz de la primera; el pasaje no la presenta como mero vacío.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 12:35 — que no os alcancen las tinieblas",
+    "1 Ts 5:4 — el día no os sorprenderá como ladrón",
+    "Jn 1:10 — el mundo no le conoció"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G846",
+   "glosa_interlineal": "la",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal acusativo neutro singular; objeto de κατέλαβεν. Su antecedente es τὸ φῶς.",
+   "sentido_en_contexto": "Se refiere a la luz; es el objeto que la oscuridad no alcanzó.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G3756",
+   "glosa_interlineal": "no",
+   "rango_semantico": [
+    "no, ni",
+    "nada"
+   ],
+   "construccion": "Partícula de negación objetiva (οὐ), con el verbo en indicativo.",
+   "sentido_en_contexto": "Niega un hecho: la oscuridad realmente no pudo con la luz.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G2638",
+   "glosa_interlineal": "alcanzó / comprendió",
+   "rango_semantico": [
+    "alcanzar, sorprender, dominar",
+    "apoderarse de",
+    "comprender, captar"
+   ],
+   "construccion": "Aoristo indicativo activo de καταλαμβάνω, 3.ª singular. El aoristo mira el hecho como un todo.",
+   "sentido_en_contexto": "El verbo admite dos sentidos reales: «vencer, dominar» (la oscuridad no pudo apagar la luz) y «comprender» (no la entendió). El contexto no excluye ninguno; Juan juega con la ambigüedad en otros pasajes.",
+   "matiz": "«Alcanzar» y «comprender» son traducciones de dos sentidos distintos; el griego usa la misma palabra para ambos y los dos son legítimos aquí.",
+   "variantes_textuales": null,
+   "notas_traduccion": "Las traducciones se reparten entre «vencer/prevalecer» y «comprender/recibir». No se toma partido.",
+   "otros_usos": [
+    "Jn 12:35 — que no os alcancen las tinieblas",
+    "Mc 9:18 — el espíritu lo sorprende, lo agarra",
+    "Ef 3:18 — comprender con todos los santos"
+   ],
+   "nivel_certeza": "medio"
+  }
+ ]
+}

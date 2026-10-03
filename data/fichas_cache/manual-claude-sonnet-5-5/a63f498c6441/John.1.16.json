@@ -1,0 +1,221 @@
+{
+ "ref": "John.1.16",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:52:19-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G3754",
+   "glosa_interlineal": "porque / pues",
+   "rango_semantico": [
+    "que (contenido)",
+    "porque",
+    "puesto que"
+   ],
+   "construccion": "Conjunción (ὅτι) con valor causal o explicativo al comienzo del versículo; la lectura de Tisch.",
+   "sentido_en_contexto": "Enlaza con el v. 14: la razón de que el Verbo esté lleno de gracia es que de su plenitud todos hemos recibido.",
+   "matiz": "TR y Byz leen καί en lugar de ὅτι y dejan la frase como coordinada, no explicativa; el sentido cambia poco.",
+   "variantes_textuales": "Ausente en TR y Byz (que comienzan con καί). Presente en NA28, NA27, Tyn, SBL, WH y Treg.",
+   "notas_traduccion": "Con ὅτι se explica; con καί se añade.",
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G1537",
+   "glosa_interlineal": "de",
+   "rango_semantico": [
+    "de, desde (origen)",
+    "fuera de",
+    "a partir de"
+   ],
+   "construccion": "Preposición con genitivo (ἐκ τοῦ πληρώματος): origen o fuente.",
+   "sentido_en_contexto": "La plenitud del Verbo es la fuente de todo lo que se ha recibido.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Col 1:19 — en él habita toda la plenitud",
+    "Ef 3:19 — ser llenos de toda la plenitud de Dios",
+    "Jn 3:34 — Dios no da el Espíritu con medida"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo genitivo neutro singular; concuerda con πληρώματος.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G4138",
+   "glosa_interlineal": "plenitud",
+   "rango_semantico": [
+    "plenitud",
+    "totalidad",
+    "lo que llena"
+   ],
+   "construccion": "Genitivo neutro singular, regido por ἐκ. Es el «todo lleno» del Verbo (v. 14, πλήρης).",
+   "sentido_en_contexto": "Lo que se ha recibido no es una parte, sino que fluye de una plenitud inagotable.",
+   "matiz": "πλήρωμα es en Pablo un término técnico para la totalidad de Dios en Cristo (Col 1:19; 2:9); en Juan solo aparece aquí.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Col 1:19 — en él quiso habitar toda la plenitud",
+    "Col 2:9 — en él habita corporalmente la plenitud de la deidad",
+    "Ef 1:23 — la plenitud del que lo llena todo"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G846",
+   "glosa_interlineal": "suya",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal genitivo masculino singular, complemento de πληρώματος.",
+   "sentido_en_contexto": "La plenitud del Verbo hecho carne.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G2249",
+   "glosa_interlineal": "nosotros",
+   "rango_semantico": [
+    "yo",
+    "nosotros"
+   ],
+   "construccion": "Pronombre personal nominativo de primera persona plural, sujeto enfático de ἐλάβομεν.",
+   "sentido_en_contexto": "El «nosotros» ahora incluye a todos los creyentes, no solo a los testigos oculares del v. 14.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G3956",
+   "glosa_interlineal": "todos",
+   "rango_semantico": [
+    "todo, cada",
+    "todos",
+    "cualquier"
+   ],
+   "construccion": "Adjetivo nominativo masculino plural, en aposición a ἡμεῖς.",
+   "sentido_en_contexto": "Insiste en que nadie queda al margen de lo recibido: la comunidad entera.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G2983",
+   "glosa_interlineal": "recibimos",
+   "rango_semantico": [
+    "tomar, recibir",
+    "aceptar",
+    "conseguir"
+   ],
+   "construccion": "Aoristo indicativo activo de λαμβάνω, 1.ª plural.",
+   "sentido_en_contexto": "Se recibió; no se dice qué (lo dice el objeto χάριν); enfatiza la receptividad frente a toda autosuficiencia.",
+   "matiz": "El aoristo mira la recepción como hecho de la experiencia cristiana en conjunto.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; añade el objeto de lo recibido.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G5485",
+   "glosa_interlineal": "gracia",
+   "rango_semantico": [
+    "gracia, favor inmerecido",
+    "bondad",
+    "agradecimiento"
+   ],
+   "construccion": "Acusativo femenino singular, objeto de ἐλάβομεν.",
+   "sentido_en_contexto": "Lo recibido es gracia, don gratuito.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G473",
+   "glosa_interlineal": "en lugar de / sobre",
+   "rango_semantico": [
+    "en vez de, en lugar de",
+    "a cambio de",
+    "(en correspondencia con)"
+   ],
+   "construccion": "Preposición con genitivo (ἀντὶ χάριτος): sustitución o correspondencia. Se discuten tres lecturas: gracia tras gracia (acumulación), gracia en lugar de gracia (la nueva reemplaza a la antigua) y gracia correspondiente a la gracia (el don responde al don).",
+   "sentido_en_contexto": "El sentido más extendido es «gracia sobre gracia», una gracia que sucede a otra sin agotarse; las otras opciones son posibles según se lea el contraste con la ley en el v. 17.",
+   "matiz": "«Gracia sobre gracia», «gracia tras gracia» y «gracia en vez de gracia» traducen el mismo ἀντί con tres matices.",
+   "variantes_textuales": null,
+   "notas_traduccion": "El contexto del v. 17 (ley dada por Moisés; la gracia por Jesucristo) favorece un cierto contraste; no es seguro.",
+   "otros_usos": [
+    "Mt 5:38 — ojo por ojo (ἀντί de correspondencia)",
+    "Lc 11:11 — ¿una serpiente en lugar de un pez?",
+    "Heb 12:16 — Esaú vendió su primogenitura por una comida"
+   ],
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G5485",
+   "glosa_interlineal": "gracia",
+   "rango_semantico": [
+    "gracia, favor inmerecido",
+    "bondad",
+    "agradecimiento"
+   ],
+   "construccion": "Genitivo femenino singular, regido por ἀντί.",
+   "sentido_en_contexto": "La gracia que se da en lugar de, o sobre, otra gracia.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}

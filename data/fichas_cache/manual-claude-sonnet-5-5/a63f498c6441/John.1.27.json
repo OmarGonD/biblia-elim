@@ -1,0 +1,271 @@
+{
+ "ref": "John.1.27",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:56:26-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular, sustantiva a ὀπίσω μου ἐρχόμενος. Tisch lo trae; WH no.",
+   "sentido_en_contexto": "Sustantiva toda la expresión: «el que viene detrás de mí».",
+   "matiz": "El artículo está ligado a la fórmula «el que viene detrás de mí», que se repite en 1:15.",
+   "variantes_textuales": "Ausente en WH. Presente en NA28, NA27, Tyn, SBL, Treg, TR y Byz.",
+   "notas_traduccion": "La ausencia del artículo en WH no cambia el sentido; sí la sintaxis de la frase.",
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G3694",
+   "glosa_interlineal": "detrás de",
+   "rango_semantico": [
+    "detrás de, después de",
+    "(adv.) detrás"
+   ],
+   "construccion": "Adverbio impropio con genitivo (ὀπίσω μου).",
+   "sentido_en_contexto": "Posición o tiempo: «detrás de mí», con el matiz de aparecer después de Juan.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G1473",
+   "glosa_interlineal": "mí",
+   "rango_semantico": [
+    "yo",
+    "mí"
+   ],
+   "construccion": "Pronombre personal genitivo de primera persona singular, regido por ὀπίσω.",
+   "sentido_en_contexto": "Es Juan, que habla en primera persona.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G2064",
+   "glosa_interlineal": "que viene",
+   "rango_semantico": [
+    "venir, ir",
+    "llegar",
+    "aparecer"
+   ],
+   "construccion": "Participio presente medio-deponente de ἔρχομαι, nominativo masculino singular.",
+   "sentido_en_contexto": "Fórmula repetida de 1:15: el que viene tras Juan es Jesús.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:15 — mismo giro",
+    "Mt 11:3 — ¿eres tú el que había de venir?",
+    "Mc 1:7 — viene tras mí el que es más fuerte"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G3739",
+   "glosa_interlineal": "de quien",
+   "rango_semantico": [
+    "que, el que, lo que",
+    "quien"
+   ],
+   "construccion": "Pronombre relativo genitivo masculino singular; complemento de ἄξιος (o de τὸν ἱμάντα).",
+   "sentido_en_contexto": "Une al que viene con la indignidad que Juan declara.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G3756",
+   "glosa_interlineal": "no",
+   "rango_semantico": [
+    "no, ni",
+    "nada"
+   ],
+   "construccion": "Negación objetiva (οὐκ).",
+   "sentido_en_contexto": "Niega la dignidad.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G1510",
+   "glosa_interlineal": "soy",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Presente indicativo de εἰμί, 1.ª singular.",
+   "sentido_en_contexto": "Verbo copulativo con ἄξιος.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G1473",
+   "glosa_interlineal": "yo",
+   "rango_semantico": [
+    "yo"
+   ],
+   "construccion": "Pronombre personal nominativo de primera persona singular, enfático. SBL no lo trae.",
+   "sentido_en_contexto": "Énfasis personal: «yo no soy digno». La presencia o ausencia de este pronombre no altera la traducción.",
+   "matiz": "La lectura sin ἐγώ (SBL) es igual de natural en griego: el pronombre solo refuerza.",
+   "variantes_textuales": "Ausente en SBL. Presente en NA28, NA27, Tyn, WH, Treg, TR y Byz.",
+   "notas_traduccion": "Diferencia de lectura sin repercusión en el sentido.",
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G514",
+   "glosa_interlineal": "digno",
+   "rango_semantico": [
+    "digno, merecedor",
+    "apropiado, conveniente"
+   ],
+   "construccion": "Adjetivo nominativo masculino singular, predicado de εἰμί.",
+   "sentido_en_contexto": "Juan se declara indigno de realizar para Jesús la tarea del esclavo más humilde.",
+   "matiz": "Desatar la sandalia era tarea de un esclavo; un discípulo no la hacía a su maestro, según una tradición rabínica.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Mt 3:11 — no soy digno de llevar su calzado",
+    "Lc 3:16 — no soy digno de desatar la correa",
+    "Hch 13:25 — Pablo cita las palabras de Juan"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G2443",
+   "glosa_interlineal": "para que",
+   "rango_semantico": [
+    "para que (finalidad)",
+    "de modo que (resultado)",
+    "que (contenido)"
+   ],
+   "construccion": "Conjunción con subjuntivo (λύσω) que completa a ἄξιος: «digno de que yo desate».",
+   "sentido_en_contexto": "Construye la indignidad: «digno de desatar».",
+   "matiz": "ἵνα con subjuntivo aquí hace función de infinitivo explicativo tras ἄξιος.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G3089",
+   "glosa_interlineal": "desate",
+   "rango_semantico": [
+    "desatar, soltar",
+    "romper",
+    "anular"
+   ],
+   "construccion": "Aoristo subjuntivo activo de λύω, 1.ª singular.",
+   "sentido_en_contexto": "El acto concreto cuya indignidad declara Juan.",
+   "matiz": "Es el único gesto que Juan dice que no se atrevería a hacer.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G846",
+   "glosa_interlineal": "su",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal genitivo masculino singular, complemento de ἱμάντα.",
+   "sentido_en_contexto": "Se refiere al que viene, es decir, a Jesús.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo acusativo masculino singular; concuerda con ἱμάντα.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G2438",
+   "glosa_interlineal": "correa",
+   "rango_semantico": [
+    "correa, tira de cuero"
+   ],
+   "construccion": "Acusativo masculino singular, objeto de λύσω.",
+   "sentido_en_contexto": "La correa de la sandalia; detalle concreto de humildad.",
+   "matiz": "ἱμάς es la correa con que se ata el calzado.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo genitivo neutro singular; concuerda con ὑποδήματος.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G5266",
+   "glosa_interlineal": "de la sandalia",
+   "rango_semantico": [
+    "sandalia, calzado"
+   ],
+   "construccion": "Genitivo neutro singular, complemento de ἱμάντα.",
+   "sentido_en_contexto": "Metonimia: la sandalia de Jesús.",
+   "matiz": "ὑπόδημα es lo que se pone debajo del pie.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}

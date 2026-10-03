@@ -19,25 +19,29 @@
 extern "C" {
 #endif
 
-/* Las fichas se generan fuera de la app (una por palabra y pasaje) y se
- * guardan en un JSON: un arreglo de objetos con "ref" (OSIS, "John.1.2"),
- * "strong" ("G4314") y los campos de la ficha: glosa_interlineal,
- * rango_semantico, construccion, sentido_en_contexto, matiz,
- * traducciones_comparadas, notas_traduccion, otros_usos, nivel_certeza.
- * Todo campo salvo ref y strong es opcional; null o vacío se omite.
+/* Las fichas viven en una base SQLite de solo lectura (fichas.sqlite), generada en el build por
+ * tools/construir_fichas_sqlite.py desde los JSON versionados. La app NO carga todo al arrancar: la base se
+ * abre en la primera consulta y se lee un versículo a la vez (índice por ref_tisch).
  *
- * Devuelve el número de fichas válidas cargadas, o -1 si el archivo no se
- * pudo leer. Una carga nueva reemplaza a la anterior. */
+ * Clave de una ficha: ref_tisch (OSIS en la numeración del módulo Tisch, "John.1.39") + posición de la palabra
+ * en ese versículo (1..n) + Strong de Tisch. */
+
+/* Abre `ruta` (solo lectura) y reemplaza la base anterior. Devuelve el número de fichas, o -1 si el archivo no
+ * existe o no es una base de fichas de este formato (en ese caso la base anterior sigue abierta). */
 gint main_interl_enriq_cargar(const char *ruta);
 void main_interl_enriq_liberar(void);
 
-/* Carga <dir>/interlineal_enriquecido.json si existe. Devuelve igual que
- * main_interl_enriq_cargar, o 0 si el archivo no existe. */
-gint main_interl_enriq_cargar_de(const char *dir);
+/* Busca la base instalada: $BIBLIA_ELIM_FICHAS (exclusiva), la del árbol de build y SHARE_DIR/fichas.sqlite.
+ * Devuelve igual que main_interl_enriq_cargar, o 0 si no hay base. Se invoca sola, una vez, en la primera
+ * consulta. */
+gint main_interl_enriq_cargar_predeterminada(void);
 
-/* Bloque HTML (sin <html>) con la ficha de esa palabra en ese pasaje, o
- * NULL si no hay. Todo el texto va escapado. Liberar con g_free. */
-gchar *main_interl_enriq_html(const char *ref, const char *strong);
+/* Bloque HTML (sin <html>) con la ficha de esa palabra, o NULL si no hay (o no se puede identificar).
+ * posicion > 0: se busca esa posición y el Strong debe coincidir con el de la ficha.
+ * posicion == 0 (se ignora la posición): se busca por Strong solo si es ÚNICO en el versículo; con varias
+ * apariciones no se adivina y devuelve NULL (el llamador muestra la ficha básica). Todo texto va escapado.
+ * Liberar con g_free. */
+gchar *main_interl_enriq_html(const char *ref_tisch, gint posicion, const char *strong);
 
 #ifdef __cplusplus
 }

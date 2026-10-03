@@ -1,0 +1,284 @@
+{
+ "ref": "John.1.26",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:56:26-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G611",
+   "glosa_interlineal": "respondió",
+   "rango_semantico": [
+    "responder, contestar",
+    "replicar",
+    "tomar la palabra"
+   ],
+   "construccion": "Aoristo indicativo deponente de ἀποκρίνομαι, 3.ª singular.",
+   "sentido_en_contexto": "Responde al reproche sin entrar en el fondo de la cuestión, para dirigir la atención a otro.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G846",
+   "glosa_interlineal": "les",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal dativo masculino plural; complemento de ἀπεκρίθη.",
+   "sentido_en_contexto": "Se refiere a los enviados.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular; concuerda con Ἰωάννης.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G2491",
+   "glosa_interlineal": "Juan",
+   "rango_semantico": [
+    "Juan (nombre hebreo Yohanán, «Dios ha tenido gracia»)"
+   ],
+   "construccion": "Nombre propio, nominativo masculino singular, sujeto de ἀπεκρίθη.",
+   "sentido_en_contexto": "Es Juan el Bautista, que responde sobre su bautismo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G3004",
+   "glosa_interlineal": "diciendo",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Participio presente activo de λέγω, nominativo masculino singular; introduce el discurso.",
+   "sentido_en_contexto": "Introduce la respuesta directa de Juan.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G1473",
+   "glosa_interlineal": "yo",
+   "rango_semantico": [
+    "yo"
+   ],
+   "construccion": "Pronombre personal nominativo de primera persona singular, enfático.",
+   "sentido_en_contexto": "Contrapone su acción (bautizar en agua) a la de otro que está en medio de ellos.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G907",
+   "glosa_interlineal": "bautizo",
+   "rango_semantico": [
+    "bautizar",
+    "sumergir",
+    "lavar"
+   ],
+   "construccion": "Presente indicativo activo de βαπτίζω, 1.ª singular.",
+   "sentido_en_contexto": "Describe su acción: bautizar en agua, algo preparatorio.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Mt 3:11 — yo os bautizo en agua para arrepentimiento",
+    "Hch 1:5 — Juan bautizó en agua",
+    "Jn 1:33 — el que me envió a bautizar en agua"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G1722",
+   "glosa_interlineal": "en",
+   "rango_semantico": [
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
+   ],
+   "construccion": "Preposición con dativo (ἐν ὕδατι): medio o ámbito del bautismo.",
+   "sentido_en_contexto": "El bautismo de Juan es «en agua»; se contrasta con el «en Espíritu Santo» del v. 33.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G5204",
+   "glosa_interlineal": "agua",
+   "rango_semantico": [
+    "agua"
+   ],
+   "construccion": "Dativo neutro singular, regido por ἐν.",
+   "sentido_en_contexto": "El elemento del bautismo de Juan; el contraste con el Espíritu Santo ocupa 1:33.",
+   "matiz": "El agua de Juan prepara; el Espíritu que bautiza lo hará el que viene.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:33 — quien bautiza en Espíritu Santo",
+    "Jn 3:5 — nacer de agua y de Espíritu",
+    "Hch 11:16 — Juan bautizó con agua, vosotros con Espíritu"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G3319",
+   "glosa_interlineal": "en medio",
+   "rango_semantico": [
+    "medio, en medio",
+    "central"
+   ],
+   "construccion": "Adjetivo nominativo masculino singular usado como adverbio (μέσος ὑμῶν): «en medio de vosotros».",
+   "sentido_en_contexto": "Adjetivo usado como adverbio de lugar: «en medio de vosotros». Su genitivo ὑμῶν lo completa.",
+   "matiz": "Con genitivo, μέσος equivale a la preposición «en medio de».",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Lc 24:36 — Jesús se puso en medio de ellos",
+    "Jn 20:19 — Jesús vino y se puso en medio",
+    "Jn 20:26 — de nuevo se puso en medio de ellos"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G5210",
+   "glosa_interlineal": "de vosotros",
+   "rango_semantico": [
+    "tú",
+    "vosotros"
+   ],
+   "construccion": "Pronombre personal genitivo de segunda persona plural; complemento de μέσος.",
+   "sentido_en_contexto": "Los interlocutores de Juan.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G4739",
+   "glosa_interlineal": "está de pie",
+   "rango_semantico": [
+    "estar de pie, mantenerse firme",
+    "permanecer"
+   ],
+   "construccion": "Presente indicativo de στήκω, 3.ª singular. La lectura de Tisch es στήκει (también de WH y Treg); NA28, NA27, Tyn, SBL, TR y Byz leen ἕστηκεν (perfecto de ἵστημι), con el mismo sentido: «está de pie».",
+   "sentido_en_contexto": "Una persona está presente sin ser reconocida: tema de reconocimiento (cf. 1:10).",
+   "matiz": "Los dos verbos significan lo mismo; στήκω es un presente formado sobre el perfecto de ἵστημι y los copistas los intercambian con facilidad.",
+   "variantes_textuales": "Tisch lee στήκει, igual que WH y Treg. NA28, NA27, Tyn, SBL, TR y Byz leen ἕστηκεν. El sentido es el mismo.",
+   "notas_traduccion": "Es una diferencia de lectura sin cambio de traducción.",
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G3739",
+   "glosa_interlineal": "a quien",
+   "rango_semantico": [
+    "que, el que, lo que",
+    "quien"
+   ],
+   "construccion": "Pronombre relativo acusativo masculino singular, objeto de οἴδατε.",
+   "sentido_en_contexto": "El que está en medio de ellos es aquel a quien no conocen.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G5210",
+   "glosa_interlineal": "vosotros",
+   "rango_semantico": [
+    "tú",
+    "vosotros"
+   ],
+   "construccion": "Pronombre personal nominativo de segunda persona plural, enfático.",
+   "sentido_en_contexto": "El énfasis resalta la ignorancia de los interlocutores: vosotros, que debéis conocerlo, no lo conocéis.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G3756",
+   "glosa_interlineal": "no",
+   "rango_semantico": [
+    "no, ni",
+    "nada"
+   ],
+   "construccion": "Negación objetiva (οὐκ).",
+   "sentido_en_contexto": "Niega el conocimiento.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G1492",
+   "glosa_interlineal": "conocéis",
+   "rango_semantico": [
+    "saber, conocer",
+    "entender",
+    "reconocer"
+   ],
+   "construccion": "Perfecto indicativo de εἴδω (οἶδα), 2.ª plural; el perfecto tiene sentido de presente: «sabéis, conocéis».",
+   "sentido_en_contexto": "Hace eco de 1:10: el mundo no le conoció. Aquí se trata de conocimiento de una persona concreta, no de información.",
+   "matiz": "οἶδα es un verbo defectivo: perfecto de forma, presente de sentido.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:10 — el mundo no le conoció",
+    "Jn 8:19 — ni a mí me conocéis",
+    "Jn 7:28 — a quien vosotros no conocéis"
+   ],
+   "nivel_certeza": "alto"
+  }
+ ]
+}

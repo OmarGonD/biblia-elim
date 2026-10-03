@@ -1,0 +1,374 @@
+{
+ "ref": "John.1.29",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:59:19-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo dativo femenino singular; con ἐπαύριον forma la locución «al día siguiente».",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G1887",
+   "glosa_interlineal": "al día siguiente",
+   "rango_semantico": [
+    "al día siguiente, mañana"
+   ],
+   "construccion": "Adverbio de tiempo (ἐπαύριον) que con el artículo dativo (τῇ ἐπαύριον) significa «al día siguiente».",
+   "sentido_en_contexto": "Marca la secuencia de días con que el Evangelio ordena la primera semana del ministerio: 1:29, 1:35, 1:43; cf. 2:1.",
+   "matiz": "El Evangelio cuenta los días: el primer testimonio de Juan (v. 19), el siguiente (v. 29), el tercero (v. 35).",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:35 — al día siguiente otra vez",
+    "Jn 1:43 — al día siguiente Jesús quiso salir",
+    "Jn 6:22 — al día siguiente la multitud"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G991",
+   "glosa_interlineal": "ve",
+   "rango_semantico": [
+    "ver, mirar",
+    "percibir",
+    "prestar atención"
+   ],
+   "construccion": "Presente indicativo activo de βλέπω, 3.ª singular. Presente histórico que da viveza al relato.",
+   "sentido_en_contexto": "Juan ve a Jesús que viene: es el momento del reconocimiento público.",
+   "matiz": "βλέπω es ver con atención; el presente histórico es frecuente en Juan para narrar momentos importantes.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo acusativo masculino singular; concuerda con Ἰησοῦν.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G2424",
+   "glosa_interlineal": "Jesús",
+   "rango_semantico": [
+    "Jesús (forma griega del hebreo Yehoshúa, «Yahvé salva»)"
+   ],
+   "construccion": "Nombre propio, acusativo masculino singular, objeto de βλέπει.",
+   "sentido_en_contexto": "Primera aparición de Jesús como personaje en escena; antes solo se le llamó Verbo, luz y Cristo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G2064",
+   "glosa_interlineal": "que venía",
+   "rango_semantico": [
+    "venir, ir",
+    "llegar",
+    "aparecer"
+   ],
+   "construccion": "Participio presente medio-deponente de ἔρχομαι, acusativo masculino singular, predicativo: «viendo a Jesús que venía».",
+   "sentido_en_contexto": "Juan ve a Jesús viniendo hacia él: el que «viene» (1:15, 27) se acerca.",
+   "matiz": "El presente expresa simultaneidad: lo ve mientras viene.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:15 — el que viene tras mí",
+    "Jn 1:27 — el que viene tras mí",
+    "Jn 6:14 — el profeta que viene al mundo"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G4314",
+   "glosa_interlineal": "hacia",
+   "rango_semantico": [
+    "hacia, a, junto a",
+    "con (de relación)",
+    "para"
+   ],
+   "construccion": "Preposición con acusativo (πρὸς αὐτόν): dirección, movimiento hacia alguien.",
+   "sentido_en_contexto": "Con verbo de movimiento es dirección: Jesús se acerca a Juan.",
+   "matiz": "Con ἐρχόμενον, πρός es directamente «hacia», no «con» como en 1:1.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G846",
+   "glosa_interlineal": "él",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal acusativo masculino singular, regido por πρός.",
+   "sentido_en_contexto": "Se refiere a Juan, que habla en la tercera persona narrativa.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; añade la proclamación de Juan.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G3004",
+   "glosa_interlineal": "dice",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Presente indicativo activo de λέγω, 3.ª singular. Presente histórico.",
+   "sentido_en_contexto": "Introduce la declaración solemne de Juan.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G3708",
+   "glosa_interlineal": "he aquí / mira",
+   "rango_semantico": [
+    "ver, mirar",
+    "percibir",
+    "experimentar"
+   ],
+   "construccion": "Aoristo imperativo de ὁράω (ἴδε), usado como interjección: «¡mira!», «he aquí». Tisch lo etiqueta con ὁράω (G3708); el TAGNT, como partícula demostrativa (G2396).",
+   "sentido_en_contexto": "Llamada de atención que presenta a Jesús: «¡mirad!».",
+   "matiz": "ἴδε se ha fijado como partícula presentativa: el sentido no es «ve» sino «he aquí».",
+   "variantes_textuales": null,
+   "notas_traduccion": "Etiqueta distinta (verbo ὁράω frente a partícula) sin consecuencias para la traducción.",
+   "otros_usos": [
+    "Jn 1:36 — la misma llamada ante dos discípulos",
+    "Jn 19:5 — he aquí el hombre",
+    "Jn 19:14 — he aquí vuestro rey"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular; concuerda con ἀμνός.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G286",
+   "glosa_interlineal": "cordero",
+   "rango_semantico": [
+    "cordero"
+   ],
+   "construccion": "Nominativo masculino singular con artículo, sujeto de la frase nominal: «el cordero de Dios». Término poco frecuente en el NT para referirse a Cristo (en Ap se usa ἀρνίον).",
+   "sentido_en_contexto": "Título cargado de resonancias: el cordero pascual, el cordero del sacrificio diario, el siervo que lleva el pecado (Is 53:7) y el cordero provisto por Dios (Gn 22:8). El texto no precisa cuál; se discute si dominan una o varias.",
+   "matiz": "El término ἀμνός aparece en Is 53:7 (LXX) y en Hch 8:32 y 1 Pe 1:19; en Apocalipsis, ἀρνίον.",
+   "variantes_textuales": null,
+   "notas_traduccion": "Se suele elegir una referencia (pascual, siervo, sacrificio) y se pierde la combinación que el título sugiere.",
+   "otros_usos": [
+    "Is 53:7 — como cordero llevado al matadero",
+    "Hch 8:32 — Felipe aplica Is 53 a Jesús",
+    "1 Pe 1:19 — con la sangre preciosa de Cristo, como de un cordero sin mancha"
+   ],
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo genitivo masculino singular; concuerda con θεοῦ.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G2316",
+   "glosa_interlineal": "de Dios",
+   "rango_semantico": [
+    "Dios (el único Dios)",
+    "dios, divinidad",
+    "ser divino"
+   ],
+   "construccion": "Genitivo masculino singular con artículo, complemento de ἀμνός (genitivo de origen o de pertenencia).",
+   "sentido_en_contexto": "El cordero que Dios provee o que pertenece a Dios; Dios es la fuente de la ofrenda.",
+   "matiz": "El genitivo es ambiguo: «provisto por Dios» o «perteneciente a Dios»; ambas son compatibles con el contexto.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular; sustantiva al participio αἴρων.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G142",
+   "glosa_interlineal": "que quita",
+   "rango_semantico": [
+    "levantar, alzar",
+    "llevar, cargar",
+    "quitar, eliminar"
+   ],
+   "construccion": "Participio presente activo de αἴρω, nominativo masculino singular con artículo. El verbo significa «levantar» y de ahí «llevar» o «quitar».",
+   "sentido_en_contexto": "Los dos sentidos son posibles: «el que lleva sobre sí el pecado» (como el siervo de Is 53) y «el que quita el pecado» (1 Jn 3:5). El presente indica acción continua y característica.",
+   "matiz": "«Quitar» recoge el efecto, «llevar» la acción de cargarse el pecado; el griego deja ambos abiertos.",
+   "variantes_textuales": null,
+   "notas_traduccion": "En Juan αἴρω se usa en ambos sentidos en otros pasajes: levantar piedras (8:59) y quitar de en medio (11:39).",
+   "otros_usos": [
+    "1 Jn 3:5 — él apareció para quitar los pecados",
+    "Is 53:12 — él llevó el pecado de muchos",
+    "Jn 15:2 — el Padre quita todo pámpano que no da fruto"
+   ],
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 18,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo acusativo femenino singular; concuerda con ἁμαρτίαν.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 19,
+   "strong": "G266",
+   "glosa_interlineal": "pecado",
+   "rango_semantico": [
+    "pecado",
+    "falta, culpa",
+    "error"
+   ],
+   "construccion": "Acusativo femenino singular, objeto de αἴρων. En singular y con artículo: el pecado como realidad colectiva, no los pecados individuales.",
+   "sentido_en_contexto": "El pecado del mundo en su conjunto, como poder o condición, no la suma de actos.",
+   "matiz": "Con singular y artículo se habla de «el pecado», como poder; el plural («los pecados») se usa para actos concretos.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "1 Jn 3:5 — para quitar los pecados",
+    "Jn 8:34 — todo el que comete pecado es esclavo del pecado",
+    "Jn 16:8 — el Espíritu convencerá al mundo de pecado"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 20,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo genitivo masculino singular; concuerda con κόσμου.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 21,
+   "strong": "G2889",
+   "glosa_interlineal": "del mundo",
+   "rango_semantico": [
+    "mundo, universo",
+    "humanidad",
+    "sistema opuesto a Dios"
+   ],
+   "construccion": "Genitivo masculino singular, complemento de ἁμαρτίαν.",
+   "sentido_en_contexto": "El alcance del cordero es universal: el pecado de todo el mundo, no solo el de Israel.",
+   "matiz": "κόσμος aquí es la humanidad como conjunto, no una zona geográfica.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 3:16 — Dios amó al mundo",
+    "Jn 4:42 — el salvador del mundo",
+    "1 Jn 2:2 — propiciación por los pecados de todo el mundo"
+   ],
+   "nivel_certeza": "alto"
+  }
+ ]
+}

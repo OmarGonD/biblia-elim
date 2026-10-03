@@ -1,0 +1,182 @@
+{
+ "ref": "John.1.11",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:49:26-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G1519",
+   "glosa_interlineal": "a",
+   "rango_semantico": [
+    "a, hacia (movimiento)",
+    "en, dentro de",
+    "para, con el fin de",
+    "como"
+   ],
+   "construccion": "Preposición con acusativo (εἰς τὰ ἴδια): dirección, «a».",
+   "sentido_en_contexto": "Indica la meta de la venida: lo que le pertenecía.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo acusativo neutro plural; hace sustantivo a ἴδια.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G2398",
+   "glosa_interlineal": "lo suyo",
+   "rango_semantico": [
+    "propio, suyo",
+    "particular",
+    "privado"
+   ],
+   "construccion": "Adjetivo acusativo neutro plural sustantivado: «lo suyo propio».",
+   "sentido_en_contexto": "Su propio dominio: se discute si se refiere a la tierra, a la casa o al pueblo de Israel; el contraste con «los suyos» (personas) en la cláusula siguiente sugiere un sentido amplio.",
+   "matiz": "El neutro («lo suyo») y el masculino («los suyos») distinguen lugar/dominio y personas.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 19:27 — el discípulo tomó a la madre «a lo suyo» (a su casa)",
+    "Hch 21:6 — volvieron a sus casas",
+    "Jn 13:1 — los suyos que estaban en el mundo"
+   ],
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G2064",
+   "glosa_interlineal": "vino",
+   "rango_semantico": [
+    "venir, ir",
+    "llegar",
+    "aparecer"
+   ],
+   "construccion": "Aoristo indicativo de ἔρχομαι, 3.ª singular.",
+   "sentido_en_contexto": "Es el mismo verbo que para Juan (1:7), ahora aplicado al Verbo: venida histórica y personal.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; contrapone el rechazo de los suyos a la venida.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino plural; hace sustantivo a ἴδιοι.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G2398",
+   "glosa_interlineal": "los suyos",
+   "rango_semantico": [
+    "propio, suyo",
+    "particular",
+    "privado"
+   ],
+   "construccion": "Adjetivo nominativo masculino plural sustantivado, sujeto de παρέλαβον: «los suyos» (personas).",
+   "sentido_en_contexto": "Principalmente Israel como pueblo elegido; un sentido más amplio incluiría a toda la humanidad creada por él.",
+   "matiz": "Contrasta con τὰ ἴδια: de lo propio (cosas) a los propios (personas).",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G846",
+   "glosa_interlineal": "le",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal acusativo masculino singular, objeto de παρέλαβον.",
+   "sentido_en_contexto": "Se refiere al Verbo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G3756",
+   "glosa_interlineal": "no",
+   "rango_semantico": [
+    "no, ni",
+    "nada"
+   ],
+   "construccion": "Negación objetiva (οὐ).",
+   "sentido_en_contexto": "Niega la acogida: rechazo efectivo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G3880",
+   "glosa_interlineal": "recibieron",
+   "rango_semantico": [
+    "recibir, tomar consigo",
+    "aceptar, acoger",
+    "recibir como tradición"
+   ],
+   "construccion": "Aoristo indicativo activo de παραλαμβάνω, 3.ª plural. El prefijo παρα- da la idea de recibir a alguien junto a sí, acogerle.",
+   "sentido_en_contexto": "El rechazo de los suyos contrasta con ἔλαβον del v. 12 (los que sí lo recibieron).",
+   "matiz": "παραλαμβάνω es acoger a alguien; λαμβάνω (v. 12) es recibir en general.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 14:3 — vendré y os tomaré conmigo",
+    "Col 2:6 — recibisteis a Cristo Jesús",
+    "1 Co 15:1 — el evangelio que recibisteis"
+   ],
+   "nivel_certeza": "alto"
+  }
+ ]
+}

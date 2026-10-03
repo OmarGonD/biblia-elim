@@ -33,6 +33,7 @@ add_library (main
   import_andbible.cc
   import_modfile.cc
   interlineal.cc
+  interlineal_aviso.c
   lists.cc
   lectura_sync.cc
   main.c
@@ -178,4 +179,34 @@ else ()
   message (WARNING
     "python3 not found: Strong lexicon (MORPH-109) will not be generated; "
     "the word-detail dialog falls back to bare Strong IDs")
+endif ()
+
+# FICHAS-SQLITE-101: base de fichas del interlineal (fichas.sqlite), generada en el build desde los JSON
+# versionados (data/fichas_v2, data/fichas_v3, data/citas) con tools/construir_fichas_sqlite.py. Igual que el
+# léxico de Strong: artefacto bajo el directorio de build, nunca commiteado; se instala junto a la app y la app
+# la abre solo lectura en la primera consulta (interl_enriq.c). Sin python3 el build sigue y las fichas no se
+# muestran (la ficha básica no cambia).
+if (PYTHON3_EXECUTABLE)
+  file (GLOB xiphos_fichas_json CONFIGURE_DEPENDS
+    ${PROJECT_SOURCE_DIR}/data/fichas_v2/*.json
+    ${PROJECT_SOURCE_DIR}/data/fichas_v3/*.json
+    ${PROJECT_SOURCE_DIR}/data/citas/*.json)
+  set (xiphos_fichas_db ${CMAKE_BINARY_DIR}/fichas/fichas.sqlite)
+  add_custom_command (
+    OUTPUT ${xiphos_fichas_db}
+    COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_BINARY_DIR}/fichas
+    COMMAND ${PYTHON3_EXECUTABLE}
+            ${PROJECT_SOURCE_DIR}/tools/construir_fichas_sqlite.py
+            --output ${xiphos_fichas_db}
+    DEPENDS ${xiphos_fichas_json}
+            ${PROJECT_SOURCE_DIR}/tools/construir_fichas_sqlite.py
+    COMMENT "Generating fichas.sqlite from data/fichas_v2, fichas_v3 and citas"
+    VERBATIM
+    )
+  add_custom_target (fichas_sqlite DEPENDS ${xiphos_fichas_db})
+  add_dependencies (main fichas_sqlite)
+  target_compile_definitions (main PRIVATE
+    XIPHOS_BUILD_FICHAS="${xiphos_fichas_db}")
+  install (FILES ${xiphos_fichas_db}
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME})
 endif ()

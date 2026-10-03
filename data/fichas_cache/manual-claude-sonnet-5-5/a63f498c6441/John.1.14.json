@@ -1,0 +1,433 @@
+{
+ "ref": "John.1.14",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:50:30-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; abre el nuevo movimiento del prólogo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular; concuerda con λόγος.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G3056",
+   "glosa_interlineal": "Verbo / Palabra",
+   "rango_semantico": [
+    "palabra, expresión",
+    "razón, cuenta",
+    "mensaje, enseñanza",
+    "Palabra personal de Dios"
+   ],
+   "construccion": "Nominativo masculino singular con artículo, sujeto de ἐγένετο.",
+   "sentido_en_contexto": "Primera vez que se dice que el Verbo se hizo carne: el del principio es quien «vino». Cierra el círculo abierto en 1:1.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G4561",
+   "glosa_interlineal": "carne",
+   "rango_semantico": [
+    "carne, cuerpo",
+    "naturaleza humana",
+    "debilidad humana",
+    "existencia terrena"
+   ],
+   "construccion": "Nominativo femenino singular sin artículo, predicado de ἐγένετο; sin artículo expresa categoría o condición.",
+   "sentido_en_contexto": "Asume la naturaleza humana en su fragilidad y mortalidad. Se elige σάρξ y no σῶμα o ἄνθρωπος para subrayar la fragilidad compartida.",
+   "matiz": "«Carne» no se limita a lo corporal: significa humanidad entera, con sus límites.",
+   "variantes_textuales": null,
+   "notas_traduccion": "«Se hizo carne» conserva la dureza del griego; «se hizo hombre» interpreta.",
+   "otros_usos": [
+    "Rm 8:3 — Dios envió a su Hijo en semejanza de carne pecadora",
+    "1 Jn 4:2 — Jesucristo venido en carne",
+    "1 Tm 3:16 — manifestado en carne"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G1096",
+   "glosa_interlineal": "se hizo / llegó a ser",
+   "rango_semantico": [
+    "llegar a ser, hacerse",
+    "ocurrir, suceder",
+    "nacer, aparecer"
+   ],
+   "construccion": "Aoristo indicativo deponente de γίνομαι, 3.ª singular.",
+   "sentido_en_contexto": "Contrasta con ἦν de 1:1: el Verbo era; llegó a ser carne. No dice que cesó de ser Verbo; indica la entrada en la historia humana.",
+   "matiz": "Si se traduce «se convirtió en» se sugiere un cambio de naturaleza que el texto no afirma; «llegó a ser» es más literal.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:3 — ἐγένετο para lo creado",
+    "Jn 1:6 — Juan «apareció»",
+    "Flp 2:7 — hecho semejante a los hombres"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; añade el segundo verbo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G4637",
+   "glosa_interlineal": "habitó / puso su tienda",
+   "rango_semantico": [
+    "habitar en tienda, acampar",
+    "morar",
+    "poner morada"
+   ],
+   "construccion": "Aoristo indicativo activo de σκηνόω, 3.ª singular. El verbo deriva de σκηνή, «tienda» o «tabernáculo».",
+   "sentido_en_contexto": "Evoca el tabernáculo del desierto, donde habitaba la gloria de Dios: la presencia de Dios con su pueblo ahora se da en una persona.",
+   "matiz": "La raíz σκην- suena como el hebreo shekinah (presencia habitando), aunque el texto no usa esa palabra.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Ex 40:34-35 — la gloria llena el tabernáculo",
+    "Ez 37:27 — mi morada estará con ellos",
+    "Ap 21:3 — Dios pondrá su morada con los hombres"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G1722",
+   "glosa_interlineal": "entre",
+   "rango_semantico": [
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
+   ],
+   "construccion": "Preposición con dativo (ἐν ἡμῖν). Con verbo de residencia significa «entre».",
+   "sentido_en_contexto": "Subraya la cercanía: el Verbo habitó en medio de nosotros.",
+   "matiz": "«Entre nosotros» y «en nosotros» son posibles; con σκηνόω la lectura natural es «entre».",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Ap 21:3 — la morada de Dios está entre los hombres",
+    "Jn 1:10 — en el mundo estaba",
+    "1 Jn 4:12 — Dios permanece en nosotros"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G2249",
+   "glosa_interlineal": "nosotros",
+   "rango_semantico": [
+    "yo",
+    "nosotros"
+   ],
+   "construccion": "Pronombre personal dativo de primera persona plural, regido por ἐν.",
+   "sentido_en_contexto": "El «nosotros» de los testigos que vieron su gloria; en 1:16 se ampliará a todos los que reciben de su plenitud.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; añade el testimonio de los testigos.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G2300",
+   "glosa_interlineal": "contemplamos",
+   "rango_semantico": [
+    "contemplar, mirar con atención",
+    "ver con admiración",
+    "visitar"
+   ],
+   "construccion": "Aoristo indicativo deponente de θεάομαι, 1.ª plural. Es mirada atenta y sostenida, no un vistazo.",
+   "sentido_en_contexto": "Los testigos oculares hablan en primera persona; es verbo clave del testimonio en Juan y en la primera carta.",
+   "matiz": "El aoristo mira la experiencia como un todo, no como un hecho puntual.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "1 Jn 1:1 — lo que hemos visto con nuestros ojos",
+    "Jn 1:32 — Juan vio el Espíritu descender",
+    "Jn 4:35 — alzad los ojos y mirad"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo acusativo femenino singular; concuerda con δόξαν.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G1391",
+   "glosa_interlineal": "gloria",
+   "rango_semantico": [
+    "gloria, esplendor",
+    "honor, fama",
+    "brillo"
+   ],
+   "construccion": "Acusativo femenino singular, objeto de ἐθεασάμεθα. En la versión griega δόξα traduce el hebreo kabod: la manifestación visible del peso y majestad de Dios.",
+   "sentido_en_contexto": "La gloria del Verbo hecho carne, que en Juan se muestra en los signos (2:11) y sobre todo en la cruz (12:23-28; 17:5).",
+   "matiz": "Δόξα pasa de lo visible a lo valioso: no es solo brillo, es peso de presencia.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 2:11 — manifestó su gloria en Caná",
+    "Jn 12:41 — Isaías vio su gloria",
+    "Jn 17:24 — la gloria que me diste"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G846",
+   "glosa_interlineal": "suya",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal genitivo masculino singular, complemento de δόξαν.",
+   "sentido_en_contexto": "Se refiere al Verbo hecho carne.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G1391",
+   "glosa_interlineal": "gloria",
+   "rango_semantico": [
+    "gloria, esplendor",
+    "honor, fama",
+    "brillo"
+   ],
+   "construccion": "Acusativo femenino singular sin artículo, en aposición a τὴν δόξαν.",
+   "sentido_en_contexto": "Precisa la naturaleza de esa gloria: la que corresponde a un hijo único, sin artículo porque califica.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G5613",
+   "glosa_interlineal": "como",
+   "rango_semantico": [
+    "como, así como",
+    "aproximadamente",
+    "cuando"
+   ],
+   "construccion": "Partícula comparativa (ὡς). Puede indicar comparación («semejante a») o cualidad («la que corresponde a»).",
+   "sentido_en_contexto": "Introduce la identidad de la gloria: es la de un Hijo único; la partícula no resta realidad, no equivale a «parecida a».",
+   "matiz": "En esta construcción, ὡς no implica irrealidad: es la gloria misma, no una imitación.",
+   "variantes_textuales": null,
+   "notas_traduccion": "Algunos traducen «como la de»; otros «la propia de»; ambos recogen el sentido básico.",
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G3439",
+   "glosa_interlineal": "unigénito / único",
+   "rango_semantico": [
+    "único en su género, único hijo",
+    "unigénito",
+    "singular, sin igual"
+   ],
+   "construccion": "Adjetivo genitivo masculino singular sustantivado, sin artículo: «de un unigénito». Aquí tiene valor cualitativo.",
+   "sentido_en_contexto": "Hijo único, uno de su clase; resalta la relación irrepetible del Hijo con el Padre. Se discute si la etimología es «único engendrado» (μόνος + γεννάω) o «único en su clase» (μόνος + γένος); la segunda es la más aceptada hoy, y el sentido práctico es el mismo.",
+   "matiz": "En Lc 7:12 y 8:42 se usa del hijo o hija única de una persona, sin connotación de generación.",
+   "variantes_textuales": null,
+   "notas_traduccion": "«Unigénito» es tradición latina (unigenitus); «único» es lo que el griego asegura, y las dos son aceptables.",
+   "otros_usos": [
+    "Lc 7:12 — hijo único de una viuda",
+    "Jn 3:16 — su Hijo unigénito",
+    "1 Jn 4:9 — a su Hijo único envió Dios"
+   ],
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 18,
+   "strong": "G3844",
+   "glosa_interlineal": "de parte de",
+   "rango_semantico": [
+    "junto a (con dativo)",
+    "de parte de (con genitivo)",
+    "al lado de, contra (con acusativo)"
+   ],
+   "construccion": "Preposición con genitivo (παρὰ πατρός): procedencia personal. Puede entenderse «recibida de un padre» o «de parte del Padre».",
+   "sentido_en_contexto": "La gloria viene del Padre, y se parece a la de un hijo único respecto a su padre; sin artículo, la analogía es filial.",
+   "matiz": "Sin artículo (πατρός), la frase puede sonar a comparación humana, y por eso se discute si «Padre» lleva mayúscula.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 19,
+   "strong": "G3962",
+   "glosa_interlineal": "padre",
+   "rango_semantico": [
+    "padre",
+    "antepasado",
+    "Padre (Dios)"
+   ],
+   "construccion": "Genitivo masculino singular sin artículo, regido por παρά; designa a Dios en su relación con el Hijo.",
+   "sentido_en_contexto": "Remite a la relación Padre–Hijo, que culminará en 1:18.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 20,
+   "strong": "G4134",
+   "glosa_interlineal": "lleno",
+   "rango_semantico": [
+    "lleno",
+    "completo",
+    "cargado"
+   ],
+   "construccion": "Adjetivo nominativo de una terminación, indeclinable en la práctica; puede concordar con ὁ λόγος (nominativo), con μονογενοῦς (genitivo) o con αὐτοῦ/δόξαν (acusativo).",
+   "sentido_en_contexto": "La lectura más natural lo une al Verbo hecho carne (nominativo): «lleno de gracia y verdad»; la sintaxis permite otras uniones y se discute.",
+   "matiz": "Si πλήρης califica a δόξα, se dice que la gloria está llena de gracia y verdad; si califica al Verbo, que él lo está.",
+   "variantes_textuales": null,
+   "notas_traduccion": "En el griego de la época πλήρης podía quedarse sin declinar, así que la concordancia no decide.",
+   "otros_usos": null,
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 21,
+   "strong": "G5485",
+   "glosa_interlineal": "de gracia",
+   "rango_semantico": [
+    "gracia, favor inmerecido",
+    "bondad",
+    "agradecimiento"
+   ],
+   "construccion": "Genitivo femenino singular, complemento de πλήρης (genitivo de plenitud).",
+   "sentido_en_contexto": "Don gratuito de Dios; en el Evangelio aparece solo aquí en el prólogo (1:14, 16, 17).",
+   "matiz": "Con ἀληθείας forma una pareja que recuerda la fidelidad y verdad (hesed we-emet) de Ex 34:6.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Ex 34:6 — Dios lleno de misericordia y verdad",
+    "Ef 2:8 — por gracia sois salvos",
+    "Jn 1:16-17 — gracia por gracia, gracia y verdad"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 22,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante que une las dos cualidades.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 23,
+   "strong": "G225",
+   "glosa_interlineal": "de verdad",
+   "rango_semantico": [
+    "verdad",
+    "realidad",
+    "fidelidad"
+   ],
+   "construccion": "Genitivo femenino singular, complemento de πλήρης.",
+   "sentido_en_contexto": "En Juan «la verdad» es la realidad revelada de Dios, y se identifica con Jesús (14:6). Aquí, junto a «gracia», puede significar fidelidad.",
+   "matiz": "«Gracia y verdad» tiene eco del binomio hebreo hesed we-emet (amor fiel).",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Ex 34:6 — el binomio misericordia y fidelidad",
+    "Jn 8:32 — la verdad os hará libres",
+    "Jn 14:6 — yo soy el camino, la verdad y la vida"
+   ],
+   "nivel_certeza": "alto"
+  }
+ ]
+}

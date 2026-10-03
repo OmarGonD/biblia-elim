@@ -1,0 +1,239 @@
+{
+ "ref": "John.1.9",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:49:26-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G1510",
+   "glosa_interlineal": "era",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Imperfecto de εἰμί, 3.ª singular. Puede ser verbo independiente («existía») o formar perífrasis con ἐρχόμενον («venía»).",
+   "sentido_en_contexto": "Introduce la luz verdadera con un verbo de existencia; la perífrasis con ἐρχόμενον daría «venía al mundo» y encajaría con 1:10-11.",
+   "matiz": "Según se una ἐρχόμενον a ἦν, a φῶς o a ἄνθρωπον, cambia el sentido de toda la frase (véase ἐρχόμενον).",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo neutro singular; acompaña a φῶς.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G5457",
+   "glosa_interlineal": "luz",
+   "rango_semantico": [
+    "luz",
+    "claridad",
+    "lo que ilumina, revelación"
+   ],
+   "construccion": "Nominativo singular neutro con artículo, sujeto (o predicado, según la lectura) de ἦν.",
+   "sentido_en_contexto": "Retoma la luz de 1:4-5; ahora se la califica de verdadera.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo neutro singular; repite el artículo ante el adjetivo atributivo (τὸ φῶς τὸ ἀληθινόν).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G228",
+   "glosa_interlineal": "verdadera",
+   "rango_semantico": [
+    "verdadero, auténtico",
+    "genuino, real",
+    "fiel"
+   ],
+   "construccion": "Adjetivo nominativo neutro singular en posición atributiva. ἀληθινός significa genuino, el original frente a copias o sombras.",
+   "sentido_en_contexto": "Opone la luz auténtica a otras luces (Juan, la ley) que solo señalan o preparan.",
+   "matiz": "Distinto de ἀληθής («veraz, que dice verdad»): ἀληθινός es «genuino, auténtico».",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 6:32 — el pan verdadero",
+    "Jn 15:1 — la vid verdadera",
+    "1 Jn 5:20 — el Dios verdadero"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G3739",
+   "glosa_interlineal": "que",
+   "rango_semantico": [
+    "que, el que, lo que",
+    "quien"
+   ],
+   "construccion": "Pronombre relativo neutro singular nominativo; sujeto de φωτίζει. Antecedente: τὸ φῶς.",
+   "sentido_en_contexto": "Enlaza la luz con su acción de iluminar.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G5461",
+   "glosa_interlineal": "ilumina",
+   "rango_semantico": [
+    "iluminar, alumbrar",
+    "hacer ver, revelar",
+    "dar luz"
+   ],
+   "construccion": "Presente indicativo activo de φωτίζω, 3.ª singular. El presente expresa acción habitual o universal.",
+   "sentido_en_contexto": "Describe la función de la luz verdadera. Se discute si implica una iluminación interior universal o la oferta externa de revelación a todos.",
+   "matiz": "Que la luz alumbre a todos no dice que todos la reciban: 1:10-11 muestra que muchos no la reconocieron.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Ef 1:18 — ojos del corazón iluminados",
+    "Heb 6:4 — los que una vez fueron iluminados",
+    "1 Co 4:5 — el Señor sacará a la luz lo oculto"
+   ],
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G3956",
+   "glosa_interlineal": "todo",
+   "rango_semantico": [
+    "todo, cada",
+    "todos",
+    "cualquier"
+   ],
+   "construccion": "Adjetivo acusativo masculino singular, concuerda con ἄνθρωπον. Con singular y sin artículo = «cada uno, todo».",
+   "sentido_en_contexto": "Universal: la luz alcanza a todo ser humano, sin límite de pueblo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G444",
+   "glosa_interlineal": "hombre",
+   "rango_semantico": [
+    "hombre, persona",
+    "ser humano",
+    "marido (rara vez)"
+   ],
+   "construccion": "Acusativo masculino singular, objeto de φωτίζει; también es el antecedente de ἐρχόμενον en una de las lecturas.",
+   "sentido_en_contexto": "Todo ser humano es destinatario de la luz.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G2064",
+   "glosa_interlineal": "viniendo / que viene",
+   "rango_semantico": [
+    "venir, ir",
+    "llegar",
+    "aparecer"
+   ],
+   "construccion": "Participio presente medio-deponente de ἔρχομαι; la forma sirve como acusativo masculino (con ἄνθρωπον) o como nominativo neutro (con φῶς). Tres lecturas: (1) «a todo hombre que viene al mundo»; (2) «la luz… viniendo al mundo»; (3) perífrasis con ἦν, «era… viniendo».",
+   "sentido_en_contexto": "La lectura (1) refleja una fórmula judía corriente («todo el que viene al mundo» = todos los hombres); la (2) y la (3) anticipan la encarnación y encajan con 1:10-11. El griego admite las tres y la cuestión sigue abierta.",
+   "matiz": "Las traducciones se reparten entre «que viene al mundo» referido a todo hombre y «venía al mundo» referido a la luz.",
+   "variantes_textuales": null,
+   "notas_traduccion": "No se toma partido; cada lectura cambia solo el referente del participio, no el mensaje general de la luz que llega al mundo.",
+   "otros_usos": [
+    "Jn 3:19 — la luz vino al mundo",
+    "Jn 12:46 — yo he venido como luz al mundo",
+    "Jn 6:14 — el profeta que viene al mundo"
+   ],
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G1519",
+   "glosa_interlineal": "al / hacia",
+   "rango_semantico": [
+    "a, hacia (movimiento)",
+    "en, dentro de",
+    "para, con el fin de",
+    "como"
+   ],
+   "construccion": "Preposición con acusativo (εἰς τὸν κόσμον): dirección, «al mundo».",
+   "sentido_en_contexto": "Indica movimiento hacia el mundo: la luz entra en el ámbito humano.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo acusativo masculino singular; concuerda con κόσμον.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G2889",
+   "glosa_interlineal": "mundo",
+   "rango_semantico": [
+    "mundo, universo",
+    "humanidad",
+    "sistema opuesto a Dios"
+   ],
+   "construccion": "Acusativo masculino singular, regido por εἰς.",
+   "sentido_en_contexto": "En Juan κόσμος tiene tres sentidos: lo creado, la humanidad y el orden hostil a Dios. Aquí es el ámbito humano al que llega la luz.",
+   "matiz": "El mismo sustantivo se repite tres veces en el v. 10 con matices distintos.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 3:16 — Dios amó al mundo",
+    "Jn 1:10 — el mundo no le conoció",
+    "Jn 17:14 — no son del mundo"
+   ],
+   "nivel_certeza": "alto"
+  }
+ ]
+}

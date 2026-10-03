@@ -128,6 +128,15 @@ GtkWidget *gui_create_about_xiphos(void)
 	g_free(backend_status);
 	gtk_about_dialog_set_website(GTK_ABOUT_DIALOG(about1),
 				     "http://xiphos.org/");
+	{
+		static const gchar *stepbible[] = {
+			"STEPBible.org, Tyndale House, Cambridge (CC BY 4.0)",
+			"https://github.com/STEPBible/STEPBible-Data",
+			"Cambios respecto al TAGNT https://github.com/OmarGonD/biblia-elim/blob/master/data/sources/tagnt/SOURCE.md", NULL};
+		gtk_about_dialog_add_credit_section(GTK_ABOUT_DIALOG(about1),
+						    _("Datos del texto griego (TAGNT)"),
+						    stepbible);
+	}
 	gtk_about_dialog_set_authors(GTK_ABOUT_DIALOG(about1), authors);
 	gtk_about_dialog_set_documenters(GTK_ABOUT_DIALOG(about1), documenters);
 	gtk_about_dialog_set_translator_credits(GTK_ABOUT_DIALOG(about1), translators);

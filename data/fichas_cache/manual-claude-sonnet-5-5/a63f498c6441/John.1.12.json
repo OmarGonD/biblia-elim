@@ -1,0 +1,293 @@
+{
+ "ref": "John.1.12",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:50:30-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G3745",
+   "glosa_interlineal": "cuantos",
+   "rango_semantico": [
+    "cuantos, todos los que",
+    "tanto como"
+   ],
+   "construccion": "Pronombre relativo correlativo nominativo masculino plural; abre una oración relativa que funciona como sujeto, retomada luego por αὐτοῖς.",
+   "sentido_en_contexto": "«Cuantos le recibieron»: alcance inclusivo, sin límite de etnia, en contraste con «los suyos» que no lo hicieron (v. 11).",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G1161",
+   "glosa_interlineal": "pero",
+   "rango_semantico": [
+    "pero, y",
+    "por otra parte"
+   ],
+   "construccion": "Conjunción postpositiva; marca el contraste con el rechazo del v. 11.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G2983",
+   "glosa_interlineal": "recibieron",
+   "rango_semantico": [
+    "tomar, recibir",
+    "aceptar",
+    "conseguir"
+   ],
+   "construccion": "Aoristo indicativo activo de λαμβάνω, 3.ª plural.",
+   "sentido_en_contexto": "Recibir = acoger por la fe; el versículo mismo lo explica como «creer en su nombre».",
+   "matiz": "λαμβάνω aquí es más general que παραλαμβάνω del v. 11; el contraste es de reacción, no de verbo.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G846",
+   "glosa_interlineal": "le",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal acusativo masculino singular, objeto de ἔλαβον.",
+   "sentido_en_contexto": "Se refiere al Verbo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G1325",
+   "glosa_interlineal": "dio",
+   "rango_semantico": [
+    "dar",
+    "conceder",
+    "entregar"
+   ],
+   "construccion": "Aoristo indicativo activo de δίδωμι, 3.ª singular; sujeto implícito: el Verbo.",
+   "sentido_en_contexto": "La condición de hijos de Dios es don que él concede, no logro propio.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G846",
+   "glosa_interlineal": "les",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal dativo masculino plural; destinatario de ἔδωκεν. Retoma ὅσοι.",
+   "sentido_en_contexto": "Los que le recibieron.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G1849",
+   "glosa_interlineal": "derecho / autoridad",
+   "rango_semantico": [
+    "autoridad, poder",
+    "derecho, facultad",
+    "libertad",
+    "dominio"
+   ],
+   "construccion": "Acusativo femenino singular, objeto de ἔδωκεν; va seguido de infinitivo (γενέσθαι): «derecho de llegar a ser».",
+   "sentido_en_contexto": "No es una fuerza para hacerse hijos por sí mismos, sino la potestad concedida de ser reconocidos como tales.",
+   "matiz": "ἐξουσία es autoridad otorgada, distinta de δύναμις (fuerza o capacidad).",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 5:27 — le dio autoridad para juzgar",
+    "Jn 17:2 — autoridad sobre toda carne",
+    "1 Jn 3:1 — el amor del Padre al llamarnos hijos"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G5043",
+   "glosa_interlineal": "hijos",
+   "rango_semantico": [
+    "hijo, niño",
+    "descendiente",
+    "discípulo"
+   ],
+   "construccion": "Acusativo plural neutro, predicado de γενέσθαι. En Juan τέκνα (hijos por nacimiento) designa a los creyentes; υἱός se reserva para Jesús.",
+   "sentido_en_contexto": "La condición de hijos nacidos de Dios (v. 13), distinta de la del Hijo único (1:14, 1:18).",
+   "matiz": "La distinción τέκνα / υἱός es característica de Juan y se conserva mal en español: «hijos» traduce ambos.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 11:52 — los hijos de Dios dispersos",
+    "1 Jn 3:1 — hijos de Dios por el amor del Padre",
+    "Rm 8:16 — el Espíritu da testimonio de que somos hijos"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G2316",
+   "glosa_interlineal": "de Dios",
+   "rango_semantico": [
+    "Dios (el único Dios)",
+    "dios, divinidad",
+    "ser divino"
+   ],
+   "construccion": "Genitivo singular sin artículo, determina a τέκνα (genitivo de relación).",
+   "sentido_en_contexto": "Dios como Padre de los que le reciben.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G1096",
+   "glosa_interlineal": "llegar a ser",
+   "rango_semantico": [
+    "llegar a ser, hacerse",
+    "ocurrir, suceder",
+    "nacer, aparecer"
+   ],
+   "construccion": "Infinitivo aoristo deponente de γίνομαι, dependiente de ἐξουσίαν.",
+   "sentido_en_contexto": "«Llegar a ser» implica que esa condición no es innata: se recibe.",
+   "matiz": "El infinitivo aoristo mira el paso a la nueva condición como un hecho completo.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo dativo masculino plural; hace sustantivo al participio πιστεύουσιν.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G4100",
+   "glosa_interlineal": "los que creen",
+   "rango_semantico": [
+    "creer, confiar",
+    "confiar a, encomendar",
+    "tener fe"
+   ],
+   "construccion": "Participio presente activo dativo masculino plural, en aposición a αὐτοῖς. El presente expresa actitud continua.",
+   "sentido_en_contexto": "Explica quiénes son ὅσοι ἔλαβον: recibirle y creer en él es lo mismo. La fe no es un acto aislado sino una actitud sostenida.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 20:31 — para que creáis y tengáis vida en su nombre",
+    "1 Jn 5:13 — los que creen en el nombre del Hijo de Dios",
+    "Jn 3:18 — el que cree en él no es condenado"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G1519",
+   "glosa_interlineal": "en",
+   "rango_semantico": [
+    "a, hacia (movimiento)",
+    "en, dentro de",
+    "para, con el fin de",
+    "como"
+   ],
+   "construccion": "Preposición con acusativo tras πιστεύω (πιστεύειν εἰς): la fe se dirige hacia su objeto. Construcción típica de Juan, distinta del dativo.",
+   "sentido_en_contexto": "«Creer en» es confiar con una orientación personal hacia alguien, más que dar crédito a algo.",
+   "matiz": "πιστεύειν εἰς es confianza personal; πιστεύειν con dativo es dar crédito a algo dicho.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo acusativo neutro singular; concuerda con ὄνομα.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G3686",
+   "glosa_interlineal": "nombre",
+   "rango_semantico": [
+    "nombre",
+    "reputación, fama",
+    "persona",
+    "autoridad"
+   ],
+   "construccion": "Acusativo neutro singular, regido por εἰς.",
+   "sentido_en_contexto": "En el mundo bíblico el nombre representa a la persona y su autoridad; «creer en su nombre» es creer en él y en lo que él es.",
+   "matiz": "Se contrasta con la identidad real en 1:12: se cree en alguien, no en un título.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 2:23 — creyeron en su nombre al ver los signos",
+    "Jn 3:18 — creer en el nombre del Hijo único",
+    "1 Jn 5:13 — los que creen en su nombre"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G846",
+   "glosa_interlineal": "suyo",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal genitivo masculino singular, complemento de ὄνομα.",
+   "sentido_en_contexto": "Se refiere al Verbo, cuyo nombre se descubrirá en 1:17 (Jesucristo).",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}

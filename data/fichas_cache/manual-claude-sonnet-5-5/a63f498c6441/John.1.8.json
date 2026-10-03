@@ -1,0 +1,189 @@
+{
+ "ref": "John.1.8",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:49:26-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G3756",
+   "glosa_interlineal": "no",
+   "rango_semantico": [
+    "no, ni",
+    "nada"
+   ],
+   "construccion": "Negación objetiva (οὐκ), ante vocal con aspiración.",
+   "sentido_en_contexto": "Niega rotundamente la identidad de Juan con la luz.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G1510",
+   "glosa_interlineal": "era",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Imperfecto de εἰμί, 3.ª singular, copulativo.",
+   "sentido_en_contexto": "El imperfecto describe lo que Juan era siempre: nunca fue la luz.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G1565",
+   "glosa_interlineal": "aquel",
+   "rango_semantico": [
+    "aquel, ese",
+    "él (enfático)"
+   ],
+   "construccion": "Pronombre demostrativo remoto nominativo masculino singular, sujeto de ἦν. Marca contraste.",
+   "sentido_en_contexto": "Sujeto enfático: «aquel» (Juan) no era la luz; recalca su papel subordinado.",
+   "matiz": "El énfasis sugiere que se quiere evitar que se confunda a Juan con la luz.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo neutro singular; acompaña a φῶς.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G5457",
+   "glosa_interlineal": "luz",
+   "rango_semantico": [
+    "luz",
+    "claridad",
+    "lo que ilumina, revelación"
+   ],
+   "construccion": "Nominativo neutro singular con artículo, predicado de ἦν.",
+   "sentido_en_contexto": "Se refiere a la luz del prólogo; Juan queda excluido de esa categoría.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G235",
+   "glosa_interlineal": "sino",
+   "rango_semantico": [
+    "pero",
+    "sino",
+    "sin embargo"
+   ],
+   "construccion": "Conjunción adversativa (ἀλλά, elidida ante vocal). Tras una negación significa «sino».",
+   "sentido_en_contexto": "Corrige lo negado: Juan no es la luz, sino su testigo.",
+   "matiz": "La cláusula que sigue omite el verbo (se suple «vino» o «fue enviado»).",
+   "variantes_textuales": null,
+   "notas_traduccion": "El español completa la elipsis con «vino»; el griego deja la frase abierta.",
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G2443",
+   "glosa_interlineal": "para que",
+   "rango_semantico": [
+    "para que (finalidad)",
+    "de modo que (resultado)",
+    "que (contenido)"
+   ],
+   "construccion": "Conjunción final con subjuntivo (μαρτυρήσῃ). Hay un verbo implícito de movimiento o envío.",
+   "sentido_en_contexto": "Declara el propósito de Juan, que se repite del v. 7.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G3140",
+   "glosa_interlineal": "diera testimonio",
+   "rango_semantico": [
+    "dar testimonio, testificar",
+    "hablar bien de",
+    "confirmar"
+   ],
+   "construccion": "Aoristo subjuntivo activo de μαρτυρέω, 3.ª singular.",
+   "sentido_en_contexto": "Repite la misión de Juan: ser testigo de la luz.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G4012",
+   "glosa_interlineal": "acerca de",
+   "rango_semantico": [
+    "acerca de, sobre",
+    "por causa de",
+    "alrededor de"
+   ],
+   "construccion": "Preposición con genitivo (περὶ τοῦ φωτός), «acerca de».",
+   "sentido_en_contexto": "El objeto del testimonio sigue siendo la luz.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo genitivo singular neutro; concuerda con φωτός.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G5457",
+   "glosa_interlineal": "luz",
+   "rango_semantico": [
+    "luz",
+    "claridad",
+    "lo que ilumina, revelación"
+   ],
+   "construccion": "Genitivo singular neutro, regido por περί.",
+   "sentido_en_contexto": "Cierra la corrección: Juan no era la luz, sino el testigo de la luz.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}

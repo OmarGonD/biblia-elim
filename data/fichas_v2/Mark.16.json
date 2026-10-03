@@ -1,0 +1,573 @@
+[
+ {
+  "ref": "Mark.16.1",
+  "pos_tisch": 2,
+  "strong": "G1230",
+  "forma": "διαγενομένου",
+  "lema": "διαγίνομαι",
+  "glosa_interlineal": "pasado",
+  "rango_semantico": [
+   "transcurrir, pasar (el tiempo)"
+  ],
+  "construccion": "Genitivo absoluto: «pasado el sábado».",
+  "sentido_en_contexto": "Las mujeres compran aromas al terminar el sábado. Quieren ungir el cuerpo, que fue sepultado a toda prisa (15:42-47).",
+  "matiz": null,
+  "variantes_textuales": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 23:56 — «prepararon aromas»",
+   "Jn 19:39 — Nicodemo ya había traído especias"
+  ],
+  "nivel_certeza": "alto",
+  "alineacion": "forma",
+  "tagnt": "Mark.16.1#02",
+  "ref_estandar": "Mark.16.1",
+  "morfologia_tagnt": "V-2ADP-GSN",
+  "dstrong": "G1230",
+  "strong_tagnt": "G1230",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ },
+ {
+  "ref": "Mark.16.3",
+  "pos_tisch": 6,
+  "strong": "G617",
+  "forma": "ἀποκυλίσει",
+  "lema": "ἀποκυλίω",
+  "glosa_interlineal": "removerá",
+  "rango_semantico": [
+   "hacer rodar, apartar rodando"
+  ],
+  "construccion": "Futuro indicativo activo, 3ª singular: «¿quién nos removerá la piedra?».",
+  "sentido_en_contexto": "Las mujeres no habían contado con la piedra. La pregunta prepara el contraste: la piedra «ya había sido removida», y «era muy grande».",
+  "matiz": null,
+  "variantes_textuales": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 15:46 — «hizo rodar una piedra»",
+   "Mt 28:2 — el ángel removió la piedra"
+  ],
+  "nivel_certeza": "alto",
+  "alineacion": "forma",
+  "tagnt": "Mark.16.3#06",
+  "ref_estandar": "Mark.16.3",
+  "morfologia_tagnt": "V-FAI-3S",
+  "dstrong": "G0617",
+  "strong_tagnt": "G617",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ },
+ {
+  "ref": "Mark.16.5",
+  "pos_tisch": 7,
+  "strong": "G3495",
+  "forma": "νεανίσκον",
+  "lema": "νεανίσκος",
+  "glosa_interlineal": "joven",
+  "rango_semantico": [
+   "joven, muchacho"
+  ],
+  "construccion": "Acusativo: «un joven sentado al lado derecho, vestido de una túnica blanca».",
+  "sentido_en_contexto": "El mensajero se describe como «joven» (νεανίσκος), en un lugar donde Mateo dice «ángel» y Lucas «dos varones». Marcos, con vestido blanco y sentado a la derecha, lo describe como un ser celestial.",
+  "matiz": "El «joven» de Marcos 14:51 usa la misma palabra; algunos han visto un contraste (huyó desnudo / ahora vestido de blanco). Esa relación es una lectura, no una afirmación del texto.",
+  "variantes_textuales": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 28:2-3 — «un ángel del Señor»",
+   "Mr 14:51-52 — otro «joven»",
+   "Lc 24:4 — «dos varones con vestiduras resplandecientes»"
+  ],
+  "nivel_certeza": "medio",
+  "alineacion": "forma",
+  "tagnt": "Mark.16.5#07",
+  "ref_estandar": "Mark.16.5",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G3495",
+  "strong_tagnt": "G3495",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ },
+ {
+  "ref": "Mark.16.6",
+  "pos_tisch": 6,
+  "strong": "G1568",
+  "forma": "ἐκθαμβεῖσθε",
+  "lema": "ἐκθαμβέω",
+  "glosa_interlineal": "os asustéis",
+  "rango_semantico": [
+   "asustarse, espantarse"
+  ],
+  "construccion": "Imperativo presente pasivo con μή: «no os asustéis».",
+  "sentido_en_contexto": "Mismo verbo intensificado de 9:15 y 14:33. El mensajero tranquiliza a las mujeres y les anuncia: «ha resucitado; no está aquí».",
+  "matiz": null,
+  "variantes_textuales": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 9:15; 14:33 — mismo verbo",
+   "Mt 28:5 — «no temáis»"
+  ],
+  "nivel_certeza": "alto",
+  "alineacion": "forma",
+  "tagnt": "Mark.16.6#06",
+  "ref_estandar": "Mark.16.6",
+  "morfologia_tagnt": "V-PPM-2P",
+  "dstrong": "G1568",
+  "strong_tagnt": "G1568",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ },
+ {
+  "ref": "Mark.16.7",
+  "pos_tisch": 11,
+  "strong": "G4254",
+  "forma": "προάγει",
+  "lema": "προάγω",
+  "glosa_interlineal": "va delante",
+  "rango_semantico": [
+   "ir delante, preceder"
+  ],
+  "construccion": "Presente indicativo activo, 3ª singular: «va delante de vosotros a Galilea».",
+  "sentido_en_contexto": "Marcos incluye expresamente a Pedro: «decid a sus discípulos y a Pedro». Recuerda 14:28 y restaura a quien negó. En Galilea lo verán, no en Jerusalén.",
+  "matiz": null,
+  "variantes_textuales": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mr 14:28 — «después que haya resucitado, iré delante de vosotros a Galilea»",
+   "Mt 28:7 — paralelo",
+   "Jn 21:1-17 — aparición en Galilea y restauración de Pedro"
+  ],
+  "nivel_certeza": "alto",
+  "alineacion": "forma",
+  "tagnt": "Mark.16.7#11",
+  "ref_estandar": "Mark.16.7",
+  "morfologia_tagnt": "V-PAI-3S",
+  "dstrong": "G4254",
+  "strong_tagnt": "G4254",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ },
+ {
+  "ref": "Mark.16.8",
+  "pos_tisch": 10,
+  "strong": "G5156",
+  "forma": "τρόμος",
+  "lema": "τρόμος",
+  "glosa_interlineal": "temblor",
+  "rango_semantico": [
+   "temblor, temor"
+  ],
+  "construccion": "Nominativo: «les había tomado temblor y espanto».",
+  "sentido_en_contexto": "Final más breve y brusco (según los manuscritos más antiguos): las mujeres huyen y «no dijeron nada a nadie, porque tenían miedo». Marcos termina su texto original, probablemente, en el v.8 («ἐφοβοῦντο γάρ»).",
+  "matiz": "Cuestión textual importante: los manuscritos más antiguos y fiables (Sinaítico, Vaticano) terminan en 16:8. Los vv.9-20 («final largo») y otros finales cortos fueron añadidos después. RVR y muchas versiones incluyen el final largo, a menudo con nota. Se debate si Marcos terminó intencionalmente en el v.8 o si su final se perdió.",
+  "variantes_textuales": null,
+  "notas_traduccion": "Los manuscritos más antiguos terminan aquí. Los versículos 9-20 aparecen en manuscritos posteriores y muchas ediciones críticas los marcan como no originales.",
+  "otros_usos": [
+   "Mt 28:8 — las mujeres «con gran gozo»",
+   "Mr 16:9-20 — final largo (discutido)",
+   "Mr 1:27 — el temor en Marcos"
+  ],
+  "nivel_certeza": "bajo",
+  "alineacion": "forma",
+  "tagnt": "Mark.16.8#11",
+  "ref_estandar": "Mark.16.8",
+  "morfologia_tagnt": "N-NSM",
+  "dstrong": "G5156",
+  "strong_tagnt": "G5156",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "SBL",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [],
+  "variante": false,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ },
+ {
+  "ref": "Mark.16.9",
+  "pos_tisch": 6,
+  "strong": "G5316",
+  "forma": "ἐφάνη",
+  "lema": "φαίνω",
+  "glosa_interlineal": "apareció",
+  "rango_semantico": [
+   "aparecer, mostrarse"
+  ],
+  "construccion": "Aoristo indicativo pasivo, 3ª singular: «apareció primero a María Magdalena».",
+  "sentido_en_contexto": "Comienza el «final largo» (16:9-20), ausente en los manuscritos más antiguos. Resume apariciones del Resucitado, la comisión y la ascensión.",
+  "matiz": "Los vv.9-20 se consideran por la mayoría de los críticos un añadido posterior al texto original de Marcos; algunos autores lo defienden como parte del Evangelio. La Iglesia lo ha recibido como Escritura canónica.",
+  "variantes_textuales": null,
+  "notas_traduccion": "RVR conserva el final largo; los manuscritos más antiguos lo omiten.",
+  "otros_usos": [
+   "Jn 20:11-18 — aparición a María Magdalena",
+   "Lc 8:2 — «María, que se llamaba Magdalena, de la que habían salido siete demonios»"
+  ],
+  "nivel_certeza": "bajo",
+  "alineacion": "forma",
+  "tagnt": "Mark.16.9#06",
+  "ref_estandar": "Mark.16.9",
+  "morfologia_tagnt": "V-2API-3S",
+  "dstrong": "G5316",
+  "strong_tagnt": "G5316",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [
+   "SBL"
+  ],
+  "variante": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ },
+ {
+  "ref": "Mark.16.11",
+  "pos_tisch": 9,
+  "strong": "G569",
+  "forma": "ἠπίστησαν",
+  "lema": "ἀπιστέω",
+  "glosa_interlineal": "no creyeron",
+  "rango_semantico": [
+   "no creer, desconfiar"
+  ],
+  "construccion": "Aoristo indicativo activo, 3ª plural: «no lo creyeron».",
+  "sentido_en_contexto": "Los discípulos no creen el testimonio de María. Tema de la incredulidad, también en el final largo.",
+  "matiz": null,
+  "variantes_textuales": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 24:11 — «les parecían locura las palabras de ellas»",
+   "Mr 16:13-14 — de nuevo incredulidad"
+  ],
+  "nivel_certeza": "medio",
+  "alineacion": "forma",
+  "tagnt": "Mark.16.11#09",
+  "ref_estandar": "Mark.16.11",
+  "morfologia_tagnt": "V-AAI-3P",
+  "dstrong": "G0569",
+  "strong_tagnt": "G569",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [
+   "SBL"
+  ],
+  "variante": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ },
+ {
+  "ref": "Mark.16.15",
+  "pos_tisch": 7,
+  "strong": "G2889",
+  "forma": "κόσμον",
+  "lema": "κόσμος",
+  "glosa_interlineal": "mundo",
+  "rango_semantico": [
+   "mundo, universo",
+   "humanidad"
+  ],
+  "construccion": "εἰς + acusativo: «id por todo el mundo».",
+  "sentido_en_contexto": "La comisión del final largo: predicar el evangelio «a toda la creación». Paralelo con Mt 28:19-20.",
+  "matiz": null,
+  "variantes_textuales": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Mt 28:19 — «haced discípulos a todas las naciones»",
+   "Col 1:23 — «predicado en toda la creación»",
+   "Hch 1:8 — «hasta lo último de la tierra»"
+  ],
+  "nivel_certeza": "medio",
+  "alineacion": "forma",
+  "tagnt": "Mark.16.15#07",
+  "ref_estandar": "Mark.16.15",
+  "morfologia_tagnt": "N-ASM",
+  "dstrong": "G2889",
+  "strong_tagnt": "G2889",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [
+   "SBL"
+  ],
+  "variante": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ },
+ {
+  "ref": "Mark.16.16",
+  "pos_tisch": 5,
+  "strong": "G4982",
+  "forma": "σωθήσεται",
+  "lema": "σώζω",
+  "glosa_interlineal": "será salvo",
+  "rango_semantico": [
+   "salvar"
+  ],
+  "construccion": "Futuro indicativo pasivo, 3ª singular: «el que crea y sea bautizado será salvo».",
+  "sentido_en_contexto": "Fe y bautismo van juntos; la condena es solo para el que «no cree». Se ha debatido si el bautismo es condición de salvación o consecuencia de la fe. El texto condena únicamente la incredulidad.",
+  "matiz": "Pasaje del final largo; su relación con doctrinas sobre el bautismo (regeneración bautismal vs. signo de la fe) ha dividido a las tradiciones cristianas.",
+  "variantes_textuales": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 2:38 — «arrepentíos, y bautícese cada uno»",
+   "Ro 10:9 — «si confesares… serás salvo»",
+   "Jn 3:5 — «nacer de agua y del Espíritu»"
+  ],
+  "nivel_certeza": "bajo",
+  "alineacion": "forma",
+  "tagnt": "Mark.16.16#05",
+  "ref_estandar": "Mark.16.16",
+  "morfologia_tagnt": "V-FPI-3S",
+  "dstrong": "G4982",
+  "strong_tagnt": "G4982",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [
+   "SBL"
+  ],
+  "variante": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ },
+ {
+  "ref": "Mark.16.17",
+  "pos_tisch": 1,
+  "strong": "G4592",
+  "forma": "σημεῖα",
+  "lema": "σημεῖον",
+  "glosa_interlineal": "señales",
+  "rango_semantico": [
+   "señal, signo, milagro"
+  ],
+  "construccion": "Acusativo plural: «estas señales seguirán a los que creen».",
+  "sentido_en_contexto": "Lista de señales: expulsar demonios, hablar nuevas lenguas, tomar serpientes, beber veneno sin daño, sanar enfermos. Parte del final largo; la interpretación de algunas (serpientes, veneno) es muy debatida.",
+  "matiz": "Las señales con serpientes y veneno no tienen paralelo claro en los Evangelios (cf. Hch 28:3-6). Al ser parte del final disputado, muchos las interpretan con cautela; algunas comunidades las practican literalmente.",
+  "variantes_textuales": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Hch 2:4 — «comenzaron a hablar en otras lenguas»",
+   "Hch 28:3-6 — la víbora y Pablo",
+   "Lc 10:19 — «os doy potestad de hollar serpientes»"
+  ],
+  "nivel_certeza": "bajo",
+  "alineacion": "forma",
+  "tagnt": "Mark.16.17#01",
+  "ref_estandar": "Mark.16.17",
+  "morfologia_tagnt": "N-NPN",
+  "dstrong": "G4592",
+  "strong_tagnt": "G4592",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [
+   "SBL"
+  ],
+  "variante": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ },
+ {
+  "ref": "Mark.16.19",
+  "pos_tisch": 9,
+  "strong": "G353",
+  "forma": "ἀνελήμφθη",
+  "lema": "ἀναλαμβάνω",
+  "glosa_interlineal": "fue recibido arriba",
+  "rango_semantico": [
+   "ser llevado arriba, ser tomado"
+  ],
+  "construccion": "Aoristo indicativo pasivo, 3ª singular: «fue recibido arriba, al cielo».",
+  "sentido_en_contexto": "La ascensión de Jesús y su sesión «a la diestra de Dios»: cierre del final largo, con eco de Sal 110:1.",
+  "matiz": null,
+  "variantes_textuales": null,
+  "notas_traduccion": null,
+  "otros_usos": [
+   "Lc 24:51 — «fue llevado arriba al cielo»",
+   "Hch 1:9-11 — la ascensión",
+   "Sal 110:1 — «siéntate a mi diestra»"
+  ],
+  "nivel_certeza": "medio",
+  "alineacion": "strong",
+  "tagnt": "Mark.16.19#10",
+  "ref_estandar": "Mark.16.19",
+  "morfologia_tagnt": "V-API-3S",
+  "dstrong": "G0353",
+  "strong_tagnt": "G353",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [
+   "SBL"
+  ],
+  "variante": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ },
+ {
+  "ref": "Mark.16.20",
+  "pos_tisch": 12,
+  "strong": "G950",
+  "forma": "βεβαιοῦντος",
+  "lema": "βεβαιόω",
+  "glosa_interlineal": "confirmando",
+  "rango_semantico": [
+   "confirmar, afianzar"
+  ],
+  "construccion": "Participio presente activo: «el Señor obrando con ellos y confirmando la palabra».",
+  "sentido_en_contexto": "Final del Evangelio (largo): los discípulos predican por todas partes, «el Señor ayudándoles y confirmando la palabra con las señales que seguían». Cierra la narración con la misión en marcha.",
+  "matiz": null,
+  "variantes_textuales": null,
+  "notas_traduccion": "Heb 2:3-4 — «Dios… testificando juntamente con ellos»\nHch 14:3 — «el cual daba testimonio a la palabra de su gracia»",
+  "otros_usos": "bajo",
+  "nivel_certeza": "alto",
+  "alineacion": "forma",
+  "tagnt": "Mark.16.20#12",
+  "ref_estandar": "Mark.16.20",
+  "morfologia_tagnt": "V-PAP-GSM",
+  "dstrong": "G0950",
+  "strong_tagnt": "G950",
+  "ediciones": [
+   "NA28",
+   "NA27",
+   "Tyn",
+   "WH",
+   "Treg",
+   "TR",
+   "Byz"
+  ],
+  "ausente_en": [
+   "SBL"
+  ],
+  "variante": true,
+  "generador": "manual",
+  "modelo": "manual-legacy",
+  "prompt_hash": null,
+  "generado_en": null
+ }
+]

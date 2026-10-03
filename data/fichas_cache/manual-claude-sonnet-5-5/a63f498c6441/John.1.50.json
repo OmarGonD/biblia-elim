@@ -1,0 +1,262 @@
+{
+ "ref": "John.1.50",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T17:03:25-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G611",
+   "glosa_interlineal": "respondió",
+   "rango_semantico": [
+    "responder, contestar",
+    "replicar",
+    "tomar la palabra"
+   ],
+   "construccion": "Aoristo indicativo deponente de ἀποκρίνομαι, 3.ª singular.",
+   "sentido_en_contexto": "Natanael responde con una confesión inmediata.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G846",
+   "glosa_interlineal": "le",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal dativo masculino singular, complemento de ἀπεκρίθη.",
+   "sentido_en_contexto": "Se refiere a Jesús.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G3482",
+   "glosa_interlineal": "Natanael",
+   "rango_semantico": [
+    "Natanael (hebreo Netan'el, «Dios ha dado»)"
+   ],
+   "construccion": "Nombre propio indeclinable, nominativo, sujeto de ἀπεκρίθη.",
+   "sentido_en_contexto": "El escéptico del v. 47 es ahora el primero en confesar a Jesús con tres títulos.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G4461",
+   "glosa_interlineal": "rabí",
+   "rango_semantico": [
+    "rabí, maestro"
+   ],
+   "construccion": "Transcripción del arameo rabbi. Tisch lo escribe ῥαββεί; el TAGNT, ῥαββί (grafías distintas).",
+   "sentido_en_contexto": "Primer título de Natanael: lo reconoce como maestro, como los dos discípulos en 1:39.",
+   "matiz": "La diferencia ῥαββεί / ῥαββί es ortográfica.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:39 — los dos discípulos lo llaman rabí",
+    "Jn 3:2 — Nicodemo",
+    "Jn 20:16 — Rabbuní"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G4771",
+   "glosa_interlineal": "tú",
+   "rango_semantico": [
+    "tú"
+   ],
+   "construccion": "Pronombre personal nominativo de segunda persona singular, enfático.",
+   "sentido_en_contexto": "Insiste en «tú»: Natanael se dirige personalmente a Jesús.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G1510",
+   "glosa_interlineal": "eres",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Presente indicativo de εἰμί, 2.ª singular, copulativo.",
+   "sentido_en_contexto": "Cópula de la primera confesión.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular; concuerda con υἱός.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G5207",
+   "glosa_interlineal": "Hijo",
+   "rango_semantico": [
+    "hijo",
+    "descendiente",
+    "hijo de Dios"
+   ],
+   "construccion": "Nominativo masculino singular, predicado de εἶ.",
+   "sentido_en_contexto": "Segundo título: «Hijo de Dios», título que en el contexto judío puede ser mesiánico (Rey de Israel) más que de naturaleza divina; Juan lo vincula con 1:34 y 20:31.",
+   "matiz": "En el v. 49 el título tiene sentido mesiánico de rey; Juan lo irá cargando de contenido hasta 20:31.",
+   "variantes_textuales": null,
+   "notas_traduccion": "El paralelo con «rey de Israel» sugiere un título mesiánico; el desarrollo posterior del Evangelio lo profundiza.",
+   "otros_usos": [
+    "Jn 1:34 — Juan: el Hijo de Dios",
+    "Jn 11:27 — Marta: el Cristo, el Hijo de Dios",
+    "Jn 20:31 — para que creáis que Jesús es el Hijo de Dios"
+   ],
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo genitivo masculino singular; concuerda con θεοῦ.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G2316",
+   "glosa_interlineal": "de Dios",
+   "rango_semantico": [
+    "Dios (el único Dios)",
+    "dios, divinidad",
+    "ser divino"
+   ],
+   "construccion": "Genitivo masculino singular con artículo, complemento de υἱός.",
+   "sentido_en_contexto": "Dios como Padre del Hijo.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G4771",
+   "glosa_interlineal": "tú",
+   "rango_semantico": [
+    "tú"
+   ],
+   "construccion": "Pronombre personal nominativo de segunda persona singular, enfático (repetido).",
+   "sentido_en_contexto": "La repetición enfática une las dos confesiones.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G935",
+   "glosa_interlineal": "rey",
+   "rango_semantico": [
+    "rey",
+    "monarca"
+   ],
+   "construccion": "Nominativo masculino singular, predicado de εἶ.",
+   "sentido_en_contexto": "Tercer título: «rey de Israel», título mesiánico político-religioso; reaparece en Jn 12:13 y 19:19.",
+   "matiz": "Βασιλεύς es título que Jesús aceptará con reservas (6:15; 18:36); aquí Natanael lo usa sin matices.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 12:13 — bendito el rey de Israel",
+    "Jn 18:37 — ¿luego eres rey?",
+    "Jn 19:19 — Jesús nazareno, rey de los judíos"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G1510",
+   "glosa_interlineal": "eres",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Presente indicativo de εἰμί, 2.ª singular.",
+   "sentido_en_contexto": "Segunda cópula, con el sujeto σύ ya expreso.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo genitivo masculino singular; concuerda con Ἰσραήλ.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G2474",
+   "glosa_interlineal": "de Israel",
+   "rango_semantico": [
+    "Israel"
+   ],
+   "construccion": "Nombre propio indeclinable (aquí genitivo), complemento de βασιλεύς.",
+   "sentido_en_contexto": "El pueblo sobre el que reina el rey mesiánico.",
+   "matiz": "Israel aparece como pueblo de Dios, no solo como nación política.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:31 — manifestado a Israel",
+    "Jn 3:10 — maestro de Israel",
+    "Jn 12:13 — rey de Israel"
+   ],
+   "nivel_certeza": "alto"
+  }
+ ]
+}

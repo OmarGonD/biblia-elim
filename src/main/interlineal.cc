@@ -357,9 +357,11 @@ strip_punct(const char *in)
 }
 
 static InterlTok *
-tok_from_w(const char *attrs, const char *text)
+tok_from_w(const char *attrs, const char *text, gint pos)
 {
 	InterlTok *t = g_new0(InterlTok, 1);
+
+	t->pos = pos;
 	gchar *savlm = attr_val(attrs, "savlm");
 	gchar *lemma = attr_val(attrs, "lemma");
 	gchar *blob = g_strdup_printf("%s %s", savlm ? savlm : "", lemma ? lemma : "");
@@ -412,6 +414,7 @@ parse_w_tags(const char *raw)
 {
 	GList *out = NULL;
 	const char *p;
+	gint pos = 0;
 
 	if (!raw)
 		return NULL;
@@ -428,13 +431,20 @@ parse_w_tags(const char *raw)
 		attrs = g_strndup(p, gt - p);
 		text = g_strndup(gt + 1, end - (gt + 1));
 		g_strstrip(text);
+		pos++;		/* todo <w> cuenta, también el vacío */
 		if (*text)
-			out = g_list_append(out, tok_from_w(attrs, text));
+			out = g_list_append(out, tok_from_w(attrs, text, pos));
 		g_free(attrs);
 		g_free(text);
 		p = end + 4;
 	}
 	return out;
+}
+
+GList *
+main_interlineal_tokens_de_crudo(const char *raw)
+{
+	return parse_w_tags(raw);
 }
 
 static gboolean
@@ -473,8 +483,10 @@ static GList *tokens_from_module(const char *module, const char *key)
     BibleVerseContent content;
     if (!interlinear_content(module, key, content)) return nullptr;
     GList *result = nullptr;
+    gint position = 0;
     for (const auto &word : content.words) {
         InterlTok *token = g_new0(InterlTok, 1);
+        token->pos = ++position;    // orden de las palabras del módulo (la ficha además verifica el Strong)
         token->forma = g_strdup(word.text.c_str());
         std::string strongs;
         for (const auto &strong : word.strongs) {
@@ -1685,6 +1697,8 @@ fila_fill_orig(InterlFila *f, const InterlTok *t)
 
 	if (!f || !t)
 		return;
+	if (!f->pos)
+		f->pos = t->pos;
 	if (t->forma && *t->forma) {
 		gchar *prev = f->forma;
 		f->forma = join_nonempty(prev, t->forma, "  ");
@@ -2119,6 +2133,12 @@ main_interlineal_filas(const char *key, gboolean reverse)
 	return out;
 }
 
+const char *
+main_interlineal_verso_actual(void)
+{
+	return il_verse;
+}
+
 gboolean
 main_interlineal_modo_reverse(void)
 {
@@ -2131,6 +2151,17 @@ main_interlineal_set_modo_reverse(gboolean reverse)
 	il_reverse = reverse ? TRUE : FALSE;
 	xml_set_or_create_value("misc", "interlineal_reverse",
 				il_reverse ? "1" : "0");
+}
+
+static const char *
+aviso_tisch_para_clave(const char *key)
+{
+	VerseKey vk;
+
+	vk.setText(key);
+	if (vk.popError())
+		return NULL;
+	return main_interlineal_aviso_tisch(vk.getOSISRef());
 }
 
 gchar *
@@ -2162,6 +2193,19 @@ main_interlineal_html_original(const char *key)
 				       fg,
 				       rtl ? " dir=\"rtl\"" : "");
 	}
+	if (!rtl) {
+		const char *aviso = aviso_tisch_para_clave(key);
+
+		if (aviso) {
+			gchar *esc = g_markup_escape_text(aviso, -1);
+
+			g_string_append_printf(out,
+					       "<span class=\"ilaviso\" style=\"display:block;font-size:0.85em;"
+					       "font-style:italic;opacity:0.85;margin-bottom:0.4em\">%s</span>",
+					       esc);
+			g_free(esc);
+		}
+	}
 
 	for (l = toks; l; l = l->next) {
 		InterlTok *t = (InterlTok *)l->data;
@@ -2185,10 +2229,10 @@ main_interlineal_html_original(const char *key)
 			}
 			g_string_append_printf(out,
 					       "%s<a class=\"ilw\" href=\"passagestudy.jsp?"
-					       "action=showInterlineal&amp;value=%s%s%s\">%s</a>",
+					       "action=showInterlineal&amp;value=%s%s%s&amp;pos=%d\">%s</a>",
 					       any ? "\xE2\x80\x83" : "", st,
 					       mo ? "&amp;morph=" : "",
-					       mo ? mo : "", w);
+					       mo ? mo : "", t->pos, w);
 			g_free(mo);
 			g_free(st);
 		} else {

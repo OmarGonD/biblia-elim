@@ -1,0 +1,299 @@
+{
+ "ref": "John.1.44",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T17:03:25-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo dativo femenino singular; con ἐπαύριον forma «al día siguiente».",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G1887",
+   "glosa_interlineal": "al día siguiente",
+   "rango_semantico": [
+    "al día siguiente, mañana"
+   ],
+   "construccion": "Adverbio de tiempo (ἐπαύριον) con artículo: «al día siguiente».",
+   "sentido_en_contexto": "Cuarto momento de la secuencia (1:19, 29, 35, 43); la «semana» del Evangelio sigue en 2:1.",
+   "matiz": "Los días que cuenta el evangelista construyen una semana inaugural paralela a la de la creación en Génesis.",
+   "variantes_textuales": null,
+   "notas_traduccion": "Se ha propuesto que esta secuencia de días evoca los siete días de Génesis 1; el texto no lo dice.",
+   "otros_usos": null,
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G2309",
+   "glosa_interlineal": "quiso",
+   "rango_semantico": [
+    "querer, desear",
+    "decidir",
+    "tener intención"
+   ],
+   "construccion": "Aoristo indicativo activo de θέλω, 3.ª singular.",
+   "sentido_en_contexto": "Decisión de Jesús: Jesús decide ir a Galilea.",
+   "matiz": "El aoristo marca la decisión como hecho completo.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G1831",
+   "glosa_interlineal": "salir",
+   "rango_semantico": [
+    "salir, irse",
+    "ir fuera"
+   ],
+   "construccion": "Infinitivo aoristo de ἐξέρχομαι, complemento de ἠθέλησεν.",
+   "sentido_en_contexto": "Jesús deja el lugar donde estaba con Juan, el valle del Jordán.",
+   "matiz": "Verbo de movimiento frecuente en Juan.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G1519",
+   "glosa_interlineal": "a",
+   "rango_semantico": [
+    "a, hacia (movimiento)",
+    "en, dentro de",
+    "para, con el fin de",
+    "como"
+   ],
+   "construccion": "Preposición con acusativo (εἰς τὴν Γαλιλαίαν): destino, «a».",
+   "sentido_en_contexto": "Marca el destino: Galilea.",
+   "matiz": "εἰς con verbo de movimiento marca meta.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo acusativo femenino singular; concuerda con Γαλιλαίαν.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G1056",
+   "glosa_interlineal": "Galilea",
+   "rango_semantico": [
+    "Galilea"
+   ],
+   "construccion": "Nombre propio, acusativo femenino singular, regido por εἰς.",
+   "sentido_en_contexto": "Región del norte, donde Jesús desarrollará gran parte de su ministerio; aquí empieza el camino de vuelta.",
+   "matiz": "Galilea es la región natural de Jesús (cf. 1:46 Nazaret).",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 2:1 — Caná de Galilea",
+    "Jn 4:3 — volvió a Galilea",
+    "Jn 7:41 — ¿acaso el Cristo ha de venir de Galilea?"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; añade el encuentro con Felipe.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G2147",
+   "glosa_interlineal": "encuentra",
+   "rango_semantico": [
+    "hallar, encontrar",
+    "descubrir",
+    "conseguir"
+   ],
+   "construccion": "Presente indicativo activo de εὑρίσκω, 3.ª singular. Presente histórico.",
+   "sentido_en_contexto": "Jesús encuentra a Felipe: esta vez la iniciativa es de Jesús, no de un discípulo.",
+   "matiz": "Cambio de iniciativa: hasta aquí otros llevaban a otros; aquí es Jesús quien busca.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:41 — Andrés encuentra a Simón",
+    "Jn 1:45 — Felipe encuentra a Natanael",
+    "Jn 5:14 — Jesús lo encontró"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G5376",
+   "glosa_interlineal": "Felipe",
+   "rango_semantico": [
+    "Felipe (nombre griego, «amigo de caballos»)"
+   ],
+   "construccion": "Nombre propio, acusativo masculino singular, objeto de εὑρίσκει.",
+   "sentido_en_contexto": "Discípulo de Betsaida, con nombre griego; reaparecerá en Jn 6:5-7 y 12:21-22.",
+   "matiz": "Felipe tiene nombre griego, igual que Andrés: entre los doce había dos con nombre griego.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 6:5 — Jesús pregunta a Felipe",
+    "Jn 12:21 — los griegos acuden a Felipe",
+    "Jn 14:8 — Felipe: muéstranos al Padre"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; añade las palabras de Jesús.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G3004",
+   "glosa_interlineal": "dice",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Presente indicativo activo de λέγω, 3.ª singular. Presente histórico.",
+   "sentido_en_contexto": "Introduce la orden de Jesús.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G846",
+   "glosa_interlineal": "le",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal dativo masculino singular, complemento de λέγει.",
+   "sentido_en_contexto": "Se refiere a Felipe.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino singular; concuerda con Ἰησοῦς.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G2424",
+   "glosa_interlineal": "Jesús",
+   "rango_semantico": [
+    "Jesús (forma griega del hebreo Yehoshúa, «Yahvé salva»)"
+   ],
+   "construccion": "Nombre propio, nominativo masculino singular, sujeto de λέγει.",
+   "sentido_en_contexto": "Jesús llama personalmente a Felipe.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G190",
+   "glosa_interlineal": "sígueme",
+   "rango_semantico": [
+    "seguir, acompañar",
+    "ser discípulo de",
+    "obedecer"
+   ],
+   "construccion": "Presente imperativo activo de ἀκολουθέω, 2.ª singular. El presente expresa llamada a una relación continuada.",
+   "sentido_en_contexto": "Primera llamada directa del Evangelio: «sígueme» es la invitación al discipulado.",
+   "matiz": "El presente imperativo es una invitación a un seguimiento duradero, más que a un acto puntual.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:37 — los dos discípulos siguieron a Jesús",
+    "Jn 21:19 — sígueme (a Pedro)",
+    "Mc 2:14 — Leví: sígueme"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G1473",
+   "glosa_interlineal": "me",
+   "rango_semantico": [
+    "yo",
+    "mí"
+   ],
+   "construccion": "Pronombre personal dativo de primera persona singular, complemento de ἀκολούθει.",
+   "sentido_en_contexto": "Es Jesús mismo quien se presenta como el centro del seguimiento.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}

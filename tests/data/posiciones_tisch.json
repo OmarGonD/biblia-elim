@@ -1,0 +1,3773 @@
+[
+ {
+  "ref": "John.1.1",
+  "raw": "<w lemma=\"strong:G1722 lemma.Strong:ἐν lemma.ANLEX:ἐν\" morph=\"robinson:PREP\">Ἐν</w> <w lemma=\"strong:G746 lemma.Strong:ἀρχή lemma.ANLEX:ἀρχή\" morph=\"robinson:N-DSF\">ἀρχῇ</w> <w lemma=\"strong:G1510 lemma.Strong:εἰμί lemma.ANLEX:εἰμί\" morph=\"robinson:V-IAI-3S\">ἦν</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSM\">ὁ</w> <w lemma=\"strong:G3056 lemma.Strong:λόγος lemma.ANLEX:λόγος\" morph=\"robinson:N-NSM\">λόγος,</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSM\">ὁ</w> <w lemma=\"strong:G3056 lemma.Strong:λόγος lemma.ANLEX:λόγος\" morph=\"robinson:N-NSM\">λόγος</w> <w lemma=\"strong:G1510 lemma.Strong:εἰμί lemma.ANLEX:εἰμί\" morph=\"robinson:V-IAI-3S\">ἦν</w> <w lemma=\"strong:G4314 lemma.Strong:πρός lemma.ANLEX:πρός\" morph=\"robinson:PREP\">πρὸς</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASM\">τὸν</w> <w lemma=\"strong:G2316 lemma.Strong:θεός lemma.ANLEX:θεός\" morph=\"robinson:N-ASM\">θεόν,</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G2316 lemma.Strong:θεός lemma.ANLEX:θεός\" morph=\"robinson:N-NSM\">θεὸς</w> <w lemma=\"strong:G1510 lemma.Strong:εἰμί lemma.ANLEX:εἰμί\" morph=\"robinson:V-IAI-3S\">ἦν</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSM\">ὁ</w> <w lemma=\"strong:G3056 lemma.Strong:λόγος lemma.ANLEX:λόγος\" morph=\"robinson:N-NSM\">λόγος.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "Ἐν",
+    "strong": "G1722"
+   },
+   {
+    "pos": 2,
+    "forma": "ἀρχῇ",
+    "strong": "G746"
+   },
+   {
+    "pos": 3,
+    "forma": "ἦν",
+    "strong": "G1510"
+   },
+   {
+    "pos": 4,
+    "forma": "ὁ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 5,
+    "forma": "λόγος,",
+    "strong": "G3056"
+   },
+   {
+    "pos": 6,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 7,
+    "forma": "ὁ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 8,
+    "forma": "λόγος",
+    "strong": "G3056"
+   },
+   {
+    "pos": 9,
+    "forma": "ἦν",
+    "strong": "G1510"
+   },
+   {
+    "pos": 10,
+    "forma": "πρὸς",
+    "strong": "G4314"
+   },
+   {
+    "pos": 11,
+    "forma": "τὸν",
+    "strong": "G3588"
+   },
+   {
+    "pos": 12,
+    "forma": "θεόν,",
+    "strong": "G2316"
+   },
+   {
+    "pos": 13,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 14,
+    "forma": "θεὸς",
+    "strong": "G2316"
+   },
+   {
+    "pos": 15,
+    "forma": "ἦν",
+    "strong": "G1510"
+   },
+   {
+    "pos": 16,
+    "forma": "ὁ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 17,
+    "forma": "λόγος.",
+    "strong": "G3056"
+   }
+  ]
+ },
+ {
+  "ref": "John.1.4",
+  "raw": "<w lemma=\"strong:G1722 lemma.Strong:ἐν lemma.ANLEX:ἐν\" morph=\"robinson:PREP\">ἐν</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-DSM\">αὐτῷ</w> <w lemma=\"strong:G2222 lemma.Strong:ζωή lemma.ANLEX:ζωή\" morph=\"robinson:N-NSF\">ζωὴ</w> <w lemma=\"strong:G1510 lemma.Strong:εἰμί lemma.ANLEX:εἰμί\" morph=\"robinson:V-PAI-3S\">ἐστιν,</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSF\">ἡ</w> <w lemma=\"strong:G2222 lemma.Strong:ζωή lemma.ANLEX:ζωή\" morph=\"robinson:N-NSF\">ζωὴ</w> <w lemma=\"strong:G1510 lemma.Strong:εἰμί lemma.ANLEX:εἰμί\" morph=\"robinson:V-IAI-3S\">ἦν</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSN\">τὸ</w> <w lemma=\"strong:G5457 lemma.Strong:φῶς lemma.ANLEX:φῶς\" morph=\"robinson:N-NSN\">φῶς</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GPM\">τῶν</w> <w lemma=\"strong:G444 lemma.Strong:ἄνθρωπος lemma.ANLEX:ἄνθρωπος\" morph=\"robinson:N-GPM\">ἀνθρώπων.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "ἐν",
+    "strong": "G1722"
+   },
+   {
+    "pos": 2,
+    "forma": "αὐτῷ",
+    "strong": "G846"
+   },
+   {
+    "pos": 3,
+    "forma": "ζωὴ",
+    "strong": "G2222"
+   },
+   {
+    "pos": 4,
+    "forma": "ἐστιν,",
+    "strong": "G1510"
+   },
+   {
+    "pos": 5,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 6,
+    "forma": "ἡ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 7,
+    "forma": "ζωὴ",
+    "strong": "G2222"
+   },
+   {
+    "pos": 8,
+    "forma": "ἦν",
+    "strong": "G1510"
+   },
+   {
+    "pos": 9,
+    "forma": "τὸ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 10,
+    "forma": "φῶς",
+    "strong": "G5457"
+   },
+   {
+    "pos": 11,
+    "forma": "τῶν",
+    "strong": "G3588"
+   },
+   {
+    "pos": 12,
+    "forma": "ἀνθρώπων.",
+    "strong": "G444"
+   }
+  ]
+ },
+ {
+  "ref": "Matt.5.4",
+  "raw": "<w lemma=\"strong:G3107 lemma.Strong:μακάριος lemma.ANLEX:μακάριος\" morph=\"robinson:A-NPM\">μακάριοι</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NPM\">οἱ</w> <w lemma=\"strong:G4239 lemma.Strong:πραΰς lemma.ANLEX:πραΰς\" morph=\"robinson:A-NPM\">πραεῖς,</w> <w lemma=\"strong:G3754 lemma.Strong:ὅτι lemma.ANLEX:ὅτι\" morph=\"robinson:CONJ\">ὅτι</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-NPM\">αὐτοὶ</w> <w lemma=\"strong:G2816 lemma.Strong:κληρονομέω lemma.ANLEX:κληρονομέω\" morph=\"robinson:V-FAI-3P\">κληρονομήσουσιν</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASF\">τήν</w> <w lemma=\"strong:G1093 lemma.Strong:γῆ lemma.ANLEX:γῆ\" morph=\"robinson:N-ASF\">γῆν.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "μακάριοι",
+    "strong": "G3107"
+   },
+   {
+    "pos": 2,
+    "forma": "οἱ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 3,
+    "forma": "πραεῖς,",
+    "strong": "G4239"
+   },
+   {
+    "pos": 4,
+    "forma": "ὅτι",
+    "strong": "G3754"
+   },
+   {
+    "pos": 5,
+    "forma": "αὐτοὶ",
+    "strong": "G846"
+   },
+   {
+    "pos": 6,
+    "forma": "κληρονομήσουσιν",
+    "strong": "G2816"
+   },
+   {
+    "pos": 7,
+    "forma": "τήν",
+    "strong": "G3588"
+   },
+   {
+    "pos": 8,
+    "forma": "γῆν.",
+    "strong": "G1093"
+   }
+  ]
+ },
+ {
+  "ref": "Matt.5.5",
+  "raw": "<w lemma=\"strong:G3107 lemma.Strong:μακάριος lemma.ANLEX:μακάριος\" morph=\"robinson:A-NPM\">μακάριοι</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NPM\">οἱ</w> <w lemma=\"strong:G3996 lemma.Strong:πενθέω lemma.ANLEX:πενθέω\" morph=\"robinson:V-PAP-NPM\">πενθοῦντες,</w> <w lemma=\"strong:G3754 lemma.Strong:ὅτι lemma.ANLEX:ὅτι\" morph=\"robinson:CONJ\">ὅτι</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-NPM\">αὐτοὶ</w> <w lemma=\"strong:G3870 lemma.Strong:παρακαλέω lemma.ANLEX:παρακαλέω\" morph=\"robinson:V-FPI-3P\">παρακληθήσονται.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "μακάριοι",
+    "strong": "G3107"
+   },
+   {
+    "pos": 2,
+    "forma": "οἱ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 3,
+    "forma": "πενθοῦντες,",
+    "strong": "G3996"
+   },
+   {
+    "pos": 4,
+    "forma": "ὅτι",
+    "strong": "G3754"
+   },
+   {
+    "pos": 5,
+    "forma": "αὐτοὶ",
+    "strong": "G846"
+   },
+   {
+    "pos": 6,
+    "forma": "παρακληθήσονται.",
+    "strong": "G3870"
+   }
+  ]
+ },
+ {
+  "ref": "1Cor.6.8",
+  "raw": "<w lemma=\"strong:G235 lemma.Strong:ἀλλά lemma.ANLEX:ἀλλά\" morph=\"robinson:CONJ\">ἀλλὰ</w> <w lemma=\"strong:G5210 lemma.Strong:ὑμεῖς lemma.ANLEX:σύ\" morph=\"robinson:P-2NP\">ὑμεῖς</w> <w lemma=\"strong:G91 lemma.Strong:ἀδικέω lemma.ANLEX:ἀδικέω\" morph=\"robinson:V-PAI-2P\">ἀδικεῖτε</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G650 lemma.Strong:ἀποστερέω lemma.ANLEX:ἀποστερέω\" morph=\"robinson:V-PAI-2P\">ἀποστερεῖτε,</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G3778 lemma.Strong:οὗτος lemma.ANLEX:οὗτος\" morph=\"robinson:D-ASN\">τοῦτο</w> <w lemma=\"strong:G80 lemma.Strong:ἀδελφός lemma.ANLEX:ἀδελφός\" morph=\"robinson:N-APM\">ἀδελφούς.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "ἀλλὰ",
+    "strong": "G235"
+   },
+   {
+    "pos": 2,
+    "forma": "ὑμεῖς",
+    "strong": "G5210"
+   },
+   {
+    "pos": 3,
+    "forma": "ἀδικεῖτε",
+    "strong": "G91"
+   },
+   {
+    "pos": 4,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 5,
+    "forma": "ἀποστερεῖτε,",
+    "strong": "G650"
+   },
+   {
+    "pos": 6,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 7,
+    "forma": "τοῦτο",
+    "strong": "G3778"
+   },
+   {
+    "pos": 8,
+    "forma": "ἀδελφούς.",
+    "strong": "G80"
+   }
+  ]
+ },
+ {
+  "ref": "1Tim.2.12",
+  "raw": "<w lemma=\"strong:G1321 lemma.Strong:διδάσκω lemma.ANLEX:διδάσκω\" morph=\"robinson:V-PAN\">διδάσκειν</w> <w lemma=\"strong:G1161 lemma.Strong:δέ lemma.ANLEX:δέ\" morph=\"robinson:CONJ\">δὲ</w> <w lemma=\"strong:G1135 lemma.Strong:γυνή lemma.ANLEX:γυνή\" morph=\"robinson:N-DSF\">γυναικὶ</w> <w lemma=\"strong:G3756 lemma.Strong:οὐ lemma.ANLEX:οὐ\" morph=\"robinson:PRT-N\">οὐκ</w> <w lemma=\"strong:G2010 lemma.Strong:ἐπιτρέπω lemma.ANLEX:ἐπιτρέπω\" morph=\"robinson:V-PAI-1S\">ἐπιτρέπω,</w> <w lemma=\"strong:G3761 lemma.Strong:οὐδέ lemma.ANLEX:οὐδέ\" morph=\"robinson:CONJ-N\">οὐδὲ</w> <w lemma=\"strong:G831 lemma.Strong:αὐθεντέω lemma.ANLEX:αὐθεντέω\" morph=\"robinson:V-PAN\">αὐθεντεῖν</w> <w lemma=\"strong:G435 lemma.Strong:ἀνήρ lemma.ANLEX:ἀνήρ\" morph=\"robinson:N-GSM\">ἀνδρός,</w> <w lemma=\"strong:G235 lemma.Strong:ἀλλά lemma.ANLEX:ἀλλά\" morph=\"robinson:CONJ\">ἀλλ’</w> <w lemma=\"strong:G1510 lemma.Strong:εἰμί lemma.ANLEX:εἰμί\" morph=\"robinson:V-PAN\">εἶναι</w> <w lemma=\"strong:G1722 lemma.Strong:ἐν lemma.ANLEX:ἐν\" morph=\"robinson:PREP\">ἐν</w> <w lemma=\"strong:G2271 lemma.Strong:ἡσυχία lemma.ANLEX:ἡσυχία\" morph=\"robinson:N-DSF\">ἡσυχίᾳ.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "διδάσκειν",
+    "strong": "G1321"
+   },
+   {
+    "pos": 2,
+    "forma": "δὲ",
+    "strong": "G1161"
+   },
+   {
+    "pos": 3,
+    "forma": "γυναικὶ",
+    "strong": "G1135"
+   },
+   {
+    "pos": 4,
+    "forma": "οὐκ",
+    "strong": "G3756"
+   },
+   {
+    "pos": 5,
+    "forma": "ἐπιτρέπω,",
+    "strong": "G2010"
+   },
+   {
+    "pos": 6,
+    "forma": "οὐδὲ",
+    "strong": "G3761"
+   },
+   {
+    "pos": 7,
+    "forma": "αὐθεντεῖν",
+    "strong": "G831"
+   },
+   {
+    "pos": 8,
+    "forma": "ἀνδρός,",
+    "strong": "G435"
+   },
+   {
+    "pos": 9,
+    "forma": "ἀλλ’",
+    "strong": "G235"
+   },
+   {
+    "pos": 10,
+    "forma": "εἶναι",
+    "strong": "G1510"
+   },
+   {
+    "pos": 11,
+    "forma": "ἐν",
+    "strong": "G1722"
+   },
+   {
+    "pos": 12,
+    "forma": "ἡσυχίᾳ.",
+    "strong": "G2271"
+   }
+  ]
+ },
+ {
+  "ref": "2Pet.2.21",
+  "raw": "<w lemma=\"strong:G2908 lemma.Strong:κρεῖσσον lemma.ANLEX:κρείττων\" morph=\"robinson:A-NSN\">κρεῖσσον</w> <w lemma=\"strong:G1063 lemma.Strong:γάρ lemma.ANLEX:γάρ\" morph=\"robinson:CONJ\">γὰρ</w> <w lemma=\"strong:G1510 lemma.Strong:εἰμί lemma.ANLEX:εἰμί\" morph=\"robinson:V-IAI-3S\">ἦν</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-DPM\">αὐτοῖς</w> <w lemma=\"strong:G3361 lemma.Strong:μή lemma.ANLEX:μή\" morph=\"robinson:PRT-N\">μὴ</w> <w lemma=\"strong:G1921 lemma.Strong:ἐπιγινώσκω lemma.ANLEX:ἐπιγινώσκω\" morph=\"robinson:V-RAN\">ἐπεγνωκέναι</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASF\">τὴν</w> <w lemma=\"strong:G3598 lemma.Strong:ὁδός lemma.ANLEX:ὁδός\" morph=\"robinson:N-ASF\">ὁδὸν</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSF\">τῆς</w> <w lemma=\"strong:G1343 lemma.Strong:δικαιοσύνη lemma.ANLEX:δικαιοσύνη\" morph=\"robinson:N-GSF\">δικαιοσύνης</w> <w lemma=\"strong:G2228 lemma.Strong:ἤ lemma.ANLEX:ἤ\" morph=\"robinson:PRT\">ἢ</w> <w lemma=\"strong:G1921 lemma.Strong:ἐπιγινώσκω lemma.ANLEX:ἐπιγινώσκω\" morph=\"robinson:V-2AAP-DPM\">ἐπιγνοῦσιν</w> <w lemma=\"strong:G5290 lemma.Strong:ὑποστρέφω lemma.ANLEX:ὑποστρέφω\" morph=\"robinson:V-AAN\">ὑποστρέψαι</w> <w lemma=\"strong:G1537 lemma.Strong:ἐκ lemma.ANLEX:ἐκ\" morph=\"robinson:PREP\">ἐκ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSF\">τῆς</w> <w lemma=\"strong:G3860 lemma.Strong:παραδίδωμι lemma.ANLEX:παραδίδωμι\" morph=\"robinson:V-APP-GSF\">παραδοθείσης</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-DPM\">αὐτοῖς</w> <w lemma=\"strong:G40 lemma.Strong:ἅγιος lemma.ANLEX:ἅγιος\" morph=\"robinson:A-GSF\">ἁγίας</w> <w lemma=\"strong:G1785 lemma.Strong:ἐντολή lemma.ANLEX:ἐντολή\" morph=\"robinson:N-GSF\">ἐντολῆς.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "κρεῖσσον",
+    "strong": "G2908"
+   },
+   {
+    "pos": 2,
+    "forma": "γὰρ",
+    "strong": "G1063"
+   },
+   {
+    "pos": 3,
+    "forma": "ἦν",
+    "strong": "G1510"
+   },
+   {
+    "pos": 4,
+    "forma": "αὐτοῖς",
+    "strong": "G846"
+   },
+   {
+    "pos": 5,
+    "forma": "μὴ",
+    "strong": "G3361"
+   },
+   {
+    "pos": 6,
+    "forma": "ἐπεγνωκέναι",
+    "strong": "G1921"
+   },
+   {
+    "pos": 7,
+    "forma": "τὴν",
+    "strong": "G3588"
+   },
+   {
+    "pos": 8,
+    "forma": "ὁδὸν",
+    "strong": "G3598"
+   },
+   {
+    "pos": 9,
+    "forma": "τῆς",
+    "strong": "G3588"
+   },
+   {
+    "pos": 10,
+    "forma": "δικαιοσύνης",
+    "strong": "G1343"
+   },
+   {
+    "pos": 11,
+    "forma": "ἢ",
+    "strong": "G2228"
+   },
+   {
+    "pos": 12,
+    "forma": "ἐπιγνοῦσιν",
+    "strong": "G1921"
+   },
+   {
+    "pos": 13,
+    "forma": "ὑποστρέψαι",
+    "strong": "G5290"
+   },
+   {
+    "pos": 14,
+    "forma": "ἐκ",
+    "strong": "G1537"
+   },
+   {
+    "pos": 15,
+    "forma": "τῆς",
+    "strong": "G3588"
+   },
+   {
+    "pos": 16,
+    "forma": "παραδοθείσης",
+    "strong": "G3860"
+   },
+   {
+    "pos": 17,
+    "forma": "αὐτοῖς",
+    "strong": "G846"
+   },
+   {
+    "pos": 18,
+    "forma": "ἁγίας",
+    "strong": "G40"
+   },
+   {
+    "pos": 19,
+    "forma": "ἐντολῆς.",
+    "strong": "G1785"
+   }
+  ]
+ },
+ {
+  "ref": "3John.1.10",
+  "raw": "<w lemma=\"strong:G1223 lemma.Strong:διά lemma.ANLEX:διά\" morph=\"robinson:PREP\">διὰ</w> <w lemma=\"strong:G3778 lemma.Strong:οὗτος lemma.ANLEX:οὗτος\" morph=\"robinson:D-ASN\">τοῦτο,</w> <w lemma=\"strong:G1437 lemma.Strong:ἐάν lemma.ANLEX:ἐάν\" morph=\"robinson:COND\">ἐὰν</w> <w lemma=\"strong:G2064 lemma.Strong:ἔρχομαι lemma.ANLEX:ἔρχομαι\" morph=\"robinson:V-2AAS-1S\">ἔλθω,</w> <w lemma=\"strong:G5279 lemma.Strong:ὑπομιμνήσκω lemma.ANLEX:ὑπομιμνῄσκω\" morph=\"robinson:V-FAI-1S\">ὑπομνήσω</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-GSM\">αὐτοῦ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-APN\">τὰ</w> <w lemma=\"strong:G2041 lemma.Strong:ἔργον lemma.ANLEX:ἔργον\" morph=\"robinson:N-APN\">ἔργα</w> <w lemma=\"strong:G3739 lemma.Strong:ὅς lemma.ANLEX:ὅς\" morph=\"robinson:R-APN\">ἃ</w> <w lemma=\"strong:G4160 lemma.Strong:ποιέω lemma.ANLEX:ποιέω\" morph=\"robinson:V-PAI-3S\">ποιεῖ,</w> <w lemma=\"strong:G3056 lemma.Strong:λόγος lemma.ANLEX:λόγος\" morph=\"robinson:N-DPM\">λόγοις</w> <w lemma=\"strong:G4190 lemma.Strong:πονηρός lemma.ANLEX:πονηρός\" morph=\"robinson:A-DPM\">πονηροῖς</w> <w lemma=\"strong:G5396 lemma.Strong:φλυαρέω lemma.ANLEX:φλυαρέω\" morph=\"robinson:V-PAP-NSM\">φλυαρῶν</w> <w lemma=\"strong:G2249 lemma.Strong:ἡμεῖς lemma.ANLEX:ἐγώ\" morph=\"robinson:P-1AP\">ἡμᾶς·</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G3361 lemma.Strong:μή lemma.ANLEX:μή\" morph=\"robinson:PRT-N\">μὴ</w> <w lemma=\"strong:G714 lemma.Strong:ἀρκέω lemma.ANLEX:ἀρκέω\" morph=\"robinson:V-PPP-NSM\">ἀρκούμενος</w> <w lemma=\"strong:G1909 lemma.Strong:ἐπί lemma.ANLEX:ἐπί\" morph=\"robinson:PREP\">ἐπὶ</w> <w lemma=\"strong:G3778 lemma.Strong:οὗτος lemma.ANLEX:οὗτος\" morph=\"robinson:D-DPM\">τούτοις</w> <w lemma=\"strong:G3777 lemma.Strong:οὔτε lemma.ANLEX:οὔτε\" morph=\"robinson:CONJ-N\">οὔτε</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-NSM\">αὐτὸς</w> <w lemma=\"strong:G1926 lemma.Strong:ἐπιδέχομαι lemma.ANLEX:ἐπιδέχομαι\" morph=\"robinson:V-PNI-3S\">ἐπιδέχεται</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-APM\">τοὺς</w> <w lemma=\"strong:G80 lemma.Strong:ἀδελφός lemma.ANLEX:ἀδελφός\" morph=\"robinson:N-APM\">ἀδελφοὺς</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-APM\">τοὺς</w> <w lemma=\"strong:G1014 lemma.Strong:βούλομαι lemma.ANLEX:βούλομαι\" morph=\"robinson:V-PNP-APM\">βουλομένους</w> <w lemma=\"strong:G2967 lemma.Strong:κωλύω lemma.ANLEX:κωλύω\" morph=\"robinson:V-PAI-3S\">κωλύει</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSF\">τῆς</w> <w lemma=\"strong:G1577 lemma.Strong:ἐκκλησία lemma.ANLEX:ἐκκλησία\" morph=\"robinson:N-GSF\">ἐκκλησίας</w> <w lemma=\"strong:G1544 lemma.Strong:ἐκβάλλω lemma.ANLEX:ἐκβάλλω\" morph=\"robinson:V-PAI-3S\">ἐκβάλλει.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "διὰ",
+    "strong": "G1223"
+   },
+   {
+    "pos": 2,
+    "forma": "τοῦτο,",
+    "strong": "G3778"
+   },
+   {
+    "pos": 3,
+    "forma": "ἐὰν",
+    "strong": "G1437"
+   },
+   {
+    "pos": 4,
+    "forma": "ἔλθω,",
+    "strong": "G2064"
+   },
+   {
+    "pos": 5,
+    "forma": "ὑπομνήσω",
+    "strong": "G5279"
+   },
+   {
+    "pos": 6,
+    "forma": "αὐτοῦ",
+    "strong": "G846"
+   },
+   {
+    "pos": 7,
+    "forma": "τὰ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 8,
+    "forma": "ἔργα",
+    "strong": "G2041"
+   },
+   {
+    "pos": 9,
+    "forma": "ἃ",
+    "strong": "G3739"
+   },
+   {
+    "pos": 10,
+    "forma": "ποιεῖ,",
+    "strong": "G4160"
+   },
+   {
+    "pos": 11,
+    "forma": "λόγοις",
+    "strong": "G3056"
+   },
+   {
+    "pos": 12,
+    "forma": "πονηροῖς",
+    "strong": "G4190"
+   },
+   {
+    "pos": 13,
+    "forma": "φλυαρῶν",
+    "strong": "G5396"
+   },
+   {
+    "pos": 14,
+    "forma": "ἡμᾶς·",
+    "strong": "G2249"
+   },
+   {
+    "pos": 15,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 16,
+    "forma": "μὴ",
+    "strong": "G3361"
+   },
+   {
+    "pos": 17,
+    "forma": "ἀρκούμενος",
+    "strong": "G714"
+   },
+   {
+    "pos": 18,
+    "forma": "ἐπὶ",
+    "strong": "G1909"
+   },
+   {
+    "pos": 19,
+    "forma": "τούτοις",
+    "strong": "G3778"
+   },
+   {
+    "pos": 20,
+    "forma": "οὔτε",
+    "strong": "G3777"
+   },
+   {
+    "pos": 21,
+    "forma": "αὐτὸς",
+    "strong": "G846"
+   },
+   {
+    "pos": 22,
+    "forma": "ἐπιδέχεται",
+    "strong": "G1926"
+   },
+   {
+    "pos": 23,
+    "forma": "τοὺς",
+    "strong": "G3588"
+   },
+   {
+    "pos": 24,
+    "forma": "ἀδελφοὺς",
+    "strong": "G80"
+   },
+   {
+    "pos": 25,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 26,
+    "forma": "τοὺς",
+    "strong": "G3588"
+   },
+   {
+    "pos": 27,
+    "forma": "βουλομένους",
+    "strong": "G1014"
+   },
+   {
+    "pos": 28,
+    "forma": "κωλύει",
+    "strong": "G2967"
+   },
+   {
+    "pos": 29,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 30,
+    "forma": "τῆς",
+    "strong": "G3588"
+   },
+   {
+    "pos": 31,
+    "forma": "ἐκκλησίας",
+    "strong": "G1577"
+   },
+   {
+    "pos": 32,
+    "forma": "ἐκβάλλει.",
+    "strong": "G1544"
+   }
+  ]
+ },
+ {
+  "ref": "Acts.10.47",
+  "raw": "<w lemma=\"strong:G3385 lemma.Strong:μήτι lemma.ANLEX:μήτι\" morph=\"robinson:PRT-I\">μήτι</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASN\">τὸ</w> <w lemma=\"strong:G5204 lemma.Strong:ὕδωρ lemma.ANLEX:ὕδωρ\" morph=\"robinson:N-ASN\">ὕδωρ</w> <w lemma=\"strong:G1410 lemma.Strong:δύναμαι lemma.ANLEX:δύναμαι\" morph=\"robinson:V-PNI-3S\">δύναται</w> <w lemma=\"strong:G2967 lemma.Strong:κωλύω lemma.ANLEX:κωλύω\" morph=\"robinson:V-AAN\">κωλῦσαί</w> <w lemma=\"strong:G5100 lemma.Strong:τὶς lemma.ANLEX:τὶς\" morph=\"robinson:X-NSM\">τις</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSN\">τοῦ</w> <w lemma=\"strong:G3361 lemma.Strong:μή lemma.ANLEX:μή\" morph=\"robinson:PRT-N\">μὴ</w> <w lemma=\"strong:G907 lemma.Strong:βαπτίζω lemma.ANLEX:βαπτίζω\" morph=\"robinson:V-APN\">βαπτισθῆναι</w> <w lemma=\"strong:G3778 lemma.Strong:οὗτος lemma.ANLEX:οὗτος\" morph=\"robinson:D-APM\">τούτους</w> <w lemma=\"strong:G3748 lemma.Strong:ὅστις lemma.ANLEX:ὅστις\" morph=\"robinson:R-NPM\">οἵτινες</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASN\">τὸ</w> <w lemma=\"strong:G4151 lemma.Strong:πνεῦμα lemma.ANLEX:πνεῦμα\" morph=\"robinson:N-ASN\">πνεῦμα</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASN\">τὸ</w> <w lemma=\"strong:G40 lemma.Strong:ἅγιος lemma.ANLEX:ἅγιος\" morph=\"robinson:A-ASN\">ἅγιον</w> <w lemma=\"strong:G2983 lemma.Strong:λαμβάνω lemma.ANLEX:λαμβάνω\" morph=\"robinson:V-2AAI-3P\">ἔλαβον</w> <w lemma=\"strong:G5613 lemma.Strong:ὡς lemma.ANLEX:ὡς\" morph=\"robinson:ADV\">ὡς</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G2249 lemma.Strong:ἡμεῖς lemma.ANLEX:ἐγώ\" morph=\"robinson:P-1NP\">ἡμεῖς;</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "μήτι",
+    "strong": "G3385"
+   },
+   {
+    "pos": 2,
+    "forma": "τὸ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 3,
+    "forma": "ὕδωρ",
+    "strong": "G5204"
+   },
+   {
+    "pos": 4,
+    "forma": "δύναται",
+    "strong": "G1410"
+   },
+   {
+    "pos": 5,
+    "forma": "κωλῦσαί",
+    "strong": "G2967"
+   },
+   {
+    "pos": 6,
+    "forma": "τις",
+    "strong": "G5100"
+   },
+   {
+    "pos": 7,
+    "forma": "τοῦ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 8,
+    "forma": "μὴ",
+    "strong": "G3361"
+   },
+   {
+    "pos": 9,
+    "forma": "βαπτισθῆναι",
+    "strong": "G907"
+   },
+   {
+    "pos": 10,
+    "forma": "τούτους",
+    "strong": "G3778"
+   },
+   {
+    "pos": 11,
+    "forma": "οἵτινες",
+    "strong": "G3748"
+   },
+   {
+    "pos": 12,
+    "forma": "τὸ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 13,
+    "forma": "πνεῦμα",
+    "strong": "G4151"
+   },
+   {
+    "pos": 14,
+    "forma": "τὸ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 15,
+    "forma": "ἅγιον",
+    "strong": "G40"
+   },
+   {
+    "pos": 16,
+    "forma": "ἔλαβον",
+    "strong": "G2983"
+   },
+   {
+    "pos": 17,
+    "forma": "ὡς",
+    "strong": "G5613"
+   },
+   {
+    "pos": 18,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 19,
+    "forma": "ἡμεῖς;",
+    "strong": "G2249"
+   }
+  ]
+ },
+ {
+  "ref": "Acts.24.20",
+  "raw": "<w lemma=\"strong:G2228 lemma.Strong:ἤ lemma.ANLEX:ἤ\" morph=\"robinson:PRT\">ἢ</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-NPM\">αὐτοὶ</w> <w lemma=\"strong:G3778 lemma.Strong:οὗτος lemma.ANLEX:οὗτος\" morph=\"robinson:D-NPM\">οὗτοι</w> <w lemma=\"strong:G3004 lemma.Strong:λέγω lemma.ANLEX:λέγω\" morph=\"robinson:V-2AAM-3P\">εἰπάτωσαν</w> <w lemma=\"strong:G5101 lemma.Strong:τίς lemma.ANLEX:τίς\" morph=\"robinson:I-ASN\">τί</w> <w lemma=\"strong:G2147 lemma.Strong:εὑρίσκω lemma.ANLEX:εὑρίσκω\" morph=\"robinson:V-2AAI-3P\">εὗρον</w> <w lemma=\"strong:G92 lemma.Strong:ἀδίκημα lemma.ANLEX:ἀδίκημα\" morph=\"robinson:N-ASN\">ἀδίκημα</w> <w lemma=\"strong:G2476 lemma.Strong:ἵστημι lemma.ANLEX:ἵστημι\" morph=\"robinson:V-2AAP-GSM\">στάντος</w> <w lemma=\"strong:G1473 lemma.Strong:ἐγώ lemma.ANLEX:ἐγώ\" morph=\"robinson:P-1GS\">μου</w> <w lemma=\"strong:G1909 lemma.Strong:ἐπί lemma.ANLEX:ἐπί\" morph=\"robinson:PREP\">ἐπὶ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSN\">τοῦ</w> <w lemma=\"strong:G4892 lemma.Strong:συνέδριον lemma.ANLEX:συνέδριον\" morph=\"robinson:N-GSN\">συνεδρίου</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "ἢ",
+    "strong": "G2228"
+   },
+   {
+    "pos": 2,
+    "forma": "αὐτοὶ",
+    "strong": "G846"
+   },
+   {
+    "pos": 3,
+    "forma": "οὗτοι",
+    "strong": "G3778"
+   },
+   {
+    "pos": 4,
+    "forma": "εἰπάτωσαν",
+    "strong": "G3004"
+   },
+   {
+    "pos": 5,
+    "forma": "τί",
+    "strong": "G5101"
+   },
+   {
+    "pos": 6,
+    "forma": "εὗρον",
+    "strong": "G2147"
+   },
+   {
+    "pos": 7,
+    "forma": "ἀδίκημα",
+    "strong": "G92"
+   },
+   {
+    "pos": 8,
+    "forma": "στάντος",
+    "strong": "G2476"
+   },
+   {
+    "pos": 9,
+    "forma": "μου",
+    "strong": "G1473"
+   },
+   {
+    "pos": 10,
+    "forma": "ἐπὶ",
+    "strong": "G1909"
+   },
+   {
+    "pos": 11,
+    "forma": "τοῦ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 12,
+    "forma": "συνεδρίου",
+    "strong": "G4892"
+   }
+  ]
+ },
+ {
+  "ref": "Acts.26.9",
+  "raw": "<w lemma=\"strong:G1473 lemma.Strong:ἐγώ lemma.ANLEX:ἐγώ\" morph=\"robinson:P-1NS\">ἐγὼ</w> <w lemma=\"strong:G3303 lemma.Strong:μέν lemma.ANLEX:μέν\" morph=\"robinson:PRT\">μὲν</w> <w lemma=\"strong:G3767 lemma.Strong:οὖν lemma.ANLEX:οὖν\" morph=\"robinson:CONJ\">οὖν</w> <w lemma=\"strong:G1380 lemma.Strong:δοκέω lemma.ANLEX:δοκέω\" morph=\"robinson:V-AAI-1S\">ἔδοξα</w> <w lemma=\"strong:G1683 lemma.Strong:ἐμαυτοῦ lemma.ANLEX:ἐμαυτοῦ\" morph=\"robinson:F-1DSM\">ἐμαυτῷ</w> <w lemma=\"strong:G4314 lemma.Strong:πρός lemma.ANLEX:πρός\" morph=\"robinson:PREP\">πρὸς</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASN\">τὸ</w> <w lemma=\"strong:G3686 lemma.Strong:ὄνομα lemma.ANLEX:ὄνομα\" morph=\"robinson:N-ASN\">ὄνομα</w> <w lemma=\"strong:G2424 lemma.Strong:Ἰησοῦς lemma.ANLEX:Ἰησοῦς\" morph=\"robinson:N-GSM\">Ἰησοῦ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSM\">τοῦ</w> <w lemma=\"strong:G3480 lemma.Strong:Ναζωραῖος lemma.ANLEX:Ναζωραῖος\" morph=\"robinson:N-GSM\">Ναζωραίου</w> <w lemma=\"strong:G1163 lemma.Strong:δεῖ lemma.ANLEX:δεῖ\" morph=\"robinson:V-PAN\">δεῖν</w> <w lemma=\"strong:G4183 lemma.Strong:πολύς lemma.ANLEX:πολύς\" morph=\"robinson:A-APN\">πολλὰ</w> <w lemma=\"strong:G1727 lemma.Strong:ἐναντίος lemma.ANLEX:ἐναντίος\" morph=\"robinson:A-APN\">ἐναντία</w> <w lemma=\"strong:G4238 lemma.Strong:πράσσω lemma.ANLEX:πράσσω\" morph=\"robinson:V-AAN\">πρᾶξαι·</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "ἐγὼ",
+    "strong": "G1473"
+   },
+   {
+    "pos": 2,
+    "forma": "μὲν",
+    "strong": "G3303"
+   },
+   {
+    "pos": 3,
+    "forma": "οὖν",
+    "strong": "G3767"
+   },
+   {
+    "pos": 4,
+    "forma": "ἔδοξα",
+    "strong": "G1380"
+   },
+   {
+    "pos": 5,
+    "forma": "ἐμαυτῷ",
+    "strong": "G1683"
+   },
+   {
+    "pos": 6,
+    "forma": "πρὸς",
+    "strong": "G4314"
+   },
+   {
+    "pos": 7,
+    "forma": "τὸ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 8,
+    "forma": "ὄνομα",
+    "strong": "G3686"
+   },
+   {
+    "pos": 9,
+    "forma": "Ἰησοῦ",
+    "strong": "G2424"
+   },
+   {
+    "pos": 10,
+    "forma": "τοῦ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 11,
+    "forma": "Ναζωραίου",
+    "strong": "G3480"
+   },
+   {
+    "pos": 12,
+    "forma": "δεῖν",
+    "strong": "G1163"
+   },
+   {
+    "pos": 13,
+    "forma": "πολλὰ",
+    "strong": "G4183"
+   },
+   {
+    "pos": 14,
+    "forma": "ἐναντία",
+    "strong": "G1727"
+   },
+   {
+    "pos": 15,
+    "forma": "πρᾶξαι·",
+    "strong": "G4238"
+   }
+  ]
+ },
+ {
+  "ref": "Col.1.18",
+  "raw": "<w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-NSM\">αὐτός</w> <w lemma=\"strong:G1510 lemma.Strong:εἰμί lemma.ANLEX:εἰμί\" morph=\"robinson:V-PAI-3S\">ἐστιν</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSF\">ἡ</w> <w lemma=\"strong:G2776 lemma.Strong:κεφαλή lemma.ANLEX:κεφαλή\" morph=\"robinson:N-NSF\">κεφαλὴ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSN\">τοῦ</w> <w lemma=\"strong:G4983 lemma.Strong:σῶμα lemma.ANLEX:σῶμα\" morph=\"robinson:N-GSN\">σώματος,</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSF\">τῆς</w> <w lemma=\"strong:G1577 lemma.Strong:ἐκκλησία lemma.ANLEX:ἐκκλησία\" morph=\"robinson:N-GSF\">ἐκκλησίας·</w> <w lemma=\"strong:G3739 lemma.Strong:ὅς lemma.ANLEX:ὅς\" morph=\"robinson:R-NSM\">ὅς</w> <w lemma=\"strong:G1510 lemma.Strong:εἰμί lemma.ANLEX:εἰμί\" morph=\"robinson:V-PAI-3S\">ἐστιν</w> <w lemma=\"strong:G746 lemma.Strong:ἀρχή lemma.ANLEX:ἀρχή\" morph=\"robinson:N-NSF\">ἀρχή,</w> <w lemma=\"strong:G4416 lemma.Strong:πρωτότοκος lemma.ANLEX:πρωτότοκος\" morph=\"robinson:A-NSM-S\">πρωτότοκος</w> <w lemma=\"strong:G1537 lemma.Strong:ἐκ lemma.ANLEX:ἐκ\" morph=\"robinson:PREP\">ἐκ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GPM\">τῶν</w> <w lemma=\"strong:G3498 lemma.Strong:νεκρός lemma.ANLEX:νεκρός\" morph=\"robinson:A-GPM\">νεκρῶν,</w> <w lemma=\"strong:G2443 lemma.Strong:ἵνα lemma.ANLEX:ἵνα\" morph=\"robinson:CONJ\">ἵνα</w> <w lemma=\"strong:G1096 lemma.Strong:γίνομαι lemma.ANLEX:γίνομαι\" morph=\"robinson:V-2ADS-3S\">γένηται</w> <w lemma=\"strong:G1722 lemma.Strong:ἐν lemma.ANLEX:ἐν\" morph=\"robinson:PREP\">ἐν</w> <w lemma=\"strong:G3956 lemma.Strong:πᾶς lemma.ANLEX:πᾶς\" morph=\"robinson:A-DPN\">πᾶσιν</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-NSM\">αὐτὸς</w> <w lemma=\"strong:G4409 lemma.Strong:πρωτεύω lemma.ANLEX:πρωτεύω\" morph=\"robinson:V-PAP-NSM\">πρωτεύων,</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 2,
+    "forma": "αὐτός",
+    "strong": "G846"
+   },
+   {
+    "pos": 3,
+    "forma": "ἐστιν",
+    "strong": "G1510"
+   },
+   {
+    "pos": 4,
+    "forma": "ἡ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 5,
+    "forma": "κεφαλὴ",
+    "strong": "G2776"
+   },
+   {
+    "pos": 6,
+    "forma": "τοῦ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 7,
+    "forma": "σώματος,",
+    "strong": "G4983"
+   },
+   {
+    "pos": 8,
+    "forma": "τῆς",
+    "strong": "G3588"
+   },
+   {
+    "pos": 9,
+    "forma": "ἐκκλησίας·",
+    "strong": "G1577"
+   },
+   {
+    "pos": 10,
+    "forma": "ὅς",
+    "strong": "G3739"
+   },
+   {
+    "pos": 11,
+    "forma": "ἐστιν",
+    "strong": "G1510"
+   },
+   {
+    "pos": 12,
+    "forma": "ἀρχή,",
+    "strong": "G746"
+   },
+   {
+    "pos": 13,
+    "forma": "πρωτότοκος",
+    "strong": "G4416"
+   },
+   {
+    "pos": 14,
+    "forma": "ἐκ",
+    "strong": "G1537"
+   },
+   {
+    "pos": 15,
+    "forma": "τῶν",
+    "strong": "G3588"
+   },
+   {
+    "pos": 16,
+    "forma": "νεκρῶν,",
+    "strong": "G3498"
+   },
+   {
+    "pos": 17,
+    "forma": "ἵνα",
+    "strong": "G2443"
+   },
+   {
+    "pos": 18,
+    "forma": "γένηται",
+    "strong": "G1096"
+   },
+   {
+    "pos": 19,
+    "forma": "ἐν",
+    "strong": "G1722"
+   },
+   {
+    "pos": 20,
+    "forma": "πᾶσιν",
+    "strong": "G3956"
+   },
+   {
+    "pos": 21,
+    "forma": "αὐτὸς",
+    "strong": "G846"
+   },
+   {
+    "pos": 22,
+    "forma": "πρωτεύων,",
+    "strong": "G4409"
+   }
+  ]
+ },
+ {
+  "ref": "Gal.1.17",
+  "raw": "<w lemma=\"strong:G3761 lemma.Strong:οὐδέ lemma.ANLEX:οὐδέ\" morph=\"robinson:CONJ-N\">οὐδὲ</w> <w lemma=\"strong:G424 lemma.Strong:ἀνέρχομαι lemma.ANLEX:ἀνέρχομαι\" morph=\"robinson:V-2AAI-1S\">ἀνῆλθον</w> <w lemma=\"strong:G1519 lemma.Strong:εἰς lemma.ANLEX:εἰς\" morph=\"robinson:PREP\">εἰς</w> <w lemma=\"strong:G2414 lemma.Strong:Ἱεροσόλυμα lemma.ANLEX:Ἱεροσόλυμα\" morph=\"robinson:N-ASF\">Ἱεροσόλυμα</w> <w lemma=\"strong:G4314 lemma.Strong:πρός lemma.ANLEX:πρός\" morph=\"robinson:PREP\">πρὸς</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-APM\">τοὺς</w> <w lemma=\"strong:G4253 lemma.Strong:πρό lemma.ANLEX:πρό\" morph=\"robinson:PREP\">πρὸ</w> <w lemma=\"strong:G1473 lemma.Strong:ἐγώ lemma.ANLEX:ἐγώ\" morph=\"robinson:P-1GS\">ἐμοῦ</w> <w lemma=\"strong:G652 lemma.Strong:ἀπόστολος lemma.ANLEX:ἀπόστολος\" morph=\"robinson:N-APM\">ἀποστόλους,</w> <w lemma=\"strong:G235 lemma.Strong:ἀλλά lemma.ANLEX:ἀλλά\" morph=\"robinson:CONJ\">ἀλλὰ</w> <w lemma=\"strong:G565 lemma.Strong:ἀπέρχομαι lemma.ANLEX:ἀπέρχομαι\" morph=\"robinson:V-2AAI-1S\">ἀπῆλθον</w> <w lemma=\"strong:G1519 lemma.Strong:εἰς lemma.ANLEX:εἰς\" morph=\"robinson:PREP\">εἰς</w> <w lemma=\"strong:G688 lemma.Strong:Ἀραβία lemma.ANLEX:Ἀραβία\" morph=\"robinson:N-ASF\">Ἀραβίαν,</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G3825 lemma.Strong:πάλιν lemma.ANLEX:πάλιν\" morph=\"robinson:ADV\">πάλιν</w> <w lemma=\"strong:G5290 lemma.Strong:ὑποστρέφω lemma.ANLEX:ὑποστρέφω\" morph=\"robinson:V-AAI-1S\">ὑπέστρεψα</w> <w lemma=\"strong:G1519 lemma.Strong:εἰς lemma.ANLEX:εἰς\" morph=\"robinson:PREP\">εἰς</w> <w lemma=\"strong:G1154 lemma.Strong:Δαμασκός lemma.ANLEX:Δαμασκός\" morph=\"robinson:N-ASF\">Δαμασκόν.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "οὐδὲ",
+    "strong": "G3761"
+   },
+   {
+    "pos": 2,
+    "forma": "ἀνῆλθον",
+    "strong": "G424"
+   },
+   {
+    "pos": 3,
+    "forma": "εἰς",
+    "strong": "G1519"
+   },
+   {
+    "pos": 4,
+    "forma": "Ἱεροσόλυμα",
+    "strong": "G2414"
+   },
+   {
+    "pos": 5,
+    "forma": "πρὸς",
+    "strong": "G4314"
+   },
+   {
+    "pos": 6,
+    "forma": "τοὺς",
+    "strong": "G3588"
+   },
+   {
+    "pos": 7,
+    "forma": "πρὸ",
+    "strong": "G4253"
+   },
+   {
+    "pos": 8,
+    "forma": "ἐμοῦ",
+    "strong": "G1473"
+   },
+   {
+    "pos": 9,
+    "forma": "ἀποστόλους,",
+    "strong": "G652"
+   },
+   {
+    "pos": 10,
+    "forma": "ἀλλὰ",
+    "strong": "G235"
+   },
+   {
+    "pos": 11,
+    "forma": "ἀπῆλθον",
+    "strong": "G565"
+   },
+   {
+    "pos": 12,
+    "forma": "εἰς",
+    "strong": "G1519"
+   },
+   {
+    "pos": 13,
+    "forma": "Ἀραβίαν,",
+    "strong": "G688"
+   },
+   {
+    "pos": 14,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 15,
+    "forma": "πάλιν",
+    "strong": "G3825"
+   },
+   {
+    "pos": 16,
+    "forma": "ὑπέστρεψα",
+    "strong": "G5290"
+   },
+   {
+    "pos": 17,
+    "forma": "εἰς",
+    "strong": "G1519"
+   },
+   {
+    "pos": 18,
+    "forma": "Δαμασκόν.",
+    "strong": "G1154"
+   }
+  ]
+ },
+ {
+  "ref": "Heb.9.28",
+  "raw": "<w lemma=\"strong:G3779 lemma.Strong:οὕτω lemma.ANLEX:οὕτω\" morph=\"robinson:ADV\">οὕτως</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSM\">ὁ</w> <w lemma=\"strong:G5547 lemma.Strong:Χριστός lemma.ANLEX:Χριστός\" morph=\"robinson:N-NSM\">Χριστός,</w> <w lemma=\"strong:G530 lemma.Strong:ἅπαξ lemma.ANLEX:ἅπαξ\" morph=\"robinson:ADV\">ἅπαξ</w> <w lemma=\"strong:G4374 lemma.Strong:προσφέρω lemma.ANLEX:προσφέρω\" morph=\"robinson:V-APP-NSM\">προσενεχθεὶς</w> <w lemma=\"strong:G1519 lemma.Strong:εἰς lemma.ANLEX:εἰς\" morph=\"robinson:PREP\">εἰς</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASN\">τὸ</w> <w lemma=\"strong:G4183 lemma.Strong:πολύς lemma.ANLEX:πολύς\" morph=\"robinson:A-GPM\">πολλῶν</w> <w lemma=\"strong:G399 lemma.Strong:ἀναφέρω lemma.ANLEX:ἀναφέρω\" morph=\"robinson:V-2AAN\">ἀνενεγκεῖν</w> <w lemma=\"strong:G266 lemma.Strong:ἁμαρτία lemma.ANLEX:ἁμαρτία\" morph=\"robinson:N-APF\">ἁμαρτίας,</w> <w lemma=\"strong:G1537 lemma.Strong:ἐκ lemma.ANLEX:ἐκ\" morph=\"robinson:PREP\">ἐκ</w> <w lemma=\"strong:G1208 lemma.Strong:δεύτερος lemma.ANLEX:δεύτερος\" morph=\"robinson:A-GSN\">δευτέρου</w> <w lemma=\"strong:G5565 lemma.Strong:χωρίς lemma.ANLEX:χωρίς\" morph=\"robinson:ADV\">χωρὶς</w> <w lemma=\"strong:G266 lemma.Strong:ἁμαρτία lemma.ANLEX:ἁμαρτία\" morph=\"robinson:N-GSF\">ἁμαρτίας</w> <w lemma=\"strong:G3708 lemma.Strong:ὁράω lemma.ANLEX:ὁράω\" morph=\"robinson:V-FPI-3S\">ὀφθήσεται</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-DPM\">τοῖς</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-ASM\">αὐτὸν</w> <w lemma=\"strong:G553 lemma.Strong:ἀπεκδέχομαι lemma.ANLEX:ἀπεκδέχομαι\" morph=\"robinson:V-PNP-DPM\">ἀπεκδεχομένοις</w> <w lemma=\"strong:G1519 lemma.Strong:εἰς lemma.ANLEX:εἰς\" morph=\"robinson:PREP\">εἰς</w> <w lemma=\"strong:G4991 lemma.Strong:σωτηρία lemma.ANLEX:σωτηρία\" morph=\"robinson:N-ASF\">σωτηρίαν.</w> <lb type=\"x-end-paragraph\"/>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "οὕτως",
+    "strong": "G3779"
+   },
+   {
+    "pos": 2,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 3,
+    "forma": "ὁ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 4,
+    "forma": "Χριστός,",
+    "strong": "G5547"
+   },
+   {
+    "pos": 5,
+    "forma": "ἅπαξ",
+    "strong": "G530"
+   },
+   {
+    "pos": 6,
+    "forma": "προσενεχθεὶς",
+    "strong": "G4374"
+   },
+   {
+    "pos": 7,
+    "forma": "εἰς",
+    "strong": "G1519"
+   },
+   {
+    "pos": 8,
+    "forma": "τὸ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 9,
+    "forma": "πολλῶν",
+    "strong": "G4183"
+   },
+   {
+    "pos": 10,
+    "forma": "ἀνενεγκεῖν",
+    "strong": "G399"
+   },
+   {
+    "pos": 11,
+    "forma": "ἁμαρτίας,",
+    "strong": "G266"
+   },
+   {
+    "pos": 12,
+    "forma": "ἐκ",
+    "strong": "G1537"
+   },
+   {
+    "pos": 13,
+    "forma": "δευτέρου",
+    "strong": "G1208"
+   },
+   {
+    "pos": 14,
+    "forma": "χωρὶς",
+    "strong": "G5565"
+   },
+   {
+    "pos": 15,
+    "forma": "ἁμαρτίας",
+    "strong": "G266"
+   },
+   {
+    "pos": 16,
+    "forma": "ὀφθήσεται",
+    "strong": "G3708"
+   },
+   {
+    "pos": 17,
+    "forma": "τοῖς",
+    "strong": "G3588"
+   },
+   {
+    "pos": 18,
+    "forma": "αὐτὸν",
+    "strong": "G846"
+   },
+   {
+    "pos": 19,
+    "forma": "ἀπεκδεχομένοις",
+    "strong": "G553"
+   },
+   {
+    "pos": 20,
+    "forma": "εἰς",
+    "strong": "G1519"
+   },
+   {
+    "pos": 21,
+    "forma": "σωτηρίαν.",
+    "strong": "G4991"
+   }
+  ]
+ },
+ {
+  "ref": "Jas.1.7",
+  "raw": "<w lemma=\"strong:G3361 lemma.Strong:μή lemma.ANLEX:μή\" morph=\"robinson:PRT-N\">μὴ</w> <w lemma=\"strong:G1063 lemma.Strong:γάρ lemma.ANLEX:γάρ\" morph=\"robinson:CONJ\">γὰρ</w> <w lemma=\"strong:G3633 lemma.Strong:οἴομαι lemma.ANLEX:οἴομαι\" morph=\"robinson:V-PNM-3S\">οἰέσθω</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSM\">ὁ</w> <w lemma=\"strong:G444 lemma.Strong:ἄνθρωπος lemma.ANLEX:ἄνθρωπος\" morph=\"robinson:N-NSM\">ἄνθρωπος</w> <w lemma=\"strong:G1565 lemma.Strong:ἐκεῖνος lemma.ANLEX:ἐκεῖνος\" morph=\"robinson:D-NSM\">ἐκεῖνος</w> <w lemma=\"strong:G3754 lemma.Strong:ὅτι lemma.ANLEX:ὅτι\" morph=\"robinson:CONJ\">ὅτι</w> <w lemma=\"strong:G2983 lemma.Strong:λαμβάνω lemma.ANLEX:λαμβάνω\" morph=\"robinson:V-FDI-3S\">λήμψεταί</w> <w lemma=\"strong:G5100 lemma.Strong:τὶς lemma.ANLEX:τὶς\" morph=\"robinson:X-ASN\">τι</w> <w lemma=\"strong:G3844 lemma.Strong:παρά lemma.ANLEX:παρά\" morph=\"robinson:PREP\">παρὰ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSM\">τοῦ</w> <w lemma=\"strong:G2962 lemma.Strong:κύριος lemma.ANLEX:κύριος\" morph=\"robinson:N-GSM\">κυρίου,</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "μὴ",
+    "strong": "G3361"
+   },
+   {
+    "pos": 2,
+    "forma": "γὰρ",
+    "strong": "G1063"
+   },
+   {
+    "pos": 3,
+    "forma": "οἰέσθω",
+    "strong": "G3633"
+   },
+   {
+    "pos": 4,
+    "forma": "ὁ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 5,
+    "forma": "ἄνθρωπος",
+    "strong": "G444"
+   },
+   {
+    "pos": 6,
+    "forma": "ἐκεῖνος",
+    "strong": "G1565"
+   },
+   {
+    "pos": 7,
+    "forma": "ὅτι",
+    "strong": "G3754"
+   },
+   {
+    "pos": 8,
+    "forma": "λήμψεταί",
+    "strong": "G2983"
+   },
+   {
+    "pos": 9,
+    "forma": "τι",
+    "strong": "G5100"
+   },
+   {
+    "pos": 10,
+    "forma": "παρὰ",
+    "strong": "G3844"
+   },
+   {
+    "pos": 11,
+    "forma": "τοῦ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 12,
+    "forma": "κυρίου,",
+    "strong": "G2962"
+   }
+  ]
+ },
+ {
+  "ref": "Jas.4.2",
+  "raw": "<w lemma=\"strong:G1937 lemma.Strong:ἐπιθυμέω lemma.ANLEX:ἐπιθυμέω\" morph=\"robinson:V-PAI-2P\">ἐπιθυμεῖτε,</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G3756 lemma.Strong:οὐ lemma.ANLEX:οὐ\" morph=\"robinson:PRT-N\">οὐκ</w> <w lemma=\"strong:G2192 lemma.Strong:ἔχω lemma.ANLEX:ἔχω\" morph=\"robinson:V-PAI-2P\">ἔχετε·</w> <w lemma=\"strong:G5407 lemma.Strong:φονεύω lemma.ANLEX:φονεύω\" morph=\"robinson:V-PAI-2P\">φονεύετε</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G2206 lemma.Strong:ζηλόω lemma.ANLEX:ζηλόω\" morph=\"robinson:V-PAI-2P\">ζηλοῦτε,</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G3756 lemma.Strong:οὐ lemma.ANLEX:οὐ\" morph=\"robinson:PRT-N\">οὐ</w> <w lemma=\"strong:G1410 lemma.Strong:δύναμαι lemma.ANLEX:δύναμαι\" morph=\"robinson:V-PNI-2P\">δύνασθε</w> <w lemma=\"strong:G2013 lemma.Strong:ἐπιτυγχάνω lemma.ANLEX:ἐπιτυγχάνω\" morph=\"robinson:V-2AAN\">ἐπιτυχεῖν·</w> <w lemma=\"strong:G3164 lemma.Strong:μάχομαι lemma.ANLEX:μάχομαι\" morph=\"robinson:V-PNI-2P\">μάχεσθε</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G4170 lemma.Strong:πολεμέω lemma.ANLEX:πολεμέω\" morph=\"robinson:V-PAI-2P\">πολεμεῖτε.</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G3756 lemma.Strong:οὐ lemma.ANLEX:οὐ\" morph=\"robinson:PRT-N\">οὐκ</w> <w lemma=\"strong:G2192 lemma.Strong:ἔχω lemma.ANLEX:ἔχω\" morph=\"robinson:V-PAI-2P\">ἔχετε</w> <w lemma=\"strong:G1223 lemma.Strong:διά lemma.ANLEX:διά\" morph=\"robinson:PREP\">διὰ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASN\">τὸ</w> <w lemma=\"strong:G3361 lemma.Strong:μή lemma.ANLEX:μή\" morph=\"robinson:PRT-N\">μὴ</w> <w lemma=\"strong:G154 lemma.Strong:αἰτέω lemma.ANLEX:αἰτέω\" morph=\"robinson:V-PMN\">αἰτεῖσθαι</w> <w lemma=\"strong:G5210 lemma.Strong:ὑμεῖς lemma.ANLEX:σύ\" morph=\"robinson:P-2AP\">ὑμᾶς·</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "ἐπιθυμεῖτε,",
+    "strong": "G1937"
+   },
+   {
+    "pos": 2,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 3,
+    "forma": "οὐκ",
+    "strong": "G3756"
+   },
+   {
+    "pos": 4,
+    "forma": "ἔχετε·",
+    "strong": "G2192"
+   },
+   {
+    "pos": 5,
+    "forma": "φονεύετε",
+    "strong": "G5407"
+   },
+   {
+    "pos": 6,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 7,
+    "forma": "ζηλοῦτε,",
+    "strong": "G2206"
+   },
+   {
+    "pos": 8,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 9,
+    "forma": "οὐ",
+    "strong": "G3756"
+   },
+   {
+    "pos": 10,
+    "forma": "δύνασθε",
+    "strong": "G1410"
+   },
+   {
+    "pos": 11,
+    "forma": "ἐπιτυχεῖν·",
+    "strong": "G2013"
+   },
+   {
+    "pos": 12,
+    "forma": "μάχεσθε",
+    "strong": "G3164"
+   },
+   {
+    "pos": 13,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 14,
+    "forma": "πολεμεῖτε.",
+    "strong": "G4170"
+   },
+   {
+    "pos": 15,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 16,
+    "forma": "οὐκ",
+    "strong": "G3756"
+   },
+   {
+    "pos": 17,
+    "forma": "ἔχετε",
+    "strong": "G2192"
+   },
+   {
+    "pos": 18,
+    "forma": "διὰ",
+    "strong": "G1223"
+   },
+   {
+    "pos": 19,
+    "forma": "τὸ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 20,
+    "forma": "μὴ",
+    "strong": "G3361"
+   },
+   {
+    "pos": 21,
+    "forma": "αἰτεῖσθαι",
+    "strong": "G154"
+   },
+   {
+    "pos": 22,
+    "forma": "ὑμᾶς·",
+    "strong": "G5210"
+   }
+  ]
+ },
+ {
+  "ref": "John.5.26",
+  "raw": "<w lemma=\"strong:G5618 lemma.Strong:ὥσπερ lemma.ANLEX:ὥσπερ\" morph=\"robinson:ADV\">ὥσπερ</w> <w lemma=\"strong:G1063 lemma.Strong:γάρ lemma.ANLEX:γάρ\" morph=\"robinson:CONJ\">γὰρ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSM\">ὁ</w> <w lemma=\"strong:G3962 lemma.Strong:πατήρ lemma.ANLEX:πατήρ\" morph=\"robinson:N-NSM\">πατὴρ</w> <w lemma=\"strong:G2192 lemma.Strong:ἔχω lemma.ANLEX:ἔχω\" morph=\"robinson:V-PAI-3S\">ἔχει</w> <w lemma=\"strong:G2222 lemma.Strong:ζωή lemma.ANLEX:ζωή\" morph=\"robinson:N-ASF\">ζωὴν</w> <w lemma=\"strong:G1722 lemma.Strong:ἐν lemma.ANLEX:ἐν\" morph=\"robinson:PREP\">ἐν</w> <w lemma=\"strong:G1438 lemma.Strong:ἑαυτοῦ lemma.ANLEX:ἑαυτοῦ\" morph=\"robinson:F-3DSM\">ἑαυτῷ,</w> <w lemma=\"strong:G3779 lemma.Strong:οὕτω lemma.ANLEX:οὕτω\" morph=\"robinson:ADV\">οὕτως</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-DSM\">τῷ</w> <w lemma=\"strong:G5207 lemma.Strong:υἱός lemma.ANLEX:υἱός\" morph=\"robinson:N-DSM\">υἱῷ</w> <w lemma=\"strong:G1325 lemma.Strong:δίδωμι lemma.ANLEX:δίδωμι\" morph=\"robinson:V-AAI-3S\">ἔδωκεν</w> <w lemma=\"strong:G2222 lemma.Strong:ζωή lemma.ANLEX:ζωή\" morph=\"robinson:N-ASF\">ζωὴν</w> <w lemma=\"strong:G2192 lemma.Strong:ἔχω lemma.ANLEX:ἔχω\" morph=\"robinson:V-PAN\">ἔχειν</w> <w lemma=\"strong:G1722 lemma.Strong:ἐν lemma.ANLEX:ἐν\" morph=\"robinson:PREP\">ἐν</w> <w lemma=\"strong:G1438 lemma.Strong:ἑαυτοῦ lemma.ANLEX:ἑαυτοῦ\" morph=\"robinson:F-3DSM\">ἑαυτῷ·</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "ὥσπερ",
+    "strong": "G5618"
+   },
+   {
+    "pos": 2,
+    "forma": "γὰρ",
+    "strong": "G1063"
+   },
+   {
+    "pos": 3,
+    "forma": "ὁ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 4,
+    "forma": "πατὴρ",
+    "strong": "G3962"
+   },
+   {
+    "pos": 5,
+    "forma": "ἔχει",
+    "strong": "G2192"
+   },
+   {
+    "pos": 6,
+    "forma": "ζωὴν",
+    "strong": "G2222"
+   },
+   {
+    "pos": 7,
+    "forma": "ἐν",
+    "strong": "G1722"
+   },
+   {
+    "pos": 8,
+    "forma": "ἑαυτῷ,",
+    "strong": "G1438"
+   },
+   {
+    "pos": 9,
+    "forma": "οὕτως",
+    "strong": "G3779"
+   },
+   {
+    "pos": 10,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 11,
+    "forma": "τῷ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 12,
+    "forma": "υἱῷ",
+    "strong": "G5207"
+   },
+   {
+    "pos": 13,
+    "forma": "ἔδωκεν",
+    "strong": "G1325"
+   },
+   {
+    "pos": 14,
+    "forma": "ζωὴν",
+    "strong": "G2222"
+   },
+   {
+    "pos": 15,
+    "forma": "ἔχειν",
+    "strong": "G2192"
+   },
+   {
+    "pos": 16,
+    "forma": "ἐν",
+    "strong": "G1722"
+   },
+   {
+    "pos": 17,
+    "forma": "ἑαυτῷ·",
+    "strong": "G1438"
+   }
+  ]
+ },
+ {
+  "ref": "John.13.9",
+  "raw": "<w lemma=\"strong:G3004 lemma.Strong:λέγω lemma.ANLEX:λέγω\" morph=\"robinson:V-PAI-3S\">λέγει</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-DSM\">αὐτῷ</w> <w lemma=\"strong:G4613 lemma.Strong:Σίμων lemma.ANLEX:Σίμων\" morph=\"robinson:N-NSM\">Σίμων</w> <w lemma=\"strong:G4074 lemma.Strong:Πέτρος lemma.ANLEX:Πέτρος\" morph=\"robinson:N-NSM\">Πέτρος·</w> <w lemma=\"strong:G2962 lemma.Strong:κύριος lemma.ANLEX:κύριος\" morph=\"robinson:N-VSM\">κύριε,</w> <w lemma=\"strong:G3361 lemma.Strong:μή lemma.ANLEX:μή\" morph=\"robinson:PRT-N\">μὴ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-APM\">τοὺς</w> <w lemma=\"strong:G4228 lemma.Strong:πούς lemma.ANLEX:πούς\" morph=\"robinson:N-APM\">πόδας</w> <w lemma=\"strong:G1473 lemma.Strong:ἐγώ lemma.ANLEX:ἐγώ\" morph=\"robinson:P-1GS\">μου</w> <w lemma=\"strong:G3440 lemma.Strong:μόνον lemma.ANLEX:μόνος\" morph=\"robinson:ADV\">μόνον</w> <w lemma=\"strong:G235 lemma.Strong:ἀλλά lemma.ANLEX:ἀλλά\" morph=\"robinson:CONJ\">ἀλλὰ</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-APF\">τὰς</w> <w lemma=\"strong:G5495 lemma.Strong:χείρ lemma.ANLEX:χείρ\" morph=\"robinson:N-APF\">χεῖρας</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASF\">τὴν</w> <w lemma=\"strong:G2776 lemma.Strong:κεφαλή lemma.ANLEX:κεφαλή\" morph=\"robinson:N-ASF\">κεφαλήν.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "λέγει",
+    "strong": "G3004"
+   },
+   {
+    "pos": 2,
+    "forma": "αὐτῷ",
+    "strong": "G846"
+   },
+   {
+    "pos": 3,
+    "forma": "Σίμων",
+    "strong": "G4613"
+   },
+   {
+    "pos": 4,
+    "forma": "Πέτρος·",
+    "strong": "G4074"
+   },
+   {
+    "pos": 5,
+    "forma": "κύριε,",
+    "strong": "G2962"
+   },
+   {
+    "pos": 6,
+    "forma": "μὴ",
+    "strong": "G3361"
+   },
+   {
+    "pos": 7,
+    "forma": "τοὺς",
+    "strong": "G3588"
+   },
+   {
+    "pos": 8,
+    "forma": "πόδας",
+    "strong": "G4228"
+   },
+   {
+    "pos": 9,
+    "forma": "μου",
+    "strong": "G1473"
+   },
+   {
+    "pos": 10,
+    "forma": "μόνον",
+    "strong": "G3440"
+   },
+   {
+    "pos": 11,
+    "forma": "ἀλλὰ",
+    "strong": "G235"
+   },
+   {
+    "pos": 12,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 13,
+    "forma": "τὰς",
+    "strong": "G3588"
+   },
+   {
+    "pos": 14,
+    "forma": "χεῖρας",
+    "strong": "G5495"
+   },
+   {
+    "pos": 15,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 16,
+    "forma": "τὴν",
+    "strong": "G3588"
+   },
+   {
+    "pos": 17,
+    "forma": "κεφαλήν.",
+    "strong": "G2776"
+   }
+  ]
+ },
+ {
+  "ref": "John.19.36",
+  "raw": "<w lemma=\"strong:G1096 lemma.Strong:γίνομαι lemma.ANLEX:γίνομαι\" morph=\"robinson:V-2ADI-3S\">ἐγένετο</w> <w lemma=\"strong:G1063 lemma.Strong:γάρ lemma.ANLEX:γάρ\" morph=\"robinson:CONJ\">γὰρ</w> <w lemma=\"strong:G3778 lemma.Strong:οὗτος lemma.ANLEX:οὗτος\" morph=\"robinson:D-NPN\">ταῦτα</w> <w lemma=\"strong:G2443 lemma.Strong:ἵνα lemma.ANLEX:ἵνα\" morph=\"robinson:CONJ\">ἵνα</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSF\">ἡ</w> <w lemma=\"strong:G1124 lemma.Strong:γραφή lemma.ANLEX:γραφή\" morph=\"robinson:N-NSF\">γραφὴ</w> <w lemma=\"strong:G4137 lemma.Strong:πληρόω lemma.ANLEX:πληρόω\" morph=\"robinson:V-APS-3S\">πληρωθῇ·</w> <w lemma=\"strong:G3747 lemma.Strong:ὀστέον lemma.ANLEX:ὀστέον\" morph=\"robinson:N-NSN\">ὀστοῦν</w> <w lemma=\"strong:G3756 lemma.Strong:οὐ lemma.ANLEX:οὐ\" morph=\"robinson:PRT-N\">οὐ</w> <w lemma=\"strong:G4937 lemma.Strong:συντρίβω lemma.ANLEX:συντρίβω\" morph=\"robinson:V-2FPI-3S\">συντριβήσεται</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-GSM\">αὐτοῦ.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "ἐγένετο",
+    "strong": "G1096"
+   },
+   {
+    "pos": 2,
+    "forma": "γὰρ",
+    "strong": "G1063"
+   },
+   {
+    "pos": 3,
+    "forma": "ταῦτα",
+    "strong": "G3778"
+   },
+   {
+    "pos": 4,
+    "forma": "ἵνα",
+    "strong": "G2443"
+   },
+   {
+    "pos": 5,
+    "forma": "ἡ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 6,
+    "forma": "γραφὴ",
+    "strong": "G1124"
+   },
+   {
+    "pos": 7,
+    "forma": "πληρωθῇ·",
+    "strong": "G4137"
+   },
+   {
+    "pos": 8,
+    "forma": "ὀστοῦν",
+    "strong": "G3747"
+   },
+   {
+    "pos": 9,
+    "forma": "οὐ",
+    "strong": "G3756"
+   },
+   {
+    "pos": 10,
+    "forma": "συντριβήσεται",
+    "strong": "G4937"
+   },
+   {
+    "pos": 11,
+    "forma": "αὐτοῦ.",
+    "strong": "G846"
+   }
+  ]
+ },
+ {
+  "ref": "Luke.2.10",
+  "raw": "<w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G3004 lemma.Strong:λέγω lemma.ANLEX:λέγω\" morph=\"robinson:V-2AAI-3S\">εἶπεν</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-DPM\">αὐτοῖς</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSM\">ὁ</w> <w lemma=\"strong:G32 lemma.Strong:ἄγγελος lemma.ANLEX:ἄγγελος\" morph=\"robinson:N-NSM\">ἄγγελος·</w> <w lemma=\"strong:G3361 lemma.Strong:μή lemma.ANLEX:μή\" morph=\"robinson:PRT-N\">μὴ</w> <w lemma=\"strong:G5399 lemma.Strong:φοβέω lemma.ANLEX:φοβέω\" morph=\"robinson:V-PNM-2P\">φοβεῖσθε·</w> <w lemma=\"strong:G3708 lemma.Strong:ὁράω lemma.ANLEX:ὁράω\" morph=\"robinson:V-2AMM-2S\">ἰδοὺ</w> <w lemma=\"strong:G1063 lemma.Strong:γάρ lemma.ANLEX:γάρ\" morph=\"robinson:CONJ\">γὰρ</w> <w lemma=\"strong:G2097 lemma.Strong:εὐαγγελίζω lemma.ANLEX:εὐαγγελίζω\" morph=\"robinson:V-PMI-1S\">εὐαγγελίζομαι</w> <w lemma=\"strong:G5210 lemma.Strong:ὑμεῖς lemma.ANLEX:σύ\" morph=\"robinson:P-2DP\">ὑμῖν</w> <w lemma=\"strong:G5479 lemma.Strong:χαρά lemma.ANLEX:χαρά\" morph=\"robinson:N-ASF\">χαρὰν</w> <w lemma=\"strong:G3173 lemma.Strong:μέγας lemma.ANLEX:μέγας\" morph=\"robinson:A-ASF\">μεγάλην</w> <w lemma=\"strong:G3748 lemma.Strong:ὅστις lemma.ANLEX:ὅστις\" morph=\"robinson:R-NSF\">ἥτις</w> <w lemma=\"strong:G1510 lemma.Strong:εἰμί lemma.ANLEX:εἰμί\" morph=\"robinson:V-FDI-3S\">ἔσται</w> <w lemma=\"strong:G3956 lemma.Strong:πᾶς lemma.ANLEX:πᾶς\" morph=\"robinson:A-DSM\">παντὶ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-DSM\">τῷ</w> <w lemma=\"strong:G2992 lemma.Strong:λαός lemma.ANLEX:λαός\" morph=\"robinson:N-DSM\">λαῷ,</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 2,
+    "forma": "εἶπεν",
+    "strong": "G3004"
+   },
+   {
+    "pos": 3,
+    "forma": "αὐτοῖς",
+    "strong": "G846"
+   },
+   {
+    "pos": 4,
+    "forma": "ὁ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 5,
+    "forma": "ἄγγελος·",
+    "strong": "G32"
+   },
+   {
+    "pos": 6,
+    "forma": "μὴ",
+    "strong": "G3361"
+   },
+   {
+    "pos": 7,
+    "forma": "φοβεῖσθε·",
+    "strong": "G5399"
+   },
+   {
+    "pos": 8,
+    "forma": "ἰδοὺ",
+    "strong": "G3708"
+   },
+   {
+    "pos": 9,
+    "forma": "γὰρ",
+    "strong": "G1063"
+   },
+   {
+    "pos": 10,
+    "forma": "εὐαγγελίζομαι",
+    "strong": "G2097"
+   },
+   {
+    "pos": 11,
+    "forma": "ὑμῖν",
+    "strong": "G5210"
+   },
+   {
+    "pos": 12,
+    "forma": "χαρὰν",
+    "strong": "G5479"
+   },
+   {
+    "pos": 13,
+    "forma": "μεγάλην",
+    "strong": "G3173"
+   },
+   {
+    "pos": 14,
+    "forma": "ἥτις",
+    "strong": "G3748"
+   },
+   {
+    "pos": 15,
+    "forma": "ἔσται",
+    "strong": "G1510"
+   },
+   {
+    "pos": 16,
+    "forma": "παντὶ",
+    "strong": "G3956"
+   },
+   {
+    "pos": 17,
+    "forma": "τῷ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 18,
+    "forma": "λαῷ,",
+    "strong": "G2992"
+   }
+  ]
+ },
+ {
+  "ref": "Luke.5.26",
+  "raw": "<w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G1611 lemma.Strong:ἔκστασις lemma.ANLEX:ἔκστασις\" morph=\"robinson:N-NSF\">ἔκστασις</w> <w lemma=\"strong:G2983 lemma.Strong:λαμβάνω lemma.ANLEX:λαμβάνω\" morph=\"robinson:V-2AAI-3S\">ἔλαβεν</w> <w lemma=\"strong:G537 lemma.Strong:ἅπας lemma.ANLEX:ἅπας\" morph=\"robinson:A-APM\">ἅπαντας,</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G1392 lemma.Strong:δοξάζω lemma.ANLEX:δοξάζω\" morph=\"robinson:V-IAI-3P\">ἐδόξαζον</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASM\">τὸν</w> <w lemma=\"strong:G2316 lemma.Strong:θεός lemma.ANLEX:θεός\" morph=\"robinson:N-ASM\">θεόν,</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G4130 lemma.Strong:πλήθω lemma.ANLEX:πίμπλημι\" morph=\"robinson:V-API-3P\">ἐπλήσθησαν</w> <w lemma=\"strong:G5401 lemma.Strong:φόβος lemma.ANLEX:φόβος\" morph=\"robinson:N-GSM\">φόβου</w> <w lemma=\"strong:G3004 lemma.Strong:λέγω lemma.ANLEX:λέγω\" morph=\"robinson:V-PAP-NPM\">λέγοντες</w> <w lemma=\"strong:G3754 lemma.Strong:ὅτι lemma.ANLEX:ὅτι\" morph=\"robinson:CONJ\">ὅτι</w> <w lemma=\"strong:G3708 lemma.Strong:ὁράω lemma.ANLEX:ὁράω\" morph=\"robinson:V-2AAI-1P\">εἴδομεν</w> <w lemma=\"strong:G3861 lemma.Strong:παράδοξος lemma.ANLEX:παράδοξος\" morph=\"robinson:A-APN\">παράδοξα</w> <w lemma=\"strong:G4594 lemma.Strong:σήμερον lemma.ANLEX:σήμερον\" morph=\"robinson:ADV\">σήμερον.</w> <lb type=\"x-end-paragraph\"/> <lb type=\"x-begin-paragraph\"/>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 2,
+    "forma": "ἔκστασις",
+    "strong": "G1611"
+   },
+   {
+    "pos": 3,
+    "forma": "ἔλαβεν",
+    "strong": "G2983"
+   },
+   {
+    "pos": 4,
+    "forma": "ἅπαντας,",
+    "strong": "G537"
+   },
+   {
+    "pos": 5,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 6,
+    "forma": "ἐδόξαζον",
+    "strong": "G1392"
+   },
+   {
+    "pos": 7,
+    "forma": "τὸν",
+    "strong": "G3588"
+   },
+   {
+    "pos": 8,
+    "forma": "θεόν,",
+    "strong": "G2316"
+   },
+   {
+    "pos": 9,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 10,
+    "forma": "ἐπλήσθησαν",
+    "strong": "G4130"
+   },
+   {
+    "pos": 11,
+    "forma": "φόβου",
+    "strong": "G5401"
+   },
+   {
+    "pos": 12,
+    "forma": "λέγοντες",
+    "strong": "G3004"
+   },
+   {
+    "pos": 13,
+    "forma": "ὅτι",
+    "strong": "G3754"
+   },
+   {
+    "pos": 14,
+    "forma": "εἴδομεν",
+    "strong": "G3708"
+   },
+   {
+    "pos": 15,
+    "forma": "παράδοξα",
+    "strong": "G3861"
+   },
+   {
+    "pos": 16,
+    "forma": "σήμερον.",
+    "strong": "G4594"
+   }
+  ]
+ },
+ {
+  "ref": "Luke.9.33",
+  "raw": "<w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G1096 lemma.Strong:γίνομαι lemma.ANLEX:γίνομαι\" morph=\"robinson:V-2ADI-3S\">ἐγένετο</w> <w lemma=\"strong:G1722 lemma.Strong:ἐν lemma.ANLEX:ἐν\" morph=\"robinson:PREP\">ἐν</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-DSN\">τῷ</w> <w lemma=\"strong:G1316 lemma.Strong:διαχωρίζομαι lemma.ANLEX:διαχωρίζω\" morph=\"robinson:V-PNN\">διαχωρίζεσθαι</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-APM\">αὐτοὺς</w> <w lemma=\"strong:G575 lemma.Strong:ἀπό lemma.ANLEX:ἀπό\" morph=\"robinson:PREP\">ἀπ’</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-GSM\">αὐτοῦ</w> <w lemma=\"strong:G3004 lemma.Strong:λέγω lemma.ANLEX:λέγω\" morph=\"robinson:V-2AAI-3S\">εἶπεν</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSM\">ὁ</w> <w lemma=\"strong:G4074 lemma.Strong:Πέτρος lemma.ANLEX:Πέτρος\" morph=\"robinson:N-NSM\">Πέτρος</w> <w lemma=\"strong:G4314 lemma.Strong:πρός lemma.ANLEX:πρός\" morph=\"robinson:PREP\">πρὸς</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASM\">τὸν</w> <w lemma=\"strong:G2424 lemma.Strong:Ἰησοῦς lemma.ANLEX:Ἰησοῦς\" morph=\"robinson:N-ASM\">Ἰησοῦν·</w> <w lemma=\"strong:G1988 lemma.Strong:ἐπιστάτης lemma.ANLEX:ἐπιστάτης\" morph=\"robinson:N-VSM\">ἐπιστάτα,</w> <w lemma=\"strong:G2570 lemma.Strong:καλός lemma.ANLEX:καλός\" morph=\"robinson:A-NSN\">καλόν</w> <w lemma=\"strong:G1510 lemma.Strong:εἰμί lemma.ANLEX:εἰμί\" morph=\"robinson:V-PAI-3S\">ἐστιν</w> <w lemma=\"strong:G2249 lemma.Strong:ἡμεῖς lemma.ANLEX:ἐγώ\" morph=\"robinson:P-1AP\">ἡμᾶς</w> <w lemma=\"strong:G5602 lemma.Strong:ὧδε lemma.ANLEX:ὧδε\" morph=\"robinson:ADV\">ὧδε</w> <w lemma=\"strong:G1510 lemma.Strong:εἰμί lemma.ANLEX:εἰμί\" morph=\"robinson:V-PAN\">εἶναι,</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G4160 lemma.Strong:ποιέω lemma.ANLEX:ποιέω\" morph=\"robinson:V-AAS-1P\">ποιήσωμεν</w> <w lemma=\"strong:G4633 lemma.Strong:σκηνή lemma.ANLEX:σκηνή\" morph=\"robinson:N-APF\">σκηνὰς</w> <w lemma=\"strong:G5140 lemma.Strong:τρεῖς lemma.ANLEX:τρεῖς\" morph=\"robinson:A-APF\">τρεῖς,</w> <w lemma=\"strong:G1520 lemma.Strong:εἷς lemma.ANLEX:εἷς\" morph=\"robinson:A-ASF\">μίαν</w> <w lemma=\"strong:G4771 lemma.Strong:σύ lemma.ANLEX:σύ\" morph=\"robinson:P-2DS\">σοὶ</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G1520 lemma.Strong:εἷς lemma.ANLEX:εἷς\" morph=\"robinson:A-ASF\">μίαν</w> <w lemma=\"strong:G3475 lemma.Strong:Μωσεύς lemma.ANLEX:Μωϋσῆς\" morph=\"robinson:N-DSM\">Μωϋσεῖ</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G1520 lemma.Strong:εἷς lemma.ANLEX:εἷς\" morph=\"robinson:A-ASF\">μίαν</w> <w lemma=\"strong:G2243 lemma.Strong:Ἡλίας lemma.ANLEX:Ἠλίας\" morph=\"robinson:N-DSM\">Ἡλείᾳ,</w> <w lemma=\"strong:G3361 lemma.Strong:μή lemma.ANLEX:μή\" morph=\"robinson:PRT-N\">μὴ</w> <w lemma=\"strong:G1492 lemma.Strong:εἴδω lemma.ANLEX:οἶδα\" morph=\"robinson:V-RAP-NSM\">εἰδὼς</w> <w lemma=\"strong:G3739 lemma.Strong:ὅς lemma.ANLEX:ὅς\" morph=\"robinson:R-ASN\">ὃ</w> <w lemma=\"strong:G3004 lemma.Strong:λέγω lemma.ANLEX:λέγω\" morph=\"robinson:V-PAI-3S\">λέγει.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 2,
+    "forma": "ἐγένετο",
+    "strong": "G1096"
+   },
+   {
+    "pos": 3,
+    "forma": "ἐν",
+    "strong": "G1722"
+   },
+   {
+    "pos": 4,
+    "forma": "τῷ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 5,
+    "forma": "διαχωρίζεσθαι",
+    "strong": "G1316"
+   },
+   {
+    "pos": 6,
+    "forma": "αὐτοὺς",
+    "strong": "G846"
+   },
+   {
+    "pos": 7,
+    "forma": "ἀπ’",
+    "strong": "G575"
+   },
+   {
+    "pos": 8,
+    "forma": "αὐτοῦ",
+    "strong": "G846"
+   },
+   {
+    "pos": 9,
+    "forma": "εἶπεν",
+    "strong": "G3004"
+   },
+   {
+    "pos": 10,
+    "forma": "ὁ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 11,
+    "forma": "Πέτρος",
+    "strong": "G4074"
+   },
+   {
+    "pos": 12,
+    "forma": "πρὸς",
+    "strong": "G4314"
+   },
+   {
+    "pos": 13,
+    "forma": "τὸν",
+    "strong": "G3588"
+   },
+   {
+    "pos": 14,
+    "forma": "Ἰησοῦν·",
+    "strong": "G2424"
+   },
+   {
+    "pos": 15,
+    "forma": "ἐπιστάτα,",
+    "strong": "G1988"
+   },
+   {
+    "pos": 16,
+    "forma": "καλόν",
+    "strong": "G2570"
+   },
+   {
+    "pos": 17,
+    "forma": "ἐστιν",
+    "strong": "G1510"
+   },
+   {
+    "pos": 18,
+    "forma": "ἡμᾶς",
+    "strong": "G2249"
+   },
+   {
+    "pos": 19,
+    "forma": "ὧδε",
+    "strong": "G5602"
+   },
+   {
+    "pos": 20,
+    "forma": "εἶναι,",
+    "strong": "G1510"
+   },
+   {
+    "pos": 21,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 22,
+    "forma": "ποιήσωμεν",
+    "strong": "G4160"
+   },
+   {
+    "pos": 23,
+    "forma": "σκηνὰς",
+    "strong": "G4633"
+   },
+   {
+    "pos": 24,
+    "forma": "τρεῖς,",
+    "strong": "G5140"
+   },
+   {
+    "pos": 25,
+    "forma": "μίαν",
+    "strong": "G1520"
+   },
+   {
+    "pos": 26,
+    "forma": "σοὶ",
+    "strong": "G4771"
+   },
+   {
+    "pos": 27,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 28,
+    "forma": "μίαν",
+    "strong": "G1520"
+   },
+   {
+    "pos": 29,
+    "forma": "Μωϋσεῖ",
+    "strong": "G3475"
+   },
+   {
+    "pos": 30,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 31,
+    "forma": "μίαν",
+    "strong": "G1520"
+   },
+   {
+    "pos": 32,
+    "forma": "Ἡλείᾳ,",
+    "strong": "G2243"
+   },
+   {
+    "pos": 33,
+    "forma": "μὴ",
+    "strong": "G3361"
+   },
+   {
+    "pos": 34,
+    "forma": "εἰδὼς",
+    "strong": "G1492"
+   },
+   {
+    "pos": 35,
+    "forma": "ὃ",
+    "strong": "G3739"
+   },
+   {
+    "pos": 36,
+    "forma": "λέγει.",
+    "strong": "G3004"
+   }
+  ]
+ },
+ {
+  "ref": "Luke.22.24",
+  "raw": "<w lemma=\"strong:G1096 lemma.Strong:γίνομαι lemma.ANLEX:γίνομαι\" morph=\"robinson:V-2ADI-3S\">Ἐγένετο</w> <w lemma=\"strong:G1161 lemma.Strong:δέ lemma.ANLEX:δέ\" morph=\"robinson:CONJ\">δὲ</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G5379 lemma.Strong:φιλονεικία lemma.ANLEX:φιλονεικία\" morph=\"robinson:N-NSF\">φιλονεικία</w> <w lemma=\"strong:G1722 lemma.Strong:ἐν lemma.ANLEX:ἐν\" morph=\"robinson:PREP\">ἐν</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-DPM\">αὐτοῖς,</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSN\">τὸ</w> <w lemma=\"strong:G5101 lemma.Strong:τίς lemma.ANLEX:τίς\" morph=\"robinson:I-NSM\">τίς</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-GPM\">αὐτῶν</w> <w lemma=\"strong:G1380 lemma.Strong:δοκέω lemma.ANLEX:δοκέω\" morph=\"robinson:V-PAI-3S\">δοκεῖ</w> <w lemma=\"strong:G1510 lemma.Strong:εἰμί lemma.ANLEX:εἰμί\" morph=\"robinson:V-PAN\">εἶναι</w> <w lemma=\"strong:G3173 lemma.Strong:μέγας lemma.ANLEX:μέγας\" morph=\"robinson:A-NSM-C\">μείζων.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "Ἐγένετο",
+    "strong": "G1096"
+   },
+   {
+    "pos": 2,
+    "forma": "δὲ",
+    "strong": "G1161"
+   },
+   {
+    "pos": 3,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 4,
+    "forma": "φιλονεικία",
+    "strong": "G5379"
+   },
+   {
+    "pos": 5,
+    "forma": "ἐν",
+    "strong": "G1722"
+   },
+   {
+    "pos": 6,
+    "forma": "αὐτοῖς,",
+    "strong": "G846"
+   },
+   {
+    "pos": 7,
+    "forma": "τὸ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 8,
+    "forma": "τίς",
+    "strong": "G5101"
+   },
+   {
+    "pos": 9,
+    "forma": "αὐτῶν",
+    "strong": "G846"
+   },
+   {
+    "pos": 10,
+    "forma": "δοκεῖ",
+    "strong": "G1380"
+   },
+   {
+    "pos": 11,
+    "forma": "εἶναι",
+    "strong": "G1510"
+   },
+   {
+    "pos": 12,
+    "forma": "μείζων.",
+    "strong": "G3173"
+   }
+  ]
+ },
+ {
+  "ref": "Luke.22.45",
+  "raw": "<w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G450 lemma.Strong:ἀνίστημι lemma.ANLEX:ἀνίστημι\" morph=\"robinson:V-2AAP-NSM\">ἀναστὰς</w> <w lemma=\"strong:G575 lemma.Strong:ἀπό lemma.ANLEX:ἀπό\" morph=\"robinson:PREP\">ἀπὸ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSF\">τῆς</w> <w lemma=\"strong:G4335 lemma.Strong:προσευχή lemma.ANLEX:προσευχή\" morph=\"robinson:N-GSF\">προσευχῆς</w> <w lemma=\"strong:G2064 lemma.Strong:ἔρχομαι lemma.ANLEX:ἔρχομαι\" morph=\"robinson:V-2AAP-NSM\">ἐλθὼν</w> <w lemma=\"strong:G4314 lemma.Strong:πρός lemma.ANLEX:πρός\" morph=\"robinson:PREP\">πρὸς</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-APM\">τοὺς</w> <w lemma=\"strong:G3101 lemma.Strong:μαθητής lemma.ANLEX:μαθητής\" morph=\"robinson:N-APM\">μαθητὰς</w> <w lemma=\"strong:G2147 lemma.Strong:εὑρίσκω lemma.ANLEX:εὑρίσκω\" morph=\"robinson:V-2AAI-3S\">εὗρεν</w> <w lemma=\"strong:G2837 lemma.Strong:κοιμάω lemma.ANLEX:κοιμάομαι\" morph=\"robinson:V-PPP-APM\">κοιμωμένους</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-APM\">αὐτοὺς</w> <w lemma=\"strong:G575 lemma.Strong:ἀπό lemma.ANLEX:ἀπό\" morph=\"robinson:PREP\">ἀπὸ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSF\">τῆς</w> <w lemma=\"strong:G3077 lemma.Strong:λύπη lemma.ANLEX:λύπη\" morph=\"robinson:N-GSF\">λύπης,</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 2,
+    "forma": "ἀναστὰς",
+    "strong": "G450"
+   },
+   {
+    "pos": 3,
+    "forma": "ἀπὸ",
+    "strong": "G575"
+   },
+   {
+    "pos": 4,
+    "forma": "τῆς",
+    "strong": "G3588"
+   },
+   {
+    "pos": 5,
+    "forma": "προσευχῆς",
+    "strong": "G4335"
+   },
+   {
+    "pos": 6,
+    "forma": "ἐλθὼν",
+    "strong": "G2064"
+   },
+   {
+    "pos": 7,
+    "forma": "πρὸς",
+    "strong": "G4314"
+   },
+   {
+    "pos": 8,
+    "forma": "τοὺς",
+    "strong": "G3588"
+   },
+   {
+    "pos": 9,
+    "forma": "μαθητὰς",
+    "strong": "G3101"
+   },
+   {
+    "pos": 10,
+    "forma": "εὗρεν",
+    "strong": "G2147"
+   },
+   {
+    "pos": 11,
+    "forma": "κοιμωμένους",
+    "strong": "G2837"
+   },
+   {
+    "pos": 12,
+    "forma": "αὐτοὺς",
+    "strong": "G846"
+   },
+   {
+    "pos": 13,
+    "forma": "ἀπὸ",
+    "strong": "G575"
+   },
+   {
+    "pos": 14,
+    "forma": "τῆς",
+    "strong": "G3588"
+   },
+   {
+    "pos": 15,
+    "forma": "λύπης,",
+    "strong": "G3077"
+   }
+  ]
+ },
+ {
+  "ref": "Mark.5.41",
+  "raw": "<w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G2902 lemma.Strong:κρατέω lemma.ANLEX:κρατέω\" morph=\"robinson:V-AAP-NSM\">κρατήσας</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSF\">τῆς</w> <w lemma=\"strong:G5495 lemma.Strong:χείρ lemma.ANLEX:χείρ\" morph=\"robinson:N-GSF\">χειρὸς</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSN\">τοῦ</w> <w lemma=\"strong:G3813 lemma.Strong:παιδίον lemma.ANLEX:παιδίον\" morph=\"robinson:N-GSN\">παιδίου</w> <w lemma=\"strong:G3004 lemma.Strong:λέγω lemma.ANLEX:λέγω\" morph=\"robinson:V-PAI-3S\">λέγει</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-DSF\">αὐτῇ·</w> <w lemma=\"strong:G5008 lemma.Strong:ταλιθά lemma.ANLEX:ταλιθά\" morph=\"robinson:ARAM\">ταλιθὰ</w> <w lemma=\"strong:G2891 lemma.Strong:κοῦμι lemma.ANLEX:κοῦμ\" morph=\"robinson:ARAM\">κούμ,</w> <w lemma=\"strong:G3739 lemma.Strong:ὅς lemma.ANLEX:ὅς\" morph=\"robinson:R-NSN\">ὅ</w> <w lemma=\"strong:G1510 lemma.Strong:εἰμί lemma.ANLEX:εἰμί\" morph=\"robinson:V-PAI-3S\">ἐστιν</w> <w lemma=\"strong:G3177 lemma.Strong:μεθερμηνεύω lemma.ANLEX:μεθερμηνεύω\" morph=\"robinson:V-PPP-NSN\">μεθερμηνευόμενον·</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSN\">τὸ</w> <w lemma=\"strong:G2877 lemma.Strong:κοράσιον lemma.ANLEX:κοράσιον\" morph=\"robinson:N-NSN\">κοράσιον,</w> <w lemma=\"strong:G4771 lemma.Strong:σύ lemma.ANLEX:σύ\" morph=\"robinson:P-2DS\">σοὶ</w> <w lemma=\"strong:G3004 lemma.Strong:λέγω lemma.ANLEX:λέγω\" morph=\"robinson:V-PAI-1S\">λέγω,</w> <w lemma=\"strong:G1453 lemma.Strong:ἐγείρω lemma.ANLEX:ἐγείρω\" morph=\"robinson:V-PAM-2S\">ἔγειρε.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 2,
+    "forma": "κρατήσας",
+    "strong": "G2902"
+   },
+   {
+    "pos": 3,
+    "forma": "τῆς",
+    "strong": "G3588"
+   },
+   {
+    "pos": 4,
+    "forma": "χειρὸς",
+    "strong": "G5495"
+   },
+   {
+    "pos": 5,
+    "forma": "τοῦ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 6,
+    "forma": "παιδίου",
+    "strong": "G3813"
+   },
+   {
+    "pos": 7,
+    "forma": "λέγει",
+    "strong": "G3004"
+   },
+   {
+    "pos": 8,
+    "forma": "αὐτῇ·",
+    "strong": "G846"
+   },
+   {
+    "pos": 9,
+    "forma": "ταλιθὰ",
+    "strong": "G5008"
+   },
+   {
+    "pos": 10,
+    "forma": "κούμ,",
+    "strong": "G2891"
+   },
+   {
+    "pos": 11,
+    "forma": "ὅ",
+    "strong": "G3739"
+   },
+   {
+    "pos": 12,
+    "forma": "ἐστιν",
+    "strong": "G1510"
+   },
+   {
+    "pos": 13,
+    "forma": "μεθερμηνευόμενον·",
+    "strong": "G3177"
+   },
+   {
+    "pos": 14,
+    "forma": "τὸ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 15,
+    "forma": "κοράσιον,",
+    "strong": "G2877"
+   },
+   {
+    "pos": 16,
+    "forma": "σοὶ",
+    "strong": "G4771"
+   },
+   {
+    "pos": 17,
+    "forma": "λέγω,",
+    "strong": "G3004"
+   },
+   {
+    "pos": 18,
+    "forma": "ἔγειρε.",
+    "strong": "G1453"
+   }
+  ]
+ },
+ {
+  "ref": "Mark.10.39",
+  "raw": "<w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NPM\">οἱ</w> <w lemma=\"strong:G1161 lemma.Strong:δέ lemma.ANLEX:δέ\" morph=\"robinson:CONJ\">δὲ</w> <w lemma=\"strong:G3004 lemma.Strong:λέγω lemma.ANLEX:λέγω\" morph=\"robinson:V-2AAI-3P\">εἶπαν</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-DSM\">αὐτῷ·</w> <w lemma=\"strong:G1410 lemma.Strong:δύναμαι lemma.ANLEX:δύναμαι\" morph=\"robinson:V-PNI-1P\">δυνάμεθα.</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSM\">ὁ</w> <w lemma=\"strong:G1161 lemma.Strong:δέ lemma.ANLEX:δέ\" morph=\"robinson:CONJ\">δὲ</w> <w lemma=\"strong:G2424 lemma.Strong:Ἰησοῦς lemma.ANLEX:Ἰησοῦς\" morph=\"robinson:N-NSM\">Ἰησοῦς</w> <w lemma=\"strong:G3004 lemma.Strong:λέγω lemma.ANLEX:λέγω\" morph=\"robinson:V-2AAI-3S\">εἶπεν</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-DPM\">αὐτοῖς·</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASN\">τὸ</w> <w lemma=\"strong:G4221 lemma.Strong:ποτήριον lemma.ANLEX:ποτήριον\" morph=\"robinson:N-ASN\">ποτήριον</w> <w lemma=\"strong:G3739 lemma.Strong:ὅς lemma.ANLEX:ὅς\" morph=\"robinson:R-ASN\">ὃ</w> <w lemma=\"strong:G1473 lemma.Strong:ἐγώ lemma.ANLEX:ἐγώ\" morph=\"robinson:P-1NS\">ἐγὼ</w> <w lemma=\"strong:G4095 lemma.Strong:πίνω lemma.ANLEX:πίνω\" morph=\"robinson:V-PAI-1S\">πίνω</w> <w lemma=\"strong:G4095 lemma.Strong:πίνω lemma.ANLEX:πίνω\" morph=\"robinson:V-FDI-2P\">πίεσθε</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASN\">τὸ</w> <w lemma=\"strong:G908 lemma.Strong:βάπτισμα lemma.ANLEX:βάπτισμα\" morph=\"robinson:N-ASN\">βάπτισμα</w> <w lemma=\"strong:G3739 lemma.Strong:ὅς lemma.ANLEX:ὅς\" morph=\"robinson:R-ASN\">ὃ</w> <w lemma=\"strong:G1473 lemma.Strong:ἐγώ lemma.ANLEX:ἐγώ\" morph=\"robinson:P-1NS\">ἐγὼ</w> <w lemma=\"strong:G907 lemma.Strong:βαπτίζω lemma.ANLEX:βαπτίζω\" morph=\"robinson:V-PPI-1S\">βαπτίζομαι</w> <w lemma=\"strong:G907 lemma.Strong:βαπτίζω lemma.ANLEX:βαπτίζω\" morph=\"robinson:V-FPI-2P\">βαπτισθήσεσθε·</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "οἱ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 2,
+    "forma": "δὲ",
+    "strong": "G1161"
+   },
+   {
+    "pos": 3,
+    "forma": "εἶπαν",
+    "strong": "G3004"
+   },
+   {
+    "pos": 4,
+    "forma": "αὐτῷ·",
+    "strong": "G846"
+   },
+   {
+    "pos": 5,
+    "forma": "δυνάμεθα.",
+    "strong": "G1410"
+   },
+   {
+    "pos": 6,
+    "forma": "ὁ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 7,
+    "forma": "δὲ",
+    "strong": "G1161"
+   },
+   {
+    "pos": 8,
+    "forma": "Ἰησοῦς",
+    "strong": "G2424"
+   },
+   {
+    "pos": 9,
+    "forma": "εἶπεν",
+    "strong": "G3004"
+   },
+   {
+    "pos": 10,
+    "forma": "αὐτοῖς·",
+    "strong": "G846"
+   },
+   {
+    "pos": 11,
+    "forma": "τὸ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 12,
+    "forma": "ποτήριον",
+    "strong": "G4221"
+   },
+   {
+    "pos": 13,
+    "forma": "ὃ",
+    "strong": "G3739"
+   },
+   {
+    "pos": 14,
+    "forma": "ἐγὼ",
+    "strong": "G1473"
+   },
+   {
+    "pos": 15,
+    "forma": "πίνω",
+    "strong": "G4095"
+   },
+   {
+    "pos": 16,
+    "forma": "πίεσθε",
+    "strong": "G4095"
+   },
+   {
+    "pos": 17,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 18,
+    "forma": "τὸ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 19,
+    "forma": "βάπτισμα",
+    "strong": "G908"
+   },
+   {
+    "pos": 20,
+    "forma": "ὃ",
+    "strong": "G3739"
+   },
+   {
+    "pos": 21,
+    "forma": "ἐγὼ",
+    "strong": "G1473"
+   },
+   {
+    "pos": 22,
+    "forma": "βαπτίζομαι",
+    "strong": "G907"
+   },
+   {
+    "pos": 23,
+    "forma": "βαπτισθήσεσθε·",
+    "strong": "G907"
+   }
+  ]
+ },
+ {
+  "ref": "Mark.11.20",
+  "raw": "<w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">Καὶ</w> <w lemma=\"strong:G3899 lemma.Strong:παραπορεύομαι lemma.ANLEX:παραπορεύομαι\" morph=\"robinson:V-PNP-NPM\">παραπορευόμενοι</w> <w lemma=\"strong:G4404 lemma.Strong:πρωΐ lemma.ANLEX:πρωΐ\" morph=\"robinson:ADV\">πρωῒ</w> <w lemma=\"strong:G3708 lemma.Strong:ὁράω lemma.ANLEX:ὁράω\" morph=\"robinson:V-2AAI-3P\">εἶδον</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASF\">τὴν</w> <w lemma=\"strong:G4808 lemma.Strong:συκῆ lemma.ANLEX:συκῆ\" morph=\"robinson:N-ASF\">συκῆν</w> <w lemma=\"strong:G3583 lemma.Strong:ξηραίνω lemma.ANLEX:ξηραίνω\" morph=\"robinson:V-RPP-ASF\">ἐξηραμμένην</w> <w lemma=\"strong:G1537 lemma.Strong:ἐκ lemma.ANLEX:ἐκ\" morph=\"robinson:PREP\">ἐκ</w> <w lemma=\"strong:G4491 lemma.Strong:ῥίζα lemma.ANLEX:ῥίζα\" morph=\"robinson:N-GPF\">ῥιζῶν.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "Καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 2,
+    "forma": "παραπορευόμενοι",
+    "strong": "G3899"
+   },
+   {
+    "pos": 3,
+    "forma": "πρωῒ",
+    "strong": "G4404"
+   },
+   {
+    "pos": 4,
+    "forma": "εἶδον",
+    "strong": "G3708"
+   },
+   {
+    "pos": 5,
+    "forma": "τὴν",
+    "strong": "G3588"
+   },
+   {
+    "pos": 6,
+    "forma": "συκῆν",
+    "strong": "G4808"
+   },
+   {
+    "pos": 7,
+    "forma": "ἐξηραμμένην",
+    "strong": "G3583"
+   },
+   {
+    "pos": 8,
+    "forma": "ἐκ",
+    "strong": "G1537"
+   },
+   {
+    "pos": 9,
+    "forma": "ῥιζῶν.",
+    "strong": "G4491"
+   }
+  ]
+ },
+ {
+  "ref": "Mark.14.62",
+  "raw": "<w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSM\">ὁ</w> <w lemma=\"strong:G1161 lemma.Strong:δέ lemma.ANLEX:δέ\" morph=\"robinson:CONJ\">δὲ</w> <w lemma=\"strong:G2424 lemma.Strong:Ἰησοῦς lemma.ANLEX:Ἰησοῦς\" morph=\"robinson:N-NSM\">Ἰησοῦς</w> <w lemma=\"strong:G3004 lemma.Strong:λέγω lemma.ANLEX:λέγω\" morph=\"robinson:V-2AAI-3S\">εἶπεν·</w> <w lemma=\"strong:G1473 lemma.Strong:ἐγώ lemma.ANLEX:ἐγώ\" morph=\"robinson:P-1NS\">ἐγώ</w> <w lemma=\"strong:G1510 lemma.Strong:εἰμί lemma.ANLEX:εἰμί\" morph=\"robinson:V-PAI-1S\">εἰμι,</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G3708 lemma.Strong:ὁράω lemma.ANLEX:ὁράω\" morph=\"robinson:V-FDI-2P\">ὄψεσθε</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASM\">τὸν</w> <w lemma=\"strong:G5207 lemma.Strong:υἱός lemma.ANLEX:υἱός\" morph=\"robinson:N-ASM\">υἱὸν</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSM\">τοῦ</w> <w lemma=\"strong:G444 lemma.Strong:ἄνθρωπος lemma.ANLEX:ἄνθρωπος\" morph=\"robinson:N-GSM\">ἀνθρώπου</w> <w lemma=\"strong:G1537 lemma.Strong:ἐκ lemma.ANLEX:ἐκ\" morph=\"robinson:PREP\">ἐκ</w> <w lemma=\"strong:G1188 lemma.Strong:δεξιός lemma.ANLEX:δεξιός\" morph=\"robinson:A-GPM\">δεξιῶν</w> <w lemma=\"strong:G2521 lemma.Strong:κάθημαι lemma.ANLEX:κάθημαι\" morph=\"robinson:V-PNP-ASM\">καθήμενον</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSF\">τῆς</w> <w lemma=\"strong:G1411 lemma.Strong:δύναμις lemma.ANLEX:δύναμις\" morph=\"robinson:N-GSF\">δυνάμεως</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G2064 lemma.Strong:ἔρχομαι lemma.ANLEX:ἔρχομαι\" morph=\"robinson:V-PNP-ASM\">ἐρχόμενον</w> <w lemma=\"strong:G3326 lemma.Strong:μετά lemma.ANLEX:μετά\" morph=\"robinson:PREP\">μετὰ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GPF\">τῶν</w> <w lemma=\"strong:G3507 lemma.Strong:νεφέλη lemma.ANLEX:νεφέλη\" morph=\"robinson:N-GPF\">νεφελῶν</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSM\">τοῦ</w> <w lemma=\"strong:G3772 lemma.Strong:οὐρανός lemma.ANLEX:οὐρανός\" morph=\"robinson:N-GSM\">οὐρανοῦ.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "ὁ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 2,
+    "forma": "δὲ",
+    "strong": "G1161"
+   },
+   {
+    "pos": 3,
+    "forma": "Ἰησοῦς",
+    "strong": "G2424"
+   },
+   {
+    "pos": 4,
+    "forma": "εἶπεν·",
+    "strong": "G3004"
+   },
+   {
+    "pos": 5,
+    "forma": "ἐγώ",
+    "strong": "G1473"
+   },
+   {
+    "pos": 6,
+    "forma": "εἰμι,",
+    "strong": "G1510"
+   },
+   {
+    "pos": 7,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 8,
+    "forma": "ὄψεσθε",
+    "strong": "G3708"
+   },
+   {
+    "pos": 9,
+    "forma": "τὸν",
+    "strong": "G3588"
+   },
+   {
+    "pos": 10,
+    "forma": "υἱὸν",
+    "strong": "G5207"
+   },
+   {
+    "pos": 11,
+    "forma": "τοῦ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 12,
+    "forma": "ἀνθρώπου",
+    "strong": "G444"
+   },
+   {
+    "pos": 13,
+    "forma": "ἐκ",
+    "strong": "G1537"
+   },
+   {
+    "pos": 14,
+    "forma": "δεξιῶν",
+    "strong": "G1188"
+   },
+   {
+    "pos": 15,
+    "forma": "καθήμενον",
+    "strong": "G2521"
+   },
+   {
+    "pos": 16,
+    "forma": "τῆς",
+    "strong": "G3588"
+   },
+   {
+    "pos": 17,
+    "forma": "δυνάμεως",
+    "strong": "G1411"
+   },
+   {
+    "pos": 18,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 19,
+    "forma": "ἐρχόμενον",
+    "strong": "G2064"
+   },
+   {
+    "pos": 20,
+    "forma": "μετὰ",
+    "strong": "G3326"
+   },
+   {
+    "pos": 21,
+    "forma": "τῶν",
+    "strong": "G3588"
+   },
+   {
+    "pos": 22,
+    "forma": "νεφελῶν",
+    "strong": "G3507"
+   },
+   {
+    "pos": 23,
+    "forma": "τοῦ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 24,
+    "forma": "οὐρανοῦ.",
+    "strong": "G3772"
+   }
+  ]
+ },
+ {
+  "ref": "Matt.4.25",
+  "raw": "<w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G190 lemma.Strong:ἀκολουθέω lemma.ANLEX:ἀκολουθέω\" morph=\"robinson:V-AAI-3P\">ἠκολούθησαν</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-DSM\">αὐτῷ</w> <w lemma=\"strong:G3793 lemma.Strong:ὄχλος lemma.ANLEX:ὄχλος\" morph=\"robinson:N-NPM\">ὄχλοι</w> <w lemma=\"strong:G4183 lemma.Strong:πολύς lemma.ANLEX:πολύς\" morph=\"robinson:A-NPM\">πολλοὶ</w> <w lemma=\"strong:G575 lemma.Strong:ἀπό lemma.ANLEX:ἀπό\" morph=\"robinson:PREP\">ἀπὸ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSF\">τῆς</w> <w lemma=\"strong:G1056 lemma.Strong:Γαλιλαία lemma.ANLEX:Γαλιλαία\" morph=\"robinson:N-GSF\">Γαλιλαίας</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G1179 lemma.Strong:Δεκάπολις lemma.ANLEX:Δεκάπολις\" morph=\"robinson:N-GSF\">Δεκαπόλεως</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G2414 lemma.Strong:Ἱεροσόλυμα lemma.ANLEX:Ἱεροσόλυμα\" morph=\"robinson:N-GPN\">Ἱεροσολύμων</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G2449 lemma.Strong:Ἰουδαία lemma.ANLEX:Ἰουδαία\" morph=\"robinson:N-GSF\">Ἰουδαίας</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G4008 lemma.Strong:πέραν lemma.ANLEX:πέραν\" morph=\"robinson:ADV\">πέραν</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSM\">τοῦ</w> <w lemma=\"strong:G2446 lemma.Strong:Ἰορδάνης lemma.ANLEX:Ἰορδάνης\" morph=\"robinson:N-GSM\">Ἰορδάνου.</w> <lb type=\"x-end-paragraph\"/>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 2,
+    "forma": "ἠκολούθησαν",
+    "strong": "G190"
+   },
+   {
+    "pos": 3,
+    "forma": "αὐτῷ",
+    "strong": "G846"
+   },
+   {
+    "pos": 4,
+    "forma": "ὄχλοι",
+    "strong": "G3793"
+   },
+   {
+    "pos": 5,
+    "forma": "πολλοὶ",
+    "strong": "G4183"
+   },
+   {
+    "pos": 6,
+    "forma": "ἀπὸ",
+    "strong": "G575"
+   },
+   {
+    "pos": 7,
+    "forma": "τῆς",
+    "strong": "G3588"
+   },
+   {
+    "pos": 8,
+    "forma": "Γαλιλαίας",
+    "strong": "G1056"
+   },
+   {
+    "pos": 9,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 10,
+    "forma": "Δεκαπόλεως",
+    "strong": "G1179"
+   },
+   {
+    "pos": 11,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 12,
+    "forma": "Ἱεροσολύμων",
+    "strong": "G2414"
+   },
+   {
+    "pos": 13,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 14,
+    "forma": "Ἰουδαίας",
+    "strong": "G2449"
+   },
+   {
+    "pos": 15,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 16,
+    "forma": "πέραν",
+    "strong": "G4008"
+   },
+   {
+    "pos": 17,
+    "forma": "τοῦ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 18,
+    "forma": "Ἰορδάνου.",
+    "strong": "G2446"
+   }
+  ]
+ },
+ {
+  "ref": "Matt.8.6",
+  "raw": "<w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G3004 lemma.Strong:λέγω lemma.ANLEX:λέγω\" morph=\"robinson:V-PAP-NSM\">λέγων,</w> <w lemma=\"strong:G2962 lemma.Strong:κύριος lemma.ANLEX:κύριος\" morph=\"robinson:N-VSM\">κύριε,</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSM\">ὁ</w> <w lemma=\"strong:G3816 lemma.Strong:παῖς lemma.ANLEX:παῖς\" morph=\"robinson:N-NSM\">παῖς</w> <w lemma=\"strong:G1473 lemma.Strong:ἐγώ lemma.ANLEX:ἐγώ\" morph=\"robinson:P-1GS\">μου</w> <w lemma=\"strong:G906 lemma.Strong:βάλλω lemma.ANLEX:βάλλω\" morph=\"robinson:V-RPI-3S\">βέβληται</w> <w lemma=\"strong:G1722 lemma.Strong:ἐν lemma.ANLEX:ἐν\" morph=\"robinson:PREP\">ἐν</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-DSF\">τῇ</w> <w lemma=\"strong:G3614 lemma.Strong:οἰκία lemma.ANLEX:οἰκία\" morph=\"robinson:N-DSF\">οἰκίᾳ</w> <w lemma=\"strong:G3885 lemma.Strong:παραλυτικός lemma.ANLEX:παραλυτικός\" morph=\"robinson:A-NSM\">παραλυτικός,</w> <w lemma=\"strong:G1171 lemma.Strong:δεινῶς lemma.ANLEX:δεινῶς\" morph=\"robinson:ADV\">δεινῶς</w> <w lemma=\"strong:G928 lemma.Strong:βασανίζω lemma.ANLEX:βασανίζω\" morph=\"robinson:V-PPP-NSM\">βασανιζόμενος.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 2,
+    "forma": "λέγων,",
+    "strong": "G3004"
+   },
+   {
+    "pos": 3,
+    "forma": "κύριε,",
+    "strong": "G2962"
+   },
+   {
+    "pos": 4,
+    "forma": "ὁ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 5,
+    "forma": "παῖς",
+    "strong": "G3816"
+   },
+   {
+    "pos": 6,
+    "forma": "μου",
+    "strong": "G1473"
+   },
+   {
+    "pos": 7,
+    "forma": "βέβληται",
+    "strong": "G906"
+   },
+   {
+    "pos": 8,
+    "forma": "ἐν",
+    "strong": "G1722"
+   },
+   {
+    "pos": 9,
+    "forma": "τῇ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 10,
+    "forma": "οἰκίᾳ",
+    "strong": "G3614"
+   },
+   {
+    "pos": 11,
+    "forma": "παραλυτικός,",
+    "strong": "G3885"
+   },
+   {
+    "pos": 12,
+    "forma": "δεινῶς",
+    "strong": "G1171"
+   },
+   {
+    "pos": 13,
+    "forma": "βασανιζόμενος.",
+    "strong": "G928"
+   }
+  ]
+ },
+ {
+  "ref": "Matt.13.44",
+  "raw": "<w lemma=\"strong:G3664 lemma.Strong:ὅμοιος lemma.ANLEX:ὅμοιος\" morph=\"robinson:A-NSF\">Ὁμοία</w> <w lemma=\"strong:G1510 lemma.Strong:εἰμί lemma.ANLEX:εἰμί\" morph=\"robinson:V-PAI-3S\">ἐστὶν</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSF\">ἡ</w> <w lemma=\"strong:G932 lemma.Strong:βασιλεία lemma.ANLEX:βασιλεία\" morph=\"robinson:N-NSF\">βασιλεία</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GPM\">τῶν</w> <w lemma=\"strong:G3772 lemma.Strong:οὐρανός lemma.ANLEX:οὐρανός\" morph=\"robinson:N-GPM\">οὐρανῶν</w> <w lemma=\"strong:G2344 lemma.Strong:θησαυρός lemma.ANLEX:θησαυρός\" morph=\"robinson:N-DSM\">θησαυρῷ</w> <w lemma=\"strong:G2928 lemma.Strong:κρύπτω lemma.ANLEX:κρύπτω\" morph=\"robinson:V-RPP-DSM\">κεκρυμμένῳ</w> <w lemma=\"strong:G1722 lemma.Strong:ἐν lemma.ANLEX:ἐν\" morph=\"robinson:PREP\">ἐν</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-DSM\">τῷ</w> <w lemma=\"strong:G68 lemma.Strong:ἀγρός lemma.ANLEX:ἀγρός\" morph=\"robinson:N-DSM\">ἀγρῷ,</w> <w lemma=\"strong:G3739 lemma.Strong:ὅς lemma.ANLEX:ὅς\" morph=\"robinson:R-ASM\">ὃν</w> <w lemma=\"strong:G2147 lemma.Strong:εὑρίσκω lemma.ANLEX:εὑρίσκω\" morph=\"robinson:V-2AAP-NSM\">εὑρὼν</w> <w lemma=\"strong:G444 lemma.Strong:ἄνθρωπος lemma.ANLEX:ἄνθρωπος\" morph=\"robinson:N-NSM\">ἄνθρωπος</w> <w lemma=\"strong:G2928 lemma.Strong:κρύπτω lemma.ANLEX:κρύπτω\" morph=\"robinson:V-AAI-3S\">ἔκρυψεν,</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G575 lemma.Strong:ἀπό lemma.ANLEX:ἀπό\" morph=\"robinson:PREP\">ἀπὸ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSF\">τῆς</w> <w lemma=\"strong:G5479 lemma.Strong:χαρά lemma.ANLEX:χαρά\" morph=\"robinson:N-GSF\">χαρᾶς</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-GSM\">αὐτοῦ</w> <w lemma=\"strong:G5217 lemma.Strong:ὑπάγω lemma.ANLEX:ὑπάγω\" morph=\"robinson:V-PAI-3S\">ὑπάγει</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G4453 lemma.Strong:πωλέω lemma.ANLEX:πωλέω\" morph=\"robinson:V-PAI-3S\">πωλεῖ</w> <w lemma=\"strong:G3956 lemma.Strong:πᾶς lemma.ANLEX:πᾶς\" morph=\"robinson:A-APN\">πάντα</w> <w lemma=\"strong:G3745 lemma.Strong:ὅσος lemma.ANLEX:ὅσος\" morph=\"robinson:K-APN\">ὅσα</w> <w lemma=\"strong:G2192 lemma.Strong:ἔχω lemma.ANLEX:ἔχω\" morph=\"robinson:V-PAI-3S\">ἔχει</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G59 lemma.Strong:ἀγοράζω lemma.ANLEX:ἀγοράζω\" morph=\"robinson:V-PAI-3S\">ἀγοράζει</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASM\">τὸν</w> <w lemma=\"strong:G68 lemma.Strong:ἀγρός lemma.ANLEX:ἀγρός\" morph=\"robinson:N-ASM\">ἀγρὸν</w> <w lemma=\"strong:G1565 lemma.Strong:ἐκεῖνος lemma.ANLEX:ἐκεῖνος\" morph=\"robinson:D-ASM\">ἐκεῖνον.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "Ὁμοία",
+    "strong": "G3664"
+   },
+   {
+    "pos": 2,
+    "forma": "ἐστὶν",
+    "strong": "G1510"
+   },
+   {
+    "pos": 3,
+    "forma": "ἡ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 4,
+    "forma": "βασιλεία",
+    "strong": "G932"
+   },
+   {
+    "pos": 5,
+    "forma": "τῶν",
+    "strong": "G3588"
+   },
+   {
+    "pos": 6,
+    "forma": "οὐρανῶν",
+    "strong": "G3772"
+   },
+   {
+    "pos": 7,
+    "forma": "θησαυρῷ",
+    "strong": "G2344"
+   },
+   {
+    "pos": 8,
+    "forma": "κεκρυμμένῳ",
+    "strong": "G2928"
+   },
+   {
+    "pos": 9,
+    "forma": "ἐν",
+    "strong": "G1722"
+   },
+   {
+    "pos": 10,
+    "forma": "τῷ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 11,
+    "forma": "ἀγρῷ,",
+    "strong": "G68"
+   },
+   {
+    "pos": 12,
+    "forma": "ὃν",
+    "strong": "G3739"
+   },
+   {
+    "pos": 13,
+    "forma": "εὑρὼν",
+    "strong": "G2147"
+   },
+   {
+    "pos": 14,
+    "forma": "ἄνθρωπος",
+    "strong": "G444"
+   },
+   {
+    "pos": 15,
+    "forma": "ἔκρυψεν,",
+    "strong": "G2928"
+   },
+   {
+    "pos": 16,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 17,
+    "forma": "ἀπὸ",
+    "strong": "G575"
+   },
+   {
+    "pos": 18,
+    "forma": "τῆς",
+    "strong": "G3588"
+   },
+   {
+    "pos": 19,
+    "forma": "χαρᾶς",
+    "strong": "G5479"
+   },
+   {
+    "pos": 20,
+    "forma": "αὐτοῦ",
+    "strong": "G846"
+   },
+   {
+    "pos": 21,
+    "forma": "ὑπάγει",
+    "strong": "G5217"
+   },
+   {
+    "pos": 22,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 23,
+    "forma": "πωλεῖ",
+    "strong": "G4453"
+   },
+   {
+    "pos": 24,
+    "forma": "πάντα",
+    "strong": "G3956"
+   },
+   {
+    "pos": 25,
+    "forma": "ὅσα",
+    "strong": "G3745"
+   },
+   {
+    "pos": 26,
+    "forma": "ἔχει",
+    "strong": "G2192"
+   },
+   {
+    "pos": 27,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 28,
+    "forma": "ἀγοράζει",
+    "strong": "G59"
+   },
+   {
+    "pos": 29,
+    "forma": "τὸν",
+    "strong": "G3588"
+   },
+   {
+    "pos": 30,
+    "forma": "ἀγρὸν",
+    "strong": "G68"
+   },
+   {
+    "pos": 31,
+    "forma": "ἐκεῖνον.",
+    "strong": "G1565"
+   }
+  ]
+ },
+ {
+  "ref": "Matt.26.4",
+  "raw": "<w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G4823 lemma.Strong:συμβουλεύω lemma.ANLEX:συμβουλεύω\" morph=\"robinson:V-AMI-3P\">συνεβουλεύσαντο</w> <w lemma=\"strong:G2443 lemma.Strong:ἵνα lemma.ANLEX:ἵνα\" morph=\"robinson:CONJ\">ἵνα</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASM\">τὸν</w> <w lemma=\"strong:G2424 lemma.Strong:Ἰησοῦς lemma.ANLEX:Ἰησοῦς\" morph=\"robinson:N-ASM\">Ἰησοῦν</w> <w lemma=\"strong:G1388 lemma.Strong:δόλος lemma.ANLEX:δόλος\" morph=\"robinson:N-DSM\">δόλῳ</w> <w lemma=\"strong:G2902 lemma.Strong:κρατέω lemma.ANLEX:κρατέω\" morph=\"robinson:V-AAS-3P\">κρατήσωσιν</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G615 lemma.Strong:ἀποκτείνω lemma.ANLEX:ἀποκτείνω\" morph=\"robinson:V-AAS-3P\">ἀποκτείνωσιν·</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 2,
+    "forma": "συνεβουλεύσαντο",
+    "strong": "G4823"
+   },
+   {
+    "pos": 3,
+    "forma": "ἵνα",
+    "strong": "G2443"
+   },
+   {
+    "pos": 4,
+    "forma": "τὸν",
+    "strong": "G3588"
+   },
+   {
+    "pos": 5,
+    "forma": "Ἰησοῦν",
+    "strong": "G2424"
+   },
+   {
+    "pos": 6,
+    "forma": "δόλῳ",
+    "strong": "G1388"
+   },
+   {
+    "pos": 7,
+    "forma": "κρατήσωσιν",
+    "strong": "G2902"
+   },
+   {
+    "pos": 8,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 9,
+    "forma": "ἀποκτείνωσιν·",
+    "strong": "G615"
+   }
+  ]
+ },
+ {
+  "ref": "Rev.3.11",
+  "raw": "<w lemma=\"strong:G2064 lemma.Strong:ἔρχομαι lemma.ANLEX:ἔρχομαι\" morph=\"robinson:V-PNI-1S\">ἔρχομαι</w> <w lemma=\"strong:G5035 lemma.Strong:ταχύ lemma.ANLEX:ταχύς\" morph=\"robinson:ADV\">ταχύ·</w> <w lemma=\"strong:G2902 lemma.Strong:κρατέω lemma.ANLEX:κρατέω\" morph=\"robinson:V-PAM-2S\">κράτει</w> <w lemma=\"strong:G3739 lemma.Strong:ὅς lemma.ANLEX:ὅς\" morph=\"robinson:R-ASN\">ὃ</w> <w lemma=\"strong:G2192 lemma.Strong:ἔχω lemma.ANLEX:ἔχω\" morph=\"robinson:V-PAI-2S\">ἔχεις,</w> <w lemma=\"strong:G2443 lemma.Strong:ἵνα lemma.ANLEX:ἵνα\" morph=\"robinson:CONJ\">ἵνα</w> <w lemma=\"strong:G3367 lemma.Strong:μηδείς lemma.ANLEX:μηδείς\" morph=\"robinson:A-NSM-N\">μηδεὶς</w> <w lemma=\"strong:G2983 lemma.Strong:λαμβάνω lemma.ANLEX:λαμβάνω\" morph=\"robinson:V-2AAS-3S\">λάβῃ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASM\">τὸν</w> <w lemma=\"strong:G4735 lemma.Strong:στέφανος lemma.ANLEX:στέφανος\" morph=\"robinson:N-ASM\">στέφανόν</w> <w lemma=\"strong:G4771 lemma.Strong:σύ lemma.ANLEX:σύ\" morph=\"robinson:P-2GS\">σου.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "ἔρχομαι",
+    "strong": "G2064"
+   },
+   {
+    "pos": 2,
+    "forma": "ταχύ·",
+    "strong": "G5035"
+   },
+   {
+    "pos": 3,
+    "forma": "κράτει",
+    "strong": "G2902"
+   },
+   {
+    "pos": 4,
+    "forma": "ὃ",
+    "strong": "G3739"
+   },
+   {
+    "pos": 5,
+    "forma": "ἔχεις,",
+    "strong": "G2192"
+   },
+   {
+    "pos": 6,
+    "forma": "ἵνα",
+    "strong": "G2443"
+   },
+   {
+    "pos": 7,
+    "forma": "μηδεὶς",
+    "strong": "G3367"
+   },
+   {
+    "pos": 8,
+    "forma": "λάβῃ",
+    "strong": "G2983"
+   },
+   {
+    "pos": 9,
+    "forma": "τὸν",
+    "strong": "G3588"
+   },
+   {
+    "pos": 10,
+    "forma": "στέφανόν",
+    "strong": "G4735"
+   },
+   {
+    "pos": 11,
+    "forma": "σου.",
+    "strong": "G4771"
+   }
+  ]
+ },
+ {
+  "ref": "Rev.3.21",
+  "raw": "<w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSM\">ὁ</w> <w lemma=\"strong:G3528 lemma.Strong:νικάω lemma.ANLEX:νικάω\" morph=\"robinson:V-PAP-NSM\">νικῶν</w> <w lemma=\"strong:G1325 lemma.Strong:δίδωμι lemma.ANLEX:δίδωμι\" morph=\"robinson:V-FAI-1S\">δώσω</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-DSM\">αὐτῷ</w> <w lemma=\"strong:G2523 lemma.Strong:καθίζω lemma.ANLEX:καθίζω\" morph=\"robinson:V-AAN\">καθίσαι</w> <w lemma=\"strong:G3326 lemma.Strong:μετά lemma.ANLEX:μετά\" morph=\"robinson:PREP\">μετ’</w> <w lemma=\"strong:G1473 lemma.Strong:ἐγώ lemma.ANLEX:ἐγώ\" morph=\"robinson:P-1GS\">ἐμοῦ</w> <w lemma=\"strong:G1722 lemma.Strong:ἐν lemma.ANLEX:ἐν\" morph=\"robinson:PREP\">ἐν</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-DSM\">τῷ</w> <w lemma=\"strong:G2362 lemma.Strong:θρόνος lemma.ANLEX:θρόνος\" morph=\"robinson:N-DSM\">θρόνῳ</w> <w lemma=\"strong:G1473 lemma.Strong:ἐγώ lemma.ANLEX:ἐγώ\" morph=\"robinson:P-1GS\">μου,</w> <w lemma=\"strong:G5613 lemma.Strong:ὡς lemma.ANLEX:ὡς\" morph=\"robinson:ADV\">ὡς</w> <w lemma=\"strong:G2504 lemma.Strong:κἀγώ lemma.ANLEX:κἀγώ\" morph=\"robinson:P-1NS-K\">κἀγὼ</w> <w lemma=\"strong:G3528 lemma.Strong:νικάω lemma.ANLEX:νικάω\" morph=\"robinson:V-AAI-1S\">ἐνίκησα</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G2523 lemma.Strong:καθίζω lemma.ANLEX:καθίζω\" morph=\"robinson:V-AAI-1S\">ἐκάθισα</w> <w lemma=\"strong:G3326 lemma.Strong:μετά lemma.ANLEX:μετά\" morph=\"robinson:PREP\">μετὰ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSM\">τοῦ</w> <w lemma=\"strong:G3962 lemma.Strong:πατήρ lemma.ANLEX:πατήρ\" morph=\"robinson:N-GSM\">πατρός</w> <w lemma=\"strong:G1473 lemma.Strong:ἐγώ lemma.ANLEX:ἐγώ\" morph=\"robinson:P-1GS\">μου</w> <w lemma=\"strong:G1722 lemma.Strong:ἐν lemma.ANLEX:ἐν\" morph=\"robinson:PREP\">ἐν</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-DSM\">τῷ</w> <w lemma=\"strong:G2362 lemma.Strong:θρόνος lemma.ANLEX:θρόνος\" morph=\"robinson:N-DSM\">θρόνῳ</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-GSM\">αὐτοῦ.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "ὁ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 2,
+    "forma": "νικῶν",
+    "strong": "G3528"
+   },
+   {
+    "pos": 3,
+    "forma": "δώσω",
+    "strong": "G1325"
+   },
+   {
+    "pos": 4,
+    "forma": "αὐτῷ",
+    "strong": "G846"
+   },
+   {
+    "pos": 5,
+    "forma": "καθίσαι",
+    "strong": "G2523"
+   },
+   {
+    "pos": 6,
+    "forma": "μετ’",
+    "strong": "G3326"
+   },
+   {
+    "pos": 7,
+    "forma": "ἐμοῦ",
+    "strong": "G1473"
+   },
+   {
+    "pos": 8,
+    "forma": "ἐν",
+    "strong": "G1722"
+   },
+   {
+    "pos": 9,
+    "forma": "τῷ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 10,
+    "forma": "θρόνῳ",
+    "strong": "G2362"
+   },
+   {
+    "pos": 11,
+    "forma": "μου,",
+    "strong": "G1473"
+   },
+   {
+    "pos": 12,
+    "forma": "ὡς",
+    "strong": "G5613"
+   },
+   {
+    "pos": 13,
+    "forma": "κἀγὼ",
+    "strong": "G2504"
+   },
+   {
+    "pos": 14,
+    "forma": "ἐνίκησα",
+    "strong": "G3528"
+   },
+   {
+    "pos": 15,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 16,
+    "forma": "ἐκάθισα",
+    "strong": "G2523"
+   },
+   {
+    "pos": 17,
+    "forma": "μετὰ",
+    "strong": "G3326"
+   },
+   {
+    "pos": 18,
+    "forma": "τοῦ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 19,
+    "forma": "πατρός",
+    "strong": "G3962"
+   },
+   {
+    "pos": 20,
+    "forma": "μου",
+    "strong": "G1473"
+   },
+   {
+    "pos": 21,
+    "forma": "ἐν",
+    "strong": "G1722"
+   },
+   {
+    "pos": 22,
+    "forma": "τῷ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 23,
+    "forma": "θρόνῳ",
+    "strong": "G2362"
+   },
+   {
+    "pos": 24,
+    "forma": "αὐτοῦ.",
+    "strong": "G846"
+   }
+  ]
+ },
+ {
+  "ref": "Rev.10.9",
+  "raw": "<w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G565 lemma.Strong:ἀπέρχομαι lemma.ANLEX:ἀπέρχομαι\" morph=\"robinson:V-2AAI-1S\">ἀπῆλθα</w> <w lemma=\"strong:G4314 lemma.Strong:πρός lemma.ANLEX:πρός\" morph=\"robinson:PREP\">πρὸς</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASM\">τὸν</w> <w lemma=\"strong:G32 lemma.Strong:ἄγγελος lemma.ANLEX:ἄγγελος\" morph=\"robinson:N-ASM\">ἄγγελον</w> <w lemma=\"strong:G3004 lemma.Strong:λέγω lemma.ANLEX:λέγω\" morph=\"robinson:V-PAP-NSM\">λέγων</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-DSM\">αὐτῷ</w> <w lemma=\"strong:G1325 lemma.Strong:δίδωμι lemma.ANLEX:δίδωμι\" morph=\"robinson:V-2AAN\">δοῦναί</w> <w lemma=\"strong:G1473 lemma.Strong:ἐγώ lemma.ANLEX:ἐγώ\" morph=\"robinson:P-1DS\">μοι</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASN\">τὸ</w> <w lemma=\"strong:G974 lemma.Strong:βιβλιαρίδιον lemma.ANLEX:βιβλαρίδιον\" morph=\"robinson:N-ASN\">βιβλαρίδιον.</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G3004 lemma.Strong:λέγω lemma.ANLEX:λέγω\" morph=\"robinson:V-PAI-3S\">λέγει</w> <w lemma=\"strong:G1473 lemma.Strong:ἐγώ lemma.ANLEX:ἐγώ\" morph=\"robinson:P-1DS\">μοι,</w> <w lemma=\"strong:G2983 lemma.Strong:λαμβάνω lemma.ANLEX:λαμβάνω\" morph=\"robinson:V-2AAM-2S\">λάβε</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G2719 lemma.Strong:κατεσθίω lemma.ANLEX:κατεσθίω\" morph=\"robinson:V-2AAM-2S\">κατάφαγε</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-ASN\">αὐτό,</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G4087 lemma.Strong:πικραίνω lemma.ANLEX:πικραίνω\" morph=\"robinson:V-FAI-3S\">πικρανεῖ</w> <w lemma=\"strong:G4771 lemma.Strong:σύ lemma.ANLEX:σύ\" morph=\"robinson:P-2GS\">σου</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASF\">τὴν</w> <w lemma=\"strong:G2836 lemma.Strong:κοιλία lemma.ANLEX:κοιλία\" morph=\"robinson:N-ASF\">κοιλίαν,</w> <w lemma=\"strong:G235 lemma.Strong:ἀλλά lemma.ANLEX:ἀλλά\" morph=\"robinson:CONJ\">ἀλλ’</w> <w lemma=\"strong:G1722 lemma.Strong:ἐν lemma.ANLEX:ἐν\" morph=\"robinson:PREP\">ἐν</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-DSN\">τῷ</w> <w lemma=\"strong:G4750 lemma.Strong:στόμα lemma.ANLEX:στόμα\" morph=\"robinson:N-DSN\">στόματί</w> <w lemma=\"strong:G4771 lemma.Strong:σύ lemma.ANLEX:σύ\" morph=\"robinson:P-2GS\">σου</w> <w lemma=\"strong:G1510 lemma.Strong:εἰμί lemma.ANLEX:εἰμί\" morph=\"robinson:V-FDI-3S\">ἔσται</w> <w lemma=\"strong:G1099 lemma.Strong:γλυκύς lemma.ANLEX:γλυκύς\" morph=\"robinson:A-NSN\">γλυκὺ</w> <w lemma=\"strong:G5613 lemma.Strong:ὡς lemma.ANLEX:ὡς\" morph=\"robinson:ADV\">ὡς</w> <w lemma=\"strong:G3192 lemma.Strong:μέλι lemma.ANLEX:μέλι\" morph=\"robinson:N-NSN\">μέλι.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 2,
+    "forma": "ἀπῆλθα",
+    "strong": "G565"
+   },
+   {
+    "pos": 3,
+    "forma": "πρὸς",
+    "strong": "G4314"
+   },
+   {
+    "pos": 4,
+    "forma": "τὸν",
+    "strong": "G3588"
+   },
+   {
+    "pos": 5,
+    "forma": "ἄγγελον",
+    "strong": "G32"
+   },
+   {
+    "pos": 6,
+    "forma": "λέγων",
+    "strong": "G3004"
+   },
+   {
+    "pos": 7,
+    "forma": "αὐτῷ",
+    "strong": "G846"
+   },
+   {
+    "pos": 8,
+    "forma": "δοῦναί",
+    "strong": "G1325"
+   },
+   {
+    "pos": 9,
+    "forma": "μοι",
+    "strong": "G1473"
+   },
+   {
+    "pos": 10,
+    "forma": "τὸ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 11,
+    "forma": "βιβλαρίδιον.",
+    "strong": "G974"
+   },
+   {
+    "pos": 12,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 13,
+    "forma": "λέγει",
+    "strong": "G3004"
+   },
+   {
+    "pos": 14,
+    "forma": "μοι,",
+    "strong": "G1473"
+   },
+   {
+    "pos": 15,
+    "forma": "λάβε",
+    "strong": "G2983"
+   },
+   {
+    "pos": 16,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 17,
+    "forma": "κατάφαγε",
+    "strong": "G2719"
+   },
+   {
+    "pos": 18,
+    "forma": "αὐτό,",
+    "strong": "G846"
+   },
+   {
+    "pos": 19,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 20,
+    "forma": "πικρανεῖ",
+    "strong": "G4087"
+   },
+   {
+    "pos": 21,
+    "forma": "σου",
+    "strong": "G4771"
+   },
+   {
+    "pos": 22,
+    "forma": "τὴν",
+    "strong": "G3588"
+   },
+   {
+    "pos": 23,
+    "forma": "κοιλίαν,",
+    "strong": "G2836"
+   },
+   {
+    "pos": 24,
+    "forma": "ἀλλ’",
+    "strong": "G235"
+   },
+   {
+    "pos": 25,
+    "forma": "ἐν",
+    "strong": "G1722"
+   },
+   {
+    "pos": 26,
+    "forma": "τῷ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 27,
+    "forma": "στόματί",
+    "strong": "G4750"
+   },
+   {
+    "pos": 28,
+    "forma": "σου",
+    "strong": "G4771"
+   },
+   {
+    "pos": 29,
+    "forma": "ἔσται",
+    "strong": "G1510"
+   },
+   {
+    "pos": 30,
+    "forma": "γλυκὺ",
+    "strong": "G1099"
+   },
+   {
+    "pos": 31,
+    "forma": "ὡς",
+    "strong": "G5613"
+   },
+   {
+    "pos": 32,
+    "forma": "μέλι.",
+    "strong": "G3192"
+   }
+  ]
+ },
+ {
+  "ref": "Rev.11.8",
+  "raw": "<w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSN\">τὸ</w> <w lemma=\"strong:G4430 lemma.Strong:πτῶμα lemma.ANLEX:πτῶμα\" morph=\"robinson:N-NSN\">πτῶμα</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-GPM\">αὐτῶν</w> <w lemma=\"strong:G1909 lemma.Strong:ἐπί lemma.ANLEX:ἐπί\" morph=\"robinson:PREP\">ἐπὶ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSF\">τῆς</w> <w lemma=\"strong:G4113 lemma.Strong:πλατεῖα lemma.ANLEX:πλατύς\" morph=\"robinson:N-GSF\">πλατείας</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSF\">τῆς</w> <w lemma=\"strong:G4172 lemma.Strong:πόλις lemma.ANLEX:πόλις\" morph=\"robinson:N-GSF\">πόλεως</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSF\">τῆς</w> <w lemma=\"strong:G3173 lemma.Strong:μέγας lemma.ANLEX:μέγας\" morph=\"robinson:A-GSF\">μεγάλης,</w> <w lemma=\"strong:G3748 lemma.Strong:ὅστις lemma.ANLEX:ὅστις\" morph=\"robinson:R-NSF\">ἥτις</w> <w lemma=\"strong:G2564 lemma.Strong:καλέω lemma.ANLEX:καλέω\" morph=\"robinson:V-PPI-3S\">καλεῖται</w> <w lemma=\"strong:G4153 lemma.Strong:πνευματικῶς lemma.ANLEX:πνευματικῶς\" morph=\"robinson:ADV\">πνευματικῶς</w> <w lemma=\"strong:G4670 lemma.Strong:Σόδομα lemma.ANLEX:Σόδομα\" morph=\"robinson:N-NPN\">Σόδομα</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G125 lemma.Strong:Αἴγυπτος lemma.ANLEX:Αἴγυπτος\" morph=\"robinson:N-NSF\">Αἴγυπτος,</w> <w lemma=\"strong:G3699 lemma.Strong:ὅπου lemma.ANLEX:ὅπου\" morph=\"robinson:ADV\">ὅπου</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSM\">ὁ</w> <w lemma=\"strong:G2962 lemma.Strong:κύριος lemma.ANLEX:κύριος\" morph=\"robinson:N-NSM\">κύριος</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-GPM\">αὐτῶν</w> <w lemma=\"strong:G4717 lemma.Strong:σταυρόω lemma.ANLEX:σταυρόω\" morph=\"robinson:V-API-3S\">ἐσταυρώθη.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 2,
+    "forma": "τὸ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 3,
+    "forma": "πτῶμα",
+    "strong": "G4430"
+   },
+   {
+    "pos": 4,
+    "forma": "αὐτῶν",
+    "strong": "G846"
+   },
+   {
+    "pos": 5,
+    "forma": "ἐπὶ",
+    "strong": "G1909"
+   },
+   {
+    "pos": 6,
+    "forma": "τῆς",
+    "strong": "G3588"
+   },
+   {
+    "pos": 7,
+    "forma": "πλατείας",
+    "strong": "G4113"
+   },
+   {
+    "pos": 8,
+    "forma": "τῆς",
+    "strong": "G3588"
+   },
+   {
+    "pos": 9,
+    "forma": "πόλεως",
+    "strong": "G4172"
+   },
+   {
+    "pos": 10,
+    "forma": "τῆς",
+    "strong": "G3588"
+   },
+   {
+    "pos": 11,
+    "forma": "μεγάλης,",
+    "strong": "G3173"
+   },
+   {
+    "pos": 12,
+    "forma": "ἥτις",
+    "strong": "G3748"
+   },
+   {
+    "pos": 13,
+    "forma": "καλεῖται",
+    "strong": "G2564"
+   },
+   {
+    "pos": 14,
+    "forma": "πνευματικῶς",
+    "strong": "G4153"
+   },
+   {
+    "pos": 15,
+    "forma": "Σόδομα",
+    "strong": "G4670"
+   },
+   {
+    "pos": 16,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 17,
+    "forma": "Αἴγυπτος,",
+    "strong": "G125"
+   },
+   {
+    "pos": 18,
+    "forma": "ὅπου",
+    "strong": "G3699"
+   },
+   {
+    "pos": 19,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 20,
+    "forma": "ὁ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 21,
+    "forma": "κύριος",
+    "strong": "G2962"
+   },
+   {
+    "pos": 22,
+    "forma": "αὐτῶν",
+    "strong": "G846"
+   },
+   {
+    "pos": 23,
+    "forma": "ἐσταυρώθη.",
+    "strong": "G4717"
+   }
+  ]
+ },
+ {
+  "ref": "Rev.19.5",
+  "raw": "<w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G5456 lemma.Strong:φωνή lemma.ANLEX:φωνή\" morph=\"robinson:N-NSF\">φωνὴ</w> <w lemma=\"strong:G1537 lemma.Strong:ἐκ lemma.ANLEX:ἐκ\" morph=\"robinson:PREP\">ἐκ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSM\">τοῦ</w> <w lemma=\"strong:G2362 lemma.Strong:θρόνος lemma.ANLEX:θρόνος\" morph=\"robinson:N-GSM\">θρόνου</w> <w lemma=\"strong:G1831 lemma.Strong:ἐξέρχομαι lemma.ANLEX:ἐξέρχομαι\" morph=\"robinson:V-2AAI-3S\">ἐξῆλθεν</w> <w lemma=\"strong:G3004 lemma.Strong:λέγω lemma.ANLEX:λέγω\" morph=\"robinson:V-PAP-NSF\">λέγουσα,</w> <w lemma=\"strong:G134 lemma.Strong:αἰνέω lemma.ANLEX:αἰνέω\" morph=\"robinson:V-PAM-2P\">αἰνεῖτε</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-DSM\">τῷ</w> <w lemma=\"strong:G2316 lemma.Strong:θεός lemma.ANLEX:θεός\" morph=\"robinson:N-DSM\">θεῷ</w> <w lemma=\"strong:G2249 lemma.Strong:ἡμεῖς lemma.ANLEX:ἐγώ\" morph=\"robinson:P-1GP\">ἡμῶν,</w> <w lemma=\"strong:G3956 lemma.Strong:πᾶς lemma.ANLEX:πᾶς\" morph=\"robinson:A-NPM\">πάντες</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NPM\">οἱ</w> <w lemma=\"strong:G1401 lemma.Strong:δοῦλος lemma.ANLEX:δοῦλος (2)\" morph=\"robinson:N-NPM\">δοῦλοι</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-GSM\">αὐτοῦ,</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NPM\">οἱ</w> <w lemma=\"strong:G5399 lemma.Strong:φοβέω lemma.ANLEX:φοβέω\" morph=\"robinson:V-PNP-NPM\">φοβούμενοι</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-ASM\">αὐτόν,</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NPM\">οἱ</w> <w lemma=\"strong:G3398 lemma.Strong:μικρός lemma.ANLEX:μικρός\" morph=\"robinson:A-NPM\">μικροὶ</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NPM\">οἱ</w> <w lemma=\"strong:G3173 lemma.Strong:μέγας lemma.ANLEX:μέγας\" morph=\"robinson:A-NPM\">μεγάλοι.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 2,
+    "forma": "φωνὴ",
+    "strong": "G5456"
+   },
+   {
+    "pos": 3,
+    "forma": "ἐκ",
+    "strong": "G1537"
+   },
+   {
+    "pos": 4,
+    "forma": "τοῦ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 5,
+    "forma": "θρόνου",
+    "strong": "G2362"
+   },
+   {
+    "pos": 6,
+    "forma": "ἐξῆλθεν",
+    "strong": "G1831"
+   },
+   {
+    "pos": 7,
+    "forma": "λέγουσα,",
+    "strong": "G3004"
+   },
+   {
+    "pos": 8,
+    "forma": "αἰνεῖτε",
+    "strong": "G134"
+   },
+   {
+    "pos": 9,
+    "forma": "τῷ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 10,
+    "forma": "θεῷ",
+    "strong": "G2316"
+   },
+   {
+    "pos": 11,
+    "forma": "ἡμῶν,",
+    "strong": "G2249"
+   },
+   {
+    "pos": 12,
+    "forma": "πάντες",
+    "strong": "G3956"
+   },
+   {
+    "pos": 13,
+    "forma": "οἱ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 14,
+    "forma": "δοῦλοι",
+    "strong": "G1401"
+   },
+   {
+    "pos": 15,
+    "forma": "αὐτοῦ,",
+    "strong": "G846"
+   },
+   {
+    "pos": 16,
+    "forma": "οἱ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 17,
+    "forma": "φοβούμενοι",
+    "strong": "G5399"
+   },
+   {
+    "pos": 18,
+    "forma": "αὐτόν,",
+    "strong": "G846"
+   },
+   {
+    "pos": 19,
+    "forma": "οἱ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 20,
+    "forma": "μικροὶ",
+    "strong": "G3398"
+   },
+   {
+    "pos": 21,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 22,
+    "forma": "οἱ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 23,
+    "forma": "μεγάλοι.",
+    "strong": "G3173"
+   }
+  ]
+ },
+ {
+  "ref": "Rev.20.2",
+  "raw": "<w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G2902 lemma.Strong:κρατέω lemma.ANLEX:κρατέω\" morph=\"robinson:V-AAI-3S\">ἐκράτησεν</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASM\">τὸν</w> <w lemma=\"strong:G1404 lemma.Strong:δράκων lemma.ANLEX:δράκων\" morph=\"robinson:N-ASM\">δράκοντα,</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSM\">ὁ</w> <w lemma=\"strong:G3789 lemma.Strong:ὄφις lemma.ANLEX:ὄφις\" morph=\"robinson:N-NSM\">ὄφις</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSM\">ὁ</w> <w lemma=\"strong:G744 lemma.Strong:ἀρχαῖος lemma.ANLEX:ἀρχαῖος\" morph=\"robinson:A-NSM\">ἀρχαῖος,</w> <w lemma=\"strong:G3739 lemma.Strong:ὅς lemma.ANLEX:ὅς\" morph=\"robinson:R-NSN\">ὅ</w> <w lemma=\"strong:G1510 lemma.Strong:εἰμί lemma.ANLEX:εἰμί\" morph=\"robinson:V-PAI-3S\">ἐστιν</w> <w lemma=\"strong:G1228 lemma.Strong:διάβολος lemma.ANLEX:διάβολος\" morph=\"robinson:A-NSM\">διάβολος</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSM\">ὁ</w> <w lemma=\"strong:G4567 lemma.Strong:Σατανᾶς lemma.ANLEX:Σατανᾶς\" morph=\"robinson:N-NSM\">Σατανᾶς,</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G1210 lemma.Strong:δέω lemma.ANLEX:δέω\" morph=\"robinson:V-AAI-3S\">ἔδησεν</w> <w lemma=\"strong:G846 lemma.Strong:αὐτός lemma.ANLEX:αὐτός\" morph=\"robinson:P-ASM\">αὐτὸν</w> <w lemma=\"strong:G5507 lemma.Strong:χίλιοι lemma.ANLEX:χίλιοι\" morph=\"robinson:A-APN\">χίλια</w> <w lemma=\"strong:G2094 lemma.Strong:ἔτος lemma.ANLEX:ἔτος\" morph=\"robinson:N-APN\">ἔτη,</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 2,
+    "forma": "ἐκράτησεν",
+    "strong": "G2902"
+   },
+   {
+    "pos": 3,
+    "forma": "τὸν",
+    "strong": "G3588"
+   },
+   {
+    "pos": 4,
+    "forma": "δράκοντα,",
+    "strong": "G1404"
+   },
+   {
+    "pos": 5,
+    "forma": "ὁ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 6,
+    "forma": "ὄφις",
+    "strong": "G3789"
+   },
+   {
+    "pos": 7,
+    "forma": "ὁ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 8,
+    "forma": "ἀρχαῖος,",
+    "strong": "G744"
+   },
+   {
+    "pos": 9,
+    "forma": "ὅ",
+    "strong": "G3739"
+   },
+   {
+    "pos": 10,
+    "forma": "ἐστιν",
+    "strong": "G1510"
+   },
+   {
+    "pos": 11,
+    "forma": "διάβολος",
+    "strong": "G1228"
+   },
+   {
+    "pos": 12,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 13,
+    "forma": "ὁ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 14,
+    "forma": "Σατανᾶς,",
+    "strong": "G4567"
+   },
+   {
+    "pos": 15,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 16,
+    "forma": "ἔδησεν",
+    "strong": "G1210"
+   },
+   {
+    "pos": 17,
+    "forma": "αὐτὸν",
+    "strong": "G846"
+   },
+   {
+    "pos": 18,
+    "forma": "χίλια",
+    "strong": "G5507"
+   },
+   {
+    "pos": 19,
+    "forma": "ἔτη,",
+    "strong": "G2094"
+   }
+  ]
+ },
+ {
+  "ref": "Rom.2.16",
+  "raw": "<w lemma=\"strong:G1722 lemma.Strong:ἐν lemma.ANLEX:ἐν\" morph=\"robinson:PREP\">ἐν</w> <w lemma=\"strong:G2250 lemma.Strong:ἡμέρα lemma.ANLEX:ἡμέρα\" morph=\"robinson:N-DSF\">ἡμέρᾳ</w> <w lemma=\"strong:G3753 lemma.Strong:ὅτε lemma.ANLEX:ὅτε\" morph=\"robinson:ADV\">ὅτε</w> <w lemma=\"strong:G2919 lemma.Strong:κρίνω lemma.ANLEX:κρίνω\" morph=\"robinson:V-PAI-3S\">κρινεῖ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-NSM\">ὁ</w> <w lemma=\"strong:G2316 lemma.Strong:θεός lemma.ANLEX:θεός\" morph=\"robinson:N-NSM\">θεὸς</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-APN\">τὰ</w> <w lemma=\"strong:G2927 lemma.Strong:κρυπτός lemma.ANLEX:κρυπτός\" morph=\"robinson:A-APN\">κρυπτὰ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GPM\">τῶν</w> <w lemma=\"strong:G444 lemma.Strong:ἄνθρωπος lemma.ANLEX:ἄνθρωπος\" morph=\"robinson:N-GPM\">ἀνθρώπων</w> <w lemma=\"strong:G2596 lemma.Strong:κατά lemma.ANLEX:κατά\" morph=\"robinson:PREP\">κατὰ</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-ASN\">τὸ</w> <w lemma=\"strong:G2098 lemma.Strong:εὐαγγέλιον lemma.ANLEX:εὐαγγέλιον\" morph=\"robinson:N-ASN\">εὐαγγέλιόν</w> <w lemma=\"strong:G1473 lemma.Strong:ἐγώ lemma.ANLEX:ἐγώ\" morph=\"robinson:P-1GS\">μου</w> <w lemma=\"strong:G1223 lemma.Strong:διά lemma.ANLEX:διά\" morph=\"robinson:PREP\">διὰ</w> <w lemma=\"strong:G5547 lemma.Strong:Χριστός lemma.ANLEX:Χριστός\" morph=\"robinson:N-GSM\">Χριστοῦ</w> <w lemma=\"strong:G2424 lemma.Strong:Ἰησοῦς lemma.ANLEX:Ἰησοῦς\" morph=\"robinson:N-GSM\">Ἰησοῦ.</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "ἐν",
+    "strong": "G1722"
+   },
+   {
+    "pos": 2,
+    "forma": "ἡμέρᾳ",
+    "strong": "G2250"
+   },
+   {
+    "pos": 3,
+    "forma": "ὅτε",
+    "strong": "G3753"
+   },
+   {
+    "pos": 4,
+    "forma": "κρινεῖ",
+    "strong": "G2919"
+   },
+   {
+    "pos": 5,
+    "forma": "ὁ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 6,
+    "forma": "θεὸς",
+    "strong": "G2316"
+   },
+   {
+    "pos": 7,
+    "forma": "τὰ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 8,
+    "forma": "κρυπτὰ",
+    "strong": "G2927"
+   },
+   {
+    "pos": 9,
+    "forma": "τῶν",
+    "strong": "G3588"
+   },
+   {
+    "pos": 10,
+    "forma": "ἀνθρώπων",
+    "strong": "G444"
+   },
+   {
+    "pos": 11,
+    "forma": "κατὰ",
+    "strong": "G2596"
+   },
+   {
+    "pos": 12,
+    "forma": "τὸ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 13,
+    "forma": "εὐαγγέλιόν",
+    "strong": "G2098"
+   },
+   {
+    "pos": 14,
+    "forma": "μου",
+    "strong": "G1473"
+   },
+   {
+    "pos": 15,
+    "forma": "διὰ",
+    "strong": "G1223"
+   },
+   {
+    "pos": 16,
+    "forma": "Χριστοῦ",
+    "strong": "G5547"
+   },
+   {
+    "pos": 17,
+    "forma": "Ἰησοῦ.",
+    "strong": "G2424"
+   }
+  ]
+ },
+ {
+  "ref": "Rom.3.23",
+  "raw": "<w lemma=\"strong:G3956 lemma.Strong:πᾶς lemma.ANLEX:πᾶς\" morph=\"robinson:A-NPM\">πάντες</w> <w lemma=\"strong:G1063 lemma.Strong:γάρ lemma.ANLEX:γάρ\" morph=\"robinson:CONJ\">γὰρ</w> <w lemma=\"strong:G264 lemma.Strong:ἁμαρτάνω lemma.ANLEX:ἁμαρτάνω\" morph=\"robinson:V-2AAI-3P\">ἥμαρτον</w> <w lemma=\"strong:G2532 lemma.Strong:καί lemma.ANLEX:καί\" morph=\"robinson:CONJ\">καὶ</w> <w lemma=\"strong:G5302 lemma.Strong:ὑστερέω lemma.ANLEX:ὑστερέω\" morph=\"robinson:V-PPI-3P\">ὑστεροῦνται</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSF\">τῆς</w> <w lemma=\"strong:G1391 lemma.Strong:δόξα lemma.ANLEX:δόξα\" morph=\"robinson:N-GSF\">δόξης</w> <w lemma=\"strong:G3588 lemma.Strong:ὁ lemma.ANLEX:ὁ\" morph=\"robinson:T-GSM\">τοῦ</w> <w lemma=\"strong:G2316 lemma.Strong:θεός lemma.ANLEX:θεός\" morph=\"robinson:N-GSM\">θεοῦ,</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "πάντες",
+    "strong": "G3956"
+   },
+   {
+    "pos": 2,
+    "forma": "γὰρ",
+    "strong": "G1063"
+   },
+   {
+    "pos": 3,
+    "forma": "ἥμαρτον",
+    "strong": "G264"
+   },
+   {
+    "pos": 4,
+    "forma": "καὶ",
+    "strong": "G2532"
+   },
+   {
+    "pos": 5,
+    "forma": "ὑστεροῦνται",
+    "strong": "G5302"
+   },
+   {
+    "pos": 6,
+    "forma": "τῆς",
+    "strong": "G3588"
+   },
+   {
+    "pos": 7,
+    "forma": "δόξης",
+    "strong": "G1391"
+   },
+   {
+    "pos": 8,
+    "forma": "τοῦ",
+    "strong": "G3588"
+   },
+   {
+    "pos": 9,
+    "forma": "θεοῦ,",
+    "strong": "G2316"
+   }
+  ]
+ },
+ {
+  "ref": "sintetico",
+  "raw": "<w lemma=\"strong:G1 lemma.Strong:α\" morph=\"robinson:N-NSM\">α</w> <w lemma=\"strong:G2 lemma.Strong:β\" morph=\"robinson:N-NSM\"></w> <w lemma=\"strong:G3 lemma.Strong:γ\" morph=\"robinson:PREP\">γ·</w> <w morph=\"robinson:CONJ\">δ</w> <w lemma=\"strong:G5 lemma.Strong:ε\" morph=\"robinson:CONJ\">ε</w>",
+  "palabras": [
+   {
+    "pos": 1,
+    "forma": "α",
+    "strong": "G1"
+   },
+   {
+    "pos": 2,
+    "forma": "",
+    "strong": "G2"
+   },
+   {
+    "pos": 3,
+    "forma": "γ·",
+    "strong": "G3"
+   },
+   {
+    "pos": 4,
+    "forma": "δ",
+    "strong": ""
+   },
+   {
+    "pos": 5,
+    "forma": "ε",
+    "strong": "G5"
+   }
+  ]
+ }
+]

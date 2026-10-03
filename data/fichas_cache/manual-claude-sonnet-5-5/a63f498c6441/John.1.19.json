@@ -1,0 +1,383 @@
+{
+ "ref": "John.1.19",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-02T16:56:23-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante; abre una nueva sección tras el prólogo, con función de «y así».",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G3778",
+   "glosa_interlineal": "éste",
+   "rango_semantico": [
+    "este, esta, esto",
+    "él, ella (con fuerza demostrativa)"
+   ],
+   "construccion": "Pronombre demostrativo nominativo femenino singular, sujeto de ἐστίν; concuerda con ἡ μαρτυρία.",
+   "sentido_en_contexto": "Anuncia el testimonio que se va a contar: lo que sigue es el contenido del testimonio de Juan.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G1510",
+   "glosa_interlineal": "es",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Presente indicativo de εἰμί, 3.ª singular, copulativo.",
+   "sentido_en_contexto": "Presente de enunciación: el escritor presenta ahora el testimonio.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo femenino singular; concuerda con μαρτυρία.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G3141",
+   "glosa_interlineal": "testimonio",
+   "rango_semantico": [
+    "testimonio",
+    "prueba",
+    "reputación"
+   ],
+   "construccion": "Nominativo femenino singular con artículo, predicado nominal de ἐστίν.",
+   "sentido_en_contexto": "Retoma el tema de 1:7-8, 15: el testimonio de Juan.",
+   "matiz": "Ya en 1:7 se anunció su misión; aquí empieza el relato de su testimonio ante interrogadores.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:7 — vino para testimonio",
+    "Jn 5:33 — Juan dio testimonio de la verdad",
+    "Jn 8:13-14 — testimonios que se validan"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo genitivo masculino singular; concuerda con Ἰωάννου.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G2491",
+   "glosa_interlineal": "de Juan",
+   "rango_semantico": [
+    "Juan (nombre hebreo Yohanán, «Dios ha tenido gracia»)"
+   ],
+   "construccion": "Nombre propio, genitivo; complemento de μαρτυρία (genitivo subjetivo: el testimonio que da Juan).",
+   "sentido_en_contexto": "Es el testimonio de Juan el Bautista.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G3753",
+   "glosa_interlineal": "cuando",
+   "rango_semantico": [
+    "cuando",
+    "entonces"
+   ],
+   "construccion": "Adverbio temporal (ὅτε) que introduce una oración subordinada.",
+   "sentido_en_contexto": "Sitúa el testimonio en el momento en que llegan los enviados.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G649",
+   "glosa_interlineal": "enviaron",
+   "rango_semantico": [
+    "enviar, mandar",
+    "enviar con misión, comisionar",
+    "despachar"
+   ],
+   "construccion": "Aoristo indicativo activo de ἀποστέλλω, 3.ª plural.",
+   "sentido_en_contexto": "Envío oficial de una delegación; el mismo verbo con que se describe a Juan (1:6) y a Jesús (3:17).",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 1:6 — Juan fue enviado por Dios",
+    "Jn 3:17 — Dios envió al Hijo",
+    "Jn 20:21 — como el Padre me envió, yo os envío"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo nominativo masculino plural; concuerda con Ἰουδαῖοι.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G2453",
+   "glosa_interlineal": "judíos",
+   "rango_semantico": [
+    "judío",
+    "de Judea",
+    "autoridades judías"
+   ],
+   "construccion": "Adjetivo sustantivado nominativo masculino plural, sujeto de ἀπέστειλαν. En Juan suele designar a las autoridades religiosas de Jerusalén más que al pueblo como tal.",
+   "sentido_en_contexto": "Aquí son los dirigentes de Jerusalén (sacerdotes y levitas, v. 19b), no el pueblo en su conjunto.",
+   "matiz": "El Evangelio usa Ἰουδαῖοι de modos distintos: a veces los habitantes de Judea, a veces la oposición a Jesús.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Jn 2:18 — los judíos le piden una señal",
+    "Jn 5:10 — los judíos al hombre curado en sábado",
+    "Jn 11:45 — muchos de los judíos creyeron"
+   ],
+   "nivel_certeza": "medio"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G1537",
+   "glosa_interlineal": "desde",
+   "rango_semantico": [
+    "de, desde (origen)",
+    "fuera de",
+    "a partir de"
+   ],
+   "construccion": "Preposición con genitivo (ἐξ Ἱεροσολύμων): origen o procedencia.",
+   "sentido_en_contexto": "Indica que los enviados salen de Jerusalén, sede de la autoridad religiosa.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G2414",
+   "glosa_interlineal": "Jerusalén",
+   "rango_semantico": [
+    "Jerusalén"
+   ],
+   "construccion": "Nombre propio, genitivo plural neutro (Ἱεροσόλυμα, forma griega usada con plural). Regido por ἐκ.",
+   "sentido_en_contexto": "La capital religiosa; el origen oficial de la delegación.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G2409",
+   "glosa_interlineal": "sacerdotes",
+   "rango_semantico": [
+    "sacerdote"
+   ],
+   "construccion": "Acusativo masculino plural, objeto de ἀπέστειλαν.",
+   "sentido_en_contexto": "Representantes del templo; uno de los dos grupos de la comisión (con los levitas).",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Lc 1:5 — Zacarías era sacerdote",
+    "Heb 7:27 — el sumo sacerdote ofrece sacrificios",
+    "Ap 1:6 — nos hizo sacerdotes para su Dios"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante que une sacerdotes y levitas.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G3019",
+   "glosa_interlineal": "levitas",
+   "rango_semantico": [
+    "levita"
+   ],
+   "construccion": "Acusativo masculino plural, objeto de ἀπέστειλαν. Tisch escribe Λευείτας; el TAGNT, Λευίτας (grafía distinta, mismo nombre).",
+   "sentido_en_contexto": "Los levitas ayudaban al culto en el templo; son el segundo grupo de la delegación.",
+   "matiz": "La diferencia Λευείτας / Λευίτας es solo de ortografía.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": [
+    "Lc 10:32 — un levita pasó de largo",
+    "Hch 4:36 — Bernabé, levita",
+    "Jn 1:19 — única mención en el Evangelio"
+   ],
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G2443",
+   "glosa_interlineal": "para que",
+   "rango_semantico": [
+    "para que (finalidad)",
+    "de modo que (resultado)",
+    "que (contenido)"
+   ],
+   "construccion": "Conjunción final con subjuntivo (ἐρωτήσωσιν).",
+   "sentido_en_contexto": "Fin del envío: interrogar a Juan.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 18,
+   "strong": "G2065",
+   "glosa_interlineal": "preguntaran",
+   "rango_semantico": [
+    "preguntar, pedir",
+    "rogar",
+    "interrogar"
+   ],
+   "construccion": "Aoristo subjuntivo activo de ἐρωτάω, 3.ª plural, tras ἵνα.",
+   "sentido_en_contexto": "Interrogatorio formal: no es curiosidad, sino una investigación oficial.",
+   "matiz": "ἐρωτάω es preguntar y también rogar; aquí es lo primero, pero el tono oficial es claro.",
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 19,
+   "strong": "G846",
+   "glosa_interlineal": "le",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal acusativo masculino singular; objeto de ἐρωτήσωσιν.",
+   "sentido_en_contexto": "Se refiere a Juan.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 20,
+   "strong": "G4771",
+   "glosa_interlineal": "tú",
+   "rango_semantico": [
+    "tú"
+   ],
+   "construccion": "Pronombre personal nominativo de segunda persona singular, enfático.",
+   "sentido_en_contexto": "Pregunta directa a Juan: ¿quién eres tú?, y la pregunta pide identidad, no biografía.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 21,
+   "strong": "G5101",
+   "glosa_interlineal": "quién",
+   "rango_semantico": [
+    "quién, qué",
+    "cuál"
+   ],
+   "construccion": "Pronombre interrogativo nominativo masculino singular.",
+   "sentido_en_contexto": "La pregunta de identidad que estructura el interrogatorio de los vv. 19-25.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 22,
+   "strong": "G1510",
+   "glosa_interlineal": "eres",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Presente indicativo de εἰμί, 2.ª singular.",
+   "sentido_en_contexto": "Cierra la pregunta: ¿quién eres? Juan responde negando lo que no es (v. 20).",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}

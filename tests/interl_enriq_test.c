@@ -1,6 +1,6 @@
 /*
  * Biblia Elim
- * interl_enriq_test.c - ficha de estudio enriquecida del interlineal
+ * interl_enriq_test.c - ficha de estudio enriquecida del interlineal (lee fichas.sqlite)
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
  *
@@ -12,48 +12,63 @@
 
 #include <glib.h>
 #include <glib/gstdio.h>
+#include <sqlite3.h>
 
 #include "main/interl_enriq.h"
 
-#define COMPLETA                                                              \
-	"{\"ref\":\"John.1.2\",\"strong\":\"G4314\",\"glosa_interlineal\":\"con\"," \
-	"\"rango_semantico\":[\"hacia\",\"con, junto a\"],"                      \
-	"\"construccion\":\"πρός + acusativo\","                                 \
-	"\"sentido_en_contexto\":\"Cercanía <y> relación.\","                    \
-	"\"matiz\":null,"                                                        \
-	"\"traducciones_comparadas\":["                                          \
-	"{\"version\":\"RVR1960\",\"texto\":\"con Dios\"},"                      \
-	"{\"version\":\"Torres Amat\",\"texto\":\"en Dios\",\"nota\":\"apud\"},"  \
-	"{\"version\":\"sin texto\"}],"                                          \
-	"\"notas_traduccion\":null,"                                             \
-	"\"otros_usos\":[\"Jn 14:6\"],\"nivel_certeza\":\"alto\"}"
+/* Mismo esquema (reducido) que tools/construir_fichas_sqlite.py. */
+#define ESQUEMA                                                                          \
+	"PRAGMA user_version=1;"                                                            \
+	"CREATE TABLE metadata(key TEXT PRIMARY KEY,value TEXT NOT NULL);"                  \
+	"INSERT INTO metadata VALUES('formato','fichas-v1'),('fichas','%d');"               \
+	"CREATE TABLE fichas(ref_tisch TEXT,posicion INT,strong TEXT,ref_estandar TEXT,"    \
+	"glosa_interlineal TEXT,rango_semantico TEXT,construccion TEXT,"                    \
+	"sentido_en_contexto TEXT,matiz TEXT,variantes_textuales TEXT,notas_traduccion TEXT," \
+	"otros_usos TEXT,nivel_certeza TEXT);"                                              \
+	"CREATE TABLE citas(ref_estandar TEXT,version TEXT,texto TEXT,"                     \
+	"ocr_sospechoso INT DEFAULT 0);"
 
 static gchar *
-escribir(const char *json)
+base(const char *nombre, const char *sql_filas, int n)
 {
-	gchar *ruta = g_build_filename(g_get_tmp_dir(), "interl_enriq_test.json", NULL);
+	gchar *ruta = g_build_filename(g_get_tmp_dir(), nombre, NULL);
+	gchar *esquema = g_strdup_printf(ESQUEMA, n);
+	sqlite3 *db = NULL;
 
-	g_assert_true(g_file_set_contents(ruta, json, -1, NULL));
+	g_remove(ruta);
+	g_assert_cmpint(sqlite3_open(ruta, &db), ==, SQLITE_OK);
+	g_assert_cmpint(sqlite3_exec(db, esquema, NULL, NULL, NULL), ==, SQLITE_OK);
+	g_assert_cmpint(sqlite3_exec(db, sql_filas, NULL, NULL, NULL), ==, SQLITE_OK);
+	sqlite3_close(db);
+	g_free(esquema);
 	return ruta;
 }
+
+#define COMPLETA                                                                         \
+	"INSERT INTO fichas VALUES('John.1.2',5,'G4314','John.1.2','con',"                  \
+	"'[\"hacia\",\"con, junto a\"]','πρός + acusativo','Cercanía <y> relación.',NULL,"  \
+	"NULL,NULL,'[\"Jn 14:6\"]','alto');"                                                \
+	"INSERT INTO citas VALUES('John.1.2','Torres Amat','en Dios',0),"                   \
+	"('John.1.2','Reina-Valera 1909','con Dios',0),('John.1.2','Texto OCR','$ roto',1);"
 
 static void
 prueba_ficha_completa(void)
 {
-	gchar *ruta = escribir("[" COMPLETA "]");
+	gchar *ruta = base("interl_enriq_test.sqlite", COMPLETA, 1);
 	gchar *h;
 
 	g_assert_cmpint(main_interl_enriq_cargar(ruta), ==, 1);
-	h = main_interl_enriq_html("John.1.2", "G4314");
+	h = main_interl_enriq_html("John.1.2", 5, "G4314");
 	g_assert_nonnull(h);
 	g_assert_nonnull(g_strstr_len(h, -1, "πρός + acusativo"));
 	g_assert_nonnull(g_strstr_len(h, -1, "Cercanía &lt;y&gt; relación."));
+	/* las citas salen de la tabla `citas` por ref_estandar, con el nombre exacto de la versión... */
 	g_assert_nonnull(g_strstr_len(h, -1, "<b>Torres Amat:</b> en Dios"));
-	g_assert_nonnull(g_strstr_len(h, -1, "(apud)"));
+	g_assert_nonnull(g_strstr_len(h, -1, "<b>Reina-Valera 1909:</b> con Dios"));
 	g_assert_nonnull(g_strstr_len(h, -1, "Jn 14:6"));
-	/* null se omite y una versión sin texto no se inventa. */
+	/* ...y las marcadas como OCR sospechoso no se muestran; null se omite. */
+	g_assert_null(g_strstr_len(h, -1, "$ roto"));
 	g_assert_null(g_strstr_len(h, -1, "Matiz"));
-	g_assert_null(g_strstr_len(h, -1, "sin texto"));
 	g_assert_null(g_strstr_len(h, -1, "Sobre las diferencias"));
 	g_free(h);
 	main_interl_enriq_liberar();
@@ -65,13 +80,13 @@ prueba_ficha_completa(void)
 static void
 prueba_ficha_minima(void)
 {
-	gchar *ruta = escribir("[{\"ref\":\"John.1.1\",\"strong\":\"G3588\","
-			       "\"rango_semantico\":[\"el\"],\"construccion\":null,"
-			       "\"sentido_en_contexto\":null}]");
+	gchar *ruta = base("interl_enriq_min.sqlite",
+			   "INSERT INTO fichas(ref_tisch,posicion,strong,glosa_interlineal,rango_semantico)"
+			   " VALUES('John.1.1',4,'G3588','el','[\"el\"]');", 1);
 	gchar *h;
 
 	g_assert_cmpint(main_interl_enriq_cargar(ruta), ==, 1);
-	h = main_interl_enriq_html("John.1.1", "G3588");
+	h = main_interl_enriq_html("John.1.1", 4, "G3588");
 	g_assert_nonnull(h);
 	g_assert_null(g_strstr_len(h, -1, "En este versículo"));
 	g_free(h);
@@ -83,41 +98,123 @@ prueba_ficha_minima(void)
 static void
 prueba_sin_ficha_y_entradas_invalidas(void)
 {
-	gchar *ruta = escribir("[{\"ref\":\"John.1.1\"},3,"
-			       "{\"ref\":\"John.1.3\",\"strong\":\"G1\"}]");
+	gchar *ruta = base("interl_enriq_inv.sqlite",
+			   "INSERT INTO fichas(ref_tisch,posicion,strong,glosa_interlineal)"
+			   " VALUES('John.1.3',1,'G1','x');", 1);
 
-	g_assert_null(main_interl_enriq_html("John.1.1", "G1"));
+	g_assert_null(main_interl_enriq_html("John.1.1", 1, "G1"));	/* sin base abierta */
 	g_assert_cmpint(main_interl_enriq_cargar(ruta), ==, 1);
-	g_assert_null(main_interl_enriq_html("John.1.1", "G1"));
+	g_assert_null(main_interl_enriq_html("John.1.1", 1, "G1"));	/* otro versículo */
 	/* Sin campos útiles tampoco hay ficha. */
-	g_assert_null(main_interl_enriq_html("John.1.3", "G1"));
-	g_assert_null(main_interl_enriq_html(NULL, "G1"));
+	g_assert_null(main_interl_enriq_html("John.1.3", 1, "G1"));
+	g_assert_null(main_interl_enriq_html(NULL, 1, "G1"));
+	g_assert_null(main_interl_enriq_html("John.1.3", 1, NULL));
 	main_interl_enriq_liberar();
 	g_remove(ruta);
 	g_free(ruta);
 }
 
 static void
-prueba_archivo_malo_no_borra_lo_cargado(void)
+prueba_archivo_malo_no_cierra_lo_abierto(void)
 {
-	gchar *ok = escribir("[" COMPLETA "]");
-	gchar *mal;
+	gchar *ok = base("interl_enriq_ok.sqlite", COMPLETA, 1);
+	gchar *mal = g_build_filename(g_get_tmp_dir(), "interl_enriq_mal.sqlite", NULL);
+	gchar *otra = g_build_filename(g_get_tmp_dir(), "interl_enriq_otra.sqlite", NULL);
+	sqlite3 *db = NULL;
 	gchar *h;
 
 	g_assert_cmpint(main_interl_enriq_cargar(ok), ==, 1);
-	mal = g_build_filename(g_get_tmp_dir(), "interl_enriq_mal.json", NULL);
-	g_assert_true(g_file_set_contents(mal, "{no es json", -1, NULL));
+	g_assert_true(g_file_set_contents(mal, "{no es sqlite", -1, NULL));
 	g_assert_cmpint(main_interl_enriq_cargar(mal), ==, -1);
-	g_assert_cmpint(main_interl_enriq_cargar("/no/existe.json"), ==, -1);
-	g_assert_cmpint(main_interl_enriq_cargar_de("/no/existe"), ==, 0);
-	h = main_interl_enriq_html("John.1.2", "G4314");
+	g_assert_cmpint(main_interl_enriq_cargar("/no/existe.sqlite"), ==, -1);
+	/* una base SQLite que no es de fichas (sin metadata) tampoco vale */
+	g_remove(otra);
+	g_assert_cmpint(sqlite3_open(otra, &db), ==, SQLITE_OK);
+	g_assert_cmpint(sqlite3_exec(db, "CREATE TABLE t(a)", NULL, NULL, NULL), ==, SQLITE_OK);
+	sqlite3_close(db);
+	g_assert_cmpint(main_interl_enriq_cargar(otra), ==, -1);
+	h = main_interl_enriq_html("John.1.2", 5, "G4314");
 	g_assert_nonnull(h);
 	g_free(h);
 	main_interl_enriq_liberar();
 	g_remove(ok);
 	g_remove(mal);
+	g_remove(otra);
 	g_free(ok);
 	g_free(mal);
+	g_free(otra);
+}
+
+/* La posición identifica la palabra; sin posición solo vale un Strong único en el versículo. */
+static void
+prueba_posicion_y_fallback(void)
+{
+	gchar *ruta = base("interl_enriq_pos.sqlite",
+			   "INSERT INTO fichas(ref_tisch,posicion,strong,glosa_interlineal,construccion) VALUES"
+			   "('John.1.1',5,'G3056','Verbo','primera'),"
+			   "('John.1.1',8,'G3056','Verbo','segunda'),"
+			   "('John.1.1',10,'G4314','con','única');", 3);
+	gchar *h;
+
+	g_assert_cmpint(main_interl_enriq_cargar(ruta), ==, 3);
+	h = main_interl_enriq_html("John.1.1", 8, "G3056");
+	g_assert_nonnull(g_strstr_len(h, -1, "segunda"));
+	g_free(h);
+	/* la posición correcta con otro Strong no es esa ficha */
+	g_assert_null(main_interl_enriq_html("John.1.1", 8, "G4314"));
+	/* posición 0: Strong repetido -> no se adivina */
+	g_assert_null(main_interl_enriq_html("John.1.1", 0, "G3056"));
+	/* posición 0: Strong único -> sí */
+	h = main_interl_enriq_html("John.1.1", 0, "G4314");
+	g_assert_nonnull(g_strstr_len(h, -1, "única"));
+	g_free(h);
+	g_assert_null(main_interl_enriq_html("John.1.1", 99, "G3056"));
+	main_interl_enriq_liberar();
+	g_remove(ruta);
+	g_free(ruta);
+}
+
+/* Lee una ficha de Jn 1:1 desde la base REAL generada por el build (tools/construir_fichas_sqlite.py). */
+static void
+prueba_jn_1_1_desde_la_base_real(void)
+{
+	gchar *h;
+
+	if (!g_file_test(FICHAS_DB, G_FILE_TEST_IS_REGULAR)) {
+		g_test_skip("fichas.sqlite no generada");
+		return;
+	}
+	g_assert_cmpint(main_interl_enriq_cargar(FICHAS_DB), >, 4000);
+	/* θεὸς sin artículo (pos. 14): el predicado de «el Verbo era Dios». */
+	h = main_interl_enriq_html("John.1.1", 14, "G2316");
+	g_assert_nonnull(h);
+	g_assert_nonnull(g_strstr_len(h, -1, "Colwell"));
+	g_assert_nonnull(g_strstr_len(h, -1, "<b>La Santa Biblia Reina-Valera (1909):</b>"));
+	g_assert_nonnull(g_strstr_len(h, -1, "el Verbo era Dios"));
+	g_free(h);
+	/* y θεόν con artículo (pos. 12) es otra ficha, no la misma */
+	h = main_interl_enriq_html("John.1.1", 12, "G2316");
+	g_assert_nonnull(h);
+	g_assert_null(g_strstr_len(h, -1, "Colwell"));
+	g_free(h);
+	/* λόγος aparece 3 veces en Jn 1:1: sin posición no se adivina; con posición, sí */
+	g_assert_null(main_interl_enriq_html("John.1.1", 0, "G3056"));
+	h = main_interl_enriq_html("John.1.1", 17, "G3056");
+	g_assert_nonnull(h);
+	g_free(h);
+	/* πρός es único en el versículo: el fallback por Strong lo resuelve */
+	h = main_interl_enriq_html("John.1.1", 0, "G4314");
+	g_assert_nonnull(h);
+	g_free(h);
+	/* Jn 1:2: la RV 1909 sí; Torres Amat se omite en ese versículo (OCR sospechoso) */
+	h = main_interl_enriq_html("John.1.2", 5, "G4314");
+	g_assert_nonnull(h);
+	g_assert_nonnull(g_strstr_len(h, -1, "Reina-Valera (1909):</b>"));
+	g_assert_null(g_strstr_len(h, -1, "Torres Amat"));
+	g_free(h);
+	/* Jn 8:30 no tiene fichas (rango excluido) */
+	g_assert_null(main_interl_enriq_html("John.8.30", 1, "G1161"));
+	main_interl_enriq_liberar();
 }
 
 int
@@ -127,6 +224,8 @@ main(int argc, char *argv[])
 	g_test_add_func("/interl-enriq/completa", prueba_ficha_completa);
 	g_test_add_func("/interl-enriq/minima", prueba_ficha_minima);
 	g_test_add_func("/interl-enriq/invalidas", prueba_sin_ficha_y_entradas_invalidas);
-	g_test_add_func("/interl-enriq/archivo-malo", prueba_archivo_malo_no_borra_lo_cargado);
+	g_test_add_func("/interl-enriq/archivo-malo", prueba_archivo_malo_no_cierra_lo_abierto);
+	g_test_add_func("/interl-enriq/posicion", prueba_posicion_y_fallback);
+	g_test_add_func("/interl-enriq/jn-1-1-base-real", prueba_jn_1_1_desde_la_base_real);
 	return g_test_run();
 }
