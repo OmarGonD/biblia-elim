@@ -3,7 +3,8 @@
 
 Fuentes (un solo formato, el de v3):
   data/fichas_v2/*.json   fichas heredadas (generador manual, modelo manual-legacy)
-  data/fichas_v3/*.json   fichas nuevas; si coincide la clave (ref_tisch, posicion, strong), gana v3
+  data/fichas_v3/*.json   fichas nuevas; si coincide la clave (ref_tisch, posicion, strong), gana v3,
+                           salvo que la ficha v2 tenga sentido_en_contexto y la v3 no (se conserva la v2)
   data/citas/citas_nt.json  citas de SpaRV y TorresAmat por ref_estandar (tabla `citas`)
 
 El .sqlite no se commitea: lo genera el build (CMake) o este comando:
@@ -110,6 +111,18 @@ def _fila(f, origen):
     }
 
 
+def _combinar(previa, nueva):
+    """La fuente posterior gana, salvo que la anterior sea una ficha con `sentido_en_contexto` y la nueva
+    no: entonces se conserva la anterior (más rica) y solo se completan sus huecos con datos de la nueva."""
+    if previa is None or not previa["sentido_en_contexto"] or nueva["sentido_en_contexto"]:
+        return nueva
+    fila = dict(previa)
+    for col, v in nueva.items():
+        if fila.get(col) in (None, 0) and v not in (None, 0):
+            fila[col] = v
+    return fila
+
+
 def leer_fichas(fuentes=None):
     """{(ref_tisch, posicion, strong): fila}; las fuentes posteriores ganan. Devuelve también los archivos leídos."""
     fichas, archivos = {}, []
@@ -124,7 +137,8 @@ def leer_fichas(fuentes=None):
                     if k in propias:
                         raise ValueError("clave duplicada dentro de %s: %s" % (dir_, k))
                     propias[k] = fila
-        fichas.update(propias)
+        for k, fila in propias.items():
+            fichas[k] = _combinar(fichas.get(k), fila)
     return fichas, archivos
 
 

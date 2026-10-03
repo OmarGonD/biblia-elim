@@ -57,6 +57,18 @@ class ConstructorTest(unittest.TestCase):
         self.assertEqual(db.execute("SELECT glosa_interlineal,modelo,prompt_hash FROM fichas").fetchall(),
                          [("nuevo", "m", "abc")])
 
+    def test_v3_sin_sentido_no_pisa_una_v2_con_sentido(self):
+        self.escribir(self.v2, "a.json", [ficha(glosa="rica", sentido_en_contexto="Sentido curado.", modelo="manual-legacy"),
+                                          ficha(pos=7, strong="G846", glosa="vieja", sentido_en_contexto=None, modelo="manual-legacy")])
+        self.escribir(self.v3, "a.json", [ficha(glosa="escueta", sentido_en_contexto=None, modelo="m", prompt_hash="abc",
+                                                generado_en="2026-10-02T00:00:00"),
+                                          ficha(pos=7, strong="G846", glosa="nueva", sentido_en_contexto=None, modelo="m", prompt_hash="abc",
+                                                generado_en="2026-10-02T00:00:00")])
+        db = sqlite3.connect(self.construir())
+        q = "SELECT glosa_interlineal,sentido_en_contexto,modelo,ref_estandar FROM fichas ORDER BY posicion"
+        self.assertEqual(db.execute(q).fetchall(),
+                         [("rica", "Sentido curado.", "manual-legacy", "John.1.1"), ("nueva", None, "m", "John.1.1")])
+
     def test_clave_unica_y_claves_desconocidas(self):
         self.escribir(self.v2, "a.json", [ficha(), ficha()])
         with self.assertRaises(ValueError):
