@@ -1,36 +1,36 @@
 {
- "ref": "John.4.37",
+ "ref": "John.6.7",
  "modelo": "manual-claude-sonnet-5-5",
  "prompt_hash": "a63f498c6441",
- "generado": "2026-10-02T19:53:23-0500",
+ "generado": "2026-10-02T19:59:06-0500",
  "fichas": [
   {
    "pos_tisch": 1,
-   "strong": "G1722",
-   "glosa_interlineal": "en",
+   "strong": "G611",
+   "glosa_interlineal": "responde",
    "rango_semantico": [
-    "en (lugar)",
-    "en (tiempo)",
-    "entre",
-    "por medio de"
+    "responder, contestar",
+    "replicar",
+    "tomar la palabra"
    ],
-   "construccion": "Preposición; caso regido ambiguo (se interpone CONJ (γὰρ)).",
-   "sentido_en_contexto": null,
+   "construccion": "Aoristo indicativo, voz media (deponente), 3.ª persona singular.",
+   "sentido_en_contexto": "Tisch trae el presente ἀποκρίνεται; otras ediciones, ἀπεκρίθη.",
    "matiz": null,
-   "variantes_textuales": null,
+   "variantes_textuales": "Lectura de Tischendorf: ἀποκρίνεται. Ninguna de las ocho ediciones del TAGNT la trae: todas leen ἀπεκρίθη.",
    "notas_traduccion": null,
    "otros_usos": null,
-   "nivel_certeza": "medio"
+   "nivel_certeza": "alto"
   },
   {
    "pos_tisch": 2,
-   "strong": "G1063",
-   "glosa_interlineal": "porque",
+   "strong": "G846",
+   "glosa_interlineal": "le",
    "rango_semantico": [
-    "porque, pues",
-    "en efecto"
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
    ],
-   "construccion": "Conjunción postpositiva causal o explicativa.",
+   "construccion": "Pronombre personal: dativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -40,22 +40,6 @@
   },
   {
    "pos_tisch": 3,
-   "strong": "G3778",
-   "glosa_interlineal": "esto",
-   "rango_semantico": [
-    "este, esta, esto",
-    "él, ella (con fuerza demostrativa)"
-   ],
-   "construccion": "Pronombre demostrativo: dativo singular neutro.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 4,
    "strong": "G3588",
    "glosa_interlineal": "el",
    "rango_semantico": [
@@ -64,20 +48,17 @@
    "construccion": "Artículo: nominativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
-   "variantes_textuales": null,
+   "variantes_textuales": "Esta palabra de Tischendorf no está en Tyn, SBL, WH, Treg, TR, Byz; sí en NA28, NA27.",
    "notas_traduccion": null,
    "otros_usos": null,
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 5,
-   "strong": "G3056",
-   "glosa_interlineal": "palabra",
+   "pos_tisch": 4,
+   "strong": "G5376",
+   "glosa_interlineal": "Felipe",
    "rango_semantico": [
-    "palabra, expresión",
-    "razón, cuenta",
-    "mensaje, enseñanza",
-    "Palabra personal de Dios"
+    "Felipe (nombre griego, «amigo de caballos»)"
    ],
    "construccion": "Sustantivo: nominativo singular masculino.",
    "sentido_en_contexto": null,
@@ -88,15 +69,28 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 6,
-   "strong": "G1510",
-   "glosa_interlineal": "es",
+   "pos_tisch": 5,
+   "strong": "G1250",
+   "glosa_interlineal": "doscientos",
    "rango_semantico": [
-    "ser, existir",
-    "estar",
-    "haber"
+    "doscientos"
    ],
-   "construccion": "Presente indicativo, voz activa, 3.ª persona singular.",
+   "construccion": "Adjetivo: genitivo plural neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G1220",
+   "glosa_interlineal": "denarios",
+   "rango_semantico": [
+    "denario"
+   ],
+   "construccion": "Sustantivo: genitivo plural neutro.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -106,14 +100,14 @@
   },
   {
    "pos_tisch": 7,
-   "strong": "G228",
-   "glosa_interlineal": "verdadera",
+   "strong": "G740",
+   "glosa_interlineal": "panes",
    "rango_semantico": [
-    "verdadero, auténtico",
-    "genuino, real",
-    "fiel"
+    "pan, hogaza",
+    "comida en general",
+    "sustento"
    ],
-   "construccion": "Adjetivo: nominativo singular masculino.",
+   "construccion": "Sustantivo: nominativo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -123,12 +117,60 @@
   },
   {
    "pos_tisch": 8,
-   "strong": "G3754",
-   "glosa_interlineal": "porque",
+   "strong": "G3756",
+   "glosa_interlineal": "no",
    "rango_semantico": [
-    "que (contenido)",
-    "porque",
-    "puesto que"
+    "no, ni",
+    "nada"
+   ],
+   "construccion": "Partícula (negativo).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G714",
+   "glosa_interlineal": "bastan",
+   "rango_semantico": [
+    "bastar, ser suficiente"
+   ],
+   "construccion": "Presente indicativo, voz activa, 3.ª persona plural.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G846",
+   "glosa_interlineal": "les",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal: dativo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G2443",
+   "glosa_interlineal": "para que",
+   "rango_semantico": [
+    "para que (finalidad)",
+    "de modo que (resultado)",
+    "que (contenido)"
    ],
    "construccion": "Conjunción.",
    "sentido_en_contexto": null,
@@ -139,60 +181,13 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 9,
-   "strong": "G243",
-   "glosa_interlineal": "otro",
+   "pos_tisch": 12,
+   "strong": "G1538",
+   "glosa_interlineal": "cada uno",
    "rango_semantico": [
-    "otro, distinto"
+    "cada uno"
    ],
    "construccion": "Adjetivo: nominativo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 10,
-   "strong": "G1510",
-   "glosa_interlineal": "es",
-   "rango_semantico": [
-    "ser, existir",
-    "estar",
-    "haber"
-   ],
-   "construccion": "Presente indicativo, voz activa, 3.ª persona singular.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 11,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
-   "rango_semantico": [
-    "el, la, lo (artículo definido)"
-   ],
-   "construccion": "Artículo: nominativo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 12,
-   "strong": "G4687",
-   "glosa_interlineal": "el que siembra",
-   "rango_semantico": [
-    "sembrar, esparcir semilla"
-   ],
-   "construccion": "Participio presente, voz activa, nominativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -202,14 +197,12 @@
   },
   {
    "pos_tisch": 13,
-   "strong": "G2532",
-   "glosa_interlineal": "y",
+   "strong": "G1024",
+   "glosa_interlineal": "poco",
    "rango_semantico": [
-    "y",
-    "también, incluso",
-    "pero (con matiz adversativo)"
+    "poco, breve"
    ],
-   "construccion": "Conjunción coordinante.",
+   "construccion": "Adjetivo: acusativo singular neutro.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -219,42 +212,30 @@
   },
   {
    "pos_tisch": 14,
-   "strong": "G243",
-   "glosa_interlineal": "otro",
+   "strong": "G5100",
+   "glosa_interlineal": "algo",
    "rango_semantico": [
-    "otro, distinto"
+    "alguno, algo",
+    "cierto, un",
+    "cualquiera"
    ],
-   "construccion": "Adjetivo: nominativo singular masculino.",
+   "construccion": "Pronombre indefinido: acusativo singular neutro.",
    "sentido_en_contexto": null,
    "matiz": null,
-   "variantes_textuales": null,
+   "variantes_textuales": "Esta palabra de Tischendorf no está en WH, Treg; sí en NA28, NA27, Tyn, SBL, TR, Byz.",
    "notas_traduccion": null,
    "otros_usos": null,
    "nivel_certeza": "alto"
   },
   {
    "pos_tisch": 15,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
+   "strong": "G2983",
+   "glosa_interlineal": "reciba",
    "rango_semantico": [
-    "el, la, lo (artículo definido)"
+    "tomar, recibir",
+    "aceptar"
    ],
-   "construccion": "Artículo: nominativo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 16,
-   "strong": "G2325",
-   "glosa_interlineal": "el que siega",
-   "rango_semantico": [
-    "segar, cosechar"
-   ],
-   "construccion": "Participio presente, voz activa, nominativo singular masculino.",
+   "construccion": "Aoristo (2.º) subjuntivo, voz activa, 3.ª persona singular.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,

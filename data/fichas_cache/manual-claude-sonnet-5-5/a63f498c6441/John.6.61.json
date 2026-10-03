@@ -1,36 +1,34 @@
 {
- "ref": "John.4.37",
+ "ref": "John.6.61",
  "modelo": "manual-claude-sonnet-5-5",
  "prompt_hash": "a63f498c6441",
- "generado": "2026-10-02T19:53:23-0500",
+ "generado": "2026-10-02T20:01:12-0500",
  "fichas": [
   {
    "pos_tisch": 1,
-   "strong": "G1722",
-   "glosa_interlineal": "en",
+   "strong": "G1492",
+   "glosa_interlineal": "sabiendo",
    "rango_semantico": [
-    "en (lugar)",
-    "en (tiempo)",
-    "entre",
-    "por medio de"
+    "saber, conocer",
+    "entender"
    ],
-   "construccion": "Preposición; caso regido ambiguo (se interpone CONJ (γὰρ)).",
+   "construccion": "Participio perfecto, voz activa, nominativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
    "notas_traduccion": null,
    "otros_usos": null,
-   "nivel_certeza": "medio"
+   "nivel_certeza": "alto"
   },
   {
    "pos_tisch": 2,
-   "strong": "G1063",
-   "glosa_interlineal": "porque",
+   "strong": "G1161",
+   "glosa_interlineal": "pero / y",
    "rango_semantico": [
-    "porque, pues",
-    "en efecto"
+    "pero, y",
+    "por otra parte"
    ],
-   "construccion": "Conjunción postpositiva causal o explicativa.",
+   "construccion": "Conjunción postpositiva.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -40,22 +38,6 @@
   },
   {
    "pos_tisch": 3,
-   "strong": "G3778",
-   "glosa_interlineal": "esto",
-   "rango_semantico": [
-    "este, esta, esto",
-    "él, ella (con fuerza demostrativa)"
-   ],
-   "construccion": "Pronombre demostrativo: dativo singular neutro.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 4,
    "strong": "G3588",
    "glosa_interlineal": "el",
    "rango_semantico": [
@@ -70,14 +52,11 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 5,
-   "strong": "G3056",
-   "glosa_interlineal": "palabra",
+   "pos_tisch": 4,
+   "strong": "G2424",
+   "glosa_interlineal": "Jesús",
    "rango_semantico": [
-    "palabra, expresión",
-    "razón, cuenta",
-    "mensaje, enseñanza",
-    "Palabra personal de Dios"
+    "Jesús (forma griega del hebreo Yehoshúa, «Yahvé salva»)"
    ],
    "construccion": "Sustantivo: nominativo singular masculino.",
    "sentido_en_contexto": null,
@@ -88,15 +67,31 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 6,
-   "strong": "G1510",
-   "glosa_interlineal": "es",
+   "pos_tisch": 5,
+   "strong": "G1722",
+   "glosa_interlineal": "en",
    "rango_semantico": [
-    "ser, existir",
-    "estar",
-    "haber"
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
    ],
-   "construccion": "Presente indicativo, voz activa, 3.ª persona singular.",
+   "construccion": "Preposición con dativo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G1438",
+   "glosa_interlineal": "sí mismo",
+   "rango_semantico": [
+    "sí mismo, uno mismo"
+   ],
+   "construccion": "Pronombre reflexivo: 3.ª persona, dativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -106,25 +101,8 @@
   },
   {
    "pos_tisch": 7,
-   "strong": "G228",
-   "glosa_interlineal": "verdadera",
-   "rango_semantico": [
-    "verdadero, auténtico",
-    "genuino, real",
-    "fiel"
-   ],
-   "construccion": "Adjetivo: nominativo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 8,
    "strong": "G3754",
-   "glosa_interlineal": "porque",
+   "glosa_interlineal": "que",
    "rango_semantico": [
     "que (contenido)",
     "porque",
@@ -139,13 +117,30 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 9,
-   "strong": "G243",
-   "glosa_interlineal": "otro",
+   "pos_tisch": 8,
+   "strong": "G1111",
+   "glosa_interlineal": "murmuraban",
    "rango_semantico": [
-    "otro, distinto"
+    "murmurar, quejarse"
    ],
-   "construccion": "Adjetivo: nominativo singular masculino.",
+   "construccion": "Presente indicativo, voz activa, 3.ª persona plural.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G4012",
+   "glosa_interlineal": "acerca de",
+   "rango_semantico": [
+    "acerca de, sobre",
+    "por causa de",
+    "alrededor de"
+   ],
+   "construccion": "Preposición con genitivo.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -155,14 +150,13 @@
   },
   {
    "pos_tisch": 10,
-   "strong": "G1510",
-   "glosa_interlineal": "es",
+   "strong": "G3778",
+   "glosa_interlineal": "este",
    "rango_semantico": [
-    "ser, existir",
-    "estar",
-    "haber"
+    "este, esta, esto",
+    "él, ella (con fuerza demostrativa)"
    ],
-   "construccion": "Presente indicativo, voz activa, 3.ª persona singular.",
+   "construccion": "Pronombre demostrativo: genitivo singular neutro.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -177,7 +171,7 @@
    "rango_semantico": [
     "el, la, lo (artículo definido)"
    ],
-   "construccion": "Artículo: nominativo singular masculino.",
+   "construccion": "Artículo: nominativo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -187,12 +181,14 @@
   },
   {
    "pos_tisch": 12,
-   "strong": "G4687",
-   "glosa_interlineal": "el que siembra",
+   "strong": "G3101",
+   "glosa_interlineal": "discípulos",
    "rango_semantico": [
-    "sembrar, esparcir semilla"
+    "discípulo, alumno",
+    "seguidor",
+    "aprendiz"
    ],
-   "construccion": "Participio presente, voz activa, nominativo singular masculino.",
+   "construccion": "Sustantivo: nominativo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -202,14 +198,14 @@
   },
   {
    "pos_tisch": 13,
-   "strong": "G2532",
-   "glosa_interlineal": "y",
+   "strong": "G846",
+   "glosa_interlineal": "su",
    "rango_semantico": [
-    "y",
-    "también, incluso",
-    "pero (con matiz adversativo)"
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
    ],
-   "construccion": "Conjunción coordinante.",
+   "construccion": "Pronombre personal: genitivo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -219,12 +215,15 @@
   },
   {
    "pos_tisch": 14,
-   "strong": "G243",
-   "glosa_interlineal": "otro",
+   "strong": "G3004",
+   "glosa_interlineal": "dijo",
    "rango_semantico": [
-    "otro, distinto"
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
    ],
-   "construccion": "Adjetivo: nominativo singular masculino.",
+   "construccion": "Aoristo (2.º) indicativo, voz activa, 3.ª persona singular.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -234,12 +233,14 @@
   },
   {
    "pos_tisch": 15,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
+   "strong": "G846",
+   "glosa_interlineal": "les",
    "rango_semantico": [
-    "el, la, lo (artículo definido)"
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
    ],
-   "construccion": "Artículo: nominativo singular masculino.",
+   "construccion": "Pronombre personal: dativo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -249,13 +250,45 @@
   },
   {
    "pos_tisch": 16,
-   "strong": "G2325",
-   "glosa_interlineal": "el que siega",
+   "strong": "G3778",
+   "glosa_interlineal": "ésta",
    "rango_semantico": [
-    "segar, cosechar"
+    "este, esta, esto",
+    "él, ella (con fuerza demostrativa)"
    ],
-   "construccion": "Participio presente, voz activa, nominativo singular masculino.",
+   "construccion": "Pronombre demostrativo: nominativo singular neutro.",
    "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G5210",
+   "glosa_interlineal": "vosotros",
+   "rango_semantico": [
+    "tú",
+    "vosotros"
+   ],
+   "construccion": "Pronombre personal: 2.ª persona, acusativo plural.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 18,
+   "strong": "G4624",
+   "glosa_interlineal": "¿os escandaliza?",
+   "rango_semantico": [
+    "escandalizar, hacer tropezar"
+   ],
+   "construccion": "Presente indicativo, voz activa, 3.ª persona singular.",
+   "sentido_en_contexto": "Presente: ¿os hace tropezar?",
    "matiz": null,
    "variantes_textuales": null,
    "notas_traduccion": null,

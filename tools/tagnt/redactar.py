@@ -206,6 +206,8 @@ def ficha(w, spec):
     rango = ex.get("r")
     rango = [x.strip() for x in rango.split("|")] if rango else (BASICAS_RANGO[strong].split("|") if basico
                                                                else rangos().get(strong))
+    if ex.get("r"):
+        rangos()[strong] = rango            # el mismo versículo puede repetir la palabra
     if not rango:
         raise ValueError("falta rango (r=) para %s pos %d %s" % (strong, w["pos"], w["forma"]))
     an = analisis(w.get("morfologia_tagnt") or w["morfologia"])
@@ -292,10 +294,9 @@ def listar(prefijo):
             g = glosas().get((w["strong"], w.get("morfologia_tagnt"))) if reutilizable(w) else None
             falta = "" if w["strong"] in rangos() else " [SIN RANGO]"
             if g and not ex and not falta:
-                print(w["pos"], _trim(w["forma"]), "=" + g)
-            else:
-                print(w["pos"], _trim(w["forma"]), w["lema"], w["strong"][1:], w["morfologia"],
-                      ("=" + g + " ") if g else "", " ".join(ex) + falta)
+                continue                      # se reutiliza sola
+            print(w["pos"], _trim(w["forma"]) + ("/" + w["lema"] if falta else ""), "G" + w["strong"][1:] if falta else "",
+                  w["morfologia"], ("=" + g + " ") if g else "", " ".join(ex) + falta)
 
 
 if __name__ == "__main__":

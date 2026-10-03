@@ -1,29 +1,122 @@
 {
- "ref": "John.4.37",
+ "ref": "John.6.71",
  "modelo": "manual-claude-sonnet-5-5",
  "prompt_hash": "a63f498c6441",
- "generado": "2026-10-02T19:53:23-0500",
+ "generado": "2026-10-02T20:01:12-0500",
  "fichas": [
   {
    "pos_tisch": 1,
-   "strong": "G1722",
-   "glosa_interlineal": "en",
+   "strong": "G3004",
+   "glosa_interlineal": "hablaba",
    "rango_semantico": [
-    "en (lugar)",
-    "en (tiempo)",
-    "entre",
-    "por medio de"
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
    ],
-   "construccion": "Preposición; caso regido ambiguo (se interpone CONJ (γὰρ)).",
+   "construccion": "Imperfecto indicativo, voz activa, 3.ª persona singular.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
    "notas_traduccion": null,
    "otros_usos": null,
-   "nivel_certeza": "medio"
+   "nivel_certeza": "alto"
   },
   {
    "pos_tisch": 2,
+   "strong": "G1161",
+   "glosa_interlineal": "pero / y",
+   "rango_semantico": [
+    "pero, y",
+    "por otra parte"
+   ],
+   "construccion": "Conjunción postpositiva.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: acusativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G2455",
+   "glosa_interlineal": "Judá",
+   "rango_semantico": [
+    "Judá, hijo de Jacob",
+    "Judá/Judea (tribu o tierra)"
+   ],
+   "construccion": "Sustantivo: acusativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G4613",
+   "glosa_interlineal": "de Simón",
+   "rango_semantico": [
+    "Simón (nombre hebreo Shimón, «ha oído»)"
+   ],
+   "construccion": "Sustantivo: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G2469",
+   "glosa_interlineal": "Iscariote",
+   "rango_semantico": [
+    "Iscariote"
+   ],
+   "construccion": "Sustantivo: genitivo singular masculino.",
+   "sentido_en_contexto": "Quizá «hombre de Queriot», o sicario.",
+   "matiz": null,
+   "variantes_textuales": "Esta palabra de Tischendorf no está en TR, Byz; sí en NA28, NA27, Tyn, SBL, WH, Treg.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G3778",
+   "glosa_interlineal": "éste",
+   "rango_semantico": [
+    "este, esta, esto",
+    "él, ella (con fuerza demostrativa)"
+   ],
+   "construccion": "Pronombre demostrativo: nominativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
    "strong": "G1063",
    "glosa_interlineal": "porque",
    "rango_semantico": [
@@ -39,113 +132,13 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 3,
-   "strong": "G3778",
-   "glosa_interlineal": "esto",
-   "rango_semantico": [
-    "este, esta, esto",
-    "él, ella (con fuerza demostrativa)"
-   ],
-   "construccion": "Pronombre demostrativo: dativo singular neutro.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 4,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
-   "rango_semantico": [
-    "el, la, lo (artículo definido)"
-   ],
-   "construccion": "Artículo: nominativo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 5,
-   "strong": "G3056",
-   "glosa_interlineal": "palabra",
-   "rango_semantico": [
-    "palabra, expresión",
-    "razón, cuenta",
-    "mensaje, enseñanza",
-    "Palabra personal de Dios"
-   ],
-   "construccion": "Sustantivo: nominativo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 6,
-   "strong": "G1510",
-   "glosa_interlineal": "es",
-   "rango_semantico": [
-    "ser, existir",
-    "estar",
-    "haber"
-   ],
-   "construccion": "Presente indicativo, voz activa, 3.ª persona singular.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 7,
-   "strong": "G228",
-   "glosa_interlineal": "verdadera",
-   "rango_semantico": [
-    "verdadero, auténtico",
-    "genuino, real",
-    "fiel"
-   ],
-   "construccion": "Adjetivo: nominativo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 8,
-   "strong": "G3754",
-   "glosa_interlineal": "porque",
-   "rango_semantico": [
-    "que (contenido)",
-    "porque",
-    "puesto que"
-   ],
-   "construccion": "Conjunción.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
    "pos_tisch": 9,
-   "strong": "G243",
-   "glosa_interlineal": "otro",
+   "strong": "G3195",
+   "glosa_interlineal": "estaba por",
    "rango_semantico": [
-    "otro, distinto"
+    "estar a punto de, ir a"
    ],
-   "construccion": "Adjetivo: nominativo singular masculino.",
+   "construccion": "Imperfecto indicativo, voz activa, 3.ª persona singular.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -155,14 +148,14 @@
   },
   {
    "pos_tisch": 10,
-   "strong": "G1510",
-   "glosa_interlineal": "es",
+   "strong": "G846",
+   "glosa_interlineal": "él",
    "rango_semantico": [
-    "ser, existir",
-    "estar",
-    "haber"
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
    ],
-   "construccion": "Presente indicativo, voz activa, 3.ª persona singular.",
+   "construccion": "Pronombre personal: acusativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -172,12 +165,12 @@
   },
   {
    "pos_tisch": 11,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
+   "strong": "G3860",
+   "glosa_interlineal": "entregar",
    "rango_semantico": [
-    "el, la, lo (artículo definido)"
+    "entregar, abandonar"
    ],
-   "construccion": "Artículo: nominativo singular masculino.",
+   "construccion": "Infinitivo presente, voz activa.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -187,12 +180,14 @@
   },
   {
    "pos_tisch": 12,
-   "strong": "G4687",
-   "glosa_interlineal": "el que siembra",
+   "strong": "G1520",
+   "glosa_interlineal": "uno",
    "rango_semantico": [
-    "sembrar, esparcir semilla"
+    "uno",
+    "uno solo",
+    "primero"
    ],
-   "construccion": "Participio presente, voz activa, nominativo singular masculino.",
+   "construccion": "Adjetivo: nominativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -202,29 +197,31 @@
   },
   {
    "pos_tisch": 13,
-   "strong": "G2532",
-   "glosa_interlineal": "y",
+   "strong": "G1510",
+   "glosa_interlineal": "siendo",
    "rango_semantico": [
-    "y",
-    "también, incluso",
-    "pero (con matiz adversativo)"
+    "ser, existir",
+    "estar",
+    "haber"
    ],
-   "construccion": "Conjunción coordinante.",
+   "construccion": "Participio presente, voz activa, nominativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
-   "variantes_textuales": null,
+   "variantes_textuales": "Esta palabra de Tischendorf no está en NA28, NA27, SBL, WH, Treg; sí en Tyn, TR, Byz.",
    "notas_traduccion": null,
    "otros_usos": null,
    "nivel_certeza": "alto"
   },
   {
    "pos_tisch": 14,
-   "strong": "G243",
-   "glosa_interlineal": "otro",
+   "strong": "G1537",
+   "glosa_interlineal": "de",
    "rango_semantico": [
-    "otro, distinto"
+    "de, desde (origen)",
+    "fuera de",
+    "a partir de"
    ],
-   "construccion": "Adjetivo: nominativo singular masculino.",
+   "construccion": "Preposición con genitivo.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -239,7 +236,7 @@
    "rango_semantico": [
     "el, la, lo (artículo definido)"
    ],
-   "construccion": "Artículo: nominativo singular masculino.",
+   "construccion": "Artículo: genitivo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -249,12 +246,12 @@
   },
   {
    "pos_tisch": 16,
-   "strong": "G2325",
-   "glosa_interlineal": "el que siega",
+   "strong": "G1427",
+   "glosa_interlineal": "doce",
    "rango_semantico": [
-    "segar, cosechar"
+    "doce"
    ],
-   "construccion": "Participio presente, voz activa, nominativo singular masculino.",
+   "construccion": "Adjetivo numeral indeclinable.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,

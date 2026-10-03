@@ -1,207 +1,11 @@
 {
- "ref": "John.4.37",
+ "ref": "John.5.29",
  "modelo": "manual-claude-sonnet-5-5",
  "prompt_hash": "a63f498c6441",
- "generado": "2026-10-02T19:53:23-0500",
+ "generado": "2026-10-02T19:56:35-0500",
  "fichas": [
   {
    "pos_tisch": 1,
-   "strong": "G1722",
-   "glosa_interlineal": "en",
-   "rango_semantico": [
-    "en (lugar)",
-    "en (tiempo)",
-    "entre",
-    "por medio de"
-   ],
-   "construccion": "Preposición; caso regido ambiguo (se interpone CONJ (γὰρ)).",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "medio"
-  },
-  {
-   "pos_tisch": 2,
-   "strong": "G1063",
-   "glosa_interlineal": "porque",
-   "rango_semantico": [
-    "porque, pues",
-    "en efecto"
-   ],
-   "construccion": "Conjunción postpositiva causal o explicativa.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 3,
-   "strong": "G3778",
-   "glosa_interlineal": "esto",
-   "rango_semantico": [
-    "este, esta, esto",
-    "él, ella (con fuerza demostrativa)"
-   ],
-   "construccion": "Pronombre demostrativo: dativo singular neutro.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 4,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
-   "rango_semantico": [
-    "el, la, lo (artículo definido)"
-   ],
-   "construccion": "Artículo: nominativo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 5,
-   "strong": "G3056",
-   "glosa_interlineal": "palabra",
-   "rango_semantico": [
-    "palabra, expresión",
-    "razón, cuenta",
-    "mensaje, enseñanza",
-    "Palabra personal de Dios"
-   ],
-   "construccion": "Sustantivo: nominativo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 6,
-   "strong": "G1510",
-   "glosa_interlineal": "es",
-   "rango_semantico": [
-    "ser, existir",
-    "estar",
-    "haber"
-   ],
-   "construccion": "Presente indicativo, voz activa, 3.ª persona singular.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 7,
-   "strong": "G228",
-   "glosa_interlineal": "verdadera",
-   "rango_semantico": [
-    "verdadero, auténtico",
-    "genuino, real",
-    "fiel"
-   ],
-   "construccion": "Adjetivo: nominativo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 8,
-   "strong": "G3754",
-   "glosa_interlineal": "porque",
-   "rango_semantico": [
-    "que (contenido)",
-    "porque",
-    "puesto que"
-   ],
-   "construccion": "Conjunción.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 9,
-   "strong": "G243",
-   "glosa_interlineal": "otro",
-   "rango_semantico": [
-    "otro, distinto"
-   ],
-   "construccion": "Adjetivo: nominativo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 10,
-   "strong": "G1510",
-   "glosa_interlineal": "es",
-   "rango_semantico": [
-    "ser, existir",
-    "estar",
-    "haber"
-   ],
-   "construccion": "Presente indicativo, voz activa, 3.ª persona singular.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 11,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
-   "rango_semantico": [
-    "el, la, lo (artículo definido)"
-   ],
-   "construccion": "Artículo: nominativo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 12,
-   "strong": "G4687",
-   "glosa_interlineal": "el que siembra",
-   "rango_semantico": [
-    "sembrar, esparcir semilla"
-   ],
-   "construccion": "Participio presente, voz activa, nominativo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 13,
    "strong": "G2532",
    "glosa_interlineal": "y",
    "rango_semantico": [
@@ -218,13 +22,204 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 14,
-   "strong": "G243",
-   "glosa_interlineal": "otro",
+   "pos_tisch": 2,
+   "strong": "G1607",
+   "glosa_interlineal": "saldrán",
    "rango_semantico": [
-    "otro, distinto"
+    "salir, proceder"
    ],
-   "construccion": "Adjetivo: nominativo singular masculino.",
+   "construccion": "Futuro indicativo, voz media (deponente), 3.ª persona plural.",
+   "sentido_en_contexto": "Futuro: resurrección de los sepulcros.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: nominativo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: acusativo plural neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G18",
+   "glosa_interlineal": "cosas buenas",
+   "rango_semantico": [
+    "bueno",
+    "bien",
+    "útil"
+   ],
+   "construccion": "Adjetivo: acusativo plural neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G4160",
+   "glosa_interlineal": "los que hicieron",
+   "rango_semantico": [
+    "hacer, practicar"
+   ],
+   "construccion": "Participio aoristo, voz activa, nominativo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G1519",
+   "glosa_interlineal": "para",
+   "rango_semantico": [
+    "a, hacia (movimiento)",
+    "en, dentro de",
+    "para, con el fin de",
+    "como"
+   ],
+   "construccion": "Preposición con acusativo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G386",
+   "glosa_interlineal": "resurrección",
+   "rango_semantico": [
+    "resurrección"
+   ],
+   "construccion": "Sustantivo: acusativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G2222",
+   "glosa_interlineal": "de vida",
+   "rango_semantico": [
+    "vida",
+    "vida (eterna, sobrenatural)",
+    "modo de vivir"
+   ],
+   "construccion": "Sustantivo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: nominativo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: acusativo plural neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G5337",
+   "glosa_interlineal": "cosas malas",
+   "rango_semantico": [
+    "malo, vil",
+    "sin valor"
+   ],
+   "construccion": "Adjetivo: acusativo plural neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G4238",
+   "glosa_interlineal": "los que practicaron",
+   "rango_semantico": [
+    "practicar, hacer"
+   ],
+   "construccion": "Participio aoristo, voz activa, nominativo plural masculino.",
+   "sentido_en_contexto": "Participio aoristo: los que obraron.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G1519",
+   "glosa_interlineal": "para",
+   "rango_semantico": [
+    "a, hacia (movimiento)",
+    "en, dentro de",
+    "para, con el fin de",
+    "como"
+   ],
+   "construccion": "Preposición con acusativo.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -234,12 +229,12 @@
   },
   {
    "pos_tisch": 15,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
+   "strong": "G386",
+   "glosa_interlineal": "resurrección",
    "rango_semantico": [
-    "el, la, lo (artículo definido)"
+    "resurrección"
    ],
-   "construccion": "Artículo: nominativo singular masculino.",
+   "construccion": "Sustantivo: acusativo singular femenino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -249,12 +244,14 @@
   },
   {
    "pos_tisch": 16,
-   "strong": "G2325",
-   "glosa_interlineal": "el que siega",
+   "strong": "G2920",
+   "glosa_interlineal": "de juicio",
    "rango_semantico": [
-    "segar, cosechar"
+    "juicio, decisión judicial",
+    "condena",
+    "justicia"
    ],
-   "construccion": "Participio presente, voz activa, nominativo singular masculino.",
+   "construccion": "Sustantivo: genitivo singular femenino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,

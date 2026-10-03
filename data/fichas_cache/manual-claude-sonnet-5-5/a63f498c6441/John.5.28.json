@@ -1,36 +1,33 @@
 {
- "ref": "John.4.37",
+ "ref": "John.5.28",
  "modelo": "manual-claude-sonnet-5-5",
  "prompt_hash": "a63f498c6441",
- "generado": "2026-10-02T19:53:23-0500",
+ "generado": "2026-10-02T19:56:35-0500",
  "fichas": [
   {
    "pos_tisch": 1,
-   "strong": "G1722",
-   "glosa_interlineal": "en",
+   "strong": "G3361",
+   "glosa_interlineal": "no",
    "rango_semantico": [
-    "en (lugar)",
-    "en (tiempo)",
-    "entre",
-    "por medio de"
+    "no (prohibición o duda)",
+    "para que no"
    ],
-   "construccion": "Preposición; caso regido ambiguo (se interpone CONJ (γὰρ)).",
+   "construccion": "Partícula (negativo).",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
    "notas_traduccion": null,
    "otros_usos": null,
-   "nivel_certeza": "medio"
+   "nivel_certeza": "alto"
   },
   {
    "pos_tisch": 2,
-   "strong": "G1063",
-   "glosa_interlineal": "porque",
+   "strong": "G2296",
+   "glosa_interlineal": "os asombréis",
    "rango_semantico": [
-    "porque, pues",
-    "en efecto"
+    "asombrarse, maravillarse"
    ],
-   "construccion": "Conjunción postpositiva causal o explicativa.",
+   "construccion": "Presente imperativo, voz activa, 2.ª persona plural.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -41,12 +38,12 @@
   {
    "pos_tisch": 3,
    "strong": "G3778",
-   "glosa_interlineal": "esto",
+   "glosa_interlineal": "de esto",
    "rango_semantico": [
     "este, esta, esto",
     "él, ella (con fuerza demostrativa)"
    ],
-   "construccion": "Pronombre demostrativo: dativo singular neutro.",
+   "construccion": "Pronombre demostrativo: acusativo singular neutro.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -56,73 +53,6 @@
   },
   {
    "pos_tisch": 4,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
-   "rango_semantico": [
-    "el, la, lo (artículo definido)"
-   ],
-   "construccion": "Artículo: nominativo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 5,
-   "strong": "G3056",
-   "glosa_interlineal": "palabra",
-   "rango_semantico": [
-    "palabra, expresión",
-    "razón, cuenta",
-    "mensaje, enseñanza",
-    "Palabra personal de Dios"
-   ],
-   "construccion": "Sustantivo: nominativo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 6,
-   "strong": "G1510",
-   "glosa_interlineal": "es",
-   "rango_semantico": [
-    "ser, existir",
-    "estar",
-    "haber"
-   ],
-   "construccion": "Presente indicativo, voz activa, 3.ª persona singular.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 7,
-   "strong": "G228",
-   "glosa_interlineal": "verdadera",
-   "rango_semantico": [
-    "verdadero, auténtico",
-    "genuino, real",
-    "fiel"
-   ],
-   "construccion": "Adjetivo: nominativo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 8,
    "strong": "G3754",
    "glosa_interlineal": "porque",
    "rango_semantico": [
@@ -139,13 +69,83 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 9,
-   "strong": "G243",
-   "glosa_interlineal": "otro",
+   "pos_tisch": 5,
+   "strong": "G2064",
+   "glosa_interlineal": "viene",
    "rango_semantico": [
-    "otro, distinto"
+    "venir, ir",
+    "llegar",
+    "aparecer"
    ],
-   "construccion": "Adjetivo: nominativo singular masculino.",
+   "construccion": "Presente indicativo, voz media o pasiva (deponente), 3.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G5610",
+   "glosa_interlineal": "hora",
+   "rango_semantico": [
+    "hora",
+    "momento",
+    "tiempo"
+   ],
+   "construccion": "Sustantivo: nominativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G1722",
+   "glosa_interlineal": "en",
+   "rango_semantico": [
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
+   ],
+   "construccion": "Preposición con dativo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G3739",
+   "glosa_interlineal": "la cual",
+   "rango_semantico": [
+    "que, el que, lo que",
+    "quien"
+   ],
+   "construccion": "Pronombre relativo: dativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G3956",
+   "glosa_interlineal": "todos",
+   "rango_semantico": [
+    "todo, cada",
+    "todos",
+    "cualquier"
+   ],
+   "construccion": "Adjetivo: nominativo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -155,14 +155,12 @@
   },
   {
    "pos_tisch": 10,
-   "strong": "G1510",
-   "glosa_interlineal": "es",
+   "strong": "G3588",
+   "glosa_interlineal": "el",
    "rango_semantico": [
-    "ser, existir",
-    "estar",
-    "haber"
+    "el, la, lo (artículo definido)"
    ],
-   "construccion": "Presente indicativo, voz activa, 3.ª persona singular.",
+   "construccion": "Artículo: nominativo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -172,12 +170,15 @@
   },
   {
    "pos_tisch": 11,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
+   "strong": "G1722",
+   "glosa_interlineal": "en",
    "rango_semantico": [
-    "el, la, lo (artículo definido)"
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
    ],
-   "construccion": "Artículo: nominativo singular masculino.",
+   "construccion": "Preposición con dativo.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -187,12 +188,12 @@
   },
   {
    "pos_tisch": 12,
-   "strong": "G4687",
-   "glosa_interlineal": "el que siembra",
+   "strong": "G3588",
+   "glosa_interlineal": "el",
    "rango_semantico": [
-    "sembrar, esparcir semilla"
+    "el, la, lo (artículo definido)"
    ],
-   "construccion": "Participio presente, voz activa, nominativo singular masculino.",
+   "construccion": "Artículo: dativo plural neutro.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -202,14 +203,12 @@
   },
   {
    "pos_tisch": 13,
-   "strong": "G2532",
-   "glosa_interlineal": "y",
+   "strong": "G3419",
+   "glosa_interlineal": "sepulcros",
    "rango_semantico": [
-    "y",
-    "también, incluso",
-    "pero (con matiz adversativo)"
+    "tumba, sepulcro"
    ],
-   "construccion": "Conjunción coordinante.",
+   "construccion": "Sustantivo: dativo plural neutro.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -219,15 +218,17 @@
   },
   {
    "pos_tisch": 14,
-   "strong": "G243",
-   "glosa_interlineal": "otro",
+   "strong": "G191",
+   "glosa_interlineal": "oirán",
    "rango_semantico": [
-    "otro, distinto"
+    "oír, escuchar",
+    "entender",
+    "obedecer"
    ],
-   "construccion": "Adjetivo: nominativo singular masculino.",
+   "construccion": "Futuro indicativo, voz activa, 3.ª persona plural.",
    "sentido_en_contexto": null,
    "matiz": null,
-   "variantes_textuales": null,
+   "variantes_textuales": "Esta palabra de Tischendorf no está en TR, Byz; sí en NA28, NA27, Tyn, SBL, WH, Treg.",
    "notas_traduccion": null,
    "otros_usos": null,
    "nivel_certeza": "alto"
@@ -239,7 +240,7 @@
    "rango_semantico": [
     "el, la, lo (artículo definido)"
    ],
-   "construccion": "Artículo: nominativo singular masculino.",
+   "construccion": "Artículo: genitivo singular femenino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -249,12 +250,31 @@
   },
   {
    "pos_tisch": 16,
-   "strong": "G2325",
-   "glosa_interlineal": "el que siega",
+   "strong": "G5456",
+   "glosa_interlineal": "voz",
    "rango_semantico": [
-    "segar, cosechar"
+    "voz",
+    "sonido",
+    "mensaje"
    ],
-   "construccion": "Participio presente, voz activa, nominativo singular masculino.",
+   "construccion": "Sustantivo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G846",
+   "glosa_interlineal": "su",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal: genitivo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
