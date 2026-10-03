@@ -243,12 +243,13 @@ void frontend_display(const char *tabs)
 
 void shutdown_frontend(void)
 {
-	if (pixbufs->pixbuf_closed)
-		g_object_unref(pixbufs->pixbuf_closed);
-	if (pixbufs->pixbuf_opened)
-		g_object_unref(pixbufs->pixbuf_opened);
-	if (pixbufs->pixbuf_helpdoc)
-		g_object_unref(pixbufs->pixbuf_helpdoc);
+	/* pixbufs is only built when the module tree is created; closing
+	 * before that (or without it) must not dereference NULL. */
+	if (pixbufs) {
+		g_clear_object(&pixbufs->pixbuf_closed);
+		g_clear_object(&pixbufs->pixbuf_opened);
+		g_clear_object(&pixbufs->pixbuf_helpdoc);
+	}
 
 	/* free verse list used for saving search results */
 	if (list_of_verses) {
