@@ -1,18 +1,18 @@
 {
- "ref": "John.6.39",
+ "ref": "John.9.22",
  "modelo": "manual-claude-sonnet-5-5",
  "prompt_hash": "a63f498c6441",
- "generado": "2026-10-02T20:05:29-0500",
+ "generado": "2026-10-02T20:54:31-0500",
  "fichas": [
   {
    "pos_tisch": 1,
    "strong": "G3778",
-   "glosa_interlineal": "ésta",
+   "glosa_interlineal": "esto",
    "rango_semantico": [
     "este, esta, esto",
     "él, ella (con fuerza demostrativa)"
    ],
-   "construccion": "Pronombre demostrativo: nominativo singular neutro.",
+   "construccion": "Pronombre demostrativo: acusativo plural neutro.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -22,30 +22,30 @@
   },
   {
    "pos_tisch": 2,
-   "strong": "G1161",
-   "glosa_interlineal": "pero / y",
+   "strong": "G3004",
+   "glosa_interlineal": "dijeron",
    "rango_semantico": [
-    "pero, y",
-    "por otra parte"
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
    ],
-   "construccion": "Conjunción postpositiva.",
+   "construccion": "Aoristo (2.º) indicativo, voz activa, 3.ª persona plural.",
    "sentido_en_contexto": null,
    "matiz": null,
-   "variantes_textuales": null,
+   "variantes_textuales": "Lectura de Tischendorf: εἶπον. Ninguna de las ocho ediciones del TAGNT la trae: todas leen εἶπαν.",
    "notas_traduccion": null,
    "otros_usos": null,
    "nivel_certeza": "alto"
   },
   {
    "pos_tisch": 3,
-   "strong": "G1510",
-   "glosa_interlineal": "es",
+   "strong": "G3588",
+   "glosa_interlineal": "el",
    "rango_semantico": [
-    "ser, existir",
-    "estar",
-    "haber"
+    "el, la, lo (artículo definido)"
    ],
-   "construccion": "Presente indicativo, voz activa, 3.ª persona singular.",
+   "construccion": "Artículo: nominativo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -55,12 +55,12 @@
   },
   {
    "pos_tisch": 4,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
+   "strong": "G1118",
+   "glosa_interlineal": "padres",
    "rango_semantico": [
-    "el, la, lo (artículo definido)"
+    "padre, progenitor"
    ],
-   "construccion": "Artículo: nominativo singular neutro.",
+   "construccion": "Sustantivo: nominativo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -70,14 +70,14 @@
   },
   {
    "pos_tisch": 5,
-   "strong": "G2307",
-   "glosa_interlineal": "voluntad",
+   "strong": "G846",
+   "glosa_interlineal": "su",
    "rango_semantico": [
-    "voluntad, deseo",
-    "propósito",
-    "lo querido"
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
    ],
-   "construccion": "Sustantivo: nominativo singular neutro.",
+   "construccion": "Pronombre personal: genitivo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -87,12 +87,14 @@
   },
   {
    "pos_tisch": 6,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
+   "strong": "G3754",
+   "glosa_interlineal": "porque",
    "rango_semantico": [
-    "el, la, lo (artículo definido)"
+    "que (contenido)",
+    "porque",
+    "puesto que"
    ],
-   "construccion": "Artículo: genitivo singular masculino.",
+   "construccion": "Conjunción.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -102,14 +104,12 @@
   },
   {
    "pos_tisch": 7,
-   "strong": "G3992",
-   "glosa_interlineal": "del que me envió",
+   "strong": "G5399",
+   "glosa_interlineal": "temían",
    "rango_semantico": [
-    "enviar, mandar",
-    "despachar",
-    "enviar con un encargo"
+    "temer, tener reverencia"
    ],
-   "construccion": "Participio aoristo, voz activa, genitivo singular masculino.",
+   "construccion": "Imperfecto indicativo, voz media o pasiva (deponente), 3.ª persona plural.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -119,13 +119,12 @@
   },
   {
    "pos_tisch": 8,
-   "strong": "G1473",
-   "glosa_interlineal": "me",
+   "strong": "G3588",
+   "glosa_interlineal": "el",
    "rango_semantico": [
-    "yo",
-    "mí"
+    "el, la, lo (artículo definido)"
    ],
-   "construccion": "Pronombre personal: 1.ª persona, acusativo singular.",
+   "construccion": "Artículo: acusativo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -135,12 +134,14 @@
   },
   {
    "pos_tisch": 9,
-   "strong": "G2443",
-   "glosa_interlineal": "que",
+   "strong": "G2453",
+   "glosa_interlineal": "a los judíos",
    "rango_semantico": [
-    "para que, de que"
+    "judío",
+    "de Judea",
+    "autoridades judías"
    ],
-   "construccion": "Preposición con acusativo.",
+   "construccion": "Sustantivo: acusativo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -150,14 +151,12 @@
   },
   {
    "pos_tisch": 10,
-   "strong": "G3956",
-   "glosa_interlineal": "todo",
+   "strong": "G2235",
+   "glosa_interlineal": "ya",
    "rango_semantico": [
-    "todo, cada",
-    "todos",
-    "cualquier"
+    "ya, ahora ya"
    ],
-   "construccion": "Adjetivo: acusativo singular neutro.",
+   "construccion": "Adverbio.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -167,13 +166,13 @@
   },
   {
    "pos_tisch": 11,
-   "strong": "G3739",
-   "glosa_interlineal": "lo que",
+   "strong": "G1063",
+   "glosa_interlineal": "porque",
    "rango_semantico": [
-    "que, el que, lo que",
-    "quien"
+    "porque, pues",
+    "en efecto"
    ],
-   "construccion": "Pronombre relativo: acusativo singular neutro.",
+   "construccion": "Conjunción postpositiva causal o explicativa.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -183,15 +182,13 @@
   },
   {
    "pos_tisch": 12,
-   "strong": "G1325",
-   "glosa_interlineal": "ha dado",
+   "strong": "G4934",
+   "glosa_interlineal": "habían acordado",
    "rango_semantico": [
-    "dar",
-    "entregar",
-    "conceder"
+    "ponerse de acuerdo, acordar"
    ],
-   "construccion": "Perfecto indicativo, voz activa, 3.ª persona singular.",
-   "sentido_en_contexto": null,
+   "construccion": "Pluscuamperfecto indicativo, voz media, 3.ª persona plural.",
+   "sentido_en_contexto": "Pluscuamperfecto medio: se habían puesto de acuerdo.",
    "matiz": null,
    "variantes_textuales": null,
    "notas_traduccion": null,
@@ -200,13 +197,12 @@
   },
   {
    "pos_tisch": 13,
-   "strong": "G1473",
-   "glosa_interlineal": "me",
+   "strong": "G3588",
+   "glosa_interlineal": "el",
    "rango_semantico": [
-    "yo",
-    "mí"
+    "el, la, lo (artículo definido)"
    ],
-   "construccion": "Pronombre personal: 1.ª persona, dativo singular.",
+   "construccion": "Artículo: nominativo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -216,13 +212,14 @@
   },
   {
    "pos_tisch": 14,
-   "strong": "G3361",
-   "glosa_interlineal": "no",
+   "strong": "G2453",
+   "glosa_interlineal": "judíos",
    "rango_semantico": [
-    "no (prohibición o duda)",
-    "para que no"
+    "judío",
+    "de Judea",
+    "autoridades judías"
    ],
-   "construccion": "Partícula (negativo).",
+   "construccion": "Sustantivo: nominativo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -232,14 +229,12 @@
   },
   {
    "pos_tisch": 15,
-   "strong": "G622",
-   "glosa_interlineal": "pierda",
+   "strong": "G2443",
+   "glosa_interlineal": "que",
    "rango_semantico": [
-    "perder",
-    "destruir",
-    "perecer"
+    "para que, de que"
    ],
-   "construccion": "Aoristo subjuntivo, voz activa, 1.ª persona singular.",
+   "construccion": "Conjunción.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -249,14 +244,13 @@
   },
   {
    "pos_tisch": 16,
-   "strong": "G1537",
-   "glosa_interlineal": "de",
+   "strong": "G1437",
+   "glosa_interlineal": "si",
    "rango_semantico": [
-    "de, desde (origen)",
-    "fuera de",
-    "a partir de"
+    "si (con subjuntivo)",
+    "a menos que"
    ],
-   "construccion": "Preposición con genitivo.",
+   "construccion": "Partícula condicional.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -266,14 +260,14 @@
   },
   {
    "pos_tisch": 17,
-   "strong": "G846",
-   "glosa_interlineal": "él",
+   "strong": "G5100",
+   "glosa_interlineal": "alguien",
    "rango_semantico": [
-    "él, ella, ello",
-    "mismo (con artículo)",
-    "ese"
+    "alguno, algo",
+    "cierto, un",
+    "cualquiera"
    ],
-   "construccion": "Pronombre personal: genitivo singular neutro.",
+   "construccion": "Pronombre indefinido: nominativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -283,29 +277,32 @@
   },
   {
    "pos_tisch": 18,
-   "strong": "G235",
-   "glosa_interlineal": "sino",
+   "strong": "G846",
+   "glosa_interlineal": "él",
    "rango_semantico": [
-    "pero",
-    "sino",
-    "sin embargo"
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
    ],
-   "construccion": "Conjunción.",
+   "construccion": "Pronombre personal: acusativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
-   "variantes_textuales": "Lectura de Tischendorf: ἀλλὰ. Ninguna de las ocho ediciones del TAGNT la trae: todas leen ἀλλ᾽.",
+   "variantes_textuales": null,
    "notas_traduccion": null,
    "otros_usos": null,
    "nivel_certeza": "alto"
   },
   {
    "pos_tisch": 19,
-   "strong": "G450",
-   "glosa_interlineal": "resucitaré",
+   "strong": "G3670",
+   "glosa_interlineal": "confesara",
    "rango_semantico": [
-    "levantarse, resucitar"
+    "confesar",
+    "declarar abiertamente",
+    "prometer",
+    "reconocer"
    ],
-   "construccion": "Aoristo subjuntivo, voz activa, 1.ª persona singular.",
+   "construccion": "Aoristo subjuntivo, voz activa, 3.ª persona singular.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -315,14 +312,12 @@
   },
   {
    "pos_tisch": 20,
-   "strong": "G846",
-   "glosa_interlineal": "la",
+   "strong": "G5547",
+   "glosa_interlineal": "como Cristo",
    "rango_semantico": [
-    "él, ella, ello",
-    "mismo (con artículo)",
-    "ese"
+    "Cristo, Mesías, Ungido"
    ],
-   "construccion": "Pronombre personal: acusativo singular neutro.",
+   "construccion": "Sustantivo: acusativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -332,63 +327,27 @@
   },
   {
    "pos_tisch": 21,
-   "strong": "G1722",
-   "glosa_interlineal": "en",
+   "strong": "G656",
+   "glosa_interlineal": "expulsado de la sinagoga",
    "rango_semantico": [
-    "en (lugar)",
-    "en (tiempo)",
-    "entre",
-    "por medio de"
+    "excluido de la sinagoga"
    ],
-   "construccion": "Preposición con dativo.",
+   "construccion": "Adjetivo: nominativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
-   "variantes_textuales": "Esta palabra de Tischendorf no está en Tyn, SBL, WH, Treg, Byz; sí en NA28, NA27, TR.",
+   "variantes_textuales": null,
    "notas_traduccion": null,
    "otros_usos": null,
    "nivel_certeza": "alto"
   },
   {
    "pos_tisch": 22,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
+   "strong": "G1096",
+   "glosa_interlineal": "fuera",
    "rango_semantico": [
-    "el, la, lo (artículo definido)"
+    "llegar a ser, ocurrir"
    ],
-   "construccion": "Artículo: dativo singular femenino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 23,
-   "strong": "G2078",
-   "glosa_interlineal": "postrero",
-   "rango_semantico": [
-    "último, final",
-    "el más humilde"
-   ],
-   "construccion": "Adjetivo: dativo singular femenino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 24,
-   "strong": "G2250",
-   "glosa_interlineal": "día",
-   "rango_semantico": [
-    "día",
-    "tiempo",
-    "el día (de juicio)"
-   ],
-   "construccion": "Sustantivo: dativo singular femenino.",
+   "construccion": "Aoristo (2.º) subjuntivo, voz media (deponente), 3.ª persona singular.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,

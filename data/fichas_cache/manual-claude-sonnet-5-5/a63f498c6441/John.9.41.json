@@ -1,18 +1,20 @@
 {
- "ref": "John.7.8",
+ "ref": "John.9.41",
  "modelo": "manual-claude-sonnet-5-5",
  "prompt_hash": "a63f498c6441",
- "generado": "2026-10-02T20:03:48-0500",
+ "generado": "2026-10-02T20:54:31-0500",
  "fichas": [
   {
    "pos_tisch": 1,
-   "strong": "G5210",
-   "glosa_interlineal": "vosotros",
+   "strong": "G3004",
+   "glosa_interlineal": "dijo",
    "rango_semantico": [
-    "tú",
-    "vosotros"
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
    ],
-   "construccion": "Pronombre personal: 2.ª persona, nominativo plural.",
+   "construccion": "Aoristo (2.º) indicativo, voz activa, 3.ª persona singular.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -22,13 +24,14 @@
   },
   {
    "pos_tisch": 2,
-   "strong": "G305",
-   "glosa_interlineal": "subid",
+   "strong": "G846",
+   "glosa_interlineal": "les",
    "rango_semantico": [
-    "subir, ascender",
-    "ir hacia arriba"
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
    ],
-   "construccion": "Aoristo (2.º) imperativo, voz activa, 2.ª persona plural.",
+   "construccion": "Pronombre personal: dativo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -38,183 +41,6 @@
   },
   {
    "pos_tisch": 3,
-   "strong": "G1519",
-   "glosa_interlineal": "a",
-   "rango_semantico": [
-    "a, hacia (movimiento)",
-    "en, dentro de",
-    "para, con el fin de",
-    "como"
-   ],
-   "construccion": "Preposición con acusativo.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 4,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
-   "rango_semantico": [
-    "el, la, lo (artículo definido)"
-   ],
-   "construccion": "Artículo: acusativo singular femenino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 5,
-   "strong": "G1859",
-   "glosa_interlineal": "fiesta",
-   "rango_semantico": [
-    "fiesta, festividad"
-   ],
-   "construccion": "Sustantivo: acusativo singular femenino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 6,
-   "strong": "G1473",
-   "glosa_interlineal": "yo",
-   "rango_semantico": [
-    "yo",
-    "mí"
-   ],
-   "construccion": "Pronombre personal: 1.ª persona, nominativo singular.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 7,
-   "strong": "G3756",
-   "glosa_interlineal": "no",
-   "rango_semantico": [
-    "no, ni",
-    "nada"
-   ],
-   "construccion": "Partícula (negativo).",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": "Esta palabra de Tischendorf no está en Tyn, WH, TR, Byz; sí en NA28, NA27, SBL, Treg.",
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 8,
-   "strong": "G305",
-   "glosa_interlineal": "subo",
-   "rango_semantico": [
-    "subir, ascender",
-    "ir hacia arriba"
-   ],
-   "construccion": "Presente indicativo, voz activa, 1.ª persona singular.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 9,
-   "strong": "G1519",
-   "glosa_interlineal": "a",
-   "rango_semantico": [
-    "a, hacia (movimiento)",
-    "en, dentro de",
-    "para, con el fin de",
-    "como"
-   ],
-   "construccion": "Preposición con acusativo.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 10,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
-   "rango_semantico": [
-    "el, la, lo (artículo definido)"
-   ],
-   "construccion": "Artículo: acusativo singular femenino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 11,
-   "strong": "G1859",
-   "glosa_interlineal": "fiesta",
-   "rango_semantico": [
-    "fiesta, festividad"
-   ],
-   "construccion": "Sustantivo: acusativo singular femenino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 12,
-   "strong": "G3778",
-   "glosa_interlineal": "esta",
-   "rango_semantico": [
-    "este, esta, esto",
-    "él, ella (con fuerza demostrativa)"
-   ],
-   "construccion": "Pronombre demostrativo: acusativo singular femenino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 13,
-   "strong": "G3754",
-   "glosa_interlineal": "porque",
-   "rango_semantico": [
-    "que (contenido)",
-    "porque",
-    "puesto que"
-   ],
-   "construccion": "Conjunción.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 14,
    "strong": "G3588",
    "glosa_interlineal": "el",
    "rango_semantico": [
@@ -229,27 +55,11 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 15,
-   "strong": "G1699",
-   "glosa_interlineal": "mío",
+   "pos_tisch": 4,
+   "strong": "G2424",
+   "glosa_interlineal": "Jesús",
    "rango_semantico": [
-    "mío, mi"
-   ],
-   "construccion": "Adjetivo posesivo: 1.ª persona singular neutro singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 16,
-   "strong": "G2540",
-   "glosa_interlineal": "tiempo oportuno",
-   "rango_semantico": [
-    "tiempo oportuno, momento señalado",
-    "época"
+    "Jesús (forma griega del hebreo Yehoshúa, «Yahvé salva»)"
    ],
    "construccion": "Sustantivo: nominativo singular masculino.",
    "sentido_en_contexto": null,
@@ -260,13 +70,207 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 17,
-   "strong": "G3768",
-   "glosa_interlineal": "todavía no",
+   "pos_tisch": 5,
+   "strong": "G1487",
+   "glosa_interlineal": "si",
    "rango_semantico": [
-    "todavía no, aún no"
+    "si (condicional)",
+    "a no ser, salvo",
+    "que (en preguntas)"
    ],
-   "construccion": "Adverbio (negativo).",
+   "construccion": "Partícula condicional.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G5185",
+   "glosa_interlineal": "ciegos",
+   "rango_semantico": [
+    "ciego"
+   ],
+   "construccion": "Adjetivo: nominativo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G1510",
+   "glosa_interlineal": "fuerais",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Imperfecto indicativo, voz activa, 2.ª persona plural.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G3756",
+   "glosa_interlineal": "no",
+   "rango_semantico": [
+    "no, ni",
+    "nada"
+   ],
+   "construccion": "Partícula (negativo).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G302",
+   "glosa_interlineal": "(habríais)",
+   "rango_semantico": [
+    "(partícula modal: hace eventual la acción)"
+   ],
+   "construccion": "Partícula.",
+   "sentido_en_contexto": "Partícula modal: apódosis irreal.",
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G2192",
+   "glosa_interlineal": "tendríais",
+   "rango_semantico": [
+    "tener, poseer",
+    "encontrarse"
+   ],
+   "construccion": "Imperfecto indicativo, voz activa, 2.ª persona plural.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G266",
+   "glosa_interlineal": "pecado",
+   "rango_semantico": [
+    "adulterio"
+   ],
+   "construccion": "Sustantivo: acusativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G3568",
+   "glosa_interlineal": "ahora",
+   "rango_semantico": [
+    "ahora, ya"
+   ],
+   "construccion": "Adverbio.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G1161",
+   "glosa_interlineal": "pero / y",
+   "rango_semantico": [
+    "pero, y",
+    "por otra parte"
+   ],
+   "construccion": "Conjunción postpositiva.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G3004",
+   "glosa_interlineal": "decís",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Presente indicativo, voz activa, 2.ª persona plural.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G3754",
+   "glosa_interlineal": "que",
+   "rango_semantico": [
+    "que (contenido)",
+    "porque",
+    "puesto que"
+   ],
+   "construccion": "Conjunción.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G991",
+   "glosa_interlineal": "vemos",
+   "rango_semantico": [
+    "ver, mirar",
+    "percibir",
+    "prestar atención"
+   ],
+   "construccion": "Presente indicativo, voz activa, 1.ª persona plural.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: nominativo singular femenino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -276,13 +280,45 @@
   },
   {
    "pos_tisch": 18,
-   "strong": "G4137",
-   "glosa_interlineal": "se ha cumplido",
+   "strong": "G266",
+   "glosa_interlineal": "pecado",
    "rango_semantico": [
-    "llenar, cumplir",
-    "completar"
+    "adulterio"
    ],
-   "construccion": "Perfecto indicativo, voz pasiva, 3.ª persona singular.",
+   "construccion": "Sustantivo: nominativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 19,
+   "strong": "G5210",
+   "glosa_interlineal": "de vosotros",
+   "rango_semantico": [
+    "tú",
+    "vosotros"
+   ],
+   "construccion": "Pronombre personal: 2.ª persona, genitivo plural.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 20,
+   "strong": "G3306",
+   "glosa_interlineal": "permanece",
+   "rango_semantico": [
+    "permanecer, quedarse",
+    "habitar",
+    "durar"
+   ],
+   "construccion": "Presente indicativo, voz activa, 3.ª persona singular.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,

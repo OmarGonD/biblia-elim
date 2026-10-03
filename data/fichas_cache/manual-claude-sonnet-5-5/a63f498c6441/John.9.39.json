@@ -1,18 +1,19 @@
 {
- "ref": "John.6.39",
+ "ref": "John.9.39",
  "modelo": "manual-claude-sonnet-5-5",
  "prompt_hash": "a63f498c6441",
- "generado": "2026-10-02T20:05:29-0500",
+ "generado": "2026-10-02T20:54:31-0500",
  "fichas": [
   {
    "pos_tisch": 1,
-   "strong": "G3778",
-   "glosa_interlineal": "ésta",
+   "strong": "G2532",
+   "glosa_interlineal": "y",
    "rango_semantico": [
-    "este, esta, esto",
-    "él, ella (con fuerza demostrativa)"
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
    ],
-   "construccion": "Pronombre demostrativo: nominativo singular neutro.",
+   "construccion": "Conjunción coordinante.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -22,13 +23,15 @@
   },
   {
    "pos_tisch": 2,
-   "strong": "G1161",
-   "glosa_interlineal": "pero / y",
+   "strong": "G3004",
+   "glosa_interlineal": "dijo",
    "rango_semantico": [
-    "pero, y",
-    "por otra parte"
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
    ],
-   "construccion": "Conjunción postpositiva.",
+   "construccion": "Aoristo (2.º) indicativo, voz activa, 3.ª persona singular.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -38,14 +41,12 @@
   },
   {
    "pos_tisch": 3,
-   "strong": "G1510",
-   "glosa_interlineal": "es",
+   "strong": "G3588",
+   "glosa_interlineal": "el",
    "rango_semantico": [
-    "ser, existir",
-    "estar",
-    "haber"
+    "el, la, lo (artículo definido)"
    ],
-   "construccion": "Presente indicativo, voz activa, 3.ª persona singular.",
+   "construccion": "Artículo: nominativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -55,12 +56,12 @@
   },
   {
    "pos_tisch": 4,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
+   "strong": "G2424",
+   "glosa_interlineal": "Jesús",
    "rango_semantico": [
-    "el, la, lo (artículo definido)"
+    "Jesús (forma griega del hebreo Yehoshúa, «Yahvé salva»)"
    ],
-   "construccion": "Artículo: nominativo singular neutro.",
+   "construccion": "Sustantivo: nominativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -70,75 +71,13 @@
   },
   {
    "pos_tisch": 5,
-   "strong": "G2307",
-   "glosa_interlineal": "voluntad",
+   "strong": "G1519",
+   "glosa_interlineal": "para",
    "rango_semantico": [
-    "voluntad, deseo",
-    "propósito",
-    "lo querido"
-   ],
-   "construccion": "Sustantivo: nominativo singular neutro.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 6,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
-   "rango_semantico": [
-    "el, la, lo (artículo definido)"
-   ],
-   "construccion": "Artículo: genitivo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 7,
-   "strong": "G3992",
-   "glosa_interlineal": "del que me envió",
-   "rango_semantico": [
-    "enviar, mandar",
-    "despachar",
-    "enviar con un encargo"
-   ],
-   "construccion": "Participio aoristo, voz activa, genitivo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 8,
-   "strong": "G1473",
-   "glosa_interlineal": "me",
-   "rango_semantico": [
-    "yo",
-    "mí"
-   ],
-   "construccion": "Pronombre personal: 1.ª persona, acusativo singular.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 9,
-   "strong": "G2443",
-   "glosa_interlineal": "que",
-   "rango_semantico": [
-    "para que, de que"
+    "a, hacia (movimiento)",
+    "en, dentro de",
+    "para, con el fin de",
+    "como"
    ],
    "construccion": "Preposición con acusativo.",
    "sentido_en_contexto": null,
@@ -149,15 +88,79 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 10,
-   "strong": "G3956",
-   "glosa_interlineal": "todo",
+   "pos_tisch": 6,
+   "strong": "G2917",
+   "glosa_interlineal": "juicio",
    "rango_semantico": [
-    "todo, cada",
-    "todos",
-    "cualquier"
+    "juicio, sentencia, decisión"
    ],
-   "construccion": "Adjetivo: acusativo singular neutro.",
+   "construccion": "Sustantivo: acusativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G1473",
+   "glosa_interlineal": "yo",
+   "rango_semantico": [
+    "yo",
+    "mí"
+   ],
+   "construccion": "Pronombre personal: 1.ª persona, nominativo singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G1519",
+   "glosa_interlineal": "a",
+   "rango_semantico": [
+    "a, hacia (movimiento)",
+    "en, dentro de",
+    "para, con el fin de",
+    "como"
+   ],
+   "construccion": "Preposición con acusativo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: acusativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G2889",
+   "glosa_interlineal": "mundo",
+   "rango_semantico": [
+    "mundo, universo",
+    "humanidad",
+    "sistema opuesto a Dios"
+   ],
+   "construccion": "Sustantivo: acusativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -167,13 +170,13 @@
   },
   {
    "pos_tisch": 11,
-   "strong": "G3739",
-   "glosa_interlineal": "lo que",
+   "strong": "G3778",
+   "glosa_interlineal": "este",
    "rango_semantico": [
-    "que, el que, lo que",
-    "quien"
+    "este, esta, esto",
+    "él, ella (con fuerza demostrativa)"
    ],
-   "construccion": "Pronombre relativo: acusativo singular neutro.",
+   "construccion": "Pronombre demostrativo: acusativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -183,14 +186,14 @@
   },
   {
    "pos_tisch": 12,
-   "strong": "G1325",
-   "glosa_interlineal": "ha dado",
+   "strong": "G2064",
+   "glosa_interlineal": "vine",
    "rango_semantico": [
-    "dar",
-    "entregar",
-    "conceder"
+    "venir, ir",
+    "llegar",
+    "aparecer"
    ],
-   "construccion": "Perfecto indicativo, voz activa, 3.ª persona singular.",
+   "construccion": "Aoristo (2.º) indicativo, voz activa, 1.ª persona singular.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -200,13 +203,12 @@
   },
   {
    "pos_tisch": 13,
-   "strong": "G1473",
-   "glosa_interlineal": "me",
+   "strong": "G2443",
+   "glosa_interlineal": "para que",
    "rango_semantico": [
-    "yo",
-    "mí"
+    "para que, de que"
    ],
-   "construccion": "Pronombre personal: 1.ª persona, dativo singular.",
+   "construccion": "Conjunción.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -216,6 +218,21 @@
   },
   {
    "pos_tisch": 14,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: nominativo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
    "strong": "G3361",
    "glosa_interlineal": "no",
    "rango_semantico": [
@@ -231,32 +248,15 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 15,
-   "strong": "G622",
-   "glosa_interlineal": "pierda",
-   "rango_semantico": [
-    "perder",
-    "destruir",
-    "perecer"
-   ],
-   "construccion": "Aoristo subjuntivo, voz activa, 1.ª persona singular.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
    "pos_tisch": 16,
-   "strong": "G1537",
-   "glosa_interlineal": "de",
+   "strong": "G991",
+   "glosa_interlineal": "los que ven",
    "rango_semantico": [
-    "de, desde (origen)",
-    "fuera de",
-    "a partir de"
+    "ver, mirar",
+    "percibir",
+    "prestar atención"
    ],
-   "construccion": "Preposición con genitivo.",
+   "construccion": "Participio presente, voz activa, nominativo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -266,14 +266,14 @@
   },
   {
    "pos_tisch": 17,
-   "strong": "G846",
-   "glosa_interlineal": "él",
+   "strong": "G991",
+   "glosa_interlineal": "vean",
    "rango_semantico": [
-    "él, ella, ello",
-    "mismo (con artículo)",
-    "ese"
+    "ver, mirar",
+    "percibir",
+    "prestar atención"
    ],
-   "construccion": "Pronombre personal: genitivo singular neutro.",
+   "construccion": "Presente subjuntivo, voz activa, 3.ª persona plural.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -283,29 +283,29 @@
   },
   {
    "pos_tisch": 18,
-   "strong": "G235",
-   "glosa_interlineal": "sino",
+   "strong": "G2532",
+   "glosa_interlineal": "y",
    "rango_semantico": [
-    "pero",
-    "sino",
-    "sin embargo"
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
    ],
-   "construccion": "Conjunción.",
+   "construccion": "Conjunción coordinante.",
    "sentido_en_contexto": null,
    "matiz": null,
-   "variantes_textuales": "Lectura de Tischendorf: ἀλλὰ. Ninguna de las ocho ediciones del TAGNT la trae: todas leen ἀλλ᾽.",
+   "variantes_textuales": null,
    "notas_traduccion": null,
    "otros_usos": null,
    "nivel_certeza": "alto"
   },
   {
    "pos_tisch": 19,
-   "strong": "G450",
-   "glosa_interlineal": "resucitaré",
+   "strong": "G3588",
+   "glosa_interlineal": "el",
    "rango_semantico": [
-    "levantarse, resucitar"
+    "el, la, lo (artículo definido)"
    ],
-   "construccion": "Aoristo subjuntivo, voz activa, 1.ª persona singular.",
+   "construccion": "Artículo: nominativo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -315,14 +315,14 @@
   },
   {
    "pos_tisch": 20,
-   "strong": "G846",
-   "glosa_interlineal": "la",
+   "strong": "G991",
+   "glosa_interlineal": "los que ven",
    "rango_semantico": [
-    "él, ella, ello",
-    "mismo (con artículo)",
-    "ese"
+    "ver, mirar",
+    "percibir",
+    "prestar atención"
    ],
-   "construccion": "Pronombre personal: acusativo singular neutro.",
+   "construccion": "Participio presente, voz activa, nominativo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -332,63 +332,27 @@
   },
   {
    "pos_tisch": 21,
-   "strong": "G1722",
-   "glosa_interlineal": "en",
+   "strong": "G5185",
+   "glosa_interlineal": "ciegos",
    "rango_semantico": [
-    "en (lugar)",
-    "en (tiempo)",
-    "entre",
-    "por medio de"
+    "ciego"
    ],
-   "construccion": "Preposición con dativo.",
+   "construccion": "Adjetivo: nominativo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
-   "variantes_textuales": "Esta palabra de Tischendorf no está en Tyn, SBL, WH, Treg, Byz; sí en NA28, NA27, TR.",
+   "variantes_textuales": null,
    "notas_traduccion": null,
    "otros_usos": null,
    "nivel_certeza": "alto"
   },
   {
    "pos_tisch": 22,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
+   "strong": "G1096",
+   "glosa_interlineal": "se hagan",
    "rango_semantico": [
-    "el, la, lo (artículo definido)"
+    "llegar a ser, ocurrir"
    ],
-   "construccion": "Artículo: dativo singular femenino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 23,
-   "strong": "G2078",
-   "glosa_interlineal": "postrero",
-   "rango_semantico": [
-    "último, final",
-    "el más humilde"
-   ],
-   "construccion": "Adjetivo: dativo singular femenino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 24,
-   "strong": "G2250",
-   "glosa_interlineal": "día",
-   "rango_semantico": [
-    "día",
-    "tiempo",
-    "el día (de juicio)"
-   ],
-   "construccion": "Sustantivo: dativo singular femenino.",
+   "construccion": "Aoristo (2.º) subjuntivo, voz media (deponente), 3.ª persona plural.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
