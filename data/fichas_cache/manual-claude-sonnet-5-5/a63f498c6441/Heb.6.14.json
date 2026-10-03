@@ -1,0 +1,165 @@
+{
+ "ref": "Heb.6.14",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-03T10:08:34-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G3004",
+   "glosa_interlineal": "diciendo",
+   "rango_semantico": [
+    "decir, hablar",
+    "llamar",
+    "mandar",
+    "querer decir"
+   ],
+   "construccion": "Participio presente, voz activa, nominativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G1487",
+   "glosa_interlineal": "de cierto",
+   "rango_semantico": [
+    "si (condicional)",
+    "a no ser, salvo",
+    "que (en preguntas)"
+   ],
+   "construccion": "Partícula condicional.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": "Esta palabra de Tischendorf no está en TR, Byz; sí en NA28, NA27, Tyn, SBL, WH, Treg.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G3375",
+   "glosa_interlineal": "de cierto",
+   "rango_semantico": [
+    "ciertamente, en verdad"
+   ],
+   "construccion": "Partícula.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G2127",
+   "glosa_interlineal": "bendiciendo",
+   "rango_semantico": [
+    "bendecir, hablar bien de"
+   ],
+   "construccion": "Participio presente, voz activa, nominativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G2127",
+   "glosa_interlineal": "te bendeciré",
+   "rango_semantico": [
+    "bendecir, hablar bien de"
+   ],
+   "construccion": "Futuro indicativo, voz activa, 1.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G4771",
+   "glosa_interlineal": "te",
+   "rango_semantico": [
+    "tú"
+   ],
+   "construccion": "Pronombre personal: 2.ª persona, acusativo singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G4129",
+   "glosa_interlineal": "multiplicando",
+   "rango_semantico": [
+    "multiplicar, aumentar"
+   ],
+   "construccion": "Participio presente, voz activa, nominativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G4129",
+   "glosa_interlineal": "te multiplicaré",
+   "rango_semantico": [
+    "multiplicar, aumentar"
+   ],
+   "construccion": "Futuro indicativo, voz activa, 1.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G4771",
+   "glosa_interlineal": "te",
+   "rango_semantico": [
+    "tú"
+   ],
+   "construccion": "Pronombre personal: 2.ª persona, acusativo singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}

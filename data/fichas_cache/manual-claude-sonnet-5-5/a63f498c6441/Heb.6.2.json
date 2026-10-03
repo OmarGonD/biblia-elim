@@ -1,0 +1,176 @@
+{
+ "ref": "Heb.6.2",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-03T10:08:34-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G909",
+   "glosa_interlineal": "de bautismos",
+   "rango_semantico": [
+    "lavado, inmersión"
+   ],
+   "construccion": "Sustantivo: genitivo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G1322",
+   "glosa_interlineal": "de doctrina",
+   "rango_semantico": [
+    "enseñanza, doctrina"
+   ],
+   "construccion": "Sustantivo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": "Esta palabra de Tischendorf no está en SBL, WH; sí en NA28, NA27, Tyn, Treg, TR, Byz.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G1936",
+   "glosa_interlineal": "imposición",
+   "rango_semantico": [
+    "imposición, el acto de poner (las manos)"
+   ],
+   "construccion": "Sustantivo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G5037",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y, tanto"
+   ],
+   "construccion": "Conjunción.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G5495",
+   "glosa_interlineal": "manos",
+   "rango_semantico": [
+    "mano"
+   ],
+   "construccion": "Sustantivo: genitivo plural femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G386",
+   "glosa_interlineal": "resurrección",
+   "rango_semantico": [
+    "resurrección"
+   ],
+   "construccion": "Sustantivo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G5037",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y, tanto"
+   ],
+   "construccion": "Conjunción.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": "Esta palabra de Tischendorf no está en WH; sí en NA28, NA27, Tyn, SBL, Treg, TR, Byz.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G3498",
+   "glosa_interlineal": "los muertos",
+   "rango_semantico": [
+    "muerto, sin vida"
+   ],
+   "construccion": "Adjetivo: genitivo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G2917",
+   "glosa_interlineal": "juicio",
+   "rango_semantico": [
+    "juicio, sentencia, decisión"
+   ],
+   "construccion": "Sustantivo: genitivo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G166",
+   "glosa_interlineal": "eterno",
+   "rango_semantico": [
+    "eterno, de la era venidera",
+    "perpetuo"
+   ],
+   "construccion": "Adjetivo: genitivo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}
