@@ -1,0 +1,514 @@
+{
+ "ref": "Luke.8.29",
+ "modelo": "manual-claude-sonnet-5-5",
+ "prompt_hash": "a63f498c6441",
+ "generado": "2026-10-03T07:08:42-0500",
+ "fichas": [
+  {
+   "pos_tisch": 1,
+   "strong": "G3853",
+   "glosa_interlineal": "mandaba",
+   "rango_semantico": [
+    "ordenar, mandar"
+   ],
+   "construccion": "Aoristo indicativo, voz activa, 3.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": "Lectura de Tischendorf: παρήγγελλεν. Ninguna de las ocho ediciones del TAGNT la trae: todas leen παρήγγειλεν.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 2,
+   "strong": "G1063",
+   "glosa_interlineal": "porque",
+   "rango_semantico": [
+    "porque, pues",
+    "en efecto"
+   ],
+   "construccion": "Conjunción postpositiva causal o explicativa.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 3,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: dativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G4151",
+   "glosa_interlineal": "espíritu",
+   "rango_semantico": [
+    "espíritu",
+    "aliento, soplo",
+    "Espíritu (de Dios)",
+    "viento"
+   ],
+   "construccion": "Sustantivo: dativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: dativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G169",
+   "glosa_interlineal": "inmundo",
+   "rango_semantico": [
+    "impuro, inmundo",
+    "impuro (ritual y moralmente)"
+   ],
+   "construccion": "Adjetivo: dativo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G1831",
+   "glosa_interlineal": "que saliese",
+   "rango_semantico": [
+    "salir, irse",
+    "ir fuera"
+   ],
+   "construccion": "Infinitivo aoristo (2.º), voz activa.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G575",
+   "glosa_interlineal": "de",
+   "rango_semantico": [
+    "de, desde (origen)",
+    "fuera de",
+    "a partir de"
+   ],
+   "construccion": "Preposición con genitivo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 10,
+   "strong": "G444",
+   "glosa_interlineal": "del hombre",
+   "rango_semantico": [
+    "hombre, persona",
+    "ser humano",
+    "marido (rara vez)"
+   ],
+   "construccion": "Sustantivo: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G4183",
+   "glosa_interlineal": "muchos",
+   "rango_semantico": [
+    "mucho, muchos",
+    "grande"
+   ],
+   "construccion": "Adjetivo: dativo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G1063",
+   "glosa_interlineal": "porque",
+   "rango_semantico": [
+    "porque, pues",
+    "en efecto"
+   ],
+   "construccion": "Conjunción postpositiva causal o explicativa.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G5550",
+   "glosa_interlineal": "tiempos",
+   "rango_semantico": [
+    "tiempo"
+   ],
+   "construccion": "Sustantivo: dativo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G4884",
+   "glosa_interlineal": "se había apoderado",
+   "rango_semantico": [
+    "arrebatar, apoderarse"
+   ],
+   "construccion": "Pluscuamperfecto indicativo, voz activa, 3.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G846",
+   "glosa_interlineal": "él",
+   "rango_semantico": [
+    "él, ella, ello",
+    "mismo (con artículo)",
+    "ese"
+   ],
+   "construccion": "Pronombre personal: acusativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G1195",
+   "glosa_interlineal": "era atado",
+   "rango_semantico": [
+    "atar, ligar"
+   ],
+   "construccion": "Imperfecto indicativo, voz pasiva, 3.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": "Esta palabra de Tischendorf no está en TR, Byz; sí en NA28, NA27, Tyn, SBL, WH, Treg.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 18,
+   "strong": "G254",
+   "glosa_interlineal": "cadenas",
+   "rango_semantico": [
+    "cadena, grillete"
+   ],
+   "construccion": "Sustantivo: dativo plural femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 19,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 20,
+   "strong": "G3976",
+   "glosa_interlineal": "con grillos",
+   "rango_semantico": [
+    "grillos, cadenas para los pies"
+   ],
+   "construccion": "Sustantivo: dativo plural femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 21,
+   "strong": "G5442",
+   "glosa_interlineal": "custodiado",
+   "rango_semantico": [
+    "guardar, observar"
+   ],
+   "construccion": "Participio presente, voz pasiva, nominativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 22,
+   "strong": "G2532",
+   "glosa_interlineal": "y",
+   "rango_semantico": [
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
+   ],
+   "construccion": "Conjunción coordinante.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 23,
+   "strong": "G1284",
+   "glosa_interlineal": "rompiendo",
+   "rango_semantico": [
+    "rasgar, desgarrar"
+   ],
+   "construccion": "Participio presente, voz activa, nominativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 24,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: acusativo plural neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 25,
+   "strong": "G1199",
+   "glosa_interlineal": "ligaduras",
+   "rango_semantico": [
+    "cadena, prisión"
+   ],
+   "construccion": "Sustantivo: acusativo plural neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 26,
+   "strong": "G1643",
+   "glosa_interlineal": "era arrastrado",
+   "rango_semantico": [
+    "remar, conducir"
+   ],
+   "construccion": "Imperfecto indicativo, voz pasiva, 3.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 27,
+   "strong": "G5259",
+   "glosa_interlineal": "por",
+   "rango_semantico": [
+    "debajo de, bajo",
+    "en sujeción a",
+    "(con dativo) bajo"
+   ],
+   "construccion": "Preposición con genitivo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": "Esta palabra de Tischendorf no está en WH; sí en NA28, NA27, Tyn, SBL, Treg, TR, Byz.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 28,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: genitivo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 29,
+   "strong": "G1140",
+   "glosa_interlineal": "demonio",
+   "rango_semantico": [
+    "demonio, espíritu malo"
+   ],
+   "construccion": "Sustantivo: genitivo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": "Esta palabra de Tischendorf no está en TR, Byz; sí en NA28, NA27, Tyn, SBL, WH, Treg.",
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 30,
+   "strong": "G1519",
+   "glosa_interlineal": "a",
+   "rango_semantico": [
+    "a, hacia (movimiento)",
+    "en, dentro de",
+    "para, con el fin de",
+    "como"
+   ],
+   "construccion": "Preposición con acusativo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 31,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: acusativo plural femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 32,
+   "strong": "G2048",
+   "glosa_interlineal": "desiertos",
+   "rango_semantico": [
+    "desierto, lugar despoblado",
+    "desolado"
+   ],
+   "construccion": "Adjetivo: acusativo plural femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  }
+ ]
+}
