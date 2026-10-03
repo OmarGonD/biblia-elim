@@ -109,8 +109,18 @@ gui_interlineal_set_active(gboolean active)
 			main_interlineal_abrir_verso(settings.currentverse);
 		main_interlineal_empezar_indice();
 		main_bible_note_interlinear_html();
-		if (settings.currentverse)
-			main_display_bible(NULL, settings.currentverse);
+		{
+			/* El versículo que se pidió abrir, no el guardado: desde el menú
+			 * del versículo se navega a él justo antes de llegar aquí, y
+			 * settings.currentverse puede ir un paso atrás (el lector
+			 * volvía al versículo anterior). */
+			const char *k = main_interlineal_verso_abierto();
+
+			if (!k || !*k)
+				k = settings.currentverse;
+			if (k)
+				main_display_bible(NULL, k);
+		}
 	} else {
 		main_interlineal_cerrar_verso();
 		gui_lectura_sync_ficha_clear();
