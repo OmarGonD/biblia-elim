@@ -1,20 +1,18 @@
 {
- "ref": "1Tim.1.11",
+ "ref": "1Tim.2.3",
  "modelo": "manual-claude-sonnet-5-5",
  "prompt_hash": "a63f498c6441",
- "generado": "2026-10-03T09:42:22-0500",
+ "generado": "2026-10-03T09:44:03-0500",
  "fichas": [
   {
    "pos_tisch": 1,
-   "strong": "G2596",
-   "glosa_interlineal": "según",
+   "strong": "G3778",
+   "glosa_interlineal": "ésta",
    "rango_semantico": [
-    "según, conforme a",
-    "contra",
-    "por",
-    "a lo largo de"
+    "este, esta, esto",
+    "él, ella (con fuerza demostrativa)"
    ],
-   "construccion": "Preposición con acusativo.",
+   "construccion": "Pronombre demostrativo: nominativo singular neutro.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -24,12 +22,13 @@
   },
   {
    "pos_tisch": 2,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
+   "strong": "G2570",
+   "glosa_interlineal": "bueno",
    "rango_semantico": [
-    "el, la, lo (artículo definido)"
+    "bello, bueno",
+    "hermoso, noble"
    ],
-   "construccion": "Artículo: acusativo singular neutro.",
+   "construccion": "Adjetivo: nominativo singular neutro.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -39,12 +38,14 @@
   },
   {
    "pos_tisch": 3,
-   "strong": "G2098",
-   "glosa_interlineal": "evangelio",
+   "strong": "G2532",
+   "glosa_interlineal": "y",
    "rango_semantico": [
-    "buena noticia, evangelio"
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
    ],
-   "construccion": "Sustantivo: acusativo singular neutro.",
+   "construccion": "Conjunción coordinante.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -54,12 +55,12 @@
   },
   {
    "pos_tisch": 4,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
+   "strong": "G587",
+   "glosa_interlineal": "agradable",
    "rango_semantico": [
-    "el, la, lo (artículo definido)"
+    "acepto, agradable"
    ],
-   "construccion": "Artículo: genitivo singular femenino.",
+   "construccion": "Adjetivo: nominativo singular neutro.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -69,14 +70,12 @@
   },
   {
    "pos_tisch": 5,
-   "strong": "G1391",
-   "glosa_interlineal": "gloria",
+   "strong": "G1799",
+   "glosa_interlineal": "delante de",
    "rango_semantico": [
-    "gloria, esplendor",
-    "honor, fama",
-    "brillo"
+    "delante de, en presencia de"
    ],
-   "construccion": "Sustantivo: genitivo singular femenino.",
+   "construccion": "Preposición con genitivo.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -101,27 +100,10 @@
   },
   {
    "pos_tisch": 7,
-   "strong": "G3107",
-   "glosa_interlineal": "bienaventurado",
+   "strong": "G4990",
+   "glosa_interlineal": "Salvador",
    "rango_semantico": [
-    "bienaventurado, dichoso"
-   ],
-   "construccion": "Adjetivo: genitivo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 8,
-   "strong": "G2316",
-   "glosa_interlineal": "Dios",
-   "rango_semantico": [
-    "Dios (el único Dios)",
-    "dios, divinidad",
-    "ser divino"
+    "salvador"
    ],
    "construccion": "Sustantivo: genitivo singular masculino.",
    "sentido_en_contexto": null,
@@ -132,47 +114,31 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 9,
-   "strong": "G3739",
-   "glosa_interlineal": "lo que",
-   "rango_semantico": [
-    "que, el que, lo que",
-    "quien"
-   ],
-   "construccion": "Pronombre relativo: acusativo singular neutro.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 10,
-   "strong": "G4100",
-   "glosa_interlineal": "me fue encomendado",
-   "rango_semantico": [
-    "creer, confiar",
-    "confiar a, encomendar",
-    "tener fe"
-   ],
-   "construccion": "Aoristo indicativo, voz pasiva, 1.ª persona singular.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 11,
-   "strong": "G1473",
-   "glosa_interlineal": "yo",
+   "pos_tisch": 8,
+   "strong": "G2249",
+   "glosa_interlineal": "nuestro",
    "rango_semantico": [
     "yo",
-    "mí"
+    "nosotros"
    ],
-   "construccion": "Pronombre personal: 1.ª persona, nominativo singular.",
+   "construccion": "Pronombre personal: 1.ª persona, genitivo plural.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G2316",
+   "glosa_interlineal": "Dios",
+   "rango_semantico": [
+    "Dios (el único Dios)",
+    "dios, divinidad",
+    "ser divino"
+   ],
+   "construccion": "Sustantivo: genitivo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,

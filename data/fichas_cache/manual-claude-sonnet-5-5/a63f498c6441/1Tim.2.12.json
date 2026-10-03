@@ -1,18 +1,17 @@
 {
- "ref": "1Tim.1.8",
+ "ref": "1Tim.2.12",
  "modelo": "manual-claude-sonnet-5-5",
  "prompt_hash": "a63f498c6441",
- "generado": "2026-10-03T09:42:22-0500",
+ "generado": "2026-10-03T09:44:03-0500",
  "fichas": [
   {
    "pos_tisch": 1,
-   "strong": "G1492",
-   "glosa_interlineal": "sabemos",
+   "strong": "G1321",
+   "glosa_interlineal": "enseñar",
    "rango_semantico": [
-    "saber, conocer",
-    "entender"
+    "enseñar, instruir"
    ],
-   "construccion": "Perfecto indicativo, voz activa, 1.ª persona plural.",
+   "construccion": "Infinitivo presente, voz activa.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -38,12 +37,108 @@
   },
   {
    "pos_tisch": 3,
-   "strong": "G3754",
-   "glosa_interlineal": "que",
+   "strong": "G1135",
+   "glosa_interlineal": "a la mujer",
    "rango_semantico": [
-    "que (contenido)",
-    "porque",
-    "puesto que"
+    "mujer",
+    "esposa"
+   ],
+   "construccion": "Sustantivo: dativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 4,
+   "strong": "G3756",
+   "glosa_interlineal": "no",
+   "rango_semantico": [
+    "no, ni",
+    "nada"
+   ],
+   "construccion": "Partícula (negativo).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G2010",
+   "glosa_interlineal": "permito",
+   "rango_semantico": [
+    "permitir, dejar"
+   ],
+   "construccion": "Presente indicativo, voz activa, 1.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G3761",
+   "glosa_interlineal": "ni",
+   "rango_semantico": [
+    "ni, ni siquiera",
+    "tampoco",
+    "y no"
+   ],
+   "construccion": "Conjunción (negativo).",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G831",
+   "glosa_interlineal": "ejercer dominio sobre",
+   "rango_semantico": [
+    "ejercer autoridad, dominar (hapax)"
+   ],
+   "construccion": "Infinitivo presente, voz activa.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G435",
+   "glosa_interlineal": "de varón",
+   "rango_semantico": [
+    "hombre (varón)",
+    "marido",
+    "persona"
+   ],
+   "construccion": "Sustantivo: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G235",
+   "glosa_interlineal": "sino",
+   "rango_semantico": [
+    "pero",
+    "sino",
+    "sin embargo"
    ],
    "construccion": "Conjunción.",
    "sentido_en_contexto": null,
@@ -54,111 +149,15 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 4,
-   "strong": "G2570",
-   "glosa_interlineal": "bueno",
-   "rango_semantico": [
-    "bello, bueno",
-    "hermoso, noble"
-   ],
-   "construccion": "Adjetivo: nominativo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 5,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
-   "rango_semantico": [
-    "el, la, lo (artículo definido)"
-   ],
-   "construccion": "Artículo: nominativo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 6,
-   "strong": "G3551",
-   "glosa_interlineal": "ley",
-   "rango_semantico": [
-    "ley",
-    "norma",
-    "la Escritura (la Torá)"
-   ],
-   "construccion": "Sustantivo: nominativo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 7,
-   "strong": "G1437",
-   "glosa_interlineal": "si",
-   "rango_semantico": [
-    "si (con subjuntivo)",
-    "a menos que"
-   ],
-   "construccion": "Partícula condicional.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 8,
-   "strong": "G5100",
-   "glosa_interlineal": "alguien",
-   "rango_semantico": [
-    "alguno, algo",
-    "cierto, un",
-    "cualquiera"
-   ],
-   "construccion": "Pronombre indefinido: nominativo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 9,
-   "strong": "G846",
-   "glosa_interlineal": "le",
-   "rango_semantico": [
-    "él, ella, ello",
-    "mismo (con artículo)",
-    "ese"
-   ],
-   "construccion": "Pronombre personal: dativo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
    "pos_tisch": 10,
-   "strong": "G3545",
-   "glosa_interlineal": "legítimamente",
+   "strong": "G1510",
+   "glosa_interlineal": "estar",
    "rango_semantico": [
-    "según la ley, legítimamente"
+    "ser, existir",
+    "estar",
+    "haber"
    ],
-   "construccion": "Adverbio.",
+   "construccion": "Infinitivo presente, voz activa.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -168,12 +167,30 @@
   },
   {
    "pos_tisch": 11,
-   "strong": "G5530",
-   "glosa_interlineal": "se usa",
+   "strong": "G1722",
+   "glosa_interlineal": "en",
    "rango_semantico": [
-    "usar, aprovechar"
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
    ],
-   "construccion": "Presente subjuntivo, voz media o pasiva (deponente), 3.ª persona singular.",
+   "construccion": "Preposición con dativo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G2271",
+   "glosa_interlineal": "quietud",
+   "rango_semantico": [
+    "quietud, silencio, tranquilidad"
+   ],
+   "construccion": "Sustantivo: dativo singular femenino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,

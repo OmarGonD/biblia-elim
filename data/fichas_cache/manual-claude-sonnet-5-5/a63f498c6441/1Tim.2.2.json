@@ -1,17 +1,18 @@
 {
- "ref": "1Tim.1.17",
+ "ref": "1Tim.2.2",
  "modelo": "manual-claude-sonnet-5-5",
  "prompt_hash": "a63f498c6441",
- "generado": "2026-10-03T09:42:22-0500",
+ "generado": "2026-10-03T09:44:03-0500",
  "fichas": [
   {
    "pos_tisch": 1,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
+   "strong": "G5228",
+   "glosa_interlineal": "por",
    "rango_semantico": [
-    "el, la, lo (artículo definido)"
+    "en favor de, por",
+    "sobre"
    ],
-   "construccion": "Artículo: dativo singular masculino.",
+   "construccion": "Preposición con genitivo.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -21,13 +22,13 @@
   },
   {
    "pos_tisch": 2,
-   "strong": "G1161",
-   "glosa_interlineal": "pero / y",
+   "strong": "G935",
+   "glosa_interlineal": "de reyes",
    "rango_semantico": [
-    "pero, y",
-    "por otra parte"
+    "rey",
+    "monarca"
    ],
-   "construccion": "Conjunción postpositiva.",
+   "construccion": "Sustantivo: genitivo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -37,13 +38,14 @@
   },
   {
    "pos_tisch": 3,
-   "strong": "G935",
-   "glosa_interlineal": "Rey",
+   "strong": "G2532",
+   "glosa_interlineal": "y",
    "rango_semantico": [
-    "rey",
-    "monarca"
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
    ],
-   "construccion": "Sustantivo: dativo singular masculino.",
+   "construccion": "Conjunción coordinante.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -53,6 +55,23 @@
   },
   {
    "pos_tisch": 4,
+   "strong": "G3956",
+   "glosa_interlineal": "todos",
+   "rango_semantico": [
+    "todo, cada",
+    "todos",
+    "cualquier"
+   ],
+   "construccion": "Adjetivo: genitivo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
    "strong": "G3588",
    "glosa_interlineal": "el",
    "rango_semantico": [
@@ -67,30 +86,16 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 5,
-   "strong": "G165",
-   "glosa_interlineal": "los siglos",
-   "rango_semantico": [
-    "edad, era",
-    "mundo, este mundo",
-    "eternidad"
-   ],
-   "construccion": "Sustantivo: genitivo plural masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
    "pos_tisch": 6,
-   "strong": "G862",
-   "glosa_interlineal": "incorruptible",
+   "strong": "G1722",
+   "glosa_interlineal": "en",
    "rango_semantico": [
-    "incorruptible"
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
    ],
-   "construccion": "Adjetivo: dativo singular masculino.",
+   "construccion": "Preposición con dativo.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -100,12 +105,12 @@
   },
   {
    "pos_tisch": 7,
-   "strong": "G517",
-   "glosa_interlineal": "invisible",
+   "strong": "G5247",
+   "glosa_interlineal": "autoridad",
    "rango_semantico": [
-    "invisible"
+    "eminencia, autoridad"
    ],
-   "construccion": "Adjetivo: dativo singular masculino.",
+   "construccion": "Sustantivo: dativo singular femenino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -115,12 +120,14 @@
   },
   {
    "pos_tisch": 8,
-   "strong": "G3441",
-   "glosa_interlineal": "único",
+   "strong": "G1510",
+   "glosa_interlineal": "que están",
    "rango_semantico": [
-    "solo, único"
+    "ser, existir",
+    "estar",
+    "haber"
    ],
-   "construccion": "Adjetivo: dativo singular masculino.",
+   "construccion": "Participio presente, voz activa, genitivo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -130,14 +137,12 @@
   },
   {
    "pos_tisch": 9,
-   "strong": "G2316",
-   "glosa_interlineal": "Dios",
+   "strong": "G2443",
+   "glosa_interlineal": "para que",
    "rango_semantico": [
-    "Dios (el único Dios)",
-    "dios, divinidad",
-    "ser divino"
+    "para que, de que"
    ],
-   "construccion": "Sustantivo: dativo singular masculino.",
+   "construccion": "Conjunción.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -147,13 +152,12 @@
   },
   {
    "pos_tisch": 10,
-   "strong": "G5092",
-   "glosa_interlineal": "honra",
+   "strong": "G2263",
+   "glosa_interlineal": "tranquila",
    "rango_semantico": [
-    "honra, honor",
-    "precio"
+    "quieto, sosegado"
    ],
-   "construccion": "Sustantivo: nominativo singular femenino.",
+   "construccion": "Adjetivo: acusativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -180,14 +184,12 @@
   },
   {
    "pos_tisch": 12,
-   "strong": "G1391",
-   "glosa_interlineal": "gloria",
+   "strong": "G2272",
+   "glosa_interlineal": "reposada",
    "rango_semantico": [
-    "gloria, esplendor",
-    "honor, fama",
-    "brillo"
+    "tranquilo, apacible"
    ],
-   "construccion": "Sustantivo: nominativo singular femenino.",
+   "construccion": "Adjetivo: acusativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -197,15 +199,12 @@
   },
   {
    "pos_tisch": 13,
-   "strong": "G1519",
-   "glosa_interlineal": "por",
+   "strong": "G979",
+   "glosa_interlineal": "medios de vida",
    "rango_semantico": [
-    "a, hacia (movimiento)",
-    "en, dentro de",
-    "para, con el fin de",
-    "como"
+    "vida, medios de vida"
    ],
-   "construccion": "Preposición con acusativo.",
+   "construccion": "Sustantivo: acusativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -215,12 +214,12 @@
   },
   {
    "pos_tisch": 14,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
+   "strong": "G1236",
+   "glosa_interlineal": "llevemos",
    "rango_semantico": [
-    "el, la, lo (artículo definido)"
+    "pasar la vida, vivir"
    ],
-   "construccion": "Artículo: acusativo plural masculino.",
+   "construccion": "Presente subjuntivo, voz activa, 1.ª persona plural.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -230,14 +229,15 @@
   },
   {
    "pos_tisch": 15,
-   "strong": "G165",
-   "glosa_interlineal": "siglos",
+   "strong": "G1722",
+   "glosa_interlineal": "con",
    "rango_semantico": [
-    "edad, era",
-    "mundo, este mundo",
-    "eternidad"
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
    ],
-   "construccion": "Sustantivo: acusativo plural masculino.",
+   "construccion": "Preposición con dativo.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -247,12 +247,14 @@
   },
   {
    "pos_tisch": 16,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
+   "strong": "G3956",
+   "glosa_interlineal": "toda",
    "rango_semantico": [
-    "el, la, lo (artículo definido)"
+    "todo, cada",
+    "todos",
+    "cualquier"
    ],
-   "construccion": "Artículo: genitivo plural masculino.",
+   "construccion": "Adjetivo: dativo singular femenino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -262,14 +264,12 @@
   },
   {
    "pos_tisch": 17,
-   "strong": "G165",
-   "glosa_interlineal": "los siglos",
+   "strong": "G2150",
+   "glosa_interlineal": "piedad",
    "rango_semantico": [
-    "edad, era",
-    "mundo, este mundo",
-    "eternidad"
+    "piedad, devoción"
    ],
-   "construccion": "Sustantivo: genitivo plural masculino.",
+   "construccion": "Sustantivo: dativo singular femenino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -279,14 +279,29 @@
   },
   {
    "pos_tisch": 18,
-   "strong": "G281",
-   "glosa_interlineal": "amén",
+   "strong": "G2532",
+   "glosa_interlineal": "y",
    "rango_semantico": [
-    "amén, de cierto",
-    "así sea",
-    "en verdad"
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
    ],
-   "construccion": "Interjección.",
+   "construccion": "Conjunción coordinante.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 19,
+   "strong": "G4587",
+   "glosa_interlineal": "honestidad",
+   "rango_semantico": [
+    "dignidad, seriedad"
+   ],
+   "construccion": "Sustantivo: dativo singular femenino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,

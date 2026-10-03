@@ -1,32 +1,33 @@
 {
- "ref": "1Tim.1.13",
+ "ref": "1Tim.3.13",
  "modelo": "manual-claude-sonnet-5-5",
  "prompt_hash": "a63f498c6441",
- "generado": "2026-10-03T09:42:22-0500",
+ "generado": "2026-10-03T09:44:03-0500",
  "fichas": [
   {
    "pos_tisch": 1,
    "strong": "G3588",
-   "glosa_interlineal": "aunque",
+   "glosa_interlineal": "el",
    "rango_semantico": [
     "el, la, lo (artículo definido)"
    ],
-   "construccion": "Artículo: acusativo singular neutro.",
+   "construccion": "Artículo: nominativo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
-   "variantes_textuales": "Esta palabra de Tischendorf no está en TR, Byz; sí en NA28, NA27, Tyn, SBL, WH, Treg.",
+   "variantes_textuales": null,
    "notas_traduccion": null,
    "otros_usos": null,
    "nivel_certeza": "alto"
   },
   {
    "pos_tisch": 2,
-   "strong": "G4386",
-   "glosa_interlineal": "antes",
+   "strong": "G1063",
+   "glosa_interlineal": "porque",
    "rango_semantico": [
-    "antes, primero"
+    "porque, pues",
+    "en efecto"
    ],
-   "construccion": "Adverbio (comparativo).",
+   "construccion": "Conjunción postpositiva causal o explicativa.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -36,14 +37,12 @@
   },
   {
    "pos_tisch": 3,
-   "strong": "G1510",
-   "glosa_interlineal": "fui",
+   "strong": "G2573",
+   "glosa_interlineal": "bien",
    "rango_semantico": [
-    "ser, existir",
-    "estar",
-    "haber"
+    "bien, correctamente"
    ],
-   "construccion": "Participio presente, voz activa, acusativo singular masculino.",
+   "construccion": "Adverbio.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -53,10 +52,57 @@
   },
   {
    "pos_tisch": 4,
-   "strong": "G989",
-   "glosa_interlineal": "blasfemo",
+   "strong": "G1247",
+   "glosa_interlineal": "los que sirven",
    "rango_semantico": [
-    "blasfemo, injurioso"
+    "servir, atender",
+    "ayudar"
+   ],
+   "construccion": "Participio aoristo, voz activa, nominativo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 5,
+   "strong": "G898",
+   "glosa_interlineal": "grado",
+   "rango_semantico": [
+    "escalón, rango, posición"
+   ],
+   "construccion": "Sustantivo: acusativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 6,
+   "strong": "G1438",
+   "glosa_interlineal": "ellos mismos",
+   "rango_semantico": [
+    "sí mismo, uno mismo"
+   ],
+   "construccion": "Pronombre reflexivo: 3.ª persona, dativo plural masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G2570",
+   "glosa_interlineal": "bueno",
+   "rango_semantico": [
+    "bello, bueno",
+    "hermoso, noble"
    ],
    "construccion": "Adjetivo: acusativo singular masculino.",
    "sentido_en_contexto": null,
@@ -67,62 +113,13 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 5,
-   "strong": "G2532",
-   "glosa_interlineal": "y",
-   "rango_semantico": [
-    "y",
-    "también, incluso",
-    "pero (con matiz adversativo)"
-   ],
-   "construccion": "Conjunción coordinante.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 6,
-   "strong": "G1376",
-   "glosa_interlineal": "perseguidor",
-   "rango_semantico": [
-    "perseguidor"
-   ],
-   "construccion": "Sustantivo: acusativo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 7,
-   "strong": "G2532",
-   "glosa_interlineal": "y",
-   "rango_semantico": [
-    "y",
-    "también, incluso",
-    "pero (con matiz adversativo)"
-   ],
-   "construccion": "Conjunción coordinante.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
    "pos_tisch": 8,
-   "strong": "G5197",
-   "glosa_interlineal": "insolente",
+   "strong": "G4046",
+   "glosa_interlineal": "ganan",
    "rango_semantico": [
-    "insolente, ultrajador"
+    "conservar, preservar"
    ],
-   "construccion": "Sustantivo: acusativo singular masculino.",
+   "construccion": "Presente indicativo, voz media, 3.ª persona plural.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -132,29 +129,30 @@
   },
   {
    "pos_tisch": 9,
-   "strong": "G235",
-   "glosa_interlineal": "pero",
+   "strong": "G2532",
+   "glosa_interlineal": "y",
    "rango_semantico": [
-    "pero",
-    "sino",
-    "sin embargo"
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
    ],
-   "construccion": "Conjunción.",
+   "construccion": "Conjunción coordinante.",
    "sentido_en_contexto": null,
    "matiz": null,
-   "variantes_textuales": "Lectura de Tischendorf: ἀλλὰ. Ninguna de las ocho ediciones del TAGNT la trae: todas leen ἀλλ᾽.",
+   "variantes_textuales": null,
    "notas_traduccion": null,
    "otros_usos": null,
    "nivel_certeza": "alto"
   },
   {
    "pos_tisch": 10,
-   "strong": "G1653",
-   "glosa_interlineal": "fui recibido a misericordia",
+   "strong": "G4183",
+   "glosa_interlineal": "mucha",
    "rango_semantico": [
-    "tener misericordia, compadecer"
+    "mucho, muchos",
+    "grande"
    ],
-   "construccion": "Aoristo indicativo, voz pasiva, 1.ª persona singular.",
+   "construccion": "Adjetivo: acusativo singular femenino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -164,14 +162,12 @@
   },
   {
    "pos_tisch": 11,
-   "strong": "G3754",
-   "glosa_interlineal": "porque",
+   "strong": "G3954",
+   "glosa_interlineal": "confianza",
    "rango_semantico": [
-    "que (contenido)",
-    "porque",
-    "puesto que"
+    "con franqueza, abiertamente"
    ],
-   "construccion": "Conjunción.",
+   "construccion": "Sustantivo: acusativo singular femenino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -181,36 +177,6 @@
   },
   {
    "pos_tisch": 12,
-   "strong": "G50",
-   "glosa_interlineal": "lo hice por ignorancia",
-   "rango_semantico": [
-    "ignorar, desconocer"
-   ],
-   "construccion": "Participio presente, voz activa, nominativo singular masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 13,
-   "strong": "G4160",
-   "glosa_interlineal": "hice",
-   "rango_semantico": [
-    "hacer, practicar"
-   ],
-   "construccion": "Aoristo indicativo, voz activa, 1.ª persona singular.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 14,
    "strong": "G1722",
    "glosa_interlineal": "en",
    "rango_semantico": [
@@ -228,13 +194,76 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 15,
-   "strong": "G570",
-   "glosa_interlineal": "incredulidad",
+   "pos_tisch": 13,
+   "strong": "G4102",
+   "glosa_interlineal": "fe",
    "rango_semantico": [
-    "incredulidad, infidelidad"
+    "fe, fidelidad"
    ],
    "construccion": "Sustantivo: dativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G3588",
+   "glosa_interlineal": "el",
+   "rango_semantico": [
+    "el, la, lo (artículo definido)"
+   ],
+   "construccion": "Artículo: dativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 15,
+   "strong": "G1722",
+   "glosa_interlineal": "en",
+   "rango_semantico": [
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
+   ],
+   "construccion": "Preposición con dativo.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G5547",
+   "glosa_interlineal": "Cristo",
+   "rango_semantico": [
+    "Cristo, Mesías, Ungido"
+   ],
+   "construccion": "Sustantivo: dativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G2424",
+   "glosa_interlineal": "Jesús",
+   "rango_semantico": [
+    "Jesús (forma griega del hebreo Yehoshúa, «Yahvé salva»)"
+   ],
+   "construccion": "Sustantivo: dativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,

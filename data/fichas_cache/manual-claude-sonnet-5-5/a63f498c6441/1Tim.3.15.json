@@ -1,17 +1,18 @@
 {
- "ref": "1Tim.1.17",
+ "ref": "1Tim.3.15",
  "modelo": "manual-claude-sonnet-5-5",
  "prompt_hash": "a63f498c6441",
- "generado": "2026-10-03T09:42:22-0500",
+ "generado": "2026-10-03T09:44:03-0500",
  "fichas": [
   {
    "pos_tisch": 1,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
+   "strong": "G1437",
+   "glosa_interlineal": "si",
    "rango_semantico": [
-    "el, la, lo (artículo definido)"
+    "si (con subjuntivo)",
+    "a menos que"
    ],
-   "construccion": "Artículo: dativo singular masculino.",
+   "construccion": "Partícula condicional.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -37,13 +38,12 @@
   },
   {
    "pos_tisch": 3,
-   "strong": "G935",
-   "glosa_interlineal": "Rey",
+   "strong": "G1019",
+   "glosa_interlineal": "tardo",
    "rango_semantico": [
-    "rey",
-    "monarca"
+    "tardar, demorar"
    ],
-   "construccion": "Sustantivo: dativo singular masculino.",
+   "construccion": "Presente subjuntivo, voz activa, 1.ª persona singular.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -53,12 +53,12 @@
   },
   {
    "pos_tisch": 4,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
+   "strong": "G2443",
+   "glosa_interlineal": "para que",
    "rango_semantico": [
-    "el, la, lo (artículo definido)"
+    "para que, de que"
    ],
-   "construccion": "Artículo: genitivo plural masculino.",
+   "construccion": "Conjunción.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -68,14 +68,13 @@
   },
   {
    "pos_tisch": 5,
-   "strong": "G165",
-   "glosa_interlineal": "los siglos",
+   "strong": "G1492",
+   "glosa_interlineal": "sepas",
    "rango_semantico": [
-    "edad, era",
-    "mundo, este mundo",
-    "eternidad"
+    "saber, conocer",
+    "entender"
    ],
-   "construccion": "Sustantivo: genitivo plural masculino.",
+   "construccion": "Perfecto subjuntivo, voz activa, 2.ª persona singular.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -85,12 +84,12 @@
   },
   {
    "pos_tisch": 6,
-   "strong": "G862",
-   "glosa_interlineal": "incorruptible",
+   "strong": "G4459",
+   "glosa_interlineal": "cómo",
    "rango_semantico": [
-    "incorruptible"
+    "cómo, de qué modo"
    ],
-   "construccion": "Adjetivo: dativo singular masculino.",
+   "construccion": "Partícula (interrogativo).",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -100,12 +99,12 @@
   },
   {
    "pos_tisch": 7,
-   "strong": "G517",
-   "glosa_interlineal": "invisible",
+   "strong": "G1163",
+   "glosa_interlineal": "es necesario",
    "rango_semantico": [
-    "invisible"
+    "ser necesario, deber"
    ],
-   "construccion": "Adjetivo: dativo singular masculino.",
+   "construccion": "Presente indicativo, voz activa, 3.ª persona singular.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -115,12 +114,15 @@
   },
   {
    "pos_tisch": 8,
-   "strong": "G3441",
-   "glosa_interlineal": "único",
+   "strong": "G1722",
+   "glosa_interlineal": "en",
    "rango_semantico": [
-    "solo, único"
+    "en (lugar)",
+    "en (tiempo)",
+    "entre",
+    "por medio de"
    ],
-   "construccion": "Adjetivo: dativo singular masculino.",
+   "construccion": "Preposición con dativo.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -130,12 +132,10 @@
   },
   {
    "pos_tisch": 9,
-   "strong": "G2316",
-   "glosa_interlineal": "Dios",
+   "strong": "G3624",
+   "glosa_interlineal": "casa",
    "rango_semantico": [
-    "Dios (el único Dios)",
-    "dios, divinidad",
-    "ser divino"
+    "casa, familia, hogar"
    ],
    "construccion": "Sustantivo: dativo singular masculino.",
    "sentido_en_contexto": null,
@@ -147,11 +147,74 @@
   },
   {
    "pos_tisch": 10,
-   "strong": "G5092",
-   "glosa_interlineal": "honra",
+   "strong": "G2316",
+   "glosa_interlineal": "de Dios",
    "rango_semantico": [
-    "honra, honor",
-    "precio"
+    "Dios (el único Dios)",
+    "dios, divinidad",
+    "ser divino"
+   ],
+   "construccion": "Sustantivo: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 11,
+   "strong": "G390",
+   "glosa_interlineal": "conducirte",
+   "rango_semantico": [
+    "volver, regresar"
+   ],
+   "construccion": "Infinitivo presente, voz pasiva.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G3748",
+   "glosa_interlineal": "la cual",
+   "rango_semantico": [
+    "que, el cual"
+   ],
+   "construccion": "Pronombre relativo: nominativo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 13,
+   "strong": "G1510",
+   "glosa_interlineal": "es",
+   "rango_semantico": [
+    "ser, existir",
+    "estar",
+    "haber"
+   ],
+   "construccion": "Presente indicativo, voz activa, 3.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 14,
+   "strong": "G1577",
+   "glosa_interlineal": "iglesia",
+   "rango_semantico": [
+    "asamblea, iglesia"
    ],
    "construccion": "Sustantivo: nominativo singular femenino.",
    "sentido_en_contexto": null,
@@ -162,7 +225,55 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 11,
+   "pos_tisch": 15,
+   "strong": "G2316",
+   "glosa_interlineal": "del Dios",
+   "rango_semantico": [
+    "Dios (el único Dios)",
+    "dios, divinidad",
+    "ser divino"
+   ],
+   "construccion": "Sustantivo: genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 16,
+   "strong": "G2198",
+   "glosa_interlineal": "vivo",
+   "rango_semantico": [
+    "vivir",
+    "estar vivo"
+   ],
+   "construccion": "Participio presente, voz activa, genitivo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 17,
+   "strong": "G4769",
+   "glosa_interlineal": "columna",
+   "rango_semantico": [
+    "columna, pilar"
+   ],
+   "construccion": "Sustantivo: nominativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 18,
    "strong": "G2532",
    "glosa_interlineal": "y",
    "rango_semantico": [
@@ -179,15 +290,13 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 12,
-   "strong": "G1391",
-   "glosa_interlineal": "gloria",
+   "pos_tisch": 19,
+   "strong": "G1477",
+   "glosa_interlineal": "fundamento",
    "rango_semantico": [
-    "gloria, esplendor",
-    "honor, fama",
-    "brillo"
+    "base, soporte"
    ],
-   "construccion": "Sustantivo: nominativo singular femenino.",
+   "construccion": "Sustantivo: nominativo singular neutro.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -196,31 +305,13 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 13,
-   "strong": "G1519",
-   "glosa_interlineal": "por",
-   "rango_semantico": [
-    "a, hacia (movimiento)",
-    "en, dentro de",
-    "para, con el fin de",
-    "como"
-   ],
-   "construccion": "Preposición con acusativo.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 14,
+   "pos_tisch": 20,
    "strong": "G3588",
    "glosa_interlineal": "el",
    "rango_semantico": [
     "el, la, lo (artículo definido)"
    ],
-   "construccion": "Artículo: acusativo plural masculino.",
+   "construccion": "Artículo: genitivo singular femenino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -229,64 +320,15 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 15,
-   "strong": "G165",
-   "glosa_interlineal": "siglos",
+   "pos_tisch": 21,
+   "strong": "G225",
+   "glosa_interlineal": "de verdad",
    "rango_semantico": [
-    "edad, era",
-    "mundo, este mundo",
-    "eternidad"
+    "verdad",
+    "realidad",
+    "fidelidad"
    ],
-   "construccion": "Sustantivo: acusativo plural masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 16,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
-   "rango_semantico": [
-    "el, la, lo (artículo definido)"
-   ],
-   "construccion": "Artículo: genitivo plural masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 17,
-   "strong": "G165",
-   "glosa_interlineal": "los siglos",
-   "rango_semantico": [
-    "edad, era",
-    "mundo, este mundo",
-    "eternidad"
-   ],
-   "construccion": "Sustantivo: genitivo plural masculino.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 18,
-   "strong": "G281",
-   "glosa_interlineal": "amén",
-   "rango_semantico": [
-    "amén, de cierto",
-    "así sea",
-    "en verdad"
-   ],
-   "construccion": "Interjección.",
+   "construccion": "Sustantivo: genitivo singular femenino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,

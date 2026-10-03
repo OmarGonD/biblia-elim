@@ -1,18 +1,19 @@
 {
- "ref": "1Tim.1.8",
+ "ref": "1Tim.2.5",
  "modelo": "manual-claude-sonnet-5-5",
  "prompt_hash": "a63f498c6441",
- "generado": "2026-10-03T09:42:22-0500",
+ "generado": "2026-10-03T09:44:03-0500",
  "fichas": [
   {
    "pos_tisch": 1,
-   "strong": "G1492",
-   "glosa_interlineal": "sabemos",
+   "strong": "G1520",
+   "glosa_interlineal": "uno",
    "rango_semantico": [
-    "saber, conocer",
-    "entender"
+    "uno",
+    "uno solo",
+    "primero"
    ],
-   "construccion": "Perfecto indicativo, voz activa, 1.ª persona plural.",
+   "construccion": "Adjetivo: nominativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -22,13 +23,13 @@
   },
   {
    "pos_tisch": 2,
-   "strong": "G1161",
-   "glosa_interlineal": "pero / y",
+   "strong": "G1063",
+   "glosa_interlineal": "porque",
    "rango_semantico": [
-    "pero, y",
-    "por otra parte"
+    "porque, pues",
+    "en efecto"
    ],
-   "construccion": "Conjunción postpositiva.",
+   "construccion": "Conjunción postpositiva causal o explicativa.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -38,14 +39,14 @@
   },
   {
    "pos_tisch": 3,
-   "strong": "G3754",
-   "glosa_interlineal": "que",
+   "strong": "G2316",
+   "glosa_interlineal": "Dios",
    "rango_semantico": [
-    "que (contenido)",
-    "porque",
-    "puesto que"
+    "Dios (el único Dios)",
+    "dios, divinidad",
+    "ser divino"
    ],
-   "construccion": "Conjunción.",
+   "construccion": "Sustantivo: nominativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -55,11 +56,12 @@
   },
   {
    "pos_tisch": 4,
-   "strong": "G2570",
-   "glosa_interlineal": "bueno",
+   "strong": "G1520",
+   "glosa_interlineal": "uno",
    "rango_semantico": [
-    "bello, bueno",
-    "hermoso, noble"
+    "uno",
+    "uno solo",
+    "primero"
    ],
    "construccion": "Adjetivo: nominativo singular masculino.",
    "sentido_en_contexto": null,
@@ -71,12 +73,14 @@
   },
   {
    "pos_tisch": 5,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
+   "strong": "G2532",
+   "glosa_interlineal": "y",
    "rango_semantico": [
-    "el, la, lo (artículo definido)"
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
    ],
-   "construccion": "Artículo: nominativo singular masculino.",
+   "construccion": "Conjunción coordinante.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -86,12 +90,10 @@
   },
   {
    "pos_tisch": 6,
-   "strong": "G3551",
-   "glosa_interlineal": "ley",
+   "strong": "G3316",
+   "glosa_interlineal": "mediador",
    "rango_semantico": [
-    "ley",
-    "norma",
-    "la Escritura (la Torá)"
+    "mediador"
    ],
    "construccion": "Sustantivo: nominativo singular masculino.",
    "sentido_en_contexto": null,
@@ -103,13 +105,14 @@
   },
   {
    "pos_tisch": 7,
-   "strong": "G1437",
-   "glosa_interlineal": "si",
+   "strong": "G2316",
+   "glosa_interlineal": "de Dios",
    "rango_semantico": [
-    "si (con subjuntivo)",
-    "a menos que"
+    "Dios (el único Dios)",
+    "dios, divinidad",
+    "ser divino"
    ],
-   "construccion": "Partícula condicional.",
+   "construccion": "Sustantivo: genitivo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -119,14 +122,14 @@
   },
   {
    "pos_tisch": 8,
-   "strong": "G5100",
-   "glosa_interlineal": "alguien",
+   "strong": "G2532",
+   "glosa_interlineal": "y",
    "rango_semantico": [
-    "alguno, algo",
-    "cierto, un",
-    "cualquiera"
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
    ],
-   "construccion": "Pronombre indefinido: nominativo singular masculino.",
+   "construccion": "Conjunción coordinante.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -136,14 +139,14 @@
   },
   {
    "pos_tisch": 9,
-   "strong": "G846",
-   "glosa_interlineal": "le",
+   "strong": "G444",
+   "glosa_interlineal": "de los hombres",
    "rango_semantico": [
-    "él, ella, ello",
-    "mismo (con artículo)",
-    "ese"
+    "hombre, persona",
+    "ser humano",
+    "marido (rara vez)"
    ],
-   "construccion": "Pronombre personal: dativo singular masculino.",
+   "construccion": "Sustantivo: genitivo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -153,12 +156,14 @@
   },
   {
    "pos_tisch": 10,
-   "strong": "G3545",
-   "glosa_interlineal": "legítimamente",
+   "strong": "G444",
+   "glosa_interlineal": "hombre",
    "rango_semantico": [
-    "según la ley, legítimamente"
+    "hombre, persona",
+    "ser humano",
+    "marido (rara vez)"
    ],
-   "construccion": "Adverbio.",
+   "construccion": "Sustantivo: nominativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -168,12 +173,27 @@
   },
   {
    "pos_tisch": 11,
-   "strong": "G5530",
-   "glosa_interlineal": "se usa",
+   "strong": "G5547",
+   "glosa_interlineal": "Cristo",
    "rango_semantico": [
-    "usar, aprovechar"
+    "Cristo, Mesías, Ungido"
    ],
-   "construccion": "Presente subjuntivo, voz media o pasiva (deponente), 3.ª persona singular.",
+   "construccion": "Sustantivo: nominativo singular masculino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 12,
+   "strong": "G2424",
+   "glosa_interlineal": "Jesús",
+   "rango_semantico": [
+    "Jesús (forma griega del hebreo Yehoshúa, «Yahvé salva»)"
+   ],
+   "construccion": "Sustantivo: nominativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,

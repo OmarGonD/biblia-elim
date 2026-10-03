@@ -1,18 +1,18 @@
 {
- "ref": "1Tim.1.8",
+ "ref": "1Tim.2.4",
  "modelo": "manual-claude-sonnet-5-5",
  "prompt_hash": "a63f498c6441",
- "generado": "2026-10-03T09:42:22-0500",
+ "generado": "2026-10-03T09:44:03-0500",
  "fichas": [
   {
    "pos_tisch": 1,
-   "strong": "G1492",
-   "glosa_interlineal": "sabemos",
+   "strong": "G3739",
+   "glosa_interlineal": "el cual",
    "rango_semantico": [
-    "saber, conocer",
-    "entender"
+    "que, el que, lo que",
+    "quien"
    ],
-   "construccion": "Perfecto indicativo, voz activa, 1.ª persona plural.",
+   "construccion": "Pronombre relativo: nominativo singular masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -22,13 +22,14 @@
   },
   {
    "pos_tisch": 2,
-   "strong": "G1161",
-   "glosa_interlineal": "pero / y",
+   "strong": "G3956",
+   "glosa_interlineal": "a todos",
    "rango_semantico": [
-    "pero, y",
-    "por otra parte"
+    "todo, cada",
+    "todos",
+    "cualquier"
    ],
-   "construccion": "Conjunción postpositiva.",
+   "construccion": "Adjetivo: acusativo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -38,14 +39,14 @@
   },
   {
    "pos_tisch": 3,
-   "strong": "G3754",
-   "glosa_interlineal": "que",
+   "strong": "G444",
+   "glosa_interlineal": "a la gente",
    "rango_semantico": [
-    "que (contenido)",
-    "porque",
-    "puesto que"
+    "hombre, persona",
+    "ser humano",
+    "marido (rara vez)"
    ],
-   "construccion": "Conjunción.",
+   "construccion": "Sustantivo: acusativo plural masculino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -55,13 +56,14 @@
   },
   {
    "pos_tisch": 4,
-   "strong": "G2570",
-   "glosa_interlineal": "bueno",
+   "strong": "G2309",
+   "glosa_interlineal": "quiere",
    "rango_semantico": [
-    "bello, bueno",
-    "hermoso, noble"
+    "querer, desear",
+    "decidir",
+    "tener intención"
    ],
-   "construccion": "Adjetivo: nominativo singular masculino.",
+   "construccion": "Presente indicativo, voz activa, 3.ª persona singular.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -71,12 +73,12 @@
   },
   {
    "pos_tisch": 5,
-   "strong": "G3588",
-   "glosa_interlineal": "el",
+   "strong": "G4982",
+   "glosa_interlineal": "que sean salvos",
    "rango_semantico": [
-    "el, la, lo (artículo definido)"
+    "salvar, rescatar"
    ],
-   "construccion": "Artículo: nominativo singular masculino.",
+   "construccion": "Infinitivo aoristo, voz pasiva.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -86,14 +88,14 @@
   },
   {
    "pos_tisch": 6,
-   "strong": "G3551",
-   "glosa_interlineal": "ley",
+   "strong": "G2532",
+   "glosa_interlineal": "y",
    "rango_semantico": [
-    "ley",
-    "norma",
-    "la Escritura (la Torá)"
+    "y",
+    "también, incluso",
+    "pero (con matiz adversativo)"
    ],
-   "construccion": "Sustantivo: nominativo singular masculino.",
+   "construccion": "Conjunción coordinante.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -103,13 +105,15 @@
   },
   {
    "pos_tisch": 7,
-   "strong": "G1437",
-   "glosa_interlineal": "si",
+   "strong": "G1519",
+   "glosa_interlineal": "a",
    "rango_semantico": [
-    "si (con subjuntivo)",
-    "a menos que"
+    "a, hacia (movimiento)",
+    "en, dentro de",
+    "para, con el fin de",
+    "como"
    ],
-   "construccion": "Partícula condicional.",
+   "construccion": "Preposición con acusativo.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -119,14 +123,12 @@
   },
   {
    "pos_tisch": 8,
-   "strong": "G5100",
-   "glosa_interlineal": "alguien",
+   "strong": "G1922",
+   "glosa_interlineal": "pleno conocimiento",
    "rango_semantico": [
-    "alguno, algo",
-    "cierto, un",
-    "cualquiera"
+    "conocimiento, reconocimiento pleno"
    ],
-   "construccion": "Pronombre indefinido: nominativo singular masculino.",
+   "construccion": "Sustantivo: acusativo singular femenino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -136,14 +138,14 @@
   },
   {
    "pos_tisch": 9,
-   "strong": "G846",
-   "glosa_interlineal": "le",
+   "strong": "G225",
+   "glosa_interlineal": "de verdad",
    "rango_semantico": [
-    "él, ella, ello",
-    "mismo (con artículo)",
-    "ese"
+    "verdad",
+    "realidad",
+    "fidelidad"
    ],
-   "construccion": "Pronombre personal: dativo singular masculino.",
+   "construccion": "Sustantivo: genitivo singular femenino.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -153,27 +155,14 @@
   },
   {
    "pos_tisch": 10,
-   "strong": "G3545",
-   "glosa_interlineal": "legítimamente",
+   "strong": "G2064",
+   "glosa_interlineal": "lleguen",
    "rango_semantico": [
-    "según la ley, legítimamente"
+    "venir, ir",
+    "llegar",
+    "aparecer"
    ],
-   "construccion": "Adverbio.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 11,
-   "strong": "G5530",
-   "glosa_interlineal": "se usa",
-   "rango_semantico": [
-    "usar, aprovechar"
-   ],
-   "construccion": "Presente subjuntivo, voz media o pasiva (deponente), 3.ª persona singular.",
+   "construccion": "Infinitivo aoristo (2.º), voz activa.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,

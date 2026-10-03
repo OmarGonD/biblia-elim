@@ -1,65 +1,15 @@
 {
- "ref": "1Tim.1.8",
+ "ref": "1Tim.3.1",
  "modelo": "manual-claude-sonnet-5-5",
  "prompt_hash": "a63f498c6441",
- "generado": "2026-10-03T09:42:22-0500",
+ "generado": "2026-10-03T09:44:03-0500",
  "fichas": [
   {
    "pos_tisch": 1,
-   "strong": "G1492",
-   "glosa_interlineal": "sabemos",
+   "strong": "G4103",
+   "glosa_interlineal": "fiel",
    "rango_semantico": [
-    "saber, conocer",
-    "entender"
-   ],
-   "construccion": "Perfecto indicativo, voz activa, 1.ª persona plural.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 2,
-   "strong": "G1161",
-   "glosa_interlineal": "pero / y",
-   "rango_semantico": [
-    "pero, y",
-    "por otra parte"
-   ],
-   "construccion": "Conjunción postpositiva.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 3,
-   "strong": "G3754",
-   "glosa_interlineal": "que",
-   "rango_semantico": [
-    "que (contenido)",
-    "porque",
-    "puesto que"
-   ],
-   "construccion": "Conjunción.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 4,
-   "strong": "G2570",
-   "glosa_interlineal": "bueno",
-   "rango_semantico": [
-    "bello, bueno",
-    "hermoso, noble"
+    "fiel, digno de confianza"
    ],
    "construccion": "Adjetivo: nominativo singular masculino.",
    "sentido_en_contexto": null,
@@ -70,7 +20,7 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 5,
+   "pos_tisch": 2,
    "strong": "G3588",
    "glosa_interlineal": "el",
    "rango_semantico": [
@@ -85,13 +35,11 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 6,
-   "strong": "G3551",
-   "glosa_interlineal": "ley",
+   "pos_tisch": 3,
+   "strong": "G3056",
+   "glosa_interlineal": "palabra",
    "rango_semantico": [
-    "ley",
-    "norma",
-    "la Escritura (la Torá)"
+    "palabra, dicho"
    ],
    "construccion": "Sustantivo: nominativo singular masculino.",
    "sentido_en_contexto": null,
@@ -102,12 +50,13 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 7,
-   "strong": "G1437",
+   "pos_tisch": 4,
+   "strong": "G1487",
    "glosa_interlineal": "si",
    "rango_semantico": [
-    "si (con subjuntivo)",
-    "a menos que"
+    "si (condicional)",
+    "a no ser, salvo",
+    "que (en preguntas)"
    ],
    "construccion": "Partícula condicional.",
    "sentido_en_contexto": null,
@@ -118,7 +67,7 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 8,
+   "pos_tisch": 5,
    "strong": "G5100",
    "glosa_interlineal": "alguien",
    "rango_semantico": [
@@ -135,15 +84,59 @@
    "nivel_certeza": "alto"
   },
   {
-   "pos_tisch": 9,
-   "strong": "G846",
-   "glosa_interlineal": "le",
+   "pos_tisch": 6,
+   "strong": "G1984",
+   "glosa_interlineal": "visitación",
    "rango_semantico": [
-    "él, ella, ello",
-    "mismo (con artículo)",
-    "ese"
+    "visita, intervención (de Dios para salvar o para juzgar)"
    ],
-   "construccion": "Pronombre personal: dativo singular masculino.",
+   "construccion": "Sustantivo: genitivo singular femenino.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 7,
+   "strong": "G3713",
+   "glosa_interlineal": "aspira",
+   "rango_semantico": [
+    "alcanzar, anhelar"
+   ],
+   "construccion": "Presente indicativo, voz media, 3.ª persona singular.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 8,
+   "strong": "G2570",
+   "glosa_interlineal": "buena",
+   "rango_semantico": [
+    "bello, bueno",
+    "hermoso, noble"
+   ],
+   "construccion": "Adjetivo: genitivo singular neutro.",
+   "sentido_en_contexto": null,
+   "matiz": null,
+   "variantes_textuales": null,
+   "notas_traduccion": null,
+   "otros_usos": null,
+   "nivel_certeza": "alto"
+  },
+  {
+   "pos_tisch": 9,
+   "strong": "G2041",
+   "glosa_interlineal": "obra",
+   "rango_semantico": [
+    "obra, acción"
+   ],
+   "construccion": "Sustantivo: genitivo singular neutro.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
@@ -153,27 +146,14 @@
   },
   {
    "pos_tisch": 10,
-   "strong": "G3545",
-   "glosa_interlineal": "legítimamente",
+   "strong": "G1937",
+   "glosa_interlineal": "desea",
    "rango_semantico": [
-    "según la ley, legítimamente"
+    "desear con intensidad",
+    "codiciar",
+    "anhelar"
    ],
-   "construccion": "Adverbio.",
-   "sentido_en_contexto": null,
-   "matiz": null,
-   "variantes_textuales": null,
-   "notas_traduccion": null,
-   "otros_usos": null,
-   "nivel_certeza": "alto"
-  },
-  {
-   "pos_tisch": 11,
-   "strong": "G5530",
-   "glosa_interlineal": "se usa",
-   "rango_semantico": [
-    "usar, aprovechar"
-   ],
-   "construccion": "Presente subjuntivo, voz media o pasiva (deponente), 3.ª persona singular.",
+   "construccion": "Presente indicativo, voz activa, 3.ª persona singular.",
    "sentido_en_contexto": null,
    "matiz": null,
    "variantes_textuales": null,
