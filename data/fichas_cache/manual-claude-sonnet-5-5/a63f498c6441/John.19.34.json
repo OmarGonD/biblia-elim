@@ -60,12 +60,16 @@
    "rango_semantico": [
     "soldado"
    ],
-   "construccion": "Sustantivo: genitivo plural masculino.",
-   "sentido_en_contexto": null,
+   "construccion": "Sustantivo: genitivo plural masculino (genitivo partitivo con «uno»: «uno de los soldados»).",
+   "sentido_en_contexto": "«Uno de los soldados» traspasa el costado de Jesús con una lanza y de la herida salen sangre y agua, hecho que el evangelista afirma haber visto (v.35). El texto no nombra al soldado; el nombre «Longinos» es tradición posterior.",
    "matiz": null,
    "variantes_textuales": null,
    "notas_traduccion": null,
-   "otros_usos": null,
+   "otros_usos": [
+    "Mt 8:9",
+    "Hch 10:7",
+    "2 Ti 2:3"
+   ],
    "nivel_certeza": "alto"
   },
   {

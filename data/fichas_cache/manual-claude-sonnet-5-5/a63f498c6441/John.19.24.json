@@ -522,11 +522,15 @@
     "soldado"
    ],
    "construccion": "Sustantivo: nominativo plural masculino.",
-   "sentido_en_contexto": null,
+   "sentido_en_contexto": "Los mismos soldados, que sortean la túnica en vez de rasgarla; Juan ve en ello el cumplimiento de Sal 22:18. El «μὲν οὖν» los contrapone a las mujeres junto a la cruz, que se presentan en el v.25.",
    "matiz": null,
    "variantes_textuales": null,
    "notas_traduccion": null,
-   "otros_usos": null,
+   "otros_usos": [
+    "Mt 28:12",
+    "Lc 3:14",
+    "Hch 10:7"
+   ],
    "nivel_certeza": "alto"
   },
   {

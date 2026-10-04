@@ -60,11 +60,15 @@
     "soldado"
    ],
    "construccion": "Sustantivo: nominativo plural masculino.",
-   "sentido_en_contexto": null,
+   "sentido_en_contexto": "Los soldados que cumplen la orden de Pilato (v.31) de acelerar la muerte de los crucificados quebrándoles las piernas. Se las rompen a los otros dos, pero no a Jesús, que ya había muerto (v.33); Juan lo lee como cumplimiento de la Escritura (v.36).",
    "matiz": null,
    "variantes_textuales": null,
    "notas_traduccion": null,
-   "otros_usos": null,
+   "otros_usos": [
+    "Hch 12:6",
+    "Hch 27:31",
+    "Hch 27:42"
+   ],
    "nivel_certeza": "alto"
   },
   {

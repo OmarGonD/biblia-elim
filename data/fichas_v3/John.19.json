@@ -456,11 +456,15 @@
    "soldado"
   ],
   "construccion": "Sustantivo: nominativo plural masculino.",
-  "sentido_en_contexto": null,
+  "sentido_en_contexto": "Soldados romanos al servicio de Pilato que, tras la flagelación, trenzan una corona de espinas y visten a Jesús con un manto de púrpura para burlarse de él como «rey». Son el sujeto colectivo de «pusieron» y «echaron» (v.2).",
   "matiz": null,
   "variantes_textuales": null,
   "notas_traduccion": null,
-  "otros_usos": null,
+  "otros_usos": [
+   "Mt 27:27",
+   "Mr 15:16",
+   "Lc 23:36"
+  ],
   "nivel_certeza": "alto",
   "alineacion": "forma",
   "tagnt": "John.19.2#03",
@@ -16579,11 +16583,15 @@
    "soldado"
   ],
   "construccion": "Sustantivo: nominativo plural masculino.",
-  "sentido_en_contexto": null,
+  "sentido_en_contexto": "Los soldados que ejecutaron la crucifixión y, como era costumbre con las pertenencias del reo, se reparten sus ropas: cuatro partes, una para cada uno, y echan suertes por la túnica (v.23-24).",
   "matiz": null,
   "variantes_textuales": null,
   "notas_traduccion": null,
-  "otros_usos": null,
+  "otros_usos": [
+   "Hch 12:4",
+   "Hch 21:32",
+   "2 Ti 2:3"
+  ],
   "nivel_certeza": "alto",
   "alineacion": "forma",
   "tagnt": "John.19.23#03",
@@ -17143,12 +17151,16 @@
   "rango_semantico": [
    "soldado"
   ],
-  "construccion": "Sustantivo: dativo singular masculino.",
-  "sentido_en_contexto": null,
+  "construccion": "Sustantivo: dativo singular masculino (dativo de interés: «para cada soldado»).",
+  "sentido_en_contexto": "Dativo con «a cada uno» (ἑκάστῳ): «una parte para cada soldado». El texto no da el número de soldados; las cuatro partes sugieren un grupo de cuatro, como el piquete de Hch 12:4.",
   "matiz": null,
   "variantes_textuales": null,
   "notas_traduccion": null,
-  "otros_usos": null,
+  "otros_usos": [
+   "Hch 12:4",
+   "Hch 23:23",
+   "2 Ti 2:3"
+  ],
   "nivel_certeza": "alto",
   "alineacion": "forma",
   "tagnt": "John.19.23#17",
@@ -19110,11 +19122,15 @@
    "soldado"
   ],
   "construccion": "Sustantivo: nominativo plural masculino.",
-  "sentido_en_contexto": null,
+  "sentido_en_contexto": "Los mismos soldados, que sortean la túnica en vez de rasgarla; Juan ve en ello el cumplimiento de Sal 22:18. El «μὲν οὖν» los contrapone a las mujeres junto a la cruz, que se presentan en el v.25.",
   "matiz": null,
   "variantes_textuales": null,
   "notas_traduccion": null,
-  "otros_usos": null,
+  "otros_usos": [
+   "Mt 28:12",
+   "Lc 3:14",
+   "Hch 10:7"
+  ],
   "nivel_certeza": "alto",
   "alineacion": "forma",
   "tagnt": "John.19.24#35",
@@ -25142,11 +25158,15 @@
    "soldado"
   ],
   "construccion": "Sustantivo: nominativo plural masculino.",
-  "sentido_en_contexto": null,
+  "sentido_en_contexto": "Los soldados que cumplen la orden de Pilato (v.31) de acelerar la muerte de los crucificados quebrándoles las piernas. Se las rompen a los otros dos, pero no a Jesús, que ya había muerto (v.33); Juan lo lee como cumplimiento de la Escritura (v.36).",
   "matiz": null,
   "variantes_textuales": null,
   "notas_traduccion": null,
-  "otros_usos": null,
+  "otros_usos": [
+   "Hch 12:6",
+   "Hch 27:31",
+   "Hch 27:42"
+  ],
   "nivel_certeza": "alto",
   "alineacion": "forma",
   "tagnt": "John.19.32#04",
@@ -26462,12 +26482,16 @@
   "rango_semantico": [
    "soldado"
   ],
-  "construccion": "Sustantivo: genitivo plural masculino.",
-  "sentido_en_contexto": null,
+  "construccion": "Sustantivo: genitivo plural masculino (genitivo partitivo con «uno»: «uno de los soldados»).",
+  "sentido_en_contexto": "«Uno de los soldados» traspasa el costado de Jesús con una lanza y de la herida salen sangre y agua, hecho que el evangelista afirma haber visto (v.35). El texto no nombra al soldado; el nombre «Longinos» es tradición posterior.",
   "matiz": null,
   "variantes_textuales": null,
   "notas_traduccion": null,
-  "otros_usos": null,
+  "otros_usos": [
+   "Mt 8:9",
+   "Hch 10:7",
+   "2 Ti 2:3"
+  ],
   "nivel_certeza": "alto",
   "alineacion": "forma",
   "tagnt": "John.19.34#04",

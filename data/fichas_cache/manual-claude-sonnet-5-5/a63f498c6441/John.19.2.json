@@ -44,11 +44,15 @@
     "soldado"
    ],
    "construccion": "Sustantivo: nominativo plural masculino.",
-   "sentido_en_contexto": null,
+   "sentido_en_contexto": "Soldados romanos al servicio de Pilato que, tras la flagelación, trenzan una corona de espinas y visten a Jesús con un manto de púrpura para burlarse de él como «rey». Son el sujeto colectivo de «pusieron» y «echaron» (v.2).",
    "matiz": null,
    "variantes_textuales": null,
    "notas_traduccion": null,
-   "otros_usos": null,
+   "otros_usos": [
+    "Mt 27:27",
+    "Mr 15:16",
+    "Lc 23:36"
+   ],
    "nivel_certeza": "alto"
   },
   {

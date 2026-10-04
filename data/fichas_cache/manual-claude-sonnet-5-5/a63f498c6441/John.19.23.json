@@ -43,11 +43,15 @@
     "soldado"
    ],
    "construccion": "Sustantivo: nominativo plural masculino.",
-   "sentido_en_contexto": null,
+   "sentido_en_contexto": "Los soldados que ejecutaron la crucifixión y, como era costumbre con las pertenencias del reo, se reparten sus ropas: cuatro partes, una para cada uno, y echan suertes por la túnica (v.23-24).",
    "matiz": null,
    "variantes_textuales": null,
    "notas_traduccion": null,
-   "otros_usos": null,
+   "otros_usos": [
+    "Hch 12:4",
+    "Hch 21:32",
+    "2 Ti 2:3"
+   ],
    "nivel_certeza": "alto"
   },
   {
@@ -257,12 +261,16 @@
    "rango_semantico": [
     "soldado"
    ],
-   "construccion": "Sustantivo: dativo singular masculino.",
-   "sentido_en_contexto": null,
+   "construccion": "Sustantivo: dativo singular masculino (dativo de interés: «para cada soldado»).",
+   "sentido_en_contexto": "Dativo con «a cada uno» (ἑκάστῳ): «una parte para cada soldado». El texto no da el número de soldados; las cuatro partes sugieren un grupo de cuatro, como el piquete de Hch 12:4.",
    "matiz": null,
    "variantes_textuales": null,
    "notas_traduccion": null,
-   "otros_usos": null,
+   "otros_usos": [
+    "Hch 12:4",
+    "Hch 23:23",
+    "2 Ti 2:3"
+   ],
    "nivel_certeza": "alto"
   },
   {
