@@ -76,6 +76,30 @@ prueba_ficha_completa(void)
 	g_free(ruta);
 }
 
+/* Misma ficha en texto plano: una línea por campo, listas con «; », sin escapar y sin citas. */
+static void
+prueba_ficha_en_texto_plano(void)
+{
+	gchar *ruta = base("interl_enriq_txt.sqlite", COMPLETA, 1);
+	gchar *t;
+
+	g_assert_cmpint(main_interl_enriq_cargar(ruta), ==, 1);
+	t = main_interl_enriq_texto("John.1.2", 5, "G4314");
+	g_assert_nonnull(t);
+	g_assert_nonnull(g_strstr_len(t, -1, "Construcción: πρός + acusativo\n"));
+	g_assert_nonnull(g_strstr_len(t, -1, "Cercanía <y> relación."));
+	g_assert_nonnull(g_strstr_len(t, -1, "Significados en el Nuevo Testamento: hacia; con, junto a"));
+	g_assert_nonnull(g_strstr_len(t, -1, "Otros usos: Jn 14:6"));
+	g_assert_null(g_strstr_len(t, -1, "Torres Amat"));
+	g_assert_null(g_strstr_len(t, -1, "Matiz"));
+	g_free(t);
+	g_assert_null(main_interl_enriq_texto("John.1.2", 5, "G1"));
+	g_assert_null(main_interl_enriq_texto(NULL, 5, "G4314"));
+	main_interl_enriq_liberar();
+	g_remove(ruta);
+	g_free(ruta);
+}
+
 /* Palabra frecuente: solo construcción y rango; el resto, nada. */
 static void
 prueba_ficha_minima(void)
@@ -222,6 +246,7 @@ main(int argc, char *argv[])
 {
 	g_test_init(&argc, &argv, NULL);
 	g_test_add_func("/interl-enriq/completa", prueba_ficha_completa);
+	g_test_add_func("/interl-enriq/texto-plano", prueba_ficha_en_texto_plano);
 	g_test_add_func("/interl-enriq/minima", prueba_ficha_minima);
 	g_test_add_func("/interl-enriq/invalidas", prueba_sin_ficha_y_entradas_invalidas);
 	g_test_add_func("/interl-enriq/archivo-malo", prueba_archivo_malo_no_cierra_lo_abierto);

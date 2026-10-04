@@ -274,7 +274,7 @@ ref_tisch_de(const char *key)
 
 /* La ficha enriquecida es de la palabra en su pasaje (versículo de Tisch + posición), no del número. */
 static gchar *
-ficha_enriquecida(const char *strong, const char *key, int pos)
+ficha_enriquecida(const char *strong, const char *key, int pos, gboolean texto_plano)
 {
 	gchar *ref, *html;
 
@@ -285,7 +285,8 @@ ficha_enriquecida(const char *strong, const char *key, int pos)
 	ref = ref_tisch_de(key);
 	if (!ref)
 		return NULL;
-	html = main_interl_enriq_html(ref, pos, strong);
+	html = texto_plano ? main_interl_enriq_texto(ref, pos, strong)
+			   : main_interl_enriq_html(ref, pos, strong);
 	g_free(ref);
 	return html;
 }
@@ -348,7 +349,7 @@ gui_interlineal_ficha_ctx(const char *strong, const char *morph,
 		g_free(m_cod);
 	}
 	{
-		gchar *enr = ficha_enriquecida(strong, key, pos);
+		gchar *enr = ficha_enriquecida(strong, key, pos, FALSE);
 
 		if (enr)
 			g_string_append(body, enr);
@@ -843,7 +844,18 @@ il_row_widget(InterlFila *f, gboolean reverse, const char *key)
 	GtkWidget *content = gtk_box_new(GTK_ORIENTATION_VERTICAL, 6);
 	gchar *cita = main_interlineal_cita_es(key);
 	gchar *text = main_interlineal_ficha_texto(f, cita);
-	GtkWidget *label = gtk_label_new(text);
+	gchar *enr = ficha_enriquecida(f->strong, key, f->pos, TRUE);
+	if (enr) {
+		gchar *s = g_strdup_printf("%s\n\n%s", shown, enr);
+		gchar *c = g_strdup_printf("%s\n\n%s", text, enr);
+
+		g_free(shown);
+		g_free(text);
+		shown = s;
+		text = c;
+	}
+	g_free(enr);
+	GtkWidget *label = gtk_label_new(shown);
 	GtkWidget *copy = il_copy_button(_("Copiar ficha"), text);
 	g_free(cita);
 	g_free(text);
@@ -859,10 +871,13 @@ il_row_widget(InterlFila *f, gboolean reverse, const char *key)
 			il_copy_button(_("Copiar hebreo original"), f->forma));
 		if (strcmp(sin_signos, f->forma))
 			gtk_box_append(GTK_BOX(content),
+	/* El pasaje ya lo da el selector: va solo en lo que se copia. */
+	gchar *shown = main_interlineal_ficha_texto(f, NULL);
 				il_copy_button(_("Copiar hebreo sin signos"), sin_signos));
 		g_free(sin_signos);
 	}
 	gtk_expander_set_child(GTK_EXPANDER(detail), content);
+	g_free(shown);
 	gtk_box_append(GTK_BOX(item), row);
 	gtk_box_append(GTK_BOX(item), detail);
 	return item;

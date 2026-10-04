@@ -43,6 +43,11 @@ gint main_interl_enriq_cargar_predeterminada(void);
  * Liberar con g_free. */
 gchar *main_interl_enriq_html(const char *ref_tisch, gint posicion, const char *strong);
 
+/* La misma ficha en texto plano (una línea por campo, sin las citas de las versiones), para la ficha de
+ * estudio de la tabla del interlineal. Mismos criterios de búsqueda que main_interl_enriq_html. NULL si no hay.
+ * Liberar con g_free. */
+gchar *main_interl_enriq_texto(const char *ref_tisch, gint posicion, const char *strong);
+
 #ifdef __cplusplus
 }
 #endif

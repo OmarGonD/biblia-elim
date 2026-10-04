@@ -467,6 +467,26 @@ static bool interlinear_content(const char *module, const char *key, BibleVerseC
     return content.valid;
 }
 
+/* Quita la puntuación pegada a los extremos de una palabra («στρατιῶται,»). Respeta las marcas combinantes
+ * (acentos, vocales hebreas), el apóstrofo de la elisión («δι’») y el maqaf; si solo hay signos, no toca nada. */
+static void trim_edge_punct(gchar *s)
+{
+    const auto edge = [](gunichar c) {
+        return g_unichar_ispunct(c) && c != 0x2019 && c != 0x02BC && c != '\'' && c != 0x05BE;
+    };
+    gchar *start = s;
+    while (*start && edge(g_utf8_get_char(start))) start = g_utf8_next_char(start);
+    gchar *end = start + strlen(start);
+    while (end > start) {
+        gchar *prev = g_utf8_prev_char(end);
+        if (!edge(g_utf8_get_char(prev))) break;
+        end = prev;
+    }
+    if (start == end) return;
+    *end = '\0';
+    memmove(s, start, end - start + 1);
+}
+
 static GList *tokens_from_module(const char *module, const char *key)
 {
     if (!mod_ok(module)) return nullptr;
@@ -488,6 +508,7 @@ static GList *tokens_from_module(const char *module, const char *key)
         InterlTok *token = g_new0(InterlTok, 1);
         token->pos = ++position;    // orden de las palabras del módulo (la ficha además verifica el Strong)
         token->forma = g_strdup(word.text.c_str());
+        trim_edge_punct(token->forma);
         std::string strongs;
         for (const auto &strong : word.strongs) {
             if (!strongs.empty()) strongs += " ";

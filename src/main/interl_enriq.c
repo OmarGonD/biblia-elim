@@ -240,34 +240,51 @@ parrafo(GString *h, const char *clase, const char *titulo, const char *texto)
 	g_free(x);
 }
 
-/* Lista <ul> desde un arreglo JSON de cadenas. */
-static void
-lista(GString *h, const char *clase, const char *titulo, const char *json)
+/* Cadenas no vacías de un arreglo JSON (NULL si no es un arreglo). Liberar con g_ptr_array_free(a, TRUE). */
+static GPtrArray *
+items_json(const char *json)
 {
-	GString *items;
+	GPtrArray *out;
 	JsonParser *p;
 	JsonNode *raiz;
 	JsonArray *a;
 	guint i;
 
 	if (!json || !*json)
-		return;
+		return NULL;
 	p = json_parser_new();
 	if (!json_parser_load_from_data(p, json, -1, NULL) || !(raiz = json_parser_get_root(p)) ||
 	    !JSON_NODE_HOLDS_ARRAY(raiz)) {
 		g_object_unref(p);
-		return;
+		return NULL;
 	}
 	a = json_node_get_array(raiz);
-	items = g_string_new(NULL);
+	out = g_ptr_array_new_with_free_func(g_free);
 	for (i = 0; i < json_array_get_length(a); i++) {
 		JsonNode *n = json_array_get_element(a, i);
 		const char *s = n && json_node_get_value_type(n) == G_TYPE_STRING ? json_node_get_string(n) : NULL;
-		gchar *e;
 
-		if (!s || !*s)
-			continue;
-		e = g_markup_escape_text(s, -1);
+		if (s && *s)
+			g_ptr_array_add(out, g_strdup(s));
+	}
+	g_object_unref(p);
+	return out;
+}
+
+/* Lista <ul> desde un arreglo JSON de cadenas. */
+static void
+lista(GString *h, const char *clase, const char *titulo, const char *json)
+{
+	GPtrArray *a = items_json(json);
+	GString *items;
+	guint i;
+
+	if (!a)
+		return;
+	items = g_string_new(NULL);
+	for (i = 0; i < a->len; i++) {
+		gchar *e = g_markup_escape_text(g_ptr_array_index(a, i), -1);
+
 		g_string_append_printf(items, "<li>%s</li>", e);
 		g_free(e);
 	}
@@ -278,7 +295,7 @@ lista(GString *h, const char *clase, const char *titulo, const char *json)
 		g_free(t);
 	}
 	g_string_free(items, TRUE);
-	g_object_unref(p);
+	g_ptr_array_free(a, TRUE);
 }
 
 /* Citas de SpaRV y TorresAmat en la numeración estándar. TorresAmat se omite en versículos con restos de OCR. */
@@ -349,4 +366,64 @@ main_interl_enriq_html(const char *ref_tisch, gint posicion, const char *strong)
 		return NULL;
 	}
 	return g_string_free(h, FALSE);
+}
+
+/* «Título: texto» en una línea; no hace nada sin texto. */
+static void
+linea_texto(GString *s, const char *titulo, const char *texto)
+{
+	if (!texto || !*texto)
+		return;
+	if (s->len)
+		g_string_append_c(s, '\n');
+	g_string_append_printf(s, "%s %s", titulo, texto);
+}
+
+/* «Título: a; b; c» desde un arreglo JSON de cadenas. */
+static void
+linea_lista(GString *s, const char *titulo, const char *json)
+{
+	GPtrArray *a = items_json(json);
+	GString *j;
+	guint i;
+
+	if (!a)
+		return;
+	j = g_string_new(NULL);
+	for (i = 0; i < a->len; i++)
+		g_string_append_printf(j, "%s%s", i ? "; " : "", (const char *)g_ptr_array_index(a, i));
+	linea_texto(s, titulo, j->str);
+	g_string_free(j, TRUE);
+	g_ptr_array_free(a, TRUE);
+}
+
+gchar *
+main_interl_enriq_texto(const char *ref_tisch, gint posicion, const char *strong)
+{
+	const Ficha *f;
+	GString *s;
+
+	if (!ref_tisch || !*ref_tisch || !strong || !*strong)
+		return NULL;
+	if (!db && !intentado)
+		main_interl_enriq_cargar_predeterminada();
+	if (!db)
+		return NULL;
+	f = buscar(fichas_del_verso(ref_tisch), posicion, strong);
+	if (!f)
+		return NULL;
+	s = g_string_new(NULL);
+	linea_texto(s, _("En este versículo:"), f->sentido);
+	linea_texto(s, _("Construcción:"), f->construccion);
+	linea_texto(s, _("Matiz:"), f->matiz);
+	linea_texto(s, _("Variantes textuales:"), f->variantes);
+	linea_lista(s, _("Significados en el Nuevo Testamento:"), f->rango);
+	linea_texto(s, _("Sobre las diferencias:"), f->notas);
+	linea_lista(s, _("Otros usos:"), f->otros);
+	linea_texto(s, _("Certeza:"), f->certeza);
+	if (!s->len) {
+		g_string_free(s, TRUE);
+		return NULL;
+	}
+	return g_string_free(s, FALSE);
 }

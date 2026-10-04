@@ -239,6 +239,13 @@ int main()
     verse.words.push_back(word);
     std::vector<SqliteImportVerse> verses = {verse};
     verse.reference.verse = 17; verses.push_back(verse);
+    // La puntuación pegada a la palabra («θεός,») no forma parte de la forma que se muestra.
+    SqliteImportVerse punctuated; punctuated.reference = {2,43,3,18}; punctuated.text = "θεός, δι’";
+    BibleWordInfo comma = word; comma.text = "θεός,"; comma.length = comma.text.size();
+    BibleWordInfo elided = word; elided.start = 10; elided.text = "δι’"; elided.length = elided.text.size();
+    elided.strong = "G1223"; elided.strongs = {{StrongLanguage::Greek,1223}};
+    punctuated.words = {comma, elided};
+    verses.push_back(punctuated);
     g_assert_true(SqliteModuleWriter().write(metadata,books,verses,root+"/Tisch.sqlite",error));
     metadata.moduleId = "VulgSQLite"; metadata.versification = "vulg";
     SqliteImportVerse psalm; psalm.reference = {1,19,118,176}; psalm.text = "tu ley";
@@ -254,8 +261,13 @@ int main()
     g_assert_cmpstr(token->forma, ==, "θεός");
     g_assert_cmpstr(token->strong, ==, "G2316");
     main_interlineal_tokens_free(tokens);
+    tokens = main_interlineal_versiculo("John 3:18");
+    g_assert_cmpuint(g_list_length(tokens), ==, 2);
+    g_assert_cmpstr(static_cast<InterlTok *>(tokens->data)->forma, ==, "θεός");
+    g_assert_cmpstr(static_cast<InterlTok *>(tokens->next->data)->forma, ==, "δι’");
+    main_interlineal_tokens_free(tokens);
     GList *occurrences = main_interlineal_ocurrencias("G2316", 10);
-    g_assert_cmpuint(g_list_length(occurrences), ==, 2);
+    g_assert_cmpuint(g_list_length(occurrences), ==, 3);
     g_list_free_full(occurrences, g_free);
     gchar *text = main_pulpito_texto("Tisch", "John 3:16-17");
     g_assert_nonnull(text);
