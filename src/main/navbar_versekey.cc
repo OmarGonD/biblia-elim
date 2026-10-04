@@ -107,7 +107,7 @@ void main_navbar_versekey_spin_book(NAVBAR_VERSEKEY navbar, int direction)
 		navbar.module_name->str, info.key, testament,
 		testament == 2 ? target - old_testament : target).c_str());
 	gtk_editable_set_text(GTK_EDITABLE(navbar.lookup_entry), tmpkey);
-	gtk_widget_activate(navbar.lookup_entry);
+	g_signal_emit_by_name(navbar.lookup_entry, "activate");
 	g_free(tmpkey);
 }
 
@@ -146,7 +146,7 @@ void main_navbar_versekey_spin_chapter(NAVBAR_VERSEKEY navbar, int direction)
 	tmpkey = g_strdup(main_backend_for(navbar.module_name->str).setChapter(
 		navbar.module_name->str, info.key, chapter).c_str());
 	gtk_editable_set_text(GTK_EDITABLE(navbar.lookup_entry), tmpkey);
-	gtk_widget_activate(navbar.lookup_entry);
+	g_signal_emit_by_name(navbar.lookup_entry, "activate");
 	g_free(tmpkey);
 }
 
@@ -197,7 +197,7 @@ void main_navbar_versekey_spin_verse(NAVBAR_VERSEKEY navbar, int direction)
 		gui_navbar_versekey_go_to(navigation.target.c_str());
 	} else {
 		gtk_editable_set_text(GTK_EDITABLE(navbar.lookup_entry), navigation.target.c_str());
-		gtk_widget_activate(navbar.lookup_entry);
+		g_signal_emit_by_name(navbar.lookup_entry, "activate");
 	}
 	panel_load_debug("nav", "NAV_REFERENCE_AFTER", navigation.target.c_str());
 	panel_load_debug("nav", "NAV_HANDLER_EXIT", "accepted=true");
@@ -263,7 +263,7 @@ static void on_nt_book_menu_select(gpointer menuitem, gpointer user_data)
 			name, key, 2, book + 1);
 		if (!selected.empty()) {
 			gtk_editable_set_text(GTK_EDITABLE(entry), selected.c_str());
-			gtk_widget_activate(entry);
+			g_signal_emit_by_name(entry, "activate");
 		}
 	}
 }
@@ -328,7 +328,7 @@ static void on_ot_book_menu_select(gpointer menuitem, gpointer user_data)
 			name, key, 1, book + 1);
 		if (!selected.empty()) {
 			gtk_editable_set_text(GTK_EDITABLE(entry), selected.c_str());
-			gtk_widget_activate(entry);
+			g_signal_emit_by_name(entry, "activate");
 		}
 	}
 }
@@ -391,7 +391,7 @@ static void on_chapter_menu_select(gpointer menuitem, gpointer user_data)
 		std::string selected = main_backend_for(name).setChapter(name, key, chapter);
 		if (!selected.empty()) {
 			gtk_editable_set_text(GTK_EDITABLE(entry), selected.c_str());
-			gtk_widget_activate(entry);
+			g_signal_emit_by_name(entry, "activate");
 		}
 	}
 }
@@ -454,7 +454,7 @@ static void on_verse_menu_select(gpointer menuitem, gpointer user_data)
 		std::string selected = main_backend_for(name).setVerse(name, key, verse);
 		if (!selected.empty()) {
 			gtk_editable_set_text(GTK_EDITABLE(entry), selected.c_str());
-			gtk_widget_activate(entry);
+			g_signal_emit_by_name(entry, "activate");
 		}
 	}
 }
@@ -1334,6 +1334,9 @@ static void bookpicker_add(BOOKPICKER *p, const gchar *name, gint testament,
 	gtk_widget_set_margin_top(label, 2);
 	gtk_widget_set_margin_bottom(label, 2);
 	gtk_list_box_row_set_child(GTK_LIST_BOX_ROW(row), label);
+	/* el teclado es de la entrada: una fila enfocable se queda con el
+	 * foco al seleccionarse y la entrada deja de recibir lo que se teclea */
+	gtk_widget_set_focusable(row, FALSE);
 
 	g_object_set_data_full(G_OBJECT(row), "elim-libro", g_strdup(name),
 			       g_free);
@@ -1372,6 +1375,7 @@ static BOOKPICKER *bookpicker_new(GtkWidget *anchor)
 	gtk_box_append(GTK_BOX(box), p->entry);
 
 	p->list = gtk_list_box_new();
+	gtk_widget_set_focusable(p->list, FALSE);
 	gtk_list_box_set_selection_mode(GTK_LIST_BOX(p->list),
 					GTK_SELECTION_BROWSE);
 	gtk_list_box_set_filter_func(GTK_LIST_BOX(p->list), bookpicker_filter,
@@ -1380,6 +1384,7 @@ static BOOKPICKER *bookpicker_new(GtkWidget *anchor)
 				     p, NULL);
 
 	p->scroll = gtk_scrolled_window_new();
+	gtk_widget_set_focusable(p->scroll, FALSE);
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(p->scroll),
 				       GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
 	gtk_scrolled_window_set_propagate_natural_height(
@@ -1449,6 +1454,9 @@ void main_versekey_popup_book(NAVBAR_VERSEKEY navbar, gint nb_type,
 	current_book = g_strdup(current_info.bookName.c_str());
 
 	p = bookpicker_new(anchor);
+	g_object_set_data(G_OBJECT(p->entry), "elim-picker-kind",
+			  (gpointer)"book");
+	picker_debug_watch(p->entry);
 
 	if (!main_backend_for(navbar.module_name->str).bookNames(navbar.module_name->str, 1).empty()) {
 		std::vector<std::string> books = main_backend_for(navbar.module_name->str).bookNames(

@@ -51,8 +51,17 @@ on_popover_map(GtkWidget *popover, gpointer data)
 	(void)popover;
 	if (!gtk_widget_get_mapped(entry))
 		return;
-	if (!picker_entry_has_focus(entry))
-		gtk_widget_grab_focus(entry);
+	if (!picker_entry_has_focus(entry)) {
+		/* gtk_widget_grab_focus() answers FALSE here and leaves the
+		 * focus where it was (the reading pane) -- the popover opens
+		 * but typing goes nowhere. Setting it on the root works. */
+		GtkRoot *root = gtk_widget_get_root(entry);
+		GtkWidget *text = GTK_WIDGET(
+		    gtk_editable_get_delegate(GTK_EDITABLE(entry)));
+
+		if (!gtk_widget_grab_focus(entry) && root)
+			gtk_root_set_focus(root, text ? text : entry);
+	}
 	if (gtk_entry_get_text_length(GTK_ENTRY(entry)) > 0)
 		gtk_editable_select_region(GTK_EDITABLE(entry), 0, -1);
 }

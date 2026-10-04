@@ -265,7 +265,7 @@ static gint show_parallel(const gchar *svalue, const gchar *stype,
 	if (!strcmp(stype, "verse")) {
 		if (clicked) {
 			gtk_editable_set_text(GTK_EDITABLE(navbar_parallel.lookup_entry), svalue);
-			gtk_widget_activate(navbar_parallel.lookup_entry);
+			g_signal_emit_by_name(navbar_parallel.lookup_entry, "activate");
 		}
 	}
 	return 1;
