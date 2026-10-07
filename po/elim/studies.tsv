@@ -1,0 +1,60 @@
+Guarda el estudio primero para poder organizarlo.	Save the study before organizing it.	Enregistrez l’étude avant de l’organiser.	연구를 정리하려면 먼저 저장하세요.	请先保存研读文档，再进行整理。	Salve o estudo antes de organizá-lo.
+Organizar estudio	Organize study	Organiser l’étude	연구 정리	整理研读文档	Organizar estudo
+Carpeta (por ejemplo: Sermones/2026)	Folder (for example: Sermons/2026)	Dossier (par exemple : Prédications/2026)	폴더 (예: 설교/2026)	文件夹（例如：讲道/2026）	Pasta (por exemplo: Sermões/2026)
+Etiquetas (separadas por comas)	Tags (comma-separated)	Étiquettes (séparées par des virgules)	태그 (쉼표로 구분)	标签（以逗号分隔）	Etiquetas (separadas por vírgulas)
+Marcar como favorito	Mark as favorite	Marquer comme favori	즐겨찾기에 추가	标为收藏	Marcar como favorito
+Guardar organización	Save organization	Enregistrer l’organisation	정리 내용 저장	保存整理结果	Salvar organização
+Biblioteca de estudios	Study library	Bibliothèque d’études	연구 자료실	研读资料库	Biblioteca de estudos
+Tus estudios, carpetas, etiquetas y favoritos.	Your studies, folders, tags and favorites.	Vos études, dossiers, étiquettes et favoris.	내 연구, 폴더, 태그 및 즐겨찾기.	您的研读文档、文件夹、标签和收藏。	Seus estudos, pastas, etiquetas e favoritos.
+<b>Guardar los cambios antes de cerrar?</b>	<b>Save changes before closing?</b>	<b>Enregistrer les modifications avant de fermer ?</b>	<b>닫기 전에 변경 사항을 저장할까요?</b>	<b>关闭前保存更改吗？</b>	<b>Salvar as alterações antes de fechar?</b>
+El estudio <b>%s</b> tiene cambios sin guardar. Si cierras ahora, se perderán.	The study <b>%s</b> has unsaved changes. Closing now will lose them.	L’étude <b>%s</b> contient des modifications non enregistrées. Elles seront perdues si vous fermez maintenant.	연구 <b>%s</b>에 저장되지 않은 변경 사항이 있습니다. 지금 닫으면 사라집니다.	研读文档 <b>%s</b> 有未保存的更改。现在关闭将丢失这些更改。	O estudo <b>%s</b> tem alterações não salvas. Se fechar agora, elas serão perdidas.
+Fecha	Date	Date	날짜	日期	Data
+Pasaje	Passage	Passage	본문	经文	Passagem
+Expandir todo	Expand all	Tout développer	모두 펼치기	全部展开	Expandir tudo
+Contraer todo	Collapse all	Tout réduire	모두 접기	全部折叠	Recolher tudo
+Permitir reordenar	Allow reordering	Autoriser le réordonnancement	순서 변경 허용	允许重新排序	Permitir reordenar
+Menú de referencias cruzadas	Cross-reference menu	Menu des références croisées	상호 참조 메뉴	交叉参考菜单	Menu de referências cruzadas
+Colorear versículos por carpeta	Color verses by folder	Colorer les versets par dossier	폴더별 구절 색상	按文件夹为经节着色	Colorir versículos por pasta
+Importar marcadores de AndBible	Import AndBible bookmarks	Importer les signets AndBible	AndBible 책갈피 가져오기	导入 AndBible 书签	Importar marcadores do AndBible
+Todavía no has escrito ninguna nota. Se escriben en la ficha de debajo del versículo, o subrayando una frase.	You have not written any notes yet. Write them in the card below a verse or by highlighting a phrase.	Vous n’avez pas encore écrit de notes. Écrivez-les dans la fiche sous le verset ou en surlignant une phrase.	아직 작성한 메모가 없습니다. 구절 아래 카드에서 작성하거나 문구를 강조하세요.	您还没有写过笔记。可以在经节下方的卡片中书写，或选中文句进行高亮。	Você ainda não escreveu nenhuma nota. Escreva na ficha abaixo do versículo ou destacando uma frase.
+Ninguna nota con esos filtros.	No notes match these filters.	Aucune note ne correspond à ces filtres.	조건에 맞는 메모가 없습니다.	没有符合这些筛选条件的笔记。	Nenhuma nota com esses filtros.
+Nada en tus notas con «%s».	Nothing in your notes matches “%s”.	Aucune note ne contient « %s ».	메모에서 “%s”를 찾을 수 없습니다.	笔记中没有与“%s”匹配的内容。	Nada nas suas notas com “%s”.
+No se pudo guardar el archivo.	Could not save the file.	Impossible d’enregistrer le fichier.	파일을 저장할 수 없습니다.	无法保存文件。	Não foi possível salvar o arquivo.
+Guardado en %s	Saved to %s	Enregistré dans %s	%s에 저장됨	已保存到 %s	Salvo em %s
+Exportar las notas mostradas	Export displayed notes	Exporter les notes affichées	표시된 메모 내보내기	导出显示的笔记	Exportar as notas exibidas
+Copia de todas las notas	Copy of all notes	Copie de toutes les notes	모든 메모의 사본	所有笔记的副本	Cópia de todas as notas
+Copia de notas (JSON)	Notes backup (JSON)	Sauvegarde des notes (JSON)	메모 백업 (JSON)	笔记备份（JSON）	Cópia das notas (JSON)
+Las notas mostradas, en Markdown (para leer o imprimir)…	Displayed notes in Markdown (for reading or printing)…	Notes affichées en Markdown (pour lire ou imprimer)…	표시된 메모를 Markdown으로 (읽기 또는 인쇄용)…	将显示的笔记导出为 Markdown（供阅读或打印）…	As notas exibidas, em Markdown (para ler ou imprimir)…
+Las notas mostradas en Markdown, para leer o imprimir; o una copia completa de todas en JSON	Displayed notes in Markdown for reading or printing, or a full backup of all notes in JSON	Notes affichées en Markdown pour lire ou imprimer, ou sauvegarde complète en JSON	표시된 메모를 읽기·인쇄용 Markdown으로, 또는 모든 메모를 JSON으로 백업	将显示的笔记导出为可阅读、打印的 Markdown，或以 JSON 完整备份所有笔记	As notas exibidas em Markdown, para ler ou imprimir; ou uma cópia completa em JSON
+Copia completa de todas las notas (JSON)…	Full backup of all notes (JSON)…	Sauvegarde complète des notes (JSON)…	모든 메모 전체 백업 (JSON)…	完整备份所有笔记（JSON）…	Cópia completa de todas as notas (JSON)…
+Importar una copia de notas	Import notes backup	Importer une sauvegarde de notes	메모 백업 가져오기	导入笔记备份	Importar uma cópia das notas
+No se ha importado nada.	Nothing was imported.	Rien n’a été importé.	가져온 항목이 없습니다.	未导入任何内容。	Nada foi importado.
+Copia importada.	Backup imported.	Sauvegarde importée.	백업을 가져왔습니다.	已导入备份。	Cópia importada.
+No se pudo abrir «Buscar en mis notas».	Could not open “Search my notes”.	Impossible d’ouvrir « Rechercher dans mes notes ».	“내 메모 검색”을 열 수 없습니다.	无法打开“搜索我的笔记”。	Não foi possível abrir “Buscar nas minhas notas”.
+%u nota nueva.	%u new note.	%u nouvelle note.	새 메모 %u개.	%u 条新笔记。	%u nota nova.
+%u notas nuevas.	%u new notes.	%u nouvelles notes.	새 메모 %u개.	%u 条新笔记。	%u notas novas.
+ %u de ellas va junto a otra nota tuya del mismo versículo.	 %u joins another of your notes on the same verse.	 %u rejoint une autre de vos notes sur le même verset.	 %u개는 같은 구절의 기존 메모에 추가됩니다.	 %u 条将与同一经节的另一条笔记放在一起。	 %u delas fica junto de outra nota sua do mesmo versículo.
+ %u de ellas van junto a otras notas tuyas del mismo versículo.	 %u join other notes you have on the same verse.	 %u rejoignent d’autres notes sur le même verset.	 %u개는 같은 구절의 기존 메모에 추가됩니다.	 %u 条将与同一经节的其他笔记放在一起。	 %u delas ficam junto de outras notas suas do mesmo versículo.
+\n%u ya estaba.	\n%u already existed.	\n%u existait déjà.	\n이미 존재하는 항목 %u개.	\n%u 条已存在。	\n%u já existia.
+\n%u ya estaban.	\n%u already existed.	\n%u existaient déjà.	\n이미 존재하는 항목 %u개.	\n%u 条已存在。	\n%u já existiam.
+\n%u enlace nuevo.	\n%u new link.	\n%u nouveau lien.	\n새 연결 %u개.	\n%u 个新链接。	\n%u vínculo novo.
+\n%u enlaces nuevos.	\n%u new links.	\n%u nouveaux liens.	\n새 연결 %u개.	\n%u 个新链接。	\n%u vínculos novos.
+\n%u subrayado o enlace distinto del tuyo: se conservó el tuyo.	\n%u highlight or link differed: yours was kept.	\n%u surlignage ou lien différent : le vôtre a été conservé.	\n강조 또는 연결 %u개가 달라 기존 것을 유지했습니다.	\n%u 个高亮或链接不同：保留了您的内容。	\n%u destaque ou vínculo diferente do seu: o seu foi mantido.
+\n%u subrayados o enlaces distintos del tuyo: se conservó el tuyo.	\n%u highlights or links differed: yours were kept.	\n%u surlignages ou liens différents : les vôtres ont été conservés.	\n강조 또는 연결 %u개가 달라 기존 것을 유지했습니다.	\n%u 个高亮或链接不同：保留了您的内容。	\n%u destaques ou vínculos diferentes dos seus: os seus foram mantidos.
+\n%u entrada no válida, ignorada.	\n%u invalid entry ignored.	\n%u entrée non valide ignorée.	\n잘못된 항목 %u개를 무시했습니다.	\n忽略了 %u 个无效条目。	\n%u entrada inválida, ignorada.
+\n%u entradas no válidas, ignoradas.	\n%u invalid entries ignored.	\n%u entrées non valides ignorées.	\n잘못된 항목 %u개를 무시했습니다.	\n忽略了 %u 个无效条目。	\n%u entradas inválidas, ignoradas.
+\n%u entrada no válida, ignorada.	\n%u invalid entry ignored.	\n%u entrée non valide ignorée.	\n잘못된 항목 %u개를 무시했습니다.	\n忽略了 %u 个无效条目。	\n%u entrada inválida, ignorada.
+\n\nTus notas de antes quedaron copiadas en %s	\n\nYour previous notes were backed up to %s	\n\nVos anciennes notes ont été sauvegardées dans %s	\n\n기존 메모는 %s에 백업되었습니다	\n\n原有笔记已备份到 %s	\n\nSuas notas anteriores foram copiadas para %s
+No es una copia de notas de Biblia Elim.	This is not a Biblia Elim notes backup.	Ce n’est pas une sauvegarde des notes de Biblia Elim.	Biblia Elim 메모 백업이 아닙니다.	这不是 Biblia Elim 的笔记备份。	Não é uma cópia das notas do Biblia Elim.
+La copia es de una versión de Biblia Elim más nueva que esta.	The backup is from a newer version of Biblia Elim.	La sauvegarde provient d’une version plus récente de Biblia Elim.	더 최신 버전의 Biblia Elim에서 만든 백업입니다.	此备份来自更新版本的 Biblia Elim。	A cópia é de uma versão mais recente do Biblia Elim.
+Las notas no están abiertas.	Notes are not open.	Les notes ne sont pas ouvertes.	메모가 열려 있지 않습니다.	笔记未打开。	As notas não estão abertas.
+No se pudieron guardar las notas importadas.	Could not save the imported notes.	Impossible d’enregistrer les notes importées.	가져온 메모를 저장할 수 없습니다.	无法保存导入的笔记。	Não foi possível salvar as notas importadas.
+No se pudo hacer una copia de tus notas antes de importar; no se ha importado nada.	Could not back up your notes before importing; nothing was imported.	Impossible de sauvegarder vos notes avant l’importation ; rien n’a été importé.	가져오기 전에 메모를 백업할 수 없어 아무것도 가져오지 않았습니다.	导入前无法备份您的笔记，因此未导入任何内容。	Não foi possível fazer uma cópia das suas notas antes de importar; nada foi importado.
+No se encontró «%s» en el diccionario offline.	“%s” was not found in the offline dictionary.	« %s » est introuvable dans le dictionnaire hors ligne.	오프라인 사전에서 “%s”를 찾을 수 없습니다.	离线词典中未找到“%s”。	“%s” não foi encontrado no dicionário offline.
+Sin resultado	No result	Aucun résultat	결과 없음	无结果	Sem resultado
+Escribe una palabra para buscar, por ejemplo Adonai.	Enter a word to search, for example Adonai.	Saisissez un mot à rechercher, par exemple Adonaï.	검색할 단어를 입력하세요. 예: Adonai.	输入要查找的词语，例如 Adonai。	Digite uma palavra para buscar, por exemplo Adonai.
+No se pudo abrir el Diccionario.	Could not open the Dictionary.	Impossible d’ouvrir le dictionnaire.	사전을 열 수 없습니다.	无法打开词典。	Não foi possível abrir o Dicionário.
+Escribe una palabra (por ejemplo Adonai) y pulsa Buscar. Todo el léxico está incluido en la aplicación y funciona sin internet. Si hay estudios o comentarios para el pasaje actual, aparecen abajo agrupados por autor.	Enter a word (for example Adonai) and press Search. The full lexicon is included and works offline. Studies or commentaries for the current passage appear below, grouped by author.	Saisissez un mot (par exemple Adonaï) et cliquez sur Rechercher. Le lexique complet est inclus et fonctionne hors ligne. Les études ou commentaires du passage actuel apparaissent ci-dessous, regroupés par auteur.	단어 (예: Adonai)를 입력하고 검색을 누르세요. 전체 어휘 자료가 포함되어 오프라인으로 동작합니다. 현재 본문의 연구나 주석은 아래에 저자별로 표시됩니다.	输入词语（例如 Adonai）并点击搜索。完整词库随应用提供，无需联网。当前经文的研读资料或注释会在下方按作者显示。	Digite uma palavra (por exemplo Adonai) e clique em Buscar. Todo o léxico está incluído e funciona offline. Estudos ou comentários da passagem atual aparecem abaixo, agrupados por autor.
+Referencias: 	References: 	Références : 	참조: 	参考经文： 	Referências: 
+ %u de ellas van junto a otra nota tuya del mismo versículo.	 %u join another of your notes on the same verse.	 %u rejoignent une autre de vos notes sur le même verset.	 %u개는 같은 구절의 기존 메모에 추가됩니다.	 %u 条将与同一经节的另一条笔记放在一起。	 %u delas ficam junto de outra nota sua do mesmo versículo.
+\n%u subrayados o enlaces distintos de los tuyos: se conservaron los tuyos.	\n%u highlights or links differed: yours were kept.	\n%u surlignages ou liens différents : les vôtres ont été conservés.	\n강조 또는 연결 %u개가 달라 기존 것을 유지했습니다.	\n%u 个高亮或链接不同：保留了您的内容。	\n%u destaques ou vínculos diferentes dos seus: os seus foram mantidos.

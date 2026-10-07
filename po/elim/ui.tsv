@@ -1,0 +1,351 @@
+# Source	English	French	Korean	Chinese (simplified)	Portuguese (Brazil)
+Idioma del sistema	System language	Langue du système	시스템 언어	系统语言	Idioma do sistema
+Idioma de la interfaz (requiere reiniciar)	Interface language (restart required)	Langue de l’interface (redémarrage nécessaire)	인터페이스 언어 (재시작 필요)	界面语言（需要重启）	Idioma da interface (requer reinício)
+Elegir un idioma para la interfaz distinto del que use el sistema	Choose an interface language different from the system language	Choisir une langue d’interface différente de celle du système	시스템과 다른 인터페이스 언어 선택	选择与系统不同的界面语言	Escolher um idioma da interface diferente do idioma do sistema
+Archivo	File	Fichier	파일	文件	Arquivo
+Estudio	Study	Étude	연구	研读	Estudo
+Vista	View	Affichage	보기	视图	Exibir
+Ayuda	Help	Aide	도움말	帮助	Ajuda
+A_yuda	_Help	_Aide	도움말(_H)	帮助(_H)	_Ajuda
+Biblia	Bible	Bible	성경	圣经	Bíblia
+Biblia Elim	Biblia Elim	Biblia Elim	Biblia Elim	Biblia Elim	Biblia Elim
+Acerca de	About	À propos	정보	关于	Sobre
+Acerca de _Biblia Elim	About _Biblia Elim	À propos de _Biblia Elim	Biblia Elim 정보(_B)	关于 Biblia Elim(_B)	Sobre o _Biblia Elim
+Estudio bíblico	Bible study	Étude biblique	성경 연구	圣经研读	Estudo bíblico
+Bienvenido a Biblia Elim	Welcome to Biblia Elim	Bienvenue dans Biblia Elim	Biblia Elim에 오신 것을 환영합니다	欢迎使用 Biblia Elim	Boas-vindas ao Biblia Elim
+Preferencias	Preferences	Préférences	환경 설정	首选项	Preferências
+Atajos	Shortcuts	Raccourcis	바로 가기	快捷键	Atalhos
+Atajos de teclado	Keyboard shortcuts	Raccourcis clavier	키보드 바로 가기	键盘快捷键	Atalhos de teclado
+General	General	Général	일반	常规	Geral
+Navegación	Navigation	Navigation	탐색	导航	Navegação
+Pestañas	Tabs	Onglets	탭	标签页	Abas
+Búsqueda	Search	Recherche	검색	搜索	Busca
+Búsqueda avanzada	Advanced search	Recherche avancée	고급 검색	高级搜索	Busca avançada
+Búsqueda a_vanzada…	Ad_vanced search…	Recherche a_vancée…	고급 검색(_V)…	高级搜索(_V)…	Busca a_vançada…
+Abrir	Open	Ouvrir	열기	打开	Abrir
+Abrir módulo	Open module	Ouvrir un module	모듈 열기	打开模块	Abrir módulo
+Abrir editor	Open editor	Ouvrir l’éditeur	편집기 열기	打开编辑器	Abrir editor
+Abrir en el editor	Open in editor	Ouvrir dans l’éditeur	편집기에서 열기	在编辑器中打开	Abrir no editor
+Abrir en la ventana	Open in window	Ouvrir dans la fenêtre	창에서 열기	在窗口中打开	Abrir na janela
+Abrir en pestaña nueva	Open in new tab	Ouvrir dans un nouvel onglet	새 탭에서 열기	在新标签页中打开	Abrir em nova aba
+Abrir en un diálogo	Open in dialog	Ouvrir dans une boîte de dialogue	대화상자에서 열기	在对话框中打开	Abrir em uma caixa de diálogo
+Abrir en ventana aparte	Open in separate window	Ouvrir dans une fenêtre séparée	별도 창에서 열기	在独立窗口中打开	Abrir em outra janela
+Abrir la lectura	Open reading	Ouvrir la lecture	읽기 열기	打开阅读	Abrir leitura
+Abrir la lectura de hoy	Open today’s reading	Ouvrir la lecture du jour	오늘의 읽기 열기	打开今日阅读	Abrir a leitura de hoje
+Aceptar	OK	Valider	확인	确定	OK
+Ahora no	Not now	Pas maintenant	나중에	暂不	Agora não
+Actualizar	Refresh	Actualiser	새로 고침	刷新	Atualizar
+Actualizar catálogo	Refresh catalog	Actualiser le catalogue	목록 새로 고침	刷新目录	Atualizar catálogo
+Añadir	Add	Ajouter	추가	添加	Adicionar
+Añadir elemento	Add item	Ajouter un élément	항목 추가	添加项目	Adicionar item
+Añadir subelemento	Add subitem	Ajouter un sous-élément	하위 항목 추가	添加子项目	Adicionar subitem
+Añadir marcador	Add bookmark	Ajouter un signet	책갈피 추가	添加书签	Adicionar marcador
+Añadir color	Add color	Ajouter une couleur	색상 추가	添加颜色	Adicionar cor
+Cancelar	Cancel	Annuler	취소	取消	Cancelar
+Cerrar	Close	Fermer	닫기	关闭	Fechar
+Cerrar (Esc)	Close (Esc)	Fermer (Échap)	닫기 (Esc)	关闭（Esc）	Fechar (Esc)
+Cerrar panel de notas	Close notes panel	Fermer le panneau des notes	메모 패널 닫기	关闭笔记面板	Fechar painel de notas
+Cerrar panel de comentarios y notas	Close commentary and notes panel	Fermer le panneau des commentaires et notes	주석 및 메모 패널 닫기	关闭注释和笔记面板	Fechar painel de comentários e notas
+Cerrar pantalla dividida	Close split view	Fermer la vue partagée	분할 보기 닫기	关闭分屏视图	Fechar tela dividida
+Cerrar pestaña	Close tab	Fermer l’onglet	탭 닫기	关闭标签页	Fechar aba
+Cerrar sin guardar	Close without saving	Fermer sans enregistrer	저장하지 않고 닫기	关闭且不保存	Fechar sem salvar
+Guardar	Save	Enregistrer	저장	保存	Salvar
+Guardar cambios	Save changes	Enregistrer les modifications	변경 사항 저장	保存更改	Salvar alterações
+Guardar los cambios	Save changes	Enregistrer les modifications	변경 사항 저장	保存更改	Salvar alterações
+Borrar	Delete	Supprimer	삭제	删除	Excluir
+Eliminar	Remove	Supprimer	제거	移除	Remover
+Eliminar elemento	Remove item	Supprimer l’élément	항목 제거	移除项目	Remover item
+Editar	Edit	Modifier	편집	编辑	Editar
+Copiar	Copy	Copier	복사	复制	Copiar
+Copiado	Copied	Copié	복사됨	已复制	Copiado
+Copiar ficha	Copy card	Copier la fiche	카드 복사	复制卡片	Copiar ficha
+Continuar	Continue	Continuer	계속	继续	Continuar
+Error	Error	Erreur	오류	错误	Erro
+Desconocido	Unknown	Inconnu	알 수 없음	未知	Desconhecido
+Disponible	Available	Disponible	사용 가능	可用	Disponível
+Instalada	Installed	Installée	설치됨	已安装	Instalada
+Instalar	Install	Installer	설치	安装	Instalar
+Instalar Biblias	Install Bibles	Installer des Bibles	성경 설치	安装圣经	Instalar Bíblias
+Instalar desde archivo…	Install from file…	Installer depuis un fichier…	파일에서 설치…	从文件安装…	Instalar de um arquivo…
+Módulos SQLite…	SQLite modules…	Modules SQLite…	SQLite 모듈…	SQLite 模块…	Módulos SQLite…
+Módulos SQLite	SQLite modules	Modules SQLite	SQLite 모듈	SQLite 模块	Módulos SQLite
+Instalar SQLite	Install SQLite	Installer SQLite	SQLite 설치	安装 SQLite	Instalar SQLite
+Importar USFM	Import USFM	Importer USFM	USFM 가져오기	导入 USFM	Importar USFM
+Importar	Import	Importer	가져오기	导入	Importar
+Convertir	Convert	Convertir	변환	转换	Converter
+Convertir Biblia SWORD…	Convert SWORD Bible…	Convertir une Bible SWORD…	SWORD 성경 변환…	转换 SWORD 圣经…	Converter Bíblia SWORD…
+Convertir Biblias SWORD a SQLite	Convert SWORD Bibles to SQLite	Convertir les Bibles SWORD en SQLite	SWORD 성경을 SQLite로 변환	将 SWORD 圣经转换为 SQLite	Converter Bíblias SWORD para SQLite
+Convertir Biblias a SQLite	Convert Bibles to SQLite	Convertir les Bibles en SQLite	성경을 SQLite로 변환	将圣经转换为 SQLite	Converter Bíblias para SQLite
+Seleccionar	Select	Sélectionner	선택	选择	Selecionar
+Seleccionar módulo SQLite	Select SQLite module	Sélectionner un module SQLite	SQLite 모듈 선택	选择 SQLite 模块	Selecionar módulo SQLite
+Seleccionar directorio USFM	Select USFM directory	Sélectionner un dossier USFM	USFM 폴더 선택	选择 USFM 目录	Selecionar pasta USFM
+ID del módulo	Module ID	Identifiant du module	모듈 ID	模块 ID	ID do módulo
+Nombre	Name	Nom	이름	名称	Nome
+Idioma	Language	Langue	언어	语言	Idioma
+Versificación	Versification	Versification	절 체계	经节编号体系	Versificação
+Tipo	Type	Type	유형	类型	Tipo
+Capacidades	Features	Fonctionnalités	기능	功能	Recursos
+Avanzado…	Advanced…	Avancé…	고급…	高级…	Avançado…
+Fuente	Source	Source	출처	来源	Fonte
+Fuentes	Fonts	Polices	글꼴	字体	Fontes
+Estado	Status	État	상태	状态	Estado
+Tamaño	Size	Taille	크기	大小	Tamanho
+Buscar	Search	Rechercher	검색	搜索	Buscar
+Buscar libro	Find book	Rechercher un livre	책 찾기	查找书卷	Buscar livro
+Buscar selección	Search selection	Rechercher la sélection	선택 영역 검색	搜索选中内容	Buscar seleção
+Buscar en el texto	Find in text	Rechercher dans le texte	본문에서 찾기	在正文中查找	Buscar no texto
+Buscar en toda la Biblia	Search entire Bible	Rechercher dans toute la Bible	성경 전체 검색	搜索整本圣经	Buscar em toda a Bíblia
+Buscar por nombre o módulo…	Search by name or module…	Rechercher par nom ou module…	이름 또는 모듈로 검색…	按名称或模块搜索…	Buscar por nome ou módulo…
+Buscar en mis notas	Search my notes	Rechercher dans mes notes	내 메모 검색	搜索我的笔记	Buscar nas minhas notas
+Buscar en mis _notas…	Search my _notes…	Rechercher dans mes _notes…	내 메모 검색(_N)…	搜索我的笔记(_N)…	Buscar nas minhas _notas…
+Notas	Notes	Notes	메모	笔记	Notas
+Nota	Note	Note	메모	笔记	Nota
+Notas al pie	Footnotes	Notes de bas de page	각주	脚注	Notas de rodapé
++ Nueva nota	+ New note	+ Nouvelle note	+ 새 메모	+ 新建笔记	+ Nova nota
+Anotar versículo	Annotate verse	Annoter le verset	구절에 메모	为经节添加笔记	Anotar versículo
+Anotar el versículo	Annotate verse	Annoter le verset	구절에 메모	为经节添加笔记	Anotar o versículo
+Editar nota	Edit note	Modifier la note	메모 편집	编辑笔记	Editar nota
+Editar nota del versículo	Edit verse note	Modifier la note du verset	구절 메모 편집	编辑经节笔记	Editar nota do versículo
+Guardar nota	Save note	Enregistrer la note	메모 저장	保存笔记	Salvar nota
+Enlazar	Link	Relier	연결	链接	Vincular
+Enlazar con otro versículo	Link to another verse	Relier à un autre verset	다른 구절에 연결	链接到另一经节	Vincular a outro versículo
+Enlazada con:	Linked to:	Reliée à :	연결 대상:	链接到：	Vinculada a:
+En este versículo:	In this verse:	Dans ce verset :	이 구절에서:	在本节中：	Neste versículo:
+En la nota	In the note	Dans la note	메모에서	在笔记中	Na nota
+En la Biblia	In the Bible	Dans la Bible	성경에서	在圣经中	Na Bíblia
+Comentarios	Commentaries	Commentaires	주석	注释	Comentários
+Comentario	Commentary	Commentaire	주석	注释	Comentário
+Comentario por capítulo	Chapter commentary	Commentaire par chapitre	장별 주석	章节注释	Comentário por capítulo
+Comentarios del autor	Author’s commentary	Commentaires de l’auteur	저자의 주석	作者注释	Comentários do autor
+Comentarios y estudios (por autor)	Commentaries and studies (by author)	Commentaires et études (par auteur)	주석과 연구 (저자별)	注释和研读（按作者）	Comentários e estudos (por autor)
+Autor / estudio	Author / study	Auteur / étude	저자 / 연구	作者 / 研读	Autor / estudo
+Diccionario	Dictionary	Dictionnaire	사전	词典	Dicionário
+Di_ccionario…	Di_ctionary…	Di_ctionnaire…	사전(_C)…	词典(_C)…	Di_cionário…
+Devocional	Devotional	Méditation quotidienne	매일 묵상	每日灵修	Devocional
+Diario	Journal	Journal	일지	日记	Diário
+Interlineal	Interlinear	Interlinéaire	행간 성경	逐词对照	Interlinear
+Biblia interlineal	Interlinear Bible	Bible interlinéaire	행간 성경	逐词对照圣经	Bíblia interlinear
+Biblia _interlineal	_Interlinear Bible	Bible _interlinéaire	행간 성경(_I)	逐词对照圣经(_I)	Bíblia _interlinear
+Biblia paralela	Parallel Bible	Bible parallèle	병렬 성경	平行对照圣经	Bíblia paralela
+Biblia principal	Main Bible	Bible principale	기본 성경	主圣经	Bíblia principal
+Biblia completa	Entire Bible	Bible entière	성경 전체	整本圣经	Bíblia completa
+Comparar	Compare	Comparer	비교	比较	Comparar
+Comparar:	Compare:	Comparer :	비교:	比较：	Comparar:
+Comparar con	Compare with	Comparer avec	비교 대상	比较对象	Comparar com
+Comparación bíblica	Bible comparison	Comparaison biblique	성경 비교	圣经比较	Comparação bíblica
+Término original	Original term	Terme original	원어	原文词语	Termo original
+Palabra:	Word:	Mot :	단어:	词语：	Palavra:
+Lema:	Lemma:	Lemme :	표제어:	词元：	Lema:
+Definición:	Definition:	Définition :	정의:	定义：	Definição:
+Pronunciación:	Pronunciation:	Prononciation :	발음:	发音：	Pronúncia:
+Transliteración:	Transliteration:	Translittération :	음역:	音译：	Transliteração:
+Concordancia	Concordance	Concordance	용례 색인	经文索引	Concordância
+Referencias	References	Références	참조	参考经文	Referências
+Referencias cruzadas	Cross-references	Références croisées	상호 참조	交叉参考	Referências cruzadas
+Detalles de palabra	Word details	Détails du mot	단어 상세 정보	词语详情	Detalhes da palavra
+Cargar más	Load more	Charger davantage	더 불러오기	加载更多	Carregar mais
+Coreano	Korean	Coréen	한국어	韩语	Coreano
+Chino	Chinese	Chinois	중국어	中文	Chinês
+Francés	French	Français	프랑스어	法语	Francês
+Portugués	Portuguese	Portugais	포르투갈어	葡萄牙语	Português
+Español	Spanish	Espagnol	스페인어	西班牙语	Espanhol
+Inglés	English	Anglais	영어	英语	Inglês
+Alemán	German	Allemand	독일어	德语	Alemão
+Italiano	Italian	Italien	이탈리아어	意大利语	Italiano
+Ruso	Russian	Russe	러시아어	俄语	Russo
+Griego	Greek	Grec	그리스어	希腊语	Grego
+Hebreo	Hebrew	Hébreu	히브리어	希伯来语	Hebraico
+Latín	Latin	Latin	라틴어	拉丁语	Latim
+Árabe	Arabic	Arabe	아랍어	阿拉伯语	Árabe
+Arameo	Aramaic	Araméen	아람어	亚兰语	Aramaico
+FRASE	PHRASE	EXPRESSION	구절	短语	FRASE
+Claro	Light	Clair	밝게	浅色	Claro
+Oscuro	Dark	Sombre	어둡게	深色	Escuro
+Claro luna	Moonlight	Clair de lune	달빛	月光	Luar
+Claro _luna	_Moonlight	Clair de _lune	달빛(_L)	月光(_L)	_Luar
+Pergamino	Parchment	Parchemin	양피지	羊皮纸	Pergaminho
+Bosquejo	Outline	Plan	개요	大纲	Esboço
+Aquí:	Here:	Ici :	여기:	此处：	Aqui:
+Antes	Before	Avant	이전	之前	Antes
+Después	After	Après	이후	之后	Depois
+Antiguo	Old	Ancien	구약	旧约	Antigo
+Antiguo Testamento	Old Testament	Ancien Testament	구약성경	旧约	Antigo Testamento
+Nuevo Testamento	New Testament	Nouveau Testament	신약성경	新约	Novo Testamento
+Capítulo	Chapter	Chapitre	장	章	Capítulo
+Versículo	Verse	Verset	절	节	Versículo
+Día	Day	Jour	일	天	Dia
+Días	Days	Jours	일	天	Dias
+Carpeta	Folder	Dossier	폴더	文件夹	Pasta
+Carpeta nueva	New folder	Nouveau dossier	새 폴더	新建文件夹	Nova pasta
+Cantidad	Count	Nombre	개수	数量	Quantidade
+Cerrar panel de interlineal	Close interlinear panel	Fermer le panneau interlinéaire	행간 성경 패널 닫기	关闭逐词对照面板	Fechar painel interlinear
+Leer	Read	Lire	읽기	阅读	Ler
+Lectura de hoy	Today’s reading	Lecture du jour	오늘의 읽기	今日阅读	Leitura de hoje
+Tu progreso	Your progress	Votre progression	내 진행 상황	我的进度	Seu progresso
+Planes de lectura	Reading plans	Plans de lecture	읽기 계획	读经计划	Planos de leitura
+Memorizar	Memorize	Mémoriser	암송	背诵	Memorizar
+Memorización	Memorization	Mémorisation	암송	背诵	Memorização
+Nube de palabras	Word cloud	Nuage de mots	단어 구름	词云	Nuvem de palavras
+Navegación y rueda	Navigation and scrolling	Navigation et défilement	탐색 및 스크롤	导航与滚动	Navegação e rolagem
+Modo lectura	Reading mode	Mode lecture	읽기 모드	阅读模式	Modo leitura
+El del sistema	System language	Langue du système	시스템 언어	系统语言	Idioma do sistema
+Capítulo anterior	Previous chapter	Chapitre précédent	이전 장	上一章	Capítulo anterior
+Capítulo siguiente	Next chapter	Chapitre suivant	다음 장	下一章	Próximo capítulo
+Libro anterior	Previous book	Livre précédent	이전 책	上一卷	Livro anterior
+Libro siguiente	Next book	Livre suivant	다음 책	下一卷	Próximo livro
+Versículo anterior	Previous verse	Verset précédent	이전 절	上一节	Versículo anterior
+Versículo siguiente	Next verse	Verset suivant	다음 절	下一节	Próximo versículo
+Adelante en el historial	Forward in history	Suivant dans l’historique	기록 앞으로	前进	Avançar no histórico
+Atrás en el historial	Back in history	Précédent dans l’historique	기록 뒤로	后退	Voltar no histórico
+Ir a una referencia	Go to a reference	Aller à une référence	참조로 이동	转到经文	Ir para uma referência
+Nueva pestaña	New tab	Nouvel onglet	새 탭	新建标签页	Nova aba
+Pestaña siguiente	Next tab	Onglet suivant	다음 탭	下一个标签页	Próxima aba
+Pestaña anterior	Previous tab	Onglet précédent	이전 탭	上一个标签页	Aba anterior
+Ir a la pestaña 1 … 9 (Ctrl+número)	Go to tab 1 … 9 (Ctrl+number)	Aller à l’onglet 1 … 9 (Ctrl+chiffre)	탭 1 … 9로 이동 (Ctrl+숫자)	转到标签页 1 … 9（Ctrl+数字）	Ir para a aba 1 … 9 (Ctrl+número)
+Mover pestaña a la izquierda	Move tab left	Déplacer l’onglet à gauche	탭을 왼쪽으로 이동	向左移动标签页	Mover aba para a esquerda
+Mover pestaña a la derecha	Move tab right	Déplacer l’onglet à droite	탭을 오른쪽으로 이동	向右移动标签页	Mover aba para a direita
+Ir a la entrada del diccionario	Go to dictionary entry	Aller à l’entrée du dictionnaire	사전 항목으로 이동	转到词典条目	Ir para a entrada do dicionário
+Ir a comentarios	Go to commentary	Aller aux commentaires	주석으로 이동	转到注释	Ir para os comentários
+Salir del modo lectura	Exit reading mode	Quitter le mode lecture	읽기 모드 종료	退出阅读模式	Sair do modo leitura
+Salir del modo lectura (Esc o Ctrl+Shift+F)	Exit reading mode (Esc or Ctrl+Shift+F)	Quitter le mode lecture (Échap ou Ctrl+Maj+F)	읽기 모드 종료 (Esc 또는 Ctrl+Shift+F)	退出阅读模式（Esc 或 Ctrl+Shift+F）	Sair do modo leitura (Esc ou Ctrl+Shift+F)
+Mostrar u ocultar el panel lateral	Show or hide sidebar	Afficher ou masquer le panneau latéral	사이드바 표시 또는 숨기기	显示或隐藏侧栏	Mostrar ou ocultar o painel lateral
+Mostrar/ocultar panel lateral (Ctrl+S)	Show/hide sidebar (Ctrl+S)	Afficher/masquer le panneau latéral (Ctrl+S)	사이드바 표시/숨기기 (Ctrl+S)	显示/隐藏侧栏（Ctrl+S）	Mostrar/ocultar painel lateral (Ctrl+S)
+Aumentar el texto	Increase text size	Agrandir le texte	글자 크기 키우기	增大文字	Aumentar o texto
+Aumentar tamaño del texto	Increase text size	Agrandir le texte	글자 크기 키우기	增大文字	Aumentar o tamanho do texto
+Reducir el texto	Decrease text size	Réduire le texte	글자 크기 줄이기	缩小文字	Reduzir o texto
+Reducir tamaño del texto	Decrease text size	Réduire le texte	글자 크기 줄이기	缩小文字	Reduzir o tamanho do texto
+Tamaño de texto original	Original text size	Taille d’origine du texte	기본 글자 크기	原始文字大小	Tamanho original do texto
+Leer en voz alta	Read aloud	Lire à voix haute	소리 내어 읽기	朗读	Ler em voz alta
+Lemas (Strong)	Lemmas (Strong)	Lemmes (Strong)	표제어 (Strong)	词元（Strong）	Lemas (Strong)
+Morfología	Morphology	Morphologie	형태론	词形分析	Morfologia
+Palabras de Cristo en rojo	Words of Christ in red	Paroles du Christ en rouge	그리스도의 말씀을 빨간색으로	基督的话用红色显示	Palavras de Cristo em vermelho
+Salir	Quit	Quitter	종료	退出	Sair
+Destino del zoom de texto	Text zoom target	Cible du zoom du texte	글자 확대 대상	文字缩放对象	Destino do zoom do texto
+Columnas de texto	Text columns	Colonnes de texte	본문 열	正文分栏	Colunas de texto
+Comparar en columnas requiere el modo lectura (Ctrl+Shift+F).	Column comparison requires reading mode (Ctrl+Shift+F).	La comparaison en colonnes nécessite le mode lecture (Ctrl+Maj+F).	열 비교에는 읽기 모드가 필요합니다 (Ctrl+Shift+F).	分栏比较需要阅读模式（Ctrl+Shift+F）。	A comparação em colunas requer o modo leitura (Ctrl+Shift+F).
+Comparar versiones en columnas (Ctrl+Shift+K)	Compare versions in columns (Ctrl+Shift+K)	Comparer les versions en colonnes (Ctrl+Maj+K)	번역본을 열로 비교 (Ctrl+Shift+K)	分栏比较译本（Ctrl+Shift+K）	Comparar versões em colunas (Ctrl+Shift+K)
+Elegir qué versiones comparar	Choose versions to compare	Choisir les versions à comparer	비교할 번역본 선택	选择要比较的译本	Escolher quais versões comparar
+Fuente de las versiones comparadas	Font for compared versions	Police des versions comparées	비교 번역본 글꼴	对照译本字体	Fonte das versões comparadas
+Cambio de versículo enfocado	Focused verse change	Changement du verset ciblé	중심 구절 변경	焦点经节切换	Mudança do versículo em foco
+Desplazamiento por muesca	Scroll per wheel notch	Défilement par cran de molette	휠 한 칸당 스크롤	滚轮每格滚动距离	Rolagem por passo da roda
+Menos	Less	Moins	적게	较少	Menos
+Más	More	Plus	많이	较多	Mais
+Inmediato	Immediate	Immédiat	즉시	立即	Imediato
+Equilibrado	Balanced	Équilibré	균형	均衡	Equilibrado
+Estable	Stable	Stable	안정	稳定	Estável
+E_stable	_Stable	_Stable	안정(_S)	稳定(_S)	E_stável
+Restablecer	Reset	Réinitialiser	초기화	重置	Restaurar
+Controla cuánto avanza la página con cada giro de la rueda.	Controls how far the page moves with each turn of the wheel.	Règle le déplacement de la page à chaque cran de molette.	휠을 돌릴 때 페이지가 이동하는 거리를 조절합니다.	控制每次转动滚轮时页面移动的距离。	Controla quanto a página avança a cada giro da roda.
+El comportamiento habitual.	The usual behavior.	Le comportement habituel.	기본 동작입니다.	常规行为。	O comportamento habitual.
+El versículo resaltado cambia en cuanto el siguiente llega a la línea de lectura.	The highlighted verse changes as soon as the next reaches the reading line.	Le verset surligné change dès que le suivant atteint la ligne de lecture.	다음 구절이 읽기 선에 도달하면 강조 구절이 바뀝니다.	下一节到达阅读线时立即切换高亮经节。	O versículo destacado muda assim que o seguinte chega à linha de leitura.
+Requiere desplazar un poco más antes de cambiar el versículo resaltado.	Requires a little more scrolling before changing the highlighted verse.	Nécessite un peu plus de défilement avant de changer le verset surligné.	조금 더 스크롤해야 강조 구절이 바뀝니다.	需要多滚动一点才切换高亮经节。	Exige rolar um pouco mais antes de mudar o versículo destacado.
+Color de subrayado	Highlight color	Couleur du surlignage	강조 색상	高亮颜色	Cor do destaque
+Subrayar	Highlight	Surligner	강조	高亮	Destacar
+Subrayados	Highlights	Surlignages	강조 표시	高亮标记	Destaques
+Subrayado	Highlight	Surlignage	강조 표시	高亮	Destaque
+Notas enlazadas:	Linked notes:	Notes reliées :	연결된 메모:	链接的笔记：	Notas vinculadas:
+Añadir otra nota a este versículo	Add another note to this verse	Ajouter une autre note à ce verset	이 구절에 메모 추가	为本节添加另一条笔记	Adicionar outra nota a este versículo
+Escribe una nota para este versículo	Write a note for this verse	Écrire une note pour ce verset	이 구절에 메모를 작성하세요	为本节写一条笔记	Escreva uma nota para este versículo
+(versículo completo)	(entire verse)	(verset entier)	(구절 전체)	（整节）	(versículo completo)
+(versículo completo, escrita en %s)	(entire verse, written in %s)	(verset entier, écrite dans %s)	(구절 전체, %s에서 작성)	（整节，写于 %s）	(versículo completo, escrita em %s)
+Todavía no hay notas en este versículo.	There are no notes on this verse yet.	Ce verset n’a pas encore de notes.	이 구절에는 아직 메모가 없습니다.	本节还没有笔记。	Ainda não há notas neste versículo.
+No se pudo interpretar esa referencia.	Could not understand that reference.	Impossible d’interpréter cette référence.	해당 참조를 해석할 수 없습니다.	无法识别该经文引用。	Não foi possível interpretar essa referência.
+Escrita el %s	Written on %s	Écrite le %s	작성일: %s	写于 %s	Escrita em %s
+Escrita el %s · modificada el %s	Written on %s · modified on %s	Écrite le %s · modifiée le %s	작성일: %s · 수정일: %s	写于 %s · 修改于 %s	Escrita em %s · modificada em %s
+Escrita en %s	Written in %s	Écrite dans %s	%s에서 작성	写于 %s	Escrita em %s
+Enlazar con otro versículo	Link to another verse	Relier à un autre verset	다른 구절에 연결	链接到另一经节	Vincular a outro versículo
+Referencia del versículo (p. ej. Juan 3:16):	Verse reference (e.g. John 3:16):	Référence du verset (p. ex. Jean 3:16) :	구절 참조 (예: 요한복음 3:16):	经文引用（例如约翰福音 3:16）：	Referência do versículo (ex.: João 3:16):
+No hay ningún versículo abierto.	No verse is open.	Aucun verset n’est ouvert.	열린 구절이 없습니다.	当前未打开经节。	Nenhum versículo está aberto.
+Este versículo no está en esta versión.	This verse is not in this version.	Ce verset n’est pas dans cette version.	이 번역본에 해당 구절이 없습니다.	此译本没有本节。	Este versículo não está nesta versão.
+Este versículo no tiene referencias cruzadas.	This verse has no cross-references.	Ce verset n’a pas de références croisées.	이 구절에는 상호 참조가 없습니다.	本节没有交叉参考。	Este versículo não tem referências cruzadas.
+Mostrar todos	Show all	Tout afficher	모두 표시	全部显示	Mostrar todos
+Seleccionar todo	Select all	Tout sélectionner	모두 선택	全选	Selecionar tudo
+Todas	All	Toutes	모두	全部	Todas
+Todos	All	Tous	모두	全部	Todos
+Ninguno	None	Aucun	없음	无	Nenhum
+Ninguna	None	Aucune	없음	无	Nenhuma
+Otro	Other	Autre	기타	其他	Outro
+Mapa	Map	Carte	지도	地图	Mapa
+Glosario	Glossary	Glossaire	용어집	词汇表	Glossário
+Libro	Book	Livre	책	书卷	Livro
+Buscar en toda la Biblia	Search entire Bible	Rechercher dans toute la Bible	성경 전체 검색	搜索整本圣经	Buscar em toda a Bíblia
+sin coincidencias	no matches	aucun résultat	일치 없음	无匹配结果	sem resultados
+Anterior (Mayús+Intro)	Previous (Shift+Enter)	Précédent (Maj+Entrée)	이전 (Shift+Enter)	上一个（Shift+Enter）	Anterior (Shift+Enter)
+Siguiente (Intro)	Next (Enter)	Suivant (Entrée)	다음 (Enter)	下一个（Enter）	Próximo (Enter)
+Siguiente	Next	Suivant	다음	下一个	Próximo
+Anterior	Previous	Précédent	이전	上一个	Anterior
+Escribe el número y pulsa Enter	Type the number and press Enter	Saisir le numéro et appuyer sur Entrée	번호를 입력하고 Enter를 누르세요	输入编号并按 Enter	Digite o número e pressione Enter
+Escribe parte del nombre y pulsa Enter	Type part of the name and press Enter	Saisir une partie du nom et appuyer sur Entrée	이름의 일부를 입력하고 Enter를 누르세요	输入部分名称并按 Enter	Digite parte do nome e pressione Enter
+Escribe y busca en todo lo que has escrito	Type to search everything you have written	Rechercher dans tout ce que vous avez écrit	작성한 모든 내용에서 검색하세요	输入文字以搜索您的所有笔记	Digite e busque em tudo o que você escreveu
+Distinguir mayúsculas de minúsculas. Sin marcar, tampoco distingue las tildes.	Match case. When unchecked, accents are also ignored.	Respecter la casse. Sinon, les accents sont également ignorés.	대소문자를 구분합니다. 해제하면 악센트도 무시합니다.	区分大小写。未选中时也忽略重音符号。	Distinguir maiúsculas de minúsculas. Desmarcado, também ignora os acentos.
+No hacen falta las tildes: «espiritu» encuentra «espíritu».	Accents are optional: “espiritu” finds “espíritu”.	Les accents sont facultatifs : « espiritu » trouve « espíritu ».	악센트는 필요 없습니다. “espiritu”로 “espíritu”를 찾습니다.	无需重音符号：“espiritu”可以找到“espíritu”。	Não é preciso digitar os acentos: “espiritu” encontra “espíritu”.
+Expresión regular: %s	Regular expression: %s	Expression régulière : %s	정규식: %s	正则表达式：%s	Expressão regular: %s
+E_xpresión regular	_Regular expression	Expression _régulière	정규식(_R)	正则表达式(_R)	E_xpressão regular
+%u módulos visibles · %u ya instalados	%u modules shown · %u already installed	%u modules affichés · %u déjà installés	표시된 모듈 %u개 · 설치된 모듈 %u개	显示 %u 个模块 · 已安装 %u 个	%u módulos visíveis · %u já instalados
+%d coincidencia	%d match	%d résultat	일치 %d개	%d 个匹配结果	%d resultado
+%d coincidencias	%d matches	%d résultats	일치 %d개	%d 个匹配结果	%d resultados
+%d nota escrita.	%d note written.	%d note écrite.	작성한 메모 %d개.	已写 %d 条笔记。	%d nota escrita.
+%d notas escritas.	%d notes written.	%d notes écrites.	작성한 메모 %d개.	已写 %d 条笔记。	%d notas escritas.
+%d nota con esos filtros.	%d note matches these filters.	%d note correspond à ces filtres.	조건에 맞는 메모 %d개.	%d 条笔记符合这些筛选条件。	%d nota com esses filtros.
+%d notas con esos filtros.	%d notes match these filters.	%d notes correspondent à ces filtres.	조건에 맞는 메모 %d개.	%d 条笔记符合这些筛选条件。	%d notas com esses filtros.
+%d nota.	%d note.	%d note.	메모 %d개.	%d 条笔记。	%d nota.
+%d notas.	%d notes.	%d notes.	메모 %d개.	%d 条笔记。	%d notas.
+Mis estudios	My studies	Mes études	내 연구	我的研读	Meus estudos
+Jesús en la historia	Jesus in history	Jésus dans l’histoire	역사 속의 예수	历史中的耶稣	Jesus na história
+Mi progreso	My progress	Ma progression	내 진행 상황	我的进度	Meu progresso
+Apariencia	Appearance	Apparence	모양	外观	Aparência
+Paneles	Panels	Panneaux	패널	面板	Painéis
+Números de versículo	Verse numbers	Numéros de verset	절 번호	节号	Números dos versículos
+Texto	Text	Texte	본문	文本	Texto
+Traducción	Translation	Traduction	번역	翻译	Tradução
+Créditos	Credits	Crédits	제작 정보	制作名单	Créditos
+Contenido	Contents	Sommaire	목차	目录	Conteúdo
+Ver	View	Affichage	보기	视图	Exibir
+SWORD	SWORD	SWORD	SWORD	SWORD	SWORD
+Vista previa	Preview	Aperçu	미리 보기	预览	Visualização
+Pantalla dividida	Split screen	Écran partagé	분할 화면	分屏	Tela dividida
+Mostrar u ocultar panel lateral	Show or hide sidebar	Afficher ou masquer le panneau latéral	사이드바 표시 또는 숨기기	显示或隐藏侧栏	Mostrar ou ocultar painel lateral
+Vista previa en el lateral	Sidebar preview	Aperçu latéral	사이드바 미리 보기	侧栏预览	Visualização no painel lateral
+Vincular pestañas	Link tabs	Lier les onglets	탭 연결	链接标签页	Vincular abas
+Vista paralela en pestaña	Parallel view in tab	Vue parallèle dans un onglet	탭에서 병렬 보기	标签页中的平行视图	Vista paralela em aba
+Exportar pasaje	Export passage	Exporter le passage	본문 내보내기	导出经文	Exportar passagem
+Informar de un error	Report a bug	Signaler une erreur	오류 신고	报告错误	Informar um erro
+Resaltar versículo actual	Highlight current verse	Surligner le verset courant	현재 구절 강조	高亮当前经节	Destacar versículo atual
+Resaltar versículos anotados	Highlight annotated verses	Surligner les versets annotés	메모 있는 구절 강조	高亮有笔记的经节	Destacar versículos anotados
+Abrir sesión	Open session	Ouvrir une session	세션 열기	打开会话	Abrir sessão
+Guardar sesión	Save session	Enregistrer la session	세션 저장	保存会话	Salvar sessão
+Instalar Biblias	Install Bibles	Installer des Bibles	성경 설치	安装圣经	Instalar Bíblias
+Notas enlazadas:	Linked notes:	Notes reliées :	연결된 메모:	链接的笔记：	Notas vinculadas:
+Nota · %s	Note · %s	Note · %s	메모 · %s	笔记 · %s	Nota · %s
+Subrayado: “%s”	Highlight: “%s”	Surlignage : « %s »	강조: “%s”	高亮：“%s”	Destaque: “%s”
+Nota de un subrayado	Highlight note	Note d’un surlignage	강조 메모	高亮笔记	Nota de um destaque
+Nueva nota	New note	Nouvelle note	새 메모	新建笔记	Nova nota
+Nueva nota para este versículo	New note for this verse	Nouvelle note pour ce verset	이 구절의 새 메모	为本节新建笔记	Nova nota para este versículo
+No hacen falta las tildes: «espiritu» encuentra «Espíritu».	Accents are optional: “espiritu” finds “Espíritu”.	Les accents sont facultatifs : « espiritu » trouve « Espíritu ».	악센트는 필요 없습니다. “espiritu”로 “Espíritu”를 찾습니다.	无需重音符号：“espiritu”可以找到“Espíritu”。	Não é preciso digitar os acentos: “espiritu” encontra “Espíritu”.
+Muestra un panel para comparar esta versión con otra, sincronizado al mismo versículo.	Shows a panel comparing this version with another, synchronized to the same verse.	Affiche un panneau de comparaison avec une autre version, synchronisé au même verset.	같은 구절에 맞춰 이 번역본을 다른 번역본과 비교하는 패널을 표시합니다.	显示一个比较面板，与另一译本同步到同一经节。	Mostra um painel para comparar esta versão com outra, sincronizado no mesmo versículo.
+Mismo versículo que en la pantalla de arriba.	Same verse as in the screen above.	Même verset que dans l’écran du haut.	위 화면과 같은 구절입니다.	与上方屏幕相同的经节。	Mesmo versículo da tela de cima.
+Arrastra sobre otra versión para intercambiar el orden	Drag onto another version to swap the order	Glissez sur une autre version pour inverser l’ordre	다른 번역본으로 드래그하여 순서 변경	拖到另一译本上以交换顺序	Arraste sobre outra versão para trocar a ordem
+Quitar esta versión	Remove this version	Retirer cette version	이 번역본 제거	移除此译本	Remover esta versão
+Intercambiar el orden de estas dos versiones	Swap these two versions	Inverser ces deux versions	두 번역본 순서 교환	交换这两个译本的顺序	Trocar a ordem destas duas versões
+Intercambiar el orden de estas versiones	Swap these versions	Inverser ces versions	번역본 순서 교환	交换这些译本的顺序	Trocar a ordem destas versões
+Intercambiar las dos versiones	Swap the two versions	Inverser les deux versions	두 번역본 교환	交换两个译本	Trocar as duas versões
+Añadir otra Biblia (hasta 4) para este versículo	Add another Bible (up to 4) for this verse	Ajouter une Bible (jusqu’à 4) pour ce verset	이 구절에 다른 성경 추가 (최대 4개)	为本节添加另一圣经（最多 4 本）	Adicionar outra Bíblia (até 4) para este versículo
+Poner esta versión arriba. La de arriba pasa aquí.	Move this version up. The top version moves here.	Mettre cette version en haut. Celle du haut prend sa place ici.	이 번역본을 위로 옮깁니다. 위의 번역본은 여기로 이동합니다.	将此译本移到上方，上方译本移到此处。	Colocar esta versão em cima. A de cima vem para cá.
+Versión de la izquierda	Left version	Version de gauche	왼쪽 번역본	左侧译本	Versão da esquerda
+Versión de la derecha	Right version	Version de droite	오른쪽 번역본	右侧译本	Versão da direita
+Versión	Version	Version	번역본	译本	Versão
+Cambiar de versión (mantiene el versículo enfocado)	Change version (keeps the focused verse)	Changer de version (conserve le verset ciblé)	번역본 변경 (중심 구절 유지)	切换译本（保持焦点经节）	Mudar de versão (mantém o versículo em foco)
+Elige una o más Biblias para comparar este versículo.	Choose one or more Bibles to compare this verse.	Choisissez une ou plusieurs Bibles pour comparer ce verset.	이 구절을 비교할 성경을 하나 이상 선택하세요.	选择一本或多本圣经来比较本节。	Escolha uma ou mais Bíblias para comparar este versículo.
+Antes hay que seleccionar algo.\n\nArrastra el ratón sobre el nombre de un lugar -- «Jerusalén», «Galilea» -- y vuelve a abrir este menú: BibleMap.org lo enseña en el mapa.	Select something first.\n\nDrag over a place name — “Jerusalem”, “Galilee” — and reopen this menu: BibleMap.org will show it on a map.	Sélectionnez d’abord du texte.\n\nSélectionnez un lieu — « Jérusalem », « Galilée » — et rouvrez ce menu : BibleMap.org l’affichera sur une carte.	먼저 선택하세요.\n\n“예루살렘”, “갈릴리” 같은 지명을 드래그하여 선택하고 메뉴를 다시 여세요. BibleMap.org에서 지도에 표시합니다.	请先选择内容。\n\n拖动鼠标选中地名，例如“耶路撒冷”或“加利利”，再打开此菜单：BibleMap.org 将在地图上显示它。	Selecione algo primeiro.\n\nArraste sobre o nome de um lugar — “Jerusalém”, “Galileia” — e reabra este menu: BibleMap.org mostrará no mapa.
+Antes hay que seleccionar algo.\n\nArrastra el ratón sobre el texto que quieras traducir y vuelve a abrir este menú.	Select something first.\n\nDrag over the text you want to translate, then reopen this menu.	Sélectionnez d’abord du texte.\n\nSélectionnez le texte à traduire, puis rouvrez ce menu.	먼저 선택하세요.\n\n번역할 본문을 드래그하여 선택하고 메뉴를 다시 여세요.	请先选择内容。\n\n拖动鼠标选中要翻译的文字，再打开此菜单。	Selecione algo primeiro.\n\nArraste sobre o texto que deseja traduzir e reabra este menu.
+Antes hay que seleccionar algo.\n\nArrastra el ratón sobre lo que quieras oír y vuelve a abrir este menú.	Select something first.\n\nDrag over the text you want to hear, then reopen this menu.	Sélectionnez d’abord du texte.\n\nSélectionnez le texte à écouter, puis rouvrez ce menu.	먼저 선택하세요.\n\n듣고 싶은 본문을 드래그하여 선택하고 메뉴를 다시 여세요.	请先选择内容。\n\n拖动鼠标选中想听的文字，再打开此菜单。	Selecione algo primeiro.\n\nArraste sobre o texto que deseja ouvir e reabra este menu.
+Expresión regular de Perl: ^Apóstol, gracia|misericordia, \bfe\b	Perl regular expression: ^Apóstol, gracia|misericordia, \bfe\b	Expression régulière Perl : ^Apóstol, gracia|misericordia, \bfe\b	Perl 정규식: ^Apóstol, gracia|misericordia, \bfe\b	Perl 正则表达式：^Apóstol, gracia|misericordia, \bfe\b	Expressão regular Perl: ^Apóstol, gracia|misericordia, \bfe\b
+%d–%d min	%d–%d min	%d–%d min	%d–%d분	%d–%d 分钟	%d–%d min
+Insertar marcador	Insert bookmark	Insérer un signet	책갈피 삽입	插入书签	Inserir marcador
+Editar elemento	Edit item	Modifier l’élément	항목 편집	编辑项目	Editar item
+Variantes	Variants	Variantes	이문	异文	Variantes
+Desbloquear este módulo	Unlock this module	Déverrouiller ce module	이 모듈 잠금 해제	解锁此模块	Desbloquear este módulo
+Leer la selección en voz alta	Read selection aloud	Lire la sélection à voix haute	선택 영역 소리 내어 읽기	朗读选中内容	Ler a seleção em voz alta
+Exportar lista	Export list	Exporter la liste	목록 내보내기	导出列表	Exportar lista
+Mensual	Monthly	Mensuel	매월	每月	Mensal
+Transliteración	Transliteration	Translittération	음역	音译	Transliteração

@@ -55,7 +55,10 @@ std::string localeName(const std::string &path)
 		return std::string();
 	std::string name;
 	bool inMeta = false;
-	gchar **lines = g_strsplit(contents, "\n", -1);
+	// SWORD accepts a UTF-8 BOM (the shipped Portuguese Unicode locale has
+	// one). Include that file when collecting the locale's configurations.
+	const gchar *start = g_str_has_prefix(contents, "\xEF\xBB\xBF") ? contents + 3 : contents;
+	gchar **lines = g_strsplit(start, "\n", -1);
 	for (gchar **line = lines; *line; ++line) {
 		g_strstrip(*line);
 		if ((*line)[0] == '[') {

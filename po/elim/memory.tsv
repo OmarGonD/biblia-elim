@@ -1,0 +1,37 @@
+No se pudo leer el texto: abre una Biblia en la ventana principal.	Could not read the text: open a Bible in the main window.	Impossible de lire le texte : ouvrez une Bible dans la fenêtre principale.	본문을 읽을 수 없습니다. 기본 창에서 성경을 여세요.	无法读取文本：请在主窗口中打开一本圣经。	Não foi possível ler o texto: abra uma Bíblia na janela principal.
+Recítalo de memoria, y luego destápalo.	Recite it from memory, then reveal it.	Récitez de mémoire, puis révélez le texte.	암송한 다음 본문을 확인하세요.	先凭记忆背诵，再显示原文。	Recite de memória e depois revele o texto.
+Primero recítalo de memoria; luego compruébalo	First recite it from memory; then check it	Récitez d’abord de mémoire, puis vérifiez	먼저 암송한 다음 확인하세요	先凭记忆背诵，再检查	Primeiro recite de memória; depois confira
+atrasado %d día	%d day overdue	%d jour de retard	%d일 지남	逾期 %d 天	%d dia atrasado
+atrasado %d días	%d days overdue	%d jours de retard	%d일 지남	逾期 %d 天	%d dias atrasado
+en %d días	in %d days	dans %d jours	%d일 후	%d 天后	em %d dias
+Todavía no estás memorizando ninguno	You are not memorizing any verses yet	Vous ne mémorisez encore aucun verset	아직 암송 중인 구절이 없습니다	您尚未开始背诵经节	Você ainda não está memorizando nenhum
+Nada que repasar hoy	Nothing to review today	Rien à réviser aujourd’hui	오늘 복습할 내용이 없습니다	今天没有需要复习的内容	Nada para revisar hoje
+%d versículo para repasar hoy	%d verse to review today	%d verset à réviser aujourd’hui	오늘 복습할 구절 %d개	今天需复习 %d 节	%d versículo para revisar hoje
+%d versículos para repasar hoy	%d verses to review today	%d versets à réviser aujourd’hui	오늘 복습할 구절 %d개	今天需复习 %d 节	%d versículos para revisar hoje
+Tus versículos	Your verses	Vos versets	내 구절	您的经节	Seus versículos
+Tus versículos · %d en total	Your verses · %d in total	Vos versets · %d au total	내 구절 · 총 %d개	您的经节 · 共 %d 节	Seus versículos · %d no total
+Esta semana todavía no has elegido ninguno. Uno por semana es un ritmo que se sostiene.	You have not chosen a verse this week. One per week is a sustainable pace.	Vous n’avez pas encore choisi de verset cette semaine. Un par semaine est un rythme durable.	이번 주에는 아직 구절을 선택하지 않았습니다. 일주일에 하나씩 꾸준히 암송하세요.	您本周尚未选择经节。每周一节是可以坚持的节奏。	Você ainda não escolheu nenhum esta semana. Um por semana é um ritmo sustentável.
+Esta semana ya elegiste %d.	You have already chosen %d this week.	Vous en avez déjà choisi %d cette semaine.	이번 주에 이미 %d개를 선택했습니다.	您本周已选择 %d 节。	Esta semana você já escolheu %d.
+  ·  %d en la última caja	  ·  %d in the last box	  ·  %d dans la dernière boîte	  ·  마지막 상자에 %d개	  ·  最后一盒有 %d 节	  ·  %d na última caixa
+%s ya estaba en tu lista.	%s is already on your list.	%s est déjà dans votre liste.	%s은 이미 목록에 있습니다.	%s 已在您的列表中。	%s já estava na sua lista.
+No se pudo añadir ese versículo.	Could not add that verse.	Impossible d’ajouter ce verset.	해당 구절을 추가할 수 없습니다.	无法添加该经节。	Não foi possível adicionar esse versículo.
+%s añadido para memorizar.	%s added for memorization.	%s ajouté à la mémorisation.	%s을 암송 목록에 추가했습니다.	已将 %s 加入背诵列表。	%s adicionado para memorizar.
+Caja	Box	Boîte	상자	记忆盒	Caixa
+Vuelve	Returns	À revoir	복습 예정	下次复习	Volta
+Aciertos	Correct answers	Réussites	정답	答对次数	Acertos
+Lo recordé	I remembered it	Je m’en suis souvenu	기억했습니다	我记得了	Lembrei
+No me salió	I could not recall it	Je n’ai pas réussi	기억나지 않았습니다	我没记住	Não consegui
+Sube de caja y tarda más en volver	Moves to the next box, with a longer review interval	Passe à la boîte suivante avec un intervalle de révision plus long	다음 상자로 이동하여 복습 간격이 늘어납니다	移入下一盒，复习间隔延长	Sobe de caixa e demora mais para voltar
+Vuelve a la primera caja y lo repasas mañana	Returns to the first box for review tomorrow	Revient à la première boîte pour être révisé demain	첫 번째 상자로 돌아가 내일 복습합니다	返回第一盒，明天复习	Volta à primeira caixa para revisar amanhã
+Memorizar el que estoy leyendo	Memorize the verse I am reading	Mémoriser le verset que je lis	읽고 있는 구절 암송	背诵正在阅读的经节	Memorizar o que estou lendo
+Memorizar este	Memorize this one	Mémoriser ce verset	이 구절 암송	背诵本节	Memorizar este
+Añade el versículo abierto en la ventana principal	Add the verse open in the main window	Ajouter le verset ouvert dans la fenêtre principale	기본 창에 열린 구절 추가	添加主窗口中打开的经节	Adiciona o versículo aberto na janela principal
+Deja de memorizar el versículo elegido en la lista	Stop memorizing the selected verse	Arrêter de mémoriser le verset sélectionné	선택한 구절 암송 중지	停止背诵选中的经节	Deixa de memorizar o versículo escolhido
+Añadirlo a tus versículos para memorizar	Add it to your verses to memorize	L’ajouter à vos versets à mémoriser	암송할 구절에 추가	加入您的背诵经节	Adicionar aos seus versículos para memorizar
+Ver el texto	Show text	Afficher le texte	본문 보기	显示原文	Ver o texto
+Quitar	Remove	Retirer	제거	移除	Remover
+Probar	Test	Tester	시험	测试	Testar
+Así se verá el recordatorio de cada día.	This is how the daily reminder will look.	Voici l’apparence du rappel quotidien.	매일 알림은 이렇게 표시됩니다.	每日提醒将以此形式显示。	Assim será o lembrete diário.
+Recordármelo cada día a las	Remind me every day at	Me le rappeler chaque jour à	매일 알림 시간	每天提醒时间	Lembrar todos os dias às
+Un aviso del escritorio, en este equipo, aunque la aplicación esté cerrada	A desktop notification on this computer, even when the app is closed	Une notification sur cet ordinateur, même quand l’application est fermée	앱이 닫혀 있어도 이 컴퓨터에 데스크톱 알림 표시	即使应用已关闭，也在此电脑上显示桌面提醒	Um aviso na área de trabalho, neste computador, mesmo com o aplicativo fechado
+Mandar el aviso ahora para ver cómo se ve	Send a reminder now to preview it	Envoyer un rappel maintenant pour le prévisualiser	지금 알림을 보내 미리 보기	立即发送提醒以预览效果	Enviar o aviso agora para ver como fica

@@ -1,0 +1,115 @@
+{
+  "task": "TORRES-CONTEXTO-104",
+  "resolved_by": "TORRES-CONTEXTO-105",
+  "content_version": "0.9.19",
+  "previous_content_version": "0.9.18",
+  "status": "RESOLVED_BY_COMPARISON",
+  "scope": "Los 13 fragmentos se restituyeron por cotejo con transcripciones de Torres Amat y Vulgata; Hechos también con griego. La alineación de Baruc es un problema independiente.",
+  "cases": [],
+  "resolved_cases": [
+    {
+      "reference": "Exod 28:4",
+      "token": "d",
+      "context": "spaldar, la túnica exterior, y la otra ¿mieri07 d. de lino ajustada, la tiara, y el cinturon. Estas serán las vesti",
+      "text": "Las vestiduras que han de hacer son estas: El Racional y el Ephod ¿espaldar, la túnica exterior, y la otra ¿mieri07 d. de lino ajustada, la tiara, y el cinturon. Estas serán las vestiduras sagradas que harán á tu hermano Aaron y á sus hijos, para que ejerzan delante de mí las funciones del sacerdocio.",
+      "reason": "Numeración/letras de ruido o frase incompleta: falta evidencia para restituirla."
+    },
+    {
+      "reference": "Deut 20:3",
+      "token": "d",
+      "context": "timideis, no volvais piés atrás, no los temais: d, Porque el Señor Dios vuestro está en medio de vosotros y peleará",
+      "text": "Escucha, ob Israél: vosotros entrais hoy en batalla contra E OElrOS enemigos; no desmaye vuestro corazon, no os intimideis, no volvais piés atrás, no los temais: d, Porque el Señor Dios vuestro está en medio de vosotros y peleará por vosotros contra los enemigos para libraros del peligro.",
+      "reason": "Numeración/letras de ruido o frase incompleta: falta evidencia para restituirla."
+    },
+    {
+      "reference": "Job 7:15",
+      "token": "d",
+      "context": "a quisiera mas un patíbulo, y cualquiera muerte d paradero mis huesos",
+      "text": "Por cuya causa mi alma quisiera mas un patíbulo, y cualquiera muerte d paradero mis huesos",
+      "reason": "Numeración/letras de ruido o frase incompleta: falta evidencia para restituirla."
+    },
+    {
+      "reference": "Job 13:17",
+      "token": "d",
+      "context": " vuestra atencion á los enigmas 15 q ee voy A á d CauNdos AR",
+      "text": "Oid mis razones, y aplicad vuestra atencion á los enigmas 15 q ee voy A á d CauNdos AR",
+      "reason": "Numeración/letras de ruido o frase incompleta: falta evidencia para restituirla."
+    },
+    {
+      "reference": "Ps 119:2",
+      "token": "d",
+      "context": "a de los labios inícuos, y de la lengua dolosa. d. ¿Qué se te dará, ó qué fruto sacarás de tus calumnias, oh lengua",
+      "text": "Libra, oh Señor, mi alma de los labios inícuos, y de la lengua dolosa. d. ¿Qué se te dará, ó qué fruto sacarás de tus calumnias, oh lengua fraudulenta?",
+      "reason": "Numeración/letras de ruido o frase incompleta: falta evidencia para restituirla."
+    },
+    {
+      "reference": "Prov 16:2",
+      "token": "d",
+      "context": "or pesa los espíritus Ó JUz 200 L08 Inleriores, d. Dirige hácia el Señor tus obras; y tendrán buen éxito tus design",
+      "text": "Todas las acciones del hombre están patentes á la humana vista; mos el Señor pesa los espíritus Ó JUz 200 L08 Inleriores, d. Dirige hácia el Señor tus obras; y tendrán buen éxito tus designios.",
+      "reason": "Numeración/letras de ruido o frase incompleta: falta evidencia para restituirla."
+    },
+    {
+      "reference": "Sir 6:19",
+      "token": "d",
+      "context": "licate á ella, y espera sus buenos frutos; po Y d",
+      "text": "Como el que ara y siembra, aplicate á ella, y espera sus buenos frutos; po Y d",
+      "reason": "Numeración/letras de ruido o frase incompleta: falta evidencia para restituirla."
+    },
+    {
+      "reference": "Sir 18:19",
+      "token": "d",
+      "context": "Antes del juicio d de al juez, asegúrate de tu Justicia, y antes que hables aprende.",
+      "text": "Antes del juicio d de al juez, asegúrate de tu Justicia, y antes que hables aprende.",
+      "reason": "Numeración/letras de ruido o frase incompleta: falta evidencia para restituirla."
+    },
+    {
+      "reference": "Sir 29:34",
+      "token": "d",
+      "context": " amigos mios de distincion, y necesito mi casa: d he de alojar á un hermano mio.",
+      "text": "O bien, vete á fuera que vienen unos amigos mios de distincion, y necesito mi casa: d he de alojar á un hermano mio.",
+      "reason": "Numeración/letras de ruido o frase incompleta: falta evidencia para restituirla."
+    },
+    {
+      "reference": "Sir 47:16",
+      "token": "d",
+      "context": "la descubrió tu alma los secretos de la tierra, d",
+      "text": "Y cómo estuviste lleno de sabiduría cual rio caudaloso! Con ella descubrió tu alma los secretos de la tierra, d",
+      "reason": "Numeración/letras de ruido o frase incompleta: falta evidencia para restituirla."
+    },
+    {
+      "reference": "Bar 3:27",
+      "token": "d",
+      "context": "l Señor; pues aquel mismo que os ha trasportado d/, se acordará de vosotros.",
+      "text": "Hijos, tened buen ánimo, y clamad.al Señor; pues aquel mismo que os ha trasportado d/, se acordará de vosotros.",
+      "reason": "Numeración/letras de ruido o frase incompleta: falta evidencia para restituirla."
+    },
+    {
+      "reference": "Acts 27:30",
+      "token": "d",
+      "context": " aligeraban la nave, arrojando al mar el trigo, d",
+      "text": "Pero como los marineros, intentando escaparse de la nave, echasen al mar el esquife, con el pretexto de ir á tirar las áncoras un poco mas lejos por la parte de proa, Estando ya satisfechos, aligeraban la nave, arrojando al mar el trigo, d",
+      "reason": "Numeración/letras de ruido o frase incompleta: falta evidencia para restituirla."
+    },
+    {
+      "reference": "1Macc 4:48",
+      "token": "ú",
+      "context": "que estaba de la parte de adentro de la casa ú tada y santificaron el templo y sus atrios.",
+      "text": "Y reedificaron el Santuario, y aquello que estaba de la parte de adentro de la casa ú tada y santificaron el templo y sus atrios.",
+      "reason": "Palabra truncada junto a ú: hace falta cotejar el facsímil."
+    }
+  ],
+  "restitutions_file": "cotejo.json",
+  "structural_findings": [
+    {
+      "book": "Bar",
+      "stored_reference": "Bar 3:27",
+      "canonical_reference": "Bar 4:27",
+      "status": "resolved",
+      "evidence": "El capítulo 3 mezcla texto de Bar 4 y Bar 5; el capítulo 4 contiene texto de Bar 6. Se corrige allí, conservando el identificador actual para no desplazar notas ni sobreescribir otras entradas.",
+      "resolved_by": "TORRES-BARUC-106",
+      "resolved_content_version": "0.9.20",
+      "resolution": "Libro completo restituido y realineado: 213 versículos en seis capítulos (22/35/38/37/9/72), 25 recuperados. Notas de las doce medias hojas reubicadas. Cotejo y textos en baruc.json."
+    }
+  ]
+}

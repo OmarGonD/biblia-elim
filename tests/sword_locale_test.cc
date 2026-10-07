@@ -77,6 +77,7 @@ int main()
 	int compared = 0;
 	for (const char *lang : {"es_PE.UTF-8", "es_ES.UTF-8", "es", "de_DE.UTF-8",
 				 "pt_BR.UTF-8", "fr_FR.UTF-8", "en_US.UTF-8",
+				 "ko_KR.UTF-8", "pt_PT.UTF-8",
 				 "zh_CN.UTF-8", "ru_RU.UTF-8", "C", "xx_YY"}) {
 		const std::string expected = chooseAsBefore(full, lang);
 		gchar *chosen = swordInstallReaderLocale(lang);

@@ -1,0 +1,207 @@
+{
+  "task": "TORRES-CONTEXTO-105",
+  "from_content_version": "0.9.18",
+  "content_version": "0.9.19",
+  "cases_resolved": 13,
+  "new_verses": [
+    "Deuteronomy 20:4",
+    "Psalms 119:3",
+    "Proverbs 16:3",
+    "Acts 27:38"
+  ],
+  "corrections": [
+    {
+      "reference": "Exodus 28:4",
+      "before": "Las vestiduras que han de hacer son estas: El Racional y el Ephod ¿espaldar, la túnica exterior, y la otra ¿mieri07 d. de lino ajustada, la tiara, y el cinturon. Estas serán las vestiduras sagradas que harán á tu hermano Aaron y á sus hijos, para que ejerzan delante de mí las funciones del sacerdocio.",
+      "after": "Las vestiduras que han de hacer son estas: El Racional y el Ephod ó espaldar, la túnica exterior, y la otra interior de lino ajustada, la tiara, y el cinturon. Estas serán las vestiduras sagradas que harán á tu hermano Aaron y á sus hijos, para que ejerzan delante de mí las funciones del sacerdocio.",
+      "witnesses": [
+        "https://www.bibliatodo.com/biblia/Torres-amat/exodo-28-4",
+        "local:VulgClementine:Exod.28.4",
+        "local:SpaPlatense:Exod.28.4"
+      ],
+      "basis": "Torres Amat confirma interior de lino ajustada; la Vulgata distingue tunicam et lineam strictam. Se conserva Racional/Ephod y la ortografía de 1882."
+    },
+    {
+      "reference": "Deuteronomy 20:3",
+      "before": "Escucha, ob Israél: vosotros entrais hoy en batalla contra E OElrOS enemigos; no desmaye vuestro corazon, no os intimideis, no volvais piés atrás, no los temais: d, Porque el Señor Dios vuestro está en medio de vosotros y peleará por vosotros contra los enemigos para libraros del peligro.",
+      "after": "Escucha, oh Israél: vosotros entrais hoy en batalla contra vuestros enemigos; no desmaye vuestro corazon, no os intimideis, no volvais piés atrás, no los temais:",
+      "witnesses": [
+        "https://www.bibliatodo.com/la-biblia/Torres-amat/deuteronomio-20",
+        "local:VulgClementine:Deut.20.3-4"
+      ],
+      "basis": "El d era la frontera de Deuteronomio 20:4, no una preposición. La exhortación y su fundamento son versículos distintos."
+    },
+    {
+      "reference": "Deuteronomy 20:4",
+      "before": "",
+      "after": "Porque el Señor Dios vuestro está en medio de vosotros y peleará por vosotros contra los enemigos para libraros del peligro.",
+      "witnesses": [
+        "https://www.bibliatodo.com/la-biblia/Torres-amat/deuteronomio-20",
+        "local:VulgClementine:Deut.20.3-4"
+      ],
+      "basis": "Restituir el versículo 4 desde el texto ya presente en el 3; frontera confirmada en Torres Amat y Vulgata."
+    },
+    {
+      "reference": "Job 7:15",
+      "before": "Por cuya causa mi alma quisiera mas un patíbulo, y cualquiera muerte d paradero mis huesos",
+      "after": "Por cuya causa mi alma quisiera mas un patíbulo, y cualquiera muerte para mis huesos",
+      "witnesses": [
+        "https://www.bibliaya.com/version-oro-job-7",
+        "local:VulgClementine:Job.7.15",
+        "local:SpaPlatense:Job.7.15"
+      ],
+      "basis": "Restitución por cotejo con otra edición de Torres Amat, que dice muerte para mis huesos; no se presenta como lectura facsimilar de 1882."
+    },
+    {
+      "reference": "Job 13:17",
+      "before": "Oid mis razones, y aplicad vuestra atencion á los enigmas 15 q ee voy A á d CauNdos AR",
+      "after": "Oid mis razones, y aplicad vuestra atencion á los enigmas que voy á deciros.",
+      "witnesses": [
+        "https://www.bibliatodo.com/la-biblia/Torres-amat/job-13",
+        "local:VulgClementine:Job.13.17"
+      ],
+      "basis": "La transcripción de Torres Amat confirma que voy a deciros; la Vulgata confirma la exhortación a oír los enigmas."
+    },
+    {
+      "reference": "Psalms 119:2",
+      "before": "Libra, oh Señor, mi alma de los labios inícuos, y de la lengua dolosa. d. ¿Qué se te dará, ó qué fruto sacarás de tus calumnias, oh lengua fraudulenta?",
+      "after": "Libra, oh Señor, mi alma de los labios inícuos, y de la lengua dolosa.",
+      "witnesses": [
+        "https://www.bibliaya.com/version-oro-salmos-120",
+        "local:VulgClementine:Ps.119.2-3"
+      ],
+      "basis": "Número 3 del salmo mal leído como d. Numeración Vulgata 119, equivalente al salmo 120 en el testigo moderno."
+    },
+    {
+      "reference": "Psalms 119:3",
+      "before": "",
+      "after": "¿Qué se te dará, ó qué fruto sacarás de tus calumnias, oh lengua fraudulenta?",
+      "witnesses": [
+        "https://www.bibliaya.com/version-oro-salmos-120",
+        "local:VulgClementine:Ps.119.2-3"
+      ],
+      "basis": "Restituir el versículo 3 desde el texto que estaba pegado al 2; sin sustituirlo por otra traducción."
+    },
+    {
+      "reference": "Proverbs 16:2",
+      "before": "Todas las acciones del hombre están patentes á la humana vista; mos el Señor pesa los espíritus Ó JUz 200 L08 Inleriores, d. Dirige hácia el Señor tus obras; y tendrán buen éxito tus designios.",
+      "after": "Todas las acciones del hombre están patentes á la humana vista; mas el Señor pesa los espíritus ó juzga los interiores.",
+      "witnesses": [
+        "https://www.bibliaya.com/version-oro-proverbios-16",
+        "local:VulgClementine:Prov.16.2-3"
+      ],
+      "basis": "Torres Amat confirma mas y ó juzga los interiores; la siguiente exhortación corresponde al versículo 3."
+    },
+    {
+      "reference": "Proverbs 16:3",
+      "before": "",
+      "after": "Dirige hácia el Señor tus obras; y tendrán buen éxito tus designios.",
+      "witnesses": [
+        "https://www.bibliaya.com/version-oro-proverbios-16",
+        "local:VulgClementine:Prov.16.2-3"
+      ],
+      "basis": "Restituir el versículo 3 desde el texto ya presente en el 2."
+    },
+    {
+      "reference": "Sirach 6:19",
+      "before": "Como el que ara y siembra, aplicate á ella, y espera sus buenos frutos; po Y d",
+      "after": "Como el que ara y siembra, aplicate á ella, y espera sus buenos frutos;",
+      "witnesses": [
+        "https://apps.idteologia.org/index.php?book=70&chapter=6&db=ta.db&r=sagradaEscritura",
+        "local:VulgClementine:Sir.6.19"
+      ],
+      "basis": "Torres Amat, Vulgata y Platense terminan la exhortación en buenos frutos; el resto es ruido OCR."
+    },
+    {
+      "reference": "Sirach 18:19",
+      "before": "Antes del juicio d de al juez, asegúrate de tu Justicia, y antes que hables aprende.",
+      "after": "Antes del juicio ó de presentarte al juez, asegúrate de tu Justicia, y antes que hables aprende.",
+      "witnesses": [
+        "https://paginassagradas.com/biblia/antiguo-testamento/poeticos/eclesiastico/18/",
+        "https://www.paxetbon.com/biblia/eclesiastico/18",
+        "local:VulgClementine:Sir.18.19"
+      ],
+      "basis": "Dos transcripciones de Torres Amat conservan la aclaración de presentarte al juez; la Vulgata confirma ante judicium."
+    },
+    {
+      "reference": "Sirach 29:34",
+      "before": "O bien, vete á fuera que vienen unos amigos mios de distincion, y necesito mi casa: d he de alojar á un hermano mio.",
+      "after": "O bien, vete á fuera que vienen unos amigos mios de distincion, y necesito mi casa: ó he de alojar á un hermano mio.",
+      "witnesses": [
+        "https://paginassagradas.com/biblia/antiguo-testamento/poeticos/eclesiastico/29/",
+        "local:VulgClementine:Sir.29.34"
+      ],
+      "basis": "Torres Amat confirma ó he de alojar; alternativa de las palabras del dueño de la casa."
+    },
+    {
+      "reference": "Sirach 47:16",
+      "before": "Y cómo estuviste lleno de sabiduría cual rio caudaloso! Con ella descubrió tu alma los secretos de la tierra, d",
+      "after": "Y cómo estuviste lleno de sabiduría cual rio caudaloso! Con ella descubrió tu alma los secretos de la tierra.",
+      "witnesses": [
+        "https://www.paxetbon.com/biblia/eclesiastico/47/libro",
+        "local:VulgClementine:Sir.47.16",
+        "local:OCR1882:tomoIII:page159"
+      ],
+      "basis": "El OCR original muestra ruido antes de la marca 17 de la siguiente línea; se conserva la frase sobre los secretos de la tierra."
+    },
+    {
+      "reference": "Baruch 3:27",
+      "before": "Hijos, tened buen ánimo, y clamad.al Señor; pues aquel mismo que os ha trasportado d/, se acordará de vosotros.",
+      "after": "Hijos, tened buen ánimo, y clamad al Señor; pues aquel mismo que os ha trasportado allí, se acordará de vosotros.",
+      "witnesses": [
+        "https://paginassagradas.com/biblia/antiguo-testamento/profetas/baruc/4/",
+        "local:VulgClementine:Bar.4.27",
+        "local:SpaPlatense:Bar.4.27"
+      ],
+      "basis": "Torres Amat confirma allí. El texto almacenado como Bar 3:27 corresponde al contenido de Bar 4:27; no se renumera aisladamente porque varios capítulos del módulo están mezclados.",
+      "canonical_cotejo_reference": "Bar 4:27"
+    },
+    {
+      "reference": "Acts 27:30",
+      "before": "Pero como los marineros, intentando escaparse de la nave, echasen al mar el esquife, con el pretexto de ir á tirar las áncoras un poco mas lejos por la parte de proa, Estando ya satisfechos, aligeraban la nave, arrojando al mar el trigo, d",
+      "after": "Pero como los marineros, intentando escaparse de la nave, echasen al mar el esquife, con el pretexto de ir á tirar las áncoras un poco mas lejos por la parte de proa,",
+      "witnesses": [
+        "https://www.bibliatodo.com/la-biblia/Torres-amat/hechos-27",
+        "local:VulgClementine:Acts.27.30-38",
+        "local:TR:Acts.27.30-38",
+        "local:Tisch:Acts.27.30-38"
+      ],
+      "basis": "El griego distingue 27:30 (marineros, esquife, anclas de proa) de 27:38 (saciados, trigo arrojado al mar). Torres Amat confirma las dos fronteras."
+    },
+    {
+      "reference": "Acts 27:38",
+      "before": "",
+      "after": "Estando ya satisfechos, aligeraban la nave, arrojando al mar el trigo.",
+      "witnesses": [
+        "https://www.bibliatodo.com/la-biblia/Torres-amat/hechos-27",
+        "local:VulgClementine:Acts.27.30-38",
+        "local:TR:Acts.27.30-38",
+        "local:Tisch:Acts.27.30-38"
+      ],
+      "basis": "Restituir el versículo 38 desde el texto que estaba pegado al 30; no es texto inventado ni tomado de otra traducción."
+    },
+    {
+      "reference": "I Maccabees 4:48",
+      "before": "Y reedificaron el Santuario, y aquello que estaba de la parte de adentro de la casa ú tada y santificaron el templo y sus atrios.",
+      "after": "Y reedificaron el Santuario, y aquello que estaba de la parte de adentro de la casa ó templo, y santificaron el templo y sus atrios.",
+      "witnesses": [
+        "https://paginassagradas.com/biblia/antiguo-testamento/historicos/1-macabeos/4/",
+        "local:VulgClementine:1Macc.4.48",
+        "local:SpaPlatense:1Macc.4.48"
+      ],
+      "basis": "Torres Amat conserva la aclaración casa ó Templo; otras versiones y la Vulgata confirman la referencia al interior del templo."
+    }
+  ],
+  "structural_findings": [
+    {
+      "book": "Bar",
+      "stored_reference": "Bar 3:27",
+      "canonical_reference": "Bar 4:27",
+      "status": "resolved",
+      "evidence": "El capítulo 3 mezcla texto de Bar 4 y Bar 5; el capítulo 4 contiene texto de Bar 6. Se corrige allí, conservando el identificador actual para no desplazar notas ni sobreescribir otras entradas.",
+      "resolved_by": "TORRES-BARUC-106",
+      "resolved_content_version": "0.9.20",
+      "resolution": "Libro completo restituido y realineado: 213 versículos en seis capítulos (22/35/38/37/9/72), 25 recuperados. Notas de las doce medias hojas reubicadas. Cotejo y textos en baruc.json."
+    }
+  ]
+}

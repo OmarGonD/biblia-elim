@@ -10702,6 +10702,361 @@
   - Not done: no real key-event test in the running app (the rule is
     unit-tested, the handler wiring is compile- and smoke-tested only).
 
+- [x] TORRES-CONTEXTO-101 Corregir Mc 1:15 y erratas OCR inequívocas en el módulo SQLite
+  - Status: DONE
+  - Description:
+    Revisión contextual de Torres Amat 1882, incluida la sustitución de
+    «$e ha cumplido» por «se ha cumplido» en Mc 1:15. Tabla reproducible,
+    anclada al versículo y al fragmento; fuente revisada 0.9.15 y conversión
+    por el importador/escritor neutral existente.
+  - Acceptance criteria:
+    - Corregir las erratas inequívocas y registrar las ambiguas sin adivinarlas.
+    - Guardar el texto corregido en las copias SQLite distribuida e instalada.
+    - Conservar esquema v1, UTF-8, referencias, anotaciones y búsqueda FTS.
+  - Relevant tests:
+    - `torresamat_contexto_test`, `torresamat_contexto_sqlite_test`.
+    - Regresiones de títulos, entidades, parche, cabeceras, columnas, barrido
+      y `sqlite_bible_backend_test`.
+  - Evidence:
+    - 1.087 fragmentos corregidos en exactamente 1.068 versículos; ida y
+      vuelta SWORD idéntica al texto previsto; segunda pasada con 0 cambios.
+    - Comparados los 34.119 registros SQLite: 1.068 cambios previstos y
+      33.051 textos intactos; mismas referencias, libros y anotaciones;
+      el único cambio de metadatos es `content_version` 0.9.14 → 0.9.15.
+    - `PRAGMA integrity_check=ok`, sin violaciones de claves foráneas,
+      comprobación FTS contra contenido PASS; ningún `$` en los versículos.
+    - Mc 1:15 exacto por `getVerseContent`, `getChapter` y búsqueda indexada;
+      prueba C++ PASS tanto sobre el módulo distribuido como el instalado.
+    - 7/7 regresiones CTest PASS; 13/13 pruebas del backend SQLite y
+      `test_barrido.py` PASS. Copias SQLite idénticas:
+      SHA-256 `f0ba307d2b9e018832aeedeb98996ee28077fae9a37ac384366941cc48554983`.
+    - Evidencia local en `build/torresamat-context-audit/`, con copia de
+      seguridad del módulo anterior y de las fuentes modificadas.
+    - Alcance: `scripts/torresamat/contexto_pendientes.json` registra 16
+      versículos con símbolos ambiguos para cotejo con el facsímil; la
+      revisión no certifica todo el OCR de la edición.
+
+- [x] TORRES-CONTEXTO-102 Corregir «Tba» en Marcos 1:39 por cotejo con otras versiones
+  - Status: DONE
+  - Description:
+    Sustituir «Tba» por «Iba» en Torres Amat, conservando la ortografía y
+    el resto del versículo; registrar el cotejo con Torres Amat 1836,
+    Reina-Valera 1909 y Platense.
+  - Acceptance criteria:
+    - Fuente reproducible 0.9.16 y copias SQLite distribuida e instalada.
+    - Solo cambia una letra en Mc 1:39; búsqueda y lectura correctas.
+    - No se pierden correcciones previas, referencias ni anotaciones.
+  - Relevant tests:
+    - `torresamat_contexto_test`, `torresamat_contexto_sqlite_test` y
+      segunda pasada del parche sin cambios.
+  - Evidence:
+    - Torres Amat 1836, Marcos 1:39 en Wikisource: «Iba pues Jesus
+      predicando»; Reina-Valera 1909: «Y predicaba»; Platense instalada:
+      «Y anduvo predicando». Comparación registrada en README y evidencia.
+    - Parche anclado a `Mark 1:39`: `Tba` → `Iba`. Ida y vuelta SWORD
+      exacta, un versículo cambiado y segunda pasada con 0 cambios.
+    - Comparados los 34.119 registros SQLite: cambia únicamente `T` por `I`
+      en Mc 1:39; 34.118 textos intactos, referencias y anotaciones idénticas;
+      esquema v1 y metadatos conservados salvo revisión 0.9.15 → 0.9.16.
+    - Integridad SQLite y FTS contra contenido PASS, sin violaciones de
+      claves foráneas. Lectura exacta por versículo/capítulo y búsqueda
+      indexada PASS sobre módulos distribuido e instalado.
+    - 3/3 regresiones CTest PASS (contexto, lector SQLite y títulos);
+      Python comprueba idempotencia y anclaje al versículo de Mc 1:39.
+    - Copias SQLite idénticas: SHA-256 `fe2361efe6e4a86fab016eeac933b6907700769b0403ad365e8ba84cf3b1fcd9`.
+      Copia anterior y evidencia en `build/torresamat-mark-139/`.
+
+
+- [x] TORRES-CONTEXTO-103 Corregir «ho» por «no» en Marcos 1:45
+  - Status: DONE
+  - Description:
+    Corregir la errata indicada por el usuario sin alterar el resto del
+    versículo ni las correcciones anteriores.
+  - Acceptance criteria:
+    - Fuente reproducible 0.9.17 y copias SQLite distribuida e instalada.
+    - Solo cambia `h` por `n` en Mc 1:45; lectura y búsqueda correctas.
+    - Referencias, UTF-8, esquema y anotaciones conservados.
+  - Relevant tests:
+    - `torresamat_contexto_test`, `torresamat_contexto_sqlite_test` y
+      segunda pasada del parche sin cambios.
+  - Evidence:
+    - Parche anclado a `Mark 1:45`: `ya ho podia Jesus` →
+      `ya no podia Jesus`. Ida y vuelta SWORD exacta y segunda pasada
+      con 0 cambios.
+    - Comparados los 34.119 registros SQLite: una letra cambia en Mc 1:45;
+      34.118 textos intactos, mismas referencias y anotaciones, esquema v1
+      conservado. Solo cambia la revisión de metadatos 0.9.16 → 0.9.17.
+    - Integridad SQLite y FTS contra contenido PASS, sin violaciones de
+      claves foráneas. Lectura exacta por versículo/capítulo y búsqueda
+      indexada PASS sobre módulos distribuido e instalado.
+    - 3/3 regresiones CTest PASS (contexto, lector SQLite y títulos);
+      conservadas las comprobaciones de Mc 1:15 y Mc 1:39.
+    - Copias SQLite idénticas: SHA-256 `eb1907c84449bc8782eab637dcc17865d0323c9ebff33e4c40b65fbe3e8795ec`.
+      Copia anterior y evidencia en `build/torresamat-mark-145/`.
+
+
+- [x] TORRES-CONTEXTO-104 Revisar conectores de todo Torres Amat y corregir Marcos 2:17
+  - Status: DONE
+  - Description:
+    Corregir «llamar d convertir» a «llamar á convertir», según la
+    instrucción explícita del usuario, y revisar confusiones similares
+    de preposiciones/conjunciones en los 34.119 registros de Torres Amat.
+  - Acceptance criteria:
+    - Revisión por contexto de cada candidato; distinguir á, ó, de y ú válida.
+    - Registrar los casos ambiguos sin reconstruir texto perdido.
+    - Fuente reproducible y copias SQLite distribuida e instalada 0.9.18.
+    - Preservar referencias, UTF-8, anotaciones y correcciones previas;
+      verificar lectura, búsqueda, integridad e idempotencia.
+  - Relevant tests:
+    - `torresamat_preposiciones_test`, `torresamat_contexto_sqlite_test`,
+      `torresamat_contexto_test` y regresiones de estructura de Torres Amat.
+  - Evidence:
+    - Recorridos los 34.119 registros de los 73 libros; revisión manual de
+      las 824 apariciones de `d` y las 400 de `ú`, más candidatos con `ó`,
+      `D` y cifras. Conservadas las 29 conjunciones `ú` válidas revisadas.
+    - Tabla `preposiciones.tsv`: 1.185 fragmentos en 1.158 versículos;
+      diferencias exactas verificadas por ida y vuelta SWORD y segunda
+      pasada con 0 cambios. Mc 2:17 queda «llamar á convertir» por
+      instrucción expresa del usuario; el cotejo 1836 dice «ó».
+    - Comparados todos los registros SQLite: 1.158 cambios previstos y
+      32.961 textos intactos. Libros, referencias, anotaciones y esquema v1
+      idénticos; solo cambia la revisión de metadatos 0.9.17 → 0.9.18.
+    - Integridad SQLite y FTS contra contenido PASS; sin violaciones de
+      claves foráneas. Lectura exacta, capítulo y búsqueda indexada de
+      Mc 2:17 PASS sobre las copias distribuida e instalada; verificadas
+      también las correcciones previas de Mc 1:15, 1:39 y 1:45.
+    - 8/8 regresiones CTest PASS: preposiciones, contexto, lector SQLite,
+      títulos, entidades, parche, cabeceras y columnas.
+    - Copias SQLite idénticas: SHA-256 `a98159de4900665aee9013f060580098f9fe67fae6c59a5d9e0310820958e5de`.
+      Evidencia y copias anteriores en `build/torresamat-preposiciones/`;
+      alcance versionado en `scripts/torresamat/preposiciones_revision.json`.
+    - 13 casos ambiguos conservados y documentados en
+      `scripts/torresamat/preposiciones_pendientes.json`; la revisión no
+      certifica las restantes erratas OCR de la edición.
+
+
+- [x] TORRES-CONTEXTO-105 Resolver los 13 pendientes por cotejo y recuperar versos fusionados
+  - Status: DONE
+  - Description:
+    Cotejar los 13 fragmentos pendientes con otras ediciones de Torres
+    Amat, Vulgata y versiones instaladas; para Hechos, también griego.
+    Restituir texto y separar fronteras de versículo confirmadas.
+  - Acceptance criteria:
+    - Decisiones y testigos registrados, sin sustituir a ciegas por otra Biblia.
+    - Restituir Deut 20:4, Sal 119:3 Vulgata, Prov 16:3 y Hch 27:38 desde
+      el texto ya presente en entradas fusionadas.
+    - Fuente reproducible y copias SQLite 0.9.19; preservar otras entradas,
+      esquema, UTF-8 y anotaciones, y verificar búsqueda/lectura.
+    - Registrar por separado el desplazamiento de contenido en Baruc:
+      la palabra se resuelve, pero renumerar todo el libro requiere auditoría.
+  - Relevant tests:
+    - `torresamat_cotejo_test`, `torresamat_contexto_sqlite_test`, y
+      regresiones de contexto, preposiciones y estructura de Torres Amat.
+  - Evidence:
+    - Los 13 fragmentos restituidos están documentados con texto anterior,
+      restitución, testigos y decisión en `scripts/torresamat/cotejo.json`.
+      Hechos 27:30/38 cotejado con Vulgata, TR, Tischendorf y Torres Amat;
+      glosas como «de presentarte al juez» confirmadas en transcripciones TA.
+    - 17 entradas SWORD modificadas (13 existentes y 4 vacías); exportación
+      exactamente igual al resultado esperado, segunda pasada con 0 cambios.
+    - SQLite: 34.119 → 34.123 registros, 13 textos existentes restituidos,
+      4 versículos recuperados y 34.106 textos intactos; ninguna referencia
+      antigua borrada, libros/anotaciones idénticos y esquema v1 conservado.
+      Solo cambia la revisión de metadatos 0.9.18 → 0.9.19.
+    - Integridad SQLite y FTS contra contenido PASS, sin violaciones de
+      claves foráneas. Hch 27:38 se encuentra por «arrojando al mar el trigo»
+      y ya no se indexa ese texto bajo 27:30; lectura de los cuatro nuevos
+      versículos PASS sobre las copias distribuida e instalada.
+    - 9/9 regresiones CTest PASS; conservadas las correcciones de Marcos.
+      `preposiciones_pendientes.json` queda con 0 fragmentos pendientes.
+    - Copias SQLite idénticas: SHA-256 `b028dfa466f0ae2cecd392a321ff2e31789dfeb17bcd1e49ada79150922ac31b`.
+      Copias anteriores y evidencia en `build/torresamat-cotejo-105/`.
+    - Alcance: Job 7:15 se restituye con otra edición TA, sin atribuir una
+      lectura facsimilar de 1882. La palabra de Bar 3:27 se resuelve como
+      «allí» por cotejo con Bar 4:27, pero el libro mezcla capítulos; esa
+      alineación más amplia se registra por separado, sin sobreescribir
+      otras entradas ni alterar notas mediante una renumeración aislada.
+
+
+- [x] TORRES-BARUC-106 Restituir y realinear todo Baruc de Torres Amat
+  - Status: DONE
+  - Description:
+    Resolver el libro completo mediante cotejo en internet con Torres Amat,
+    Vulgata, Platense y el OCR original; corregir capítulos mezclados,
+    omisiones, fusiones y texto de Ezequiel dentro de Baruc. Reubicar las
+    notas de sus páginas según las referencias restauradas.
+  - Acceptance criteria:
+    - Seis capítulos íntegros, 213 versículos: 22/35/38/37/9/72.
+    - Texto y límites por referencia cotejados; ninguna rueda/cara de los
+      seres de Ezequiel en Baruc ni duplicación indebida de capítulos 4/5.
+    - Conservar las lecturas del impreso confirmadas, incluida «oraban» 1:5.
+    - Fuente reproducible 0.9.20, ambas copias SQLite actualizadas y notas
+      reubicadas, sin modificar textos ni notas de otros libros.
+    - Lectura de los 213 versículos por capítulo/versículo, búsqueda,
+      navegación, integridad y segunda pasada verificadas.
+  - Relevant tests:
+    - `torresamat_baruc_test`, `torresamat_baruc_sqlite_test`, regresiones
+      de Torres Amat y comprobación de notas mediante `torresamat_notes_patch`.
+  - Evidence:
+    - Cotejo de los 213 versículos con Torres Amat en Páginas Sagradas,
+      Vulgata Clementina, Platense y OCR original del tomo III, medias
+      hojas 272, 273 y 276–279. `baruc.json` registra cada referencia,
+      texto anterior, restitución y testigo; `baruc_texto.tsv` fija la
+      lectura completa. «Oraban» en 1:5 se conserva con respaldo del
+      original y ambas versiones, frente a la omisión del testigo web.
+    - Seis capítulos íntegros: 22/35/38/37/9/72. 202 entradas SWORD
+      corregidas, incluidas 25 vacías; ningún texto ajeno a Baruc cambia.
+      Se restituyen las fronteras OSIS de 3:38 y 4:37, el texto de 3:27
+      y el estímulo de 4:27, y se retiran las intrusiones de Ezequiel.
+    - Biblia fuente 0.9.20 y comentario 0.9.6 instalados en `modulos/`
+      y `~/.sword/`. Doce grupos de notas realineados; 204 entradas de
+      comentario corregidas. Se elimina el argumento del capítulo III
+      y Bar 3:1 confundidos con una nota. Asignaciones conservadas en
+      `notas_paginas.json`; los 38.485 registros nativos ajenos a Baruc
+      mantienen SHA-256 `1311d14b35baf0c8fd5f1add2eafb9378dc9852b660d239235627ede6efe6c9a`.
+    - Exportación íntegra verificada en ambos árboles originales y
+      corregidos: 38.698 entradas. Segunda pasada con 0 cambios en la
+      Biblia y 0 en las notas; las guardas rechazan textos desconocidos.
+    - Conversión mediante el escritor SQLite existente: 34.123 → 34.148
+      registros, 177 textos existentes corregidos y 25 recuperados.
+      Los 33.935 versículos de otros libros quedan idénticos; no se borra
+      ninguna referencia. Libros y todas las tablas de anotaciones
+      idénticos; solo cambia content_version 0.9.19 → 0.9.20.
+    - Esquema v1, integridad, claves foráneas y correspondencia del índice
+      FTS PASS. Lectura exacta de los 213 versículos por capítulo y
+      versículo, búsqueda de Bar 4:27 y navegación de Bar 6:72 a Ez 1:1
+      PASS sobre SQLite distribuido e instalado. Correcciones previas
+      de Marcos conservadas, incluido «llamar á convertir» Mc 2:17.
+    - 11/11 regresiones CTest PASS y 10/10 pruebas de notas PASS;
+      ocho comprobaciones de Baruc, incluida cobertura de enlaces,
+      huecos y límites de capítulo. `git diff --check` PASS.
+    - Ambas copias SQLite idénticas: SHA-256
+      `c1a44596425ad3c09f8447eed746b70131480dde80ed4aa31758cabd01974206`.
+      Copias anteriores, fuentes aisladas y verificaciones en
+      `build/torresamat-baruc-106/`.
+
+- [x] MULTILINGUAL-101 Interfaz en inglés, español, francés, coreano, chino y portugués
+  - Status: DONE
+  - Description:
+    Aplicar la nueva petición explícita de interfaz multilingüe; la descarga
+    pendiente de Biblias coreanas queda como tarea independiente.
+  - Acceptance criteria:
+    - Selector con nombres nativos y preferencia persistente, compatible con
+      los ajustes anteriores y aplicado antes de GTK/SWORD.
+    - Los seis idiomas funcionan sin instalar locales adicionales del sistema.
+    - Menús, navegación, preferencias y herramientas de Biblia Elim traducidos,
+      conservando texto de las Biblias, notas y datos de estudio originales.
+    - Catálogos UTF-8 completos para la interfaz activa, formatos/plurales
+      comprobados, build y regresiones pertinentes PASS.
+  - Relevant tests:
+    - `app_language_test`, `language_settings_test`, `multilingual_catalog_test`,
+      `gtk_builder_language_test`, `language_preferences_test`,
+      `sword_locale_test` y regresiones de arranque/lectura.
+  - Evidence:
+    - Auditoría inicial: 2.068 mensajes activos; 1.265 ausentes del catálogo
+      español heredado. Solo C/en_US/es_PE son locales del sistema disponibles.
+    - Catálogos en_GB/es/fr/ko_KR/zh_CN/pt_BR con 2.097 entradas activas
+      cada uno, 0 ausentes y 0 fuzzy activos. Traducciones de menús,
+      preferencias, instalación, búsqueda, notas, interlineal, gramática,
+      lectura, memorización y púlpito; autores heredados conservados.
+      TSV añadidos en `po/elim/`, extractor/aplicador estándar en
+      `tools/i18n_catalogs.py` y documentación en README.
+    - Inicialización central antes de SWORD y GTK; compatibilidad con el
+      perfil antiguo y códigos regionales. Prioridad CLI > preferencia
+      guardada > sistema, nombres nativos y guardado inmediato del ID
+      (sin extraerlo de la etiqueta). `--language` no modifica la preferencia.
+      GTK conserva el locale base de mensajes; los seis idiomas no necesitan
+      sus correspondientes locales del sistema ni acceso a internet.
+    - Recompilación de catálogos antes de preparar `build/locale`, también
+      al compilar únicamente `biblia-elim`. Campos del lanzador traducidos.
+      Esquema SQLite, texto bíblico, notas personales y datos de estudio
+      originales conservados; ningún cambio en importadores/escritor neutral.
+    - `multilingual_catalog_test` PASS: 12.582 entradas en seis catálogos
+      compilados, plural para 0/1/2/7 y `msgfmt --check --check-format`.
+      571 textos GtkBuilder comprobados; modelo GtkStringList creado mediante
+      el GtkBuilder real de la aplicación en cada idioma, sin pantalla.
+      Arranque gettext real bajo `LC_ALL=C`, alias ko/en, idioma del sistema,
+      preferencias y prioridad CLI PASS; UTF-8 sin caracteres de reemplazo.
+    - `language_settings_test` PASS: siete elecciones guardadas por el mismo
+      controlador que usa la interfaz y el XML existente; segunda selección
+      sin cambios/escrituras; `Juan 3:16` y modo de lectura intactos.
+      `app_language_test` PASS: alias, argumentos, XML antiguo/malformado y
+      nombres nativos UTF-8. Las pruebas usan archivos temporales.
+    - Regresión SWORD ampliada a coreano y portugués europeo: se detectó el
+      BOM UTF-8 de `pt-utf8.conf`, ignorado por el lector rápido. Lectura del
+      BOM corregida sin cambiar las reglas de selección ni cargar otros
+      idiomas; comparación contra LocaleMgr completo PASS, 88 libros.
+    - CTest: 8 PASS, 0 fallos; `language_preferences_test` SKIPPED por ausencia
+      de pantalla. El servidor Xvfb también termina sin pantalla utilizable;
+      no hubo verificación visual. Persistencia y traducción GtkBuilder sí
+      verificadas con los tests ejecutables anteriores.
+    - Siete regresiones directas PASS: `startup_profile_test`,
+      `navigation_prefs_test`, `application_name_startup_test`,
+      `main_window_layout_test`, `sqlite_reader_tools_test`,
+      `sqlite_bible_backend_test` y `bible_types_test`.
+      La prueba de identidad obsoleta esperaba una API GTK3 ausente ya en
+      HEAD; actualizada para comprobar el widget de título GTK4, la marca
+      y el subtítulo traducible, manteniendo las guardas de identidad.
+      Lectura/exportación: 20 exportaciones PASS; backend SQLite 13/13 PASS.
+    - Build de app y targets PASS; `desktop-file-validate` y
+      `git diff --check` PASS. Evidencia en `build/multilingual-101/ctest.log`
+      y `build/multilingual-101/final-build.log`. Binario actualizado:
+      `build/src/gtk/biblia-elim`. No se instaló fuera del repositorio.
+
+- [ ] KOREAN-101 Agregar Biblias en coreano
+  - Status: BLOCKED
+  - Description:
+    Incorporar KorRV y KorHKJV del catálogo oficial CrossWire y permitir
+    encontrarlas como «Coreano» en el instalador de Biblias.
+  - Acceptance criteria:
+    - Ambas versiones incluidas en la instalación inicial; las instalaciones
+      existentes pueden seleccionarlas con el filtro «Coreano».
+    - Conservar los identificadores, idioma ko, UTF-8 y numeración nativa,
+      utilizando la conversión neutral existente a SQLite v1.
+    - Pruebas locales de instalación inicial, etiquetas/búsqueda y UTF-8 PASS.
+    - Descargar, instalar y validar ambas Biblias completas para este usuario.
+  - Relevant tests:
+    - `default_bibles_test`, `korean_catalog_test`,
+      `osis_semantic_equivalence_test`, `sword_bible_conversion_test`,
+      `osis_importer_test`, `osis_operational_test`, `sqlite_bible_backend_test`.
+  - Evidence:
+    - Catálogo y fichas oficiales de CrossWire consultados: KorRV 2.0.1
+      (dominio público, NRSV) y KorHKJV 1.0 (distribución gratuita no comercial,
+      KJV); ambos OSIS y Lang=ko, también confirmados en el catálogo local.
+    - Ambos IDs añadidos a `main_bootstrap_default_modules`; el instalador
+      traduce 한국말 (nombre real de SWORD), 한국어, 조선말, Korean,
+      Coreano, ko y kor, y permite buscarlos por «Coreano» o por título.
+      README documenta la instalación desde CrossWire HTTPS.
+    - `default_bibles_test`, `korean_catalog_test` y
+      `sword_bible_conversion_test`: CTest 3/3 PASS. La instalación inicial
+      intenta 11 módulos, conserva los anteriores y continúa si falla KorRV;
+      fallo de catálogo sin instalaciones parciales. Diez alias y búsqueda
+      coreana/española PASS, sin red ni cambios en archivos del usuario.
+    - `osis_semantic_equivalence_test`, `osis_importer_test`,
+      `osis_operational_test` y `sqlite_bible_backend_test` ejecutados
+      directamente: 4/4 PASS (no están todos registrados en CTest).
+      Hangul y jamo añadidos a la matriz Unicode: 7 casos, 58 rangos,
+      `unicode_edge_failures=0`, `invalid_offsets=0`,
+      `substring_mismatches=0`; 13 casos del backend SQLite PASS.
+    - `cmake --build build --target ... biblia-elim -j4` PASS;
+      binario actualizado en `build/src/gtk/biblia-elim`, registro en
+      `build/korean-build.log`. `git diff --check` PASS.
+  - Blocker:
+    - Intento real de descarga: `curl --head --location --max-time 20
+      https://crosswire.org/ftpmirror/pub/sword/packages/rawzip/KorRV.zip`.
+      Resultado: código 6, `Could not resolve host: crosswire.org`.
+    - No hay textos completos de KorRV/KorHKJV en los módulos instalados
+      ni en la caché local: solo sus fichas. No se fabricaron Biblias a
+      partir de los casos sintéticos de prueba.
+    - El entorno solo permite escribir en el repositorio y /tmp, no en
+      `~/.sword` ni en `~/.local/share/biblia-elim/modules`; no permite
+      solicitar elevación. Las Biblias completas no quedaron instaladas.
+    - Acción requerida: ejecutar la instalación documentada desde el
+      binario actualizado en un entorno con red y escritura en los
+      directorios del usuario; después validar ambas Biblias completas
+      convertidas mediante `sword_bible_conversion_test` y comprobar
+      lectura, búsqueda, numeración NRSV/KJV y navegación reales.
+
 # Future / not scheduled
 
 - Human-readable grammatical decoding of morphology codes.

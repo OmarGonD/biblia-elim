@@ -20,6 +20,8 @@
 # building main
 add_library (main
   STATIC
+  app_language.c
+  app_language_settings.c
   biblesync_glue.cc
   configs.cc
   display.cc

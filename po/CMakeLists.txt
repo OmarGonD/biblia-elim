@@ -48,9 +48,8 @@ if (GETTEXT_FOUND)
 	DESTINATION ${CMAKE_CURRENT_SOURCE_DIR})
     else ()
       # copy existing PO file into build dir
-      file (
-      COPY "${CMAKE_CURRENT_SOURCE_DIR}/${lang}.po"
-      DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+      configure_file("${CMAKE_CURRENT_SOURCE_DIR}/${lang}.po"
+        "${CMAKE_CURRENT_BINARY_DIR}/${lang}.po" COPYONLY)
     endif ()
   endforeach(lang)
 
@@ -63,6 +62,8 @@ if (GETTEXT_FOUND)
     )
 
   add_custom_target(process-pot-file)
+  # Compiling just biblia-elim must rebuild the catalogs before staging them.
+  add_dependencies(process-pot-file potfiles)
 
   add_dependencies(biblia-elim process-pot-file )
 

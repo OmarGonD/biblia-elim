@@ -1,0 +1,43 @@
+# Correcciones ancladas a un versículo: referencia<TAB>texto actual<TAB>texto nuevo (vacío: se quita).
+# El texto actual ha de aparecer una sola vez en el verso (o la corrección ya
+# estar hecha). Para errores de palabras válidas, que la tabla no puede
+# distinguir del uso correcto («vi» por «ni»).
+Mark 1:7	digno vi de postrarme	digno ni de postrarme
+Mark 1:9	Galiléa, al y Juan	Galiléa, y Juan
+Mark 1:10	Y luego al del agua	Y luego al salir del agua
+# Marcos 1:11: lo que sigue al verso es el prólogo de San Marcos y una nota, pegados por el OCR.
+Mark 1:11	 JESU-CHRISTO habia oido á San Pedro, quien se lo aprobó y le propuso con su autoridad á que San Marcos fué discípulo de San Pedro, y que es al que llama Azjo suyo efecto refiere casi las mismas cosás, aunque mas brevemente: con todo se No están de acuerdo los Expositores si escribió en priego ó en latin. del Señor.	
+
+# Llamada de nota dentro de una palabra partida a final de renglón: «lle7 gando» -> «llegando».
+Genesis 14:23	con3 sumido	consumido
+Genesis 30:33	lle7 gando	llegando
+Genesis 41:30	este2 rilidad	esterilidad
+Exodus 4:22	pri2 mogénito	primogénito
+Numbers 14:18	casti1 7. gar	castigar
+Ezra 9:6	nues5 tros	nuestros
+Ezekiel 1:9	adelan6 te	adelante
+Amos 5:20	tinie2 blas	tinieblas
+Zechariah 3:6	dicién1 dole	diciéndole
+I Maccabees 4:19	des18 cubrió	descubrió
+Romans 7:4	muer1 tos	muertos
+Revelation of John 16:15	desnu7 do	desnudo
+Genesis 41:26	sieni15 ficacion	significacion
+Exodus 29:5	cin5 turon	cinturon
+Leviticus 9:21	ele2 yándolo	elevándolo
+II Kings 10:22	sacá2 ronles	sacáronles
+Ezekiel 22:25	devyo2 rado	devorado
+I Maccabees 13:40	alís4 tense	alístense
+II Maccabees 12:4	hab1 taba	habitaba
+Acts 24:12	tem0 plo	templo
+Luke 20:45	disef5 pulos	discípulos
+Ezekiel 18:6	propi4 mujer	propia mujer
+# Palabras que quedan partidas al quitar la cabecera o la nota que las separaba.
+II Kings 18:9	sép timo	séptimo
+II Chronicles 33:19	bos ques	bosques
+Zephaniah 1:12	hom sumidos	hombres sumidos
+Acts 25:5	venÑ san tambien	vengan tambien
+Revelation of John 14:18	agu zada	aguzada
+Acts 1:12	Jerusa lem,	Jerusalem,
+Amos 1:8	Acca ron:	Accaron:
+James 1:10	for del heno: mosura:	flor del heno: hermosura:
+II Peter 1:20	priPues 21.	privada.

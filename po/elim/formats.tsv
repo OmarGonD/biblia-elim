@@ -1,0 +1,18 @@
+# Language-independent formatting templates; all printf parameters remain intact.
+ 	 	 	 	 	 
+ %s%s	 %s%s	 %s%s	 %s%s	 %s%s	 %s%s
+ [%d]	 [%d]	 [%d]	 [%d]	 [%d]	 [%d]
+%	%	%	%	%	%
+% A	% A	% A	% A	% A	% A
+% B	% B	% B	% B	% B	% B
+%d %%	%d %%	%d %%	%d %%	%d %%	%d %%
+%s (%s %d:%d%s)	%s (%s %d:%d%s)	%s (%s %d:%d%s)	%s (%s %d:%d%s)	%s (%s %d:%d%s)	%s (%s %d:%d%s)
+%s%s (%s %d:%d%s)</body></html>	%s%s (%s %d:%d%s)</body></html>	%s%s (%s %d:%d%s)</body></html>	%s%s (%s %d:%d%s)</body></html>	%s%s (%s %d:%d%s)</body></html>	%s%s (%s %d:%d%s)</body></html>
+%s(%s %d:%d%s)%s </body></html>	%s(%s %d:%d%s)%s </body></html>	%s(%s %d:%d%s)%s </body></html>	%s(%s %d:%d%s)%s </body></html>	%s(%s %d:%d%s)%s </body></html>	%s(%s %d:%d%s)%s </body></html>
+%s(%s %d:%d-%d%s)	%s(%s %d:%d-%d%s)	%s(%s %d:%d-%d%s)	%s(%s %d:%d-%d%s)	%s(%s %d:%d-%d%s)	%s(%s %d:%d-%d%s)
+&nbsp;&nbsp;[%d]	&nbsp;&nbsp;[%d]	&nbsp;&nbsp;[%d]	&nbsp;&nbsp;[%d]	&nbsp;&nbsp;[%d]	&nbsp;&nbsp;[%d]
+(%s %d:%d%s) %s	(%s %d:%d%s) %s	(%s %d:%d%s) %s	(%s %d:%d%s) %s	(%s %d:%d%s) %s	(%s %d:%d%s) %s
+(%s %d:%d-%d%s)<br>	(%s %d:%d-%d%s)<br>	(%s %d:%d-%d%s)<br>	(%s %d:%d-%d%s)<br>	(%s %d:%d-%d%s)<br>	(%s %d:%d-%d%s)<br>
+(%s %d:%d-%d%s)\n	(%s %d:%d-%d%s)\n	(%s %d:%d-%d%s)\n	(%s %d:%d-%d%s)\n	(%s %d:%d-%d%s)\n	(%s %d:%d-%d%s)\n
+1	1	1	1	1	1
+: 	: 	: 	: 	: 	: 

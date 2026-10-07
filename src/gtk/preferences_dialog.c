@@ -56,6 +56,7 @@
 #include "main/previewer.h"
 #include "main/parallel_view.h"
 #include "main/settings.h"
+#include "main/app_language.h"
 #include "main/sidebar.h"
 #include "main/xml.h"
 #include "gui/dropdown_helpers.h"
@@ -1939,54 +1940,15 @@ void on_combobox15_changed(GObject *combobox, GParamSpec *pspec,
 	g_free(buf);
 }
 
-/******************************************************************************
- * Name
- *   on_combobox16_changed
- *
- * Synopsis
- *   #include "preferences_dialog.h"
- *   void on_combobox16_changed(GtkEditable * editable, gpointer user_data)
- *
- * Description
- *   combobox16 (special locale),
- *   has changed - update settings
- *
- * Return value
- *  void
- */
-
+/* Save the interface language by stable dropdown ID. Apply on restart. */
 void on_combobox16_changed(GObject *combobox, GParamSpec *pspec,
-				  gpointer user_data)
+                          gpointer user_data)
 {
-	gchar *buf = NULL;
-	gboolean clear, set;
-
-	buf = g_strdup(elim_dropdown_get_active_text(GTK_DROP_DOWN(combobox)));
-	if (!buf || !strcmp(buf, _("-- Select --"))) /* see fill_combobox */
-		return;
-
-	clear = !strcmp(buf, NONE);
-	if (!clear) {
-		/* something new was chosen:
-		   move forward to and isolate "(xx_YY)" locale spec. */
-		buf = strrchr(buf, '(') + 1;
-		*strchr(buf, ')') = '\0';
-	}
-
-	set = ((!settings.special_locale && strcmp(buf, NONE)) ||
-	       (settings.special_locale && (strcmp(settings.special_locale, buf))));
-	if (clear || set)
+	(void)pspec;
+	(void)user_data;
+	const char *id = elim_dropdown_get_active_id(GTK_DROP_DOWN(combobox));
+	if (app_language_save_choice(id, &settings.special_locale, settings.fnconfigure))
 		gui_generic_warning(_("Locale will take effect after restart."));
-
-	if (clear)
-		*buf = '\0';
-
-	/* NOTE: These 2 uses of "None" are NOT TRANSLATABLE. */
-	xml_set_value("Xiphos", "locale", "special",
-		      (clear ? "None" : buf));
-	g_free(settings.special_locale); /* dispose of old content */
-	settings.special_locale =
-	    (clear ? g_strdup("None") : g_strdup(buf));
 }
 
 /******************************************************************************
@@ -2527,30 +2489,36 @@ static void setup_module_comboboxes(void)
 
 void setup_locale_combobox(void)
 {
-	char **locale, brief_locale[3], *real_locale, *current_locale =
-							  NULL;
-	GList *chase, *list = g_list_append(NULL, g_strdup(NONE));
-
-	brief_locale[2] = '\0';
-	for (locale = &locale_set[0]; *locale; ++locale) {
-		brief_locale[0] = (*locale)[0];
-		brief_locale[1] = (*locale)[1];
-		real_locale = g_strdup_printf("%s (%s)",
-					      main_get_language_map(brief_locale), *locale);
-		list = g_list_append(list, real_locale);
-		if (settings.special_locale &&
-		    !strcmp(settings.special_locale, *locale))
-			current_locale = real_locale;
+	GtkDropDown *dropdown = GTK_DROP_DOWN(combo.special_locale);
+	g_signal_handlers_disconnect_by_func(dropdown,
+		G_CALLBACK(on_combobox16_changed), NULL);
+	elim_dropdown_remove_all(dropdown);
+	elim_dropdown_append(dropdown, "system", _("Idioma del sistema"));
+	gsize count;
+	const AppLanguage *languages = app_languages(&count);
+	GHashTable *seen = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, NULL);
+	for (gsize i = 0; i < count; i++) {
+		elim_dropdown_append(dropdown, languages[i].id, languages[i].native_name);
+		g_hash_table_add(seen, g_strdup(languages[i].id));
 	}
-	fill_combobox(list, GTK_DROP_DOWN(combo.special_locale),
-		      (current_locale ? current_locale : NONE),
-		      NULL, NULL);
-	for (chase = list; chase; chase = g_list_next(chase))
-		g_free(chase->data);
-	g_list_free(list);
-
+	/* Preserve inherited languages with IDs independent from label text. */
+	for (char **locale = locale_set; *locale; locale++) {
+		gchar *id = app_language_normalize(*locale);
+		if (!g_hash_table_contains(seen, id)) {
+			char brief[3] = { id[0], id[1], '\0' };
+			const char *name = main_get_language_map(brief);
+			elim_dropdown_append(dropdown, id, name && *name ? name : id);
+			g_hash_table_add(seen, g_strdup(id));
+		}
+		g_free(id);
+	}
+	gchar *current = app_language_normalize(settings.special_locale);
+	if (!elim_dropdown_set_active_id(dropdown, current))
+		elim_dropdown_set_active_id(dropdown, "system");
+	g_free(current);
+	g_hash_table_destroy(seen);
 	g_signal_connect(combo.special_locale, "notify::selected",
-			 G_CALLBACK(on_combobox16_changed), NULL);
+	                 G_CALLBACK(on_combobox16_changed), NULL);
 }
 
 /******************************************************************************

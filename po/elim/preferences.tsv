@@ -1,0 +1,105 @@
+Interfaz	Interface	Interface	인터페이스	界面	Interface
+Tema	Theme	Thème	테마	主题	Tema
+Seleccionar tipografía	Choose font	Choisir une police	글꼴 선택	选择字体	Selecionar fonte
+Un versículo por línea	One verse per line	Un verset par ligne	한 줄에 한 구절	每行一节	Um versículo por linha
+Títulos	Headings	Titres	제목	标题	Títulos
+Títulos en cursiva	Italic headings	Titres en italique	기울임꼴 제목	斜体标题	Títulos em itálico
+Marcas de nota/referencia	Note/reference markers	Marqueurs de notes/références	메모/참조 표시	笔记/引用标记	Marcas de nota/referência
+Lectura principal	Main reading	Lecture principale	주 독법	主要读法	Leitura principal
+Lectura secundaria	Secondary reading	Lecture secondaire	보조 독법	次要读法	Leitura secundária
+Respetar tipografías del módulo	Use module fonts	Respecter les polices du module	모듈 글꼴 사용	使用模块字体	Respeitar as fontes do módulo
+Mostrar números de capítulo	Show chapter numbers	Afficher les numéros de chapitre	장 번호 표시	显示章号	Mostrar números dos capítulos
+Opciones del módulo	Module options	Options du module	모듈 옵션	模块选项	Opções do módulo
+Usar el diccionario actual	Use current dictionary	Utiliser le dictionnaire actuel	현재 사전 사용	使用当前词典	Usar o dicionário atual
+Traducir la selección	Translate selection	Traduire la sélection	선택 영역 번역	翻译选中内容	Traduzir a seleção
+Ver en BibleMap.org	View on BibleMap.org	Voir sur BibleMap.org	BibleMap.org에서 보기	在 BibleMap.org 上查看	Ver no BibleMap.org
+Mostrar título del libro	Show book heading	Afficher le titre du livre	책 제목 표시	显示书卷标题	Mostrar título do livro
+Mostrar título del capítulo	Show chapter heading	Afficher le titre du chapitre	장 제목 표시	显示章节标题	Mostrar título do capítulo
+Renombrar comentario personal	Rename personal commentary	Renommer le commentaire personnel	개인 주석 이름 변경	重命名个人注释	Renomear comentário pessoal
+Vaciar comentario personal	Clear personal commentary	Vider le commentaire personnel	개인 주석 비우기	清空个人注释	Limpar comentário pessoal
+Siríaco	Syriac	Syriaque	시리아어	叙利亚语	Siríaco
+Otros	Others	Autres	기타	其他	Outros
+Restablecer valores predeterminados	Restore defaults	Rétablir les valeurs par défaut	기본값 복원	恢复默认设置	Restaurar valores padrão
+Rueda del mouse	Mouse wheel	Molette de la souris	마우스 휠	鼠标滚轮	Roda do mouse
+Menos desplazamiento requiere girar más la rueda para avanzar por el texto.	Less scrolling requires more wheel turns to move through the text.	Un défilement plus faible demande plus de crans de molette pour avancer dans le texte.	스크롤 거리가 작을수록 본문을 이동하려면 휠을 더 돌려야 합니다.	滚动距离越小，浏览正文时需要转动滚轮的次数越多。	Menor deslocamento exige girar mais a roda para avançar pelo texto.
+Seguimiento del versículo	Verse tracking	Suivi du verset	구절 추적	经节跟随	Acompanhamento do versículo
+La nota se guarda sola al salir del cuadro o al cambiar de versículo (Ctrl+S para hacerlo ahora)	The note saves automatically when you leave the box or change verse (Ctrl+S to save now)	La note s’enregistre automatiquement en quittant le champ ou en changeant de verset (Ctrl+S pour enregistrer maintenant)	입력란을 벗어나거나 구절을 바꾸면 자동 저장됩니다 (지금 저장하려면 Ctrl+S)	离开输入框或切换经节时自动保存笔记（Ctrl+S 立即保存）	A nota é salva automaticamente ao sair do campo ou mudar de versículo (Ctrl+S para salvar agora)
+Marca los libros que quieras leer.	Select the books you want to read.	Sélectionnez les livres que vous voulez lire.	읽을 책을 선택하세요.	选中您想阅读的书卷。	Marque os livros que você quer ler.
+Fuente para un idioma concreto	Font for a specific language	Police pour une langue précise	특정 언어의 글꼴	特定语言字体	Fonte para um idioma específico
+Justificar los márgenes	Justify text	Justifier le texte	양쪽 정렬	两端对齐	Justificar o texto
+Sólo con el teclado	Only with the keyboard	Uniquement au clavier	키보드로만	仅通过键盘	Somente com o teclado
+Modo:	Mode:	Mode :	모드:	模式：	Modo:
+Navegar:	Navigate:	Naviguer :	탐색:	导航：	Navegar:
+Escuchar:	Listen:	Écouter :	수신:	收听：	Escutar:
+Otros:	Others:	Autres :	기타:	其他：	Outros:
+Mostrar la barra de estado	Show status bar	Afficher la barre d’état	상태 표시줄 표시	显示状态栏	Mostrar barra de status
+Mostrar u ocultar la barra de estado	Show or hide status bar	Afficher ou masquer la barre d’état	상태 표시줄 표시 또는 숨기기	显示或隐藏状态栏	Mostrar ou ocultar barra de status
+Preferir tema oscuro	Prefer dark theme	Préférer le thème sombre	어두운 테마 선호	优先使用深色主题	Preferir tema escuro
+Forzar una variante oscura del tema GTK, si el tema actual la ofrece	Use the dark variant of the GTK theme, if available	Utiliser la variante sombre du thème GTK, si elle existe	현재 GTK 테마가 제공하면 어두운 변형 사용	如果当前 GTK 主题提供深色版本，则使用深色版本	Usar a variante escura do tema GTK, se disponível
+Alternar el color de las versiones en paralelo	Alternate colors for parallel versions	Alterner les couleurs des versions parallèles	병렬 번역본 색상 번갈아 표시	交替显示平行译本颜色	Alternar cores das versões em paralelo
+Mostrar libros bíblicos completos	Show entire Bible books	Afficher les livres bibliques complets	성경 책 전체 표시	显示完整书卷	Mostrar livros bíblicos completos
+Mostrar libros enteros en la ventana principal, no solo un capítulo	Show entire books in the main window rather than a single chapter	Afficher des livres entiers dans la fenêtre principale, au lieu d’un seul chapitre	기본 창에 한 장 대신 책 전체 표시	在主窗口显示整卷书，而不仅是一章	Mostrar livros inteiros na janela principal, em vez de apenas um capítulo
+Léxico de morfología hebrea	Hebrew morphology lexicon	Lexique de morphologie hébraïque	히브리어 형태론 사전	希伯来语词形词典	Léxico de morfologia hebraica
+Léxico de morfología griega del AT	Old Testament Greek morphology lexicon	Lexique de morphologie grecque de l’AT	구약 그리스어 형태론 사전	旧约希腊语词形词典	Léxico de morfologia grega do AT
+Léxico de morfología griega del NT	New Testament Greek morphology lexicon	Lexique de morphologie grecque du NT	신약 그리스어 형태론 사전	新约希腊语词形词典	Léxico de morfologia grega do NT
+Agrupación de la lista de módulos	Module list grouping	Regroupement de la liste des modules	모듈 목록 분류	模块列表分组	Agrupamento da lista de módulos
+Categoría y luego idioma	Category, then language	Catégorie, puis langue	분류, 다음 언어	先类别后语言	Categoria, depois idioma
+Sólo categoría	Category only	Catégorie uniquement	분류만	仅类别	Somente categoria
+Idioma y luego categoría	Language, then category	Langue, puis catégorie	언어, 다음 분류	先语言后类别	Idioma, depois categoria
+Mostrar módulos ocultos	Show hidden modules	Afficher les modules masqués	숨겨진 모듈 표시	显示隐藏模块	Mostrar módulos ocultos
+Conjunto:	Set:	Ensemble :	모음:	组合：	Conjunto:
+Vista previa lateral	Sidebar preview	Aperçu latéral	사이드바 미리 보기	侧栏预览	Visualização lateral
+Vista previa inferior	Bottom preview	Aperçu inférieur	아래쪽 미리 보기	底部预览	Visualização inferior
+Libro general	General book	Ouvrage général	일반 서적	普通书籍	Livro geral
+Vista previa de búsqueda	Search preview	Aperçu de recherche	검색 미리 보기	搜索预览	Visualização da busca
+Oradores disponibles	Available speakers	Intervenants disponibles	사용 가능한 발표자	可用讲者	Oradores disponíveis
+Última navegación	Last navigation	Dernière navigation	최근 탐색	最近导航	Última navegação
+Guardar la lista como un marcador	Save list as one bookmark	Enregistrer la liste comme un signet	목록을 하나의 책갈피로 저장	将列表保存为一个书签	Salvar a lista como um marcador
+Guardar la lista como varios marcadores	Save list as multiple bookmarks	Enregistrer la liste comme plusieurs signets	목록을 여러 책갈피로 저장	将列表保存为多个书签	Salvar a lista como vários marcadores
+Rellenar lista de versículos	Fill verse list	Remplir la liste des versets	구절 목록 채우기	填充经节列表	Preencher lista de versículos
+Cargar historial desde la lista	Load history from list	Charger l’historique depuis la liste	목록에서 기록 불러오기	从列表加载历史记录	Carregar histórico da lista
+Enviar lista por BibleSync	Send list using BibleSync	Envoyer la liste par BibleSync	BibleSync로 목록 전송	通过 BibleSync 发送列表	Enviar lista pelo BibleSync
+Mis notas	My notes	Mes notes	내 메모	我的笔记	Minhas notas
+Buscar en la Biblia	Search the Bible	Rechercher dans la Bible	성경 검색	搜索圣经	Buscar na Bíblia
+Modo lectura: solo la Biblia (Ctrl+Mayús+F)	Reading mode: Bible only (Ctrl+Shift+F)	Mode lecture : Bible seule (Ctrl+Maj+F)	읽기 모드: 성경만 (Ctrl+Shift+F)	阅读模式：仅显示圣经（Ctrl+Shift+F）	Modo leitura: somente a Bíblia (Ctrl+Shift+F)
+Texto no disponible	Text unavailable	Texte indisponible	본문 없음	文本不可用	Texto indisponível
+Texto no disponible.	Text unavailable.	Texte indisponible.	본문이 없습니다.	文本不可用。	Texto indisponível.
+Sí	Yes	Oui	예	是	Sim
+Mayúsculas	Match case	Respecter la casse	대소문자 구분	区分大小写	Maiúsculas
+Importar copia	Import backup	Importer une sauvegarde	백업 가져오기	导入备份	Importar cópia
+Añade las notas de una copia JSON. No sustituye ni borra ninguna de las tuyas.	Add notes from a JSON backup. Your existing notes are not replaced or deleted.	Ajouter les notes d’une sauvegarde JSON. Vos notes existantes ne sont ni remplacées ni supprimées.	JSON 백업의 메모를 추가합니다. 기존 메모를 교체하거나 삭제하지 않습니다.	添加 JSON 备份中的笔记，不替换或删除您的现有笔记。	Adiciona as notas de uma cópia JSON. Não substitui nem exclui suas notas.
+Las etiquetas se escriben dentro de la nota: #oración, #profecía	Write tags within the note: #prayer, #prophecy	Écrivez les étiquettes dans la note : #prière, #prophétie	메모 안에 태그를 작성하세요: #기도, #예언	在笔记中写标签：#祷告、#预言	As etiquetas são escritas dentro da nota: #oração, #profecia
+Ir al versículo	Go to verse	Aller au verset	구절로 이동	转到经节	Ir ao versículo
+Ir a este pasaje en el lector	Open this passage in the reader	Ouvrir ce passage dans le lecteur	이 본문을 읽기 창에서 열기	在阅读器中打开此经文	Abrir esta passagem no leitor
+Ejemplo: Adonai	Example: Adonai	Exemple : Adonaï	예: Adonai	例如：Adonai	Exemplo: Adonai
+Exportar todos los libros y capítulos de la Biblia	Export all Bible books and chapters	Exporter tous les livres et chapitres de la Bible	성경의 모든 책과 장 내보내기	导出圣经所有书卷和章节	Exportar todos os livros e capítulos da Bíblia
+Color de etiqueta:	Tag color:	Couleur de l’étiquette :	태그 색상:	标签颜色：	Cor da etiqueta:
+Elige un color de resaltado para este grupo	Choose a highlight color for this group	Choisissez une couleur de surlignage pour ce groupe	이 그룹의 강조 색상 선택	为此组选择高亮颜色	Escolha uma cor de destaque para este grupo
+Sin color	No color	Sans couleur	색상 없음	无颜色	Sem cor
+Quitar el color de esta carpeta	Remove this folder’s color	Retirer la couleur de ce dossier	이 폴더의 색상 제거	移除此文件夹颜色	Remover a cor desta pasta
+Elige un color de resaltado para este versículo, en lugar del predeterminado	Choose a highlight color for this verse instead of the default	Choisissez une couleur de surlignage pour ce verset au lieu de celle par défaut	이 구절에 기본값 대신 다른 강조 색상 선택	为本节选择其他高亮颜色以代替默认颜色	Escolha uma cor de destaque para este versículo em vez da padrão
+Evangelios	Gospels	Évangiles	복음서	福音书	Evangelhos
+Mateo, Marcos, Lucas y Juan	Matthew, Mark, Luke and John	Matthieu, Marc, Luc et Jean	마태복음, 마가복음, 누가복음 및 요한복음	马太福音、马可福音、路加福音和约翰福音	Mateus, Marcos, Lucas e João
+Reiniciar	Restart	Redémarrer	다시 시작	重新开始	Reiniciar
+El Verbo se hizo carne	The Word became flesh	Le Verbe s’est fait chair	말씀이 육신이 되심	道成肉身	O Verbo se fez carne
+Nace en Belén	Born in Bethlehem	Naissance à Bethléem	베들레헴에서 태어나심	诞生于伯利恒	Nasce em Belém
+El Sermón del Monte	The Sermon on the Mount	Le Sermon sur la montagne	산상수훈	登山宝训	O Sermão do Monte
+El corazón del Padre	The Father’s heart	Le cœur du Père	아버지의 마음	天父的心	O coração do Pai
+La resurrección y la vida	The resurrection and the life	La résurrection et la vie	부활과 생명	复活与生命	A ressurreição e a vida
+Está vivo	He is alive	Il est vivant	살아 계심	他活着	Está vivo
+Nahúm	Nahum	Nahum	나훔	那鸿书	Naum
+viñetas	bullets	puces	글머리 기호	项目符号	marcadores
+palabras	words	mots	단어	词语	palavras
+y	and	et	및	和	e
+más en	more in	davantage dans	더 많이:	更多见于	mais em
+similar	similar	similaire	비슷함	相似	semelhante
+lugar	place	lieu	장소	地点	lugar
+título	heading	titre	제목	标题	título
+tít.	heading	titre	제목	标题	tít.
+letra	letter	lettre	문자	字母	letra
+s/t	no tense	sans temps	시제 없음	无时态	sem tempo
+de 1	single possessor	d’un seul possesseur	단수 소유자	单个所有者	de um possuidor
+de vs	multiple possessors	de plusieurs possesseurs	복수 소유자	多个所有者	de vários possuidores
+Versículo (1–%d)	Verse (1–%d)	Verset (1–%d)	절 (1–%d)	经节（1–%d）	Versículo (1–%d)
+Capítulo (1–%d)	Chapter (1–%d)	Chapitre (1–%d)	장 (1–%d)	章节（1–%d）	Capítulo (1–%d)
+<small>El griego y el hebreo no se cambian: son las fuentes que mejor\ncolocan los acentos del politónico y los puntos vocálicos y la\ncantilación del hebreo.</small>	<small>Greek and Hebrew fonts stay unchanged: they position\npolytonic accents, vowel points and Hebrew cantillation\nmost accurately.</small>	<small>Les polices grecques et hébraïques restent inchangées : elles placent\nle mieux les accents polytoniques, les points voyelles et la\ncantillation hébraïque.</small>	<small>그리스어와 히브리어 글꼴은 그대로 유지됩니다.\n다중 악센트, 모음 부호 및 히브리어 낭송 부호를\n가장 정확하게 배치하는 글꼴입니다.</small>	<small>希腊语和希伯来语字体保持不变，\n它们能更准确地显示多重重音、元音点\n及希伯来语诵读符号。</small>	<small>As fontes gregas e hebraicas não mudam: posicionam melhor\nos acentos politônicos, os pontos vocálicos e a\ncantilação hebraica.</small>

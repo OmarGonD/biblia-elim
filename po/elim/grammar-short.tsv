@@ -1,0 +1,159 @@
+# Abbreviation labels use localized explanations; stored grammar codes are unaffected.
+sust.	Noun	Nom	명사	名词	Substantivo
+adj.	Adjective	Adjectif	형용사	形容词	Adjetivo
+art.	Article	Article	관사	冠词	Artigo
+v.	Verb	Verbe	동사	动词	Verbo
+v.heb.	Hebrew verb	Verbe hébreu	히브리어 동사	希伯来语动词	Verbo hebraico
+pron.	Personal pronoun	Pronom personnel	인칭 대명사	人称代词	Pronome pessoal
+pron.rel.	Relative pronoun	Pronom relatif	관계 대명사	关系代词	Pronome relativo
+pron.dem.	Demonstrative pronoun	Pronom démonstratif	지시 대명사	指示代词	Pronome demonstrativo
+pron.recípr.	Reciprocal pronoun	Pronom réciproque	상호 대명사	相互代词	Pronome recíproco
+pron.refl.	Reflexive pronoun	Pronom réfléchi	재귀 대명사	反身代词	Pronome reflexivo
+pos.	Possessive pronoun	Pronom possessif	소유 대명사	物主代词	Pronome possessivo
+pron.indef.	Indefinite pronoun	Pronom indéfini	부정 대명사	不定代词	Pronome indefinido
+pron.interr.	Interrogative pronoun	Pronom interrogatif	의문 대명사	疑问代词	Pronome interrogativo
+pron.corr.	Correlative pronoun	Pronom corrélatif	상관 대명사	关联代词	Pronome correlativo
+pron.corr./int.	Correlative or interrogative pronoun	Pronom corrélatif ou interrogatif	상관 또는 의문 대명사	关联或疑问代词	Pronome correlativo ou interrogativo
+adv.	Adverb	Adverbe	부사	副词	Advérbio
+conj.	Conjunction	Conjonction	접속사	连词	Conjunção
+prep.	Preposition	Préposition	전치사	介词	Preposição
+part.	participle	participe	분사	分词	particípio
+cond.	Conditional particle	Particule conditionnelle	조건 불변화사	条件小品词	Partícula condicional
+interj.	Interjection	Interjection	감탄사	感叹词	Interjeição
+heb.	Transliterated Hebrew word	Mot hébreu translittéré	음역된 히브리어 단어	音译的希伯来词	Palavra hebraica transliterada
+aram.	Transliterated Aramaic word	Mot araméen translittéré	음역된 아람어 단어	音译的亚兰词	Palavra aramaica transliterada
+act.	active	actif	능동태	主动	ativo
+pas.	passive	passif	수동태	被动	passivo
+med.	middle	moyen	중간태	中间态	médio
+med/pas.	middle or passive	moyen ou passif	중간태 또는 수동태	中间态或被动	médio ou passivo
+dep.med.	middle deponent	déponent moyen	중간태 디포넌트	中间态异相动词	depoente médio
+dep.pas.	passive deponent	déponent passif	수동태 디포넌트	被动态异相动词	depoente passivo
+dep.	middle or passive deponent	déponent moyen ou passif	중간태 또는 수동태 디포넌트	中间态或被动态异相动词	depoente médio ou passivo
+imp.act.	impersonal active	actif impersonnel	비인칭 능동태	无人称主动	ativo impessoal
+ind.	indicative	indicatif	직설법	直陈式	indicativo
+subj.	subjunctive	subjonctif	가정법	虚拟式	subjuntivo
+opt.	optative	optatif	희구법	祈愿式	optativo
+imper.	imperative	impératif	명령법	命令式	imperativo
+inf.	infinitive	infinitif	부정사	不定式	infinitivo
+part.act.	active participle	participe actif	능동 분사	主动分词	particípio ativo
+part.pas.	passive participle	participe passif	수동 분사	被动分词	particípio passivo
+pres.	present	présent	현재	现在时	presente
+impf.	imperfect	imparfait	미완료	未完成时	imperfeito
+fut.	future	futur	미래	将来时	futuro
+aor.	aorist	aoriste	부정과거	简单过去时	aoristo
+perf.	perfect	parfait	완료	完成时	perfeito
+plusc.	pluperfect	plus-que-parfait	과거완료	过去完成时	mais-que-perfeito
+pres.2	second present	second présent	제2현재	第二现在时	segundo presente
+fut.2	second future	second futur	제2미래	第二将来时	segundo futuro
+aor.2	second aorist	second aoriste	제2부정과거	第二简单过去时	segundo aoristo
+perf.2	second perfect	second parfait	제2완료	第二完成时	segundo perfeito
+plusc.2	second pluperfect	second plus-que-parfait	제2과거완료	第二过去完成时	segundo mais-que-perfeito
+sec.impf.	sequential imperfect	imparfait séquentiel	연속 미완료	连续未完成式	imperfeito sequencial
+sec.perf.	sequential perfect	parfait séquentiel	연속 완료	连续完成式	perfeito sequencial
+inf.abs.	absolute infinitive	infinitif absolu	절대 부정사	绝对不定式	infinitivo absoluto
+inf.cons.	construct infinitive	infinitif construit	연계 부정사	连属不定式	infinitivo construto
+cohort.	cohortative	cohortatif	청유법	劝勉式	coortativo
+yus.	jussive	jussif	간접 명령법	命令式（第三人称）	jussivo
+nom.	nominative	nominatif	주격	主格	nominativo
+gen.	genitive	génitif	속격	属格	genitivo
+dat.	dative	datif	여격	与格	dativo
+ac.	accusative	accusatif	대격	宾格	acusativo
+voc.	vocative	vocatif	호격	呼格	vocativo
+m.	masculine	masculin	남성	阳性	masculino
+f.	feminine	féminin	여성	阴性	feminino
+n.	neuter	neutre	중성	中性	neutro
+com.	common	commun	공통	通性	comum
+amb.	both genders	les deux genres	양성	两性	ambos os gêneros
+sg.	singular	singulier	단수	单数	singular
+pl.	plural	pluriel	복수	复数	plural
+du.	dual	duel	쌍수	双数	dual
+abs.	absolute	absolu	절대형	绝对形	absoluto
+cons.	construct	construit	연계형	连属形	construto
+det.	determined	déterminé	한정	确定式	determinado
+propio ind.	indeclinable proper noun	nom propre indéclinable	불변화 고유 명사	不变格专有名词	nome próprio indeclinável
+num. ind.	indeclinable numeral	numéral indéclinable	불변화 수사	不变格数词	numeral indeclinável
+comp.	comparative	comparatif	비교급	比较级	comparativo
+sup.	superlative	superlatif	최상급	最高级	superlativo
+interr.	interrogative	interrogatif	의문	疑问	interrogativo
+rel.	relative	relatif	관계	关系	relativo
+dem.	demonstrative	démonstratif	지시	指示	demonstrativo
+indef.	indefinite	indéfini	부정	不定	indefinido
+pers.	personal	personnel	인칭	人称	pessoal
+neg.	negative	négatif	부정	否定	negativo
+abr.	abbreviated	abrégé	축약형	缩略	abreviado
+át.	Attic form	forme attique	아티카형	阿提卡形式	forma ática
+gent.	gentilic	gentilice	민족명	族属名	gentílico
+card.	cardinal number	nombre cardinal	기수	基数词	número cardinal
+ord.	ordinal number	nombre ordinal	서수	序数词	número ordinal
+obj.dir.	direct object marker	marqueur d’objet direct	직접 목적어 표지	直接宾语标记	marcador de objeto direto
+he dir.	directional he	he directionnel	방향 he	方向 he	he direcional
+he par.	paragogic he	he paragogique	첨가 he	附加 he	he paragógico
+nun par.	paragogic nun	nun paragogique	첨가 nun	附加 nun	nun paragógico
+afirm.	affirmative	d’affirmation	긍정	肯定	de afirmação
+exhort.	exhortative	d’exhortation	권고	劝勉	de exortação
+suf.	Suffix	Suffixe	접미사	后缀	Sufixo
+afel	afel	afel	afel	afel	afel
+hafel	hafel	hafel	hafel	hafel	hafel
+hifil	hifil	hifil	hifil	hifil	hifil
+hishtafel	hishtafel	hishtafel	hishtafel	hishtafel	hishtafel
+hitpaal	hitpaal	hitpaal	hitpaal	hitpaal	hitpaal
+hitpael	hitpael	hitpael	hitpael	hitpael	hitpael
+hitpalpel	hitpalpel	hitpalpel	hitpalpel	hitpalpel	hitpalpel
+hitpeel	hitpeel	hitpeel	hitpeel	hitpeel	hitpeel
+hitpoel	hitpoel	hitpoel	hitpoel	hitpoel	hitpoel
+hitpolel	hitpolel	hitpolel	hitpolel	hitpolel	hitpolel
+hofal	hofal	hofal	hofal	hofal	hofal
+hotpaal	hotpaal	hotpaal	hotpaal	hotpaal	hotpaal
+ishtafel	ishtafel	ishtafel	ishtafel	ishtafel	ishtafel
+itpaal	itpaal	itpaal	itpaal	itpaal	itpaal
+itpeel	itpeel	itpeel	itpeel	itpeel	itpeel
+itpoel	itpoel	itpoel	itpoel	itpoel	itpoel
+nifal	nifal	nifal	nifal	nifal	nifal
+nitpael	nitpael	nitpael	nitpael	nitpael	nitpael
+pael	pael	pael	pael	pael	pael
+palel	palel	palel	palel	palel	palel
+peal	peal	peal	peal	peal	peal
+pealal	pealal	pealal	pealal	pealal	pealal
+peil	peil	peil	peil	peil	peil
+piel	piel	piel	piel	piel	piel
+pilel	pilel	pilel	pilel	pilel	pilel
+pilpel	pilpel	pilpel	pilpel	pilpel	pilpel
+poal	poal	poal	poal	poal	poal
+poel	poel	poel	poel	poel	poel
+polal	polal	polal	polal	polal	polal
+polel	polel	polel	polel	polel	polel
+polpal	polpal	polpal	polpal	polpal	polpal
+pual	pual	pual	pual	pual	pual
+pulal	pulal	pulal	pulal	pulal	pulal
+qal	qal	qal	qal	qal	qal
+safel	safel	safel	safel	safel	safel
+shafel	shafel	shafel	shafel	shafel	shafel
+tifil	tifil	tifil	tifil	tifil	tifil
+hif.	hifil	hifil	hifil	hifil	hifil
+hitp.	hitpael	hitpael	hitpael	hitpael	hitpael
+hof.	hofal	hofal	hofal	hofal	hofal
+nif.	nifal	nifal	nifal	nifal	nifal
+nitp.	nitpael	nitpael	nitpael	nitpael	nitpael
+qal pasivo	passive qal	qal passif	수동 qal	被动 qal	qal passivo
+qal pas.	passive qal	qal passif	수동 qal	被动 qal	qal passivo
+Strong	Strong	Strong	Strong	Strong	Strong
+Strong's	Strong's	Strong's	Strong's	Strong's	Strong's
+BibleSync	BibleSync	BibleSync	BibleSync	BibleSync	BibleSync
+Bible_Sync	Bible_Sync	Bible_Sync	Bible_Sync	Bible_Sync	Bible_Sync
+Markdown	Markdown	Markdown	Markdown	Markdown	Markdown
+Omarchy	Omarchy	Omarchy	Omarchy	Omarchy	Omarchy
+OSIS	OSIS	OSIS	OSIS	OSIS	OSIS
+USFM	USFM	USFM	USFM	USFM	USFM
+SQLite	SQLite	SQLite	SQLite	SQLite	SQLite
+WLC	WLC	WLC	WLC	WLC	WLC
+TAGNT	TAGNT	TAGNT	TAGNT	TAGNT	TAGNT
+label2	label2	label2	label2	label2	label2
+label3	label3	label3	label3	label3	label3
+label4	label4	label4	label4	label4	label4
+label5	label5	label5	label5	label5	label5
+label6	label6	label6	label6	label6	label6
+%	%	%	%	%	%
+% A	% A	% A	% A	% A	% A
+% B	% B	% B	% B	% B	% B
+%d %%	%d %%	%d %%	%d %%	%d %%	%d %%
+%d–%d min	%d–%d min	%d–%d min	%d–%d min	%d–%d min	%d–%d min

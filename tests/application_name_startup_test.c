@@ -52,8 +52,12 @@ main(void)
 			     "gtk_window_set_title(GTK_WINDOW(widgets.app), "
 			     "_(\"Biblia Elim\"));") != NULL);
 		CHECK(strstr(main_window,
-			     "gtk_header_bar_set_title(GTK_HEADER_BAR(header_bar), "
-			     "_(\"Biblia Elim\"));") != NULL);
+			     "gtk_header_bar_set_title_widget(GTK_HEADER_BAR(header_bar), titles);") != NULL);
+		CHECK(strstr(main_window,
+			     "gtk_label_set_text(GTK_LABEL(header_title_label(header_bar)),\n"
+			     "\t\t\t   _(\"Biblia Elim\"));") != NULL);
+		CHECK(strstr(main_window,
+			     "gtk_label_new(_(\"Estudio bíblico\"))") != NULL);
 	}
 
 	g_free(gui);

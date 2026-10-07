@@ -136,7 +136,7 @@ static void main_ensure_default_commentary(void);
  *   anything to read, and again later just to populate Parallel View.
  *   On a genuinely fresh install (no modules present yet) we make one
  *   best-effort, silent attempt to fetch a small default set covering
- *   Spanish, English, Hebrew, Greek and Latin from the CrossWire
+ *   Spanish, English, Korean, Hebrew, Greek and Latin from the CrossWire
  *   repository, so Xiphos is immediately useful and Parallel View
  *   already has something to show. Any failure here (no network, source
  *   unreachable, etc.) is swallowed; settings_init() falls back to the
@@ -170,6 +170,8 @@ static void main_bootstrap_default_modules(void)
 		"SpaRV",	/* Spanish, Reina-Valera 1909 */
 		"SpaPlatense",	/* Spanish, Biblia Platense (Straubinger) */
 		"SpaRVG",	/* Spanish, Reina Valera Gomez */
+		"KorRV",	/* Korean, Revised Version 1952/1961 */
+		"KorHKJV",	/* Korean, Hangul King James Version */
 		"WLC",		/* Hebrew, Westminster Leningrad Codex */
 		"Tisch",	/* Greek, Tischendorf 8th ed. GNT */
 		"TR",		/* Greek, Textus Receptus (1550/1894) */
@@ -496,23 +498,8 @@ int settings_init(int argc, char **argv, int new_configs,
 	settings.bs_listen_set = 0; // selective
 	settings.bs_passphrase = g_strdup("BibleSync");
 
-	/* if the user had forced a locale, we must set it now. */
-	if (settings.special_locale &&
-	    strcmp(settings.special_locale, NONE) &&
-	    /* stay compatible w/use of literal */
-	    strcmp(settings.special_locale, "None")) {
-		g_setenv("LANG", settings.special_locale, TRUE);
-		gchar *test = setlocale(LC_ALL, settings.special_locale);
-		if (test == NULL) {
-			gchar lfix[32];
-			sprintf(lfix, "%s.UTF-8", settings.special_locale); //for Ubuntu
-			test = setlocale(LC_ALL, lfix);
-		}
-		if (test != NULL) {
-			g_setenv("LC_ALL", test, TRUE);
-			XI_message(("set locale to %s", settings.special_locale));
-		}
-	}
+	/* The interface preference was applied before SWORD and startup content.
+	 * Do not overwrite it here or require an OS locale to be installed. */
 
 	/* find out what kind of peculiar language environment we have */
 	re_encode_digits = FALSE;

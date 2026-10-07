@@ -19,10 +19,8 @@ Default values are: -win32 -win64
     -win32      build for 32 bit binary for Windows
     -win64	build for 64 bit binary for windows
 
-You should invoke this script on a system that includes the "sudo" command, either
-by running in a VM or in a container with your favorite container environment that
-has sudo installed. Currently it depends on a Fedora 30 environment to do the builds
-and won't work for later versions of Fedora because of missing dependncies. For example:
+You should invoke this script in the Fedora 45 build container used by this
+repository's CI workflow. For example:
 
 git checkout https://github.com/crosswire/xiphos.git
 cd xiphos
@@ -81,7 +79,7 @@ trap 'exit 1' ERR
 function do_build {
     bits="${1}"
     mkdir -p win${bits} && cd win${bits}
-    cmake -DCMAKE_TOOLCHAIN_FILE=/usr/share/mingw/toolchain-mingw${bits}.cmake -DGTKTVEDITOR=ON -DWEBKIT1=ON -DCONSOLE=OFF "${XIPHOS_PATH}"
+    cmake -DCMAKE_TOOLCHAIN_FILE=/usr/share/mingw/toolchain-mingw${bits}.cmake -DGTKTVEDITOR=ON -DCONSOLE=OFF "${XIPHOS_PATH}"
     make VERBOSE=1
     make mhelp-epub-{C,fa,fr,it} package
     cd ..

@@ -1,0 +1,173 @@
+# Grammar labels are UI; opaque morphology scheme/code values remain unchanged.
+Sustantivo	Noun	Nom	명사	名词	Substantivo
+Adjetivo	Adjective	Adjectif	형용사	形容词	Adjetivo
+Artículo	Article	Article	관사	冠词	Artigo
+Verbo	Verb	Verbe	동사	动词	Verbo
+Verbo hebreo	Hebrew verb	Verbe hébreu	히브리어 동사	希伯来语动词	Verbo hebraico
+Pronombre	Pronoun	Pronom	대명사	代词	Pronome
+Pronombre personal	Personal pronoun	Pronom personnel	인칭 대명사	人称代词	Pronome pessoal
+Pronombre relativo	Relative pronoun	Pronom relatif	관계 대명사	关系代词	Pronome relativo
+Pronombre demostrativo	Demonstrative pronoun	Pronom démonstratif	지시 대명사	指示代词	Pronome demonstrativo
+Pronombre recíproco	Reciprocal pronoun	Pronom réciproque	상호 대명사	相互代词	Pronome recíproco
+Pronombre reflexivo	Reflexive pronoun	Pronom réfléchi	재귀 대명사	反身代词	Pronome reflexivo
+Sufijo	Suffix	Suffixe	접미사	后缀	Sufixo
+Pronombre posesivo	Possessive pronoun	Pronom possessif	소유 대명사	物主代词	Pronome possessivo
+Pronombre indefinido	Indefinite pronoun	Pronom indéfini	부정 대명사	不定代词	Pronome indefinido
+Pronombre interrogativo	Interrogative pronoun	Pronom interrogatif	의문 대명사	疑问代词	Pronome interrogativo
+Pronombre correlativo	Correlative pronoun	Pronom corrélatif	상관 대명사	关联代词	Pronome correlativo
+Pronombre correlativo o interrogativo	Correlative or interrogative pronoun	Pronom corrélatif ou interrogatif	상관 또는 의문 대명사	关联或疑问代词	Pronome correlativo ou interrogativo
+Adverbio	Adverb	Adverbe	부사	副词	Advérbio
+Conjunción	Conjunction	Conjonction	접속사	连词	Conjunção
+Preposición	Preposition	Préposition	전치사	介词	Preposição
+Partícula	Particle	Particule	불변화사	小品词	Partícula
+Partícula condicional	Conditional particle	Particule conditionnelle	조건 불변화사	条件小品词	Partícula condicional
+Interjección	Interjection	Interjection	감탄사	感叹词	Interjeição
+Palabra hebrea transliterada	Transliterated Hebrew word	Mot hébreu translittéré	음역된 히브리어 단어	音译的希伯来词	Palavra hebraica transliterada
+Palabra aramea transliterada	Transliterated Aramaic word	Mot araméen translittéré	음역된 아람어 단어	音译的亚兰词	Palavra aramaica transliterada
+activo	active	actif	능동태	主动	ativo
+pasivo	passive	passif	수동태	被动	passivo
+medio	middle	moyen	중간태	中间态	médio
+medio o pasivo	middle or passive	moyen ou passif	중간태 또는 수동태	中间态或被动	médio ou passivo
+deponente medio	middle deponent	déponent moyen	중간태 디포넌트	中间态异相动词	depoente médio
+deponente pasivo	passive deponent	déponent passif	수동태 디포넌트	被动态异相动词	depoente passivo
+deponente medio o pasivo	middle or passive deponent	déponent moyen ou passif	중간태 또는 수동태 디포넌트	中间态或被动态异相动词	depoente médio ou passivo
+impersonal activo	impersonal active	actif impersonnel	비인칭 능동태	无人称主动	ativo impessoal
+indicativo	indicative	indicatif	직설법	直陈式	indicativo
+subjuntivo	subjunctive	subjonctif	가정법	虚拟式	subjuntivo
+optativo	optative	optatif	희구법	祈愿式	optativo
+imperativo	imperative	impératif	명령법	命令式	imperativo
+infinitivo	infinitive	infinitif	부정사	不定式	infinitivo
+participio	participle	participe	분사	分词	particípio
+participio activo	active participle	participe actif	능동 분사	主动分词	particípio ativo
+participio pasivo	passive participle	participe passif	수동 분사	被动分词	particípio passivo
+presente	present	présent	현재	现在时	presente
+imperfecto	imperfect	imparfait	미완료	未完成时	imperfeito
+futuro	future	futur	미래	将来时	futuro
+aoristo	aorist	aoriste	부정과거	简单过去时	aoristo
+perfecto	perfect	parfait	완료	完成时	perfeito
+pluscuamperfecto	pluperfect	plus-que-parfait	과거완료	过去完成时	mais-que-perfeito
+presente 2º	second present	second présent	제2현재	第二现在时	segundo presente
+futuro 2º	second future	second futur	제2미래	第二将来时	segundo futuro
+aoristo 2º	second aorist	second aoriste	제2부정과거	第二简单过去时	segundo aoristo
+perfecto 2º	second perfect	second parfait	제2완료	第二完成时	segundo perfeito
+pluscuamperfecto 2º	second pluperfect	second plus-que-parfait	제2과거완료	第二过去完成时	segundo mais-que-perfeito
+secuencial imperfecto	sequential imperfect	imparfait séquentiel	연속 미완료	连续未完成式	imperfeito sequencial
+secuencial perfecto	sequential perfect	parfait séquentiel	연속 완료	连续完成式	perfeito sequencial
+infinitivo absoluto	absolute infinitive	infinitif absolu	절대 부정사	绝对不定式	infinitivo absoluto
+infinitivo constructo	construct infinitive	infinitif construit	연계 부정사	连属不定式	infinitivo construto
+cohortativo	cohortative	cohortatif	청유법	劝勉式	coortativo
+yusivo	jussive	jussif	간접 명령법	命令式（第三人称）	jussivo
+nominativo	nominative	nominatif	주격	主格	nominativo
+genitivo	genitive	génitif	속격	属格	genitivo
+dativo	dative	datif	여격	与格	dativo
+acusativo	accusative	accusatif	대격	宾格	acusativo
+vocativo	vocative	vocatif	호격	呼格	vocativo
+masculino	masculine	masculin	남성	阳性	masculino
+femenino	feminine	féminin	여성	阴性	feminino
+neutro	neuter	neutre	중성	中性	neutro
+común	common	commun	공통	通性	comum
+género común	common gender	genre commun	공통 성	通性	gênero comum
+ambos géneros	both genders	les deux genres	양성	两性	ambos os gêneros
+singular	singular	singulier	단수	单数	singular
+plural	plural	pluriel	복수	复数	plural
+dual	dual	duel	쌍수	双数	dual
+absoluto	absolute	absolu	절대형	绝对形	absoluto
+constructo	construct	construit	연계형	连属形	construto
+determinado	determined	déterminé	한정	确定式	determinado
+nombre propio	proper noun	nom propre	고유 명사	专有名词	nome próprio
+propio	proper	propre	고유	专有	próprio
+indeclinable	indeclinable	indéclinable	불변화	不变格	indeclinável
+nombre propio indeclinable	indeclinable proper noun	nom propre indéclinable	불변화 고유 명사	不变格专有名词	nome próprio indeclinável
+letra indeclinable	indeclinable letter	lettre indéclinable	불변화 문자	不变格字母	letra indeclinável
+numeral indeclinable	indeclinable numeral	numéral indéclinable	불변화 수사	不变格数词	numeral indeclinável
+comparativo	comparative	comparatif	비교급	比较级	comparativo
+superlativo	superlative	superlatif	최상급	最高级	superlativo
+pronominal	pronominal	pronominal	대명사형	代词性	pronominal
+interrogativo	interrogative	interrogatif	의문	疑问	interrogativo
+interrogativa	interrogative	interrogative	의문	疑问	interrogativa
+relativo	relative	relatif	관계	关系	relativo
+relativa	relative	relative	관계	关系	relativa
+demostrativo	demonstrative	démonstratif	지시	指示	demonstrativo
+demostrativa	demonstrative	démonstrative	지시	指示	demonstrativa
+indefinido	indefinite	indéfini	부정	不定	indefinido
+personal	personal	personnel	인칭	人称	pessoal
+negativo	negative	négatif	부정	否定	negativo
+negativa	negative	négative	부정	否定	negativa
+interjección	interjection	interjection	감탄사	感叹词	interjeição
+artículo definido	definite article	article défini	정관사	定冠词	artigo definido
+con artículo definido	with definite article	avec article défini	정관사 포함	带定冠词	com artigo definido
+abreviado	abbreviated	abrégé	축약형	缩略	abreviado
+forma ática	Attic form	forme attique	아티카형	阿提卡形式	forma ática
+crasis	crasis	crase	모음 축약	元音融合	crase
+por crasis	by crasis	par crase	모음 축약	通过元音融合	por crase
+gentilicio	gentilic	gentilice	민족명	族属名	gentílico
+topónimo	place name	nom de lieu	지명	地名	topônimo
+número cardinal	cardinal number	nombre cardinal	기수	基数词	número cardinal
+número ordinal	ordinal number	nombre ordinal	서수	序数词	número ordinal
+marcador de objeto directo	direct object marker	marqueur d’objet direct	직접 목적어 표지	直接宾语标记	marcador de objeto direto
+he direccional	directional he	he directionnel	방향 he	方向 he	he direcional
+he paragógico	paragogic he	he paragogique	첨가 he	附加 he	he paragógico
+nun paragógico	paragogic nun	nun paragogique	첨가 nun	附加 nun	nun paragógico
+de afirmación	affirmative	d’affirmation	긍정	肯定	de afirmação
+de exhortación	exhortative	d’exhortation	권고	劝勉	de exortação
+de un poseedor	single possessor	d’un seul possesseur	단수 소유자	单个所有者	de um possuidor
+de varios poseedores	multiple possessors	de plusieurs possesseurs	복수 소유자	多个所有者	de vários possuidores
+1ª	1st	1re	1인칭	第一	1ª
+2ª	2nd	2e	2인칭	第二	2ª
+3ª	3rd	3e	3인칭	第三	3ª
+1ª persona	1st person	1re personne	1인칭	第一人称	1ª pessoa
+2ª persona	2nd person	2e personne	2인칭	第二人称	2ª pessoa
+3ª persona	3rd person	3e personne	3인칭	第三人称	3ª pessoa
+Análisis	Analysis	Analyse	분석	分析	Análise
+Análisis gramatical	Grammatical analysis	Analyse grammaticale	문법 분석	语法分析	Análise gramatical
+Código morfológico	Morphology code	Code morphologique	형태론 코드	词形代码	Código morfológico
+Esquema morfológico	Morphology scheme	Système morphologique	형태론 체계	词形体系	Esquema morfológico
+Etiquetas morfológicas	Morphological tags	Étiquettes morphologiques	형태론 태그	词形标签	Etiquetas morfológicas
+Esquema	Scheme	Système	체계	体系	Esquema
+Ocurrencias morfológicas	Morphological occurrences	Occurrences morphologiques	형태론 용례	词形用例	Ocorrências morfológicas
+Seleccione una etiqueta	Select a tag	Sélectionner une étiquette	태그 선택	选择标签	Selecione uma etiqueta
+Seleccione un Strong	Select a Strong number	Sélectionner un numéro Strong	Strong 번호 선택	选择 Strong 编号	Selecione um número Strong
+Sin especificar	Unspecified	Non précisé	지정되지 않음	未指定	Não especificado
+Raíz:	Root:	Racine :	어근:	词根：	Raiz:
+Matiz:	Nuance:	Nuance :	뉘앙스:	细微含义：	Nuance:
+Construcción:	Construction:	Construction :	구문:	句式：	Construção:
+Certeza:	Certainty:	Certitude :	확실성:	确定性：	Certeza:
+Forma en el versículo	Form in this verse	Forme dans le verset	이 구절의 형태	本节中的词形	Forma no versículo
+Lema	Lemma	Lemme	표제어	词元	Lema
+Lemas	Lemmas	Lemmes	표제어	词元	Lemas
+Griego koiné	Koine Greek	Grec koinè	코이네 그리스어	通用希腊语	Grego koiné
+Hebreo bíblico	Biblical Hebrew	Hébreu biblique	성서 히브리어	圣经希伯来语	Hebraico bíblico
+Griego / hebreo	Greek / Hebrew	Grec / hébreu	그리스어 / 히브리어	希腊语 / 希伯来语	Grego / hebraico
+Español / glosa	Spanish / gloss	Espagnol / glose	스페인어 / 뜻풀이	西班牙语 / 词义	Espanhol / glosa
+Griego · Tischendorf	Greek · Tischendorf	Grec · Tischendorf	그리스어 · Tischendorf	希腊语 · Tischendorf	Grego · Tischendorf
+Hebreo · WLC	Hebrew · WLC	Hébreu · WLC	히브리어 · WLC	希伯来语 · WLC	Hebraico · WLC
+Hebreo sin signos	Hebrew without marks	Hébreu sans signes	부호 없는 히브리어	无符号希伯来语	Hebraico sem sinais
+Copiar hebreo original	Copy original Hebrew	Copier l’hébreu original	히브리어 원문 복사	复制希伯来语原文	Copiar hebraico original
+Copiar hebreo sin signos	Copy Hebrew without marks	Copier l’hébreu sans signes	부호 없는 히브리어 복사	复制无符号希伯来语	Copiar hebraico sem sinais
+Griego/hebreo → Español	Greek/Hebrew → Spanish	Grec/hébreu → espagnol	그리스어/히브리어 → 스페인어	希腊语/希伯来语 → 西班牙语	Grego/hebraico → espanhol
+Español → griego/hebreo	Spanish → Greek/Hebrew	Espagnol → grec/hébreu	스페인어 → 그리스어/히브리어	西班牙语 → 希腊语/希伯来语	Espanhol → grego/hebraico
+α   Interlineal	α   Interlinear	α   Interlinéaire	α   행간 성경	α   逐词对照	α   Interlinear
+מילה · Palabra	מילה · Word	מילה · Mot	מילה · 단어	מילה · 词语	מילה · Palavra
+Interlineal: griego o hebreo de este versículo, palabra por palabra	Interlinear: this verse in Greek or Hebrew, word by word	Interlinéaire : ce verset en grec ou hébreu, mot à mot	행간 성경: 이 구절의 그리스어 또는 히브리어를 단어별로 표시	逐词对照：逐词显示本节的希腊语或希伯来语	Interlinear: este versículo em grego ou hebraico, palavra por palavra
+Interlineal: griego o hebreo de este versículo, palabra por palabra (Forward / Reverse)	Interlinear: this verse in Greek or Hebrew, word by word (Forward / Reverse)	Interlinéaire : ce verset en grec ou hébreu, mot à mot (direct / inversé)	행간 성경: 이 구절의 그리스어 또는 히브리어를 단어별로 표시 (정방향 / 역방향)	逐词对照：逐词显示本节的希腊语或希伯来语（正向 / 反向）	Interlinear: este versículo em grego ou hebraico, palavra por palavra (direto / inverso)
+Orden del original: cada palabra griega o hebrea y su equivalente en español	Original order: each Greek or Hebrew word with its Spanish equivalent	Ordre original : chaque mot grec ou hébreu avec son équivalent espagnol	원문 순서: 각 그리스어 또는 히브리어 단어와 해당 스페인어 표현	原文顺序：每个希腊语或希伯来语词及其西班牙语对应词	Ordem do original: cada palavra grega ou hebraica e seu equivalente em espanhol
+Orden del español: cada palabra de la traducción y su original	Spanish order: each translated word with its original	Ordre espagnol : chaque mot traduit avec son original	스페인어 순서: 번역된 각 단어와 원어	西班牙语顺序：每个译文词及其原文	Ordem do espanhol: cada palavra da tradução e seu original
+Cómo la traducen las versiones	How versions translate it	Traductions selon les versions	번역본별 번역	各译本如何翻译	Como as versões traduzem
+Sobre las diferencias:	About the differences:	À propos des différences :	차이점:	关于差异：	Sobre as diferenças:
+Significados en el Nuevo Testamento	Meanings in the New Testament	Sens dans le Nouveau Testament	신약성경의 의미	新约中的含义	Significados no Novo Testamento
+Significados en el Nuevo Testamento:	Meanings in the New Testament:	Sens dans le Nouveau Testament :	신약성경의 의미:	新约中的含义：	Significados no Novo Testamento:
+Otros usos	Other uses	Autres usages	다른 용례	其他用法	Outros usos
+Otros usos:	Other uses:	Autres usages :	다른 용례:	其他用法：	Outros usos:
+Ficha de estudio	Study card	Fiche d’étude	연구 카드	研读卡片	Ficha de estudo
+Datos del texto griego (TAGNT)	Greek text data (TAGNT)	Données du texte grec (TAGNT)	그리스어 본문 데이터 (TAGNT)	希腊语文本数据（TAGNT）	Dados do texto grego (TAGNT)
+En la Reina-Valera 1909:	In Reina-Valera 1909:	Dans la Reina-Valera 1909 :	Reina-Valera 1909에서:	在 Reina-Valera 1909 中：	Na Reina-Valera 1909:
+Ocurrencias	Occurrences	Occurrences	용례	用例	Ocorrências
+Ocurrencias: se están preparando…	Occurrences: preparing…	Occurrences : préparation…	용례: 준비 중…	用例：准备中…	Ocorrências: preparando…
+Números Strong	Strong numbers	Numéros Strong	Strong 번호	Strong 编号	Números Strong
+Glosas	Glosses	Gloses	뜻풀이	词义	Glosas
+Formas transliteradas	Transliterated forms	Formes translittérées	음역 형태	音译形式	Formas transliteradas
+Segmentación de morfemas	Morpheme segmentation	Segmentation des morphèmes	형태소 분할	语素分割	Segmentação de morfemas
+Vocales hebreas	Hebrew vowels	Voyelles hébraïques	히브리어 모음	希伯来语元音	Vogais hebraicas
+Acentos griegos	Greek accents	Accents grecs	그리스어 악센트	希腊语重音	Acentos gregos
+Cantilación hebrea	Hebrew cantillation	Cantillation hébraïque	히브리어 낭송 부호	希伯来语诵读符号	Cantilação hebraica
+Enumeraciones	Enumerations	Énumérations	열거	列举	Enumerações

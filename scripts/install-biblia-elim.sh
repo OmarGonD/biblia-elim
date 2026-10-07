@@ -55,29 +55,30 @@ if [[ -d "${ROOT}/build/locale" ]]; then
 	done
 fi
 
-# Torres Amat va dentro del paquete, no se descarga.
+# Torres Amat va dentro del paquete, no se descarga, y va ya en SQLite.
 #
 # El resto de las Biblias las trae main_bootstrap_default_modules() de los
 # repositorios SWORD en el primer arranque. Esta no está en ninguno: se
 # construyó para esta aplicación a partir de los escaneos de la edición de
-# 1882 (véase scripts/torresamat/). Como no hay de dónde bajarla, viaja
-# con el instalador.
+# 1882 (véase scripts/torresamat/). Como no hay de dónde bajarla, viaja con
+# el instalador, ya convertida: modulos/sqlite/TorresAmat.sqlite. El módulo
+# SWORD de modulos/mods.d y modulos/modules/texts es solo la fuente de la
+# que se regenera; no se instala ni la aplicación lo lee.
 #
 # Solo si falta: quien la haya borrado a propósito, o tenga una revisión
 # más nueva que la del paquete, no quiere que se la pisemos en cada
 # reinstalación.
-SWORDDIR="${HOME}/.sword"
-if [[ -d "${ROOT}/modulos" ]] && [[ ! -f "${SWORDDIR}/mods.d/torresamat.conf" ]]; then
-	install -d "${SWORDDIR}/mods.d" \
-		"${SWORDDIR}/modules/texts/ztext/torresamat"
-	install -m 0644 "${ROOT}/modulos/mods.d/torresamat.conf" \
-		"${SWORDDIR}/mods.d/torresamat.conf"
-	install -m 0644 "${ROOT}"/modulos/modules/texts/ztext/torresamat/* \
-		"${SWORDDIR}/modules/texts/ztext/torresamat/"
-	echo "  Biblia:   Torres Amat instalada en ${SWORDDIR}"
+SQLITEDIR="${XDG_DATA_HOME:-${HOME}/.local/share}/biblia-elim/modules"
+if [[ -f "${ROOT}/modulos/sqlite/TorresAmat.sqlite" ]] && [[ ! -f "${SQLITEDIR}/TorresAmat.sqlite" ]]; then
+	install -d "${SQLITEDIR}"
+	install -m 0644 "${ROOT}/modulos/sqlite/TorresAmat.sqlite" \
+		"${SQLITEDIR}/TorresAmat.sqlite"
+	echo "  Biblia:   Torres Amat instalada en ${SQLITEDIR}"
 fi
 
-# Y sus notas, que son la mitad de la obra, como comentario aparte.
+# Sus notas son un comentario SWORD: el formato SQLite v1 solo guarda
+# Biblias, así que de momento viajan como SWORD.
+SWORDDIR="${HOME}/.sword"
 if [[ -d "${ROOT}/modulos" ]] && [[ ! -f "${SWORDDIR}/mods.d/torresamatnotas.conf" ]]; then
 	install -d "${SWORDDIR}/mods.d" \
 		"${SWORDDIR}/modules/comments/zcom/torresamatnotas"

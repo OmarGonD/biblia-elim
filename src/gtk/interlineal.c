@@ -55,23 +55,24 @@ static gchar *tools_mod = NULL;
  * the comment above explains can already be a different one -- and with
  * a different versification. Carry the reference over rather than let
  * the new module reparse the text. */
-static void
+static gboolean
 verse_tools_goto(const char *key)
 {
 	gchar *url;
 	gchar *main_key;
 
 	if (!key || !*key)
-		return;
+		return FALSE;
 	main_key = main_bible_key_for_uri(tools_mod, key);
 	if (!main_key) {
 		main_warn_reference_unmapped(key, settings.MainWindowModule);
-		return;
+		return FALSE;
 	}
 	url = g_strdup_printf("sword:///%s", main_key);
 	main_url_handler(url, TRUE);
 	g_free(main_key);
 	g_free(url);
+	return TRUE;
 }
 
 void
@@ -89,8 +90,13 @@ gui_interlineal_rellenar(void)
 	gui_reading_interlinear_sync();
 }
 
-void
-gui_interlineal_set_active(gboolean active)
+/* `goto_key`, si no es NULL, es el versículo (nativo de tools_mod) al que
+ * llevar el panel al activar: esa navegación es el único redibujado. Antes
+ * se navegaba (redibujo en sitio, con su scroll) y luego se redibujaba el
+ * capítulo entero con el aparato, que reiniciaba el scroll y lo
+ * reposicionaba: el panel bajaba y volvía a subir. */
+static void
+interlineal_set_active(gboolean active, const char *goto_key)
 {
 	settings.show_interlineal = active ? 1 : 0;
 	xml_set_or_create_value("misc", "show_interlineal",
@@ -104,6 +110,10 @@ gui_interlineal_set_active(gboolean active)
 	gui_main_menu_set_state("interlinear", active);
 	syncing = FALSE;
 	gui_reading_interlinear_sync();
+	/* El capítulo se reconstruye entero: el panel conserva la imagen
+	 * anterior hasta que el scroll llega al verso. */
+	if (widgets.html_text)
+		wk_html_freeze_for_jump(WK_HTML(widgets.html_text));
 	if (active) {
 		if (!main_interlineal_verso_abierto() && settings.currentverse)
 			main_interlineal_abrir_verso(settings.currentverse);
@@ -118,7 +128,9 @@ gui_interlineal_set_active(gboolean active)
 
 			if (!k || !*k)
 				k = settings.currentverse;
-			if (k)
+			if (goto_key && verse_tools_goto(goto_key))
+				;
+			else if (k)
 				main_display_bible(NULL, k);
 		}
 	} else {
@@ -130,6 +142,12 @@ gui_interlineal_set_active(gboolean active)
 		if (settings.currentverse)
 			main_display_bible(NULL, settings.currentverse);
 	}
+}
+
+void
+gui_interlineal_set_active(gboolean active)
+{
+	interlineal_set_active(active, NULL);
 }
 
 static void
@@ -496,8 +514,7 @@ on_tools_interlineal(GSimpleAction *item, GVariant *parameter, gpointer data)
 	(void)item;
 	(void)data;
 	main_interlineal_abrir_verso(tools_key);
-	verse_tools_goto(tools_key);
-	gui_interlineal_set_active(TRUE);
+	interlineal_set_active(TRUE, tools_key);
 }
 
 static void

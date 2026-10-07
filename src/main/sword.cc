@@ -89,6 +89,7 @@ extern "C" {
 #include "backend/sword_main.hh"
 #include "backend/sword/sword_backend.h"
 #include "backend/sword/sword_locale.h"
+#include "main/app_language.h"
 #include "backend/sqlite/sqlite_bible_backend.h"
 #include "backend/sqlite_module_manager.h"
 #include "main/backend_access.h"
@@ -1153,7 +1154,7 @@ void main_init_sword_locale(void)
 	if (done)
 		return;
 	done = TRUE;
-	const char *lang = getenv("LANG");
+	const char *lang = app_language_reader_locale();
 	ensure_utf8_string_mgr();
 	sword_locale = reader_sword_locale(lang ? lang : "C");
 }

@@ -62,51 +62,7 @@ void gui_init(int argc, char *argv[])
 	g_setenv("GSK_RENDERER", gtk_get_minor_version() >= 22 ? "gl" : "ngl",
 		 FALSE);
 
-#ifdef ENABLE_NLS
-#ifndef WIN32
-	/* Prefer the translations staged next to an uninstalled dev build
-	 * (<build-dir>/locale/<lang>/LC_MESSAGES/xiphos.mo, see
-	 * po/CMakeLists.txt) over PACKAGE_LOCALE_DIR (an install prefix
-	 * such as /usr/local/share/locale) when it exists. Without this,
-	 * running xiphos straight out of the build tree without "make
-	 * install" always shows English, regardless of the system locale,
-	 * because PACKAGE_LOCALE_DIR is empty until installed. */
-	{
-		gchar *exe_path = g_file_read_link("/proc/self/exe", NULL);
-		gchar *chosen = NULL;
-		gchar *cands[4];
-		int i, nc = 0;
-
-		cands[nc++] = g_build_filename(g_get_user_data_dir(), "locale", NULL);
-		if (exe_path) {
-			gchar *exe_dir = g_path_get_dirname(exe_path);
-			cands[nc++] = g_build_filename(exe_dir, "..", "share",
-						      "locale", NULL);
-			cands[nc++] = g_build_filename(exe_dir, "..", "..",
-						      "locale", NULL);
-			g_free(exe_dir);
-			g_free(exe_path);
-		}
-		for (i = 0; i < nc; i++) {
-			gchar *probe = g_build_filename(cands[i], "es",
-						       "LC_MESSAGES",
-						       GETTEXT_PACKAGE ".mo", NULL);
-			if (!chosen && g_file_test(probe, G_FILE_TEST_IS_REGULAR))
-				chosen = cands[i];
-			else
-				g_free(cands[i]);
-			g_free(probe);
-		}
-		bindtextdomain(GETTEXT_PACKAGE,
-			       chosen ? chosen : PACKAGE_LOCALE_DIR);
-		g_free(chosen);
-	}
-#else
-	bindtextdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
-#endif
-	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
-	textdomain(GETTEXT_PACKAGE);
-#endif
+	/* Gettext was initialized before startup content by app_language_initialize. */
 #ifdef WIN32
 	gchar *locale_dir =
 	    g_win32_get_package_installation_directory_of_module(NULL);
@@ -119,6 +75,9 @@ void gui_init(int argc, char *argv[])
 #endif
 	(void)argc;
 	(void)argv;
+	/* Keep the base message locale used when LANGUAGE selects a catalog
+	 * without a corresponding OS locale. GTK must not reset it to C. */
+	gtk_disable_setlocale();
 	if (!gtk_init_check()) {
 		g_printerr("%s\n", _("Cannot open the display"));
 		exit(1);

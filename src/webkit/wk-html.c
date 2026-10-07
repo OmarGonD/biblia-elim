@@ -4235,6 +4235,29 @@ wk_html_thaw(WkHtml *html)
 	html->priv->frozen = NULL;
 }
 
+static gboolean
+thaw_after_jump(gpointer data)
+{
+	WkHtml *html = WK_HTML(data);
+
+	if (WK_HTML_IS_HTML(html))
+		wk_html_thaw(html);
+	return G_SOURCE_REMOVE;
+}
+
+void
+wk_html_freeze_for_jump(WkHtml *html)
+{
+	g_return_if_fail(WK_HTML_IS_HTML(html));
+	if (html->priv->frozen)
+		return;
+	wk_html_freeze(html);
+	if (!html->priv->frozen)
+		return;
+	g_timeout_add_full(G_PRIORITY_DEFAULT_IDLE, 320, thaw_after_jump,
+			   g_object_ref(html), g_object_unref);
+}
+
 gchar *
 wk_html_selection_text(WkHtml *html)
 {

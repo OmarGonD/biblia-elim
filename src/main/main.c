@@ -46,6 +46,8 @@
 #include "gtk/author_commentary_probe.h"
 
 #include "main/recordatorio.h"
+#include "main/app_language.h"
+#include "main/startup_profile.h"
 #include "main/sword.h"
 #include "main/url.hh"
 #include "main/xml.h"
@@ -119,18 +121,18 @@ server_callback_media(SoupServer *server,
  * _()-wrapped strings). Previously this only happened later, implicitly
  * via gtk_init_with_args() inside gui_init(), so the default bookmarks
  * were always generated while the process was still in the "C" locale
- * (English), regardless of the user's actual language. setlocale() and
- * the later bindtextdomain/textdomain calls in gui_init() remain
- * harmless to repeat (idempotent).
+ * (English), regardless of the user's actual language. Read the saved
+ * interface choice before SWORD, gettext startup content and GTK.
  */
 static void iniciar_idioma(void)
 {
-	setlocale(LC_ALL, "");
-#ifdef ENABLE_NLS
-	bindtextdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
-	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
-	textdomain(GETTEXT_PACKAGE);
-#endif
+	gchar *directory = startup_profile_config_directory();
+	gchar *path = g_build_filename(directory, "settings.xml", NULL);
+	gchar *legacy = g_build_filename(g_get_home_dir(), ".xiphos", "settings.xml", NULL);
+	app_language_initialize(NULL, g_file_test(path, G_FILE_TEST_IS_REGULAR) ? path : legacy);
+	g_free(legacy);
+	g_free(path);
+	g_free(directory);
 }
 
 /******************************************************************************
@@ -185,6 +187,19 @@ int main(int argc, char *argv[])
 	 * (ver gui_convert_pending_sword_bibles): sin GTK ni ventana. */
 	if (argc == 4 && !strcmp(argv[1], "--convert-sword"))
 		return sword_conversion_child_main(argv[2], argv[3]);
+
+	gchar *language_choice = NULL;
+	GError *language_error = NULL;
+	if (!app_language_parse_args(&argc, argv, &language_choice, &language_error)) {
+		g_printerr("%s\n", language_error->message);
+		g_clear_error(&language_error);
+		g_free(language_choice);
+		return 1;
+	}
+	if (language_choice) {
+		app_language_initialize(language_choice, NULL);
+		g_free(language_choice);
+	} else iniciar_idioma();
 
 	/* Development backend selector. Remove it before GTK parses argv. The
 	 * optional module directory normally comes from BIBLIA_ELIM_SQLITE_MODULES. */
@@ -382,7 +397,6 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	iniciar_idioma();
 #ifdef WIN32
 	{
 		gchar *locale_dir =

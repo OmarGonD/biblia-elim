@@ -1,0 +1,106 @@
+# English source strings: last column supplies the Spanish translation.
+StudyPad — imported Word document	StudyPad — imported Word document	Bloc d’étude — document Word importé	연구 노트 — 가져온 Word 문서	研读笔记 — 已导入的 Word 文档	Bloco de estudos — documento Word importado	Cuaderno de estudio — documento Word importado
+Save as	Save as	Enregistrer sous	다른 이름으로 저장	另存为	Salvar como	Guardar como
+Studies and Word documents	Studies and Word documents	Études et documents Word	연구 및 Word 문서	研读文档和 Word 文档	Estudos e documentos Word	Estudios y documentos Word
+Select an image file	Select an image file	Choisir un fichier image	이미지 파일 선택	选择图像文件	Selecionar uma imagem	Seleccionar una imagen
+Add color	Add color	Ajouter une couleur	색상 추가	添加颜色	Adicionar cor	Añadir color
+No color	No color	Sans couleur	색상 없음	无颜色	Sem cor	Sin color
+New Tag	New tag	Nouvelle étiquette	새 태그	新建标签	Nova etiqueta	Nueva etiqueta
+Default color	Default color	Couleur par défaut	기본 색상	默认颜色	Cor padrão	Color predeterminado
+Import AndBible	Import AndBible	Importer AndBible	AndBible 가져오기	导入 AndBible	Importar AndBible	Importar AndBible
+Select AndBible bookmarks backup (.sqlite3)	Select AndBible bookmarks backup (.sqlite3)	Choisir une sauvegarde des signets AndBible (.sqlite3)	AndBible 책갈피 백업 선택 (.sqlite3)	选择 AndBible 书签备份（.sqlite3）	Selecionar cópia de marcadores do AndBible (.sqlite3)	Seleccionar copia de marcadores de AndBible (.sqlite3)
+AndBible backup (*.sqlite3)	AndBible backup (*.sqlite3)	Sauvegarde AndBible (*.sqlite3)	AndBible 백업 (*.sqlite3)	AndBible 备份（*.sqlite3）	Cópia do AndBible (*.sqlite3)	Copia de AndBible (*.sqlite3)
+An 'Import AndBible' folder already exists and will be replaced by this import. Continue?	An 'Import AndBible' folder already exists and will be replaced by this import. Continue?	Un dossier « Import AndBible » existe déjà et sera remplacé par cet import. Continuer ?	“Import AndBible” 폴더가 이미 있으며 가져오기로 교체됩니다. 계속할까요?	“Import AndBible”文件夹已存在，将被此次导入替换。继续吗？	Uma pasta “Import AndBible” já existe e será substituída por esta importação. Continuar?	Ya existe una carpeta «Import AndBible» y se reemplazará con esta importación. ¿Continuar?
+Unknown error	Unknown error	Erreur inconnue	알 수 없는 오류	未知错误	Erro desconhecido	Error desconocido
+unknown error	unknown error	erreur inconnue	알 수 없는 오류	未知错误	erro desconhecido	error desconocido
+%d bookmark(s) imported, %d skipped.	%d bookmark(s) imported, %d skipped.	%d signet(s) importé(s), %d ignoré(s).	책갈피 %d개를 가져왔고 %d개를 건너뛰었습니다.	已导入 %d 个书签，跳过 %d 个。	%d marcador(es) importado(s), %d ignorado(s).	%d marcador(es) importado(s), %d omitido(s).
+Edit Tag	Edit tag	Modifier l’étiquette	태그 편집	编辑标签	Editar etiqueta	Editar etiqueta
+Choose folder color	Choose folder color	Choisir la couleur du dossier	폴더 색상 선택	选择文件夹颜色	Escolher cor da pasta	Elegir color de carpeta
+Go back in history	Go back in history	Précédent dans l’historique	기록 뒤로	后退	Voltar no histórico	Atrás en el historial
+Go forward in history	Go forward in history	Suivant dans l’historique	기록 앞으로	前进	Avançar no histórico	Adelante en el historial
+Click to choose a date	Click to choose a date	Cliquer pour choisir une date	클릭하여 날짜 선택	点击选择日期	Clique para escolher uma data	Haz clic para elegir una fecha
+default	default	par défaut	기본값	默认	padrão	predeterminado
+Cancel	Cancel	Annuler	취소	取消	Cancelar	Cancelar
+OK	OK	Valider	확인	确定	OK	Aceptar
+Close	Close	Fermer	닫기	关闭	Fechar	Cerrar
+Devotional	Devotional	Méditation quotidienne	매일 묵상	每日灵修	Devocional	Devocional
+Cannot open the display	Cannot open the display	Impossible d’ouvrir l’affichage	화면을 열 수 없습니다	无法打开显示器	Não foi possível abrir a tela	No se puede abrir la pantalla
+Lock	Lock	Verrouiller	잠금	锁定	Bloquear	Bloquear
+Update	Update	Mettre à jour	업데이트	更新	Atualizar	Actualizar
+Unindexed Modules	Unindexed modules	Modules non indexés	색인 없는 모듈	未建立索引的模块	Módulos sem índice	Módulos sin indexar
+Set: %s	Set: %s	Ensemble : %s	모음: %s	组合：%s	Conjunto: %s	Conjunto: %s
+Manage...	Manage…	Gérer…	관리…	管理…	Gerenciar…	Gestionar…
+Switch parallel module set	Switch parallel module set	Changer l’ensemble de modules parallèles	병렬 모듈 모음 변경	切换平行模块组合	Trocar conjunto de módulos paralelos	Cambiar conjunto de versiones en paralelo
+New Parallel Set	New parallel set	Nouvel ensemble parallèle	새 병렬 모음	新建平行组合	Novo conjunto paralelo	Nuevo conjunto paralelo
+Create	Create	Créer	만들기	创建	Criar	Crear
+Set name:	Set name:	Nom de l’ensemble :	모음 이름:	组合名称：	Nome do conjunto:	Nombre del conjunto:
+Please enter a valid set name.	Please enter a valid set name.	Veuillez saisir un nom d’ensemble valide.	올바른 모음 이름을 입력하세요.	请输入有效的组合名称。	Digite um nome válido para o conjunto.	Escribe un nombre válido para el conjunto.
+New set...	New set…	Nouvel ensemble…	새 모음…	新建组合…	Novo conjunto…	Nuevo conjunto…
+Delete current set	Delete current set	Supprimer l’ensemble actuel	현재 모음 삭제	删除当前组合	Excluir conjunto atual	Eliminar conjunto actual
+Category, then Language	Category, then language	Catégorie, puis langue	분류, 다음 언어	先类别后语言	Categoria, depois idioma	Categoría y luego idioma
+Category only	Category only	Catégorie uniquement	분류만	仅类别	Somente categoria	Sólo categoría
+Language, then Category	Language, then category	Langue, puis catégorie	언어, 다음 분류	先语言后类别	Idioma, depois categoria	Idioma y luego categoría
+Remove from Favorites	Remove from favorites	Retirer des favoris	즐겨찾기에서 제거	取消收藏	Remover dos favoritos	Quitar de favoritos
+Add to Favorites	Add to favorites	Ajouter aux favoris	즐겨찾기에 추가	添加到收藏	Adicionar aos favoritos	Añadir a favoritos
+Show this module	Show this module	Afficher ce module	이 모듈 표시	显示此模块	Mostrar este módulo	Mostrar este módulo
+Hide this module	Hide this module	Masquer ce module	이 모듈 숨기기	隐藏此模块	Ocultar este módulo	Ocultar este módulo
+Favorites	Favorites	Favoris	즐겨찾기	收藏	Favoritos	Favoritos
+Bookmark List	Bookmark list	Liste des signets	책갈피 목록	书签列表	Lista de marcadores	Lista de marcadores
+Uncategorized	Uncategorized	Sans catégorie	분류 없음	未分类	Sem categoria	Sin categoría
+Word (.doc)	Word (.doc)	Word (.doc)	Word (.doc)	Word（.doc）	Word (.doc)	Word (.doc)
+Word-compatible document with formatting and accents	Word-compatible document with formatting and accents	Document compatible Word avec mise en forme et accents	서식과 악센트를 포함한 Word 호환 문서	保留格式和重音符号的 Word 兼容文档	Documento compatível com Word, com formatação e acentos	Documento compatible con Word, con formato y acentos
+Loading…	Loading…	Chargement…	불러오는 중…	正在加载…	Carregando…	Cargando…
+Unable to load content.	Unable to load content.	Impossible de charger le contenu.	내용을 불러올 수 없습니다.	无法加载内容。	Não foi possível carregar o conteúdo.	No se puede cargar el contenido.
+Module name:	Module name:	Nom du module :	모듈 이름:	模块名称：	Nome do módulo:	Nombre del módulo:
+Module abbreviation:	Module abbreviation:	Abréviation du module :	모듈 약칭:	模块简称：	Abreviação do módulo:	Abreviatura del módulo:
+Version:	Version:	Version :	버전:	版本：	Versão:	Versión:
+Type:	Type:	Type :	유형:	类型：	Tipo:	Tipo:
+Language:	Language:	Langue :	언어:	语言：	Idioma:	Idioma:
+Installed size:	Installed size:	Taille installée :	설치 크기:	安装大小：	Tamanho instalado:	Tamaño instalado:
+Companion module(s):	Companion module(s):	Module(s) associé(s) :	연관 모듈:	配套模块：	Módulo(s) associado(s):	Módulo(s) complementario(s):
+Features:	Features:	Fonctionnalités :	기능:	功能：	Recursos:	Funciones:
+Distribution license:	Distribution license:	Licence de distribution :	배포 라이선스:	分发许可：	Licença de distribuição:	Licencia de distribución:
+Promotional:	Promotional:	Promotion :	홍보:	推广信息：	Promocional:	Promocional:
+No version stamp found	No version information found	Aucune information de version	버전 정보 없음	未找到版本信息	Nenhuma informação de versão	No se encontró información de versión
+Daily Devotion	Daily devotional	Méditation quotidienne	매일 묵상	每日灵修	Devocional diário	Devocional diario
+Glossary	Glossary	Glossaire	용어집	词汇表	Glossário	Glosario
+Cult	Cult	Secte	이단	教派	Seita	Secta
+General Book	General book	Ouvrage général	일반 서적	普通书籍	Livro geral	Libro general
+Personal Commentary	Personal commentary	Commentaire personnel	개인 주석	个人注释	Comentário pessoal	Comentario personal
+Journal	Journal	Journal	일지	日记	Diário	Diario
+Unknown type	Unknown type	Type inconnu	알 수 없는 유형	未知类型	Tipo desconhecido	Tipo desconocido
+Not specified	Not specified	Non précisé	지정되지 않음	未指定	Não especificado	Sin especificar
+Headings	Headings	Titres	제목	标题	Títulos	Títulos
+Footnotes	Footnotes	Notes de bas de page	각주	脚注	Notas de rodapé	Notas al pie
+Cross references	Cross-references	Références croisées	상호 참조	交叉参考	Referências cruzadas	Referencias cruzadas
+Strong's numbers	Strong’s numbers	Numéros Strong	Strong 번호	Strong 编号	Números Strong	Números Strong
+Morphological tags	Morphological tags	Étiquettes morphologiques	형태론 태그	词形标签	Etiquetas morfológicas	Etiquetas morfológicas
+Lemmas	Lemmas	Lemmes	표제어	词元	Lemas	Lemas
+Words of Christ in red	Words of Christ in red	Paroles du Christ en rouge	그리스도의 말씀을 빨간색으로	基督的话用红色显示	Palavras de Cristo em vermelho	Palabras de Cristo en rojo
+Greek accents	Greek accents	Accents grecs	그리스어 악센트	希腊语重音	Acentos gregos	Acentos griegos
+Hebrew Vowel Points	Hebrew vowel points	Points voyelles hébraïques	히브리어 모음 부호	希伯来语元音符号	Pontos vocálicos hebraicos	Puntos vocálicos hebreos
+Hebrew Cantillation	Hebrew cantillation	Cantillation hébraïque	히브리어 낭송 부호	希伯来语诵读符号	Cantilação hebraica	Cantilación hebrea
+Variant readings	Variant readings	Lectures variantes	이문	异文	Leituras variantes	Variantes de lectura
+Transliteration forms	Transliteration forms	Formes translittérées	음역 형태	音译形式	Formas transliteradas	Formas transliteradas
+Enumerations	Enumerations	Énumérations	열거	列举	Enumerações	Enumeraciones
+Glosses	Glosses	Gloses	뜻풀이	词义	Glosas	Glosas
+Morpheme Segmentation	Morpheme segmentation	Segmentation des morphèmes	형태소 분할	语素分割	Segmentação de morfemas	Segmentación de morfemas
+No features found	No features found	Aucune fonctionnalité	기능 없음	未找到功能	Nenhum recurso encontrado	No se encontraron funciones
+There is no module associated here.\nSelect a module from general books.	There is no module associated here.\nSelect a module from general books.	Aucun module n’est associé ici.\nSélectionnez un module parmi les ouvrages généraux.	연결된 모듈이 없습니다.\n일반 서적에서 모듈을 선택하세요.	此处没有关联模块。\n请从普通书籍中选择模块。	Não há módulo associado aqui.\nSelecione um módulo nos livros gerais.	No hay un módulo asociado aquí.\nSelecciona un módulo de los libros generales.
+Bookmark labels may not contain "@:@:@".	Bookmark labels may not contain "@:@:@".	Les noms des signets ne peuvent pas contenir « @:@:@ ».	책갈피 이름에 “@:@:@”를 사용할 수 없습니다.	书签标签不能包含“@:@:@”。	Os nomes dos marcadores não podem conter “@:@:@”.	Las etiquetas de los marcadores no pueden contener «@:@:@».
+Configuration build error:\n\n%s	Configuration build error:\n\n%s	Erreur de création de la configuration :\n\n%s	설정 생성 오류:\n\n%s	创建配置出错：\n\n%s	Erro ao criar configuração:\n\n%s	Error al crear la configuración:\n\n%s
+Unable to open '%s': %s	Unable to open '%s': %s	Impossible d’ouvrir « %s » : %s	'%s'을 열 수 없습니다: %s	无法打开“%s”：%s	Não foi possível abrir '%s': %s	No se puede abrir '%s': %s
+'%s' does not look like an AndBible bookmarks backup (table BibleBookmark not found).	'%s' does not look like an AndBible bookmarks backup (table BibleBookmark not found).	« %s » ne semble pas être une sauvegarde de signets AndBible (table BibleBookmark introuvable).	'%s'은 AndBible 책갈피 백업이 아닌 것 같습니다 (BibleBookmark 테이블 없음).	“%s”似乎不是 AndBible 书签备份（未找到 BibleBookmark 表）。	'%s' não parece ser uma cópia de marcadores do AndBible (tabela BibleBookmark não encontrada).	'%s' no parece una copia de marcadores de AndBible (no se encontró la tabla BibleBookmark).
+Could not write temporary file '%s'.	Could not write temporary file '%s'.	Impossible d’écrire le fichier temporaire « %s ».	임시 파일 '%s'을 쓸 수 없습니다.	无法写入临时文件“%s”。	Não foi possível escrever o arquivo temporário '%s'.	No se pudo escribir el archivo temporal '%s'.
+Biblia Elim cannot create directory %s:\n%s\n\nBiblia Elim cannot continue.	Biblia Elim cannot create directory %s:\n%s\n\nBiblia Elim cannot continue.	Biblia Elim ne peut pas créer le dossier %s :\n%s\n\nBiblia Elim ne peut pas continuer.	Biblia Elim이 %s 폴더를 만들 수 없습니다:\n%s\n\n계속할 수 없습니다.	Biblia Elim 无法创建目录 %s：\n%s\n\n无法继续运行。	O Biblia Elim não pode criar a pasta %s:\n%s\n\nNão é possível continuar.	Biblia Elim no puede crear el directorio %s:\n%s\n\nNo puede continuar.
+There are no valid SQLite Bible modules in the selected directory.	There are no valid SQLite Bible modules in the selected directory.	Aucun module biblique SQLite valide dans le dossier choisi.	선택한 폴더에 유효한 SQLite 성경 모듈이 없습니다.	所选目录中没有有效的 SQLite 圣经模块。	Não há módulos bíblicos SQLite válidos na pasta escolhida.	No hay módulos SQLite de Biblia válidos en el directorio seleccionado.
+Xiphos could not execute %s: %s	Biblia Elim could not execute %s: %s	Biblia Elim n’a pas pu exécuter %s : %s	Biblia Elim이 %s을 실행할 수 없습니다: %s	Biblia Elim 无法执行 %s：%s	O Biblia Elim não pôde executar %s: %s	Biblia Elim no pudo ejecutar %s: %s
+Prefer Dark Theme Checkbox	Prefer dark theme checkbox	Case de préférence du thème sombre	어두운 테마 체크박스	优先使用深色主题复选框	Caixa de tema escuro	Casilla para preferir tema oscuro
+Render Whole Book Checkbox	Show whole book checkbox	Case d’affichage du livre entier	책 전체 표시 체크박스	显示整卷书复选框	Caixa para mostrar livro inteiro	Casilla para mostrar todo el libro
+Hebrew Morphology Lexicon Combo	Hebrew morphology lexicon selector	Sélecteur du lexique morphologique hébreu	히브리어 형태론 사전 선택	希伯来语词形词典选择器	Seletor do léxico de morfologia hebraica	Selector de léxico de morfología hebrea
+OT Greek Morphology Lexicon Combo	Old Testament Greek morphology lexicon selector	Sélecteur du lexique morphologique grec de l’AT	구약 그리스어 형태론 사전 선택	旧约希腊语词形词典选择器	Seletor do léxico de morfologia grega do AT	Selector de léxico de morfología griega del AT
+NT Greek Morphology Lexicon Combo	New Testament Greek morphology lexicon selector	Sélecteur du lexique morphologique grec du NT	신약 그리스어 형태론 사전 선택	新约希腊语词形词典选择器	Seletor do léxico de morfologia grega do NT	Selector de léxico de morfología griega del NT
+Module List Grouping Combo	Module list grouping selector	Sélecteur de regroupement des modules	모듈 목록 분류 선택	模块列表分组选择器	Seletor de agrupamento de módulos	Selector de agrupación de módulos
+Copy	Copy	Copier	복사	复制	Copiar	Copiar
+Open Session	Open session	Ouvrir une session	세션 열기	打开会话	Abrir sessão	Abrir sesión
+Biblia Elim cannot create module's path:\n%s	Biblia Elim cannot create the module path:\n%s	Biblia Elim ne peut pas créer le chemin du module :\n%s	Biblia Elim이 모듈 경로를 만들 수 없습니다:\n%s	Biblia Elim 无法创建模块路径：\n%s	O Biblia Elim não pode criar o caminho do módulo:\n%s	Biblia Elim no puede crear la ruta del módulo:\n%s

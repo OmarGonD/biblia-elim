@@ -166,6 +166,9 @@ gboolean wk_html_has_selection(WkHtml *html);
  * window's painting). */
 void wk_html_freeze(WkHtml *html);
 void wk_html_thaw(WkHtml *html);
+/* wk_html_freeze() now, wk_html_thaw() once the jump to the anchor that the
+ * next render asks for has settled (its retries span ~240 ms). */
+void wk_html_freeze_for_jump(WkHtml *html);
 /* What is selected in this panel, or NULL; g_free() it. */
 gchar *wk_html_selection_text(WkHtml *html);
 void wk_html_enable_caret_browsing(WkHtml *html);

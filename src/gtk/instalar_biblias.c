@@ -213,6 +213,11 @@ lang_label(const char *lang)
 		return _("Ruso");
 	if (lang_is(lang, "中文", "Chinese") || lang_is(lang, "Chino", NULL))
 		return _("Chino");
+	/* SWORD's locales.conf names ko as 한국말; other catalogs use 한국어. */
+	if (lang_is(lang, "한국말", "Korean") ||
+	    lang_is(lang, "한국어", "Coreano") ||
+	    lang_is(lang, "ko", "kor") || lang_is(lang, "조선말", NULL))
+		return _("Coreano");
 	if (lang_is(lang, "العربية", "Arabic") || lang_is(lang, "Árabe", NULL))
 		return _("Árabe");
 	return lang;

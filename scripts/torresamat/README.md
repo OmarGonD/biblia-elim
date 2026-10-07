@@ -1,10 +1,10 @@
 # Torres Amat: de los escaneos al módulo SWORD
 
-La Sagrada Biblia de Félix Torres Amat (1772-1847) es dominio público, pero
-no existe en ningún repositorio SWORD ni hay ninguna transcripción digital
-publicada: solo escaneos. Estos scripts reconstruyen el texto a partir del
-OCR con coordenadas de la edición de cuatro tomos de 1882 conservada en
-Internet Archive.
+La Sagrada Biblia de Félix Torres Amat (1772-1847) es dominio público.
+Estos scripts reconstruyen el texto a partir del OCR con coordenadas de
+la edición de cuatro tomos de 1882 conservada en Internet Archive. Las
+revisiones posteriores cotejan las dudas con otras transcripciones
+publicadas de Torres Amat y con las Biblias instaladas.
 
     https://archive.org/details/la-sagrada-biblia-vulgata-tomo-iiv_202111
 
@@ -41,6 +41,19 @@ Del `djvu.xml` sale cada palabra con su caja y su confianza.
 | `parche_facsimil.py` | Corrige el módulo ya compilado contra el facsímil: erratas y títulos de salmo, cada uno con su hoja. `--origen` parte de cualquier árbol SWORD (el `modulos/` de git sin parchear, commit `9c036c87`, regenera el instalado byte a byte); la segunda pasada no cambia nada |
 | `cabeceras_pegadas.py` | Encabezado, argumento y cabecera de página del salmo siguiente que el OCR pegó al último versículo, cotejados hoja por hoja; los aplica `parche_facsimil.py` |
 | `columnas_fundidas.py` | Versos de dos columnas que el OCR leyó renglón a renglón (Sal 112–115, 130–133) y cabeceras de página o lámina dentro de un verso, recompuestos solo con trozos del propio texto; los aplica `parche_facsimil.py` |
+| `barrido.py` / `barrido_palabras.tsv` | Barrido ortográfico del módulo ya compilado: sustituye, palabra entera, las formas que no son palabra (`Td`→`Id`, `dle`→`de`, `eracia`→`gracia`, `Dayid`→`David`…) listadas en el TSV, que crece por fases; reexporta con `mod2imp`, reimporta con `imp2vs` y comprueba la ida y vuelta. `python3 barrido.py --origen ../../modulos`; segunda pasada sin cambios; prueba en `test_barrido.py` |
+| `contexto.py` / `contexto.tsv` | Revisión contextual 0.9.15: 1.087 fragmentos en 1.068 versículos, incluidos Mc 1:15 (`$e`→`se`), símbolos confundidos con letras, cifras dentro de palabras y llamadas ilegibles. Cada sustitución exige el fragmento y la referencia exactos; conserva el marcado y rechaza textos diferentes. Pruebas en `test_contexto.py` y `torresamat_contexto_sqlite_test` |
+| `preposiciones.py` / `preposiciones.tsv` | Revisión contextual 0.9.18 de todos los registros: 1.185 fragmentos en 1.158 versículos. Distingue `á`, `ó`, `de` y `ú` válida; corrige Mc 2:17 a `llamar á convertir`, por petición del usuario. Usa las mismas sustituciones ancladas y verificación de ida y vuelta; prueba en `test_preposiciones.py` |
+| `cotejo.py` / `cotejo.json` | Revisión 0.9.19: restituye los 13 fragmentos pendientes mediante otras transcripciones de Torres Amat, Vulgata y versiones instaladas; en Hechos también coteja el griego. Separa cuatro versículos fusionados. Cada entrada exige el texto anterior exacto y registra sus testigos; prueba en `test_cotejo.py` |
+| `baruc.py` / `baruc.json` / `baruc_texto.tsv` | Revisión 0.9.20: restituye los 213 versículos de Baruc y sus referencias, cotejados con Torres Amat en internet, Vulgata, Platense y OCR original. Reubica las notas de doce medias hojas (comentario 0.9.6). El auxiliar `notes_patch.cc` exporta las notas y verifica todos los registros ajenos al libro; pruebas en `test_baruc.py` y `torresamat_baruc_sqlite_test` |
+| `ornatos.py` | Quita del módulo ya compilado los tramos de ornato de lámina leídos como letras (`Il A Ú MN UU…`): tramos densos de fichas que no son palabra, sin tocar citas al margen ni versos que serían todo ornato; misma ida y vuelta que `barrido.py` (`python3 ornatos.py --origen salida/barrido`); prueba en `test_ornatos.py` |
+| `colas.py` | Quita del último verso de cada capítulo el encabezado «CAPITULO …» y el argumento del siguiente que el OCR le pegó; conserva el marcado y deja lo cortado en `colas_quitadas.tsv`; prueba en `test_colas.py` |
+| `fugas_notas.py` / `barrido_notas.tsv` | Notas al pie con letra casi igual a la del cuerpo, que el corte por altura de `segment.py` deja pegadas al versículo: con los `djvu.xml` busca el hueco vertical que precede a la primera nota, localiza esas líneas en el módulo y escribe en `barrido_notas.tsv` el trozo exacto a quitar (35 tramos). Lo aplica `barrido.py`, junto a `barrido_frases.tsv` (correcciones ancladas a un versículo); no hace falta volver a ejecutarlo |
+| `barrido_cortes.tsv` | Tramos de prefacio, nota o cabecera de página metidos a mano en el versículo y acotados por su inicio y su fin, leídos libro por libro (unos 250); los aplica `barrido.py` tras `barrido_notas.tsv` y antes de `barrido_frases.tsv` |
+| `notas_barrido.py` / `barrido_palabras_notas.tsv` | Las mismas correcciones de palabras (más las propias de las notas), quita de las notas los ornatos de lámina y las colas de ruido, y descarta los párrafos que son solo ruido; conserva el rango de capítulo del comentario `TorresAmatNotas` y comprueba la ida y vuelta; prueba en `test_notas.py` |
+| `notas_paginas.py` / `notas_paginas.json` | Ubica cada nota en el rango de versículos de su media hoja (localiza el cuerpo de la hoja en el módulo por secuencias de cuatro palabras ponderadas por rareza); necesita los `djvu.xml`, y su resultado, que va al repositorio, es la entrada de `notas_barrido.py` |
+| `citas_notas.py` | Corrige en las notas los números romanos de las citas que el OCR leyó mal (`Levit. ATV, v. 2` -> `XIV`, `Malach, HIT, vu. 1` -> `III, v. 1`): prueba las sustituciones de letra posibles y solo cambia cuando queda un único romano válido de coste mínimo y cabe en los capítulos del libro citado; lo usa `notas_barrido.py` |
+
 | `entidades.py` | Quita del módulo los «'», «<» y «>» del OCR que llegaron escapados dos veces (`&amp;amp;##x27;`, `&amp;gt;`); lo aplica `parche_facsimil.py` a todo el módulo, y `osis.py` los quita antes de escapar |
 | `cotejar.py` | Coteja cada capítulo con la Vulgata por nombres propios |
 | `testigos.py` | Baja las otras Biblias instaladas y las deja consultables |
@@ -62,6 +75,165 @@ Levítico. Segmentar en capítulos candidatos y alinear esa secuencia
 contra el canon, permitiendo que un capítulo se haya partido en dos, que
 sobre uno espurio o que falte entero, deja cada fallo encerrado en su
 sitio.
+
+### Revisión contextual y módulo SQLite 0.9.15
+
+El texto distribuido y leído por la aplicación es
+`modulos/sqlite/TorresAmat.sqlite`; la instalación local está en
+`~/.local/share/biblia-elim/modules/TorresAmat.sqlite`. La revisión conserva
+los 34.119 registros de versículo y modifica exactamente 1.068: no mueve
+referencias, no moderniza la ortografía y no cambia las notas del comentario.
+Mc 1:15 comienza «Y diciendo: se ha cumplido ya el tiempo…». No quedan
+caracteres `$` en el texto de los versículos.
+
+Para regenerar, desde la raíz del proyecto:
+
+```sh
+python3 scripts/torresamat/contexto.py --origen modulos --salida build/torresamat-contexto
+```
+
+El resultado es un árbol SWORD verificado, con revisión 0.9.17. Tras copiar
+sus seis archivos de texto y su configuración a la fuente `modulos/` y a
+la fuente instalada `~/.sword/`, el conversor habitual genera SQLite:
+
+```sh
+build/src/gtk/biblia-elim --convert-sword TorresAmat build/torresamat-contexto-sqlite
+```
+
+El escritor neutral construye de nuevo el índice FTS. Una segunda pasada
+del parche no cambia ningún fragmento. Antes de reemplazar las copias
+SQLite se comprueban integridad, claves foráneas, correspondencia del FTS,
+igualdad de referencias/anotaciones y todo el texto contra la revisión
+anterior más la tabla de cambios.
+
+La revisión resuelve las erratas inequívocas por contexto, no certifica
+todo el OCR de 1882. En `contexto_pendientes.json` se conservan 16 versículos
+con símbolos todavía ambiguos (numeración fundida o palabras incompletas),
+que necesitan cotejo con el facsímil; puede haber otras erratas no detectadas.
+
+La revisión 0.9.16 añade Mc 1:39: `Tba pues Jesus predicando` →
+`Iba pues Jesus predicando`. La transcripción de Torres Amat 1836 en
+[Wikisource](https://es.wikisource.org/wiki/La_Sagrada_Biblia_(XIII)/Marcos)
+confirma «Iba pues Jesus predicando»; los módulos locales Reina-Valera
+1909 («Y predicaba») y Platense («Y anduvo predicando») corroboran el
+sentido. Es una confusión de la `I` mayúscula con `T`. Se conserva el resto
+del versículo y la ortografía de 1882. La tabla acumula 1.088 fragmentos en
+1.069 versículos; la nueva revisión solo cambia una letra en Mc 1:39.
+
+La revisión 0.9.17 corrige Mc 1:45, según la errata señalada por el lector:
+`de modo que ya ho podia Jesus entrar` → `de modo que ya no podia Jesus entrar`.
+Solo cambia `h` por `n`; conserva el resto del versículo. La tabla acumula
+1.089 fragmentos en 1.070 versículos.
+
+### Revisión de conectores 0.9.18
+
+Se recorrieron los 34.119 registros de los 73 libros y se revisaron por
+contexto las 824 apariciones de `d` suelta y las 400 de `ú`, además de
+candidatos con `ó`, `D` y cifras. La tabla contiene 1.185 fragmentos
+corregidos en 1.158 versículos: `á` para preposiciones, `ó` para alternativas
+o explicaciones, `de` donde corresponde y unión de palabras partidas.
+Se conservan las 29 apariciones revisadas de la conjunción `ú` que son
+válidas ante sonido de `o`, como `ú ofrendas`; también se conserva un caso
+de `ú` que está demasiado dañado para restituirlo.
+
+Mc 2:17 queda `llamar á convertir`, según la instrucción expresa del
+usuario. La transcripción de Torres Amat 1836 citada arriba trae
+`llamar ó convertir`: la lectura con `á` es una decisión solicitada por
+el lector, no una atribución de esa variante a dicho testigo.
+
+`preposiciones_revision.json` registra el alcance, las decisiones y los
+recuentos por libro. En 0.9.18, `preposiciones_pendientes.json` registró 13 casos
+que la revisión 0.9.19 resuelve por cotejo; el inventario no certifica todas las
+erratas OCR de 1882.
+
+Desde la fuente 0.9.17 (resultado de `contexto.py`), aplicar:
+
+```sh
+python3 scripts/torresamat/preposiciones.py --origen modulos --salida build/torresamat-preposiciones-corregidas
+```
+
+La salida SWORD 0.9.18 se convierte a SQLite mediante el mismo conversor
+neutral y se verifican todos los textos, referencias, anotaciones,
+integridad y FTS antes de instalarla. Sobre una fuente que ya es 0.9.18,
+repetir solo `preposiciones.py`: la segunda pasada tiene 0 cambios.
+Las fuentes anteriores se corrigen en orden (`contexto.py` hasta 0.9.17,
+después `preposiciones.py` hasta 0.9.18).
+
+### Cotejo de los 13 pendientes: revisión 0.9.19
+
+Se resolvieron las dudas con otras transcripciones de Torres Amat y se
+comprobó el sentido en la Vulgata y las Biblias instaladas. En Hechos se
+cotejaron también Textus Receptus y Tischendorf. No se retraduce el pasaje
+desde otra Biblia: se conserva la redacción disponible de Torres Amat.
+Job 7:15 es una restitución apoyada en otra edición de Torres Amat («muerte
+para mis huesos»), no una lectura certificada del facsímil de 1882.
+
+`cotejo.json` conserva cada texto anterior, su restitución, los testigos y
+la razón de la decisión. Se modifican 13 registros existentes y se
+recuperan cuatro que estaban vacíos: Deut 20:4, Sal 119:3 en numeración
+Vulgata (120:3 en el testigo moderno), Prov 16:3 y Hch 27:38. Su texto ya
+estaba pegado a Deut 20:3, Sal 119:2, Prov 16:2 y Hch 27:30. El total pasa
+de 34.119 a 34.123 registros, sin borrar ninguno ni mover otras referencias.
+
+```sh
+python3 scripts/torresamat/cotejo.py --origen modulos --salida build/torresamat-cotejo-corregido
+```
+
+La fuente de entrada es 0.9.18; la salida 0.9.19 se convierte con el mismo
+conversor SQLite. Sobre 0.9.19 solo se repite `cotejo.py`, cuya segunda
+pasada no cambia ninguna entrada. Orden completo: `contexto.py` →
+`preposiciones.py` → `cotejo.py` → `baruc.py` → conversión SQLite.
+
+El cotejo detectó además un problema de alineación en Baruc: el texto
+guardado como Bar 3:27 correspondía a Bar 4:27, y varios capítulos mezclaban
+contenido de otros. La revisión 0.9.20 resuelve el libro completo; el
+hallazgo histórico de `cotejo.json` queda marcado como resuelto.
+
+### Baruc completo: revisión 0.9.20
+
+Se cotejaron los seis capítulos con la transcripción de Torres Amat en
+[Páginas Sagradas](https://paginassagradas.com/biblia/antiguo-testamento/profetas/baruc/3/),
+la Vulgata Clementina, la Biblia Platense y las medias hojas originales
+del tomo III, páginas 272, 273 y 276–279. El plan registra el testigo de
+cada versículo, el texto anterior y la restitución. Se conserva la
+ortografía de la fuente; «oraban» en 1:5 se mantiene porque aparece en el
+OCR original y las otras versiones, aunque falta en el testigo web.
+
+Baruc queda con 213 versículos, distribuidos 22/35/38/37/9/72: se recuperan
+25 vacíos, se corrigen 177 textos existentes y se eliminan las intrusiones
+de Ezequiel. Bar 3:27 recupera su texto sobre la sabiduría y «Hijos, tened
+buen ánimo» aparece en 4:27. Los 33.935 versículos ajenos al libro conservan
+su texto exacto. El SQLite completo contiene 34.148 registros.
+
+Las notas de doce medias hojas se asignan a sus referencias correctas,
+conservando las continuaciones entre páginas. Se retira del comentario el
+argumento del capítulo III y su versículo 1, que el OCR había confundido
+con una nota. Los 38.485 registros nativos del comentario ajenos a Baruc,
+incluidas introducciones y entradas vacías, mantienen sus bytes exactos.
+`notas_paginas.json` conserva las asignaciones para futuras reconstrucciones.
+
+Desde una fuente 0.9.19 o 0.9.20, ejecutar:
+
+```sh
+cmake --build build --target torresamat_notes_patch torresamat_baruc_sqlite_test
+python3 scripts/torresamat/baruc.py --origen modulos --salida build/torresamat-baruc-corregido
+```
+
+La salida contiene la Biblia 0.9.20 y el comentario 0.9.6. El parche exige
+los textos anteriores o ya corregidos y verifica las notas mediante una
+exportación nativa completa y SHA-256. La segunda pasada cambia 0 entradas
+bíblicas y 0 notas. Tras copiar las fuentes verificadas a `modulos/` y
+`~/.sword/`, convertir con el mismo escritor neutral:
+
+```sh
+build/src/gtk/biblia-elim --convert-sword TorresAmat build/torresamat-baruc-sqlite
+build/tests/torresamat_baruc_sqlite_test build/torresamat-baruc-sqlite
+```
+
+Antes de reemplazar ambas copias SQLite se verifica el texto de todos los
+versículos, los libros y las anotaciones, el esquema v1, la integridad,
+las claves foráneas y FTS. La regresión lee los 213 textos por versículo y
+capítulo, comprueba la búsqueda de 4:27 y la navegación de 6:72 a Ez 1:1.
 
 ## Reproducir
 
@@ -238,10 +410,12 @@ en el cuerpo y notas al pie de la misma media hoja **solo coinciden en el
 6 % de los casos**, y detectarlas por geometría -- palabras pequeñas y
 levantadas -- devuelve "un", "NES", "sus" y barras del canto.
 
-Así que van agrupadas por capítulo, en el orden impreso, en un módulo de
-comentario aparte (`TorresAmatNotas`, 6.758 notas en 1.203 capítulos). El
-lector las tiene al lado del capítulo que lee, y no se le miente sobre a
-qué versículo pertenece cada una.
+Así que van agrupadas en un módulo de comentario aparte (`TorresAmatNotas`)
+por la página impresa en que estaban: `notas_paginas.py` sabe qué versículos
+trae el cuerpo de cada media hoja y la nota se muestra junto a todos ellos,
+con una cabecera que dice el rango («de la página impresa que va de 1:27 a
+2:5»). No se le miente al lector sobre a qué versículo concreto pertenece
+cada una: solo se dice en qué página estaba.
 
 ## Estado
 

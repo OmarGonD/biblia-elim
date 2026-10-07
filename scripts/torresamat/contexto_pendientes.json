@@ -1,0 +1,73 @@
+{
+  "task": "TORRES-CONTEXTO-101",
+  "edition": "Torres Amat 1882",
+  "content_version": "0.9.15",
+  "scope": "Versículos con $, £ o % que siguen ambiguos tras la revisión contextual; no es una lista exhaustiva de todas las erratas OCR.",
+  "decision": "Conservar el fragmento ambiguo hasta cotejar el facsímil.",
+  "verses": [
+    {
+      "reference": "Gen 18:13",
+      "text": "Y dijo el Señor á Abraham: ¿Por qué se ha reido Sara, diciendo: Si será verdad que yo he de parir siendo tan vieja? 1£. Pues qué, ¡hay para Dios cosa difícil? al plazo prometido volveré á visitarte por este mismo tiempo, si Dios quiere, y Sara tendrá un hijo."
+    },
+    {
+      "reference": "Gen 29:13",
+      "text": "El cual oyendo que habia venido Jacob, hijo de su hermana, salió corriendo á recibirle: y habiéndole abrazado, y dádole mil besos, le condujo á su casa. Entendidos los motivos del viaje, 1£. Respondió: Hueso mio eres, y carne mia, yo cuidare de t4. Y pasado que fué un mes"
+    },
+    {
+      "reference": "Lev 10:18",
+      "text": "Mayormente no habiendo sido introducida su sangre en el Santuario, y debiendo vosotros comer la víctima en él,. como me ha sido mandado? 19% Respondió Aaron: En este dia se ha ofrecido ante el Señor la víctima por el pecado, y tambien el holocausto: mas á mí me ha sucedido lo que ves. ¿Cómo pues me era posible comerla, ni agradar al Señor en tales ceremonias, teniendo yo el corazon cubierto de luto?"
+    },
+    {
+      "reference": "Deut 26:7",
+      "text": "Por lo que clamamos al Señor Dios de nuestros padres; ol cual nos oyó, y volvió los ojos para mirar nuestro abatimiento, y nuestros trabajos y angustias; 8£. Y nos sacó de Egypto con mano fuerte, y brazo e roso, con gran terror, y con señales y portentos"
+    },
+    {
+      "reference": "1Chr 2:43",
+      "text": "Hijos de Hebron: Coré, y Taphua, y Recem y Samma. 4£, Samma engendró á Raham, padre de Jercaam, y Recem á Sammal."
+    },
+    {
+      "reference": "1Chr 29:3",
+      "text": "Y además de estas cosas que tengo destinadas para la Casa de mi Dios, doy de mi peculio oro y plata para el templo de mi Dios, además de aquello que he puesto aparte para el Santuario, ¿Sa L£."
+    },
+    {
+      "reference": "Jdt 16:26",
+      "text": "Porque á su valor juntaba la castidad; de suerte que AN despues falleció E a E marido AA Manassés, A conoció pal otro A va3% que su no 2 ron en toda su vida"
+    },
+    {
+      "reference": "Ps 87:13",
+      "text": "¿Cómo han de ser conocidas en las tinieblas tus maravillas, ni tu justicia en la region del olvido? 1£. Por eso yo clamo á tí, oh Señor, y me adelanto á la aurora para presentarte mi oracion"
+    },
+    {
+      "reference": "Ps 138:11",
+      "text": "Tal vez, dije yo, las tinieblas me podrán ocultar: mas la noche se convertirá en claridad para descubrirme en medio de mis placeres. 12%, Porque las tinieblas no son oscuras para ti, y la noche es clara como el dia: oscuridad y claridad son pará tí una misma cosa"
+    },
+    {
+      "reference": "Isa 14:12",
+      "text": "¿Cómo caiste del cielo, oh lucero, £4 que tanto brillabas por la mañana? ¿Cómo fuiste precipitado por tierra, tú E que has sido la ruina de las naciones?"
+    },
+    {
+      "reference": "Jer 20:10",
+      "text": "pero tú fuiste mas fuerte que yo, y te saliste con la tuya: yo soy todo el dia objeto de irrision, todos hacen mofa de mi; El hecho es que of las maldiciones de muchos, y el terror se apoderó de mí por todos lados: Perseguidle, y persigámosle, 0% que decian todos aquellos mismos que vivian en paz conmigo, y estaban á mi lado: observemos si comete alguna falta; que en tal caso prevaleceremos contra él, y tomaremos de él venganza."
+    },
+    {
+      "reference": "Jer 34:2",
+      "text": "Esto dice el Señor, el Dios de Israél: Vé y habla á Sedecías rey de Judá, y le dirás: Estas cosas dice el Señor: 2 J%Mira que yo entregaré esta ciudad en poder del rey de Babylonia, el cual la abrasaré á."
+    },
+    {
+      "reference": "Zeph 3:20",
+      "text": "En aquel tiempo, cuando yo os habré traido, y os habré reunido, haré que adquirais nombradía, y seais alabados en todos los pueblos de la tierra; entonces que os vereis librados por mí de vuestro cautiverio, dice el Señor, Nació Aggéo, segun comunmente se cree, en Babylonia, durante la Daniel, Zacharías y Malachias, fueron como los últimos Profetas del el dedo al Mesías. Volvió á Judéa con Zorobabel, príncipe de Judá, al cual, templo; prometiéndoles que Dios le haria mas célebre y glorioso que el de todas las gentes, que predicaria en él el Evangelio de la paz (cap. £f, v. mud, la entendieron siempre como nosotros, de la venida del Mesías."
+    },
+    {
+      "reference": "Matt 23:13",
+      "text": "Pero ¡ay de vosotros, Escribas y Phariséos hipócritas! que cerrais el reino de los cielos á los hombres: porque ni vosotros entrais, ni dejais entrar á los que entrarian impidiéndoles que cream en mé, 1£."
+    },
+    {
+      "reference": "Luke 1:9",
+      "text": "Segun el estilo que habia entre los sacerdotes, entrar en el templo del Señor ó lugar llamado £ante"
+    },
+    {
+      "reference": "Rev 21:19",
+      "text": "Y los fundamentos del muro de la ciudad SEO adornados con toda suerte de piedras preciosas. El primer fundamento, era de jaspe: el segundo, de záfiro: el tercero, de calcedonia ó 714b%: el cuarto, de esmeralda"
+    }
+  ]
+}

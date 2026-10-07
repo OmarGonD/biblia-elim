@@ -4,9 +4,80 @@
 #
 #   cmake --build build --target pulpito_test && ./build/tests/pulpito_test
 
+add_executable(app_language_test app_language_test.c
+  ${PROJECT_SOURCE_DIR}/src/main/app_language.c)
+target_include_directories(app_language_test PRIVATE
+  ${PROJECT_SOURCE_DIR}/src ${PROJECT_BINARY_DIR})
+target_link_libraries(app_language_test PRIVATE PkgConfig::Core PkgConfig::Gnome)
+if(BUILD_TESTING)
+  add_test(NAME app_language_test COMMAND app_language_test)
+endif()
+
+add_executable(language_preferences_test language_preferences_test.c
+  ${PROJECT_SOURCE_DIR}/src/main/app_language.c
+  ${PROJECT_SOURCE_DIR}/src/main/app_language_settings.c
+  ${PROJECT_SOURCE_DIR}/src/main/xml.c)
+target_compile_options(language_preferences_test PRIVATE
+  -ffunction-sections -fdata-sections -fvisibility=hidden)
+target_link_options(language_preferences_test PRIVATE -Wl,--gc-sections)
+target_include_directories(language_preferences_test PRIVATE
+  ${PROJECT_SOURCE_DIR}/src ${PROJECT_BINARY_DIR})
+target_link_libraries(language_preferences_test PRIVATE
+  PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome)
+if(BUILD_TESTING)
+  add_test(NAME language_preferences_test COMMAND language_preferences_test)
+  set_tests_properties(language_preferences_test PROPERTIES SKIP_RETURN_CODE 77)
+endif()
+
+add_executable(language_settings_test language_settings_test.c
+  ${PROJECT_SOURCE_DIR}/src/main/app_language.c
+  ${PROJECT_SOURCE_DIR}/src/main/app_language_settings.c
+  ${PROJECT_SOURCE_DIR}/src/main/xml.c)
+target_compile_options(language_settings_test PRIVATE
+  -ffunction-sections -fdata-sections -fvisibility=hidden)
+target_link_options(language_settings_test PRIVATE -Wl,--gc-sections)
+target_include_directories(language_settings_test PRIVATE
+  ${PROJECT_SOURCE_DIR}/src ${PROJECT_BINARY_DIR})
+target_link_libraries(language_settings_test PRIVATE
+  PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome)
+if(BUILD_TESTING)
+  add_test(NAME language_settings_test COMMAND language_settings_test)
+endif()
+
+add_executable(gtk_builder_language_test gtk_builder_language_test.c
+  ${PROJECT_SOURCE_DIR}/src/main/app_language.c
+  ${PROJECT_SOURCE_DIR}/src/gtk/utilities.c)
+target_compile_options(gtk_builder_language_test PRIVATE
+  -ffunction-sections -fdata-sections -fvisibility=hidden)
+target_link_options(gtk_builder_language_test PRIVATE -Wl,--gc-sections)
+target_include_directories(gtk_builder_language_test PRIVATE
+  ${PROJECT_SOURCE_DIR}/src ${PROJECT_BINARY_DIR})
+target_link_libraries(gtk_builder_language_test PRIVATE
+  PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome)
+
+# KOREAN-101: first-run defaults and catalog labels, using the actual private
+# functions with remote operations stubbed. Discard unrelated UI sections.
+foreach(korean_test default_bibles_test korean_catalog_test)
+  add_executable(${korean_test} ${korean_test}.c)
+  target_compile_options(${korean_test} PRIVATE
+    -ffunction-sections -fdata-sections -fvisibility=hidden)
+  target_link_options(${korean_test} PRIVATE -Wl,--gc-sections)
+  target_include_directories(${korean_test} PRIVATE
+    ${PROJECT_SOURCE_DIR}/src ${PROJECT_BINARY_DIR})
+  target_link_libraries(${korean_test} PRIVATE
+    PkgConfig::Core PkgConfig::Gtk PkgConfig::Gnome)
+  if(BUILD_TESTING)
+    add_test(NAME ${korean_test} COMMAND ${korean_test})
+  endif()
+endforeach()
+
 if (BUILD_TESTING AND UNIX)
   find_program (PYTHON3_EXECUTABLE NAMES python3)
   if (PYTHON3_EXECUTABLE)
+    add_test(NAME multilingual_catalog_test
+      COMMAND ${PYTHON3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/multilingual_catalog_test.py
+              ${PROJECT_BINARY_DIR} $<TARGET_FILE:app_language_test>
+              $<TARGET_FILE:gtk_builder_language_test>)
     find_program (GRESOURCE_EXECUTABLE NAMES gresource)
     if (GRESOURCE_EXECUTABLE)
       add_test (
@@ -1753,7 +1824,7 @@ if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
     )
   # TORRES-ENTITY-101, TORRES-PSALM-GLUE-101 and the facsimile patch
   # mechanism they extend.
-  foreach (torres_script entidades parche cabeceras columnas)
+  foreach (torres_script entidades parche cabeceras columnas contexto preposiciones cotejo baruc)
     add_test (
       NAME torresamat_${torres_script}_test
       COMMAND ${PYTHON3_EXECUTABLE}
@@ -1763,6 +1834,40 @@ if (BUILD_TESTING AND UNIX AND PYTHON3_EXECUTABLE)
       WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/scripts/torresamat
       )
   endforeach ()
+endif ()
+
+add_executable(torresamat_notes_patch EXCLUDE_FROM_ALL
+  ${PROJECT_SOURCE_DIR}/scripts/torresamat/notes_patch.cc)
+target_link_libraries(torresamat_notes_patch PRIVATE PkgConfig::Sword PkgConfig::Core)
+
+add_executable(torresamat_baruc_sqlite_test EXCLUDE_FROM_ALL
+  torresamat_baruc_sqlite_test.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc)
+target_compile_definitions(torresamat_baruc_sqlite_test PRIVATE SRCDIR="${PROJECT_SOURCE_DIR}")
+target_include_directories(torresamat_baruc_sqlite_test PRIVATE
+  ${PROJECT_SOURCE_DIR}/src PkgConfig::Core PkgConfig::Sqlite3)
+target_link_libraries(torresamat_baruc_sqlite_test PRIVATE PkgConfig::Core PkgConfig::Sqlite3)
+if (BUILD_TESTING)
+  add_test(NAME torresamat_baruc_sqlite_test COMMAND torresamat_baruc_sqlite_test)
+endif ()
+
+add_executable(torresamat_contexto_sqlite_test EXCLUDE_FROM_ALL
+  torresamat_contexto_sqlite_test.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc)
+target_compile_definitions(torresamat_contexto_sqlite_test PRIVATE
+  SRCDIR="${PROJECT_SOURCE_DIR}")
+target_include_directories(torresamat_contexto_sqlite_test PRIVATE
+  ${PROJECT_SOURCE_DIR}/src PkgConfig::Core PkgConfig::Sqlite3)
+target_link_libraries(torresamat_contexto_sqlite_test PRIVATE
+  PkgConfig::Core PkgConfig::Sqlite3)
+if (BUILD_TESTING)
+  add_test(NAME torresamat_contexto_sqlite_test COMMAND torresamat_contexto_sqlite_test)
 endif ()
 
 add_executable (psalm_title_render_test EXCLUDE_FROM_ALL

@@ -66,146 +66,15 @@ if (WIN32)
   endif (EXISTS ../biblesync/libbiblesync.dll)
 
 
-  # install architecture dependent binaries
-  if (CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64")
-    # install x86_64 binaries
-    install(FILES
-      ${SYS_ROOT_BIN}/gspawn-win64-helper.exe
-      ${SYS_ROOT_BIN}/gspawn-win64-helper-console.exe
-      ${SYS_ROOT_BIN}/libgcc_s_seh-1.dll
-      DESTINATION ${CMAKE_INSTALL_BINDIR}
-      COMPONENT binaries
-      )
-  else()
-    # install i686 binaries
-    install(FILES
-      ${SYS_ROOT_BIN}/gspawn-win32-helper.exe
-      ${SYS_ROOT_BIN}/gspawn-win32-helper-console.exe
-      ${SYS_ROOT_BIN}/libgcc_s_sjlj-1.dll
-      DESTINATION ${CMAKE_INSTALL_BINDIR}
-      COMPONENT binaries
-      )
-  endif (CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64")
-
-
-  # install gtk stuff
-  # gtk+-3.0 binaries
-  install(FILES
-    ${SYS_ROOT_BIN}/libgailutil-3-0.dll
-    ${SYS_ROOT_BIN}/libgtk-3-0.dll
-    ${SYS_ROOT_BIN}/libjavascriptcoregtk-3.0-0.dll
-    ${SYS_ROOT_BIN}/libwebkitgtk-3.0-0.dll
-    ${SYS_ROOT_BIN}/libepoxy-0.dll
+  # Install the MinGW runtime files from the sysroot. Package versions change
+  # DLL names, so keeping a hard-coded list here makes releases fragile.
+  install(DIRECTORY ${SYS_ROOT_BIN}/
     DESTINATION ${CMAKE_INSTALL_BINDIR}
-    COMPONENT binaries
-    )
-  # gtk+-3.0 shared files
-  install(DIRECTORY
-    ${SYS_ROOT_SHARE}/webkitgtk-3.0
-    DESTINATION ${CMAKE_INSTALL_DATADIR}
-    COMPONENT data
-    )
-
-  # install required deps binaries
-  # bin: Evolving versions
-  install(DIRECTORY ${SYS_ROOT_BIN}
-    DESTINATION ${CMAKE_INSTALL_BINDIR}/..
     COMPONENT binaries
     FILES_MATCHING
-    PATTERN "libcrypto-*.dll"
-    PATTERN "libssl-*.dll"
-    PATTERN "libidn*.dll"
-    )
-  # bin: Stable versions
-  install(FILES
-    ${SYS_ROOT_BIN}/libsword-1-9-0.dll
-    ${SYS_ROOT_BIN}/libminizip-1.dll
-    ${SYS_ROOT_BIN}/addld.exe
-    ${SYS_ROOT_BIN}/emptyvss.exe
-    ${SYS_ROOT_BIN}/imp2gbs.exe
-    ${SYS_ROOT_BIN}/imp2ld.exe
-    ${SYS_ROOT_BIN}/imp2vs.exe
-    ${SYS_ROOT_BIN}/mkfastmod.exe
-    ${SYS_ROOT_BIN}/mod2imp.exe
-    ${SYS_ROOT_BIN}/mod2osis.exe
-    ${SYS_ROOT_BIN}/mod2vpl.exe
-    ${SYS_ROOT_BIN}/mod2zmod.exe
-    ${SYS_ROOT_BIN}/osis2mod.exe
-    ${SYS_ROOT_BIN}/tei2mod.exe
-    ${SYS_ROOT_BIN}/vpl2mod.exe
-    ${SYS_ROOT_BIN}/xml2gbs.exe
-    ${SYS_ROOT_BIN}/installmgr.exe
-    ${SYS_ROOT_BIN}/diatheke.exe
-    ${SYS_ROOT_BIN}/vs2osisreftxt.exe
-    ${SYS_ROOT_BIN}/uconv.exe
-    ${SYS_ROOT_BIN}/icui18n57.dll
-    ${SYS_ROOT_BIN}/icuuc57.dll
-    ${SYS_ROOT_BIN}/icudata57.dll
-    ${SYS_ROOT_BIN}/icule57.dll
-    ${SYS_ROOT_BIN}/libcairo-gobject-2.dll
-    ${SYS_ROOT_BIN}/iconv.dll
-    ${SYS_ROOT_BIN}/libcairo-2.dll
-    ${SYS_ROOT_BIN}/libfontconfig-1.dll
-    ${SYS_ROOT_BIN}/libexpat-1.dll
-    ${SYS_ROOT_BIN}/libfreetype-6.dll
-    ${SYS_ROOT_BIN}/zlib1.dll
-    ${SYS_ROOT_BIN}/libpixman-1-0.dll
-    ${SYS_ROOT_BIN}/libpng16-16.dll
-    ${SYS_ROOT_BIN}/libgdk_pixbuf-2.0-0.dll
-    ${SYS_ROOT_BIN}/libgdk-3-0.dll
-    ${SYS_ROOT_BIN}/libgio-2.0-0.dll
-    ${SYS_ROOT_BIN}/libglib-2.0-0.dll
-    ${SYS_ROOT_BIN}/libgmodule-2.0-0.dll
-    ${SYS_ROOT_BIN}/libgobject-2.0-0.dll
-    ${SYS_ROOT_BIN}/libffi-6.dll
-    ${SYS_ROOT_BIN}/libjasper-4.dll
-    ${SYS_ROOT_BIN}/libjpeg-62.dll
-    ${SYS_ROOT_BIN}/libtiff-5.dll
-    ${SYS_ROOT_BIN}/libpango-1.0-0.dll
-    ${SYS_ROOT_BIN}/libpangocairo-1.0-0.dll
-    ${SYS_ROOT_BIN}/libpangoft2-1.0-0.dll
-    ${SYS_ROOT_BIN}/libpangowin32-1.0-0.dll
-    ${SYS_ROOT_BIN}/libatk-1.0-0.dll
-    ${SYS_ROOT_BIN}/libxml2-2.dll
-    ${SYS_ROOT_BIN}/libjson-glib-1.0-0.dll
-    ${SYS_ROOT_BIN}/libbz2-1.dll
-    ${SYS_ROOT_BIN}/libgthread-2.0-0.dll
-    ${SYS_ROOT_BIN}/libgnurx-0.dll
-    ${SYS_ROOT_BIN}/libenchant.dll
-    ${SYS_ROOT_BIN}/libcurl-4.dll
-    ${SYS_ROOT_BIN}/libssh2-1.dll
-    ${SYS_ROOT_BIN}/libclucene-core.dll
-    ${SYS_ROOT_BIN}/libclucene-shared.dll
-    ${SYS_ROOT_BIN}/libwinpthread-1.dll
-    ${SYS_ROOT_BIN}/libsoup-2.4-1.dll
-    ${SYS_ROOT_BIN}/libsqlite3-0.dll
-    ${SYS_ROOT_BIN}/libxslt-1.dll
-    ${SYS_ROOT_BIN}/libintl-8.dll
-    ${SYS_ROOT_BIN}/libstdc++-6.dll
-    ${SYS_ROOT_BIN}/gdb.exe
-    ${SYS_ROOT_BIN}/libwebp-7.dll
-    ${SYS_ROOT_BIN}/libgstapp-1.0-0.dll
-    ${SYS_ROOT_BIN}/libgstbase-1.0-0.dll
-    ${SYS_ROOT_BIN}/libgstreamer-1.0-0.dll
-    ${SYS_ROOT_BIN}/libgstpbutils-1.0-0.dll
-    ${SYS_ROOT_BIN}/libgstvideo-1.0-0.dll
-    ${SYS_ROOT_BIN}/libgstaudio-1.0-0.dll
-    ${SYS_ROOT_BIN}/libgstbase-1.0-0.dll
-    ${SYS_ROOT_BIN}/libgstcontroller-1.0-0.dll
-    ${SYS_ROOT_BIN}/libgstfft-1.0-0.dll
-    ${SYS_ROOT_BIN}/libgstnet-1.0-0.dll
-    ${SYS_ROOT_BIN}/libgstriff-1.0-0.dll
-    ${SYS_ROOT_BIN}/libgstrtp-1.0-0.dll
-    ${SYS_ROOT_BIN}/libgstrtsp-1.0-0.dll
-    ${SYS_ROOT_BIN}/libgstsdp-1.0-0.dll
-    ${SYS_ROOT_BIN}/libgsttag-1.0-0.dll
-    ${SYS_ROOT_BIN}/libharfbuzz-0.dll
-    ${SYS_ROOT_BIN}/libharfbuzz-icu-0.dll
-    ${SYS_ROOT_BIN}/libpcre-1.dll
-    ${SYS_ROOT_BIN}/liborc-0.4-0.dll
-    DESTINATION ${CMAKE_INSTALL_BINDIR}
-    COMPONENT binaries
-    )
+    PATTERN "*.dll"
+    PATTERN "*.exe"
+  )
 
 
   # install required libraries
@@ -257,7 +126,7 @@ if (WIN32)
     COMPONENT data
     )
 
-  # install icon theme (hicolor + adwaita, for GTK3 symbolic icons)
+  # install icon theme (hicolor + adwaita, for GTK symbolic icons)
   install(DIRECTORY
     ${SYS_ROOT_SHARE}/icons
     DESTINATION ${CMAKE_INSTALL_DATADIR}

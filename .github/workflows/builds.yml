@@ -34,7 +34,7 @@ jobs:
           name: windows-installers${{ matrix.version }}
           path: "*.exe"
 
-  arch_gtk3_wk2_libsoup3:
+  arch_gtk4_libsoup3:
     runs-on: ubuntu-latest
     container:
       image: archlinux:latest
@@ -57,7 +57,7 @@ jobs:
             git \
             glib2-devel \
             gnome-common \
-            gtk3 \
+            gtk4 \
             intltool \
             libsoup3 \
             libxml2 \
@@ -67,18 +67,17 @@ jobs:
             python \
             speech-dispatcher \
             sword \
-            webkit2gtk-4.1 \
             zip
       - name: build xiphos
         run: |
-          cmake -B build -DCMAKE_INSTALL_PREFIX=/usr -DGTKTVEDITOR=ON -DCMAKE_MAKE_PROGRAM=make .
+          cmake -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_MAKE_PROGRAM=make .
           make -C build -j$(nproc)
           make -C build mhelp package_source
 
-  fedora_gtk3_wk2_libsoup3:
+  fedora_gtk4_libsoup3:
     runs-on: ubuntu-latest
     container:
-      image: fedora:latest
+      image: fedora:45
     steps:
       - name: checkout xiphos
         uses: actions/checkout@v7
@@ -94,7 +93,7 @@ jobs:
             git \
             docbook-utils \
             gcc-c++ \
-            gtk3-devel \
+            gtk4-devel \
             intltool \
             itstool \
             libsoup3-devel \
@@ -105,20 +104,19 @@ jobs:
             rpm-build \
             speech-dispatcher-devel \
             sword-devel \
-            webkit2gtk4.1-devel \
             yelp \
             yelp-tools \
             zip
       - name: build xiphos
         run: |
-          cmake -B build -DCMAKE_INSTALL_PREFIX=/usr -DGTKTVEDITOR=ON -DCMAKE_MAKE_PROGRAM=make .
+          cmake -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_MAKE_PROGRAM=make .
           make -C build -j$(nproc)
           make -C build mhelp package_source
 
-  debian_gtk3_wk2_libsoup3:
+  debian_gtk4_libsoup3:
     runs-on: ubuntu-latest
     container:
-      image: debian:latest
+      image: debian:testing
     steps:
       - name: checkout xiphos
         uses: actions/checkout@v7
@@ -139,13 +137,11 @@ jobs:
             itstool \
             libbiblesync-dev \
             libenchant-2-dev \
-            libgail-3-dev \
-            libgtk-3-dev \
+            libgtk-4-dev \
             libminizip-dev \
             libsoup-3.0-dev \
             libspeechd-dev \
             libsword-dev \
-            libwebkit2gtk-4.1-dev \
             libxml2-dev \
             libxml2-utils \
             make \
@@ -156,14 +152,14 @@ jobs:
             zip
       - name: build xiphos
         run: |
-          cmake -B build -DCMAKE_INSTALL_PREFIX=/usr -DGTKTVEDITOR=ON -DCMAKE_MAKE_PROGRAM=make .
+          cmake -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_MAKE_PROGRAM=make .
           make -C build -j$(nproc)
           make -C build mhelp package_source
 
-  ubuntu_gtk3_wk2_libsoup3:
+  ubuntu_gtk4_libsoup3:
     runs-on: ubuntu-latest
     container:
-      image: ubuntu:latest
+      image: ubuntu:26.04
     steps:
       - name: checkout xiphos
         uses: actions/checkout@v7
@@ -183,12 +179,10 @@ jobs:
             itstool \
             libbiblesync-dev \
             libenchant-2-dev \
-            libgail-3-dev \
-            libgtk-3-dev \
+            libgtk-4-dev \
             libminizip-dev \
             libspeechd-dev \
             libsword-dev \
-            libwebkit2gtk-4.1-dev \
             libxml2-dev \
             libxml2-utils \
             make \
@@ -200,17 +194,17 @@ jobs:
             zip
       - name: build xiphos
         run: |
-          cmake -B build -DCMAKE_INSTALL_PREFIX=/usr -DGTKTVEDITOR=ON -DCMAKE_MAKE_PROGRAM=make .
+          cmake -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_MAKE_PROGRAM=make .
           make -C build -j$(nproc)
           make -C build mhelp package_source
 
   deploy:
     needs:
       - windows
-      - arch_gtk3_wk2_libsoup3
-      - debian_gtk3_wk2_libsoup3
-      - fedora_gtk3_wk2_libsoup3
-      - ubuntu_gtk3_wk2_libsoup3
+      - arch_gtk4_libsoup3
+      - debian_gtk4_libsoup3
+      - fedora_gtk4_libsoup3
+      - ubuntu_gtk4_libsoup3
     if: contains(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
     steps:

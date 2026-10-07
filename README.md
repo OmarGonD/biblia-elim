@@ -1,6 +1,7 @@
 # Biblia Elim
 
-Estudio bíblico de [Iglesia Elim](https://github.com/OmarGonD), en español, para Linux.
+Estudio bíblico de [Iglesia Elim](https://github.com/OmarGonD) para Linux,
+con interfaz en inglés, español, francés, coreano, chino y portugués.
 
 Es un fork de [Xiphos](https://github.com/crosswire/xiphos) (CrossWire / The SWORD Project): GTK nativo, sin reescribir el lector en WebKit.
 
@@ -22,7 +23,7 @@ Es un fork de [Xiphos](https://github.com/crosswire/xiphos) (CrossWire / The SWO
 - Versículo del día (450 citas, en tu versión) con un espacio corto para tu reflexión de cada día
 - Recordatorio diario a la hora que elijas, que llega aunque la aplicación esté cerrada (temporizador de usuario de systemd)
 - Nube de palabras y diccionario offline
-- Menús e interfaz en español
+- Interfaz en seis idiomas, con elección guardada y opción de seguir el idioma del sistema
 
 ## Compilar e instalar
 
@@ -35,6 +36,34 @@ cmake --build build --target biblia-elim -j$(nproc)
 ```
 
 El instalador copia el binario a `~/.local/bin/biblia-elim` y el `.desktop` al menú de aplicaciones.
+
+## Idioma de la interfaz
+
+Abre **Preferencias** (F2), **General**, y elige **Idioma de la interfaz**.
+El selector muestra los nombres nativos: **English**, **Español**,
+**Français**, **한국어**, **简体中文** y **Português (Brasil)**.
+La elección se guarda y se aplica al reiniciar. **Idioma del sistema**
+recupera la selección automática; también se conservan los idiomas heredados.
+
+Para probar un idioma en un arranque, sin cambiar la preferencia guardada:
+
+```bash
+./build/src/gtk/biblia-elim --language=fr
+./build/src/gtk/biblia-elim --language=ko
+./build/src/gtk/biblia-elim --language=zh_CN
+```
+
+Las traducciones se distribuyen con la aplicación y funcionan sin internet
+ni instalar los locales francés/coreano/chino/etc. del sistema. El idioma
+de la interfaz se aplica a menús, diálogos, lectura, notas, herramientas y
+explicaciones gramaticales. El texto de cada Biblia, las notas personales y
+las fuentes de estudio conservan su idioma original.
+
+Los mensajes de la interfaz se extraen con
+`python3 tools/i18n_catalogs.py --extract po/xiphos.pot`; las traducciones
+añadidas están en `po/elim/` y en los catálogos gettext de `po/`.
+Construir `biblia-elim` recompila y prepara esos catálogos para ejecutarlo
+directamente desde `build/` o instalarlos con el script habitual.
 
 ## Origen
 
@@ -51,6 +80,16 @@ Licencia: GPL-2.0-or-later, igual que Xiphos. Léxico Strong 1890 y glosas Reina
 Véase `INSTALL.md` para el proceso de compilación heredado.
 
 ## Módulos SQLite de Biblia
+
+El primer arranque sin módulos incluye dos Biblias en coreano desde
+CrossWire: [KorRV — 개역성경, revisión 1952/1961](https://crosswire.org/sword/modules/ModInfo.jsp?modName=KorRV)
+y [KorHKJV — Hangul King James Version](https://crosswire.org/sword/modules/ModInfo.jsp?modName=KorHKJV).
+En una instalación existente, abre **Instalar Biblias**, selecciona
+**CrossWire HTTPS**, pulsa **Actualizar catálogo** y elige el idioma **Coreano**;
+marca las dos versiones y pulsa **Instalar**. Se convierten automáticamente
+a SQLite, conservando el texto coreano UTF-8 y la numeración de cada edición
+(NRSV para KorRV, KJV para KorHKJV). KorRV es de dominio público;
+KorHKJV permite distribución gratuita no comercial según su ficha de CrossWire.
 
 El backend predeterminado usa módulos instalados en
 `$(g_get_user_data_dir())/biblia-elim/modules`. El diálogo **Módulos SQLite**
