@@ -76,6 +76,24 @@ if [[ -f "${ROOT}/modulos/sqlite/TorresAmat.sqlite" ]] && [[ ! -f "${SQLITEDIR}/
 	echo "  Biblia:   Torres Amat instalada en ${SQLITEDIR}"
 fi
 
+# Platense, KJV y las Biblias en coreano, chino y portugués, también incluidas
+# en el paquete para que estén desde la primera vez sin red. Son las ediciones de CrossWire
+# convertidas con el importador de la aplicación (biblia-elim --convert-sword):
+#   SpaPlatense    Español, Biblia Platense (Straubinger; dominio público)
+#   KJV            Inglés, King James Version (GPL, con Strong)
+#   KorRV          Coreano, Revised Version 1952/1961 (dominio público)
+#   ChiUns         Chino simplificado, 和合本 (dominio público; con Strong)
+#   PorAlmeida1911 Portugués, João Ferreira de Almeida, 1911 (GPL)
+# Misma regla que Torres Amat: solo si falta, sin pisar copias del usuario.
+for id in SpaPlatense KJV KorRV ChiUns PorAlmeida1911; do
+	if [[ -f "${ROOT}/modulos/sqlite/${id}.sqlite" ]] && [[ ! -f "${SQLITEDIR}/${id}.sqlite" ]]; then
+		install -d "${SQLITEDIR}"
+		install -m 0644 "${ROOT}/modulos/sqlite/${id}.sqlite" \
+			"${SQLITEDIR}/${id}.sqlite"
+		echo "  Biblia:   ${id} instalada en ${SQLITEDIR}"
+	fi
+done
+
 # Sus notas son un comentario SWORD: el formato SQLite v1 solo guarda
 # Biblias, así que de momento viajan como SWORD.
 SWORDDIR="${HOME}/.sword"

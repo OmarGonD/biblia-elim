@@ -17,6 +17,12 @@ std::string sqliteModuleDirectory();
 // Migrate valid legacy modules without replacing any installed module.
 bool migrateLegacySqliteModules(std::string &error,
                                const std::string &dataDirectory = {});
+// Copies the Bibles shipped with the package (`sourceDirectory`, normally
+// <share>/modules) into `directory`. Each module is seeded once: its ID is
+// recorded in `.bundled-seeded`, so one the user removed is not brought back,
+// and an installed copy is never overwritten. A missing source is not an error.
+bool seedBundledSqliteModules(const std::string &sourceDirectory, std::string &error,
+                              const std::string &directory = {});
 std::vector<SqliteManagedModule> listSqliteModules(const std::string &directory = {});
 bool validateSqliteModuleFile(const std::string &file, SqliteManagedModule &module,
                               std::string &error);

@@ -67,6 +67,29 @@ int main(int argc, char **argv) {
     g_rmdir(legacy.c_str()); g_rmdir(canonical.c_str());
     g_rmdir((std::string(dir) + "/biblia_elim").c_str());
     g_rmdir((std::string(dir) + "/biblia-elim").c_str());
+    {
+        // Biblias del paquete: se siembran una vez, sin reponer lo borrado ni pisar copias.
+        const std::string share = std::string(dir) + "/share";
+        const std::string seeded = std::string(dir) + "/seeded";
+        assert(g_mkdir_with_parents(share.c_str(), 0755) == 0);
+        { std::ifstream in(source, std::ios::binary); std::ofstream out(share + "/rv1909.sqlite", std::ios::binary); out << in.rdbuf(); }
+        assert(seedBundledSqliteModules(std::string(dir) + "/no-such-dir", error, seeded)); // sin paquete
+        assert(seedBundledSqliteModules(share, error, seeded));
+        assert(listSqliteModules(seeded).size() == 1);
+        assert(removeSqliteModule("rv1909", error, seeded));
+        assert(seedBundledSqliteModules(share, error, seeded)); // ya sembrada: no vuelve
+        assert(listSqliteModules(seeded).empty());
+        g_remove((seeded + "/.bundled-seeded").c_str());
+        { std::ofstream mine(seeded + "/rv1909.sqlite"); mine << "usuario"; }
+        assert(seedBundledSqliteModules(share, error, seeded)); // copia existente intacta
+        std::ifstream check(seeded + "/rv1909.sqlite"); std::string content; check >> content;
+        assert(content == "usuario");
+        g_remove((seeded + "/rv1909.sqlite").c_str());
+        g_remove((seeded + "/.bundled-seeded").c_str());
+        g_rmdir(seeded.c_str());
+        g_remove((share + "/rv1909.sqlite").c_str());
+        g_rmdir(share.c_str());
+    }
     g_rmdir(managed.c_str());
     g_remove(source.c_str());
     g_print("sqlite_module_manager migration/install/remove: PASS\n");

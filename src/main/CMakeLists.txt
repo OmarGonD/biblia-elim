@@ -212,3 +212,17 @@ if (PYTHON3_EXECUTABLE)
   install (FILES ${xiphos_fichas_db}
     DESTINATION ${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME})
 endif ()
+
+# Biblias que vienen en el paquete (Torres Amat, Platense, KJV, coreano, chino,
+# portugués), ya convertidas a
+# SQLite en modulos/sqlite. Se instalan en <share>/biblia-elim/modules, que entra en
+# los paquetes deb, rpm y NSIS de Windows, y la aplicación las copia al directorio de
+# módulos del usuario en el primer arranque (seedBundledSqliteModules).
+install (FILES
+  ${PROJECT_SOURCE_DIR}/modulos/sqlite/TorresAmat.sqlite
+  ${PROJECT_SOURCE_DIR}/modulos/sqlite/SpaPlatense.sqlite
+  ${PROJECT_SOURCE_DIR}/modulos/sqlite/KJV.sqlite
+  ${PROJECT_SOURCE_DIR}/modulos/sqlite/KorRV.sqlite
+  ${PROJECT_SOURCE_DIR}/modulos/sqlite/ChiUns.sqlite
+  ${PROJECT_SOURCE_DIR}/modulos/sqlite/PorAlmeida1911.sqlite
+  DESTINATION ${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME}/modules)

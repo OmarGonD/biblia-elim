@@ -5,7 +5,9 @@
 #include <glib/gstdio.h>
 #include <sqlite3.h>
 #include <cstdio>
+#include <algorithm>
 #include <fstream>
+#include <set>
 #include <unistd.h>
 
 namespace {
@@ -84,6 +86,40 @@ bool migrateLegacySqliteModules(std::string &error, const std::string &dataDirec
     g_dir_close(dir);
     // Only remove an empty legacy directory; unrelated files are untouched.
     g_rmdir(old.c_str());
+    return error.empty();
+}
+
+bool seedBundledSqliteModules(const std::string &sourceDirectory, std::string &error,
+                              const std::string &directory) {
+    error.clear();
+    if (sourceDirectory.empty()) return true;
+    GDir *dir = g_dir_open(sourceDirectory.c_str(), 0, nullptr);
+    if (!dir) return true;
+    const std::string dest = dirOrDefault(directory);
+    const std::string marker = dest + "/.bundled-seeded";
+    std::set<std::string> seeded;
+    { std::ifstream in(marker); std::string line; while (std::getline(in, line)) seeded.insert(line); }
+    std::vector<std::string> names;
+    const char *name;
+    while ((name = g_dir_read_name(dir)))
+        if (g_str_has_suffix(name, ".sqlite")) names.push_back(name);
+    g_dir_close(dir);
+    std::sort(names.begin(), names.end());
+    for (const std::string &file : names) {
+        const std::string id = file.substr(0, file.size() - 7);
+        if (seeded.count(id)) continue;
+        if (g_mkdir_with_parents(dest.c_str(), 0755) != 0) { error += "cannot create module directory\n"; return false; }
+        const std::string target = dest + "/" + file;
+        std::string why;
+        // Packaged by us and validated at build time: a plain copy, no revalidation.
+        if (!g_file_test(target.c_str(), G_FILE_TEST_EXISTS) &&
+            !copyAtomic(sourceDirectory + "/" + file, target, why)) {
+            error += file + ": " + why + "\n";
+            continue;
+        }
+        std::ofstream out(marker, std::ios::app);
+        out << id << "\n";
+    }
     return error.empty();
 }
 

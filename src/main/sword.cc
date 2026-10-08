@@ -161,6 +161,29 @@ void main_select_bible_backend(const char *name, const char *modules_directory,
 	sqlite_modules_directory = sqliteModuleDirectory();
 	if (!migrateLegacySqliteModules(sqlite_path_notice))
 		g_message("SQLite migration: %s", sqlite_path_notice.c_str());
+	/* Biblias que trae el paquete (coreano, chino, portugués, ...). */
+	std::string seed_error;
+	std::string bundled;
+	const char *bundled_override = g_getenv("BIBLIA_ELIM_BUNDLED_MODULES");
+#ifdef G_OS_WIN32
+	/* El instalador de Windows es reubicable: se busca junto al ejecutable. */
+	gchar *root = g_win32_get_package_installation_directory_of_module(NULL);
+	if (root) {
+		gchar *dir = g_build_filename(root, "share", "biblia-elim", "modules", NULL);
+		if (g_file_test(dir, G_FILE_TEST_IS_DIR))
+			bundled = dir;
+		g_free(dir);
+		g_free(root);
+	}
+#endif
+	if (bundled_override && *bundled_override)
+		bundled = bundled_override;
+#ifdef SHARE_DIR
+	if (bundled.empty())
+		bundled = std::string(SHARE_DIR) + G_DIR_SEPARATOR_S + "modules";
+#endif
+	if (!seedBundledSqliteModules(bundled, seed_error))
+		g_message("SQLite bundled Bibles: %s", seed_error.c_str());
 }
 
 void main_validate_bible_backend_selection(void)

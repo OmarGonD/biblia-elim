@@ -81,6 +81,15 @@ Véase `INSTALL.md` para el proceso de compilación heredado.
 
 ## Módulos SQLite de Biblia
 
+El paquete incluye ya convertidas a SQLite (`modulos/sqlite/`) estas Biblias,
+que se instalan sin red y solo si faltan (`scripts/install-biblia-elim.sh` en
+desarrollo; en los paquetes, la app las siembra en el primer arranque):
+**TorresAmat**, **SpaPlatense** (Straubinger, dominio público), **KJV** (inglés,
+GPL, con Strong), **KorRV** (coreano, dominio público), **ChiUns** (chino
+simplificado 和合本, dominio público, con numeración Strong) y **PorAlmeida1911**
+(portugués, Almeida 1911, GPL). Salvo Torres Amat, proceden de CrossWire y se generaron con
+`biblia-elim --convert-sword ID DIR`.
+
 El primer arranque sin módulos incluye dos Biblias en coreano desde
 CrossWire: [KorRV — 개역성경, revisión 1952/1961](https://crosswire.org/sword/modules/ModInfo.jsp?modName=KorRV)
 y [KorHKJV — Hangul King James Version](https://crosswire.org/sword/modules/ModInfo.jsp?modName=KorHKJV).
