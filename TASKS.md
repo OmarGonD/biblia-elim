@@ -11995,6 +11995,15 @@
       stays synchronized with the active module, and is shown while the inline
       study editor is visible. `biblia-elim` builds and the local install
       script completes; `git diff --check` passes.
+    - Fixed the blank StudyPad regression: the Exportar label lacked its
+      closing `object` tag, so GtkBuilder stopped before loading the formatting
+      toolbar and canvas. Removed the ineffective recursive visibility change.
+      `studypad_builder_test` rejects the previous UI with the line 71 parse
+      error and passes with the corrected UI: 13 controls and the text canvas
+      are mapped with nonzero allocations at 900, 1400 and 2000 px under Xvfb.
+      A rendered capture was inspected. `studypad_lifecycle_contract_test`
+      and `main_window_layout_test` also PASS (3/3 tests); `biblia-elim` builds
+      and the installed executable's extracted UI matches the corrected source.
 
 - [x] EDITION-101 Crear una Biblia propia e instalable desde una fuente autorizada
   - Status: DONE

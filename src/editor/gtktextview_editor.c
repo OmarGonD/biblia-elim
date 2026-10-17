@@ -2117,20 +2117,6 @@ editor_create_embedded_studypad(GtkWindow *parent, GtkWidget **title_label_out)
 	editor->sync = FALSE;
 	window = editor_new(_("StudyPad"), editor);
 	contents = editor->box;
-	/* A GTK4 widget's visibility is independent from its parent's. The normal
-	 * editor window is shown by its caller, while this embedded editor is
-	 * detached from that window; explicitly show its complete content tree. */
-	GQueue pending = G_QUEUE_INIT;
-	g_queue_push_tail(&pending, contents);
-	while (!g_queue_is_empty(&pending)) {
-		GtkWidget *widget = g_queue_pop_head(&pending);
-		gtk_widget_set_visible(widget, TRUE);
-		for (GtkWidget *child = gtk_widget_get_first_child(widget); child;
-		     child = gtk_widget_get_next_sibling(child))
-			g_queue_push_tail(&pending, child);
-	}
-	if (editor->toolitems.deletedoc)
-		gtk_widget_set_visible(GTK_WIDGET(editor->toolitems.deletedoc), FALSE);
 	/* Keep the builder's root alive while it is detached from its temporary
 	 * window. The main window becomes the owner of all editor dialogs. */
 	g_object_ref(contents);

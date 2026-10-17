@@ -135,6 +135,16 @@ if (BUILD_TESTING AND UNIX)
   endif ()
 
   find_program (XVFB_RUN_EXECUTABLE NAMES xvfb-run)
+  if (XVFB_RUN_EXECUTABLE)
+    add_executable(studypad_builder_test studypad_builder_test.c)
+    target_link_libraries(studypad_builder_test PRIVATE PkgConfig::Gtk)
+    add_test(NAME studypad_builder_test
+      COMMAND ${XVFB_RUN_EXECUTABLE} -a -s "-screen 0 2560x1440x24"
+        $<TARGET_FILE:studypad_builder_test>
+        ${PROJECT_SOURCE_DIR}/ui/gtk_tvedit.gtkbuilder)
+    set_tests_properties(studypad_builder_test PROPERTIES
+      TIMEOUT 20 ENVIRONMENT "GDK_BACKEND=x11;GDK_SCALE=1;GDK_DPI_SCALE=1;GSK_RENDERER=cairo;GTK_A11Y=none")
+  endif ()
   find_program (SQLITE3_EXECUTABLE NAMES sqlite3)
   if (XVFB_RUN_EXECUTABLE AND SQLITE3_EXECUTABLE)
     add_test (
