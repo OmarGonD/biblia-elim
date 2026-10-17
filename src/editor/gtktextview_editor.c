@@ -1346,7 +1346,9 @@ study_template_dialog(EDITOR *e)
 	gtk_box_append(GTK_BOX(content), description);
 	g_signal_connect(choice, "notify::selected", G_CALLBACK(study_template_selected), description);
 	study_template_selected(GTK_DROP_DOWN(choice), NULL, GTK_LABEL(description));
-	gtk_dialog_add_button(GTK_DIALOG(dialog), _("Cancelar"), GTK_RESPONSE_CANCEL);
+	GtkWidget *cancel = gtk_dialog_add_button(
+		GTK_DIALOG(dialog), _("Cancelar"), GTK_RESPONSE_CANCEL);
+	gtk_widget_set_margin_end(cancel, 10);
 	gtk_dialog_add_button(GTK_DIALOG(dialog), _("Usar plantilla"), GTK_RESPONSE_ACCEPT);
 	gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_ACCEPT);
 	if (gui_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
