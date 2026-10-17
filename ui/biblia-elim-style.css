@@ -42,6 +42,13 @@ textview.elim-html text {
 	box-shadow: none;
 }
 
+.elim-about-dialog stackswitcher > button {
+	border-radius: 6px;
+}
+.elim-about-dialog stackswitcher > button + button {
+	margin-left: 10px;
+}
+
 .study-editor-panel {
 	background-color: @elim_panel;
 }

@@ -88,6 +88,7 @@ GtkWidget *gui_create_about_xiphos(void)
 	about1_logo_pixbuf = pixbuf_finder("ministerios-elim.png", 0, NULL);
 
 	about1 = gtk_about_dialog_new();
+	gtk_widget_add_css_class(about1, "elim-about-dialog");
 	g_signal_connect(about1, "response",
 			 G_CALLBACK(on_dialog_response), NULL);
 
