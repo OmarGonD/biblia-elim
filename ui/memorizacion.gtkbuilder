@@ -2,190 +2,80 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <object class="GtkDialog" id="dialog_memoria">
-    <property name="can_focus">False</property>
     <property name="title" translatable="yes">Memorización</property>
-    <property name="default_width">600</property>
-    <property name="default_height">560</property>
-    <child>
-      <object class="GtkBox" id="dialog-vbox">
-        <property name="visible">True</property>
-        <property name="orientation">vertical</property>
-        <property name="spacing">8</property>
-        <child>
-          <object class="GtkBox" id="box_todo">
-            <property name="visible">True</property>
-            <property name="orientation">vertical</property>
-            <property name="spacing">8</property>
-            <property name="margin_start">14</property>
-            <property name="margin_end">14</property>
-            <property name="margin_top">10</property>
-
-            <child>
-              <object class="GtkLabel" id="lbl_cabecera">
-                <property name="visible">True</property>
-                <property name="xalign">0</property>
-                <property name="label"></property>
-              </object>
-            </child>
-
-            <!-- La tarjeta -->
-            <child>
-              <object class="GtkFrame" id="marco_tarjeta">
-                <property name="visible">True</property>
-                <child>
-                  <object class="GtkBox" id="box_tarjeta">
-                    <property name="visible">True</property>
-                    <property name="orientation">vertical</property>
-                    <property name="spacing">8</property>
-                    <property name="margin_start">14</property>
-                    <property name="margin_end">14</property>
-                    <property name="margin_top">14</property>
-                    <property name="margin_bottom">12</property>
-                    <child>
-                      <object class="GtkLabel" id="lbl_cita">
-                        <property name="visible">True</property>
-                        <property name="xalign">0</property>
-                        <property name="label"></property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkScrolledWindow" id="scroll_texto">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="hscrollbar_policy">never</property>
-                        <property name="min_content_height">104</property>
-                        <child>
-                          <object class="GtkViewport" id="viewport_texto">
-                            <property name="visible">True</property>
-                            <child>
-                              <object class="GtkLabel" id="lbl_texto">
-                                <property name="visible">True</property>
-                                <property name="xalign">0</property>
-                                <property name="yalign">0</property>
-                                <property name="wrap">True</property>
-                                <property name="selectable">True</property>
-                                <property name="label"></property>
-                              </object>
-                            </child>
-                          </object>
-                        </child>
-                      <property name="vexpand">True</property>
-                      <property name="valign">center</property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkBox" id="box_botones">
-                        <property name="visible">True</property>
-                        <property name="orientation">horizontal</property>
-                        <property name="spacing">6</property>
-                        <property name="homogeneous">True</property>
-                        <child>
-                          <object class="GtkButton" id="btn_ver">
-                            <property name="label" translatable="yes">Ver el texto</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="tooltip_text" translatable="yes">Primero recítalo de memoria; luego compruébalo</property>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkButton" id="btn_fallo">
-                            <property name="label" translatable="yes">No me salió</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="tooltip_text" translatable="yes">Vuelve a la primera caja y lo repasas mañana</property>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkButton" id="btn_acierto">
-                            <property name="label" translatable="yes">Lo recordé</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="tooltip_text" translatable="yes">Sube de caja y tarda más en volver</property>
-                          </object>
-                        </child>
-                      </object>
-                    </child>
-                  </object>
-                </child>
-              </object>
-            </child>
-
-            <!-- La lista -->
-            <child>
-              <object class="GtkLabel" id="lbl_lista">
-                <property name="visible">True</property>
-                <property name="xalign">0</property>
-                <property name="label"></property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkScrolledWindow" id="scroll_lista">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="hscrollbar_policy">never</property>
-                <child>
-                  <object class="GtkColumnView" id="tree_versos">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                  </object>
-                </child>
-              <property name="vexpand">True</property>
-              <property name="valign">center</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkBox" id="box_pie">
-                <property name="visible">True</property>
-                <property name="orientation">horizontal</property>
-                <property name="spacing">6</property>
-                <child>
-                  <object class="GtkLabel" id="lbl_nota">
-                    <property name="visible">True</property>
-                    <property name="xalign">0</property>
-                    <property name="wrap">True</property>
-                    <property name="label"></property>
-                  <property name="hexpand">True</property>
-                  <property name="halign">center</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkButton" id="btn_quitar">
-                    <property name="label" translatable="yes">Quitar</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="tooltip_text" translatable="yes">Deja de memorizar el versículo elegido en la lista</property>
-                  </object>
-                </child>
-              </object>
-            </child>
-          </object>
-        </child>
-        <child>
-          <object class="GtkBox" id="action_area">
-            <property name="halign">end</property>
-            <property name="margin_start">12</property>
-            <property name="margin_end">12</property>
-            <property name="margin_top">4</property>
-            <property name="margin_bottom">12</property>
-            <property name="visible">True</property>
-            <child>
-              <object class="GtkButton" id="btn_anadir">
-                <property name="label" translatable="yes">Memorizar el que estoy leyendo</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="tooltip_text" translatable="yes">Añade el versículo abierto en la ventana principal</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkButton" id="btn_cerrar">
-                <property name="label" translatable="yes">Cerrar</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-              </object>
-            </child>
-          </object>
-        </child>
-      </object>
-    </child>
+    <property name="default-width">660</property>
+    <style><class name="memory-dialog"/></style>
+    <child><object class="GtkBox" id="dialog-vbox">
+      <property name="orientation">vertical</property>
+      <property name="vexpand">True</property><property name="hexpand">True</property>
+      <child><object class="GtkBox">
+        <property name="orientation">vertical</property><property name="spacing">6</property>
+        <property name="margin-start">20</property><property name="margin-end">20</property>
+        <property name="margin-top">18</property><property name="margin-bottom">16</property>
+        <child><object class="GtkLabel"><property name="label" translatable="yes">Memorización</property><property name="xalign">0</property><style><class name="memory-title"/></style></object></child>
+        <child><object class="GtkLabel" id="lbl_cabecera"><property name="xalign">0</property><property name="wrap">True</property><style><class name="dim-label"/></style></object></child>
+      </object></child>
+      <child><object class="GtkScrolledWindow" id="scroll_contenido">
+        <property name="hscrollbar-policy">never</property><property name="vexpand">True</property>
+        <property name="propagate-natural-height">True</property><property name="max-content-height">540</property>
+        <child><object class="GtkBox" id="box_todo">
+          <property name="orientation">vertical</property><property name="spacing">16</property>
+          <property name="margin-start">20</property><property name="margin-end">20</property><property name="margin-bottom">18</property>
+          <child><object class="GtkFrame" id="marco_tarjeta"><style><class name="memory-card"/></style>
+            <child><object class="GtkBox" id="box_tarjeta">
+              <property name="orientation">vertical</property><property name="spacing">14</property>
+              <property name="margin-start">20</property><property name="margin-end">20</property>
+              <property name="margin-top">22</property><property name="margin-bottom">22</property>
+              <child><object class="GtkBox" id="box_vacio">
+                <property name="orientation">vertical</property><property name="spacing">12</property>
+                <child><object class="GtkImage" id="icono_estado"><property name="icon-name">bookmark-new-symbolic</property><property name="pixel-size">36</property><style><class name="memory-state-icon"/></style></object></child>
+                <child><object class="GtkLabel" id="lbl_estado_titulo"><property name="label" translatable="yes">Empieza con un versículo</property><property name="wrap">True</property><property name="justify">center</property><style><class name="memory-state-title"/></style></object></child>
+                <child><object class="GtkLabel" id="lbl_estado_detalle"><property name="wrap">True</property><property name="justify">center</property><property name="max-width-chars">52</property><style><class name="dim-label"/></style></object></child>
+              </object></child>
+              <child><object class="GtkBox" id="box_repaso">
+                <property name="orientation">vertical</property><property name="spacing">12</property>
+                <child><object class="GtkLabel" id="lbl_cita"><property name="xalign">0</property><property name="wrap">True</property><style><class name="memory-reference"/></style></object></child>
+                <child><object class="GtkLabel" id="lbl_version"><property name="xalign">0</property><property name="wrap">True</property><style><class name="dim-label"/></style></object></child>
+                <child><object class="GtkScrolledWindow" id="scroll_texto">
+                  <property name="hscrollbar-policy">never</property><property name="min-content-height">80</property>
+                  <property name="max-content-height">200</property><property name="propagate-natural-height">True</property>
+                  <child><object class="GtkLabel" id="lbl_texto"><property name="xalign">0</property><property name="yalign">0</property><property name="wrap">True</property><property name="selectable">True</property><style><class name="memory-verse"/></style></object></child>
+                </object></child>
+                <child><object class="GtkBox" id="box_botones">
+                  <property name="spacing">10</property><property name="homogeneous">True</property>
+                  <child><object class="GtkButton" id="btn_ver"><property name="label" translatable="yes">Mostrar texto</property><property name="tooltip-text" translatable="yes">Recítalo de memoria y después comprueba el texto</property><style><class name="suggested-action"/></style></object></child>
+                  <child><object class="GtkButton" id="btn_fallo"><property name="label" translatable="yes">No lo recordé</property><property name="tooltip-text" translatable="yes">Volverás a repasarlo mañana</property></object></child>
+                  <child><object class="GtkButton" id="btn_acierto"><property name="label" translatable="yes">Lo recordé</property><property name="tooltip-text" translatable="yes">Avanza al siguiente nivel de repaso</property></object></child>
+                </object></child>
+              </object></child>
+            </object></child>
+          </object></child>
+          <child><object class="GtkBox" id="box_coleccion">
+            <property name="orientation">vertical</property><property name="spacing">10</property>
+            <child><object class="GtkBox"><property name="spacing">10</property>
+              <child><object class="GtkLabel" id="lbl_lista"><property name="xalign">0</property><property name="hexpand">True</property><style><class name="memory-section-title"/></style></object></child>
+              <child><object class="GtkButton" id="btn_repasar"><property name="label" translatable="yes">Repasar</property><property name="tooltip-text" translatable="yes">Practicar el versículo seleccionado</property></object></child>
+              <child><object class="GtkButton" id="btn_quitar"><property name="label" translatable="yes">Quitar</property><property name="tooltip-text" translatable="yes">Quitar el versículo seleccionado de tu lista</property></object></child>
+            </object></child>
+            <child><object class="GtkScrolledWindow" id="scroll_lista">
+              <property name="hscrollbar-policy">never</property><property name="min-content-height">100</property>
+              <property name="max-content-height">220</property><property name="propagate-natural-height">True</property>
+              <style><class name="memory-library"/></style>
+              <child><object class="GtkColumnView" id="tree_versos"><property name="show-row-separators">True</property></object></child>
+            </object></child>
+          </object></child>
+          <child><object class="GtkLabel" id="lbl_nota"><property name="xalign">0</property><property name="wrap">True</property><property name="max-width-chars">68</property><style><class name="dim-label"/></style></object></child>
+          <child><object class="GtkLabel" id="lbl_aviso"><property name="visible">False</property><property name="xalign">0</property><property name="wrap">True</property><style><class name="error"/></style></object></child>
+        </object></child>
+      </object></child>
+      <child><object class="GtkSeparator"/></child>
+      <child><object class="GtkBox" id="action_area">
+        <property name="spacing">10</property><property name="margin-start">20</property><property name="margin-end">20</property>
+        <property name="margin-top">14</property><property name="margin-bottom">16</property>
+        <child><object class="GtkLabel" id="lbl_actual"><property name="xalign">0</property><property name="wrap">True</property><property name="hexpand">True</property><property name="max-width-chars">20</property><style><class name="dim-label"/></style></object></child>
+        <child><object class="GtkButton" id="btn_anadir"><property name="label" translatable="yes">Añadir versículo actual</property><property name="tooltip-text" translatable="yes">Memorizar el versículo abierto en la ventana principal</property><style><class name="suggested-action"/></style></object></child>
+        <child><object class="GtkButton" id="btn_cerrar"><property name="label" translatable="yes">Cerrar</property></object></child>
+      </object></child>
+    </object></child>
   </object>
 </interface>

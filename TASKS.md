@@ -12036,6 +12036,28 @@
     - El diálogo distingue un pasaje ausente en la Biblia seleccionada de
       no tener una Biblia abierta.
 
+- [x] READING-MEM-101 Mejorar la ventana de memorización
+  - Status: DONE
+  - Description: Presentar estados claros de inicio, repaso y sesión al día,
+    con una biblioteca legible y acciones de añadir, practicar y quitar.
+  - Evidence:
+    - Estado inicial compacto sin tabla ni controles de repaso vacíos; la
+      ventana se amplía al añadir el primer versículo. La tarjeta muestra la
+      referencia, versión, texto y respuesta; la tabla indica progreso,
+      próximo repaso y aciertos con encabezados planos y botones separados.
+    - Repasar selección/doble clic permite practicar un verso guardado.
+      Repasar y quitar requieren selección; un texto que no se pudo leer no
+      admite calificación ni se añade a la lista. Se conserva el plan Leitner
+      existente y la persistencia XML.
+    - `memorization_dialog_test` ejecuta el diálogo GTK y el planificador/almacén
+      XML reales: estado vacío, añadir, revelar, acierto, fallo, selección,
+      quitar, lectura fallida y persistencia tras cerrar/reabrir. Comprueba
+      ampliación y botones del pie con asignación visible dentro de la ventana.
+      Capturas con el tema de la app revisadas para los tres estados.
+    - `memorization_dialog_test`, `compare_canonical_body_test` y
+      `sqlite_interlinear_test` PASS (3/3); `biblia-elim` compila y
+      `git diff --check` pasa.
+
 - [x] EDITION-101 Crear una Biblia propia e instalable desde una fuente autorizada
   - Status: DONE
   - Description: Crear una Biblia completa y editable a partir de un módulo

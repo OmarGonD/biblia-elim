@@ -136,6 +136,26 @@ if (BUILD_TESTING AND UNIX)
 
   find_program (XVFB_RUN_EXECUTABLE NAMES xvfb-run)
   if (XVFB_RUN_EXECUTABLE)
+    add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/memorization-test-resources.c
+      COMMAND ${GLIB_COMPILE_RESOURCES} --generate-source --c-name memorization_test
+        --sourcedir=${PROJECT_SOURCE_DIR}/ui
+        --target=${CMAKE_CURRENT_BINARY_DIR}/memorization-test-resources.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/memorization-test.gresource.xml
+      DEPENDS memorization-test.gresource.xml ${PROJECT_SOURCE_DIR}/ui/memorizacion.gtkbuilder)
+    add_executable(memorization_dialog_test memorization_dialog_test.c
+      ${CMAKE_CURRENT_BINARY_DIR}/memorization-test-resources.c
+      ${PROJECT_SOURCE_DIR}/src/main/memorizacion.c
+      ${PROJECT_SOURCE_DIR}/src/main/xml.c
+      ${PROJECT_SOURCE_DIR}/src/gtk/table_helpers.c)
+    target_compile_options(memorization_dialog_test PRIVATE -ffunction-sections -fdata-sections -fvisibility=hidden)
+    target_link_options(memorization_dialog_test PRIVATE -Wl,--gc-sections)
+    target_include_directories(memorization_dialog_test PRIVATE ${PROJECT_SOURCE_DIR}/src ${PROJECT_BINARY_DIR})
+    target_link_libraries(memorization_dialog_test PRIVATE PkgConfig::Gtk PkgConfig::Core PkgConfig::Gnome)
+    add_test(NAME memorization_dialog_test COMMAND ${XVFB_RUN_EXECUTABLE} -a
+      -s "-screen 0 1600x1200x24" $<TARGET_FILE:memorization_dialog_test>
+      ${PROJECT_SOURCE_DIR}/ui/biblia-elim-style.css)
+    set_tests_properties(memorization_dialog_test PROPERTIES TIMEOUT 20
+      ENVIRONMENT "GDK_BACKEND=x11;GDK_SCALE=1;GDK_DPI_SCALE=1;GSK_RENDERER=cairo;GTK_A11Y=none")
     add_executable(study_templates_zoom_test study_templates_zoom_test.c
       ${PROJECT_SOURCE_DIR}/src/editor/study_templates.c)
     target_compile_definitions(study_templates_zoom_test PRIVATE USE_GTKTVeditor)

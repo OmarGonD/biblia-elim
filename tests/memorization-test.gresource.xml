@@ -1,0 +1,5 @@
+<gresources>
+  <gresource prefix="/org/bibliaelim/ui">
+    <file>memorizacion.gtkbuilder</file>
+  </gresource>
+</gresources>

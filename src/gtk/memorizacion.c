@@ -30,6 +30,7 @@
 #include "main/memorizacion.h"
 #include "main/settings.h"
 #include "main/texto_verso.h"
+#include "main/sword.h"
 #include "main/xml.h"
 
 #include "gui/debug_glib_null.h"
@@ -48,6 +49,15 @@ typedef struct {
 	GtkWidget *lbl_cabecera;
 	GtkWidget *marco_tarjeta;
 	GtkWidget *lbl_cita;
+	GtkWidget *box_vacio;
+	GtkWidget *box_repaso;
+	GtkWidget *box_coleccion;
+	GtkWidget *icono_estado;
+	GtkWidget *lbl_estado_titulo;
+	GtkWidget *lbl_estado_detalle;
+	GtkWidget *lbl_version;
+	GtkWidget *lbl_actual;
+	GtkWidget *lbl_aviso;
 	GtkWidget *lbl_texto;
 	GtkWidget *lbl_lista;
 	GtkWidget *lbl_nota;
@@ -56,11 +66,15 @@ typedef struct {
 	GtkWidget *btn_acierto;
 	GtkWidget *btn_anadir;
 	GtkWidget *btn_quitar;
+	GtkWidget *btn_repasar;
 	GtkWidget *tree;
 	GListStore *versos;
 
 	gchar *actual;		/* la clave que está en la tarjeta */
 	gboolean destapado;	/* si ya se enseñó el texto */
+	gboolean texto_disponible;
+	gboolean layout_ready;
+	gboolean has_items;
 } MEM_UI;
 
 static MEM_UI *ui = NULL;
@@ -82,9 +96,19 @@ static void
 pintar_tarjeta(void)
 {
 	gchar *markup;
+	gtk_widget_set_visible(ui->box_repaso, ui->actual != NULL);
+	gtk_widget_set_visible(ui->box_vacio, ui->actual == NULL);
+	ui->texto_disponible = FALSE;
 
 	if (!ui->actual) {
-		gtk_widget_set_sensitive(ui->marco_tarjeta, FALSE);
+		gboolean vacio = main_memoria_cuantos() == 0;
+		gtk_image_set_from_icon_name(GTK_IMAGE(ui->icono_estado),
+			vacio ? "bookmark-new-symbolic" : "object-select-symbolic");
+		gtk_label_set_text(GTK_LABEL(ui->lbl_estado_titulo),
+			vacio ? _("Empieza con un versículo") : _("Repasos de hoy completados"));
+		gtk_label_set_text(GTK_LABEL(ui->lbl_estado_detalle), vacio
+			? _("Añade el versículo que estás leyendo. Recítalo de memoria, comprueba el texto y vuelve a practicar con repasos espaciados.")
+			: _("Ya estás al día. Puedes practicar un versículo de tu lista o añadir uno nuevo."));
 		gtk_label_set_text(GTK_LABEL(ui->lbl_cita), "");
 		gtk_label_set_text(GTK_LABEL(ui->lbl_texto), "");
 		gtk_widget_set_sensitive(ui->btn_ver, FALSE);
@@ -93,40 +117,38 @@ pintar_tarjeta(void)
 		return;
 	}
 
-	gtk_widget_set_sensitive(ui->marco_tarjeta, TRUE);
-	markup = g_markup_printf_escaped(
-	    "<span size='large' weight='bold'>%s</span>", ui->actual);
-	gtk_label_set_markup(GTK_LABEL(ui->lbl_cita), markup);
-	g_free(markup);
+	gtk_label_set_text(GTK_LABEL(ui->lbl_cita), ui->actual);
+	const char *version = settings.MainWindowModule && *settings.MainWindowModule
+		? main_get_module_description(settings.MainWindowModule) : NULL;
+	gtk_label_set_text(GTK_LABEL(ui->lbl_version), version ? version : "");
 
 	if (ui->destapado) {
 		gchar *texto = main_texto_de(ui->actual);
 
 		if (texto) {
-			markup = g_markup_printf_escaped(
-			    "<span size='large'>%s</span>", texto);
-			gtk_label_set_markup(GTK_LABEL(ui->lbl_texto), markup);
-			g_free(markup);
+			gtk_label_set_text(GTK_LABEL(ui->lbl_texto), texto);
+			ui->texto_disponible = TRUE;
 		} else
 			gtk_label_set_text(
 			    GTK_LABEL(ui->lbl_texto),
-			    _("No se pudo leer el texto: abre una Biblia en "
-			      "la ventana principal."));
+			    _("Este versículo no está disponible en la Biblia abierta. Selecciona otra versión y vuelve a intentarlo."));
 		g_free(texto);
 	} else {
 		/* Tapado a propósito: la gracia está en recitarlo antes de
 		 * verlo. Comprobar sin haberlo intentado no es un repaso. */
 		markup = g_markup_printf_escaped(
-		    "<span size='large' alpha='45%%'><i>%s</i></span>",
-		    _("Recítalo de memoria, y luego destápalo."));
+		    "<span alpha='70%%'>%s</span>",
+		    _("Intenta recitar el versículo sin mirar. Después pulsa «Mostrar texto» para comprobarlo."));
 		gtk_label_set_markup(GTK_LABEL(ui->lbl_texto), markup);
 		g_free(markup);
 	}
 
-	gtk_widget_set_sensitive(ui->btn_ver, !ui->destapado);
+	gtk_button_set_label(GTK_BUTTON(ui->btn_ver), ui->destapado && !ui->texto_disponible
+		? _("Volver a intentar") : _("Mostrar texto"));
+	gtk_widget_set_sensitive(ui->btn_ver, !ui->destapado || !ui->texto_disponible);
 	/* Calificarse antes de mirar sería calificarse a ciegas. */
-	gtk_widget_set_sensitive(ui->btn_fallo, ui->destapado);
-	gtk_widget_set_sensitive(ui->btn_acierto, ui->destapado);
+	gtk_widget_set_sensitive(ui->btn_fallo, ui->destapado && ui->texto_disponible);
+	gtk_widget_set_sensitive(ui->btn_acierto, ui->destapado && ui->texto_disponible);
 }
 
 /* Toma el primero que toque, o deja la tarjeta vacía. */
@@ -154,7 +176,7 @@ on_ver(GtkButton *boton, gpointer datos)
 static void
 calificar(gboolean acertado)
 {
-	if (!ui->actual)
+	if (!ui->actual || !ui->destapado || !ui->texto_disponible)
 		return;
 	main_memoria_repasar(ui->actual, acertado);
 	guardar_ya();
@@ -229,7 +251,7 @@ llenar_lista(void)
 		ElimRow *fila = elim_row_new(N_MCOLS);
 		gchar *caja, *cuando;
 
-		caja = g_strdup_printf(_("%d de %d"), v->caja, MEM_CAJAS);
+		caja = g_strdup_printf(_("Nivel %d de %d"), v->caja, MEM_CAJAS);
 		cuando = cuando_texto(v->proximo);
 
 		elim_row_set_string(fila, MCOL_CITA, v->clave);
@@ -259,7 +281,7 @@ refrescar(void)
 	gchar *mensaje, *markup;
 
 	if (cuantos < 1)
-		mensaje = g_strdup(_("Todavía no estás memorizando ninguno"));
+		mensaje = g_strdup(_("Un versículo a la vez, a tu ritmo."));
 	else if (pendientes < 1)
 		mensaje = g_strdup(_("Nada que repasar hoy"));
 	else
@@ -268,13 +290,21 @@ refrescar(void)
 			     "%d versículos para repasar hoy", pendientes),
 		    pendientes);
 
-	markup = g_markup_printf_escaped(
-	    "<span size='x-large' weight='bold'>%s</span>", mensaje);
-	gtk_label_set_markup(GTK_LABEL(ui->lbl_cabecera), markup);
-	g_free(markup);
+	gtk_label_set_text(GTK_LABEL(ui->lbl_cabecera), mensaje);
 	g_free(mensaje);
 
 	llenar_lista();
+	gtk_widget_set_visible(ui->box_coleccion, cuantos > 0);
+	gboolean lectura = settings.currentverse && *settings.currentverse &&
+		settings.MainWindowModule && *settings.MainWindowModule;
+	gboolean anadido = lectura && main_memoria_tiene(settings.currentverse);
+	gtk_widget_set_sensitive(ui->btn_anadir, lectura && !anadido);
+	gtk_button_set_label(GTK_BUTTON(ui->btn_anadir), anadido
+		? _("Ya está en tu lista") : _("Añadir versículo actual"));
+	gchar *actual = lectura ? g_strdup_printf(_("En lectura: %s"), settings.currentverse)
+		: g_strdup(_("Abre una Biblia para añadir un versículo."));
+	gtk_label_set_text(GTK_LABEL(ui->lbl_actual), actual);
+	g_free(actual);
 
 	if (cuantos < 1)
 		mensaje = g_strdup(_("Tus versículos"));
@@ -307,8 +337,8 @@ refrescar(void)
 		if (asentados > 0)
 			g_string_append_printf(
 			    g,
-			    ngettext("  ·  %d en la última caja",
-				     "  ·  %d en la última caja", asentados),
+			    ngettext("  ·  %d en el último nivel",
+				     "  ·  %d en el último nivel", asentados),
 			    asentados);
 
 		markup = g_markup_printf_escaped(
@@ -319,6 +349,15 @@ refrescar(void)
 	}
 
 	pintar_tarjeta();
+	/* The compact first-use window needs room for the library after the
+	 * first addition. Resize only when crossing the empty/nonempty boundary. */
+	if (!ui->layout_ready || ui->has_items != (cuantos > 0)) {
+		gint width = gtk_widget_get_width(ui->dialog);
+		gtk_window_set_default_size(GTK_WINDOW(ui->dialog),
+			width > 1 ? width : 660, cuantos > 0 ? 660 : 390);
+		ui->has_items = cuantos > 0;
+		ui->layout_ready = TRUE;
+	}
 }
 
 /* --------------------------------------------------------------------
@@ -341,6 +380,18 @@ gui_memorizacion_anadir(const char *clave)
 		g_free(aviso);
 		return;
 	}
+	gchar *texto = main_texto_de(clave);
+	if (!texto) {
+		const gchar *mensaje = _("No se pudo leer ese versículo. Abre una Biblia que contenga el pasaje.");
+		gui_set_statusbar(mensaje);
+		if (ui) {
+			gtk_label_set_text(GTK_LABEL(ui->lbl_aviso), mensaje);
+			gtk_widget_set_visible(ui->lbl_aviso, TRUE);
+		}
+		return;
+	}
+	g_free(texto);
+	if (ui) gtk_widget_set_visible(ui->lbl_aviso, FALSE);
 
 	if (!main_memoria_anadir(clave)) {
 		gui_set_statusbar(_("No se pudo añadir ese versículo."));
@@ -401,12 +452,43 @@ on_quitar(GtkButton *boton, gpointer datos)
  * ------------------------------------------------------------------ */
 
 static void
+on_seleccion(GObject *selection, GParamSpec *pspec, gpointer datos)
+{
+	(void)selection; (void)pspec; (void)datos;
+	if (!ui) return;
+	gboolean elegido = elim_table_get_selected(ui->tree) != NULL;
+	gtk_widget_set_sensitive(ui->btn_repasar, elegido);
+	gtk_widget_set_sensitive(ui->btn_quitar, elegido);
+}
+
+static void
+on_repasar(GtkButton *boton, gpointer datos)
+{
+	(void)boton; (void)datos;
+	ElimRow *fila = elim_table_get_selected(ui->tree);
+	if (!fila) return;
+	g_free(ui->actual);
+	ui->actual = g_strdup(elim_row_get_string(fila, MCOL_CLAVE));
+	ui->destapado = FALSE;
+	pintar_tarjeta();
+	gtk_widget_grab_focus(ui->btn_ver);
+}
+
+static void
+on_activar_fila(GtkColumnView *view, guint position, gpointer datos)
+{
+	(void)view; (void)datos;
+	elim_table_select(ui->tree, position, FALSE);
+	on_repasar(NULL, NULL);
+}
+
+static void
 montar_columnas(void)
 {
 	elim_table_setup(ui->tree, ui->versos);
 	elim_table_add_text_column(ui->tree, _("Versículo"), MCOL_CITA, TRUE);
-	elim_table_add_text_column(ui->tree, _("Caja"), MCOL_CAJA, FALSE);
-	elim_table_add_text_column(ui->tree, _("Vuelve"), MCOL_PROXIMO, FALSE);
+	elim_table_add_text_column(ui->tree, _("Progreso"), MCOL_CAJA, FALSE);
+	elim_table_add_text_column(ui->tree, _("Próximo repaso"), MCOL_PROXIMO, FALSE);
 	elim_table_add_text_column(ui->tree, _("Aciertos"), MCOL_ACIERTOS, FALSE);
 }
 
@@ -440,6 +522,7 @@ gui_memorizacion_dialog(GtkWindow *padre)
 	GtkWidget *btn_cerrar;
 
 	if (ui && ui->dialog) {
+		siguiente_tarjeta();
 		refrescar();
 		gtk_window_present(GTK_WINDOW(ui->dialog));
 		return;
@@ -460,6 +543,15 @@ gui_memorizacion_dialog(GtkWindow *padre)
 	ui->lbl_cabecera = UI_GET_ITEM(gxml, "lbl_cabecera");
 	ui->marco_tarjeta = UI_GET_ITEM(gxml, "marco_tarjeta");
 	ui->lbl_cita = UI_GET_ITEM(gxml, "lbl_cita");
+	ui->box_vacio = UI_GET_ITEM(gxml, "box_vacio");
+	ui->box_repaso = UI_GET_ITEM(gxml, "box_repaso");
+	ui->box_coleccion = UI_GET_ITEM(gxml, "box_coleccion");
+	ui->icono_estado = UI_GET_ITEM(gxml, "icono_estado");
+	ui->lbl_estado_titulo = UI_GET_ITEM(gxml, "lbl_estado_titulo");
+	ui->lbl_estado_detalle = UI_GET_ITEM(gxml, "lbl_estado_detalle");
+	ui->lbl_version = UI_GET_ITEM(gxml, "lbl_version");
+	ui->lbl_actual = UI_GET_ITEM(gxml, "lbl_actual");
+	ui->lbl_aviso = UI_GET_ITEM(gxml, "lbl_aviso");
 	ui->lbl_texto = UI_GET_ITEM(gxml, "lbl_texto");
 	ui->lbl_lista = UI_GET_ITEM(gxml, "lbl_lista");
 	ui->lbl_nota = UI_GET_ITEM(gxml, "lbl_nota");
@@ -468,6 +560,7 @@ gui_memorizacion_dialog(GtkWindow *padre)
 	ui->btn_acierto = UI_GET_ITEM(gxml, "btn_acierto");
 	ui->btn_anadir = UI_GET_ITEM(gxml, "btn_anadir");
 	ui->btn_quitar = UI_GET_ITEM(gxml, "btn_quitar");
+	ui->btn_repasar = UI_GET_ITEM(gxml, "btn_repasar");
 	ui->tree = UI_GET_ITEM(gxml, "tree_versos");
 	btn_cerrar = UI_GET_ITEM(gxml, "btn_cerrar");
 
@@ -478,6 +571,11 @@ gui_memorizacion_dialog(GtkWindow *padre)
 
 	ui->versos = elim_table_new();
 	montar_columnas();
+	g_signal_connect(elim_table_selection(ui->tree), "notify::selected-item",
+		G_CALLBACK(on_seleccion), NULL);
+	g_signal_connect(ui->tree, "activate", G_CALLBACK(on_activar_fila), NULL);
+	g_signal_connect(ui->btn_repasar, "clicked", G_CALLBACK(on_repasar), NULL);
+	on_seleccion(NULL, NULL, NULL);
 
 	g_signal_connect(ui->btn_ver, "clicked", G_CALLBACK(on_ver), NULL);
 	g_signal_connect(ui->btn_acierto, "clicked", G_CALLBACK(on_acierto),
