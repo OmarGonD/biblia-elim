@@ -25,9 +25,12 @@
 
 #include "backend/sword/sword_backend.h"
 #include "main/settings.h"
+#include "main/texto_verso.h"
 
 SETTINGS settings = {};
 char *sword_locale = nullptr;
+static BibleBackend *active_reader;
+BibleBackend &main_backend_for(const char *) { return *active_reader; }
 
 extern "C" void main_dialog_search_percent_update(char, void *) {}
 extern "C" void main_sidebar_search_percent_update(char, void *) {}
@@ -307,6 +310,25 @@ main()
 		return 0;
 	}
 	main_pane_options(backend);
+	active_reader = &backend;
+	settings.MainWindowModule = g_strdup("SpaPlatense");
+	settings.currentverse = g_strdup("John 3:16");
+	sword::SWModule *module = backend.get_SWModule("SpaPlatense");
+	module->setKeyText(settings.currentverse);
+	const std::string before_key = module->getKeyText();
+	gchar *daily_text = main_texto_de("Matthew 11:30");
+	g_assert_nonnull(daily_text);
+	g_assert_nonnull(strstr(daily_text, "Porque mi yugo es excelente"));
+	g_assert_null(strstr(daily_text, NOTE_FRAGMENT));
+	g_assert_cmpstr(module->getKeyText(), ==, before_key.c_str());
+	g_assert_cmpstr(settings.currentverse, ==, "John 3:16");
+	g_free(daily_text);
+	g_free(settings.MainWindowModule);
+	g_free(settings.currentverse);
+	settings.MainWindowModule = nullptr;
+	settings.currentverse = nullptr;
+	g_assert_null(main_texto_de("John 3:16"));
+	std::puts("daily_verse_sword_body_and_position=ok");
 
 	test_platense_verse_with_note(backend);
 	test_platense_note_before_verse(backend);

@@ -1,6 +1,6 @@
 /*
  * Biblia Elim
- * texto_verso.c - leer un pasaje de paso, sin moverle la clave al módulo
+ * texto_verso.cc - leer un pasaje de paso, sin moverle la clave al módulo
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
  *
@@ -21,33 +21,28 @@
 
 #include "main/texto_verso.h"
 #include "main/settings.h"
-#include "main/sword.h"
+#include "main/backend_access.h"
 
 #include "gui/debug_glib_null.h"
 
 gchar *
 main_texto_de(const char *clave)
 {
-	char *crudo;
-	gchar *texto;
-
 	if (!clave || !*clave || !settings.MainWindowModule ||
 	    !*settings.MainWindowModule)
 		return NULL;
 
-	crudo = main_get_striptext(settings.MainWindowModule, (char *)clave);
-
-	/* Y el módulo, de vuelta donde el lector lo tenía. */
-	if (settings.currentverse && *settings.currentverse) {
-		char *vuelta = main_get_striptext(settings.MainWindowModule,
-						  settings.currentverse);
-		free(vuelta);
-	}
-
-	if (!crudo)
+	/* Resolve through the module's neutral backend. Both implementations
+	 * preserve the reading position when retrieving structured content. */
+	const std::string module = settings.MainWindowModule;
+	BibleBackend &reader = main_backend_for(module);
+	BibleKeyInfo key;
+	if (!reader.hasModule(module) || !reader.resolveKey(module, clave, key))
 		return NULL;
-	texto = g_strdup(crudo);
-	free(crudo);
+	BibleVerseContent content = reader.getVerseContent(module, key.reference, true);
+	if (!content.valid)
+		return NULL;
+	gchar *texto = g_strdup(content.plainText.c_str());
 	g_strstrip(texto);
 	if (!*texto) {
 		g_free(texto);

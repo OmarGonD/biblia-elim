@@ -82,9 +82,8 @@ static void mostrar(void);
  * tenga abierto, así que sale en su versión y con su ortografía.
  * ------------------------------------------------------------------ */
 
-/* El texto lo trae main_texto_de(), que además le devuelve al módulo la
- * clave que tenía: si no, abrir este diálogo le arrastraría la lectura
- * al lector hasta el versículo del día. */
+/* main_texto_de() usa el backend de la Biblia seleccionada y mantiene
+ * intacta la referencia que el lector tiene en la ventana principal. */
 
 /* --------------------------------------------------------------------
  * La reflexión
@@ -283,8 +282,10 @@ mostrar(void)
 	} else {
 		gtk_label_set_text(
 		    GTK_LABEL(ui->lbl_texto),
-		    _("No se pudo leer el texto: abre una Biblia en la "
-		      "ventana principal."));
+		    settings.MainWindowModule && *settings.MainWindowModule
+			? _("El versículo no está disponible en la Biblia seleccionada.")
+			: _("No se pudo leer el texto: abre una Biblia en la "
+			    "ventana principal."));
 	}
 	gtk_widget_set_sensitive(ui->btn_abrir, texto != NULL);
 	gtk_widget_set_sensitive(ui->btn_memorizar, texto != NULL);

@@ -2099,6 +2099,9 @@ endif ()
 
 add_executable (compare_canonical_body_test EXCLUDE_FROM_ALL
   compare_canonical_body_test.cc
+  ${PROJECT_SOURCE_DIR}/src/main/texto_verso.cc
+  ${PROJECT_SOURCE_DIR}/src/main/app_language.c
+  ${PROJECT_SOURCE_DIR}/src/backend/sword/bundled_devotional.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sword_main.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sword/sword_backend.cc
   ${PROJECT_SOURCE_DIR}/src/backend/quoted_heading.cc
@@ -2201,6 +2204,9 @@ endif()
 
 add_executable (sqlite_interlinear_test
   sqlite_interlinear_test.cc
+  ${PROJECT_SOURCE_DIR}/src/main/texto_verso.cc
+  ${PROJECT_SOURCE_DIR}/src/main/app_language.c
+  ${PROJECT_SOURCE_DIR}/src/backend/sword/bundled_devotional.cc
   ${PROJECT_SOURCE_DIR}/src/main/pulpito.cc
   ${PROJECT_SOURCE_DIR}/src/main/pulpito_pasos.c
   ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc

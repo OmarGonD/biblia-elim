@@ -13,6 +13,7 @@
 #include "backend/sqlite/sqlite_bible_backend.h"
 #include "backend/sqlite/sqlite_module_writer.h"
 #include "main/pulpito.h"
+#include "main/texto_verso.h"
 #include <glib/gstdio.h>
 #include "main/settings.h"
 
@@ -251,7 +252,29 @@ int main()
     SqliteImportVerse psalm; psalm.reference = {1,19,118,176}; psalm.text = "tu ley";
     std::vector<SqliteImportBook> psalmBooks = {{19,1,1,"Ps","Salmos","Sal"}};
     g_assert_true(SqliteModuleWriter().write(metadata,psalmBooks,{psalm},root+"/VulgSQLite.sqlite",error));
+    metadata.moduleId = "DailySQLite"; metadata.language = "es"; metadata.versification = "kjv";
+    std::vector<SqliteImportBook> dailyBooks = {{58,2,1,"Heb","Hebreos","Heb"}};
+    SqliteImportVerse daily; daily.reference = {2,58,4,16};
+    daily.text = "  Acerquémonos confiadamente al trono de la gracia.  ";
+    g_assert_true(SqliteModuleWriter().write(metadata,dailyBooks,{daily},root+"/DailySQLite.sqlite",error));
     SqliteBibleBackend sqlite(root); bible_backend = &sqlite;
+    settings.MainWindowModule = g_strdup("DailySQLite");
+    settings.currentverse = g_strdup("1Sam 6:3");
+    gchar *dailyText = main_texto_de("Heb 4:16");
+    g_assert_nonnull(dailyText);
+    g_assert_cmpstr(dailyText, ==, "Acerquémonos confiadamente al trono de la gracia.");
+    g_assert_cmpstr(settings.currentverse, ==, "1Sam 6:3");
+    g_assert_cmpstr(settings.MainWindowModule, ==, "DailySQLite");
+    g_free(dailyText);
+    g_assert_null(main_texto_de("Heb 4:17"));
+    g_assert_null(main_texto_de(NULL));
+    g_assert_null(main_texto_de(""));
+    g_free(settings.MainWindowModule);
+    settings.MainWindowModule = g_strdup("MissingModule");
+    g_assert_null(main_texto_de("Heb 4:16"));
+    g_free(settings.MainWindowModule);
+    g_free(settings.currentverse);
+    g_print("daily_verse_sqlite=ok reference_preserved=ok missing_verse=ok missing_module=ok\n");
     settings.MainWindowModule = g_strdup("Tisch");
     settings.currentverse = g_strdup("John 3:16");
     // The legacy global backend stays NULL: no SWORD Bible can satisfy these reads.
@@ -290,5 +313,6 @@ int main()
     main_interlineal_shutdown();
     g_free(settings.MainWindowModule); g_free(settings.currentverse);
     g_remove((root+"/VulgSQLite.sqlite").c_str());
+    g_remove((root+"/DailySQLite.sqlite").c_str());
     g_remove((root+"/Tisch.sqlite").c_str()); g_rmdir(directory); g_free(directory);
 }

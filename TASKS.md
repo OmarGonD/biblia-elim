@@ -12018,6 +12018,24 @@
       `studypad_lifecycle_contract_test` PASS (5/5). Sermon rendering inspected
       with the application theme; `biblia-elim` builds.
 
+- [x] READING-DAILY-101 Leer el versículo del día desde Biblias SQLite
+  - Status: DONE
+  - Description: Recuperar el texto de la Biblia seleccionada mediante el
+    backend neutral y conservar la referencia de la ventana principal.
+  - Evidence:
+    - `main_texto_de` ya no llama al acceso exclusivo de SWORD. Resuelve la
+      clave con `BibleBackend` y lee el cuerpo de `getVerseContent`, sin
+      restauraciones de clave ni consultas que muevan la lectura.
+    - `sqlite_interlinear_test` PASS: Heb 4:16 en una Biblia exclusivamente
+      SQLite, UTF-8 y recorte de espacios, referencia/módulo intactos y
+      manejo de referencias vacías, pasaje ausente y módulo inexistente.
+    - `compare_canonical_body_test` PASS: lectura real de SpaPlatense mediante
+      el mismo helper, sin comentarios añadidos ni cambio de clave SWORD.
+      Ambas pruebas ejecutadas (2/2), `biblia-elim` compila y
+      `git diff --check` pasa. Heb 4:16 existe en el ManningES local.
+    - El diálogo distingue un pasaje ausente en la Biblia seleccionada de
+      no tener una Biblia abierta.
+
 - [x] EDITION-101 Crear una Biblia propia e instalable desde una fuente autorizada
   - Status: DONE
   - Description: Crear una Biblia completa y editable a partir de un módulo

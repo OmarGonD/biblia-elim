@@ -67,7 +67,7 @@ add_library (main
   morfologia.c
   glosa.c
   racha.c
-  texto_verso.c
+  texto_verso.cc
   tiempo_lectura.c
   recordatorio.c
   versiculo_dia.c

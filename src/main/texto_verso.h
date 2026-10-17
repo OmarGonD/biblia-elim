@@ -19,11 +19,8 @@
 extern "C" {
 #endif
 
-/* main_get_striptext() le mueve la clave al módulo, y esa es la misma
- * que el lector tiene puesta en la ventana: pedirle un pasaje de paso
- * -- el versículo del día, el tiempo de la lectura, una tarjeta de
- * memorización -- le arrastraba la lectura hasta allí. Esto lo pide y
- * se la devuelve donde estaba.
+/* Lee el cuerpo del versículo mediante BibleBackend (SQLite o SWORD),
+ * sin incluir notas/comentarios ni cambiar la referencia de la lectura.
  *
  * Devuelve el texto sin marcas y sin espacios sobrantes, o NULL si no
  * hay Biblia abierta o el módulo no da ese pasaje. g_free(). */
