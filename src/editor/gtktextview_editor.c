@@ -27,6 +27,7 @@
 #include <fcntl.h>
 
 #include <glib.h>
+#include <glib/gstdio.h>
 #include <glib/gi18n.h>
 #include <gio/gio.h>
 #include <gtk/gtk.h>
@@ -35,6 +36,7 @@
 #include "editor/gtktextview_editor.h"
 #include "editor/docx_import.h"
 #include "editor/study_library.h"
+#include "editor/study_document_export.h"
 #include "editor/link_dialog.h"
 #include "gui/table_helpers.h"
 
@@ -61,15 +63,21 @@ BUTTONS_STATE buttons_state;
 static GList *editors_all = NULL;
 
 /* forward declarations */
-static void _load_file(EDITOR *e, const gchar *filename);
-static void _save_file(EDITOR *e);
+static gboolean _load_file(EDITOR *e, const gchar *filename);
+static gboolean _save_file(EDITOR *e, gboolean force_dialog);
+static void _load_text_into_buffer(EDITOR *e, const gchar *text);
 static void _save_note(EDITOR *e);
 static void _save_book(EDITOR *e);
 static void study_organize_dialog(EDITOR *e);
 static void study_library_dialog(EDITOR *e);
+static void study_template_dialog(EDITOR *e);
+static void study_history_dialog(EDITOR *e);
+static void study_export_document(EDITOR *e, gboolean as_pdf);
+static void study_insert_current_citation(EDITOR *e);
 static gboolean editor_is_dirty(EDITOR *e);
 static void do_exit(EDITOR *e);
 static void change_window_title(GtkWidget *window, const gchar *title);
+static void editor_update_title(EDITOR *e, const gchar *title);
 GtkWidget *editor_new(const gchar *title, EDITOR *e);
 static void _setup_text_tags(GtkTextBuffer *buffer);
 static gboolean _on_key_press(GtkWidget *widget, GuiKeyEvent *event, EDITOR *e);
@@ -139,6 +147,15 @@ static void
 change_window_title(GtkWidget *window, const gchar *title)
 {
 	gtk_window_set_title(GTK_WINDOW(window), title);
+}
+
+static void
+editor_update_title(EDITOR *e, const gchar *title)
+{
+	if (e->embedded && e->title_label)
+		gtk_label_set_text(GTK_LABEL(e->title_label), title);
+	else if (e->window)
+		change_window_title(e->window, title);
 }
 
 static gboolean
@@ -379,6 +396,103 @@ _serialize_buffer(EDITOR *e)
     return g_string_free(html, FALSE);
 }
 
+static gchar *
+study_recovery_path(void)
+{
+	gchar *directory = g_build_filename(g_get_user_data_dir(), "biblia-elim",
+					    "recovery", NULL);
+	gchar *path = g_build_filename(directory, "studypad.html", NULL);
+	g_free(directory);
+	return path;
+}
+
+static gchar *
+study_recovery_source_path(void)
+{
+	gchar *directory = g_build_filename(g_get_user_data_dir(), "biblia-elim",
+					    "recovery", NULL);
+	gchar *path = g_build_filename(directory, "source-path", NULL);
+	g_free(directory);
+	return path;
+}
+
+static void
+study_recovery_clear(EDITOR *e)
+{
+	gchar *content, *source;
+	if (!e || !e->embedded)
+		return;
+	content = study_recovery_path();
+	source = study_recovery_source_path();
+	g_remove(content);
+	g_remove(source);
+	g_free(content);
+	g_free(source);
+}
+
+static gboolean
+study_autosave_cb(gpointer data)
+{
+	EDITOR *e = data;
+	gchar *content_path, *source_path, *directory, *html;
+	GError *error = NULL;
+	gboolean saved = FALSE;
+
+	if (!e->embedded || !e->studypad)
+		return G_SOURCE_CONTINUE;
+	if (!e->is_changed) {
+		e->autosave_source = 0;
+		return G_SOURCE_REMOVE;
+	}
+	content_path = study_recovery_path();
+	source_path = study_recovery_source_path();
+	directory = g_path_get_dirname(content_path);
+	html = _serialize_buffer(e);
+	if (g_mkdir_with_parents(directory, 0700) == 0 &&
+	    g_file_set_contents(content_path, html, -1, &error)) {
+		saved = g_file_set_contents(source_path,
+					    e->filename ? e->filename : "", -1,
+					    &error);
+	}
+	if (!saved && error) {
+		g_warning("StudyPad autosave failed: %s", error->message);
+		g_clear_error(&error);
+	}
+	g_free(html);
+	g_free(directory);
+	g_free(content_path);
+	g_free(source_path);
+	return G_SOURCE_CONTINUE;
+}
+
+static void
+study_recovery_offer(EDITOR *e)
+{
+	gchar *content_path, *source_path, *html = NULL, *source = NULL;
+	if (!e->embedded || !e->studypad)
+		return;
+	content_path = study_recovery_path();
+	source_path = study_recovery_source_path();
+	if (g_file_get_contents(content_path, &html, NULL, NULL) &&
+	    g_file_get_contents(source_path, &source, NULL, NULL) &&
+	    g_strcmp0(source, e->filename ? e->filename : "") == 0 && html && *html) {
+		if (gui_yes_no_dialog(
+			_("Se encontró un borrador recuperable de tu estudio. ¿Quieres restaurarlo?"),
+			"document-save-symbolic")) {
+			_load_text_into_buffer(e, html);
+			e->is_changed = TRUE;
+			editor_update_title(e, _("Estudio recuperado"));
+		} else {
+			study_recovery_clear(e);
+		}
+	} else if (g_file_test(content_path, G_FILE_TEST_EXISTS))
+		study_recovery_clear(e);
+	g_free(html);
+	g_free(source);
+	g_free(content_path);
+	g_free(source_path);
+}
+
 /* ============================================================
  * Load content into the buffer
  * ============================================================ */
@@ -545,21 +659,13 @@ if (body)
  * File I/O
  * ============================================================ */
 
-static void
+static gboolean
 _load_file(EDITOR *e, const gchar *filename)
 {
 	gchar *text = NULL;
 	GError *error = NULL;
 	gboolean imported_docx = g_str_has_suffix(filename, ".docx") ||
 		g_str_has_suffix(filename, ".DOCX");
-
-	if (e->filename)
-		g_free(e->filename);
-	e->filename = g_strdup(filename);
-
-	xml_set_value("Xiphos", "studypad", "lastfile", e->filename);
-	settings.studypadfilename = xml_get_value("studypad", "lastfile");
-	change_window_title(e->window, e->filename);
 
 	if (imported_docx)
 		text = study_docx_to_html(filename, &error);
@@ -571,27 +677,59 @@ _load_file(EDITOR *e, const gchar *filename)
 				    &text, NULL, &error);
 	if (error) {
 		XI_message(("_load_file error: %s", error->message));
+		gchar *message = g_strdup_printf(
+			_("No se pudo abrir el estudio: %s"), error->message);
+		gui_generic_warning(message);
+		g_free(message);
 		g_error_free(error);
+		g_free(text);
+		return FALSE;
 	}
 
 	_load_text_into_buffer(e, text ? text : "");
 	if (text)
 		g_free(text);
+	if (e->filename)
+		g_free(e->filename);
+	e->filename = g_strdup(filename);
 	/* Never overwrite an uploaded Word source with StudyPad HTML. */
 	if (imported_docx) {
 		g_free(e->filename);
 		e->filename = g_strdup(_("Untitled document"));
-		change_window_title(e->window, _("StudyPad — imported Word document"));
+		if (e->save_suggestion)
+			g_free(e->save_suggestion);
+		gchar *base = g_path_get_basename(filename);
+		gsize base_len = strlen(base);
+		if (base_len >= 5)
+			base[base_len - 5] = '\0';
+		e->save_suggestion = g_strdup_printf("%s.study.html", base);
+		g_free(base);
+		e->is_changed = TRUE;
+		editor_update_title(e, _("StudyPad — imported Word document"));
+	} else {
+		g_clear_pointer(&e->save_suggestion, g_free);
+		editor_update_title(e, e->filename);
 	}
+	xml_set_value("Xiphos", "studypad", "lastfile", e->filename);
+	g_free(settings.studypadfilename);
+	settings.studypadfilename = xml_get_value("studypad", "lastfile");
+	if (settings.fnconfigure)
+		xml_save_settings_doc(settings.fnconfigure);
+	return TRUE;
 }
 
-static void
-_save_file(EDITOR *e)
+static gboolean
+_save_file(EDITOR *e, gboolean force_dialog)
 {
 	gchar *text = _serialize_buffer(e);
+	gchar *chosen = NULL;
+	const gchar *filename = e->filename;
+	GError *error = NULL;
+	gboolean saved;
+	gboolean choose_path = force_dialog || !filename ||
+		(0 == g_strcmp0(_("Untitled document"), filename));
 
-	if (!e->filename ||
-	    (0 == g_strcmp0(_("Untitled document"), e->filename))) {
+	if (choose_path) {
 
 		GtkWidget *dialog =
 		    gtk_file_chooser_dialog_new(_("Save as"),
@@ -602,34 +740,81 @@ _save_file(EDITOR *e)
 						NULL);
 		gui_file_chooser_set_current_folder(GTK_FILE_CHOOSER(dialog),
 						    settings.studypaddir);
-
-		if (gui_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_OK) {
-			gchar *filename =
-			    gui_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
-			if (e->filename)
-				g_free(e->filename);
-			e->filename = g_strdup(filename);
-			GFile *gfile = g_file_parse_name(filename);
-			g_file_replace_contents(gfile, text, strlen(text),
-						NULL, TRUE,
-						G_FILE_CREATE_NONE,
-						NULL, NULL, NULL);
-			g_free(filename);
-			g_object_unref(gfile);
+		if (e->type == STUDYPAD_EDITOR) {
+			GtkFileFilter *html_filter = gtk_file_filter_new();
+			gtk_file_filter_set_name(html_filter, _("Estudios HTML (*.html)"));
+			gtk_file_filter_add_pattern(html_filter, "*.html");
+			gtk_file_filter_add_pattern(html_filter, "*.htm");
+			gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(dialog), html_filter);
+			gtk_file_chooser_set_filter(GTK_FILE_CHOOSER(dialog), html_filter);
+			g_object_unref(html_filter);
+			gtk_file_chooser_set_current_name(GTK_FILE_CHOOSER(dialog),
+				e->save_suggestion ? e->save_suggestion : _("Estudio.html"));
 		}
-		change_window_title(e->window, e->filename);
-		gui_widget_destroy(dialog);
 
-	} else {
-		GFile *gfile = g_file_parse_name(e->filename);
-		g_file_replace_contents(gfile, text, strlen(text),
-					NULL, TRUE,
-					G_FILE_CREATE_NONE,
-					NULL, NULL, NULL);
-		g_object_unref(gfile);
+		if (gui_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_OK)
+			chosen = gui_file_chooser_get_filename(
+				GTK_FILE_CHOOSER(dialog));
+		gui_widget_destroy(dialog);
+		if (!chosen) {
+			g_free(text);
+			return FALSE;
+		}
+		filename = chosen;
 	}
 
+	if (e->type == STUDYPAD_EDITOR && chosen &&
+	    strlen(chosen) >= 5 &&
+	    g_ascii_strcasecmp(chosen + strlen(chosen) - 5, ".docx") == 0) {
+		/* Keep the imported Word source intact; StudyPad saves its editable
+		 * document as HTML rather than writing HTML bytes into a DOCX archive. */
+		gchar *message = g_strdup(_("Guarda el estudio como HTML para conservar intacto el documento Word original."));
+		gui_generic_warning(message);
+		g_free(message);
+		g_free(chosen);
+		g_free(text);
+		return FALSE;
+	}
+	if (e->type == STUDYPAD_EDITOR && g_file_test(filename, G_FILE_TEST_IS_REGULAR)) {
+		GError *history_error = NULL;
+		if (!study_history_snapshot(filename, &history_error)) {
+			gchar *message = g_strdup_printf(
+				_("No se pudo guardar una versión anterior: %s"),
+				history_error ? history_error->message : _("error desconocido"));
+			gui_generic_warning(message);
+			g_free(message);
+			g_clear_error(&history_error);
+		}
+	}
+	GFile *gfile = g_file_parse_name(filename);
+	saved = g_file_replace_contents(gfile, text, strlen(text), NULL, TRUE,
+					G_FILE_CREATE_NONE, NULL, NULL, &error);
+	g_object_unref(gfile);
+	if (!saved) {
+		gchar *message = g_strdup_printf(
+			_("No se pudo guardar el estudio: %s"),
+			error ? error->message : _("error desconocido"));
+		gui_generic_warning(message);
+		g_free(message);
+		g_clear_error(&error);
+		g_free(chosen);
+		g_free(text);
+		return FALSE;
+	}
+
+	if (chosen) {
+		g_free(e->filename);
+		e->filename = g_strdup(chosen);
+		editor_update_title(e, e->filename);
+		xml_set_value("Xiphos", "studypad", "lastfile", e->filename);
+		g_free(settings.studypadfilename);
+		settings.studypadfilename = xml_get_value("studypad", "lastfile");
+		if (settings.fnconfigure)
+			xml_save_settings_doc(settings.fnconfigure);
+	}
+	g_clear_pointer(&e->save_suggestion, g_free);
 	e->is_changed = FALSE;
+	study_recovery_clear(e);
 	if (e->filename && *e->filename &&
 	    g_strcmp0(e->filename, _("Untitled document")) != 0 && settings.gSwordDir) {
 		StudyLibraryEntry entry = { 0 };
@@ -639,7 +824,9 @@ _save_file(EDITOR *e)
 			study_library_entry_clear(&entry);
 		}
 	}
+	g_free(chosen);
 	g_free(text);
+	return TRUE;
 }
 
 static void
@@ -687,7 +874,12 @@ static void
 study_library_row_activated(GtkListBox *list, GtkListBoxRow *row, EDITOR *e)
 {
 	const gchar *path = g_object_get_data(G_OBJECT(row), "study-path");
-	if (path) _load_file(e, path);
+	if (e->is_changed && ask_about_saving(e) == GS_CANCEL)
+		return;
+	if (path && !_load_file(e, path))
+		return;
+	if (path)
+		study_recovery_clear(e);
 	gui_widget_destroy(GTK_WIDGET(gtk_widget_get_ancestor(GTK_WIDGET(list), GTK_TYPE_WINDOW)));
 }
 
@@ -751,13 +943,19 @@ _save_book(EDITOR *e)
 static void
 do_exit(EDITOR *e)
 {
+	if (e->autosave_source) {
+		g_source_remove(e->autosave_source);
+		e->autosave_source = 0;
+	}
+	study_recovery_clear(e);
 	if (e->filename)
 		g_free(e->filename);
+	g_free(e->save_suggestion);
 	if (e->module)
 		g_free(e->module);
 	if (e->key)
 		g_free(e->key);
-	if (e->window)
+	if (e->window && !e->embedded)
 		gui_widget_destroy(e->window);
 	g_free(e);
 }
@@ -870,8 +1068,8 @@ ask_about_saving(EDITOR *e)
 	case STUDYPAD_EDITOR:
 		retval = study_save_confirmation(e);
 		test = retval;
-		if (test == GS_YES)
-			_save_file(e);
+		if (test == GS_YES && !_save_file(e, FALSE))
+			retval = GS_CANCEL;
 		break;
 	}
 	sync_windows();
@@ -980,10 +1178,11 @@ action_delete_item_activate_cb(GtkWidget *widget, EDITOR *e)
 G_MODULE_EXPORT void
 action_new_activate_cb(GtkWidget *widget, EDITOR *e)
 {
-	if (e->is_changed)
-		ask_about_saving(e);
+	if (e->is_changed && ask_about_saving(e) == GS_CANCEL)
+		return;
 
 	_load_text_into_buffer(e, "");
+	g_clear_pointer(&e->save_suggestion, g_free);
 
 	if (e->filename)
 		g_free(e->filename);
@@ -991,13 +1190,15 @@ action_new_activate_cb(GtkWidget *widget, EDITOR *e)
 
 	xml_set_value("Xiphos", "studypad", "lastfile", e->filename);
 	settings.studypadfilename = xml_get_value("studypad", "lastfile");
-	change_window_title(e->window, e->filename);
+	editor_update_title(e, e->filename);
 	e->is_changed = TRUE;
 }
 
 G_MODULE_EXPORT void
 action_open_activate_cb(GtkWidget *widget, EDITOR *e)
 {
+	if (e->is_changed && ask_about_saving(e) == GS_CANCEL)
+		return;
 	GtkWidget *dialog =
 	    gtk_file_chooser_dialog_new(_("Open"), GTK_WINDOW(e->window),
 					GTK_FILE_CHOOSER_ACTION_OPEN,
@@ -1020,10 +1221,294 @@ action_open_activate_cb(GtkWidget *widget, EDITOR *e)
 	if (gui_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
 		gchar *filename =
 		    gui_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
-		_load_file(e, filename);
+		if (_load_file(e, filename))
+			study_recovery_clear(e);
 		g_free(filename);
 	}
 	gui_widget_destroy(dialog);
+}
+
+G_MODULE_EXPORT void
+action_import_word_activate_cb(GtkWidget *widget, EDITOR *e)
+{
+	GtkWidget *dialog;
+	GtkFileFilter *filter;
+
+	(void)widget;
+	if (e->is_changed && ask_about_saving(e) == GS_CANCEL)
+		return;
+	dialog = gtk_file_chooser_dialog_new(
+		_("Importar documento Word"), GTK_WINDOW(e->window),
+		GTK_FILE_CHOOSER_ACTION_OPEN,
+		_("Cancelar"), GTK_RESPONSE_CANCEL,
+		_("Importar"), GTK_RESPONSE_ACCEPT,
+		NULL);
+	gui_file_chooser_set_current_folder(GTK_FILE_CHOOSER(dialog),
+					    settings.studypaddir);
+	filter = gtk_file_filter_new();
+	gtk_file_filter_set_name(filter, _("Documentos Word (*.docx)"));
+	gtk_file_filter_add_pattern(filter, "*.docx");
+	gtk_file_filter_add_pattern(filter, "*.DOCX");
+	gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(dialog), filter);
+	gtk_file_chooser_set_filter(GTK_FILE_CHOOSER(dialog), filter);
+	g_object_unref(filter);
+	if (gui_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
+		gchar *filename = gui_file_chooser_get_filename(
+			GTK_FILE_CHOOSER(dialog));
+		if (filename) {
+			if (_load_file(e, filename))
+				study_recovery_clear(e);
+			g_free(filename);
+		}
+	}
+	gui_widget_destroy(dialog);
+}
+
+static void
+study_template_dialog(EDITOR *e)
+{
+	static const gchar *names[] = {
+		"Estudio inductivo", "Sermón", "Estudio devocional",
+		"Lectura y reflexión", NULL
+	};
+	static const gchar *templates[] = {
+		"<h1>Estudio inductivo</h1><h2>Pasaje</h2><br/><h2>Observación</h2><br/><h2>Interpretación</h2><br/><h2>Aplicación</h2><br/><h2>Oración</h2><br/>",
+		"<h1>Sermón</h1><h2>Título</h2><br/><h2>Texto base</h2><br/><h2>Idea central</h2><br/><h2>Introducción</h2><br/><h2>I. Primer punto</h2><br/><h2>II. Segundo punto</h2><br/><h2>III. Tercer punto</h2><br/><h2>Conclusión</h2><br/>",
+		"<h1>Estudio devocional</h1><h2>Lectura</h2><br/><h2>¿Qué revela de Dios?</h2><br/><h2>¿Qué me enseña?</h2><br/><h2>¿Cómo responderé?</h2><br/><h2>Oración</h2><br/>",
+		"<h1>Lectura y reflexión</h1><h2>Pasaje</h2><br/><h2>Notas</h2><br/><h2>Preguntas</h2><br/><h2>Conclusiones</h2><br/>"
+	};
+	GtkWidget *dialog = gtk_dialog_new();
+	GtkWidget *content = gtk_dialog_get_content_area(GTK_DIALOG(dialog));
+	GtkWidget *choice = gtk_drop_down_new_from_strings(names);
+	gtk_window_set_title(GTK_WINDOW(dialog), _("Plantillas de estudio"));
+	gtk_window_set_transient_for(GTK_WINDOW(dialog), GTK_WINDOW(e->window));
+	gtk_window_set_modal(GTK_WINDOW(dialog), TRUE);
+	gtk_widget_set_margin_top(content, 16);
+	gtk_widget_set_margin_bottom(content, 12);
+	gtk_widget_set_margin_start(content, 18);
+	gtk_widget_set_margin_end(content, 18);
+	GtkWidget *label = gtk_label_new(
+		_("Elige una estructura para comenzar un nuevo estudio."));
+	gtk_label_set_xalign(GTK_LABEL(label), 0.0);
+	gtk_box_append(GTK_BOX(content), label);
+	gtk_box_append(GTK_BOX(content), choice);
+	gtk_dialog_add_button(GTK_DIALOG(dialog), _("Cancelar"), GTK_RESPONSE_CANCEL);
+	gtk_dialog_add_button(GTK_DIALOG(dialog), _("Usar plantilla"), GTK_RESPONSE_ACCEPT);
+	gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_ACCEPT);
+	if (gui_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
+		gint selected = gtk_drop_down_get_selected(GTK_DROP_DOWN(choice));
+		if (selected < G_N_ELEMENTS(templates) &&
+		    (!e->is_changed || ask_about_saving(e) != GS_CANCEL)) {
+			_load_text_into_buffer(e, templates[selected]);
+			study_recovery_clear(e);
+			g_clear_pointer(&e->save_suggestion, g_free);
+			g_free(e->filename);
+			e->filename = g_strdup(_("Untitled document"));
+			xml_set_value("Xiphos", "studypad", "lastfile", e->filename);
+			g_free(settings.studypadfilename);
+			settings.studypadfilename = xml_get_value("studypad", "lastfile");
+			e->is_changed = TRUE;
+			editor_update_title(e, names[selected]);
+		}
+	}
+	gui_widget_destroy(dialog);
+}
+
+static void
+study_history_dialog(EDITOR *e)
+{
+	if (!e->filename || !*e->filename ||
+	    g_strcmp0(e->filename, _("Untitled document")) == 0) {
+		gui_generic_warning(_("Guarda el estudio para empezar a crear su historial."));
+		return;
+	}
+	GPtrArray *versions = study_history_list(e->filename);
+	if (!versions->len) {
+		g_ptr_array_unref(versions);
+		gui_generic_warning(_("Este estudio todavía no tiene versiones anteriores."));
+		return;
+	}
+	GtkWidget *dialog = gtk_dialog_new();
+	GtkWidget *content = gtk_dialog_get_content_area(GTK_DIALOG(dialog));
+	GtkWidget *scroll = gtk_scrolled_window_new();
+	GtkWidget *list = gtk_list_box_new();
+	gtk_window_set_title(GTK_WINDOW(dialog), _("Historial del estudio"));
+	gtk_window_set_transient_for(GTK_WINDOW(dialog), GTK_WINDOW(e->window));
+	gtk_window_set_modal(GTK_WINDOW(dialog), TRUE);
+	gtk_window_set_default_size(GTK_WINDOW(dialog), 480, 360);
+	gtk_widget_set_vexpand(scroll, TRUE);
+	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scroll), list);
+	gtk_box_append(GTK_BOX(content), scroll);
+	for (guint i = 0; i < versions->len; i++) {
+		const gchar *path = g_ptr_array_index(versions, i);
+		GFile *file = g_file_new_for_path(path);
+		GFileInfo *info = g_file_query_info(file,
+			"time::modified", G_FILE_QUERY_INFO_NONE, NULL, NULL);
+		guint64 modified = info ? g_file_info_get_attribute_uint64(
+			info, G_FILE_ATTRIBUTE_TIME_MODIFIED) : 0;
+		GDateTime *date = g_date_time_new_from_unix_local(modified);
+		gchar *stamp = g_date_time_format(date, "%Y-%m-%d %H:%M:%S");
+		GtkWidget *row = gtk_list_box_row_new();
+		GtkWidget *label = gtk_label_new(stamp);
+		gtk_label_set_xalign(GTK_LABEL(label), 0.0);
+		gtk_widget_set_margin_start(label, 10);
+		gtk_widget_set_margin_top(label, 8);
+		gtk_widget_set_margin_bottom(label, 8);
+		gtk_list_box_row_set_child(GTK_LIST_BOX_ROW(row), label);
+		g_object_set_data_full(G_OBJECT(row), "history-path",
+				       g_strdup(path), g_free);
+		gtk_list_box_append(GTK_LIST_BOX(list), row);
+		if (date) g_date_time_unref(date);
+		g_free(stamp);
+		g_clear_object(&info);
+		g_object_unref(file);
+	}
+	gtk_list_box_select_row(GTK_LIST_BOX(list),
+				gtk_list_box_get_row_at_index(GTK_LIST_BOX(list), 0));
+	gtk_dialog_add_button(GTK_DIALOG(dialog), _("Cancelar"), GTK_RESPONSE_CANCEL);
+	gtk_dialog_add_button(GTK_DIALOG(dialog), _("Restaurar versión"), GTK_RESPONSE_ACCEPT);
+	if (gui_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
+		GtkListBoxRow *row = gtk_list_box_get_selected_row(GTK_LIST_BOX(list));
+		const gchar *selected = row ? g_object_get_data(G_OBJECT(row),
+									"history-path") : NULL;
+		if (selected && (!e->is_changed || ask_about_saving(e) != GS_CANCEL)) {
+			gchar *html = NULL;
+			if (g_file_get_contents(selected, &html, NULL, NULL)) {
+				_load_text_into_buffer(e, html);
+				e->is_changed = TRUE;
+				editor_update_title(e, _("Versión restaurada"));
+				g_free(html);
+			}
+		}
+	}
+	gui_widget_destroy(dialog);
+	g_ptr_array_unref(versions);
+}
+
+static void
+study_export_document(EDITOR *e, gboolean as_pdf)
+{
+	GtkWidget *dialog = gtk_file_chooser_dialog_new(
+		as_pdf ? _("Exportar estudio a PDF") : _("Exportar estudio a Word"),
+		GTK_WINDOW(e->window), GTK_FILE_CHOOSER_ACTION_SAVE,
+		_("Cancelar"), GTK_RESPONSE_CANCEL,
+		_("Exportar"), GTK_RESPONSE_ACCEPT, NULL);
+	GtkFileFilter *filter = gtk_file_filter_new();
+	const gchar *extension = as_pdf ? ".pdf" : ".docx";
+	gtk_file_filter_set_name(filter, as_pdf ? _("Documento PDF") : _("Documento Word (*.docx)"));
+	gtk_file_filter_add_pattern(filter, as_pdf ? "*.pdf" : "*.docx");
+	gtk_file_filter_add_pattern(filter, as_pdf ? "*.PDF" : "*.DOCX");
+	gtk_file_chooser_add_filter(GTK_FILE_CHOOSER(dialog), filter);
+	gtk_file_chooser_set_filter(GTK_FILE_CHOOSER(dialog), filter);
+	g_object_unref(filter);
+	gui_file_chooser_set_current_folder(GTK_FILE_CHOOSER(dialog), settings.studypaddir);
+	gchar *base = e->filename && g_strcmp0(e->filename, _("Untitled document")) != 0
+		? g_path_get_basename(e->filename) : g_strdup(_("Estudio"));
+	gchar *dot = strrchr(base, '.');
+	if (dot) *dot = '\0';
+	gchar *suggested = g_strconcat(base, extension, NULL);
+	gtk_file_chooser_set_current_name(GTK_FILE_CHOOSER(dialog), suggested);
+	g_free(suggested);
+	g_free(base);
+	if (gui_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
+		gchar *path = gui_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
+		if (path) {
+			gchar *lower = g_ascii_strdown(path, -1);
+			if (!g_str_has_suffix(lower, extension)) {
+				gchar *extended = g_strconcat(path, extension, NULL);
+				g_free(path);
+				path = extended;
+			}
+			GError *error = NULL;
+			gchar *html = _serialize_buffer(e);
+			gboolean ok = as_pdf
+				? study_document_export_pdf(html, path, &error)
+				: study_document_export_docx(html, path, &error);
+			if (!ok) {
+				gchar *message = g_strdup_printf(
+					_("No se pudo exportar el estudio: %s"),
+					error ? error->message : _("error desconocido"));
+				gui_generic_warning(message);
+				g_free(message);
+				g_clear_error(&error);
+			}
+			g_free(html);
+			g_free(lower);
+			g_free(path);
+		}
+	}
+	gui_widget_destroy(dialog);
+}
+
+static void
+study_insert_current_citation(EDITOR *e)
+{
+	if (!settings.MainWindowModule || !settings.currentverse ||
+	    !*settings.currentverse) {
+		gui_generic_warning(_("No hay un pasaje bíblico activo para citar."));
+		return;
+	}
+	gchar *module = (gchar *)main_url_encode(settings.MainWindowModule);
+	gchar *reference = (gchar *)main_url_encode(settings.currentverse);
+	gchar *uri = g_strdup_printf(
+		"passagestudy.jsp?action=showRef&type=scripRef&module=%s&value=%s",
+		module ? module : "", reference ? reference : "");
+	gchar *tag_name = g_strdup_printf("sword_link_%s", uri);
+	GtkTextBuffer *buffer = _get_buffer(e);
+	GtkTextIter start, end;
+	if (gtk_text_buffer_get_selection_bounds(buffer, &start, &end))
+		gtk_text_buffer_delete(buffer, &start, &end);
+	gtk_text_buffer_get_iter_at_mark(buffer, &start,
+					 gtk_text_buffer_get_insert(buffer));
+	GtkTextTagTable *table = gtk_text_buffer_get_tag_table(buffer);
+	GtkTextTag *tag = gtk_text_tag_table_lookup(table, tag_name);
+	if (!tag) {
+		tag = gtk_text_buffer_create_tag(buffer, tag_name,
+						"foreground", "#285a86",
+						"underline", PANGO_UNDERLINE_SINGLE, NULL);
+		g_object_set_data_full(G_OBJECT(tag), "uri", g_strdup(uri), g_free);
+	}
+	gtk_text_buffer_insert_with_tags(buffer, &start, settings.currentverse, -1,
+					 tag, NULL);
+	g_free(tag_name);
+	g_free(uri);
+	g_free(reference);
+	g_free(module);
+}
+
+static void
+on_template_clicked(GtkButton *button, EDITOR *e)
+{
+	(void)button;
+	study_template_dialog(e);
+}
+
+static void
+on_history_clicked(GtkButton *button, EDITOR *e)
+{
+	(void)button;
+	study_history_dialog(e);
+}
+
+static void
+on_export_docx_clicked(GtkButton *button, EDITOR *e)
+{
+	(void)button;
+	study_export_document(e, FALSE);
+}
+
+static void
+on_export_pdf_clicked(GtkButton *button, EDITOR *e)
+{
+	(void)button;
+	study_export_document(e, TRUE);
+}
+
+static void
+on_insert_citation_clicked(GtkButton *button, EDITOR *e)
+{
+	(void)button;
+	study_insert_current_citation(e);
 }
 
 G_MODULE_EXPORT void
@@ -1031,7 +1516,7 @@ action_save_activate_cb(GtkWidget *widget, EDITOR *e)
 {
 	switch (e->type) {
 	case STUDYPAD_EDITOR:
-		_save_file(e);
+		_save_file(e, FALSE);
 		break;
 	case NOTE_EDITOR:
 		_save_note(e);
@@ -1048,10 +1533,7 @@ action_save_activate_cb(GtkWidget *widget, EDITOR *e)
 G_MODULE_EXPORT void
 action_save_as_activate_cb(GtkWidget *widget, EDITOR *e)
 {
-	if (e->filename)
-		g_free(e->filename);
-	e->filename = NULL;
-	_save_file(e);
+	_save_file(e, TRUE);
 }
 
 G_MODULE_EXPORT void
@@ -1323,6 +1805,8 @@ static void
 _on_buffer_changed(GtkTextBuffer *buffer, EDITOR *e)
 {
 	e->is_changed = TRUE;
+	if (e->embedded && !e->autosave_source)
+		e->autosave_source = g_timeout_add_seconds(2, study_autosave_cb, e);
 }
 
 /* ============================================================
@@ -1412,10 +1896,10 @@ create_editor_window(GtkWidget *scrollwindow, EDITOR *e)
 
 	gtk_text_view_set_editable(GTK_TEXT_VIEW(textview), TRUE);
 	gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(textview), GTK_WRAP_WORD_CHAR);
-	gtk_text_view_set_left_margin(GTK_TEXT_VIEW(textview), 64);
-	gtk_text_view_set_right_margin(GTK_TEXT_VIEW(textview), 64);
-	gtk_text_view_set_top_margin(GTK_TEXT_VIEW(textview), 36);
-	gtk_text_view_set_bottom_margin(GTK_TEXT_VIEW(textview), 48);
+	gtk_text_view_set_left_margin(GTK_TEXT_VIEW(textview), 48);
+	gtk_text_view_set_right_margin(GTK_TEXT_VIEW(textview), 48);
+	gtk_text_view_set_top_margin(GTK_TEXT_VIEW(textview), 30);
+	gtk_text_view_set_bottom_margin(GTK_TEXT_VIEW(textview), 40);
 	gtk_widget_add_css_class(textview, "studypad-document");
 	gtk_widget_show(textview);
 
@@ -1458,7 +1942,7 @@ editor_new(const gchar *title, EDITOR *e)
 	builder = elim_gtk_builder_new();
 
 	if (!gtk_builder_add_from_resource(builder,
-					    "/org/xiphos/ui/gtk_tvedit.gtkbuilder",
+					    "/org/bibliaelim/ui/gtk_tvedit.gtkbuilder",
 					    &error)) {
 		g_warning("Couldn't load builder file: %s", error->message);
 		g_error_free(error);
@@ -1493,7 +1977,8 @@ editor_new(const gchar *title, EDITOR *e)
 
 	switch (e->type) {
 	case STUDYPAD_EDITOR:
-		gtk_widget_hide(GTK_WIDGET(e->toolitems.deletedoc));
+		if (e->toolitems.deletedoc)
+			gtk_widget_hide(GTK_WIDGET(e->toolitems.deletedoc));
 		/* GTK4 has no GtkRecentChooserMenu.  Recent files will be
 		 * exposed through a GMenu action in a later editor pass. */
 		recent_item = NULL;
@@ -1503,6 +1988,8 @@ editor_new(const gchar *title, EDITOR *e)
 			gtk_widget_hide(GTK_WIDGET(e->toolitems.open));
 		if (e->toolitems.newdoc)
 			gtk_widget_hide(GTK_WIDGET(e->toolitems.newdoc));
+		gtk_widget_hide(GTK_WIDGET(gtk_builder_get_object(
+			builder, "toolbutton_import_word")));
 		if (item)
 			gtk_widget_hide(GTK_WIDGET(item));
 		break;
@@ -1511,6 +1998,8 @@ editor_new(const gchar *title, EDITOR *e)
 			gtk_widget_hide(GTK_WIDGET(e->toolitems.open));
 		if (e->toolitems.newdoc)
 			gtk_widget_hide(GTK_WIDGET(e->toolitems.newdoc));
+		gtk_widget_hide(GTK_WIDGET(gtk_builder_get_object(
+			builder, "toolbutton_import_word")));
 		if (item)
 			gtk_widget_hide(GTK_WIDGET(item));
 		break;
@@ -1526,8 +2015,19 @@ editor_new(const gchar *title, EDITOR *e)
 
 	/* GTK4 removed gtk_builder_connect_signals(); connect the editor
 	 * controls explicitly so Builder remains declarative and type-safe. */
-	g_signal_connect(e->window, "close-request",
-			 G_CALLBACK(editor_close_request_cb), e);
+	if (!e->embedded)
+		g_signal_connect(e->window, "close-request",
+				 G_CALLBACK(editor_close_request_cb), e);
+	if (e->type != STUDYPAD_EDITOR) {
+		const gchar *study_controls[] = {
+			"toolbutton_insert_citation", "toolbutton_template",
+			"toolbutton_history", "toolbutton_export_docx",
+			"toolbutton_export_pdf", NULL
+		};
+		for (guint i = 0; study_controls[i]; i++)
+			gtk_widget_hide(GTK_WIDGET(gtk_builder_get_object(
+				builder, study_controls[i])));
+	}
 	g_signal_connect(e->toolitems.bold, "toggled",
 			 G_CALLBACK(action_bold_activate_cb), e);
 	g_signal_connect(e->toolitems.italic, "toggled",
@@ -1540,20 +2040,31 @@ editor_new(const gchar *title, EDITOR *e)
 			 G_CALLBACK(action_new_activate_cb), e);
 	g_signal_connect(e->toolitems.open, "clicked",
 			 G_CALLBACK(action_open_activate_cb), e);
+	g_signal_connect(gtk_builder_get_object(builder, "toolbutton_import_word"),
+			 "clicked", G_CALLBACK(action_import_word_activate_cb), e);
 	g_signal_connect(gtk_builder_get_object(builder, "toolbutton_save"),
 			 "clicked", G_CALLBACK(action_save_activate_cb), e);
 	g_signal_connect_swapped(gtk_builder_get_object(builder, "toolbutton_library"),
 			 "clicked", G_CALLBACK(study_library_dialog), e);
 	g_signal_connect_swapped(gtk_builder_get_object(builder, "toolbutton_organize"),
 			 "clicked", G_CALLBACK(study_organize_dialog), e);
+	g_signal_connect(gtk_builder_get_object(builder, "toolbutton_template"),
+			 "clicked", G_CALLBACK(on_template_clicked), e);
+	g_signal_connect(gtk_builder_get_object(builder, "toolbutton_history"),
+			 "clicked", G_CALLBACK(on_history_clicked), e);
+	g_signal_connect(gtk_builder_get_object(builder, "toolbutton_export_docx"),
+			 "clicked", G_CALLBACK(on_export_docx_clicked), e);
+	g_signal_connect(gtk_builder_get_object(builder, "toolbutton_export_pdf"),
+			 "clicked", G_CALLBACK(on_export_pdf_clicked), e);
 	g_signal_connect(gtk_builder_get_object(builder, "toolbutton_cut"),
 			 "clicked", G_CALLBACK(action_cut_activate_cb), e);
 	g_signal_connect(gtk_builder_get_object(builder, "toolbutton_copy"),
 			 "clicked", G_CALLBACK(action_copy_activate_cb), e);
 	g_signal_connect(gtk_builder_get_object(builder, "toolbutton_paste"),
 			 "clicked", G_CALLBACK(action_paste_activate_cb), e);
-	g_signal_connect(e->toolitems.deletedoc, "clicked",
-			 G_CALLBACK(action_delete_item_activate_cb), e);
+	if (e->toolitems.deletedoc)
+		g_signal_connect(e->toolitems.deletedoc, "clicked",
+				 G_CALLBACK(action_delete_item_activate_cb), e);
 	g_signal_connect(gtk_builder_get_object(builder, "toolbutton_find"),
 			 "clicked", G_CALLBACK(action_find_activate_cb), e);
 	g_signal_connect(gtk_builder_get_object(builder, "toolbutton_replace"),
@@ -1562,6 +2073,8 @@ editor_new(const gchar *title, EDITOR *e)
 			 "clicked", G_CALLBACK(action_insert_image_activate_cb), e);
 	g_signal_connect(gtk_builder_get_object(builder, "toolbutton_sword_link"),
 			 "clicked", G_CALLBACK(action_insert_sword_link_activate_cb), e);
+	g_signal_connect(gtk_builder_get_object(builder, "toolbutton_insert_citation"),
+			 "clicked", G_CALLBACK(on_insert_citation_clicked), e);
 	g_signal_connect(e->toolitems.color, "notify::rgba",
 			 G_CALLBACK(colorbutton1_color_set_cb), e);
 	g_signal_connect(gtk_builder_get_object(builder, "colorbutton_highlight"),
@@ -1590,6 +2103,51 @@ editor_new(const gchar *title, EDITOR *e)
 
 	g_object_unref(builder);
 	return window;
+}
+
+GtkWidget *
+editor_create_embedded_studypad(GtkWindow *parent, GtkWidget **title_label_out)
+{
+	EDITOR *editor = g_new0(EDITOR, 1);
+	GtkWidget *window, *contents, *label;
+
+	editor->studypad = TRUE;
+	editor->type = STUDYPAD_EDITOR;
+	editor->embedded = TRUE;
+	editor->sync = FALSE;
+	window = editor_new(_("StudyPad"), editor);
+	contents = editor->box;
+	/* Keep the builder's root alive while it is detached from its temporary
+	 * window. The main window becomes the owner of all editor dialogs. */
+	g_object_ref(contents);
+	gtk_window_set_child(GTK_WINDOW(window), NULL);
+	gtk_window_destroy(GTK_WINDOW(window));
+	gtk_widget_show(contents);
+	editor->window = GTK_WIDGET(parent);
+
+	label = gtk_label_new(_("Estudio nuevo"));
+	gtk_label_set_xalign(GTK_LABEL(label), 0.0);
+	gtk_label_set_ellipsize(GTK_LABEL(label), PANGO_ELLIPSIZE_END);
+	gtk_widget_set_hexpand(label, TRUE);
+	gtk_widget_add_css_class(label, "study-editor-title");
+	editor->title_label = label;
+	if (title_label_out)
+		*title_label_out = label;
+	if (!editor->filename)
+		editor->filename = g_strdup(_("Untitled document"));
+	if (settings.studypadfilename &&
+	    g_strcmp0(settings.studypadfilename, _("Untitled document")) != 0 &&
+	    g_file_test(settings.studypadfilename, G_FILE_TEST_IS_REGULAR)) {
+		gchar *last_file = g_strdup(settings.studypadfilename);
+		_load_file(editor, last_file);
+		g_free(last_file);
+	} else {
+		editor_update_title(editor, _("Estudio nuevo"));
+	}
+	editors_all = g_list_append(editors_all, editor);
+	editor->is_changed = FALSE;
+	study_recovery_offer(editor);
+	return contents;
 }
 
 /* ============================================================
@@ -1626,7 +2184,7 @@ editor_load_note(EDITOR *e, const gchar *module_name, const gchar *key)
 	}
 
 	title = g_strdup_printf("%s - %s", e->module, e->key);
-	change_window_title(e->window, title);
+	editor_update_title(e, title);
 	g_free(title);
 }
 
@@ -1648,7 +2206,7 @@ editor_load_book(EDITOR *e)
 		g_free(text);
 
 	title = g_strdup_printf("%s", e->module);
-	change_window_title(e->window, title);
+	editor_update_title(e, title);
 	g_free(title);
 	e->is_changed = FALSE;
 }
@@ -1673,17 +2231,65 @@ editor_sync_with_main(void)
 	}
 }
 
-void
+gboolean
 editor_maybe_save_all(void)
 {
-	GList *tmp, *tmp2;
-
-	tmp = g_list_first(editors_all);
-	while (tmp != NULL) {
-		tmp2 = g_list_next(tmp);
-		delete_event(NULL, NULL, (EDITOR *)tmp->data);
-		tmp = tmp2;
+	GHashTable *choices = g_hash_table_new(g_direct_hash, g_direct_equal);
+	GList *tmp;
+	for (tmp = g_list_first(editors_all); tmp; tmp = g_list_next(tmp)) {
+		EDITOR *e = tmp->data;
+		gint response;
+		if (!e->is_changed)
+			continue;
+		response = ask_about_saving(e);
+		if (response == GS_CANCEL) {
+			g_hash_table_destroy(choices);
+			return FALSE;
+		}
+		g_hash_table_insert(choices, e, GINT_TO_POINTER(response + 1));
 	}
+
+	while (editors_all) {
+		EDITOR *e = editors_all->data;
+		gpointer stored = g_hash_table_lookup(choices, e);
+		if (stored && GPOINTER_TO_INT(stored) - 1 == GS_NO)
+			e->is_changed = FALSE;
+		delete_event(NULL, NULL, e);
+	}
+	g_hash_table_destroy(choices);
+	return TRUE;
+}
+
+gboolean
+editor_close_embedded_studypad(GtkWidget *contents)
+{
+	GList *node;
+
+	if (!contents)
+		return FALSE;
+	for (node = editors_all; node; node = node->next) {
+		EDITOR *e = node->data;
+		GtkWidget *parent;
+		GtkWidget *root;
+
+		if (!e->embedded || !e->studypad || e->box != contents)
+			continue;
+		if (e->is_changed && ask_about_saving(e) == GS_CANCEL)
+			return FALSE;
+
+		root = e->box;
+		parent = gtk_widget_get_parent(root);
+		if (parent && !GTK_IS_BOX(parent))
+			return FALSE;
+		g_object_ref(root);
+		if (parent)
+			gtk_box_remove(GTK_BOX(parent), root);
+		editors_all = g_list_delete_link(editors_all, node);
+		do_exit(e);
+		g_object_unref(root);
+		return TRUE;
+	}
+	return FALSE;
 }
 
 static gint
@@ -1694,6 +2300,9 @@ _create_new(const gchar *filename, const gchar *key, gint editor_type)
 
 	editor = g_new(EDITOR, 1);
 	editor->text_widget = NULL;
+	editor->save_suggestion = NULL;
+	editor->title_label = NULL;
+	editor->embedded = FALSE;
 	editor->sync = FALSE;
 	editor->type = editor_type;
 
@@ -1712,7 +2321,6 @@ _create_new(const gchar *filename, const gchar *key, gint editor_type)
 		gtk_widget_show(editor->window);
 		gtk_window_present(GTK_WINDOW(editor->window));
 		if (filename) {
-			editor->filename = g_strdup(filename);
 			_load_file(editor, filename);
 		}
 		break;
@@ -1792,12 +2400,15 @@ editor_create_new(const gchar *filename, const gchar *key,
 		switch (editor_type) {
 		case STUDYPAD_EDITOR:
 			if (e->studypad) {
+				if (filename) {
+					if (editor_is_dirty(e) &&
+					    ask_about_saving(e) == GS_CANCEL)
+						return 1;
+					if (!_load_file(e, filename))
+						return 1;
+				}
 				gtk_widget_show(e->window);
 				gtk_window_present(GTK_WINDOW(e->window));
-				if (filename) {
-					if (editor_is_dirty(e)) _save_file(e);
-					_load_file(e, filename);
-				}
 				return 1;
 			}
 			break;

@@ -16,25 +16,27 @@
             <property name="orientation">vertical</property>
             <style><class name="studypad-ribbon"/></style>
             <child>
-              <object class="GtkBox" id="ribbon_tabs">
-                <property name="spacing">2</property>
-                <property name="margin-start">14</property>
-                <property name="margin-top">6</property>
-                <child><object class="GtkLabel"><property name="label">MIS ESTUDIOS</property><style><class name="ribbon-brand"/></style></object></child>
-                <child><object class="GtkToggleButton"><property name="label">Inicio</property><property name="active">True</property><style><class name="ribbon-tab"/></style></object></child>
-                <child><object class="GtkButton"><property name="label">Insertar</property><style><class name="ribbon-tab"/></style></object></child>
-                <child><object class="GtkButton"><property name="label">Vista</property><style><class name="ribbon-tab"/></style></object></child>
-              </object>
-            </child>
-            <child>
-              <object class="GtkBox" id="toolbar1">
-                <property name="spacing">10</property>
-                <property name="margin-start">14</property><property name="margin-end">14</property>
-                <property name="margin-top">6</property><property name="margin-bottom">8</property>
+              <object class="GtkFlowBox" id="command_flow">
+                <property name="selection-mode">none</property>
+                <property name="homogeneous">False</property>
+                <property name="min-children-per-line">1</property>
+                <property name="max-children-per-line">2</property>
+                <property name="row-spacing">2</property>
+                <property name="column-spacing">0</property>
+                <property name="halign">start</property>
+                <style><class name="studypad-command-flow"/></style>
+                <child>
+                  <object class="GtkFlowBoxChild">
+                    <child>
+                      <object class="GtkBox" id="toolbar1">
+                <property name="spacing">5</property>
+                <property name="margin-start">8</property><property name="margin-end">8</property>
+                <property name="margin-top">2</property><property name="margin-bottom">2</property>
                 <child><object class="GtkBox"><property name="orientation">vertical</property><style><class name="ribbon-group"/></style>
                   <child><object class="GtkBox"><property name="spacing">3</property>
                     <child><object class="GtkButton" id="toolbutton_new"><property name="label">Nuevo</property><property name="icon-name">document-new-symbolic</property><property name="tooltip-text">Crear estudio</property></object></child>
                     <child><object class="GtkButton" id="toolbutton_open"><property name="label">Abrir</property><property name="icon-name">document-open-symbolic</property><property name="tooltip-text">Abrir estudio o Word (.docx)</property></object></child>
+                    <child><object class="GtkButton" id="toolbutton_import_word"><property name="label">Word</property><property name="icon-name">x-office-document-symbolic</property><property name="tooltip-text">Importar un documento Word (.docx) como estudio editable</property></object></child>
                     <child><object class="GtkButton" id="toolbutton_save"><property name="icon-name">media-floppy-symbolic</property><property name="tooltip-text">Guardar el estudio (Ctrl+S)</property><style><class name="studypad-save-primary"/></style></object></child>
                   </object></child><child><object class="GtkLabel"><property name="label">Archivo</property><style><class name="ribbon-group-title"/></style></object></child>
                 </object></child>
@@ -51,31 +53,44 @@
                   <child><object class="GtkBox"><property name="spacing">3</property>
                     <child><object class="GtkButton" id="toolbutton_image"><property name="label">Imagen</property><property name="icon-name">insert-image-symbolic</property></object></child>
                     <child><object class="GtkButton" id="toolbutton_sword_link"><property name="label">Versículo</property><property name="icon-name">insert-link-symbolic</property><property name="tooltip-text">Insertar enlace bíblico</property></object></child>
+                    <child><object class="GtkButton" id="toolbutton_insert_citation"><property name="label">Cita actual</property><property name="icon-name">bookmark-new-symbolic</property><property name="tooltip-text">Insertar una referencia vinculada al pasaje actual</property></object></child>
                   </object></child><child><object class="GtkLabel"><property name="label">Insertar</property><style><class name="ribbon-group-title"/></style></object></child>
                 </object></child>
                 <child><object class="GtkBox"><property name="orientation">vertical</property><style><class name="ribbon-group"/></style>
                   <child><object class="GtkBox"><property name="spacing">3</property>
                     <child><object class="GtkButton" id="toolbutton_library"><property name="label">Biblioteca</property><property name="icon-name">folder-symbolic</property></object></child>
                     <child><object class="GtkButton" id="toolbutton_organize"><property name="label">Organizar</property><property name="icon-name">tag-symbolic</property></object></child>
+                    <child><object class="GtkButton" id="toolbutton_template"><property name="label">Plantilla</property><property name="icon-name">document-properties-symbolic</property><property name="tooltip-text">Crear un estudio desde una plantilla</property></object></child>
+                    <child><object class="GtkButton" id="toolbutton_history"><property name="label">Historial</property><property name="icon-name">document-open-recent-symbolic</property><property name="tooltip-text">Ver y restaurar versiones anteriores</property></object></child>
                   </object></child><child><object class="GtkLabel"><property name="label">Estudios</property><style><class name="ribbon-group-title"/></style></object></child>
                 </object></child>
-              </object>
-            </child>
-            <child>
-              <object class="GtkBox" id="toolbar2">
-                <property name="spacing">10</property>
-                <property name="margin-start">14</property><property name="margin-end">14</property><property name="margin-bottom">10</property>
+                <child><object class="GtkBox"><property name="orientation">vertical</property><style><class name="ribbon-group"/></style>
+                  <child><object class="GtkBox"><property name="spacing">3</property>
+                    <child><object class="GtkButton" id="toolbutton_export_docx"><property name="label">Word</property><property name="icon-name">x-office-document-symbolic</property><property name="tooltip-text">Exportar el estudio como documento Word</property></object></child>
+                    <child><object class="GtkButton" id="toolbutton_export_pdf"><property name="label">PDF</property><property name="icon-name">application-pdf-symbolic</property><property name="tooltip-text">Exportar el estudio como PDF</property></object></child>
+                  </object></child><child><object class="GtkLabel"><property name="label">Exportar</property><style><class name="ribbon-group-title"/></style></child>
+                </object></child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkFlowBoxChild">
+                    <child>
+                      <object class="GtkBox" id="toolbar2">
+                <property name="spacing">5</property>
+                <property name="margin-start">8</property><property name="margin-end">8</property><property name="margin-bottom">3</property>
                 <child><object class="GtkBox"><property name="orientation">vertical</property><style><class name="ribbon-group"/></style>
                   <child><object class="GtkBox"><property name="spacing">3</property>
                     <child><object class="GtkToggleButton" id="toolbutton_bold"><property name="icon-name">format-text-bold-symbolic</property><property name="tooltip-text">Negrita</property><style><class name="ribbon-format-button"/></style></object></child>
                     <child><object class="GtkToggleButton" id="toolbutton_italic"><property name="icon-name">format-text-italic-symbolic</property><property name="tooltip-text">Cursiva</property><style><class name="ribbon-format-button"/></style></object></child>
-                    <child><object class="GtkToggleButton" id="toolbuttonunderline"><property name="icon-name">format-text-underline-symbolic</property><property name="tooltip-text">Subrayado</property><style><class name="ribbon-format-button"/></style></object></child>
+                    <child><object class="GtkToggleButton" id="toolbuttonunderline"><property name="tooltip-text">Subrayado</property><property name="child"><object class="GtkLabel"><property name="label">&lt;u&gt;U&lt;/u&gt;</property><property name="use-markup">True</property></object></property><style><class name="ribbon-format-button"/><class name="ribbon-underline-button"/></style></object></child>
                     <child><object class="GtkToggleButton" id="toolbutton_strikethrough"><property name="icon-name">format-text-strikethrough-symbolic</property><property name="tooltip-text">Tachado</property></object></child>
                     <child><object class="GtkDropDown" id="comboboxtext1"><property name="model"><object class="GtkStringList"><items>
                       <item>Normal</item><item>Encabezado 1</item><item>Encabezado 2</item><item>Encabezado 3</item><item>Encabezado 4</item><item>Encabezado 5</item><item>Encabezado 6</item><item>Dirección</item><item>Preformateado</item><item>Lista con viñetas</item><item>Lista romana</item><item>Lista numerada</item><item>Lista alfabética</item>
                     </items></object></property></object></child>
-                    <child><object class="GtkColorDialogButton" id="colorbutton1"><property name="tooltip-text">Color del texto</property></object></child>
-                    <child><object class="GtkColorDialogButton" id="colorbutton_highlight"><property name="tooltip-text">Resaltado</property></object></child>
+                    <child><object class="GtkOverlay" id="text_color_picker_overlay"><property name="width-request">38</property><property name="height-request">28</property><child><object class="GtkColorDialogButton" id="colorbutton1"><property name="width-request">38</property><property name="height-request">28</property><property name="tooltip-text">Color del texto</property></object></child><child type="overlay"><object class="GtkLabel"><property name="label">A</property><property name="can-target">False</property><style><class name="ribbon-text-color-glyph"/></style></object></child></object></child>
+                    <child><object class="GtkColorDialogButton" id="colorbutton_highlight"><property name="width-request">38</property><property name="height-request">24</property><property name="tooltip-text">Resaltado</property></object></child>
                   </object></child><child><object class="GtkLabel"><property name="label">Fuente y estilo</property><style><class name="ribbon-group-title"/></style></object></child>
                 </object></child>
                 <child><object class="GtkBox"><property name="orientation">vertical</property><style><class name="ribbon-group"/></style>
@@ -86,6 +101,10 @@
                     <child><object class="GtkButton" id="toolbutton_align_justify"><property name="icon-name">format-justify-fill-symbolic</property><property name="tooltip-text">Justificar</property></object></child>
                   </object></child><child><object class="GtkLabel"><property name="label">Párrafo</property><style><class name="ribbon-group-title"/></style></object></child>
                 </object></child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
               </object>
             </child>
           </object>

@@ -1,8 +1,10 @@
 #include "editor/study_library.h"
 
 #include <errno.h>
+#include <glib/gstdio.h>
 
 #define LIBRARY_FILE "study-library.ini"
+#define STUDY_HISTORY_LIMIT 20
 
 static gchar *library_path(const gchar *root)
 {
@@ -124,4 +126,71 @@ GPtrArray *study_library_list(const gchar *root, GError **error)
 	g_strfreev(groups);
 	g_key_file_unref(key);
 	return entries;
+}
+
+static gchar *history_directory(const gchar *path)
+{
+	gchar *digest = g_compute_checksum_for_string(G_CHECKSUM_SHA256, path, -1);
+	gchar *directory = g_build_filename(g_get_user_data_dir(), "biblia-elim",
+					    "study-history", digest, NULL);
+	g_free(digest);
+	return directory;
+}
+
+static gint history_path_newest_first(gconstpointer a, gconstpointer b)
+{
+	return -g_strcmp0(*(gchar * const *)a, *(gchar * const *)b);
+}
+
+GPtrArray *study_history_list(const gchar *path)
+{
+	GPtrArray *versions = g_ptr_array_new_with_free_func(g_free);
+	if (!path || !*path)
+		return versions;
+	gchar *directory = history_directory(path);
+	GDir *dir = g_dir_open(directory, 0, NULL);
+	if (dir) {
+		const gchar *name;
+		while ((name = g_dir_read_name(dir))) {
+			if (!g_str_has_suffix(name, ".html"))
+				continue;
+			gchar *version = g_build_filename(directory, name, NULL);
+			g_ptr_array_add(versions, version);
+		}
+		g_dir_close(dir);
+	}
+	g_ptr_array_sort(versions, history_path_newest_first);
+	g_free(directory);
+	return versions;
+}
+
+gboolean study_history_snapshot(const gchar *path, GError **error)
+{
+	gchar *contents = NULL;
+	gsize length = 0;
+	if (!path || !g_file_get_contents(path, &contents, &length, error))
+		return FALSE;
+	gchar *directory = history_directory(path);
+	if (g_mkdir_with_parents(directory, 0700) != 0) {
+		g_set_error_literal(error, G_FILE_ERROR, G_FILE_ERROR_FAILED,
+				    "No se pudo crear el historial del estudio.");
+		g_free(contents);
+		g_free(directory);
+		return FALSE;
+	}
+	gchar *name = g_strdup_printf("%020" G_GINT64_FORMAT ".html",
+				      g_get_real_time());
+	gchar *snapshot = g_build_filename(directory, name, NULL);
+	gboolean ok = g_file_set_contents(snapshot, contents, length, error);
+	g_free(name);
+	g_free(snapshot);
+	g_free(contents);
+	if (ok) {
+		GPtrArray *versions = study_history_list(path);
+		for (guint i = STUDY_HISTORY_LIMIT; i < versions->len; i++)
+			g_remove(g_ptr_array_index(versions, i));
+		g_ptr_array_unref(versions);
+	}
+	g_free(directory);
+	return ok;
 }

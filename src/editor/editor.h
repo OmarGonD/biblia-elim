@@ -57,6 +57,7 @@ struct _editor
 	GtkWidget *html_widget;
 	GtkWidget *statusbar;
 	GtkWidget *text_widget;  // For GtkTextView
+	GtkWidget *title_label;  // Embedded StudyPad document title
 	GtkWidget *navbar_box;   // For navbar
 	GtkWidget *box;          // For main vbox
 	TOOL_ITEMS toolitems;
@@ -70,8 +71,11 @@ struct _editor
 	gboolean bookeditor;
 	gboolean is_changed;
 	gboolean sync;
+	gboolean embedded;
 
 	gchar *filename;
+	gchar *save_suggestion;
+	guint autosave_source;
 	gchar *module;
 	gchar *key;
 };
@@ -90,8 +94,11 @@ gint editor_create_new(const gchar *filename, const gchar *key,
 		       gint note);
 void editor_open_studypad(void);
 void editor_save_book(EDITOR *e);
-void editor_maybe_save_all(void);
+gboolean editor_maybe_save_all(void);
+gboolean editor_close_embedded_studypad(GtkWidget *contents);
 GtkWidget *editor_new(const gchar *title, EDITOR *e);
+GtkWidget *editor_create_embedded_studypad(GtkWindow *parent,
+					   GtkWidget **title_label_out);
 
 #ifdef __cplusplus
 }
