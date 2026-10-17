@@ -166,7 +166,7 @@ main_testimonios_init(void)
 		return;
 	cargado = TRUE;
 
-	bytes = g_resources_lookup_data("/org/xiphos/ui/testimonios-elim.xml",
+	bytes = g_resources_lookup_data("/org/bibliaelim/ui/testimonios-elim.xml",
 					G_RESOURCE_LOOKUP_FLAGS_NONE, NULL);
 	if (!bytes)
 		return;

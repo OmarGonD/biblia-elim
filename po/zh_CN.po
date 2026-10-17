@@ -1,14 +1,14 @@
-# Additional Biblia Elim interface translations: see po/elim/.
-# Chinese (Simplified) translation for xiphos
+# Additional Ministerios Elim interface translations: see po/elim/.
+# Chinese (Simplified) translation for Ministerios Elim
 # Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
-# This file is distributed under the same license as the xiphos package.
+# This file is distributed under the same license as the Ministerios Elim package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Biblia Elim 1\n"
+"Project-Id-Version: Ministerios Elim 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-20 09:16-0500\n"
+"POT-Creation-Date: 2026-10-08 11:06-0500\n"
 "PO-Revision-Date: 2010-09-29 22:04+0100\n"
 "Last-Translator: Peter von Kaehne <refdoc@crosswire.org>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
@@ -100,7 +100,7 @@ msgid "Are you sure you want to delete the note for"
 msgstr "你是否要删除相关笔记"
 
 msgid "Open"
-msgstr "打开"
+msgstr "打开(_O)"
 
 msgid "Studies and Word documents"
 msgstr "研读文档和 Word 文档"
@@ -272,10 +272,10 @@ msgid ""
 "in personal mode, to share within a small group;\n"
 "or as either speaker or audience in a formal lecture setting.\n"
 "\n"
-"There are options for how BibleSync behaves in Xiphos:\n"
+"There are options for how BibleSync behaves in Ministerios Elim:\n"
 "- To follow others' navigation directly or indirectly.\n"
 "- To send your navigation every time or only via keyboard.\n"
-"- To select speakers to whom Xiphos should listen.\n"
+"- To select speakers to whom Ministerios Elim should listen.\n"
 "\n"
 "A simple chat capability provides brief messages to be shared as well.\n"
 "\n"
@@ -297,29 +297,26 @@ msgid "BibleSync technical details"
 msgstr "BibleSync 技术详情"
 
 msgid ""
-"Do you like using Xiphos to study the Bible? Would you like to see its user "
-"interface in your native language? You could translate Xiphos! \n"
+"Do you like using Ministerios Elim to study the Bible? Would you like to see its "
+"user interface in your native language? You could translate Ministerios Elim! \n"
 "\n"
-"We are always looking for contributions of new translations of Xiphos into "
-"other languages. If you are able to translate for us, please see the link "
-"below, contact us, and get involved with our efforts. Your help will be much "
-"appreciated!"
+"We are always looking for contributions of new translations of Ministerios Elim "
+"into other languages. If you are able to translate for us, please see the "
+"link below, contact us, and get involved with our efforts. Your help will be "
+"much appreciated!"
 msgstr ""
-"您喜欢使用 Xiphos 研读圣经吗？您可以帮助将界面翻译成自己的语言。\n"
+"您喜欢使用 Ministerios Elim 研读圣经吗？您可以帮助将界面翻译成自己的语言。\n"
 "\n"
 "欢迎贡献新译文。请通过下方链接查看说明并参与翻译。"
 
-msgid "About Xiphos Translation"
-msgstr "关于 Biblia Elim 翻译"
+msgid "About Ministerios Elim Translation"
+msgstr "关于 Ministerios Elim 翻译"
 
-msgid "See TRANSLATION-HOWTO in Xiphos source"
-msgstr "请参考 Biblia Elim 资源中的 翻译指南"
+msgid "See TRANSLATION-HOWTO in Ministerios Elim source"
+msgstr "请参考 Ministerios Elim 资源中的 翻译指南"
 
-msgid "Xiphos development"
-msgstr "Biblia Elim 开发项目"
-
-msgid "Copyright © 2000-2026 Xiphos Development Team"
-msgstr "版权所有 © 2000-2026 Xiphos 开发团队"
+msgid "Ministerios Elim development"
+msgstr "Ministerios Elim 开发项目"
 
 msgid "Datos del texto griego (TAGNT)"
 msgstr "希腊语文本数据（TAGNT）"
@@ -762,60 +759,6 @@ msgid "No se ha importado nada."
 msgstr "未导入任何内容。"
 
 #, c-format
-msgid "%u nota nueva."
-msgid_plural "%u notas nuevas."
-msgstr[0] "%u 条新笔记。"
-
-#, c-format
-msgid " %u de ellas va junto a otra nota tuya del mismo versículo."
-msgid_plural " %u de ellas van junto a otra nota tuya del mismo versículo."
-msgstr[0] " %u 条将与同一经节的另一条笔记放在一起。"
-
-#, c-format
-msgid ""
-"\n"
-"%u ya estaba."
-msgid_plural ""
-"\n"
-"%u ya estaban."
-msgstr[0] ""
-"\n"
-"%u 条已存在。"
-
-#, c-format
-msgid ""
-"\n"
-"%u enlace nuevo."
-msgid_plural ""
-"\n"
-"%u enlaces nuevos."
-msgstr[0] ""
-"\n"
-"%u 个新链接。"
-
-#, c-format
-msgid ""
-"\n"
-"%u subrayado o enlace distinto del tuyo: se conservó el tuyo."
-msgid_plural ""
-"\n"
-"%u subrayados o enlaces distintos de los tuyos: se conservaron los tuyos."
-msgstr[0] ""
-"\n"
-"%u 个高亮或链接不同：保留了您的内容。"
-
-#, c-format
-msgid ""
-"\n"
-"%u entrada no válida, ignorada."
-msgid_plural ""
-"\n"
-"%u entradas no válidas, ignoradas."
-msgstr[0] ""
-"\n"
-"忽略了 %u 个无效条目。"
-
-#, c-format
 msgid ""
 "\n"
 "\n"
@@ -860,7 +803,7 @@ msgid "Cerrar panel de comentarios y notas"
 msgstr "关闭注释和笔记面板"
 
 msgid "_OK"
-msgstr "确定(_O)"
+msgstr "确定"
 
 msgid "_Yes"
 msgstr "是(_Y)"
@@ -872,7 +815,7 @@ msgid "_No"
 msgstr "否(_N)"
 
 msgid "_Cancel"
-msgstr "取消(_C)"
+msgstr "取消"
 
 msgid "Close without Saving"
 msgstr "关闭而不保存(_W)"
@@ -985,14 +928,14 @@ msgstr "确定"
 msgid "Cannot open the display"
 msgstr "无法打开显示器"
 
-msgid "BUG! Biblia Elim is about to crash due to a \"STRDUP\" error."
-msgstr "囧！Biblia Elim由于“STRDUP”错误而崩溃。"
+msgid "BUG! Ministerios Elim is about to crash due to a \"STRDUP\" error."
+msgstr "囧！Ministerios Elim由于“STRDUP”错误而崩溃。"
 
-msgid "Please report this error to the Biblia Elim team with:"
-msgstr "请向Biblia Elim小组报告这个错误:"
+msgid "Please report this error to the Ministerios Elim team with:"
+msgstr "请向Ministerios Elim小组报告这个错误:"
 
-msgid "BUG! Biblia Elim is about to crash due to a \"STRING\" error."
-msgstr "囧！Biblia Elim由于“STRING”错误而崩溃。"
+msgid "BUG! Ministerios Elim is about to crash due to a \"STRING\" error."
+msgstr "囧！Ministerios Elim由于“STRING”错误而崩溃。"
 
 msgid "Desconocido"
 msgstr "未知"
@@ -1605,8 +1548,8 @@ msgstr "键盘快捷键(_K)"
 msgid "Informar de un _error"
 msgstr "报告错误(_R)"
 
-msgid "Acerca de _Biblia Elim"
-msgstr "关于 Biblia Elim(_B)"
+msgid "Acerca de _Ministerios Elim"
+msgstr "关于 Ministerios Elim(_B)"
 
 msgid "_SWORD"
 msgstr "SWORD(_S)"
@@ -1678,8 +1621,8 @@ msgstr "[要发送的消息]"
 msgid "Comment:"
 msgstr "注释："
 
-msgid "Biblia Elim: No windows."
-msgstr "Biblia Elim：没有窗口。"
+msgid "Ministerios Elim: No windows."
+msgstr "Ministerios Elim：没有窗口。"
 
 msgid "BibleSync: Current navigation sent."
 msgstr "BibleSync: 已送出目前的导播。"
@@ -1687,8 +1630,8 @@ msgstr "BibleSync: 已送出目前的导播。"
 msgid "BibleSync: Not speaking."
 msgstr "BibleSync: 非导播中。"
 
-msgid "Biblia Elim"
-msgstr "Biblia Elim"
+msgid "Ministerios Elim"
+msgstr "Ministerios Elim"
 
 msgid "Mostrar/ocultar panel lateral (Ctrl+S)"
 msgstr "显示/隐藏侧栏（Ctrl+S）"
@@ -1702,8 +1645,8 @@ msgstr "增大文字"
 msgid "Reducir tamaño del texto"
 msgstr "缩小文字"
 
-msgid "Open a new tab"
-msgstr "在新标签页中打开"
+msgid "Open another Bible in a new tab"
+msgstr "在新标签页中打开另一部圣经"
 
 msgid "Standard View"
 msgstr "标准试图"
@@ -1714,8 +1657,8 @@ msgstr "笔记"
 msgid "Devotional"
 msgstr "每日灵修"
 
-msgid "Bienvenido a Biblia Elim"
-msgstr "欢迎使用 Biblia Elim"
+msgid "Bienvenido a Ministerios Elim"
+msgstr "欢迎使用 Ministerios Elim"
 
 msgid "No se pudo leer el texto: abre una Biblia en la ventana principal."
 msgstr "无法读取文本：请在主窗口中打开一本圣经。"
@@ -1725,11 +1668,6 @@ msgstr "先凭记忆背诵，再显示原文。"
 
 msgid "hoy"
 msgstr "今天"
-
-#, c-format
-msgid "atrasado %d día"
-msgid_plural "atrasado %d días"
-msgstr[0] "逾期 %d 天"
 
 msgid "mañana"
 msgstr "明天"
@@ -1744,33 +1682,13 @@ msgstr "您尚未开始背诵经节"
 msgid "Nada que repasar hoy"
 msgstr "今天没有需要复习的内容"
 
-#, c-format
-msgid "%d versículo para repasar hoy"
-msgid_plural "%d versículos para repasar hoy"
-msgstr[0] "今天需复习 %d 节"
-
 msgid "Tus versículos"
 msgstr "您的经节"
-
-#, c-format
-msgid "Tus versículos · %d en total"
-msgid_plural "Tus versículos · %d en total"
-msgstr[0] "您的经节 · 共 %d 节"
 
 msgid ""
 "Esta semana todavía no has elegido ninguno. Uno por semana es un ritmo que "
 "se sostiene."
 msgstr "您本周尚未选择经节。每周一节是可以坚持的节奏。"
-
-#, c-format
-msgid "Esta semana ya elegiste %d."
-msgid_plural "Esta semana ya elegiste %d."
-msgstr[0] "您本周已选择 %d 节。"
-
-#, c-format
-msgid "  ·  %d en la última caja"
-msgid_plural "  ·  %d en la última caja"
-msgstr[0] "  ·  最后一盒有 %d 节"
 
 msgid "No hay ningún versículo abierto."
 msgstr "当前未打开经节。"
@@ -1825,7 +1743,7 @@ msgstr ""
 msgid ""
 "Renaming is not available in Windows.\n"
 "\n"
-"Xiphos is limited by Windows' filesystem,\n"
+"Ministerios Elim is limited by Windows' filesystem,\n"
 "because it disallows the renaming of filename\n"
 "components of currently-open files,\n"
 "such as the contents of this commentary.\n"
@@ -1834,7 +1752,7 @@ msgid ""
 msgstr ""
 "在 Windows 中重命名不可用。\n"
 "\n"
-"Biblia Elim 由于 Windows 文件系统的限制，\n"
+"Ministerios Elim 由于 Windows 文件系统的限制，\n"
 "因为它不允许将正在使用的文件改名，\n"
 "比如当前文档的注释。\n"
 "因此，个人注释的重新命名将无法在\n"
@@ -1855,8 +1773,8 @@ msgstr "名称: "
 msgid "Module names must contain [A-Za-z0-9_] only."
 msgstr "模块名称只能包含英文字母和数字。"
 
-msgid "Xiphos already knows a module by that name."
-msgstr "Biblia Elim 已经知道一个该名称的模块。"
+msgid "Ministerios Elim already knows a module by that name."
+msgstr "Ministerios Elim 已经知道一个该名称的模块。"
 
 #, c-format
 msgid ""
@@ -1901,16 +1819,16 @@ msgid "Números Strong"
 msgstr "Strong 编号"
 
 msgid "Lemas"
-msgstr "词元"
+msgstr "引理"
 
 msgid "Etiquetas morfológicas"
-msgstr "词形标签"
+msgstr "词法标签"
 
 msgid "Marcas de nota/referencia"
 msgstr "笔记/引用标记"
 
 msgid "Acentos griegos"
-msgstr "希腊语重音"
+msgstr "希腊口音"
 
 msgid "Vocales hebreas"
 msgstr "希伯来语元音"
@@ -1922,10 +1840,10 @@ msgid "Lectura principal"
 msgstr "主要读法"
 
 msgid "Lectura secundaria"
-msgstr "次要读法"
+msgstr "第二遍阅读"
 
 msgid "Todas las lecturas"
-msgstr "所有阅读"
+msgstr "所有的阅读"
 
 msgid "Variantes"
 msgstr "异文"
@@ -2023,15 +1941,15 @@ msgstr "此面板中并无模组。"
 msgid ""
 "<b>Overview of the Module Manager.</b>\n"
 "\n"
-"This is Xiphos' mechanism to get new and updated content.\n"
+"This is Ministerios Elim's mechanism to get new and updated content.\n"
 "If you have never been here before, please take a moment to look it over.\n"
 "\n"
 "Modules come from different <u>repositories</u>.  <b>Module Sources: Add/"
 "Remove</b> will show you what repositories are currently known.\n"
 "\n"
 "<b>Module Sources: Choose</b> is for deciding from where modules should "
-"come, that is, from which repository Xiphos should obtain them, as well as "
-"where they should be placed on your system. Set <i>Install Source</i> and "
+"come, that is, from which repository Ministerios Elim should obtain them, as well "
+"as where they should be placed on your system. Set <i>Install Source</i> and "
 "<i>Install Destination</i>, then click <i>Refresh</i>.\n"
 "\n"
 "<b>Modules: Install/Update</b> is for selecting and obtaining modules after "
@@ -2045,7 +1963,7 @@ msgid ""
 msgstr ""
 "<b>欢迎使用组件管理器。</b>\n"
 "\n"
-"这是 Biblia Elim 的一种获得新书卷和更新内容的机制。\n"
+"这是 Ministerios Elim 的一种获得新书卷和更新内容的机制。\n"
 "看来你从来没有来过这里，所以请花一点时间看看吧。\n"
 "(您只会在首次使用本程序时看到这个信息。)\n"
 "\n"
@@ -2064,14 +1982,14 @@ msgstr ""
 "件发送到用户的邮件列表。\n"
 
 msgid ""
-"<b>Welcome to Xiphos.</b>\n"
+"<b>Welcome to Ministerios Elim.</b>\n"
 "\n"
-"There are no Bibles installed. In order to initialize, Xiphos needs at least "
-"one Bible module. To facilitate this, the Module Manager has been opened so "
-"that you may install one or more Bibles, either from a local module set "
-"(cdrom, flash drive) or over the network from CrossWire Bible Society. "
-"Please refer to these step-by-step instructions, and to the general module "
-"manager overview that has also been opened.\n"
+"There are no Bibles installed. In order to initialize, Ministerios Elim needs at "
+"least one Bible module. To facilitate this, the Module Manager has been "
+"opened so that you may install one or more Bibles, either from a local "
+"module set (cdrom, flash drive) or over the network from CrossWire Bible "
+"Society. Please refer to these step-by-step instructions, and to the general "
+"module manager overview that has also been opened.\n"
 "\n"
 "<u>For local install:</u>\n"
 "- In <i>Module Sources: Add/Remove</i>, add a new local folder name where "
@@ -2096,9 +2014,9 @@ msgid ""
 "Both this step-by-step instruction dialog and the general introduction "
 "dialog may be closed at any time."
 msgstr ""
-"<b>欢迎使用 Biblia Elim。</b>\n"
+"<b>欢迎使用 Ministerios Elim。</b>\n"
 "\n"
-"目前尚未安装圣经模组。在启始使用时，Biblia Elim 需要起码一个圣经模组。为此模"
+"目前尚未安装圣经模组。在启始使用时，Ministerios Elim 需要起码一个圣经模组。为此模"
 "组管理员现已开启，让您安装一本或更多圣经的模组，即从本地的模组套（光碟机、随"
 "身碟）或从 CrossWire 圣经协会（CrossWire Bible Society）的网路下载。请依照逐"
 "步的指示，及参照已打开的总类模组管理工具的概览以兹说明。\n"
@@ -2189,9 +2107,6 @@ msgstr "删除"
 
 msgid "The module has no About information."
 msgstr "模块不包含关于信息。"
-
-msgid "Module Name"
-msgstr "模块名称"
 
 msgid "Installed"
 msgstr "已安装"
@@ -2315,9 +2230,6 @@ msgstr "更新远程数据源"
 msgid "Remote source not found"
 msgstr "远程数据源未找到"
 
-msgid "Type"
-msgstr "类型："
-
 msgid "Caption"
 msgstr "标题："
 
@@ -2345,6 +2257,9 @@ msgstr "添加/删除"
 msgid "Choose"
 msgstr "选择"
 
+msgid "Modules"
+msgstr "模块"
+
 msgid "Install/Update"
 msgstr "安转个/更新"
 
@@ -2359,17 +2274,17 @@ msgstr "您的模块清单不是最新的！"
 
 msgid ""
 "You have uninstalled your last Bible.\n"
-"Xiphos requires at least one."
+"Ministerios Elim requires at least one."
 msgstr ""
 "您刚刚删除了您的最后一本圣经。\n"
-"Biblia Elim 需要至少安装一本。"
+"Ministerios Elim 需要至少安装一本。"
 
 msgid ""
 "There are still no Bibles installed.\n"
-"Xiphos cannot continue without one."
+"Ministerios Elim cannot continue without one."
 msgstr ""
 "您仍然未安装任何圣经。\n"
-"Biblia Elim 由于缺少必要的书籍数据无法继续运行。"
+"Ministerios Elim 由于缺少必要的书籍数据无法继续运行。"
 
 #, c-format
 msgid ""
@@ -2398,9 +2313,6 @@ msgstr "请输入一个远程数据源"
 
 msgid "Caption:"
 msgstr "标题："
-
-msgid "Type:"
-msgstr "类型："
 
 msgid "Host:"
 msgstr "主机名："
@@ -2671,11 +2583,6 @@ msgid "Parallel View"
 msgstr "类似视图"
 
 #, c-format
-msgid "%d capítulo"
-msgid_plural "%d capítulos"
-msgstr[0] "%d 章"
-
-#, c-format
 msgid "%d capítulos"
 msgstr "%d 章"
 
@@ -2689,26 +2596,11 @@ msgid "Nuevo Testamento"
 msgstr "新约"
 
 #, c-format
-msgid "%s y %d libro más"
-msgid_plural "%s y %d libros más"
-msgstr[0] "%s 和另外 %d 卷"
-
-#, c-format
 msgid "%d de %s de %d"
 msgstr "%d %s %d"
 
 msgid "<i>Marca los libros que quieras leer.</i>"
 msgstr "<i>选中您想阅读的书卷。</i>"
-
-#, c-format
-msgid "%d libro"
-msgid_plural "%d libros"
-msgstr[0] "%d 卷"
-
-#, c-format
-msgid "%d día"
-msgid_plural "%d días"
-msgstr[0] "%d 天"
 
 #, c-format
 msgid "Si empiezas hoy, terminarías el %s."
@@ -2722,16 +2614,6 @@ msgstr "编辑计划"
 
 msgid "Guardar los cambios"
 msgstr "保存更改"
-
-#, c-format
-msgid ""
-"Llevas %d día marcado. Las marcas se quedan donde están: si cambias los "
-"libros o los días, el día 1 pasa a ser otra lectura."
-msgid_plural ""
-"Llevas %d días marcados. Las marcas se quedan donde están: si cambias los "
-"libros o los días, el día 1 pasa a ser otra lectura."
-msgstr[0] ""
-"您已标记 %d 天。标记保持原位：更改书卷或天数后，第 1 天的阅读会改变。"
 
 msgid "Mi plan"
 msgstr "我的计划"
@@ -2776,16 +2658,6 @@ msgid "Sin empezar · %d capítulos en total"
 msgstr "尚未开始 · 共 %d 章"
 
 #, c-format
-msgid "Toca el día %d · vas %d día por detrás del calendario"
-msgid_plural "Toca el día %d · vas %d días por detrás del calendario"
-msgstr[0] "应读第 %d 天 · 落后日历 %d 天"
-
-#, c-format
-msgid "Toca el día %d · vas %d día adelantado"
-msgid_plural "Toca el día %d · vas %d días adelantado"
-msgstr[0] "应读第 %d 天 · 提前 %d 天"
-
-#, c-format
 msgid "Toca el día %d · vas al día"
 msgstr "应读第 %d 天 · 进度正常"
 
@@ -2816,11 +2688,6 @@ msgid "¿Borrar el plan «%s» y lo que llevas leído de él?"
 msgstr "删除计划“%s”及其阅读进度吗？"
 
 #, c-format
-msgid "Vas %d día por detrás en «%s»."
-msgid_plural "Vas %d días por detrás en «%s»."
-msgstr[0] "您落后 %d 天，计划为“%s”。"
-
-#, c-format
 msgid ""
 "Del día %d al %d están sin marcar.\n"
 "\n"
@@ -2842,10 +2709,10 @@ msgid "Darlos por leídos"
 msgstr "标为已读"
 
 msgid ""
-"Aviso del escritorio, solo en este equipo. Llega aunque Biblia Elim esté "
+"Aviso del escritorio, solo en este equipo. Llega aunque Ministerios Elim esté "
 "cerrada. Si ya marcaste la lectura del día, no avisa."
 msgstr ""
-"仅在此电脑上显示的桌面提醒。即使 Biblia Elim 已关闭也会提醒；若当天阅读已标"
+"仅在此电脑上显示的桌面提醒。即使 Ministerios Elim 已关闭也会提醒；若当天阅读已标"
 "记，则不提醒。"
 
 msgid "Leído"
@@ -2901,6 +2768,9 @@ msgstr "-- 选择 --"
 msgid "Locale will take effect after restart."
 msgstr "重新启动后本地化设置才能生效。"
 
+msgid "Options"
+msgstr "选项"
+
 msgid "BibleSync"
 msgstr "BibleSync"
 
@@ -2912,6 +2782,9 @@ msgstr "颜色"
 
 msgid "Sizes and Faces"
 msgstr "大小与字体"
+
+msgid "Special"
+msgstr "指定"
 
 msgid "Idioma del sistema"
 msgstr "系统语言"
@@ -2975,11 +2848,6 @@ msgid "terminado · %d días"
 msgstr "已完成 · %d 天"
 
 #, c-format
-msgid "%d de %d días · %d por detrás"
-msgid_plural "%d de %d días · %d por detrás"
-msgstr[0] "%d / %d 天 · 落后 %d 天"
-
-#, c-format
 msgid "%d de %d días · al día"
 msgstr "%d / %d 天 · 按计划进行"
 
@@ -2995,11 +2863,6 @@ msgstr "还没有可统计的内容"
 msgid "Sin racha ahora mismo"
 msgstr "当前没有连续记录"
 
-#, c-format
-msgid "%d día seguido"
-msgid_plural "%d días seguidos"
-msgstr[0] "连续 %d 天"
-
 msgid ""
 "La constancia empieza a medirse con la primera lectura que marques. De lo de "
 "antes no hay registro: el progreso guardaba qué días del plan estaban "
@@ -3010,16 +2873,6 @@ msgstr ""
 
 msgid "Hoy todavía no. La racha sigue viva hasta medianoche.  ·  "
 msgstr "今天尚未阅读。连续记录保留至午夜。  ·  "
-
-#, c-format
-msgid "La más larga: %d día"
-msgid_plural "La más larga: %d días"
-msgstr[0] "最长：%d 天"
-
-#, c-format
-msgid "  ·  %d día con lectura"
-msgid_plural "  ·  %d días con lectura"
-msgstr[0] "  ·  阅读了 %d 天"
 
 #, c-format
 msgid "  ·  desde el %s"
@@ -3378,6 +3231,12 @@ msgstr "开启进阶搜寻(_O)"
 msgid "Open the separate Advanced Search dialog"
 msgstr "打开独立的高级搜索窗口"
 
+msgid "Search Module"
+msgstr "搜索模块"
+
+msgid "Search Type"
+msgstr "搜索类型"
+
 msgid "Optimized (\"Lucene\")"
 msgstr "已优化(\"Lucene\")"
 
@@ -3487,7 +3346,7 @@ msgid "Libro/capítulo"
 msgstr "书卷/章"
 
 msgid "Search"
-msgstr "搜索 (_S)"
+msgstr "搜索 ✓"
 
 msgid "Sidebar"
 msgstr "侧边栏"
@@ -3642,11 +3501,6 @@ msgstr ""
 "约瑟夫的全集可从模块管理器单独安装：“Josephus”是 Whiston 的英语译本，属于公有"
 "领域。"
 
-#, c-format
-msgid "%u fuente, y funciona sin internet."
-msgid_plural "%u fuentes, y funcionan sin internet."
-msgstr[0] "%u 项资料，无需联网。"
-
 msgid "No se pudo abrir «Jesús en la historia»."
 msgstr "无法打开“历史中的耶稣”。"
 
@@ -3711,18 +3565,13 @@ msgstr "十二月"
 
 msgid ""
 "An image file's size could not be determined.\n"
-"Xiphos cannot resize images to fit window."
+"Ministerios Elim cannot resize images to fit window."
 msgstr ""
 "未能确定此图片档案大小。\n"
-"Biblia Elim 未能依视窗大小调整图片。"
+"Ministerios Elim 未能依视窗大小调整图片。"
 
 msgid "Se guarda sola mientras escribes."
 msgstr "输入时自动保存。"
-
-#, c-format
-msgid "Se guarda sola · %d día con algo escrito."
-msgid_plural "Se guarda sola · %d días con algo escrito."
-msgstr[0] "自动保存 · 已记录 %d 天。"
 
 msgid "Tu reflexión de hoy"
 msgstr "您今日的感想"
@@ -4014,8 +3863,8 @@ msgstr "此译本没有本节。"
 msgid "Elige una o más Biblias para comparar este versículo."
 msgstr "选择一本或多本圣经来比较本节。"
 
-msgid "Xiphos does not understand more than one argument."
-msgstr "Biblia Elim 无法理解多于一个参数的指令。"
+msgid "Ministerios Elim does not understand more than one argument."
+msgstr "Ministerios Elim 无法理解多于一个参数的指令。"
 
 msgid "Initiating HTML"
 msgstr "HTML 启始"
@@ -4029,8 +3878,8 @@ msgstr "正在启动 Sword"
 msgid "Loading Settings"
 msgstr "正在加载设置"
 
-msgid "Displaying Xiphos"
-msgstr "正在显示 Biblia Elim  界面"
+msgid "Displaying Ministerios Elim"
+msgstr "正在显示 Ministerios Elim  界面"
 
 msgid "Previewer"
 msgstr "预览器"
@@ -4868,19 +4717,14 @@ msgstr "笔记未打开。"
 msgid "El archivo está vacío."
 msgstr "文件为空。"
 
-msgid "No es una copia de notas de Biblia Elim."
-msgstr "这不是 Biblia Elim 的笔记备份。"
+msgid "No es una copia de notas de Ministerios Elim."
+msgstr "这不是 Ministerios Elim 的笔记备份。"
 
-msgid "La copia es de una versión de Biblia Elim más nueva que esta."
-msgstr "此备份来自更新版本的 Biblia Elim。"
+msgid "La copia es de una versión de Ministerios Elim más nueva que esta."
+msgstr "此备份来自更新版本的 Ministerios Elim。"
 
 msgid "Mis notas"
 msgstr "我的笔记"
-
-#, c-format
-msgid "Exportadas de Biblia Elim el %s · %u nota.\n"
-msgid_plural "Exportadas de Biblia Elim el %s · %u notas.\n"
-msgstr[0] "于 %s 从 Biblia Elim 导出 · %u 条笔记。\n"
 
 msgid "Unknown parallel module: "
 msgstr "未知平行模块："
@@ -5177,11 +5021,6 @@ msgid "menos de un capítulo por día"
 msgstr "每天不到一章"
 
 #, c-format
-msgid "%d capítulo por día"
-msgid_plural "%d capítulos por día"
-msgstr[0] "每天 %d 章"
-
-#, c-format
 msgid "entre %d y %d capítulos por día"
 msgstr "每天 %d 到 %d 章"
 
@@ -5238,19 +5077,19 @@ msgstr "副题 4"
 msgid "Name for new prayer list or journal"
 msgstr "新的祈祷名单或者日记的名称"
 
-msgid "Xiphos finds that prayer list already."
-msgstr "Biblia Elim 认为那个名字重名"
+msgid "Ministerios Elim finds that prayer list already."
+msgstr "Ministerios Elim 认为那个名字重名"
 
 #, c-format
 msgid ""
-"Biblia Elim cannot create module's path:\n"
+"Ministerios Elim cannot create module's path:\n"
 "%s"
 msgstr ""
-"Biblia Elim 无法创建模块路径：\n"
+"Ministerios Elim 无法创建模块路径：\n"
 "%s"
 
-msgid "A basic prayer list. \\par\\par Module created by Xiphos."
-msgstr "Biblia Elim 在.\\par\\par 中创建了一个基本列表"
+msgid "A basic prayer list. \\par\\par Module created by Ministerios Elim."
+msgstr "Ministerios Elim 在.\\par\\par 中创建了一个基本列表"
 
 msgid "BasicPrayerList"
 msgstr "基本祈祷列表"
@@ -5258,8 +5097,8 @@ msgstr "基本祈祷列表"
 msgid "MyPrayerList"
 msgstr "我的祈祷列表"
 
-msgid "A subject-based prayer list. \\par\\par Module created by Xiphos."
-msgstr "Biblia Elim 在.\\par\\par 目录建立了一个基本主题祈祷列表。"
+msgid "A subject-based prayer list. \\par\\par Module created by Ministerios Elim."
+msgstr "Ministerios Elim 在.\\par\\par 目录建立了一个基本主题祈祷列表。"
 
 msgid "SubjectPrayerList"
 msgstr "主题祈祷列表"
@@ -5267,29 +5106,39 @@ msgstr "主题祈祷列表"
 msgid "Spiritual Growth"
 msgstr "属灵成长"
 
-msgid "A monthly prayer list. \\par\\par Module created by Xiphos."
-msgstr "本张月祷表。 \\par\\par 模组为 Biblia Elim 所产生。"
+msgid "A monthly prayer list. \\par\\par Module created by Ministerios Elim."
+msgstr "本张月祷表。 \\par\\par 模组为 Ministerios Elim 所产生。"
 
 msgid "MonthlyPrayerList"
 msgstr "每月祈祷列表"
 
-msgid "A daily journal. \\par\\par Module created by Xiphos."
-msgstr "Biblia Elim 在.\\par\\par 创建了一个日记"
+msgid "A daily journal. \\par\\par Module created by Ministerios Elim."
+msgstr "Ministerios Elim 在.\\par\\par 创建了一个日记"
 
 msgid "DailyJournal"
 msgstr "日记"
 
-msgid "An outlined topic (e.g. sermon). \\par\\par Module created by Xiphos."
+msgid ""
+"An outlined topic (e.g. sermon). \\par\\par Module created by Ministerios Elim."
 msgstr ""
-"Biblia Elim 在.\\par\\par 目录中建立了一个专题概述(例如：撒母耳记 sermon)"
+"Ministerios Elim 在.\\par\\par 目录中建立了一个专题概述(例如：撒母耳记 sermon)"
 
 msgid "OutlinedTopic"
 msgstr "专题概述"
 
+msgid "Major Topic A"
+msgstr "主题 A"
+
+msgid "Major Topic B"
+msgstr "主题 B"
+
+msgid "Major Topic C"
+msgstr "主题 C"
+
 msgid ""
 "A journal sectioned by Bible book and chapter. \\par\\par Module created by "
-"Xiphos."
-msgstr "按圣经书卷和章节划分的日记。\\par\\par 由 Xiphos 创建的模块。"
+"Ministerios Elim."
+msgstr "按圣经书卷和章节划分的日记。\\par\\par 由 Ministerios Elim 创建的模块。"
 
 msgid "BookChapter"
 msgstr "BookChapter"
@@ -5308,9 +5157,6 @@ msgstr "例证"
 
 msgid "Multi-word"
 msgstr "多个词语"
-
-msgid "Attribute"
-msgstr "属性"
 
 #, c-format
 msgid "Search result %s: %s"
@@ -5367,12 +5213,12 @@ msgstr "$HOME 未指定！"
 
 #, c-format
 msgid ""
-"Biblia Elim cannot create directory %s:\n"
+"Ministerios Elim cannot create directory %s:\n"
 "%s\n"
 "\n"
-"Biblia Elim cannot continue."
+"Ministerios Elim cannot continue."
 msgstr ""
-"Biblia Elim 无法创建目录 %s：\n"
+"Ministerios Elim 无法创建目录 %s：\n"
 "%s\n"
 "\n"
 "无法继续运行。"
@@ -5395,14 +5241,14 @@ msgid ""
 "Evidently, you declined to install any.\n"
 "\n"
 "Without any Bible modules to display,\n"
-"Xiphos cannot proceed,\n"
+"Ministerios Elim cannot proceed,\n"
 "and will now exit."
 msgstr ""
 "尚未安装圣经经文，\n"
 "因您确定拒绝安装。\n"
 "\n"
 "因无法显示任何圣经模组，\n"
-"Biblia Elim 即不能继续执行，\n"
+"Ministerios Elim 即不能继续执行，\n"
 "并即将离开。"
 
 msgid "Bible module installation complete."
@@ -5476,30 +5322,16 @@ msgid "Migración SQLite incompleta: revise la ruta antigua"
 msgstr "SQLite 迁移未完成：请检查旧路径"
 
 msgid ""
-"Xiphos's language abbreviation\n"
-"file cannot be opened."
-msgstr ""
-"Biblia Elim的语言缩写\n"
-"文件无法打开。"
-
-msgid ""
-"Xiphos cannot allocate space\n"
+"Ministerios Elim cannot allocate space\n"
 "for language abbreviations."
-msgstr "Biblia Elim 不能分配语言缩写空间。"
+msgstr "Ministerios Elim 不能分配语言缩写空间。"
 
 msgid ""
-"Xiphos cannot read the\n"
+"Ministerios Elim cannot read the\n"
 "language abbreviation file."
 msgstr ""
-"Biblia Elim 不能够读取语言\n"
+"Ministerios Elim 不能够读取语言\n"
 "缩写文件。"
-
-msgid ""
-"Xiphos's file for language\n"
-"abbreviations is missing."
-msgstr ""
-"Biblia Elim 的语言缩写文件\n"
-"已经丢失。"
 
 #, c-format
 msgid ""
@@ -5586,8 +5418,8 @@ msgid "URL not found:"
 msgstr "URL地址没有找到:"
 
 #, c-format
-msgid "Xiphos could not execute %s: %s"
-msgstr "Biblia Elim 无法执行 %s：%s"
+msgid "Ministerios Elim could not execute %s: %s"
+msgstr "Ministerios Elim 无法执行 %s：%s"
 
 #, c-format
 msgid "Show %s in main window"
@@ -5637,10 +5469,6 @@ msgstr "类型错误：根节点不是 Copy_Export\n"
 #, c-format
 msgid "%s<center>%s<br>Chapter %d</center><br>"
 msgstr "%s<center>%s<br>第 %d 章</center><br>"
-
-#, c-format
-msgid "<br><center>Chapter %d</center><br>"
-msgstr "<br><center>第 %d 章</center><br>"
 
 #, c-format
 msgid ""
@@ -5822,12 +5650,6 @@ msgstr "在笔记中写标签：#祷告、#预言"
 msgid "_Libro:"
 msgstr "书卷"
 
-msgid "_Versión:"
-msgstr "版本"
-
-msgid "E_xportar…"
-msgstr "导出"
-
 msgid ""
 "Las notas mostradas en Markdown, para leer o imprimir; o una copia completa "
 "de todas en JSON"
@@ -5853,6 +5675,9 @@ msgstr "例如：Adonai"
 msgid "Comentarios y estudios (por autor)"
 msgstr "注释和研读（按作者）"
 
+msgid "Insert Link"
+msgstr "插入链接"
+
 msgid "Verse"
 msgstr "经文"
 
@@ -5874,17 +5699,14 @@ msgstr "确定"
 msgid "Copy/Export Passage"
 msgstr "复制/导出 段落"
 
-msgid "Version"
-msgstr "版本"
-
 msgid ": "
 msgstr ": "
 
 msgid "Key"
 msgstr "解锁密钥"
 
-msgid "<b>Copy</b>"
-msgstr "<b>复制</b>"
+msgid "<b>Export</b>"
+msgstr "<b>导出</b>"
 
 msgid "Book"
 msgstr "书卷"
@@ -5915,6 +5737,9 @@ msgstr "经文单选按钮"
 
 msgid "Verse range"
 msgstr "经文范围"
+
+msgid "<b>Format</b>"
+msgstr "<b>格式</b>"
 
 msgid "Plain Text"
 msgstr "纯文本"
@@ -5951,6 +5776,9 @@ msgstr "指明在汇出时章节置头或置尾。"
 
 msgid "Reference last button"
 msgstr "章节置尾按钮"
+
+msgid "Include version"
+msgstr "（汇出节数范围时）陈明圣经版本"
 
 msgid "Indicates whether or not version name is included in reference."
 msgstr "指明在汇出时要否添注圣经版本简称。"
@@ -6143,9 +5971,9 @@ msgid "Actualizar"
 msgstr "刷新"
 
 msgid ""
-"Refresh Xiphos' knowledge of what modules are available at the selected "
-"remote repository"
-msgstr "刷新 Biblia Elim 关于所选远端藏书库流通的模组资讯"
+"Refresh Ministerios Elim's knowledge of what modules are available at the "
+"selected remote repository"
+msgstr "刷新 Ministerios Elim 关于所选远端藏书库流通的模组资讯"
 
 msgid "Install or update the selected modules"
 msgstr "安装或更新所选的模组"
@@ -6329,6 +6157,9 @@ msgstr "首选项 (_P)"
 msgid "Cover"
 msgstr "封面"
 
+msgid "<b>Font Colors</b>"
+msgstr "<b>字体颜色</b>"
+
 msgid "Background"
 msgstr "背景"
 
@@ -6361,9 +6192,6 @@ msgstr "普通文字"
 
 msgid "Highlight"
 msgstr "重点标示"
-
-msgid "Font Colors"
-msgstr "字体颜色"
 
 msgid "<b>Font Sizes</b>"
 msgstr "<b>字体大小</b>"
@@ -6474,8 +6302,9 @@ msgstr "<i>导航：</i>"
 msgid "_Direct"
 msgstr "直接导播(_D)"
 
-msgid "BibleSync navigation will send Xiphos directly to the verse indicated."
-msgstr "BibleSync 导播会直接传送指明的经节到 Biblia Elim 中。"
+msgid ""
+"BibleSync navigation will send Ministerios Elim directly to the verse indicated."
+msgstr "BibleSync 导播会直接传送指明的经节到 Ministerios Elim 中。"
 
 msgid "BSP nav direct radio button"
 msgstr "BSP 直接导播的单选按钮"
@@ -6483,8 +6312,8 @@ msgstr "BSP 直接导播的单选按钮"
 msgid "_Verse list"
 msgstr "导播金句表(_V)"
 
-msgid "BibleSync navigation will use Xiphos' sidebar verse list."
-msgstr "BibleSync 导播会使用 Biblia Elim 侧边栏中的金句表。"
+msgid "BibleSync navigation will use Ministerios Elim's sidebar verse list."
+msgstr "BibleSync 导播会使用 Ministerios Elim 侧边栏中的金句表。"
 
 msgid "BSP nav verse list radio button"
 msgstr "BSP 导播金句表的单选按钮"
@@ -6493,15 +6322,16 @@ msgid "Sólo con el _teclado"
 msgstr "仅通过键盘(_O)"
 
 msgid ""
-"When checked, do not transmit every time Xiphos navigates; instead, transmit "
-"only using keyboard shortcut (Ctrl-Shift-Alt-N)."
-msgstr "选中时不在每次 Xiphos 导航后发送，而仅通过 Ctrl-Shift-Alt-N 发送。"
+"When checked, do not transmit every time Ministerios Elim navigates; instead, "
+"transmit only using keyboard shortcut (Ctrl-Shift-Alt-N)."
+msgstr ""
+"选中时不在每次 Ministerios Elim 导航后发送，而仅通过 Ctrl-Shift-Alt-N 发送。"
 
 msgid "BSP keyboard button"
 msgstr "BibleSync 键盘控制"
 
-msgid "Xiphos will listen to Speakers according to choice here."
-msgstr "Biblia Elim 会根据下面选用的扬声器来聆听。"
+msgid "Ministerios Elim will listen to Speakers according to choice here."
+msgstr "Ministerios Elim 会根据下面选用的扬声器来聆听。"
 
 msgid "<i>Escuchar:</i>"
 msgstr "<i>收听：</i>"
@@ -6536,10 +6366,11 @@ msgstr "BSP 无的单选按钮"
 msgid ""
 "Additional traces can be presented during BibleSync operation by enabling "
 "presence, mismatch, and debug. Beware enabling these, they can be very "
-"chatty. Also, decide whether to allow group parameter as Xiphos' tab number."
+"chatty. Also, decide whether to allow group parameter as Ministerios Elim's tab "
+"number."
 msgstr ""
 "BibleSync 操作过程中可另行启动的追踪功能如出席、错配、除错。留意启动以上功能"
-"会添加大量交谈讯息。另外这里也能设定是否让群组参数当作 Biblia Elim 的分页号"
+"会添加大量交谈讯息。另外这里也能设定是否让群组参数当作 Ministerios Elim 的分页号"
 "码。"
 
 msgid "<i>Otros:</i>"
@@ -6576,11 +6407,11 @@ msgid "_Group as tab"
 msgstr "群组当成分页(_G)"
 
 msgid ""
-"Interpret the protocol's group number parameter as Xiphos' tab number. "
+"Interpret the protocol's group number parameter as Ministerios Elim's tab number. "
 "Disabling this may be necessary if some Speakers' use of group number is not "
 "appropriate as a tab number."
 msgstr ""
-"诠释 BibleSync 传输协定中的「群组号码」参数为 Biblia Elim 所用之「分页号"
+"诠释 BibleSync 传输协定中的「群组号码」参数为 Ministerios Elim 所用之「分页号"
 "码」。如果您认为扬声器所用的群组号码不宜当作分页号码时，您或须停用此项。"
 
 msgid "BSP event group-as-tab button"
@@ -6770,9 +6601,6 @@ msgstr "修改目录组合框"
 msgid "Change Book Combo"
 msgstr "修改书卷组合框"
 
-msgid "<b>Modules</b>"
-msgstr "<b>模块</b>"
-
 msgid "Clear all modules from the list"
 msgstr "清除所有模块的列表"
 
@@ -6884,9 +6712,6 @@ msgstr "坚持记录"
 msgid "Advanced Search"
 msgstr "高级搜索(_A)"
 
-msgid "<b>search module</b>"
-msgstr "<b>搜寻模组</b>"
-
 msgid "For: "
 msgstr "用于："
 
@@ -6962,9 +6787,6 @@ msgstr "为搜索启用自定义模块列表"
 msgid "Custom module list radiobutton"
 msgstr "自定义模块列表 单选框"
 
-msgid "<b>Search Type</b>"
-msgstr "<b>搜索类型</b>"
-
 msgid ""
 "Fast, featureful, index-based search\n"
 "Indexes must have been built beforehand:\n"
@@ -6995,9 +6817,6 @@ msgstr "在属性搜索选项卡中选择"
 msgid "Attributes radiobutton"
 msgstr "属性单选按钮"
 
-msgid "<b>Options</b>"
-msgstr "<b>选项</b>"
-
 msgid "Match case checkbox"
 msgstr "匹配大小写复选框"
 
@@ -7013,9 +6832,6 @@ msgstr "保存搜索结果为书签"
 msgid "Export current search results"
 msgstr "导出当前搜索结果"
 
-msgid "Export"
-msgstr "导出"
-
 msgid "Clear lists for new search"
 msgstr "从新的搜索中清除列表"
 
@@ -7030,6 +6846,9 @@ msgstr "结果摘要窗口"
 
 msgid "<b>Search Results</b>"
 msgstr "<b>搜索结果</b>"
+
+msgid "<b>Preview</b>"
+msgstr "<b>预览</b>"
 
 msgid "Results"
 msgstr "结果"
@@ -7225,8 +7044,8 @@ msgstr "导出书签文件夹"
 msgid "<b>Export to:</b>"
 msgstr "<b>导出到:</b>"
 
-msgid "Xiphos bookmarks"
-msgstr "Biblia Elim 书签"
+msgid "Ministerios Elim bookmarks"
+msgstr "Ministerios Elim 书签"
 
 msgid "Html"
 msgstr "Html"
@@ -7234,402 +7053,301 @@ msgstr "Html"
 msgid "Include Bible text"
 msgstr "包含圣经文本"
 
-msgid "Modules"
-msgstr "模块"
+msgid "Module Name"
+msgstr "模块名称"
 
-msgid "Options"
-msgstr "选项"
+msgid "Type"
+msgstr "类型："
 
-msgid "Search Module"
-msgstr "搜索模块"
+msgid "Type:"
+msgstr "类型："
 
-msgid "Search Type"
-msgstr "搜索类型"
+msgid "Attribute"
+msgstr "属性"
 
-msgid "Major Topic A"
-msgstr "主题 A"
+#, c-format
+msgid "<br><center>Chapter %d</center><br>"
+msgstr "<br><center>第 %d 章</center><br>"
 
-msgid "Major Topic B"
-msgstr "主题 B"
+msgid "_Versión:"
+msgstr "版本"
 
-msgid "Major Topic C"
-msgstr "主题 C"
+msgid "E_xportar…"
+msgstr "导出"
 
-msgid "<b>Export</b>"
-msgstr "<b>导出</b>"
+msgid "Version"
+msgstr "版本"
 
-msgid "<b>Font Colors</b>"
-msgstr "<b>字体颜色</b>"
+msgid "<b>Copy</b>"
+msgstr "<b>复制</b>"
 
-msgid "Include version"
-msgstr "（汇出节数范围时）陈明圣经版本"
+msgid "<b>Module Manager</b>"
+msgstr "<b>模块管理器</b>"
 
-msgid "<b>Format</b>"
-msgstr "<b>格式</b>"
+msgid "Font Colors"
+msgstr "字体颜色"
 
-#: ../src/backend/sword_main.cc:792
+msgid "<b>Modules</b>"
+msgstr "<b>模块</b>"
+
+msgid "<b>search module</b>"
+msgstr "<b>搜寻模组</b>"
+
+msgid "<b>Search Type</b>"
+msgstr "<b>搜索类型</b>"
+
+msgid "<b>Options</b>"
+msgstr "<b>选项</b>"
+
+msgid "Export"
+msgstr "导出"
+
+msgid "Open a new tab"
+msgstr "在新标签页中打开"
+
 msgid ""
-"Xiphos failure: \"can't happen\", display_mod: null\n"
-"Please report this. sword_main.cc:set_treekey\n"
-"What were you doing when this occurred?"
+"Ministerios Elim'ss language abbreviation\n"
+"file cannot be opened."
 msgstr ""
+"Ministerios Elim的语言缩写\n"
+"文件无法打开。"
 
-#: ../src/editor/slib-editor.c:238 ../ui/gtk2_webedit.ui.h:77
-#: ../ui/gtk_webedit.ui.h:77
-msgid "Save As"
-msgstr "另存为"
-
-#: ../src/editor/slib-editor.c:317
-#, fuzzy
-msgid "_Close"
-msgstr "关闭"
-
-#: ../src/editor/slib-editor.c:482
-msgid "HTML Output"
-msgstr "HTML 输出"
-
-#: ../src/editor/slib-editor.c:488
-msgid "HTML Source"
-msgstr "HTML 源"
-
-#: ../src/editor/slib-editor.c:494
-msgid "Plain Source"
-msgstr "原始代码"
-
-#: ../src/editor/slib-editor.c:505 ../ui/editor_note.xml.h:13
-#: ../ui/editor_studypad.xml.h:19
-msgid "_Print..."
-msgstr "打印(_P)..."
-
-#: ../src/editor/slib-editor.c:516 ../ui/editor_note.xml.h:12
-#: ../ui/editor_studypad.xml.h:18
-msgid "Print Pre_view"
-msgstr "打印预览(_v)"
-
-#: ../src/editor/slib-editor.c:527
-msgid "_Quit"
-msgstr "退出(_Q)"
-
-#: ../src/editor/slib-editor.c:560
-msgid "Save _As..."
-msgstr "另存为(_A)..."
-
-#: ../src/editor/slib-editor.c:566 ../ui/gtk2_webedit.ui.h:56
-#: ../ui/gtk_webedit.ui.h:56
-msgid "New"
-msgstr "新建"
-
-#: ../src/editor/slib-editor.c:568
-msgid "Open new document"
-msgstr "打开新文档"
-
-#: ../src/editor/slib-editor.c:572 ../ui/gtk2_webedit.ui.h:14
-#: ../ui/gtk_webedit.ui.h:14
-msgid "Delete"
-msgstr "删除"
-
-#: ../src/editor/slib-editor.c:574
-msgid "Delete current note"
-msgstr "删除当前笔记"
-
-#: ../src/editor/slib-editor.c:579 ../ui/editor_note.xml.h:9
-#: ../ui/editor_studypad.xml.h:7 ../ui/gtk2_webedit.ui.h:86
-#: ../ui/gtk_webedit.ui.h:87 ../ui/xi-menus.glade.h:1
-#: ../ui/xi-menus.gtkbuilder.h:1
-msgid "_File"
-msgstr "文件(_F)"
-
-#: ../src/editor/slib-editor.c:634
-msgid "HTML _Output"
-msgstr "HTML 输出(_O)"
-
-#: ../src/editor/slib-editor.c:641
-msgid "_HTML Source"
-msgstr "HTML 源代码(_H)"
-
-#: ../src/editor/slib-editor.c:648
-msgid "_Plain Source"
-msgstr "纯源代码(_P)"
-
-#: ../src/editor/slib-editor.c:655 ../ui/xi-menus.glade.h:17
-#: ../ui/xi-menus.gtkbuilder.h:11
-msgid "_View"
-msgstr "查看 (_V)"
-
-#: ../src/editor/slib-editor.c:664 ../ui/editor_note.xml.h:16
-#: ../ui/editor_studypad.xml.h:11 ../ui/gtk2_webedit.ui.h:75
-#: ../ui/gtk_webedit.ui.h:75
-msgid "Save"
-msgstr "保存"
-
-#: ../src/editor/slib-editor.c:673 ../src/editor/slib-editor.c:680
-#: ../ui/editor_link_dialog.gtkbuilder.h:1
-msgid "Insert Link"
-msgstr "插入链接"
-
-#: ../src/editor/slib-editor.c:1071 ../src/editor/webkit_editor.c:1232
-#: ../ui/xi-menus.glade.h:61 ../ui/xi-menus-popup.gtkbuilder.h:39
-msgid "File"
-msgstr "文件"
-
-#: ../src/gtk/about_xiphos.c:131
 msgid ""
-"\n"
-"Powered by The SWORD Project.\n"
-"We would like to thank Troy Griffitts and all the other folks who have given "
-"us The SWORD Project."
+"Ministerios Elim'ss file for language\n"
+"abbreviations is missing."
 msgstr ""
-"\n"
-"Powered by The SWORD Project.\n"
-"我们感谢 Troy Griffitts 和所有在 The SWORD Project 奉献的朋友。"
+"Ministerios Elim 的语言缩写文件\n"
+"已经丢失。"
 
-#: ../src/gtk/bookmark_dialog.c:167 ../src/gtk/bookmarks_menu.c:757
-msgid "Folder Name"
-msgstr "文件夹名称"
-
-#: ../src/gtk/bookmarks_menu.c:364
-msgid "Folder name: "
-msgstr "文件夹名称: "
-
-#: ../src/gtk/dialog.c:724
-msgid "Xiphos:"
-msgstr "Xiphos"
-
-#: ../src/gtk/font_dialog.c:376 ../src/gtk/font_dialog.c:391
-#: ../ui/prefs.gtkbuilder.h:3
-msgid "+0"
-msgstr "+0"
-
-#: ../src/gtk/gui.c:107
-msgid "BUG! Xiphos is about to crash due to a \"STRDUP\" error."
-msgstr "囧！Xiphos由于“STRDUP”错误而崩溃。"
-
-#: ../src/gtk/gui.c:108 ../src/gtk/gui.c:138
-msgid "Please report this error to the Xiphos team with:"
-msgstr "请向Xiphos小组报告这个错误:"
-
-#: ../src/gtk/gui.c:137
-msgid "BUG! Xiphos is about to crash due to a \"STRING\" error."
-msgstr "囧！Xiphos由于“STRING”错误而崩溃。"
-
-#: ../src/gtk/main_window.c:677
-#, fuzzy
-msgid "Xiphos: No windows."
-msgstr "Xiphos"
-
-#: ../src/gtk/main_window.c:1013
-msgid "Xiphos - Bible Study Software"
-msgstr "Xiphos - 圣经研修软件"
-
-#: ../src/gtk/main_window.c:1172
-msgid "Commentary View"
-msgstr "注释视图"
-
-#: ../src/gtk/main_window.c:1180
-msgid "Book View"
-msgstr "书卷视图"
-
-#: ../src/gtk/main_window.c:1195
-msgid "Welcome to Xiphos"
-msgstr "欢迎使用 Xiphos"
-
-#: ../src/gtk/menu_popup.c:1410
-msgid ""
-"Configuration build error:\n"
-"\n"
-msgstr ""
-"创建配置错误:\n"
-"\n"
-
-#: ../src/gtk/mod_mgr.c:664 ../src/main/biblesync_glue.cc:640
-#: ../ui/gtk2_webedit.ui.h:2 ../ui/gtk_webedit.ui.h:2 ../ui/xi-menus.glade.h:57
-#: ../ui/xi-menus-popup.gtkbuilder.h:35
-msgid "About"
-msgstr "关于"
-
-#: ../src/gtk/mod_mgr.c:1847
-msgid "Configure"
-msgstr "设置"
-
-#: ../src/gtk/mod_mgr.c:3633
-#, fuzzy
-msgid "[no module]"
-msgstr "整个模块"
-
-#: ../src/gtk/preferences_dialog.c:2197
-msgid "Special"
-msgstr "指定"
-
-#: ../src/gtk/splash.c:403
-msgid "Powered by the SWORD Project"
+#: src/gtk/about_xiphos.c:125
+msgid "Copyright © 2026 Ministerios Elim contributors"
 msgstr ""
 
-#: ../src/main/biblesync_glue.cc:590
-#, fuzzy
-msgid "Check the box to listen to this Speaker"
-msgstr "单击方框开始启用这个模块"
+#: src/gtk/buscar_notas.c:807
+#, c-format
+msgid "%u nota nueva."
+msgid_plural "%u notas nuevas."
+msgstr[0] "%u 条新笔记。"
 
-#: ../src/main/biblesync_glue.cc:603
-#, fuzzy
-msgid "Available Speakers"
-msgstr "可用"
+#: src/gtk/buscar_notas.c:811
+#, c-format
+msgid " %u de ellas va junto a otra nota tuya del mismo versículo."
+msgid_plural " %u de ellas van junto a otra nota tuya del mismo versículo."
+msgstr[0] " %u 条将与同一经节的另一条笔记放在一起。"
 
-#: ../src/main/biblesync_glue.cc:622
-msgid "Last navigation was Direct or Indirect"
-msgstr ""
-
-#: ../src/main/biblesync_glue.cc:631
-#, fuzzy
-msgid "Last Navigation"
-msgstr "救恩"
-
-#: ../src/main/biblesync_glue.cc:650
-msgid "UUID"
-msgstr ""
-
-#: ../src/main/display.cc:258
+#: src/gtk/buscar_notas.c:817
 #, c-format
 msgid ""
-"Improperly encoded personal annotation label:\n"
-"'%s'"
-msgstr ""
-"个人注释标签非法:\n"
-"‘%s'"
+"\n"
+"%u ya estaba."
+msgid_plural ""
+"\n"
+"%u ya estaban."
+msgstr[0] ""
+"\n"
+"%u 条已存在。"
 
-#: ../src/main/parallel_view.cc:358 ../ui/xi-menus.glade.h:71
-#: ../ui/xi-menus-popup.gtkbuilder.h:48
-msgid "Strong's Numbers"
-msgstr "突出数字"
+#: src/gtk/buscar_notas.c:821
+#, c-format
+msgid ""
+"\n"
+"%u enlace nuevo."
+msgid_plural ""
+"\n"
+"%u enlaces nuevos."
+msgstr[0] ""
+"\n"
+"%u 个新链接。"
 
-#: ../src/main/parallel_view.cc:385 ../ui/xi-menus.glade.h:79
-#: ../ui/xi-menus-popup.gtkbuilder.h:55
-msgid "Hebrew Vowel Points"
-msgstr "希伯来文元音点"
+#: src/gtk/buscar_notas.c:826
+#, c-format
+msgid ""
+"\n"
+"%u subrayado o enlace distinto del tuyo: se conservó el tuyo."
+msgid_plural ""
+"\n"
+"%u subrayados o enlaces distintos de los tuyos: se conservaron los tuyos."
+msgstr[0] ""
+"\n"
+"%u 个高亮或链接不同：保留了您的内容。"
 
-#: ../src/main/parallel_view.cc:394 ../ui/xi-menus.glade.h:80
-#: ../ui/xi-menus-popup.gtkbuilder.h:56
-msgid "Hebrew Cantillation"
-msgstr "希伯来吟唱"
+#: src/gtk/buscar_notas.c:832
+#, c-format
+msgid ""
+"\n"
+"%u entrada no válida, ignorada."
+msgid_plural ""
+"\n"
+"%u entradas no válidas, ignoradas."
+msgstr[0] ""
+"\n"
+"忽略了 %u 个无效条目。"
 
-#: ../src/main/parallel_view.cc:403 ../ui/xi-menus.glade.h:78
-#: ../ui/xi-menus-popup.gtkbuilder.h:54
-msgid "Greek Accents"
-msgstr "希腊口音"
+#: src/gtk/memorizacion.c:213
+#, c-format
+msgid "atrasado %d día"
+msgid_plural "atrasado %d días"
+msgstr[0] "逾期 %d 天"
 
-#: ../src/main/parallel_view.cc:412 ../ui/xi-menus.glade.h:75
-#: ../ui/xi-menus-popup.gtkbuilder.h:52
-msgid "Cross-references"
-msgstr "交叉引用"
+#: src/gtk/memorizacion.c:267
+#, c-format
+msgid "%d versículo para repasar hoy"
+msgid_plural "%d versículos para repasar hoy"
+msgstr[0] "今天需复习 %d 节"
 
-#: ../src/main/parallel_view.cc:421 ../ui/xi-menus.glade.h:72
-#: ../ui/xi-menus-popup.gtkbuilder.h:49
-msgid "Lemmas"
-msgstr "引理"
+#: src/gtk/memorizacion.c:283
+#, c-format
+msgid "Tus versículos · %d en total"
+msgid_plural "Tus versículos · %d en total"
+msgstr[0] "您的经节 · 共 %d 节"
 
-#: ../src/main/parallel_view.cc:430 ../ui/xi-menus.glade.h:68
-#: ../ui/xi-menus-popup.gtkbuilder.h:45
-msgid "Headings"
-msgstr "标题"
+#: src/gtk/memorizacion.c:303
+#, c-format
+msgid "Esta semana ya elegiste %d."
+msgid_plural "Esta semana ya elegiste %d."
+msgstr[0] "您本周已选择 %d 节。"
 
-#: ../src/main/parallel_view.cc:440 ../ui/xi-menus.glade.h:69
-#: ../ui/xi-menus-popup.gtkbuilder.h:46
-#, fuzzy
-msgid "Italic Headings"
-msgstr "标题"
+#: src/gtk/memorizacion.c:310
+#, c-format
+msgid "  ·  %d en la última caja"
+msgid_plural "  ·  %d en la última caja"
+msgstr[0] "  ·  最后一盒有 %d 节"
 
-#: ../src/main/parallel_view.cc:450 ../src/main/parallel_view.cc:539
-#: ../ui/xi-menus.glade.h:89 ../ui/xi-menus-popup.gtkbuilder.h:65
-msgid "Morpheme Segmentation"
-msgstr ""
+#: src/gtk/plan_personal.c:70 src/gtk/plan_personal.c:258
+#, c-format
+msgid "%d capítulo"
+msgid_plural "%d capítulos"
+msgstr[0] "%d 章"
 
-#: ../src/main/parallel_view.cc:459 ../ui/xi-menus.glade.h:70
-#: ../ui/xi-menus-popup.gtkbuilder.h:47
-msgid "Words of Christ in Red"
-msgstr "基督的话语用红字显示"
+#: src/gtk/plan_personal.c:168
+#, c-format
+msgid "%s y %d libro más"
+msgid_plural "%s y %d libros más"
+msgstr[0] "%s 和另外 %d 卷"
 
-#: ../src/main/parallel_view.cc:468 ../ui/xi-menus.glade.h:81
-#: ../ui/xi-menus-popup.gtkbuilder.h:57
-msgid "Transliteration"
-msgstr "音译"
+#: src/gtk/plan_personal.c:262 src/main/planes_lectura.c:504
+#, c-format
+msgid "%d libro"
+msgid_plural "%d libros"
+msgstr[0] "%d 卷"
 
-#: ../src/main/parallel_view.cc:485 ../ui/xi-menus.glade.h:83
-#: ../ui/xi-menus-popup.gtkbuilder.h:59
-msgid "Primary Reading"
-msgstr "初次阅读"
+#: src/gtk/plan_personal.c:266 src/gtk/planes_lectura.c:491
+#: src/main/planes_lectura.c:507
+#, c-format
+msgid "%d día"
+msgid_plural "%d días"
+msgstr[0] "%d 天"
 
-#: ../src/main/parallel_view.cc:494 ../ui/xi-menus.glade.h:84
-#: ../ui/xi-menus-popup.gtkbuilder.h:60
-msgid "Secondary Reading"
-msgstr "第二遍阅读"
+#: src/gtk/plan_personal.c:476
+#, c-format
+msgid ""
+"Llevas %d día marcado. Las marcas se quedan donde están: si cambias los "
+"libros o los días, el día 1 pasa a ser otra lectura."
+msgid_plural ""
+"Llevas %d días marcados. Las marcas se quedan donde están: si cambias los "
+"libros o los días, el día 1 pasa a ser otra lectura."
+msgstr[0] ""
+"您已标记 %d 天。标记保持原位：更改书卷或天数后，第 1 天的阅读会改变。"
 
-#: ../src/main/parallel_view.cc:503 ../ui/xi-menus.glade.h:85
-#: ../ui/xi-menus-popup.gtkbuilder.h:61
-msgid "All Readings"
-msgstr "所有的阅读"
+#: src/gtk/planes_lectura.c:418
+#, c-format
+msgid "Toca el día %d · vas %d día por detrás del calendario"
+msgid_plural "Toca el día %d · vas %d días por detrás del calendario"
+msgstr[0] "应读第 %d 天 · 落后日历 %d 天"
 
-#: ../src/main/parallel_view.cc:512 ../ui/xi-menus.glade.h:86
-#: ../ui/xi-menus-popup.gtkbuilder.h:62
-#, fuzzy
-msgid "Transliterated Forms"
-msgstr "音译"
+#: src/gtk/planes_lectura.c:423
+#, c-format
+msgid "Toca el día %d · vas %d día adelantado"
+msgid_plural "Toca el día %d · vas %d días adelantado"
+msgstr[0] "应读第 %d 天 · 提前 %d 天"
 
-#: ../src/main/parallel_view.cc:521 ../ui/xi-menus.glade.h:87
-#: ../ui/xi-menus-popup.gtkbuilder.h:63
-msgid "Enumerations"
-msgstr ""
+#: src/gtk/planes_lectura.c:744
+#, c-format
+msgid "Vas %d día por detrás en «%s»."
+msgid_plural "Vas %d días por detrás en «%s»."
+msgstr[0] "您落后 %d 天，计划为“%s”。"
 
-#: ../src/main/parallel_view.cc:530 ../ui/xi-menus.glade.h:88
-#: ../ui/xi-menus-popup.gtkbuilder.h:64
-msgid "Glosses"
-msgstr ""
+#: src/gtk/progreso_lectura.c:164
+#, c-format
+msgid "%d de %d días · %d por detrás"
+msgid_plural "%d de %d días · %d por detrás"
+msgstr[0] "%d / %d 天 · 落后 %d 天"
 
-#: ../src/main/parallel_view.cc:727
-msgid "view context"
-msgstr "视图上下文"
+#: src/gtk/progreso_lectura.c:378
+#, c-format
+msgid "%d día seguido"
+msgid_plural "%d días seguidos"
+msgstr[0] "连续 %d 天"
 
-#: ../src/main/prayerlists.cc:113
+#: src/gtk/progreso_lectura.c:403
+#, c-format
+msgid "La más larga: %d día"
+msgid_plural "La más larga: %d días"
+msgstr[0] "最长：%d 天"
+
+#: src/gtk/progreso_lectura.c:407
+#, c-format
+msgid "  ·  %d día con lectura"
+msgid_plural "  ·  %d días con lectura"
+msgstr[0] "  ·  阅读了 %d 天"
+
+#: src/gtk/testimonios.c:300
+#, c-format
+msgid "%u fuente, y funciona sin internet."
+msgid_plural "%u fuentes, y funcionan sin internet."
+msgstr[0] "%u 项资料，无需联网。"
+
+#: src/gtk/versiculo_dia.c:120
+#, c-format
+msgid "Se guarda sola · %d día con algo escrito."
+msgid_plural "Se guarda sola · %d días con algo escrito."
+msgstr[0] "自动保存 · 已记录 %d 天。"
+
+#: src/main/notes_exchange.c:379
+#, c-format
+msgid "Exportadas de Ministerios Elim el %s · %u nota.\n"
+msgid_plural "Exportadas de Ministerios Elim el %s · %u notas.\n"
+msgstr[0] "于 %s 从 Ministerios Elim 导出 · %u 条笔记。\n"
+
+#: src/main/planes_lectura.c:490
+#, c-format
+msgid "%d capítulo por día"
+msgid_plural "%d capítulos por día"
+msgstr[0] "每天 %d 章"
+
+#: src/main/prayerlists.cc:112
 msgid "<b>For Growth</b><br/>"
 msgstr "<b>给与救恩</b>"
 
-#: ../src/main/prayerlists.cc:115
+#: src/main/prayerlists.cc:114
 msgid "<b>For Salvation</b><br/>"
 msgstr "<b>给与救恩</b>"
 
-#: ../src/main/prayerlists.cc:117
+#: src/main/prayerlists.cc:116
 msgid "<b>For Health</b><br/>"
 msgstr "<b>给与救恩</b>"
 
-#: ../src/main/prayerlists.cc:119
+#: src/main/prayerlists.cc:118
 msgid "<b>Miscellaneous</b><br/>"
 msgstr "<b>杂项</b><br>"
 
-#: ../src/main/prayerlists.cc:141
+#: src/main/prayerlists.cc:140
 msgid "<b>Subtopic 1</b><br/>"
 msgstr "<b>次要主题 1</b><br>"
 
-#: ../src/main/prayerlists.cc:144
+#: src/main/prayerlists.cc:143
 msgid "<b>Subtopic 2</b><br/>"
 msgstr "<b>主题 2</b>"
 
-#: ../src/main/prayerlists.cc:147
+#: src/main/prayerlists.cc:146
 msgid "<b>Subtopic 3</b><br/>"
 msgstr "<b>小标题 3</b><br>"
 
-#: ../src/main/prayerlists.cc:150
+#: src/main/prayerlists.cc:149
 msgid "<b>Subtopic 4</b><br/>"
 msgstr "<b>小标题 4</b><br>"
 
-#. this one matters.
-#: ../src/main/prayerlists.cc:274
-#, c-format
-msgid ""
-"Xiphos cannot create module's path:\n"
-"%s"
-msgstr ""
-"Xiphos 不能创建模块的路径:\n"
-"%s"
-
-#: ../src/main/prayerlists.cc:329
+#: src/main/prayerlists.cc:324
 msgid ""
 "<b>People:</b><br/>Bob<br/>Sam<br/>Sue<br/><br/><b>Church:</b><br/>pews<br/"
 ">fellowship<br/>Bibles for missionaries<br/><br/><br/>"
@@ -7637,1555 +7355,26 @@ msgstr ""
 "<b>人名:</b><br>鲍勃<br>萨姆<br>苏<br><br><b>地点:</b><br>座位<br>友谊<br>圣"
 "经传教士<br><br><br>"
 
-#: ../src/main/prayerlists.cc:369
+#: src/main/prayerlists.cc:364
 msgid "Bob<br/>Sam<br/>Sue<br/>John<br/>"
 msgstr "苏<br>约翰<br>"
 
-#: ../src/main/prayerlists.cc:371
+#: src/main/prayerlists.cc:366
 msgid "Mike<br/>Steve<br/>"
 msgstr "麦克<br>史蒂夫<br>"
 
-#: ../src/main/prayerlists.cc:373
+#: src/main/prayerlists.cc:368
 msgid "Sue<br/>John<br/>"
 msgstr "苏<br>约翰<br>"
 
-#: ../src/main/prayerlists.cc:526
+#: src/main/prayerlists.cc:521
 msgid "<b>Major Topic A</b><br/>"
 msgstr "<b>主题 A</b><br>"
 
-#: ../src/main/prayerlists.cc:529
+#: src/main/prayerlists.cc:524
 msgid "<b>Major Topic B</b><br/>"
 msgstr "<b>主题 B</b><br>"
 
-#: ../src/main/prayerlists.cc:532
+#: src/main/prayerlists.cc:527
 msgid "<b>Major Topic C</b><br/>"
 msgstr "<b>主题 C</b><br>"
-
-#: ../src/main/search_dialog.cc:652 ../src/main/search_dialog.cc:1069
-#: ../src/main/search_dialog.cc:1072 ../src/main/search_dialog.cc:1092
-#: ../src/main/search_dialog.cc:1095
-msgid "Search: "
-msgstr "搜索： "
-
-#: ../src/main/settings.c:145
-#, fuzzy, c-format
-msgid "Xiphos can not create directory "
-msgstr ""
-"Xiphos 不能创建模块的路径:\n"
-"%s"
-
-#: ../src/main/sidebar.cc:410
-msgid "verse"
-msgstr "经文"
-
-#: ../src/main/sidebar.cc:470
-msgid "chapter"
-msgstr "章"
-
-#: ../src/main/url.cc:194
-#, c-format
-msgid "Xiphos could not execute %s"
-msgstr "Xiphos 无法执行 %s"
-
-#: ../src/main/url.cc:202
-msgid "Viewer error:\n"
-msgstr "查看器错误:\n"
-
-#: ../ui/editor_note.xml.h:1 ../ui/editor_studypad.xml.h:1
-msgid "Exit the program"
-msgstr "退出程序"
-
-#: ../ui/editor_note.xml.h:2 ../ui/editor_studypad.xml.h:2
-msgid "Exit"
-msgstr "退出"
-
-#: ../ui/editor_note.xml.h:3
-msgid "Print this note"
-msgstr "打印这个笔记"
-
-#: ../ui/editor_note.xml.h:4
-msgid "Preview the note to be printed"
-msgstr "笔记打印前预览"
-
-#: ../ui/editor_note.xml.h:5 ../ui/editor_studypad.xml.h:5
-msgid "HTML Format switch"
-msgstr "HTML 格式切换"
-
-#: ../ui/editor_note.xml.h:6 ../ui/editor_studypad.xml.h:6
-msgid "HTML mode"
-msgstr "HTML 模式"
-
-#: ../ui/editor_note.xml.h:7
-msgid "Delete the current note"
-msgstr "删除当前笔记"
-
-#: ../ui/editor_note.xml.h:8
-msgid "_Delete Personal Comment"
-msgstr "删除个人注释(_D)"
-
-#: ../ui/editor_note.xml.h:10
-msgid "Save the current note"
-msgstr "保存当前笔记"
-
-#: ../ui/editor_note.xml.h:11
-msgid "_Save (Personal Comment)"
-msgstr ""
-
-#: ../ui/editor_note.xml.h:14 ../ui/editor_studypad.xml.h:20
-msgid "E_xit"
-msgstr "退出(_X)"
-
-#: ../ui/editor_note.xml.h:15 ../ui/editor_studypad.xml.h:21
-msgid "For_mat"
-msgstr "格式(_M)"
-
-#: ../ui/editor_studypad.xml.h:3
-msgid "Print this document"
-msgstr "打印此文档"
-
-#: ../ui/editor_studypad.xml.h:4
-msgid "Preview the document to be printed"
-msgstr "预览将要打印的文件"
-
-#: ../ui/editor_studypad.xml.h:8
-msgid "Open a file in Studypad"
-msgstr "在学习笔记中打开"
-
-#: ../ui/editor_studypad.xml.h:10
-msgid "Save the current file"
-msgstr "保存当前文件"
-
-#: ../ui/editor_studypad.xml.h:12
-msgid "Save the current file as"
-msgstr "保存当前文件为"
-
-#: ../ui/editor_studypad.xml.h:13
-#, fuzzy
-msgid "Save As…"
-msgstr "另存为"
-
-#: ../ui/editor_studypad.xml.h:14
-msgid "Add this file to your bookmarks"
-msgstr "增加此文件到书签"
-
-#: ../ui/editor_studypad.xml.h:16
-msgid "Create a new document"
-msgstr "创建一个新文档"
-
-#: ../ui/editor_studypad.xml.h:17
-msgid "New Document"
-msgstr "新建文档"
-
-#: ../ui/export-dialog.glade.h:25
-msgid ""
-"Indicates whether verse numbers should appear inline in the text for more "
-"than 1 verse."
-msgstr ""
-
-#: ../ui/export-dialog.glade.h:32
-#, fuzzy
-msgid "Include Version"
-msgstr "版本"
-
-#: ../ui/export-dialog.glade.h:34
-msgid "Save Export As"
-msgstr "保存导出为"
-
-#: ../ui/gtk2_webedit.ui.h:1 ../ui/gtk_webedit.ui.h:1
-#, fuzzy
-msgid "About Studypad"
-msgstr "打开 研修笔记(_p) Study pad"
-
-#: ../ui/gtk2_webedit.ui.h:3 ../ui/gtk_webedit.ui.h:3
-#, fuzzy
-msgid "Open about dialog"
-msgstr "在对话框中打开"
-
-#: ../ui/gtk2_webedit.ui.h:5 ../ui/gtk_webedit.ui.h:5
-#, fuzzy
-msgid "Make selection bold"
-msgstr "阅读选择性朗读"
-
-#: ../ui/gtk2_webedit.ui.h:6 ../ui/gtk_webedit.ui.h:6
-msgid "Copy"
-msgstr "复制"
-
-#: ../ui/gtk2_webedit.ui.h:7 ../ui/gtk_webedit.ui.h:7
-msgid "Copy selection to clipboard"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:8 ../ui/gtk_webedit.ui.h:8
-msgid "Cut"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:9 ../ui/gtk_webedit.ui.h:9
-#, fuzzy
-msgid "Cut selection"
-msgstr "模块选择"
-
-#: ../ui/gtk2_webedit.ui.h:10 ../ui/gtk_webedit.ui.h:10
-msgid "Decrease indent"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:11 ../ui/gtk_webedit.ui.h:11
-msgid "Decrease"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:12 ../ui/gtk_webedit.ui.h:12
-msgid "Decrease paragraph indent"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:13 ../ui/gtk_webedit.ui.h:13
-#, fuzzy
-msgid "Delete selection"
-msgstr "删除选择的范围"
-
-#: ../ui/gtk2_webedit.ui.h:15 ../ui/gtk_webedit.ui.h:15
-#, fuzzy
-msgid "Remove selection"
-msgstr "移除所选项目"
-
-#: ../ui/gtk2_webedit.ui.h:16 ../ui/gtk_webedit.ui.h:16
-#: ../ui/xi-menus.glade.h:125 ../ui/xi-menus-popup.gtkbuilder.h:11
-msgid "Delete Item"
-msgstr "删除项目"
-
-#: ../ui/gtk2_webedit.ui.h:17 ../ui/gtk_webedit.ui.h:17
-#, fuzzy
-msgid "Delete current item"
-msgstr "删除当前笔记"
-
-#: ../ui/gtk2_webedit.ui.h:19 ../ui/gtk_webedit.ui.h:19
-#, fuzzy
-msgid "Search current document"
-msgstr "搜索整个模块"
-
-#: ../ui/gtk2_webedit.ui.h:20 ../ui/gtk_webedit.ui.h:20
-#, fuzzy
-msgid "Font"
-msgstr "字体"
-
-#: ../ui/gtk2_webedit.ui.h:21 ../ui/gtk_webedit.ui.h:21
-#, fuzzy
-msgid "Change font"
-msgstr "变更字体为"
-
-#: ../ui/gtk2_webedit.ui.h:22 ../ui/gtk_webedit.ui.h:22
-msgid "Increase indent"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:23 ../ui/gtk_webedit.ui.h:23
-msgid "Increase"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:24 ../ui/gtk_webedit.ui.h:24
-msgid "Increase paragraph indent"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:25 ../ui/gtk_webedit.ui.h:25
-#, fuzzy
-msgid "Insert emoticon"
-msgstr "插入链接"
-
-#: ../ui/gtk2_webedit.ui.h:26 ../ui/gtk_webedit.ui.h:26
-msgid "Emoticon"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:27 ../ui/gtk_webedit.ui.h:27
-#, fuzzy
-msgid "Insert an emoticon"
-msgstr "插入链接"
-
-#: ../ui/gtk2_webedit.ui.h:28 ../ui/gtk_webedit.ui.h:28
-#, fuzzy
-msgid "Insert image"
-msgstr "插入链接"
-
-#: ../ui/gtk2_webedit.ui.h:29 ../ui/gtk_webedit.ui.h:29
-#, fuzzy
-msgid "Image"
-msgstr "图片"
-
-#: ../ui/gtk2_webedit.ui.h:30 ../ui/gtk_webedit.ui.h:30
-msgid "Insert image at cursor"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:31 ../ui/gtk_webedit.ui.h:31
-#, fuzzy
-msgid "Insert link"
-msgstr "插入链接"
-
-#: ../ui/gtk2_webedit.ui.h:32 ../ui/gtk_webedit.ui.h:32
-#, fuzzy
-msgid "Link"
-msgstr "链接"
-
-#: ../ui/gtk2_webedit.ui.h:33 ../ui/gtk_webedit.ui.h:33
-#, fuzzy
-msgid "Insert a link"
-msgstr "插入链接"
-
-#: ../ui/gtk2_webedit.ui.h:34 ../ui/gtk_webedit.ui.h:34
-#, fuzzy
-msgid "Insert Outline"
-msgstr "插入链接"
-
-#: ../ui/gtk2_webedit.ui.h:35 ../ui/gtk_webedit.ui.h:35
-#, fuzzy
-msgid "Outline"
-msgstr "概述"
-
-#: ../ui/gtk2_webedit.ui.h:36 ../ui/gtk_webedit.ui.h:36
-#, fuzzy
-msgid "Insert outline"
-msgstr "插入链接"
-
-#: ../ui/gtk2_webedit.ui.h:37 ../ui/gtk_webedit.ui.h:37
-#, fuzzy
-msgid "Insert rule"
-msgstr "插入链接"
-
-#: ../ui/gtk2_webedit.ui.h:38 ../ui/gtk_webedit.ui.h:38
-msgid "Rule"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:39 ../ui/gtk_webedit.ui.h:39
-msgid "Insert horizontal rule"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:40 ../ui/gtk_webedit.ui.h:40
-#, fuzzy
-msgid "Xiphos Link"
-msgstr "Xiphos"
-
-#: ../ui/gtk2_webedit.ui.h:41 ../ui/gtk_webedit.ui.h:41
-#, fuzzy
-msgid "Xiphos"
-msgstr "Xiphos"
-
-#: ../ui/gtk2_webedit.ui.h:42 ../ui/gtk_webedit.ui.h:42
-#, fuzzy
-msgid "Insert a link to a sword module"
-msgstr "是否安装这些模块"
-
-#: ../ui/gtk2_webedit.ui.h:43 ../ui/gtk_webedit.ui.h:43
-#, fuzzy
-msgid "Insert table"
-msgstr "插入链接"
-
-#: ../ui/gtk2_webedit.ui.h:44 ../ui/gtk_webedit.ui.h:44
-msgid "Table"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:45 ../ui/gtk_webedit.ui.h:45
-msgid "Insert a table"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:46 ../ui/gtk_webedit.ui.h:46
-msgid "Italic"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:47 ../ui/gtk_webedit.ui.h:47
-msgid "Change selection to italic font"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:48 ../ui/gtk_webedit.ui.h:48
-msgid "Center"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:49 ../ui/gtk_webedit.ui.h:49
-msgid "Center justify paragraph"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:50 ../ui/gtk_webedit.ui.h:50
-msgid "Full"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:51 ../ui/gtk_webedit.ui.h:51
-msgid "full justify"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:52 ../ui/gtk_webedit.ui.h:52
-msgid "Left"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:53 ../ui/gtk_webedit.ui.h:53
-msgid "Left justify paragraph"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:54 ../ui/gtk_webedit.ui.h:54
-msgid "Right"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:55 ../ui/gtk_webedit.ui.h:55
-msgid "Right justify paragraph"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:57 ../ui/gtk_webedit.ui.h:57
-#, fuzzy
-msgid "Create new file"
-msgstr "新建文件夹"
-
-#: ../ui/gtk2_webedit.ui.h:59 ../ui/gtk_webedit.ui.h:59
-#, fuzzy
-msgid "Open file"
-msgstr "打开模块"
-
-#: ../ui/gtk2_webedit.ui.h:60 ../ui/gtk_webedit.ui.h:60
-msgid "Paste"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:61 ../ui/gtk_webedit.ui.h:61
-msgid "Paste clipboard at cursor."
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:62 ../ui/gtk_webedit.ui.h:62
-#, fuzzy
-msgid "Print Document"
-msgstr "打印此文档"
-
-#: ../ui/gtk2_webedit.ui.h:63 ../ui/gtk_webedit.ui.h:63
-#, fuzzy
-msgid "Print"
-msgstr "正在打印"
-
-#: ../ui/gtk2_webedit.ui.h:64 ../ui/gtk_webedit.ui.h:64
-#, fuzzy
-msgid "Print the current document"
-msgstr "打印此文档"
-
-#: ../ui/gtk2_webedit.ui.h:65 ../ui/gtk_webedit.ui.h:65
-#, fuzzy
-msgid "Print Preview"
-msgstr "打印预览(_v)"
-
-#: ../ui/gtk2_webedit.ui.h:66 ../ui/gtk_webedit.ui.h:66
-#, fuzzy
-msgid "Preview"
-msgstr "预览(_P)"
-
-#: ../ui/gtk2_webedit.ui.h:67 ../ui/gtk_webedit.ui.h:67
-#, fuzzy
-msgid "Print preview of current document"
-msgstr "打印此文档"
-
-#: ../ui/gtk2_webedit.ui.h:68 ../ui/gtk_webedit.ui.h:68
-#, fuzzy
-msgid "Quit"
-msgstr "退出(_Q)"
-
-#: ../ui/gtk2_webedit.ui.h:69 ../ui/gtk_webedit.ui.h:69
-#, fuzzy
-msgid "Shut down editor"
-msgstr "在编辑器中打开"
-
-#: ../ui/gtk2_webedit.ui.h:70 ../ui/gtk_webedit.ui.h:70
-msgid "Redo"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:71 ../ui/gtk_webedit.ui.h:71
-msgid "Redo last undo"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:72 ../ui/gtk_webedit.ui.h:72
-msgid "Find and replace"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:73 ../ui/gtk_webedit.ui.h:73
-msgid "Replace"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:74 ../ui/gtk_webedit.ui.h:74
-#, fuzzy
-msgid "Search and replace"
-msgstr "搜索标准"
-
-#: ../ui/gtk2_webedit.ui.h:76 ../ui/gtk_webedit.ui.h:76
-#, fuzzy
-msgid "Save changes to file"
-msgstr "保存修改内容"
-
-#: ../ui/gtk2_webedit.ui.h:78 ../ui/gtk_webedit.ui.h:78
-#, fuzzy
-msgid "Save File As..."
-msgstr "另存为(_A)..."
-
-#: ../ui/gtk2_webedit.ui.h:79 ../ui/gtk_webedit.ui.h:79
-msgid "Strikethrough"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:80 ../ui/gtk_webedit.ui.h:80
-msgid "Strikethrough selection"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:81 ../ui/gtk_webedit.ui.h:81
-msgid "Underline"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:82 ../ui/gtk_webedit.ui.h:82
-#, fuzzy
-msgid "Underline selection"
-msgstr "模块选择"
-
-#: ../ui/gtk2_webedit.ui.h:83 ../ui/gtk_webedit.ui.h:83
-msgid "Undo"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:84 ../ui/gtk_webedit.ui.h:84
-msgid "Undo last change"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:85 ../ui/gtk_webedit.ui.h:86
-#, fuzzy
-msgid "Editor"
-msgstr "编辑"
-
-#: ../ui/gtk2_webedit.ui.h:87 ../ui/gtk_webedit.ui.h:88
-#, fuzzy
-msgid "Recent files"
-msgstr "保存当前文件为"
-
-#: ../ui/gtk2_webedit.ui.h:88 ../ui/gtk_webedit.ui.h:89
-#: ../ui/xi-menus.glade.h:9 ../ui/xi-menus.gtkbuilder.h:6
-msgid "_Edit"
-msgstr "编辑(_E)"
-
-#: ../ui/gtk2_webedit.ui.h:89 ../ui/gtk_webedit.ui.h:90
-#: ../ui/xi-menus.glade.h:38 ../ui/xi-menus.gtkbuilder.h:24
-msgid "_Help"
-msgstr "帮助(_H)"
-
-#: ../ui/gtk2_webedit.ui.h:90 ../ui/gtk_webedit.ui.h:91
-msgid "Normal"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:91 ../ui/gtk_webedit.ui.h:92
-msgid "Header 1"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:92 ../ui/gtk_webedit.ui.h:93
-msgid "Header 2"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:93 ../ui/gtk_webedit.ui.h:94
-msgid "Header 3"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:94 ../ui/gtk_webedit.ui.h:95
-msgid "Header 4"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:95 ../ui/gtk_webedit.ui.h:96
-msgid "Header 5"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:96 ../ui/gtk_webedit.ui.h:97
-msgid "Header 6"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:97 ../ui/gtk_webedit.ui.h:98
-msgid "Address"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:98 ../ui/gtk_webedit.ui.h:99
-msgid "Preformatted"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:99 ../ui/gtk_webedit.ui.h:100
-#, fuzzy
-msgid "Bulleted List"
-msgstr "要删除列表吗？"
-
-#: ../ui/gtk2_webedit.ui.h:100 ../ui/gtk_webedit.ui.h:101
-msgid "Roman Numeral List"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:101 ../ui/gtk_webedit.ui.h:102
-#, fuzzy
-msgid "Numbered List"
-msgstr "经文列表"
-
-#: ../ui/gtk2_webedit.ui.h:102 ../ui/gtk_webedit.ui.h:103
-msgid "Alphabetical List"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:103 ../ui/gtk_webedit.ui.h:104
-msgid "Strike"
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:104 ../ui/gtk_webedit.ui.h:105
-msgid "Set font color of selected text."
-msgstr ""
-
-#: ../ui/gtk2_webedit.ui.h:105 ../ui/gtk_webedit.ui.h:106
-msgid "Highlight selected text by setting background color."
-msgstr ""
-
-#: ../ui/markverse.glade.h:12 ../ui/xi-export-bookmarks.glade.h:7
-msgid "gtk-cancel"
-msgstr "gtk-取消"
-
-#: ../ui/module-manager.glade.h:21 ../ui/module-manager.gtkbuilder.h:22
-msgid "<b>Module Manager</b>"
-msgstr "<b>模块管理器</b>"
-
-#: ../ui/navbar_versekey.glade.h:2
-msgid "Choose book to display"
-msgstr "选择要显示的书卷"
-
-#: ../ui/navbar_versekey.glade.h:5
-#, fuzzy
-msgid "Choose chapter to display"
-msgstr "选择要显示的书卷"
-
-#: ../ui/navbar_versekey.glade.h:8
-#, fuzzy
-msgid "Choose Verse to display"
-msgstr "选择要显示的书卷"
-
-#: ../ui/prefs.glade.h:19
-msgid ""
-"-2\n"
-"-1\n"
-"+0\n"
-"+1\n"
-"+2\n"
-"+3\n"
-"+4\n"
-"+5"
-msgstr ""
-"-2\n"
-"-1\n"
-"+0\n"
-"+1\n"
-"+2\n"
-"+3\n"
-"+4\n"
-"+5"
-
-#: ../ui/prefs.glade.h:30 ../ui/prefs.gtkbuilder.h:34
-msgid "Font preferences, per language"
-msgstr ""
-
-#: ../ui/prefs.glade.h:33 ../ui/prefs.gtkbuilder.h:37
-msgid "Default display columns"
-msgstr ""
-
-#: ../ui/prefs.glade.h:34 ../ui/prefs.gtkbuilder.h:38
-msgid "Justify margins"
-msgstr ""
-
-#: ../ui/prefs.glade.h:38 ../ui/prefs.gtkbuilder.h:42
-msgid ""
-"Xiphos is the first Bible study program to provide an implementation of "
-"BibleSync, a synchronization protocol for Bible programs. If you work with "
-"multiple Bible programs, or if you work in a team, or if you have classroom "
-"activities using shared study, BibleSync can be a useful tool for you. "
-"BibleSync operates in 1 of 3 modes: Personal, to synchronize multiple Bible "
-"applications of your own, or in a working team; Speaker, to drive a lecture "
-"audience's Bible programs to follow along; Audience, to receive the "
-"speaker's navigation."
-msgstr ""
-
-#: ../ui/prefs.glade.h:39 ../ui/prefs.gtkbuilder.h:44
-#, fuzzy
-msgid "<i>Mode:</i>"
-msgstr "<b>模块</b>"
-
-#: ../ui/prefs.glade.h:56 ../ui/prefs.gtkbuilder.h:61
-#, fuzzy
-msgid "<i>Navigate:</i>"
-msgstr "救恩"
-
-#: ../ui/prefs.glade.h:64 ../ui/prefs.gtkbuilder.h:68
-msgid "_Keyboard only"
-msgstr ""
-
-#: ../ui/prefs.glade.h:67 ../ui/prefs.gtkbuilder.h:72
-#, fuzzy
-msgid "<i>Listen:</i>"
-msgstr "<b>列表名字</b>"
-
-#: ../ui/prefs.glade.h:78 ../ui/prefs.gtkbuilder.h:83
-#, fuzzy
-msgid "<i>Special:</i>"
-msgstr "指定"
-
-#: ../ui/prefs.glade.h:94 ../ui/prefs.gtkbuilder.h:98
-msgid ""
-"Select a particular language for interface display, other than your usual "
-"setting"
-msgstr ""
-
-#: ../ui/prefs.glade.h:95 ../ui/prefs.gtkbuilder.h:99
-#, fuzzy
-msgid "Locale (requires restart)"
-msgstr "指定本地化语言(需要重启)"
-
-#: ../ui/prefs.glade.h:121 ../ui/prefs.gtkbuilder.h:125
-msgid "Enable Statusbar"
-msgstr ""
-
-#: ../ui/prefs.glade.h:122
-msgid "Enable/Disable Statusbar."
-msgstr ""
-
-#: ../ui/prefs.glade.h:124 ../ui/prefs.gtkbuilder.h:128
-msgid "Parallel color alternation"
-msgstr ""
-
-#: ../ui/prefs.gtkbuilder.h:1
-msgid "-2"
-msgstr ""
-
-#: ../ui/prefs.gtkbuilder.h:2
-#, fuzzy
-msgid "-1"
-msgstr "1"
-
-#: ../ui/prefs.gtkbuilder.h:4
-#, fuzzy
-msgid "+1"
-msgstr "1"
-
-#: ../ui/prefs.gtkbuilder.h:5
-msgid "+2"
-msgstr ""
-
-#: ../ui/prefs.gtkbuilder.h:6
-msgid "+3"
-msgstr ""
-
-#: ../ui/prefs.gtkbuilder.h:7
-msgid "+4"
-msgstr ""
-
-#: ../ui/prefs.gtkbuilder.h:8
-msgid "+5"
-msgstr ""
-
-#: ../ui/prefs.gtkbuilder.h:10
-msgid "2"
-msgstr ""
-
-#: ../ui/prefs.gtkbuilder.h:11
-msgid "3"
-msgstr ""
-
-#: ../ui/prefs.gtkbuilder.h:12
-msgid "4"
-msgstr ""
-
-#: ../ui/prefs.gtkbuilder.h:126
-msgid "Enable/disable the Statusbar"
-msgstr ""
-
-#: ../ui/search-dialog.glade.h:32
-msgid "Custom Module List Combo"
-msgstr "自定义模块列表 组合框"
-
-#: ../ui/search-dialog.glade.h:61 ../ui/search-dialog.gtkbuilder.h:61
-msgid "<b>Preview</b>"
-msgstr "<b>预览</b>"
-
-#: ../ui/xi-export-bookmarks.glade.h:8
-msgid "gtk-ok"
-msgstr "gtk-确定"
-
-#: ../ui/xi-menus.glade.h:2 ../ui/xi-menus.gtkbuilder.h:2
-msgid "Open Study_pad"
-msgstr "打开 研修笔记(_p) Study pad"
-
-#: ../ui/xi-menus.glade.h:3 ../ui/xi-menus.gtkbuilder.h:3
-msgid "_Open Session"
-msgstr "打开讲义(_O)"
-
-#: ../ui/xi-menus.glade.h:4
-msgid "Open a saved tab settings collection"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:5 ../ui/xi-menus.gtkbuilder.h:4
-msgid "_Save Session"
-msgstr "保存讲义(_S)"
-
-#: ../ui/xi-menus.glade.h:6
-msgid "Save this collection of tab settings"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:7 ../ui/xi-menus.gtkbuilder.h:5
-#, fuzzy
-msgid "_New Prayerlist/Journal"
-msgstr "祷告名单/日记 项目"
-
-#: ../ui/xi-menus.glade.h:8
-#, fuzzy
-msgid "Create a new journal or prayerlist from a template"
-msgstr "创建一个新的简易祈祷名单"
-
-#: ../ui/xi-menus.glade.h:10 ../ui/xi-menus.gtkbuilder.h:7
-msgid "_Search"
-msgstr "搜索 (_S)"
-
-#: ../ui/xi-menus.glade.h:11
-msgid "Bring the simple sidebar search forward"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:12 ../ui/xi-menus.gtkbuilder.h:8
-msgid "_Advanced Search"
-msgstr "高级搜索(_A)"
-
-#: ../ui/xi-menus.glade.h:13
-msgid "Open the advanced search dialog, to run complex queries"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:14 ../ui/xi-menus.gtkbuilder.h:9
-msgid "_Preferences"
-msgstr "首选项 (_P)"
-
-#: ../ui/xi-menus.glade.h:15
-msgid "Use module manager to install and remove Sword modules"
-msgstr "用模块管理器安装或删除 Sword 模块"
-
-#: ../ui/xi-menus.glade.h:16 ../ui/xi-menus.gtkbuilder.h:10
-msgid "_Module Manager"
-msgstr "模块管理器(_M)"
-
-#: ../ui/xi-menus.glade.h:18 ../ui/xi-menus.gtkbuilder.h:12
-msgid "Preview _Daily Devotion"
-msgstr "预览每日奉献(_D)"
-
-#: ../ui/xi-menus.glade.h:19
-msgid "Show today's entry from your selected daily devotional in the previewer"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:20 ../ui/xi-menus.gtkbuilder.h:13
-msgid "_Bible"
-msgstr "圣经(_B)"
-
-#: ../ui/xi-menus.glade.h:21 ../ui/xi-menus.gtkbuilder.h:14
-msgid "_Preview"
-msgstr "预览(_P)"
-
-#: ../ui/xi-menus.glade.h:22 ../ui/xi-menus.gtkbuilder.h:15
-msgid "_Commentary/Book"
-msgstr "评述/书卷(_C)"
-
-#: ../ui/xi-menus.glade.h:23 ../ui/xi-menus.gtkbuilder.h:16
-msgid "Dictionar_y"
-msgstr "字典(_y)"
-
-#: ../ui/xi-menus.glade.h:24 ../ui/xi-menus.gtkbuilder.h:17
-msgid "L_ink Tabs"
-msgstr "链接标签"
-
-#: ../ui/xi-menus.glade.h:25
-msgid "Make all tabs' Bibles navigate together"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:26 ../ui/xi-menus.gtkbuilder.h:18
-msgid "_Read Aloud"
-msgstr "朗读(_R)"
-
-#: ../ui/xi-menus.glade.h:27
-msgid "Turn on text-to-speech reading of Bible verses as they are selected"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:28 ../ui/xi-menus.gtkbuilder.h:19
-msgid "Show Verse _Numbers"
-msgstr "显示经文前的数码(_N)"
-
-#: ../ui/xi-menus.glade.h:29
-msgid "Display verse numbers in the text"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:30 ../ui/xi-menus.gtkbuilder.h:20
-msgid "_Highlight Current Verse"
-msgstr "高亮显示当前经文(_H)"
-
-#: ../ui/xi-menus.glade.h:31
-#, fuzzy
-msgid "Apply a high-contrast highlight to the current verse"
-msgstr "应用高对比度突出显示当前经文"
-
-#: ../ui/xi-menus.glade.h:32 ../ui/xi-menus.gtkbuilder.h:21
-msgid "_Show/Hide Attached Sidebar"
-msgstr "显示/隐藏附加侧边栏(_S)"
-
-#: ../ui/xi-menus.glade.h:33
-#, fuzzy
-msgid "Remove the sidebar entirely from view"
-msgstr "移除选择的文件夹"
-
-#: ../ui/xi-menus.glade.h:34 ../ui/xi-menus.gtkbuilder.h:22
-msgid "Show Parallel View in a _Tab"
-msgstr "在标签页中显示类似视图(_T)"
-
-#: ../ui/xi-menus.glade.h:35
-msgid "Provide the full-chapter parallel Bible window as another tab"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:36 ../ui/xi-menus.gtkbuilder.h:23
-msgid "Show Previe_wer in the Sidebar"
-msgstr "在边栏中显示预览器"
-
-#: ../ui/xi-menus.glade.h:37
-msgid "Select Previewer position between sidebar or beneath Bible"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:39 ../ui/xi-menus.gtkbuilder.h:25
-msgid "_Contents"
-msgstr "内容(_C)"
-
-#: ../ui/xi-menus.glade.h:40
-msgid "Open the help viewer on the Xiphos manual"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:41 ../ui/xi-menus.gtkbuilder.h:26
-msgid "_Mailing List"
-msgstr "邮件列表(_M)"
-
-#: ../ui/xi-menus.glade.h:42
-msgid "Open a browser on the users' mailing list webpage"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:43 ../ui/xi-menus.gtkbuilder.h:27
-msgid "_Live Chat"
-msgstr "实时聊天(_L)"
-
-#: ../ui/xi-menus.glade.h:44
-msgid "Open a browser on an interface to live IRC chat"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:45 ../ui/xi-menus.gtkbuilder.h:28
-msgid "_Report Bug"
-msgstr "报告 Bug(_R)"
-
-#: ../ui/xi-menus.glade.h:46
-msgid "Open a browser on our bug tracker"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:47 ../ui/xi-menus.gtkbuilder.h:29
-msgid "About _Translation"
-msgstr "关于翻译工作(_T)"
-
-#: ../ui/xi-menus.glade.h:48
-msgid "Learn about translating the Xiphos interface to other languages"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:49 ../ui/xi-menus.gtkbuilder.h:30
-msgid "_About The SWORD Project"
-msgstr "关于 The SWORD Project(_A)"
-
-#: ../ui/xi-menus.glade.h:50
-msgid "Learn about The Sword Project, of which Xiphos is one application"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:51 ../ui/xi-menus.gtkbuilder.h:31
-#, fuzzy
-msgid "About _BibleSync"
-msgstr "圣经"
-
-#: ../ui/xi-menus.glade.h:52
-msgid "Learn about BibleSync, the shared navigation protocol"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:53 ../ui/xi-menus.gtkbuilder.h:32
-msgid "_View Xiphos Releases"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:54
-msgid "Visit the releases web page. Is your Xiphos current?"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:55 ../ui/xi-menus.gtkbuilder.h:33
-msgid "About _Xiphos"
-msgstr "关于 Xiphos(_X)"
-
-#: ../ui/xi-menus.glade.h:56
-#, fuzzy
-msgid "Learn about Xiphos"
-msgstr "关于 Xiphos(_X)"
-
-#: ../ui/xi-menus.glade.h:59 ../ui/xi-menus-popup.gtkbuilder.h:37
-msgid "Annotate Verse"
-msgstr "注释经文"
-
-#: ../ui/xi-menus.glade.h:62 ../ui/xi-menus-popup.gtkbuilder.h:40
-msgid "Open Module"
-msgstr "打开模块"
-
-#: ../ui/xi-menus.glade.h:64 ../ui/xi-menus-popup.gtkbuilder.h:41
-msgid "Note"
-msgstr "注解"
-
-#: ../ui/xi-menus.glade.h:65 ../ui/xi-menus-popup.gtkbuilder.h:42
-msgid "Open in editor"
-msgstr "在编辑器中打开"
-
-#: ../ui/xi-menus.glade.h:67 ../ui/xi-menus-popup.gtkbuilder.h:44
-#, fuzzy
-msgid "Verse Per Line"
-msgstr "使用每行显示一节经文模式"
-
-#: ../ui/xi-menus.glade.h:76 ../ui/xi-menus-popup.gtkbuilder.h:53
-msgid "Footnote/Cross-ref Markers"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:77
-msgid "Show non-anonymous markers e.g. \"*n23\""
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:82 ../ui/xi-menus-popup.gtkbuilder.h:58
-msgid "Variants"
-msgstr "变体"
-
-#: ../ui/xi-menus.glade.h:90 ../ui/xi-menus-popup.gtkbuilder.h:66
-msgid "Image Content"
-msgstr "图像内容"
-
-#: ../ui/xi-menus.glade.h:91 ../ui/xi-menus-popup.gtkbuilder.h:67
-msgid "Respect Font Faces"
-msgstr "重置文字界面"
-
-#: ../ui/xi-menus.glade.h:92 ../ui/xi-menus-popup.gtkbuilder.h:68
-msgid "Commentary by Chapter"
-msgstr "按章注解"
-
-#: ../ui/xi-menus.glade.h:93 ../ui/xi-menus-popup.gtkbuilder.h:69
-#, fuzzy
-msgid "Doublespace"
-msgstr "双空格文本(_o)"
-
-#: ../ui/xi-menus.glade.h:94 ../ui/xi-menus-popup.gtkbuilder.h:70
-msgid "Lookup Selection"
-msgstr "查找选择"
-
-#: ../ui/xi-menus.glade.h:95 ../ui/xi-menus-popup.gtkbuilder.h:71
-msgid "Use Current Dictionary"
-msgstr "使用当前字典"
-
-#: ../ui/xi-menus.glade.h:96 ../ui/xi-menus-popup.gtkbuilder.h:72
-msgid "Browse in BibleMap.org"
-msgstr "在  BibleMap.org 中浏览"
-
-#: ../ui/xi-menus.glade.h:97 ../ui/xi-menus-popup.gtkbuilder.h:73
-msgid "Unlock This Module"
-msgstr "解锁此模块"
-
-#: ../ui/xi-menus.glade.h:98 ../ui/xi-menus-popup.gtkbuilder.h:74
-msgid "Display Book Heading"
-msgstr "显示书卷标题"
-
-#: ../ui/xi-menus.glade.h:99 ../ui/xi-menus-popup.gtkbuilder.h:75
-msgid "Display Chapter Heading"
-msgstr "显示章节标题"
-
-#: ../ui/xi-menus.glade.h:100 ../ui/xi-menus-popup.gtkbuilder.h:76
-msgid "Rename Pers.Comm."
-msgstr "重命名 Pers.Comm。"
-
-#: ../ui/xi-menus.glade.h:101 ../ui/xi-menus-popup.gtkbuilder.h:77
-msgid "Dump Pers.Comm."
-msgstr "转储Pers.Comm。"
-
-#: ../ui/xi-menus.glade.h:102 ../ui/xi-menus-popup.gtkbuilder.h:78
-msgid "Read Selection Aloud"
-msgstr "阅读选择性朗读"
-
-#: ../ui/xi-menus.glade.h:103 ../ui/xi-menus-popup.gtkbuilder.h:93
-msgid "Save these results as a single bookmark"
-msgstr "将这些结果保存为一个单个书签"
-
-#: ../ui/xi-menus.glade.h:104 ../ui/xi-menus-popup.gtkbuilder.h:92
-msgid "Save list as a single bookmark"
-msgstr "将列表全部保存为单个书签"
-
-#: ../ui/xi-menus.glade.h:105 ../ui/xi-menus-popup.gtkbuilder.h:95
-msgid "Save these results as a series of bookmarks in their own folder"
-msgstr "将这些结果保存为一个系列书签并为其创建各自的文件夹"
-
-#: ../ui/xi-menus.glade.h:106 ../ui/xi-menus-popup.gtkbuilder.h:94
-msgid "Save list as a series of bookmarks"
-msgstr "将列表全部保存为系列书签"
-
-#: ../ui/xi-menus.glade.h:107 ../ui/xi-menus-popup.gtkbuilder.h:97
-msgid ""
-"Provide a dialog in which to paste a line of verse references, to fill the "
-"verse list."
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:108 ../ui/xi-menus-popup.gtkbuilder.h:96
-#, fuzzy
-msgid "Populate verse list"
-msgstr "经文列表"
-
-#: ../ui/xi-menus.glade.h:109 ../ui/xi-menus-popup.gtkbuilder.h:99
-msgid "Push the entire verse list contents directly into the history list."
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:110 ../ui/xi-menus-popup.gtkbuilder.h:98
-#, fuzzy
-msgid "Preload history from verse list"
-msgstr "历史下拉列表"
-
-#: ../ui/xi-menus.glade.h:111 ../ui/xi-menus-popup.gtkbuilder.h:101
-msgid ""
-"Send this verse list via BibleSync to others, if you are in Personal or "
-"Speaker mode."
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:112 ../ui/xi-menus-popup.gtkbuilder.h:100
-msgid "Send list via BibleSync"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:113 ../ui/xi-menus-popup.gtkbuilder.h:102
-msgid "Export List"
-msgstr "导出列表"
-
-#: ../ui/xi-menus.glade.h:114 ../ui/xi-menus-popup.gtkbuilder.h:2
-msgid "Open this bookmark in a new tab"
-msgstr "在新标签页中打开此书签"
-
-#: ../ui/xi-menus.glade.h:115 ../ui/xi-menus-popup.gtkbuilder.h:1
-msgid "Open in new tab"
-msgstr "在一个新的标签页中打开"
-
-#: ../ui/xi-menus.glade.h:116 ../ui/xi-menus-popup.gtkbuilder.h:4
-msgid "Open this bookmark in a dialog"
-msgstr "在对话框中打开此书签"
-
-#: ../ui/xi-menus.glade.h:117 ../ui/xi-menus-popup.gtkbuilder.h:3
-msgid "Open in a dialog"
-msgstr "在对话框中打开"
-
-#: ../ui/xi-menus.glade.h:118 ../ui/xi-menus-popup.gtkbuilder.h:6
-msgid "Add new folder to selected folder"
-msgstr "在选择的目录中新建一个文件夹"
-
-#: ../ui/xi-menus.glade.h:120 ../ui/xi-menus-popup.gtkbuilder.h:8
-msgid "Insert new bookmark here"
-msgstr "在此插入新书签"
-
-#: ../ui/xi-menus.glade.h:121 ../ui/xi-menus-popup.gtkbuilder.h:7
-msgid "Insert Bookmark"
-msgstr "插入书签"
-
-#: ../ui/xi-menus.glade.h:122 ../ui/xi-menus-popup.gtkbuilder.h:10
-msgid "Edit bookmark item"
-msgstr "编辑书签"
-
-#: ../ui/xi-menus.glade.h:123 ../ui/xi-menus-popup.gtkbuilder.h:9
-msgid "_Edit Item"
-msgstr "编辑项目(_E)"
-
-#: ../ui/xi-menus.glade.h:124 ../ui/xi-menus-popup.gtkbuilder.h:12
-msgid "Delete item"
-msgstr "删除项目"
-
-#: ../ui/xi-menus.glade.h:126 ../ui/xi-menus-popup.gtkbuilder.h:14
-msgid "Expand all Bookmarks groups"
-msgstr "展开全部书签组"
-
-#: ../ui/xi-menus.glade.h:127 ../ui/xi-menus-popup.gtkbuilder.h:13
-msgid "Expand All"
-msgstr "全部展开"
-
-#: ../ui/xi-menus.glade.h:128 ../ui/xi-menus-popup.gtkbuilder.h:16
-msgid "Collapse all Bookmarks groups"
-msgstr "收起全部标签组"
-
-#: ../ui/xi-menus.glade.h:129 ../ui/xi-menus-popup.gtkbuilder.h:15
-msgid "Collapse All"
-msgstr "收起全部"
-
-#: ../ui/xi-menus.glade.h:130 ../ui/xi-menus-popup.gtkbuilder.h:17
-msgid "Allow items to be moved from one folder to another"
-msgstr "允许项目从一个文件夹被移动到另一个文件夹"
-
-#: ../ui/xi-menus.glade.h:131 ../ui/xi-menus-popup.gtkbuilder.h:18
-msgid "Allow Reordering"
-msgstr "允许重排"
-
-#: ../ui/xi-menus.glade.h:132 ../ui/xi-menus-popup.gtkbuilder.h:20
-#, fuzzy
-msgid "Load other bookmarks file (default: from BibleTime)"
-msgstr "从 Bibletime 载入标签"
-
-#: ../ui/xi-menus.glade.h:133 ../ui/xi-menus-popup.gtkbuilder.h:19
-#, fuzzy
-msgid "Import Bookmarks"
-msgstr "插入书签"
-
-#: ../ui/xi-menus.glade.h:134 ../ui/xi-menus-popup.gtkbuilder.h:22
-msgid "Remove folder and save it"
-msgstr "移除文件夹并保存"
-
-#: ../ui/xi-menus.glade.h:135 ../ui/xi-menus-popup.gtkbuilder.h:21
-msgid "Export Folder"
-msgstr "导出到文件夹"
-
-#: ../ui/xi-menus.glade.h:136 ../ui/xi-menus-popup.gtkbuilder.h:31
-msgid "Open selected module in a new tab"
-msgstr "在新的标签页中打开选择的模块"
-
-#: ../ui/xi-menus.glade.h:137 ../ui/xi-menus-popup.gtkbuilder.h:33
-msgid ""
-"Open selected module in a\n"
-"\tseparate ['dialog'] window"
-msgstr ""
-"分开的['dialog']窗口中\n"
-"打开选定的模块"
-
-#: ../ui/xi-menus.glade.h:139 ../ui/xi-menus-popup.gtkbuilder.h:32
-msgid "Open in a separate window"
-msgstr "在一个单独的窗口中打开"
-
-#: ../ui/xi-menus.glade.h:140 ../ui/xi-menus-popup.gtkbuilder.h:80
-msgid "Create a new simple prayer list"
-msgstr "创建一个新的简易祈祷名单"
-
-#: ../ui/xi-menus.glade.h:142 ../ui/xi-menus-popup.gtkbuilder.h:82
-msgid "Create a new subject prayer list"
-msgstr "创建一个新的次要祈祷名单"
-
-#: ../ui/xi-menus.glade.h:143 ../ui/xi-menus-popup.gtkbuilder.h:81
-msgid "Subject"
-msgstr "题目"
-
-#: ../ui/xi-menus.glade.h:144 ../ui/xi-menus-popup.gtkbuilder.h:84
-msgid "Create a new monthly journal"
-msgstr "创建一个新的月记(月刊)"
-
-#: ../ui/xi-menus.glade.h:145 ../ui/xi-menus-popup.gtkbuilder.h:83
-msgid "Monthly"
-msgstr "按月"
-
-#: ../ui/xi-menus.glade.h:146 ../ui/xi-menus-popup.gtkbuilder.h:86
-msgid "Create a new daily journal"
-msgstr "创建一个新的日记"
-
-#: ../ui/xi-menus.glade.h:147 ../ui/xi-menus-popup.gtkbuilder.h:85
-msgid "Daily"
-msgstr "每天"
-
-#: ../ui/xi-menus.glade.h:148 ../ui/xi-menus-popup.gtkbuilder.h:88
-msgid "Create a new outlined topic"
-msgstr "创建一个新的专题"
-
-#: ../ui/xi-menus.glade.h:149 ../ui/xi-menus-popup.gtkbuilder.h:87
-msgid "Outlined"
-msgstr "概述"
-
-#: ../ui/xi-menus.glade.h:150 ../ui/xi-menus-popup.gtkbuilder.h:90
-#, fuzzy
-msgid "Create a new book/chapter outline"
-msgstr "创建一个新的专题"
-
-#: ../ui/xi-menus.glade.h:151 ../ui/xi-menus-popup.gtkbuilder.h:89
-#, fuzzy
-msgid "Book/Chapter"
-msgstr "章"
-
-#: ../ui/xi-menus.glade.h:152 ../ui/xi-menus-popup.gtkbuilder.h:91
-msgid "Open module in editor or plain display window"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:153 ../ui/xi-menus-popup.gtkbuilder.h:24
-msgid "Add a sub-item"
-msgstr "添加一个子项目"
-
-#: ../ui/xi-menus.glade.h:154 ../ui/xi-menus-popup.gtkbuilder.h:23
-msgid "Add Sub-Item"
-msgstr "添加子项目"
-
-#: ../ui/xi-menus.glade.h:155 ../ui/xi-menus-popup.gtkbuilder.h:26
-msgid "Add an item"
-msgstr "添加一个项目"
-
-#: ../ui/xi-menus.glade.h:156 ../ui/xi-menus-popup.gtkbuilder.h:25
-msgid "Add Item"
-msgstr "添加项目"
-
-#: ../ui/xi-menus.glade.h:157 ../ui/xi-menus-popup.gtkbuilder.h:28
-msgid "Remove this item"
-msgstr "移除此项"
-
-#: ../ui/xi-menus.glade.h:159 ../ui/xi-menus-popup.gtkbuilder.h:30
-msgid "Edit this item"
-msgstr "编辑此项"
-
-#, c-format
-#~ msgid "Page %d of %d"
-#~ msgstr "第 %d 页，共 %d 页"
-
-#~ msgid "Journals and prayer lists cannot be indexed."
-#~ msgstr "周记和祈祷名单不能被索引。"
-
-#~ msgid "The last module list may not be deleted"
-#~ msgstr "最后的模块列表也许不会被删除"
-
-#, fuzzy
-#~ msgid "Optimized (\"lucene\")"
-#~ msgstr "已优化(\"Lucene\")"
-
-#~ msgid "Save AS"
-#~ msgstr "另存为"
-
-#~ msgid "Multi word"
-#~ msgstr "复杂词汇"
-
-#~ msgid "Plain text"
-#~ msgstr "纯文本"
-
-#, fuzzy
-#~ msgid "Open in separate window"
-#~ msgstr "在一个单独的窗口中打开"
-
-#~ msgid "Xiphos Bible Guide"
-#~ msgstr "Xiphos 圣经指导"
-
-#~ msgid "Study the Bible"
-#~ msgstr "学习圣经"
-
-#~ msgid "_Attach/Detach Sidebar"
-#~ msgstr "吸附/分离边栏(_A)"
-
-#, fuzzy
-#~ msgid "Operate the sidebar as a separate window"
-#~ msgstr "在一个单独的窗口中打开"
-
-#, fuzzy
-#~ msgid "[no dump ready]"
-#~ msgstr "整个模块"
-
-#, fuzzy
-#~ msgid "Transmit failed.\n"
-#~ msgstr "%s 失败"
-
-#~ msgid "Unlock "
-#~ msgstr "解锁 "
-
-#~ msgid "Preparing to print"
-#~ msgstr "正在准备打印"
-
-#~ msgid "Printing is not supported on this printer"
-#~ msgstr "此打印机上目前尚不支持打印"
-
-#~ msgid "Printer %s does not support PostScript printing."
-#~ msgstr "打印机 %s 并不支持 PostScript 打印。"
-
-#~ msgid "Printing"
-#~ msgstr "正在打印"
-
-#~ msgid "Waiting to print"
-#~ msgstr "等候打印"
-
-#~ msgid "An error occurred while printing"
-#~ msgstr "打印时发生了一个错误"
-
-#~ msgid "It was not possible to print your document: %s"
-#~ msgstr "无法打印您的文档：%s"
-
-#~ msgid ""
-#~ "Xiphos can not create  .xiphos:\n"
-#~ "%s\n"
-#~ "\n"
-#~ "Xiphos cannot continue."
-#~ msgstr ""
-#~ "Xiphos 不能创建 .xiphos 文件在下列目录:\n"
-#~ "%s\n"
-#~ "\n"
-#~ "Xiphos 无法继续执行。"
-
-#~ msgid "<b>Tabs</b>"
-#~ msgstr "标签页"
-
-#~ msgid "Use tabbed browsing"
-#~ msgstr "使用标签模式浏览"
-
-#~ msgid "Use tabbed browsing Checkbox"
-#~ msgstr "使用标签模式浏览 复选框"
-
-#~ msgid "<b>Show</b>"
-#~ msgstr "<b>显示</b>"
-
-#~ msgid "Bible Texts"
-#~ msgstr "圣经文本"
-
-#~ msgid "Bible Texts Checkbox"
-#~ msgstr "圣经文本复选框"
-
-#~ msgid "Previewer Checkbox"
-#~ msgstr "预览器 复选框"
-
-#~ msgid "Commentaries Checkbox"
-#~ msgstr "注释复选框"
-
-#~ msgid "Dictionary/Lexicon"
-#~ msgstr "字典/词典"
-
-#~ msgid "Dictionary/Lexicon Checkbox"
-#~ msgstr "字典/词典 复选框"
-
-#~ msgid "Parallel View in a tab"
-#~ msgstr "在标签页中的类似视图"
-
-#~ msgid "Tabs and Panes"
-#~ msgstr "标签和窗格"
-
-#~ msgid "<b>StudyPad default directory</b>"
-#~ msgstr "<b>研修笔记(StudyPad)的默认目录</b>"
-
-#~ msgid ""
-#~ "URL references using \"sword://\" (similar to web page\n"
-#~ "references) can be used by programs to look up\n"
-#~ "scripture references. Your system currently has no\n"
-#~ "program set to handle these references.\n"
-#~ "\n"
-#~ "Would you like Xiphos to set itself as the\n"
-#~ "program to handle these references?"
-#~ msgstr ""
-#~ "URL 协议关联使用 \"sword://\"(类似网页协议\n"
-#~ "关联)能够用于程序的经文引用功能。您的\n"
-#~ "系统当前没有程序关联到此开头的协议。\n"
-#~ "\n"
-#~ "你希望Xiphos将其设置为以此开头协议的\n"
-#~ "默认关联的程序吗？"
-
-#~ msgid ""
-#~ "Xiphos has successfully set itself\n"
-#~ "as the handler of sword:// and bible:// URLs.\n"
-#~ "\n"
-#~ "You may wish to run the program \"gconf-editor\"\n"
-#~ "to examine keys under /desktop/gnome/url-handlers,\n"
-#~ "if you need to change these."
-#~ msgstr ""
-#~ "Xiphos 已经成功地将其设置为\n"
-#~ "sword://和bible://地址的默认关联。\n"
-#~ "\n"
-#~ "如果需要的话，您可能需要运行“gconf-editor”检查\n"
-#~ "位于 /desktop/gnome/url-handles的相关键值。"
-
-#~ msgid ""
-#~ "Xiphos failed to complete handler init for key #%d:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Xiphos未完成处理程序初始化键 #%d\n"
-#~ "%s"
-
-#~ msgid "Go to "
-#~ msgstr "转到 "
-
-#~ msgid "Main"
-#~ msgstr "主窗口"
-
-#~ msgid "Modules Main"
-#~ msgstr "主模块"
-
-#~ msgid ""
-#~ "Without any Bible modules to display,\n"
-#~ "Xiphos cannot proceed,\n"
-#~ "and will now exit."
-#~ msgstr ""
-#~ "由于没有任何圣经组件显示，\n"
-#~ "Xiphos 将不能继续运行，\n"
-#~ "程序将被迫退出。"
-
-#~ msgid "Choose to enable Prayer lists "
-#~ msgstr "选择启用祈祷名单 "
-
-#~ msgid "Cipher Key?"
-#~ msgstr "密码钥匙"
-
-#~ msgid "Change parallel 1"
-#~ msgstr "变更 相关 1"
-
-#~ msgid "Change parallel 2"
-#~ msgstr "变更 相关 2"
-
-#~ msgid "Change parallel 3"
-#~ msgstr "变更 相关 3"
-
-#~ msgid "Change parallel 4"
-#~ msgstr "变更 相关 4"
-
-#~ msgid "Change parallel 5"
-#~ msgstr "变更 相关 5"
-
-#~ msgid "Sizes"
-#~ msgstr "大小"
-
-#~ msgid ""
-#~ "Welcome to Xiphos.\n"
-#~ "\n"
-#~ "There are no Bible modules installed. In order to initialize, Xiphos "
-#~ "needs you to install at least one Bible.\n"
-#~ "\n"
-#~ "With your permission, Xiphos will invoke the Module Manager so that you "
-#~ "may install from Crosswire:\n"
-#~ "1. Configure remote install.\n"
-#~ "2. Connect.\n"
-#~ "3. Select a Bible text of your language preference.\n"
-#~ "4. Click `install'.\n"
-#~ "Close the Module Manager when you are done.\n"
-#~ "\n"
-#~ "Warning: If you live in a persecuted country, use with care.\n"
-#~ "\n"
-#~ "May Xiphos invoke the Module Manager so that you may install a Bible?"
-#~ msgstr ""
-#~ "欢迎使用 Xiphos.\n"
-#~ "\n"
-#~ "现在未安装圣经书卷。为了初始化，Xiphos必须要求您至少安装一种语言的圣经。\n"
-#~ "\n"
-#~ "有了您的许可，Xiphos将调用组件管理，使您可以安装来自Crosswire的文件:\n"
-#~ "1. 配置远程安装。\n"
-#~ "2. 联网。\n"
-#~ "3. 选择一本适合您阅读的圣经。\n"
-#~ "4. 单击“安装”。\n"
-#~ "当您完成上述操作时请关闭组件管理。\n"
-#~ "\n"
-#~ "警告:如果您居住在受迫害的国家，请小心使用。\n"
-#~ "\n"
-#~ "是否允许 Xiphos 启动组件管理器以帮助您安装一本圣经？"
-
-#~ msgid "<b>Parallel View</b>"
-#~ msgstr "<b>类似经文视图</b>"
-
-#~ msgid "Parallel 1"
-#~ msgstr "类似 1"
-
-#~ msgid "Parallel 1 Combo"
-#~ msgstr "类似 1 组合框"
-
-#~ msgid "Parallel 2"
-#~ msgstr "类似 2"
-
-#~ msgid "Parallel 2 Combo"
-#~ msgstr "类似 2 组合框"
-
-#~ msgid "Parallel 3"
-#~ msgstr "类似 3"
-
-#~ msgid "Parallel 3 Combo"
-#~ msgstr "类似 3 组合框"
-
-#~ msgid "Parallel 4"
-#~ msgstr "类似 4"
-
-#~ msgid "Parallel 4 Combo"
-#~ msgstr "类似 4 组合框"
-
-#~ msgid "Parallel 5"
-#~ msgstr "类似 5"
-
-#~ msgid "Parallel 5 Combo"
-#~ msgstr "类似 5 组合框"
-
-#~ msgid "Import Bibletime Bookmarks"
-#~ msgstr "导入 Bibletime 书签"
-
-#~ msgid "Restore Folder"
-#~ msgstr "重置文件夹"
-
-#~ msgid "Restore saved folder"
-#~ msgstr "重置已保存的文件夹"

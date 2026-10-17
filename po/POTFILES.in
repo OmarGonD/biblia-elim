@@ -8,7 +8,7 @@ src/editor/gtktextview_editor.c
 src/editor/link_dialog.c
 ## Examples source files
 src/examples/ipc_client.c
-src/examples/xiphos-nav.c
+src/examples/biblia-elim-nav.c
 ## Gnome Source files
 src/gtk/about_modules.c
 src/gtk/about_sword.c
@@ -154,4 +154,4 @@ ui/xi-menus.glade
 [type: gettext/glade]ui/xi-menus-popup.gtkbuilder
 
 ## application files
-desktop/xiphos.desktop.in
+desktop/biblia-elim.desktop

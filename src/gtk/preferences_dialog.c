@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * preferences_dialog.c - get user preferences
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -48,6 +48,7 @@
 #include "gui/tabbed_browser.h"
 #include "gui/widgets.h"
 #include "gui/font_dialog.h"
+#include "gui/preferences_layout.h"
 #include "gui/table_helpers.h"
 
 #include "main/sword.h"
@@ -2029,7 +2030,7 @@ tree_selection_changed(GObject *selection, GParamSpec *pspec, gpointer data)
 
 	/* Las filas de grupo -- General, Tipografías, Módulos -- no llevan
 	 * número de página, así que caían en la 0: una hoja con el logo de
-	 * Xiphos y nada más, que era lo que se veía al abrir el diálogo y
+	 * Ministerios Elim y nada más, que era lo que se veía al abrir el diálogo y
 	 * cada vez que se pulsaba un grupo. Ahora un grupo enseña la página
 	 * de su primer ajuste.
 	 *
@@ -3089,7 +3090,7 @@ void ps_button_cut(GtkButton *button, gpointer user_data)
 void ps_button_add(GtkButton *button, gpointer user_data)
 {
 	GtkBuilder *gxml = elim_gtk_builder_new();
-	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/selector-prefs.gtkbuilder", NULL);
+	gtk_builder_add_from_resource(gxml, "/org/bibliaelim/ui/selector-prefs.gtkbuilder", NULL);
 	parallel_select.mod_sel_dialog =
 	    UI_GET_ITEM(gxml, "mod_sel_dialog");
 	parallel_select.mod_sel_close =
@@ -3463,7 +3464,7 @@ static void create_preferences_dialog(void)
 
 /* build the widget */
 	gxml = elim_gtk_builder_new();
-	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/prefs.gtkbuilder", NULL);
+	gtk_builder_add_from_resource(gxml, "/org/bibliaelim/ui/prefs.gtkbuilder", NULL);
 	g_return_if_fail(gxml != NULL);
 
 	/* lookup the root widget */
@@ -3629,14 +3630,16 @@ static void create_preferences_dialog(void)
 
 	/* prefs notebook */
 	notebook = UI_GET_ITEM(gxml, "notebook");
+	elim_preferences_layout(dialog_prefs, UI_GET_ITEM(gxml, "treeview"),
+				GTK_NOTEBOOK(notebook));
 	/* setup treeview */
 	model = create_model();
 	treeview = UI_GET_ITEM(gxml, "treeview");
 	caption.expand = TRUE;
 	elim_tree_setup_list(treeview, model, &caption);
 	g_object_unref(model);
-	/* 130 px cortaba "Tipos y tamaños" a media palabra */
-	gtk_widget_set_size_request(treeview, 175, -1);
+	/* Leave room for translated labels, indentation and row padding. */
+	gtk_widget_set_size_request(treeview, 220, -1);
 	elim_tree_expand_all(treeview);
 /* connect signals and data */
 

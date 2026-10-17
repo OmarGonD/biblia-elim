@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * utilities.c - support functions
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -779,11 +779,11 @@ gchar *gui_general_user_file(const char *fname, gboolean critical)
 #endif
 #ifdef WIN32
 	alternative[i++] =
-	    g_build_filename(xiphos_win32_get_subdir("share"), "xiphos",
+	    g_build_filename(xiphos_win32_get_subdir("share"), "biblia-elim",
 			     fname, NULL);
 #else
 	alternative[i++] =
-	    g_build_filename("..", "share", "xiphos", fname, NULL);
+	    g_build_filename("..", "share", "biblia-elim", fname, NULL);
 #endif
 	alternative[i++] = g_build_filename(SHARE_DIR, fname, NULL);
 	/* Uninstalled binary lives at <build>/src/gtk/biblia-elim, three
@@ -1409,7 +1409,7 @@ void reading_selector(char *modname,
 	default:
 		g_message("invalid variant %d\n",
 			  (int)GPOINTER_TO_INT(user_data));
-		gui_generic_warning("Xiphos: invalid internal variant");
+		gui_generic_warning("Ministerios Elim: invalid internal variant");
 		break;
 	}
 
@@ -1714,7 +1714,7 @@ char *image_locator(const char *image)
 					   "biblia-elim", "pixmaps", image, NULL);
 #else
 	candidates[n++] = g_build_filename(xiphos_win32_get_subdir("share"),
-					   "xiphos", image, NULL);
+					   "biblia-elim", image, NULL);
 #endif
 	{
 		gchar *exe_path = g_file_read_link("/proc/self/exe", NULL);
@@ -1947,7 +1947,7 @@ HtmlOutput(char *text, GtkWidget *gtkText, MOD_FONT *mf, char *anchor)
 void set_window_icon(GtkWindow *window)
 {
 	if (window)
-		gtk_window_set_icon_name(window, "biblia-elim");
+		gtk_window_set_icon_name(window, "ministerios-elim");
 }
 
 gboolean
@@ -2840,7 +2840,7 @@ const char *AnalyzeForImageSize(const char *origtext, int columns, GtkWidget *wi
 		if (image_retval != 0) {
 			if (!warned_once) {
 				gui_generic_warning(_("An image file's size could not be determined.\n"
-						      "Xiphos cannot resize images to fit window."));
+						      "Ministerios Elim cannot resize images to fit window."));
 				warned_once = TRUE;
 			}
 			continue;

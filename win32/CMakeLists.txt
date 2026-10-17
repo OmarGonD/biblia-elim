@@ -21,7 +21,7 @@
 # define common dirs
 if (WIN32)
   # set icon file
-  set(XIPHOS_MAIN_ICON "${CMAKE_SOURCE_DIR}/pixmaps/gs2-48x48.ico")
+  set(MINISTERIOS_ELIM_MAIN_ICON "${CMAKE_SOURCE_DIR}/pixmaps/ministerios-elim.ico")
   # generate resource file
     configure_file(
     ${CMAKE_CURRENT_SOURCE_DIR}/res/xiphos-winres.rc.in
@@ -77,31 +77,39 @@ if (WIN32)
   )
 
 
-  # install required libraries
-  install(DIRECTORY
-    ${SYS_ROOT_LIB}/enchant
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    COMPONENT binaries
-    )
-
+  # Directorios del sysroot que según la imagen de MinGW pueden no existir
+  # (p. ej. enchant ya no se empaqueta en Fedora): se instalan solo si están.
+  foreach (dir ${SYS_ROOT_LIB}/enchant)
+    if (EXISTS ${dir})
+      install(DIRECTORY ${dir}
+        DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        COMPONENT binaries)
+    else ()
+      message(STATUS "win32: ${dir} no existe; no se instala")
+    endif ()
+  endforeach ()
 
   # install required shared files
-  install(DIRECTORY
-    ${SYS_ROOT_SHARE}/sword
-    ${SYS_ROOT_SHARE}/enchant
-    #  ${SYS_ROOT_SHARE}/gtkhtml-3.14
-    DESTINATION ${CMAKE_INSTALL_DATADIR}
-    COMPONENT data
-    )
-
+  foreach (dir ${SYS_ROOT_SHARE}/sword ${SYS_ROOT_SHARE}/enchant)
+    if (EXISTS ${dir})
+      install(DIRECTORY ${dir}
+        DESTINATION ${CMAKE_INSTALL_DATADIR}
+        COMPONENT data)
+    else ()
+      message(STATUS "win32: ${dir} no existe; no se instala")
+    endif ()
+  endforeach ()
 
   # install required system conf files
-  install(DIRECTORY
-    ${SYS_ROOT_ETC}/fonts
-    ${SYS_ROOT_ETC}/pango
-    DESTINATION ${CMAKE_INSTALL_SYSCONFDIR}
-    COMPONENT data
-    )
+  foreach (dir ${SYS_ROOT_ETC}/fonts ${SYS_ROOT_ETC}/pango)
+    if (EXISTS ${dir})
+      install(DIRECTORY ${dir}
+        DESTINATION ${CMAKE_INSTALL_SYSCONFDIR}
+        COMPONENT data)
+    else ()
+      message(STATUS "win32: ${dir} no existe; no se instala")
+    endif ()
+  endforeach ()
 
 
   # install win32 specific files
@@ -121,17 +129,19 @@ if (WIN32)
 
   # install svg icon
   install(FILES
-    ${PROJECT_SOURCE_DIR}/pixmaps/xiphos.svg
+    ${PROJECT_SOURCE_DIR}/pixmaps/ministerios-elim.svg
     DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/hicolor/scalable/apps
     COMPONENT data
     )
 
   # install icon theme (hicolor + adwaita, for GTK symbolic icons)
-  install(DIRECTORY
-    ${SYS_ROOT_SHARE}/icons
-    DESTINATION ${CMAKE_INSTALL_DATADIR}
-    COMPONENT data
-    )
+  if (EXISTS ${SYS_ROOT_SHARE}/icons)
+    install(DIRECTORY
+      ${SYS_ROOT_SHARE}/icons
+      DESTINATION ${CMAKE_INSTALL_DATADIR}
+      COMPONENT data
+      )
+  endif ()
 
   # install gdk-pixbuf loaders (needed to render icons/pixbufs at runtime)
   install(DIRECTORY

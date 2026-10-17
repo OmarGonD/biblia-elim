@@ -22,7 +22,7 @@
  ; Sword settings
  !define INSTPATH_SWORD "Sword"
 
- ; REG keys to handle url  sword://  by Xiphos
+ ; Registry keys to handle sword:// URLs with Ministerios Elim
  !define SWURL_REG_ROOT "HKCR" # HKEY_CLASSES_ROOT
  !define SWURL_REG_KEY "sword"
  !define SWURL_REG_KEY_ICON "${SWURL_REG_KEY}/DefaultIcon"
@@ -35,4 +35,3 @@
 #
 #
 ######################################
-

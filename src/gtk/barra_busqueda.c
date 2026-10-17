@@ -1,5 +1,5 @@
 /*
- * Biblia Elim
+ * Ministerios Elim
  * barra_busqueda.c - buscar dentro del texto, sin ventana que estorbe
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team

@@ -1,5 +1,5 @@
 /*
- * Biblia Elim
+ * Ministerios Elim
  * recordatorio.c - el aviso diario de la lectura
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -150,7 +150,7 @@ avisar(const gchar *cuerpo)
 			       "/org/freedesktop/Notifications",
 			       "org.freedesktop.Notifications", "Notify",
 			       g_variant_new("(susssasa{sv}i)",
-					     "Biblia Elim",
+					     "Ministerios Elim",
 					     aviso_id,	/* reemplaza el de ayer */
 					     "biblia-elim",
 					     _("Tu lectura de hoy"),

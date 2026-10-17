@@ -1,5 +1,5 @@
 /*
- * Biblia Elim — scripted reproduction of the clicked-note panel bug.
+ * Ministerios Elim — scripted reproduction of the clicked-note panel bug.
  * See author_commentary_probe.h for why this exists.
  */
 #ifdef HAVE_CONFIG_H

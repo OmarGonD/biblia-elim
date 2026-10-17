@@ -37,6 +37,9 @@ public:
 	BibleVerseContent getVerseContent(const std::string &,
 					 const BibleReference &,
 					 bool include_plain_text = false) override;
+	std::vector<BibleVerseContent> getChapterContent(const std::string &,
+					 const BibleReference &, int,
+					 bool include_plain_text = false) override;
 	DictionaryEntry lookupDictionary(const std::string &,
 					 const std::string &) override;
 	std::string navigate(const std::string &, const std::string &, int) override;

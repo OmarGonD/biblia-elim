@@ -1,5 +1,5 @@
 /*
- * Biblia Elim — ficha de término interlineal
+ * Ministerios Elim — ficha de término interlineal
  */
 
 #ifdef HAVE_CONFIG_H
@@ -13,10 +13,12 @@
 #include <glib/gi18n.h>
 
 #include "gui/interlineal.h"
+#include "gui/editable_edition_dialog.h"
 #include "gui/diccionario.h"
 #include "gui/lectura_sync.h"
 #include "gui/main_window.h"
 #include "gui/main_menu.h"
+#include "gui/navbar_versekey.h"
 #include "gui/utilities.h"
 #include "gui/widgets.h"
 
@@ -225,6 +227,16 @@ gui_interlineal_wrap(GtkWidget *html_master)
 	gtk_box_append(GTK_BOX(bar), widgets.lectura_sync_button);
 	g_signal_connect(widgets.lectura_sync_button, "toggled",
 			 G_CALLBACK(on_toggle_comparar), NULL);
+	gtk_box_append(GTK_BOX(bar), gui_edition_contributions_button_new(FALSE));
+	{
+		GtkWidget *spacer = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+		gtk_widget_set_hexpand(spacer, TRUE);
+		gtk_box_append(GTK_BOX(bar), spacer);
+		widgets.study_bible_version_picker =
+			gui_navbar_version_combo_new_study_picker();
+		gtk_widget_set_visible(widgets.study_bible_version_picker, FALSE);
+		gtk_box_append(GTK_BOX(bar), widgets.study_bible_version_picker);
+	}
 
 	gui_box_pack(GTK_BOX(vbox), html_master, TRUE, TRUE, 0);
 

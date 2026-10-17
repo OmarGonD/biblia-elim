@@ -2,7 +2,7 @@
        xmlns:its="http://www.w3.org/2005/11/its">
 
   <info>
-    <desc>A brief introduction to the Xiphos application.</desc>
+    <desc>A brief introduction to the Biblia Elim application.</desc>
 
     <link type="guide" xref="index"/>
 
@@ -10,7 +10,7 @@
     <revision pkgversion="4.1.0" date="2018-05-28" status="candidate"/>
 
 <!--    <title type='link' role="trail"></title> -->
-    <title type='text'>Xiphos</title>
+    <title type='text'>Biblia Elim</title>
 
     <credit type="author" its:translate="no">
       <name>Andy Piper</name>
@@ -34,8 +34,8 @@
 
   <title>Introduction</title>
 
-  <p><app>Xiphos</app> is a Bible study and research tool based upon the "SWORD
-  Project" libraries and the GTK libraries. You can use <app>Xiphos</app> to do
+  <p><app>Biblia Elim</app> is a Bible study and research tool based upon the "SWORD
+  Project" libraries and the GTK libraries. You can use <app>Biblia Elim</app> to do
   the following:</p>
     <list>
        <item>
@@ -55,7 +55,7 @@
 	 Greek translations</p>
         </item>
       </list>
-      <p><app>Xiphos</app> aims to provide a simple and clean user interface
+      <p><app>Biblia Elim</app> aims to provide a simple and clean user interface
       while providing a powerful tool allowing a personalized Bible study
       environment.
       </p>
@@ -75,12 +75,12 @@
       <app>WinSword</app>).
       </p>
 
-      <!-- Where important notices are kept regarding Xiphos  -->
+      <!-- Where important notices are kept regarding Biblia Elim  -->
       <note style="warning">
-        <p><app>Xiphos</app> is currently in development, so this manual may not
+        <p><app>Biblia Elim</app> is currently in development, so this manual may not
         reflect the program as you see it. If it does not, please file a bug at
-	the <link href="https://github.com/crosswire/xiphos">
-	project website</link>, or email <sys>xiphos-devel@crosswire.org</sys>.
+	the <link href="https://github.com/OmarGonD/biblia-elim/issues">
+	project issue tracker</link>.
         All help is appreciated, as it will improve the software.</p>
       </note>
 

@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * shortcutbar_search.c - create search group gui
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team

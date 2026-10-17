@@ -22,6 +22,12 @@
 #include <config.h>
 #endif
 
+#ifdef _WIN32
+/* biblesync.hh trae windows.h, que define ::byte; con "using namespace std" ya
+ * visible choca con std::byte. Que windows.h entre primero. */
+#include <winsock2.h>
+#endif
+
 #include <gtk/gtk.h>
 #include "gui/table_helpers.h"
 #include "gui/widget_helpers.h"

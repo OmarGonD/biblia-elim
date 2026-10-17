@@ -1,0 +1,1000 @@
+{
+  "task": "MANNING-108",
+  "checked_on": "2026-10-16T19:25:40",
+  "backups": {
+    "ManningES": {
+      "path": "/home/ogonzales/.local/share/biblia-elim/edition-backups/Manning-summary-depth-20261016-192539/ManningES.sqlite",
+      "sha256": "9887e09f3ef660abcce174003f9ec435c373d409d6f416ae403c87fa25666518"
+    },
+    "ManningEN": {
+      "path": "/home/ogonzales/.local/share/biblia-elim/edition-backups/Manning-summary-depth-20261016-192539/ManningEN.sqlite",
+      "sha256": "081a4caf8eb837b64ed342bfb0e7bde0442958e8bc60f2711c12de5158028fd3"
+    }
+  },
+  "editions": [
+    {
+      "id": "ManningES",
+      "language": "es",
+      "rewritten_comments": 81,
+      "immutable_tables_and_columns_verified": {
+        "book_comments": "09b9de61d49ffb78498008e8797525d231bc1f1687482de718aa821b4b6c028a",
+        "books": "cd64e6bf5348ba42e810973888da6ddbe289eaa2e00c613ed8ab026e1dcadac0",
+        "cross_reference_targets": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "cross_references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "edition_glossary": "fb71b3bb82cdf029185303442ed083c90d862fb5e0a121af12522a3299ddcfa0",
+        "editorial_decisions": "8b5dffb98c092dee6c43617ca6b8c2a7b8cea08d40dd7d8ed1587459b685b133",
+        "footnotes": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "headings": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "metadata": "038f0421621bf31c4575c80c5f10d8b57edd77943bfabdd0401bc8c7316d564a",
+        "verse_annotations": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "verse_comments": "edd1c43fdbe60d91528dd14181dfcd731bec9471b8b33d1f5631e1717c37a374",
+        "verse_revisions": "3eb568b90711874be72b596d61b8677cef298fcf5ed5eef8a592cf311a77c43f",
+        "verse_spans": "175ad92fd5208768e2e06e6a3e7a64008053bf476c351bceb0e01edcd200ab41",
+        "verse_word_morphology": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "verse_word_strongs": "1495be6f4d32b34aec97eb86ad2059e1e383b963a4e3ac682c3d604980dd0367",
+        "verse_words": "9c91bffa010298fdfc5e137971ac013d0221eceeabfa99dfb7cda19b9922f254",
+        "verses": "220ea08a027c8e31d8d28213bd3f4dfaaba55edd72f7d23777f5889cffeff0c4",
+        "verses_fts": "f66870d424a2722c599bb08327abd1e606ed48725140afc01e9db88bf3b2df32",
+        "verses_fts_config": "ada92526309f86a3a9ffe14c12a523763133e33caef1f59c210553e4cb604c81",
+        "verses_fts_data": "e0a290cbca841fffaf7b451a982072411c5e37213f2e1e62e7eba1cbcbbc41f5",
+        "verses_fts_docsize": "93e6a6e59c098f68f92049da3a5878dffe53da891cb1b2fda5ac15a6854d84b6",
+        "verses_fts_idx": "eb1d20587e38c4b03bb6e0c9fa34c6816aec98590b17bdde23684182eb2289c4"
+      },
+      "integrity_check": "ok",
+      "foreign_key_errors": 0,
+      "sha256": "f3078bb5ce2c3ef413b083aaa77e6e42d3e045f6796d0d55d71d784a8ab4b437"
+    },
+    {
+      "id": "ManningEN",
+      "language": "en",
+      "rewritten_comments": 81,
+      "immutable_tables_and_columns_verified": {
+        "book_comments": "f4c767ba0cae877ee0bfec054533c97917fbf47d9e31ee8bef0aab9f19a0d4d8",
+        "books": "f542859e8be1b52dd20dd36599b07d18837b0660c92cda0c610d6ecfe7d2dfc7",
+        "cross_reference_targets": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "cross_references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "edition_glossary": "508a19eb97a0da0e4951a836ef0d2e3a74685ece7b202eec347d809fae13ec02",
+        "editorial_decisions": "1f2fe59625089c4d03e4fddc43a1e13abcacb6acaab60c6cbd07a2f9ac1af74f",
+        "footnotes": "c28d08633a3434b8990e1865fffdcf35f90bf9012d8334d04a4ba27badbfcacd",
+        "headings": "c3f70f54ee529b39ccbafcdbe519f22048b4d535da67b80baba3345a522143ec",
+        "metadata": "4f726958c65f748c2a0b4092613a7e12191e58d21e7b4226d9819dae502ba8a5",
+        "verse_annotations": "21b5cd4ac212e8b0c5a0fa3ed8c24ffc7b458a8af0f000114a5a4e4b98d85b50",
+        "verse_comments": "edd1c43fdbe60d91528dd14181dfcd731bec9471b8b33d1f5631e1717c37a374",
+        "verse_revisions": "ac977d57b8608bbaee748dfde0535462119e1db508013886e64115a2d90f4cad",
+        "verse_spans": "dd8bc07e986ae6de7e0e06fa1e0aec687af213e181428cfb68826b08c1a6eed6",
+        "verse_word_morphology": "0d216fe52d065a6be1f19eeccfd009bc1dc17ae281473f3956986e9fce922b58",
+        "verse_word_strongs": "006a22b51ae6a0cf079c8bf6651c0f44b7f04a562d683f48112b09ef262689ca",
+        "verse_words": "3cc48db7357c7a5c5a70de7467429d97d5c6f8086dcdf9ddf4af18cdda7c07db",
+        "verses": "97ce5ba29005798c14189b6986885b8f1db7eca5d55b77476db16119eb94d7ed",
+        "verses_fts": "381bdc8b481b153790555d52a6265b6e1bc7c3920894f23501d171bb69dcffb2",
+        "verses_fts_config": "ada92526309f86a3a9ffe14c12a523763133e33caef1f59c210553e4cb604c81",
+        "verses_fts_data": "8af227433f1fdd8f98643aea873c4e595ac55a26b24c99fa3320e8cc89ec9631",
+        "verses_fts_docsize": "9f8a25712ce3af67b852ccee0705a69ee2fab148958677c3e4ce506bb8f912b9",
+        "verses_fts_idx": "f2b372dd4723fc9b784f7f2aa121b14c3ce5c8bb20c91e1fb12b61eca13922f0"
+      },
+      "integrity_check": "ok",
+      "foreign_key_errors": 0,
+      "sha256": "bedc2aa71c3c42c4894104d58e3b23ae35c16479efa35fffe276965649d469a4"
+    }
+  ],
+  "other_modules_unchanged": {
+    "SpaRV": "2421dc3a5c676e8fca70809da37c9afa2ee6ec45a65adbcb3a491d6e939db9b5",
+    "KJV": "891bb9bdb680c974f0e88da8b55b3f503b8ca8a9117932389541b8d5a13eff62",
+    "BibliaOGD": "5b04f45f7211d2f5ad04be707360a8569386f09b884bada5a0f05b53de312851"
+  },
+  "transaction": "Both modules updated in one transaction with attached databases and DELETE journals; only comment/rationale and their modification timestamps changed.",
+  "sources": [
+    {
+      "index": 0,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2025/jews-do-not-associate-with-samaritans-or-do-not-share-vessels-with-samaritans-or-something-else-john-4-9",
+      "file": "00-32f49f78.txt",
+      "characters": 6564,
+      "status": "fetched",
+      "sha256": "2514ac5762a0038b3d79b7bd6c8986b1b25acfbe49ee5b3bf87b12c1f1bf658a",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 1,
+      "url": "https://www.cambridge.org/core/journals/new-testament-studies/article/abs/sharing-cups-associating-or-getting-help-the-meaning-of-in-john-49/0F8C321A81D2257D93CC40360D63CE68",
+      "file": "01-6f801ecd.txt",
+      "characters": 23907,
+      "status": "fetched",
+      "sha256": "a981e8c311abdf8c7e7cd45852d1a744a3861ef329a089c323f5d56f75da9940",
+      "review_scope": "Ficha, resumen y referencias accesibles; texto completo de pago no consultado."
+    },
+    {
+      "index": 2,
+      "url": "https://www.stepbible.org/?q=version%3DNET2full%7Creference%3DJohn.4.9",
+      "file": "02-a744661b.txt",
+      "characters": 1990,
+      "status": "fetched",
+      "sha256": "4361726884c9828a39a566ce560e524a53e59475878edeb41cac77c94eee7350",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 3,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2025/god-so-loved-or-god-loved-in-this-way",
+      "file": "03-c246de79.txt",
+      "characters": 4703,
+      "status": "fetched",
+      "sha256": "4fa9caed3e1abca43b917e701960fbec045bd44d1690d8462b3e349ffa8599f2",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 4,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2011/revealed-to-whom-john-3-21",
+      "file": "04-dea062f7.txt",
+      "characters": 4613,
+      "status": "fetched",
+      "sha256": "c7b87e63b813a264c5d00bf9bca172712cc4ab93d550088c65bd89b3a23083e7",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 5,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2022/paid-in-full-the-meaning-of-tetelestai-in-jesus-final-words",
+      "file": "05-b4a86389.txt",
+      "characters": 6801,
+      "status": "fetched",
+      "sha256": "fe6eb76028da549ce0c2c915bf226c2be204349bff67d57a9838b17fbfcbaad2",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 6,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2022/more-skubala-did-the-apostle-paul-use-swear-words",
+      "file": "06-acdae63e.txt",
+      "characters": 5705,
+      "status": "fetched",
+      "sha256": "8beb821f3ca26d032554fcdf32f9e3706dac9d9ec4a9a62c11c6970d88c06e76",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 7,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2015/did-the-apostle-paul-use-profanity",
+      "file": "07-0b44e82d.txt",
+      "characters": 7061,
+      "status": "fetched",
+      "sha256": "5aada1b079edecb533d31633747203589a38590955b4ad1ef7052efa9f1cad59",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 8,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2011/good-eye-bad-eye",
+      "file": "08-3b28ace0.txt",
+      "characters": 3854,
+      "status": "fetched",
+      "sha256": "dab740f2136c6acdb8df1dff7a0590688b9ecd61a7a5aaf87d73200603d744c9",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 9,
+      "url": "https://eutychusnerd.blogspot.com/2008/11/more-on-good-eye-bad-eye.html",
+      "file": "09-ec08f059.txt",
+      "characters": 3109,
+      "status": "fetched",
+      "sha256": "f5bc46dd475cf2f635f6e94c8bcd955e5631ba40620fb3a51267a3c177f77afc",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 10,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2016/problem-passages-in-the-message",
+      "file": "10-60750b25.txt",
+      "characters": 7866,
+      "status": "fetched",
+      "sha256": "ad3b6e21dcdc7f7d792be4b98fe6f6bbc3076a3a4cbc60438f3495ff6f13ed72",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 11,
+      "url": "https://www.stepbible.org/?q=version%3DNET2full%7Creference%3DMatt.6.22",
+      "file": "11-197c90f3.txt",
+      "characters": 1126,
+      "status": "fetched",
+      "sha256": "345c760b8a18062d0b5e1d818124953caeb820627e11a2da6ce438b2d89affda",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 12,
+      "url": "https://eutychusnerd.blogspot.com/2009/12/christmas-myths.html",
+      "file": "12-8a158827.txt",
+      "characters": 5044,
+      "status": "fetched",
+      "sha256": "6a7e68edcb40317c7938e6a9bb0ed797f776bda5fd613c1727df214faa4e6876",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 13,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2021/what-are-swaddling-clothes",
+      "file": "13-34d32d86.txt",
+      "characters": 5759,
+      "status": "fetched",
+      "sha256": "5f209a00faf996d3f8ee579618918d311a43cc2ec2866387285c06fe66022a7c",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 14,
+      "url": "https://eutychusnerd.blogspot.com/2010/03/handling-accurately-or-teaching.html",
+      "file": "14-b56073d3.txt",
+      "characters": 1668,
+      "status": "fetched",
+      "sha256": "87b896eae487cfaac17150f5dfdf699bbe2725a1457e3ef031107c9b43c9c19e",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 15,
+      "url": "https://eutychusnerd.blogspot.com/2010/06/speaking-truth-in-love-ephesians-415.html",
+      "file": "15-f1d59ace.txt",
+      "characters": 2009,
+      "status": "fetched",
+      "sha256": "92a1814d0366266adab60be41dbbd5f29b67e6e97995015730f3d41cffd1099d",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 16,
+      "url": "https://eutychusnerd.blogspot.com/2008/09/make-me-higher-love.html",
+      "file": "16-baf02017.txt",
+      "characters": 4094,
+      "status": "fetched",
+      "sha256": "869ec5a514e5089eae19a1aba073ea58c18194fac517d51794478ffe67a8c77d",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 17,
+      "url": "https://eutychusnerd.blogspot.com/2008/09/do-you-love-me-now-that-i-can-dance.html",
+      "file": "17-9361dea6.txt",
+      "characters": 3482,
+      "status": "fetched",
+      "sha256": "127de9cec1e1218010c01f7b8851dbb399915be1f7859dcd06276f5dd313878e",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 18,
+      "url": "https://eutychusnerd.blogspot.com/2008/12/agape-phileo-again.html",
+      "file": "18-f5f8bce4.txt",
+      "characters": 2392,
+      "status": "fetched",
+      "sha256": "6a685a3ee161b0935be3e88a8ddef35a8de76fd3477c1bcba28f82c67d6ac71a",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 19,
+      "url": "https://eutychusnerd.blogspot.com/2008/10/restoring-fisherman.html",
+      "file": "19-7ec99365.txt",
+      "characters": 3211,
+      "status": "fetched",
+      "sha256": "3a21131b2c6d7e4b17d5ec3484d86c65339255d5d61545c33866048660b38121",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 20,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2016/misinterpreting-the-thief-john-10-10",
+      "file": "20-398c36d0.txt",
+      "characters": 8641,
+      "status": "fetched",
+      "sha256": "71ba7a0dc440fcf78fde5a944d963a21b9361a47045ebbc5d40df5fcce8c3f63",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 21,
+      "url": "https://eutychusnerd.blogspot.com/2009/03/good-shepherd-john-10.html",
+      "file": "21-14b65193.txt",
+      "characters": 2733,
+      "status": "fetched",
+      "sha256": "189362bdf27c9bde93d2ee776c4e921ef779056834e5e8cf899629c651227f0c",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 22,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2011/reading-john",
+      "file": "22-2ebd43c2.txt",
+      "characters": 5118,
+      "status": "fetched",
+      "sha256": "8925f424dad05c028b6d5681f819e6f80382fea145082a19f4bd59ff338bd4ed",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 23,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2012/paul-is-not-talking-about-himself-why-i-take-the-pre-christian-reading-of-romans-7-14-25",
+      "file": "23-99912b84.txt",
+      "characters": 6563,
+      "status": "fetched",
+      "sha256": "04454e2d011cc3f9b7c29f78eefea770e3ba7284f158a71068c5841ff1cb47b5",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 24,
+      "url": "https://eutychusnerd.blogspot.com/2009/10/today-in-my-undergraduate-class-on.html",
+      "file": "24-c50bf6b5.txt",
+      "characters": 3179,
+      "status": "fetched",
+      "sha256": "812acb3097803561ee26eeae41a3dbe09443b527b0f43b803fa0bef0454cc00e",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 25,
+      "url": "https://eutychusnerd.blogspot.com/2010/05/christ-who-is-over-all-god-blessed.html",
+      "file": "25-c16d867d.txt",
+      "characters": 2805,
+      "status": "fetched",
+      "sha256": "c5eb29e8aaea79280da004390f97fe3274a238536383200295670eb60f86dfee",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 26,
+      "url": "https://eutychusnerd.blogspot.com/2009/08/i-am-not-going-up-to-this-feast-john-7.html",
+      "file": "26-d5f3d927.txt",
+      "characters": 2729,
+      "status": "fetched",
+      "sha256": "513f5ccf3041a4461e6c1de66d6db982555cdc250bfb720b20090f92a734b22c",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 27,
+      "url": "https://www.stepbible.org/?q=version%3DNET2full%7Creference%3DJohn.7.8",
+      "file": "27-1d7ab583.txt",
+      "characters": 2501,
+      "status": "fetched",
+      "sha256": "3014df490247dede284dc79aec165e779ac055131217c3d08a6fa963022aef5e",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 28,
+      "url": "https://eutychusnerd.blogspot.com/2009/06/adulterous-woman.html",
+      "file": "28-6be9a7cd.txt",
+      "characters": 3666,
+      "status": "fetched",
+      "sha256": "0bad5bc9142148f34e18b769488e3e69d4cb60c4bdcd0402c06cb659321bc016",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 29,
+      "url": "https://eutychusnerd.blogspot.com/2009/01/prolog-of-john.html",
+      "file": "29-42aebcfb.txt",
+      "characters": 2881,
+      "status": "fetched",
+      "sha256": "632c83baa97aff782593998a8afde338f06d27437fa03cae6c1ed2a694c09426",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 30,
+      "url": "https://eutychusnerd.blogspot.com/2009/02/jesus-and-nicodemus.html",
+      "file": "30-a74222b1.txt",
+      "characters": 3399,
+      "status": "fetched",
+      "sha256": "dc66669a055317fd7a09c4127c10c508d5b2799cbd46d57bd84c90fb93fc15e4",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 31,
+      "url": "https://eutychusnerd.blogspot.com/2009/05/question-there-seems-to-be-great.html",
+      "file": "31-5ccd4201.txt",
+      "characters": 3336,
+      "status": "fetched",
+      "sha256": "fd1b21f62ae7e00476eb273eee232d7c5452df7205822b2d3ddb96a98986288a",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 32,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2014/snatched-up-for-a-meeting",
+      "file": "32-99d83cb9.txt",
+      "characters": 6682,
+      "status": "fetched",
+      "sha256": "e1dd5451999eec97bd993254d0fb1a779e95ec0bf6fee4053d994adff2988345",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 33,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2015/chronology-of-easter-in-john-and-the-synoptic-gospels",
+      "file": "33-69f8b1d8.txt",
+      "characters": 5575,
+      "status": "fetched",
+      "sha256": "6a9c76afd99cef919b470756e0231c6d869b91025bdf91a3c2d9de350ab0909a",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 34,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2015/three-days-and-three-nights",
+      "file": "34-cffddc42.txt",
+      "characters": 6432,
+      "status": "fetched",
+      "sha256": "9b868a42cd73721cd654f0949afea00106f5d1222c4154fee91899bf21341449",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 35,
+      "url": "https://eutychusnerd.blogspot.com/2008/03/three-days.html",
+      "file": "35-00e51b86.txt",
+      "characters": 1548,
+      "status": "fetched",
+      "sha256": "858d42cc7e16d71a0705503bf2e47175d4bb7f55e19cb1d2dba1097bf6de6450",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 36,
+      "url": "https://eutychusnerd.blogspot.com/2008/03/why-three-days.html",
+      "file": "36-b837d102.txt",
+      "characters": 1888,
+      "status": "fetched",
+      "sha256": "eacaa97a737b54e489221100fe0a90e10de63c5b4f5d33df628e6c665b33f6dd",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 37,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2013/no-stone-left-unturned-solving-a-minor-mystery",
+      "file": "37-0aaa39d9.txt",
+      "characters": 5040,
+      "status": "fetched",
+      "sha256": "90df188adf21d5e221cd06a9ac88df9a7fc063c8eef8c608f0ec2931e58216c7",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 38,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2021/new-dead-sea-scroll-discovery-a-closer-look",
+      "file": "38-dedec780.txt",
+      "characters": 6307,
+      "status": "fetched",
+      "sha256": "0144f70fd60079ae82013c84992b9c74a23affbd94d9dbc37ca8a83f52da97db",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 39,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2025/simon-the-zealot-was-not-a-zealot",
+      "file": "39-f91a1699.txt",
+      "characters": 8021,
+      "status": "fetched",
+      "sha256": "a2d23daf151326a8f6f47f3d09b09bb98fd0162675812176679868930008dc3b",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 40,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2026/the-holy-spirit-and-grammatical-gender",
+      "file": "40-a607f684.txt",
+      "characters": 7771,
+      "status": "fetched",
+      "sha256": "8ee39d9e3fb40e528d027a65d59216b5ebd2a46992f90237528d7f895d8fc5ee",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 41,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2025/yes-jesus-was-crucified-with-nails",
+      "file": "41-d203b07d.txt",
+      "characters": 7291,
+      "status": "fetched",
+      "sha256": "89ee374ec7c5a89b6a0fddda1a3ed8d59f55b44aa893dbd2de4b546f9b61e624",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 42,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2024/herod-the-king-of-the-jews",
+      "file": "42-bf581bfa.txt",
+      "characters": 5978,
+      "status": "fetched",
+      "sha256": "8664756952d3fa2be10ac864dcc78e934c8ad63244dd93eb06e2ff344229d21b",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 43,
+      "url": "https://eutychusnerd.blogspot.com/2009/12/herod-remembered.html",
+      "file": "43-909c4bc8.txt",
+      "characters": 3187,
+      "status": "fetched",
+      "sha256": "71513eca9e3b88da89b5715cd80975b908dca38a24d2863b1651c3511cb55634",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 44,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2012/children-of-god-john-1-13",
+      "file": "44-7e8c9c9e.txt",
+      "characters": 4494,
+      "status": "fetched",
+      "sha256": "1d7b09ce279f710896444c96029804394157a1b5de8c0e52cb1f324d3a39f4a4",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 45,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2011/generous-charis",
+      "file": "45-14a10905.txt",
+      "characters": 4477,
+      "status": "fetched",
+      "sha256": "11ad31d3d35996c2d6cfb8b75f2e8be695a7912851469e1b95a231596cfaac73",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 46,
+      "url": "https://eutychusnerd.blogspot.com/2009/06/grace-and-mercy.html",
+      "file": "46-100f1db9.txt",
+      "characters": 3651,
+      "status": "fetched",
+      "sha256": "5e99dc7297e14cc51e329c7db893336e0857333cab22f70f510121551776f94c",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 47,
+      "url": "https://biblethinker.org/wp-content/uploads/2023/11/FINAL-BGU-1208-Translation-and-Notes.pdf",
+      "file": "47-e6cba7b0.txt",
+      "characters": 45297,
+      "status": "fetched",
+      "sha256": "4576b1ee2257bd488335a8fb7056af004941427c1cb14be789ddd74d134074fd",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 48,
+      "url": "https://eutychusnerd.blogspot.com/2009/10/few-people-asked-me-about-nature-of.html",
+      "file": "48-8482ffef.txt",
+      "characters": 2588,
+      "status": "fetched",
+      "sha256": "7298a3834976de58755398805dd2566aff2839cfd5e632eee4d575b8c277a2fc",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 49,
+      "url": "https://eutychusnerd.blogspot.com/2010/07/the-mark-of-beast-is-islam-walid.html",
+      "file": "49-5bf8faaa.txt",
+      "characters": 6603,
+      "status": "fetched",
+      "sha256": "9204eb0f0eaedec0f7d447b795e2d16fd0045cfd63f616e9c1748fa4eb6d53a2",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 50,
+      "url": "https://eutychusnerd.blogspot.com/2009/05/question-in-matt-2434-jesus-says-i-tell.html",
+      "file": "50-3539a416.txt",
+      "characters": 3953,
+      "status": "fetched",
+      "sha256": "b629b4b3e83704a7713002a41a975d9ac06f9ae99b2166947895bacd64a9efcf",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 51,
+      "url": "https://eutychusnerd.blogspot.com/2008/04/blind-devotion.html",
+      "file": "51-a5056ebd.txt",
+      "characters": 2269,
+      "status": "fetched",
+      "sha256": "787bd820d7ffa4b06b7c32e46025511922e27141827fb238d0a7fce1db0b1970",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 52,
+      "url": "https://eutychusnerd.blogspot.com/2008/04/anonymous-posted-this-provocative.html",
+      "file": "52-11327ee1.txt",
+      "characters": 1047,
+      "status": "fetched",
+      "sha256": "c53a3c0fddd0a470bd0f703ee0fcad5ecb4cd3438b3bb107dab3cd7574daf71d",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 53,
+      "url": "https://eutychusnerd.blogspot.com/2008/04/kingdom-for-birds.html",
+      "file": "53-cca9b4a2.txt",
+      "characters": 2472,
+      "status": "fetched",
+      "sha256": "c508cb6e004160dc96aa12732dc04d01191fa534b57e88cd1d154c774a0fca79",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 54,
+      "url": "https://eutychusnerd.blogspot.com/2008/04/kingdom-for-birds-ii.html",
+      "file": "54-6ddefbd6.txt",
+      "characters": 1639,
+      "status": "fetched",
+      "sha256": "67d54c8219071918ae976a53352893fbc1de90af799bbebec1abbaff299bc34f",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 55,
+      "url": "https://eutychusnerd.blogspot.com/2008/06/question-what-is-culturalhistorical.html",
+      "file": "55-e50483f0.txt",
+      "characters": 3841,
+      "status": "fetched",
+      "sha256": "f19ac4e3a1c1cd4808139b412e0eecdb25ab67b4f22f8f47c7358d4dfe825a20",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 56,
+      "url": "https://eutychusnerd.blogspot.com/2008/06/torah-torah-rah-rah-rah.html",
+      "file": "56-18e55e0f.txt",
+      "characters": 3622,
+      "status": "fetched",
+      "sha256": "cad143d378aaf1e36d4f6b06bf661eea5ef1c7aed1d2653217cbdc8c716ab001",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 57,
+      "url": "https://eutychusnerd.blogspot.com/2008/06/question-i-recently-heard-tony-campolo.html",
+      "file": "57-1eda964f.txt",
+      "characters": 2564,
+      "status": "fetched",
+      "sha256": "d082e8e542be300bdbb2277e4795afdde8010cd6b8ebbf91d4879f05073075ad",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 58,
+      "url": "https://eutychusnerd.blogspot.com/2009/01/judge-not.html",
+      "file": "58-23b35b3a.txt",
+      "characters": 2270,
+      "status": "fetched",
+      "sha256": "c076cd007b95172c6531e4da2d4fcb36a977593805ab16fc6a790d93e1b4765e",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 59,
+      "url": "https://eutychusnerd.blogspot.com/2010/10/not-this-but-that-ephesians-4-5.html",
+      "file": "59-1361692d.txt",
+      "characters": 2001,
+      "status": "fetched",
+      "sha256": "7a6b3f0bf4ff49e2a5ea28e3fec3b67a5449ff67265432576a59ccc19c657406",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 60,
+      "url": "https://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-1-john-429-2-kings.html",
+      "file": "60-d2c5bf32.txt",
+      "characters": 4789,
+      "status": "fetched",
+      "sha256": "66c0fae4e47862c556c7052c8081337777cafb19b584dd59a1d70d2630766905",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 61,
+      "url": "https://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-2-john-23-4-kings.html",
+      "file": "61-f8d4da74.txt",
+      "characters": 3392,
+      "status": "fetched",
+      "sha256": "4b717d9905f83053b86bf6b6ab96050574c4ae5ee89e522e1af12b3027e23190",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 62,
+      "url": "https://eutychusnerd.blogspot.com/2009/02/water-to-wine-john-21-11.html",
+      "file": "62-4e58f510.txt",
+      "characters": 2503,
+      "status": "fetched",
+      "sha256": "d3282534561b8135936d531a55876495e714fc030c974a4653b3eae50b642be6",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 63,
+      "url": "https://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-3-john-47-1-kings.html",
+      "file": "63-96708ca0.txt",
+      "characters": 3934,
+      "status": "fetched",
+      "sha256": "1dcb8ca37ee50d5cd5282fd2b8b13f621557aa262f60f692e19f5bc46edda66c",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 64,
+      "url": "https://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-4-john-450-1-kings.html",
+      "file": "64-0cb2a321.txt",
+      "characters": 3892,
+      "status": "fetched",
+      "sha256": "6d8c734f3d50a6a74d92573c9097b2cfc6dcddf72dd280652726af67e49d6c97",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 65,
+      "url": "https://eutychusnerd.blogspot.com/2008/04/believe-life.html",
+      "file": "65-ecb22cab.txt",
+      "characters": 2192,
+      "status": "fetched",
+      "sha256": "4fa7d81c9018fa1fc374a26f9a58dcb8e086c8892eef2a2cac1c5405b8e1318d",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 66,
+      "url": "https://eutychusnerd.blogspot.com/2008/03/your-son-lives.html",
+      "file": "66-0f2d48b6.txt",
+      "characters": 2478,
+      "status": "fetched",
+      "sha256": "de78662ea2737efcbfc989d55649d277e8402a5d39e2d85c15e05806728814c8",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 67,
+      "url": "https://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-5-john-69-13-2.html",
+      "file": "67-511adddd.txt",
+      "characters": 3690,
+      "status": "fetched",
+      "sha256": "06ed547b74402a43979658cfe5e6857d5792ac3db0b7332b0d163cb0dd39e562",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 68,
+      "url": "https://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-6-john-96-15-2.html",
+      "file": "68-87f5105f.txt",
+      "characters": 5196,
+      "status": "fetched",
+      "sha256": "c22c1f0189022d15e697f2f52c189ab1eff5ddf1cbe1b68a5f30dd2009bce5d7",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 69,
+      "url": "https://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-intro.html",
+      "file": "69-6675bf67.txt",
+      "characters": 4911,
+      "status": "fetched",
+      "sha256": "384c428394cf08ae4e0bfff778f4951c50bfecb8ec6960511403b292481991e2",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 70,
+      "url": "https://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-conclusion.html",
+      "file": "70-e9e58585.txt",
+      "characters": 3342,
+      "status": "fetched",
+      "sha256": "54679c07dca471be4b3515b2c407f7467250b4d3bff40dcf107b0700e8e1265d",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 71,
+      "url": "https://eutychusnerd.blogspot.com/2009/07/jesus-prayer-for-lazarus-john-11.html",
+      "file": "71-896ab375.txt",
+      "characters": 2990,
+      "status": "fetched",
+      "sha256": "bd8df755faa1c91db7fb0bf02c885636dd786ec30a1d0c4d8262e82887b204de",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 72,
+      "url": "https://eutychusnerd.blogspot.com/2009/06/grace-to-naaman.html",
+      "file": "72-91d573e4.txt",
+      "characters": 4476,
+      "status": "fetched",
+      "sha256": "7d1fc8c0c2156b1a43d006934e47408a853fb14e803585c2695fc37c1f56996f",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 73,
+      "url": "https://eutychusnerd.blogspot.com/2009/06/one-anothers.html",
+      "file": "73-e4c46d7e.txt",
+      "characters": 6829,
+      "status": "fetched",
+      "sha256": "51d78fb0f1894577d16d13c17ad14b6e544f69e785bc9f075cc9638f825d3789",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 74,
+      "url": "https://eutychusnerd.blogspot.com/2009/05/victory-at-ebenezer-1-samuel-4-7.html",
+      "file": "74-35b2034d.txt",
+      "characters": 3970,
+      "status": "fetched",
+      "sha256": "d0f7db26481f3fdc70f333811480809f1b14dfd31488ba7fd7cc713a38cc82ba",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 75,
+      "url": "https://eutychusnerd.blogspot.com/2009/04/blind-and-lame-john-5-and-9.html",
+      "file": "75-9388a31c.txt",
+      "characters": 3633,
+      "status": "fetched",
+      "sha256": "793cda403ffba8e39abb765467ae1c4598cea63231b646b715aed966cb375c6a",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 76,
+      "url": "https://eutychusnerd.blogspot.com/2009/04/rolling-stone.html",
+      "file": "76-662edd82.txt",
+      "characters": 2592,
+      "status": "fetched",
+      "sha256": "59b4c7c23caa93f7fb3d3835037d2f041243fadd541dfa7ddb381d014880bf19",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 77,
+      "url": "https://eutychusnerd.blogspot.com/2009/12/shroud-discovery-in-jerusalem.html",
+      "file": "77-24fa013d.txt",
+      "characters": 1676,
+      "status": "fetched",
+      "sha256": "0bdd7561c56b851ee32be32646a9ae784060456ea6100aaf782dd49d95f24776",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 78,
+      "url": "https://eutychusnerd.blogspot.com/2009/04/roman-soldiers-at-tomb.html",
+      "file": "78-14f7015d.txt",
+      "characters": 2699,
+      "status": "fetched",
+      "sha256": "53d1fb98e1586725765d5629bf4eb76dcc9559609a5e4ed1ff4ffbe7f275e49d",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 79,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2026/soldiers-in-the-gospels1",
+      "file": "79-760971a1.txt",
+      "characters": 7983,
+      "status": "fetched",
+      "sha256": "70bbe453b5e773993006b01200bf559841f438d12c0fc1c7657873c70ee9dcdf",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 80,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2011/soldiers-in-the-gospels",
+      "file": "80-9e9085ac.txt",
+      "characters": 7932,
+      "status": "fetched",
+      "sha256": "8b3af7c91b14070704b05a962fa4dbf6862bcdb62ffae8e5727f4d75e40a898b",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 81,
+      "url": "https://eutychusnerd.blogspot.com/2009/02/jesus-first-disciples-in-john.html",
+      "file": "81-21524180.txt",
+      "characters": 4079,
+      "status": "fetched",
+      "sha256": "58ca746859f1e1335b1162f26d789d256c2e3921c75c207f536034f1c0f02cce",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 82,
+      "url": "https://eutychusnerd.blogspot.com/2008/12/nativity-salvation-in-luke.html",
+      "file": "82-c7557688.txt",
+      "characters": 3380,
+      "status": "fetched",
+      "sha256": "36fc324f48f7bb742fa012eabdedbbd7227e87e087f2c6f3c6595adf62a855e2",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 83,
+      "url": "https://eutychusnerd.blogspot.com/2008/06/marks-secrecy.html",
+      "file": "83-a998ec77.txt",
+      "characters": 2822,
+      "status": "fetched",
+      "sha256": "14c92ea5fc295a0124bf066016699a864d2f499c331eb58f9700113cc59d2dfa",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 84,
+      "url": "https://eutychusnerd.blogspot.com/2008/03/toast-to-lemuels-mother.html",
+      "file": "84-71e171aa.txt",
+      "characters": 2917,
+      "status": "fetched",
+      "sha256": "604eb2954969e8653c2aa62fe2c2a2c5280749485812ee6a98649c91a85b8da9",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 85,
+      "url": "https://eutychusnerd.blogspot.com/2008/03/eutychus.html",
+      "file": "85-70ed922c.txt",
+      "characters": 1583,
+      "status": "fetched",
+      "sha256": "d32585fdba46e94c41536f13fbf7694e9cecba60ab751cad7b2536d929357b63",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 86,
+      "url": "https://eutychusnerd.blogspot.com/2008/03/eutychus-part-ii.html",
+      "status": "consulted_with_browser",
+      "error": "503 Server Error: Service Unavailable for url: https://eutychusnerd.blogspot.com/2008/03/eutychus-part-ii.html",
+      "review_scope": "Texto principal consultado mediante navegador tras respuesta HTTP 503; se excluyeron los comentarios de lectores."
+    },
+    {
+      "index": 87,
+      "url": "https://eutychusnerd.blogspot.com/2008/03/eutychus-part-iii.html",
+      "file": "87-365b175c.txt",
+      "characters": 2188,
+      "status": "fetched",
+      "sha256": "d564d874c8af9a70da0e52c3e07401e2885c8126b3f86f0efbef214f7e5a092c",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 88,
+      "url": "https://eutychusnerd.blogspot.com/2008/03/what-did-jesus-teach-after-resurrection.html",
+      "file": "88-0c7d92ab.txt",
+      "characters": 1912,
+      "status": "fetched",
+      "sha256": "06a6298a64659c25997e8fb65c552db8acdc68a6fed2e7f913be956164f9a04e",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 89,
+      "url": "https://eutychusnerd.blogspot.com/2008/03/what-did-jesus-teach-after-resurrection_22.html",
+      "file": "89-32728021.txt",
+      "characters": 1707,
+      "status": "fetched",
+      "sha256": "591426720283105337a33ec715c2d3a97c27e00b61a0b3121fab99d443c10dbb",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 90,
+      "url": "https://eutychusnerd.blogspot.com/2008/03/jesus-post-resurrection-teachings-and.html",
+      "file": "90-c9510da0.txt",
+      "characters": 1561,
+      "status": "fetched",
+      "sha256": "d6fb7f703afd99e264353645311e5269566670c047aa4e3e018a00381a414369",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 91,
+      "url": "https://eutychusnerd.blogspot.com/2009/02/sinners-prayer.html",
+      "file": "91-802c8e7c.txt",
+      "characters": 4147,
+      "status": "fetched",
+      "sha256": "73129dfeb746034d1dbe0ec564eea4e6fd4e1d0ae1b9b4fe3c2fc7220287fe0c",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    },
+    {
+      "index": 92,
+      "url": "https://www.biola.edu/blogs/good-book-blog/2015/does-i-am-always-refer-to-god-in-the-gospel-of-john",
+      "file": "92-485850d7.txt",
+      "characters": 7891,
+      "status": "fetched",
+      "sha256": "d84dd5420845c7d0530eaf96e1a6230d8e9979903fd6a8e0d62a45b191d8fa75",
+      "review_scope": "Pasajes pertinentes al comentario; consulta del texto público, no reproducción del artículo."
+    }
+  ],
+  "editorial_criteria": [
+    "Standalone title, lead and three brief paragraphs",
+    "Explicit narrative/linguistic context and question",
+    "Specific reasons and parallels from cited Manning sources",
+    "Interpretive limits and competing options where relevant",
+    "Original source URLs retained in final footer",
+    "Previous notes archived in each plan, without changing Bible text or approval state"
+  ],
+  "editorial_depth": {
+    "es": {
+      "before_body_word_median": 51,
+      "after_body_word_median": 166,
+      "after_body_word_min": 149,
+      "after_body_word_max": 184,
+      "comments_rewritten": 81
+    },
+    "en": {
+      "before_body_word_median": 42,
+      "after_body_word_median": 143,
+      "after_body_word_min": 126,
+      "after_body_word_max": 169,
+      "comments_rewritten": 81
+    }
+  },
+  "plan_sha256": {
+    "es": "9ad69a735fa66b5b66931d5a6f70b4c02b2bfc7933430090e08ba7f807486433",
+    "en": "ad6b306a7d079680e1d09d8542604239a2f0822b660d0c748bf65f9954274d31"
+  },
+  "validation": [
+    {
+      "module": "ManningES",
+      "kind": "installed",
+      "comments_rationales_and_sources_verified": 81,
+      "Bible_texts_and_proposals_match_plan": true,
+      "verse_revisions": 11,
+      "schema_version": 1,
+      "integrity_check": "ok",
+      "foreign_key_errors": 0
+    },
+    {
+      "module": "ManningES",
+      "kind": "fresh",
+      "comments_rationales_and_sources_verified": 81,
+      "Bible_texts_and_proposals_match_plan": true,
+      "verse_revisions": 11,
+      "schema_version": 1,
+      "integrity_check": "ok",
+      "foreign_key_errors": 0
+    },
+    {
+      "module": "ManningEN",
+      "kind": "installed",
+      "comments_rationales_and_sources_verified": 81,
+      "Bible_texts_and_proposals_match_plan": true,
+      "verse_revisions": 11,
+      "schema_version": 1,
+      "integrity_check": "ok",
+      "foreign_key_errors": 0
+    },
+    {
+      "module": "ManningEN",
+      "kind": "fresh",
+      "comments_rationales_and_sources_verified": 81,
+      "Bible_texts_and_proposals_match_plan": true,
+      "verse_revisions": 11,
+      "schema_version": 1,
+      "integrity_check": "ok",
+      "foreign_key_errors": 0
+    }
+  ],
+  "tests": {
+    "curated_edition_test": "PASS, 12 cases including semantic evidence anchors and every one of 162 note structures",
+    "editable_edition_test": "PASS",
+    "fresh_generation": "PASS from both original source modules",
+    "all_other_tables_and_decision_columns_vs_backups": "PASS",
+    "untouched_modules": "SpaRV, KJV, BibliaOGD SHA-256 unchanged"
+  }
+}

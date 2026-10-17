@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * xiphos.c -
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -92,7 +92,7 @@
 
 void frontend_init(void)
 {
-	XI_print(("%s\n", "Initiating Xiphos"));
+	XI_print(("%s\n", "Initiating Ministerios Elim"));
 	settings.comm_showing = TRUE;
 	settings.displaySearchResults = FALSE;
 
@@ -157,7 +157,7 @@ void frontend_init(void)
 
 void frontend_display(const char *tabs)
 {
-	XI_print(("%s\n", "Displaying Xiphos"));
+	XI_print(("%s\n", "Displaying Ministerios Elim"));
 	gui_show_main_window();
 	panel_load_debug("app", "WINDOW_SHOW", NULL);
 
@@ -175,7 +175,6 @@ void frontend_display(const char *tabs)
 
 	/* gecko  needs the widgets to be visible before writing */
 	sync_windows();
-
 	// setup passage notebook
 	gui_notebook_main_setup(settings.browsing, tabs);
 	/* must be set after tab stuff is done */
@@ -299,5 +298,5 @@ void shutdown_frontend(void)
 	g_string_free(navbar_versekey.module_name, TRUE);
 	g_string_free(navbar_versekey.key, TRUE);
 
-	XI_print(("\n%s\n", "Xiphos is shutdown"));
+	XI_print(("\n%s\n", "Ministerios Elim is shutdown"));
 }

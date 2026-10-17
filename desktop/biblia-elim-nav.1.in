@@ -1,0 +1,25 @@
+.TH BIBLIA-ELIM-NAV "1" "@XIPHOS_RELEASE_DATE@" "Ministerios Elim @PROJECT_VERSION@" "User Commands"
+.SH "NAME"
+biblia-elim\-nav \- Navigating Ministerios Elim to a verse reference
+.SH "SYNOPSIS"
+.IX Header "SYNOPSIS"
+\&\fBbiblia-elim-nav\fR \s-1URL\s0
+
+.SH "DESCRIPTION"
+.B biblia-elim-nav
+is a command line utility which induce Ministerios Elim to react to a \s-1URL\s0 request
+using dbus.  Invoke it as e.g. 'biblia-elim-nav sword://ESV/Gen.1.1'. Normal
+use is that it's used as your desktop environment's handler for
+sword:// URLs.  If dbus access attempt fails, it concludes that Ministerios Elim
+is not running and starts a new Ministerios Elim with that \s-1URL. \s0 With this, you
+can click URLs of that sort in web pages and so forth, and Ministerios Elim will
+be navigated for you.  The dbus interface also supports a search
+interface, used by bibledit.
+
+.SH "BUGS"
+Please report bugs online at: https://github.com/OmarGonD/biblia-elim/issues
+
+.SH "AUTHOR"
+.B biblia-elim-nav
+is maintained by the Ministerios Elim contributors.
+.PP

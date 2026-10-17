@@ -1,0 +1,3381 @@
+{
+  "format": "biblia-manning-source-inventory-1",
+  "checked_on": "2026-10-16",
+  "scope": "44 publicaciones del archivo Biola, 204 entradas de Eutychus y recursos adicionales identificados. No es una afirmación de exhaustividad de toda la producción del autor ni de lectura íntegra de cada publicación.",
+  "archive_urls": [
+    "https://www.biola.edu/blogs/authors/gary-manning",
+    "https://www.biola.edu/blogs/authors/gary-manning?page=2",
+    "https://eutychusnerd.blogspot.com/feeds/posts/default?alt=json&start-index=1&max-results=150",
+    "https://eutychusnerd.blogspot.com/feeds/posts/default?alt=json&start-index=151&max-results=150"
+  ],
+  "sources": [
+    {
+      "id": "biola-000",
+      "author": "Gary Manning Jr",
+      "title": "Solving Interpretational Problems",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2026/solving-interpretational-problems2",
+      "published": "2026-07-29",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "Evaluar contexto, gramática y usos atestiguados; reconocer sesgos y contrastar especialistas. Es una reedición del texto de 2019."
+    },
+    {
+      "id": "biola-001",
+      "author": "Gary Manning Jr",
+      "title": "Soldiers in the Gospels",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2026/soldiers-in-the-gospels1",
+      "published": "2026-04-27",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "Distinguir tropas del gobernador, guardias del templo y fuerzas herodianas; la identidad de cada grupo depende del pasaje."
+    },
+    {
+      "id": "biola-002",
+      "author": "Gary Manning Jr",
+      "title": "The Holy Spirit and Grammatical Gender",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2026/the-holy-spirit-and-grammatical-gender",
+      "published": "2026-02-09",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "El género gramatical de un pronombre griego no determina personalidad ni sexo. Resolver su antecedente antes de traducir."
+    },
+    {
+      "id": "biola-003",
+      "author": "Gary Manning Jr",
+      "title": "Simon the Zealot was not a Zealot!",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2025/simon-the-zealot-was-not-a-zealot",
+      "published": "2025-10-08",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "El apodo de Simón puede expresar celo religioso sin afirmar pertenencia a un partido insurgente posterior."
+    },
+    {
+      "id": "biola-004",
+      "author": "Gary Manning Jr",
+      "title": "Jews do not “associate with” Samaritans? Or do not “share vessels with” Samaritans? Or something else? (John 4:9)",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2025/jews-do-not-associate-with-samaritans-or-do-not-share-vessels-with-samaritans-or-something-else-john-4-9",
+      "published": "2025-07-30",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "Propone entender συγχράομαι con personas como solicitar ayuda; reconoce evidencia limitada para la lectura tradicional."
+    },
+    {
+      "id": "biola-005",
+      "author": "Gary Manning Jr",
+      "title": "“God so loved” or “God loved in this way”?",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2025/god-so-loved-or-god-loved-in-this-way",
+      "published": "2025-05-05",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "La construcción οὕτως con ὥστε permite expresar grado además de manera; no descarta la intensidad del amor."
+    },
+    {
+      "id": "biola-006",
+      "author": "Gary Manning Jr",
+      "title": "Yes, Jesus was Crucified with Nails",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2025/yes-jesus-was-crucified-with-nails",
+      "published": "2025-04-25",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "Defiende la referencia a clavos de Juan 20 mediante testimonios antiguos; no todo verbo de crucifixión especifica el procedimiento."
+    },
+    {
+      "id": "biola-007",
+      "author": "Gary Manning Jr",
+      "title": "Herod, the King of the Jews",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2024/herod-the-king-of-the-jews",
+      "published": "2024-12-23",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "El título real de Mateo 2 confronta la legitimidad de Herodes con la del niño; trasfondo histórico, no sustitución del título."
+    },
+    {
+      "id": "biola-008",
+      "author": "Gary Manning Jr",
+      "title": "Best of the Blog: Fall 2022",
+      "url": "https://www.biola.edu/blogs/talbot-magazine/2022/best-of-the-blog-fall-2022",
+      "published": "2022-12-14",
+      "review_level": "cribado_bibliografico",
+      "disposition": "reedicion_magazine",
+      "editorial_summary": "Entrada inventariada; no se deriva una revisión de traducción de este registro."
+    },
+    {
+      "id": "biola-009",
+      "author": "Gary Manning Jr",
+      "title": "“Paid in Full”? The Meaning of τετέλεσται (Tetelestai) in Jesus’ Final Words",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2022/paid-in-full-the-meaning-of-tetelestai-in-jesus-final-words",
+      "published": "2022-04-20",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "Distingue τετέλεσται de abreviaturas fiscales y conecta la frase con la obra completada y el cumplimiento de la Escritura."
+    },
+    {
+      "id": "biola-010",
+      "author": "Gary Manning Jr",
+      "title": "More Skubala: Did the Apostle Paul use Swear Words?",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2022/more-skubala-did-the-apostle-paul-use-swear-words",
+      "published": "2022-03-24",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "El uso de σκύβαλα en papiros financieros favorece desperdicio o pérdida, sin demostrar un insulto vulgar."
+    },
+    {
+      "id": "biola-011",
+      "author": "Gary Manning Jr",
+      "title": "What are Swaddling Clothes?",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2021/what-are-swaddling-clothes",
+      "published": "2021-12-20",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "Envolver al recién nacido en pañales era habitual; el término no implica por sí mismo mortaja ni envoltura de corderos."
+    },
+    {
+      "id": "biola-012",
+      "author": "Gary Manning Jr",
+      "title": "New Program Roundup: Summer 2021",
+      "url": "https://www.biola.edu/blogs/talbot-magazine/2021/new-program-roundup-summer-2021",
+      "published": "2021-06-16",
+      "review_level": "cribado_bibliografico",
+      "disposition": "noticia_institucional_no_traduccion",
+      "editorial_summary": "Entrada inventariada; no se deriva una revisión de traducción de este registro."
+    },
+    {
+      "id": "biola-013",
+      "author": "Gary Manning Jr",
+      "title": "Best of the Blog: Summer 2021",
+      "url": "https://www.biola.edu/blogs/talbot-magazine/2021/best-of-the-blog-summer-2021",
+      "published": "2021-06-16",
+      "review_level": "cribado_bibliografico",
+      "disposition": "reedicion_magazine",
+      "editorial_summary": "Entrada inventariada; no se deriva una revisión de traducción de este registro."
+    },
+    {
+      "id": "biola-014",
+      "author": "Gary Manning Jr",
+      "title": "New Dead Sea Scroll Discovery: A Closer Look",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2021/new-dead-sea-scroll-discovery-a-closer-look",
+      "published": "2021-03-17",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "Los fragmentos de los Doce muestran pequeñas diferencias en una traducción griega; no justifican reescribir el hebreo automáticamente."
+    },
+    {
+      "id": "biola-015",
+      "author": "Gary Manning Jr",
+      "title": "Can you read \"Peter Rabbit\" in Greek?",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2020/can-you-read-peter-rabbit-in-greek",
+      "published": "2020-11-13",
+      "review_level": "cribado_bibliografico",
+      "disposition": "recurso_didactico_o_humor_no_traduccion",
+      "editorial_summary": "Entrada inventariada; no se deriva una revisión de traducción de este registro."
+    },
+    {
+      "id": "biola-016",
+      "author": "Gary Manning Jr",
+      "title": "Best of the Blog",
+      "url": "https://www.biola.edu/blogs/talbot-magazine/2019/best-of-the-blog-paul-s-name-change",
+      "published": "2019-06-04",
+      "review_level": "cribado_bibliografico",
+      "disposition": "reedicion_magazine",
+      "editorial_summary": "Entrada inventariada; no se deriva una revisión de traducción de este registro."
+    },
+    {
+      "id": "biola-017",
+      "author": "Gary Manning Jr",
+      "title": "Paul’s Name Change",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2019/paul-s-name-change",
+      "published": "2019-02-06",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "Hechos presenta dos nombres de una misma persona; no narra un cambio de nombre en la conversión."
+    },
+    {
+      "id": "biola-018",
+      "author": "Gary Manning Jr",
+      "title": "Solving Interpretational Problems",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2019/solving-interpretational-problems1",
+      "published": "2019-01-02",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "Metodología para comparar interpretaciones y sus evidencias; evitar decidir por popularidad o conveniencia doctrinal."
+    },
+    {
+      "id": "biola-019",
+      "author": "Gary Manning Jr",
+      "title": "Streamlining Seminary",
+      "url": "https://www.biola.edu/blogs/talbot-magazine/2017/streamlining-seminary",
+      "published": "2017-11-13",
+      "review_level": "cribado_bibliografico",
+      "disposition": "noticia_institucional_no_traduccion",
+      "editorial_summary": "Entrada inventariada; no se deriva una revisión de traducción de este registro."
+    },
+    {
+      "id": "biola-020",
+      "author": "Gary Manning Jr",
+      "title": "Problem Passages in The Message",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2016/problem-passages-in-the-message",
+      "published": "2016-11-29",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "Advierte contra añadir u omitir ideas al parafrasear. Sus rótulos para el ojo corresponden a Mateo 6:22–23, no 6:20–21."
+    },
+    {
+      "id": "biola-021",
+      "author": "Gary Manning Jr",
+      "title": "Misinterpreting the Thief (John 10:10)",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2016/misinterpreting-the-thief-john-10-10",
+      "published": "2016-04-28",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "Relaciona al ladrón con dirigentes abusivos dentro de Juan 9–10 y Ezequiel 34; la identificación se explica como comentario."
+    },
+    {
+      "id": "biola-022",
+      "author": "Gary Manning Jr",
+      "title": "Did the Apostle Paul Use Profanity?",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2015/did-the-apostle-paul-use-profanity",
+      "published": "2015-10-01",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "El uso antiguo de σκύβαλα abarca desechos y excrementos; no demuestra que funcionara como palabrota."
+    },
+    {
+      "id": "biola-023",
+      "author": "Gary Manning Jr",
+      "title": "Does \"I Am\" always refer to God in the Gospel of John?",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2015/does-i-am-always-refer-to-god-in-the-gospel-of-john",
+      "published": "2015-09-21",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "La expresión yo soy requiere contexto; no toda aparición equivale automáticamente a una declaración del nombre divino."
+    },
+    {
+      "id": "biola-024",
+      "author": "Gary Manning Jr",
+      "title": "I am the Very Model of a Doctor of New Testament",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2015/i-am-the-very-model-of-a-doctor-of-new-testament",
+      "published": "2015-05-13",
+      "review_level": "cribado_bibliografico",
+      "disposition": "recurso_didactico_o_humor_no_traduccion",
+      "editorial_summary": "Entrada inventariada; no se deriva una revisión de traducción de este registro."
+    },
+    {
+      "id": "biola-025",
+      "author": "Gary Manning Jr",
+      "title": "New Claims Regarding the “Family of Jesus” Tomb",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2015/new-claims-regarding-the-family-of-jesus-tomb",
+      "published": "2015-04-13",
+      "review_level": "cribado_bibliografico",
+      "disposition": "registro_bibliografico_sin_revision_textual",
+      "editorial_summary": "Entrada inventariada; no se deriva una revisión de traducción de este registro."
+    },
+    {
+      "id": "biola-026",
+      "author": "Gary Manning Jr",
+      "title": "Three Days and Three Nights",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2015/three-days-and-three-nights",
+      "published": "2015-04-01",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "Considera el cómputo inclusivo de días y los ecos de Jonás y Oseas sin exigir siempre setenta y dos horas."
+    },
+    {
+      "id": "biola-027",
+      "author": "Gary Manning Jr",
+      "title": "Chronology of Easter in John and the Synoptic Gospels",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2015/chronology-of-easter-in-john-and-the-synoptic-gospels",
+      "published": "2015-03-30",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "Propone entender preparación como viernes de la semana pascual; es una opción de armonización, no certeza histórica."
+    },
+    {
+      "id": "biola-028",
+      "author": "Gary Manning Jr",
+      "title": "Christmas in November?",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2014/christmas-in-november",
+      "published": "2014-11-18",
+      "review_level": "cribado_bibliografico",
+      "disposition": "registro_bibliografico_sin_revision_textual",
+      "editorial_summary": "Entrada inventariada; no se deriva una revisión de traducción de este registro."
+    },
+    {
+      "id": "biola-029",
+      "author": "Gary Manning Jr",
+      "title": "Snatched Up For a Meeting",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2014/snatched-up-for-a-meeting",
+      "published": "2014-10-16",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "Interpreta el encuentro como recepción honorífica del Señor; no convertir el término en un itinerario escatológico añadido."
+    },
+    {
+      "id": "biola-030",
+      "author": "Gary Manning Jr",
+      "title": "The Parable of the Foolish Weightlifter",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2014/the-parable-of-the-foolish-weightlifter",
+      "published": "2014-02-18",
+      "review_level": "cribado_bibliografico",
+      "disposition": "recurso_didactico_o_humor_no_traduccion",
+      "editorial_summary": "Entrada inventariada; no se deriva una revisión de traducción de este registro."
+    },
+    {
+      "id": "biola-031",
+      "author": "Gary Manning Jr",
+      "title": "A Response to Zealot by Reza Aslan",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2013/a-response-to-zealot-by-reza-aslan",
+      "published": "2013-08-04",
+      "review_level": "cribado_bibliografico",
+      "disposition": "registro_bibliografico_sin_revision_textual",
+      "editorial_summary": "Entrada inventariada; no se deriva una revisión de traducción de este registro."
+    },
+    {
+      "id": "biola-032",
+      "author": "Gary Manning Jr",
+      "title": "No Stone Left Unturned: Solving a Minor Mystery",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2013/no-stone-left-unturned-solving-a-minor-mystery",
+      "published": "2013-05-21",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "Propone una alusión a Hageo en el anuncio sobre el templo; mantener separada la frase traducida de la hipótesis intertextual."
+    },
+    {
+      "id": "biola-033",
+      "author": "Gary Manning Jr",
+      "title": "Pictures of Jesus",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2012/pictures-of-jesus",
+      "published": "2012-10-19",
+      "review_level": "cribado_bibliografico",
+      "disposition": "registro_bibliografico_sin_revision_textual",
+      "editorial_summary": "Entrada inventariada; no se deriva una revisión de traducción de este registro."
+    },
+    {
+      "id": "biola-034",
+      "author": "Gary Manning Jr",
+      "title": "\"Children of God\" (John 1:13)",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2012/children-of-god-john-1-13",
+      "published": "2012-10-15",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "Relaciona recibir, creer y nacer de Dios; las cláusulas describen a los mismos hijos de Dios."
+    },
+    {
+      "id": "biola-035",
+      "author": "Gary Manning Jr",
+      "title": "\"Jesus' Wife\" Papyrus: an Update",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2012/jesus-wife-papyrus-an-update",
+      "published": "2012-09-28",
+      "review_level": "cribado_bibliografico",
+      "disposition": "registro_bibliografico_sin_revision_textual",
+      "editorial_summary": "Entrada inventariada; no se deriva una revisión de traducción de este registro."
+    },
+    {
+      "id": "biola-036",
+      "author": "Gary Manning Jr",
+      "title": "Did Jesus Have a Wife? A New Gnostic Fragment",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2012/did-jesus-have-a-wife-a-new-gnostic-fragment",
+      "published": "2012-09-19",
+      "review_level": "cribado_bibliografico",
+      "disposition": "registro_bibliografico_sin_revision_textual",
+      "editorial_summary": "Entrada inventariada; no se deriva una revisión de traducción de este registro."
+    },
+    {
+      "id": "biola-037",
+      "author": "Gary Manning Jr",
+      "title": "Paul is not Talking about Himself: Why I take the \"pre-Christian\" Reading of Romans 7:14-25",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2012/paul-is-not-talking-about-himself-why-i-take-the-pre-christian-reading-of-romans-7-14-25",
+      "published": "2012-04-27",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "Defiende una lectura precristiana del yo de Romanos 7, reconociendo el desacuerdo con otros intérpretes."
+    },
+    {
+      "id": "biola-038",
+      "author": "Gary Manning Jr",
+      "title": "Revealed to Whom? (John 3:21)",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2011/revealed-to-whom-john-3-21",
+      "published": "2011-07-18",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "Interpreta la manifestación de las obras como perceptible a otras personas; explicitar ese destinatario es una decisión funcional."
+    },
+    {
+      "id": "biola-039",
+      "author": "Gary Manning Jr",
+      "title": "Generous Charis",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2011/generous-charis",
+      "published": "2011-05-02",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "Explora la generosidad como matiz de χάρις en ciertos contextos; no impone la misma sustitución en todos los versículos."
+    },
+    {
+      "id": "biola-040",
+      "author": "Gary Manning Jr",
+      "title": "Dr. Seuss and Revelation",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2011/dr-seuss-and-revelation",
+      "published": "2011-03-31",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "Los símbolos apocalípticos necesitan contexto de los primeros lectores; no funcionan como códigos independientes de la historia."
+    },
+    {
+      "id": "biola-041",
+      "author": "Gary Manning Jr",
+      "title": "Soldiers in the Gospels",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2011/soldiers-in-the-gospels",
+      "published": "2011-03-14",
+      "review_level": "cribado_bibliografico",
+      "disposition": "registro_bibliografico_sin_revision_textual",
+      "editorial_summary": "Entrada inventariada; no se deriva una revisión de traducción de este registro."
+    },
+    {
+      "id": "biola-042",
+      "author": "Gary Manning Jr",
+      "title": "Reading John",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2011/reading-john",
+      "published": "2011-02-15",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "Leer las escenas de Juan junto al prólogo, sus repeticiones, signos, alusiones y desarrollo narrativo."
+    },
+    {
+      "id": "biola-043",
+      "author": "Gary Manning Jr",
+      "title": "Good Eye / Bad Eye",
+      "url": "https://www.biola.edu/blogs/good-book-blog/2011/good-eye-bad-eye",
+      "published": "2011-02-04",
+      "review_level": "texto_consultado",
+      "disposition": "estudio_consultado",
+      "editorial_summary": "Relaciona el ojo bueno/malo con generosidad/mezquindad en contexto económico; hay otras lecturas léxicas posibles."
+    },
+    {
+      "id": "eutychus-000",
+      "author": "Gary Manning",
+      "title": "The Hobbit in Ancient Greek, part 17",
+      "url": "https://eutychusnerd.blogspot.com/2016/01/the-hobbit-in-ancient-greek-part-17.html",
+      "published": "2016-01-19",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Hobbit in Greek",
+        "Tolkien"
+      ]
+    },
+    {
+      "id": "eutychus-001",
+      "author": "Gary Manning",
+      "title": "Did the Apostle Paul use Profanity?",
+      "url": "https://eutychusnerd.blogspot.com/2015/10/did-apostle-paul-use-profanity.html",
+      "published": "2015-10-01",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-002",
+      "author": "Gary Manning",
+      "title": "Does \"I Am\" always refer to God in the Gospel of John?",
+      "url": "https://eutychusnerd.blogspot.com/2015/09/does-i-am-always-refer-to-god-in-gospel.html",
+      "published": "2015-09-23",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "John"
+      ]
+    },
+    {
+      "id": "eutychus-003",
+      "author": "Gary Manning",
+      "title": "The Hobbit in Ancient Greek, paragraph 16",
+      "url": "https://eutychusnerd.blogspot.com/2015/07/blog-post.html",
+      "published": "2015-07-16",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Hobbit in Greek",
+        "Tolkien"
+      ]
+    },
+    {
+      "id": "eutychus-004",
+      "author": "Gary Manning",
+      "title": "I am the Very Model of a Doctor of New Testament",
+      "url": "https://eutychusnerd.blogspot.com/2015/05/i-am-very-model-of-doctor-of-new.html",
+      "published": "2015-05-14",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-005",
+      "author": "Gary Manning",
+      "title": "The Hobbit in Ancient Greek, paragraphs 14-15",
+      "url": "https://eutychusnerd.blogspot.com/2015/05/the-hobbit-in-ancient-greek-paragraphs.html",
+      "published": "2015-05-08",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Hobbit in Greek",
+        "Tolkien"
+      ]
+    },
+    {
+      "id": "eutychus-006",
+      "author": "Gary Manning",
+      "title": "The Hobbit in Ancient Greek, paragraphs 12-13",
+      "url": "https://eutychusnerd.blogspot.com/2015/04/the-hobbit-in-ancient-greek-paragraphs_29.html",
+      "published": "2015-04-29",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Hobbit in Greek",
+        "Tolkien"
+      ]
+    },
+    {
+      "id": "eutychus-007",
+      "author": "Gary Manning",
+      "title": "The Hobbit in Ancient Greek, paragraphs 10-11",
+      "url": "https://eutychusnerd.blogspot.com/2015/04/the-hobbit-in-ancient-greek-paragraphs_14.html",
+      "published": "2015-04-14",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Hobbit in Greek",
+        "Tolkien"
+      ]
+    },
+    {
+      "id": "eutychus-008",
+      "author": "Gary Manning",
+      "title": "New claims regarding the \"Family of Jesus\" tomb",
+      "url": "https://eutychusnerd.blogspot.com/2015/04/new-claims-regarding-family-of-jesus.html",
+      "published": "2015-04-13",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "James Ossuary",
+        "Talpiot"
+      ]
+    },
+    {
+      "id": "eutychus-009",
+      "author": "Gary Manning",
+      "title": "The Hobbit in Ancient Greek, paragraph 9",
+      "url": "https://eutychusnerd.blogspot.com/2015/04/the-hobbit-in-ancient-greek-paragraph-9.html",
+      "published": "2015-04-07",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Hobbit in Greek",
+        "Tolkien"
+      ]
+    },
+    {
+      "id": "eutychus-010",
+      "author": "Gary Manning",
+      "title": "The Hobbit in Ancient Greek, paragraphs 7-8",
+      "url": "https://eutychusnerd.blogspot.com/2015/04/the-hobbit-in-ancient-greek-paragraphs.html",
+      "published": "2015-04-02",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Hobbit in Greek",
+        "Tolkien"
+      ]
+    },
+    {
+      "id": "eutychus-011",
+      "author": "Gary Manning",
+      "title": "Three Days and Three Nights",
+      "url": "https://eutychusnerd.blogspot.com/2015/04/three-days-and-three-nights.html",
+      "published": "2015-04-01",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "chronology",
+        "Resurrection"
+      ]
+    },
+    {
+      "id": "eutychus-012",
+      "author": "Gary Manning",
+      "title": "Chronology of Easter in John and the Synoptic Gospels",
+      "url": "https://eutychusnerd.blogspot.com/2015/03/chronology-of-easter-in-john-and.html",
+      "published": "2015-03-30",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "chronology",
+        "John",
+        "Resurrection"
+      ]
+    },
+    {
+      "id": "eutychus-013",
+      "author": "Gary Manning",
+      "title": "The Hobbit in Ancient Greek, paragraph 6",
+      "url": "https://eutychusnerd.blogspot.com/2015/03/the-hobbit-in-ancient-greek-paragraph-6.html",
+      "published": "2015-03-29",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Hobbit in Greek",
+        "Tolkien"
+      ]
+    },
+    {
+      "id": "eutychus-014",
+      "author": "Gary Manning",
+      "title": "The Hobbit in Ancient Greek, paragraph 5",
+      "url": "https://eutychusnerd.blogspot.com/2015/03/blog-post.html",
+      "published": "2015-03-25",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Hobbit in Greek",
+        "Tolkien"
+      ]
+    },
+    {
+      "id": "eutychus-015",
+      "author": "Gary Manning",
+      "title": "Hobbit in Ancient Greek, parag 4",
+      "url": "https://eutychusnerd.blogspot.com/2015/03/hobbit-in-ancient-greek-parag-4.html",
+      "published": "2015-03-13",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Hobbit in Greek",
+        "Tolkien"
+      ]
+    },
+    {
+      "id": "eutychus-016",
+      "author": "Gary Manning",
+      "title": "The Hobbit in Ancient Greek, parags 2-3",
+      "url": "https://eutychusnerd.blogspot.com/2015/03/the-hobbit-in-ancient-greek-parags-2-3.html",
+      "published": "2015-03-12",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Hobbit in Greek",
+        "Tolkien"
+      ]
+    },
+    {
+      "id": "eutychus-017",
+      "author": "Gary Manning",
+      "title": "The Hobbit in Αncient Greek (paragraph 1)",
+      "url": "https://eutychusnerd.blogspot.com/2015/03/the-hobbit-in-ncient-greek.html",
+      "published": "2015-03-11",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Hobbit in Greek",
+        "Tolkien"
+      ]
+    },
+    {
+      "id": "eutychus-018",
+      "author": "Eutychus",
+      "title": "Did Jesus Have a Wife? A New Gnostic Fragment",
+      "url": "https://eutychusnerd.blogspot.com/2012/09/did-jesus-have-wife-new-gnostic-fragment.html",
+      "published": "2012-09-19",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-019",
+      "author": "Eutychus",
+      "title": "Revealed to Whom? (John 3:21)",
+      "url": "https://eutychusnerd.blogspot.com/2011/07/revealed-to-whom-john-321.html",
+      "published": "2011-07-18",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "John",
+        "John 3",
+        "translations"
+      ]
+    },
+    {
+      "id": "eutychus-020",
+      "author": "Eutychus",
+      "title": "Greek Scholars Rule?",
+      "url": "https://eutychusnerd.blogspot.com/2011/04/greek-scholars-rule_09.html",
+      "published": "2011-04-09",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Greek Quotes"
+      ]
+    },
+    {
+      "id": "eutychus-021",
+      "author": "Eutychus",
+      "title": "Greek Scholars Rule!",
+      "url": "https://eutychusnerd.blogspot.com/2011/04/greek-scholars-rule.html",
+      "published": "2011-04-08",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Greek Quotes"
+      ]
+    },
+    {
+      "id": "eutychus-022",
+      "author": "Eutychus",
+      "title": "Erasmus on Interpretation",
+      "url": "https://eutychusnerd.blogspot.com/2011/04/erasmus-on-interpretation.html",
+      "published": "2011-04-08",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Erasmus",
+        "hermeneutics"
+      ]
+    },
+    {
+      "id": "eutychus-023",
+      "author": "Eutychus",
+      "title": "Review of Bell's Book",
+      "url": "https://eutychusnerd.blogspot.com/2011/03/review-of-bells-book.html",
+      "published": "2011-03-29",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-024",
+      "author": "Eutychus",
+      "title": "Are You Hungry? Blessings on the Hungry and Meek (Matthew 5:5-6)",
+      "url": "https://eutychusnerd.blogspot.com/2011/03/are-you-hungry-blessings-on-hungry-and.html",
+      "published": "2011-03-22",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": []
+    },
+    {
+      "id": "eutychus-025",
+      "author": "Eutychus",
+      "title": "The Good Shepherd",
+      "url": "https://eutychusnerd.blogspot.com/2011/03/good-shepherd.html",
+      "published": "2011-03-21",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "John 10"
+      ]
+    },
+    {
+      "id": "eutychus-026",
+      "author": "Eutychus",
+      "title": "Gospel of Luke Wordle",
+      "url": "https://eutychusnerd.blogspot.com/2011/03/gospel-of-luke-wordle.html",
+      "published": "2011-03-21",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Luke",
+        "wordles"
+      ]
+    },
+    {
+      "id": "eutychus-027",
+      "author": "Eutychus",
+      "title": "Soldiers in the Gospels",
+      "url": "https://eutychusnerd.blogspot.com/2011/03/soldiers-in-gospels.html",
+      "published": "2011-03-14",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-028",
+      "author": "Eutychus",
+      "title": "Reading John",
+      "url": "https://eutychusnerd.blogspot.com/2011/02/reading-john.html",
+      "published": "2011-02-15",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "hermeneutics",
+        "John"
+      ]
+    },
+    {
+      "id": "eutychus-029",
+      "author": "Eutychus",
+      "title": "Talbot Blog",
+      "url": "https://eutychusnerd.blogspot.com/2011/02/talbot-blog.html",
+      "published": "2011-02-10",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-030",
+      "author": "Eutychus",
+      "title": "Why It's OK to Have a Christmas Tree",
+      "url": "https://eutychusnerd.blogspot.com/2010/12/why-its-ok-to-have-christmas-tree.html",
+      "published": "2010-12-26",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "1 Corinthians",
+        "Acts",
+        "Christmas",
+        "Colossians",
+        "Romans"
+      ]
+    },
+    {
+      "id": "eutychus-031",
+      "author": "Eutychus",
+      "title": "The Real Saint Nicholas (re-post)",
+      "url": "https://eutychusnerd.blogspot.com/2010/12/real-saint-nicholas-re-post.html",
+      "published": "2010-12-23",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-032",
+      "author": "Eutychus",
+      "title": "Evangelical Theological Society, Day 3",
+      "url": "https://eutychusnerd.blogspot.com/2010/11/evangelical-theological-society-day-3.html",
+      "published": "2010-11-20",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-033",
+      "author": "Eutychus",
+      "title": "Evangelical Theological Society, Day 2",
+      "url": "https://eutychusnerd.blogspot.com/2010/11/evangelical-theological-society-day-2.html",
+      "published": "2010-11-18",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-034",
+      "author": "Eutychus",
+      "title": "Evangelical Theological Society, Day 1",
+      "url": "https://eutychusnerd.blogspot.com/2010/11/evangelical-theological-society-day-1.html",
+      "published": "2010-11-17",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-035",
+      "author": "Eutychus",
+      "title": "Not this... but that. (Ephesians 4-5)",
+      "url": "https://eutychusnerd.blogspot.com/2010/10/not-this-but-that-ephesians-4-5.html",
+      "published": "2010-10-06",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Ephesians"
+      ]
+    },
+    {
+      "id": "eutychus-036",
+      "author": "Eutychus",
+      "title": "Erasmus on Interpretation",
+      "url": "https://eutychusnerd.blogspot.com/2010/08/erasmus-on-interpretation.html",
+      "published": "2010-08-31",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Erasmus"
+      ]
+    },
+    {
+      "id": "eutychus-037",
+      "author": "Eutychus",
+      "title": "Jesus in Context",
+      "url": "https://eutychusnerd.blogspot.com/2010/08/jesus-in-context.html",
+      "published": "2010-08-16",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-038",
+      "author": "Eutychus",
+      "title": "Vacation Pictures",
+      "url": "https://eutychusnerd.blogspot.com/2010/08/vacation-pictures.html",
+      "published": "2010-08-05",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Family"
+      ]
+    },
+    {
+      "id": "eutychus-039",
+      "author": "Eutychus",
+      "title": "Jesus Was Not a Rebel",
+      "url": "https://eutychusnerd.blogspot.com/2010/08/jesus-was-not-rebel.html",
+      "published": "2010-08-02",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": []
+    },
+    {
+      "id": "eutychus-040",
+      "author": "Eutychus",
+      "title": "The Mark of the Beast is Islam? Walid Shoebat and 666",
+      "url": "https://eutychusnerd.blogspot.com/2010/07/the-mark-of-beast-is-islam-walid.html",
+      "published": "2010-07-13",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "1 John",
+        "Antichrist",
+        "Revelation"
+      ]
+    },
+    {
+      "id": "eutychus-041",
+      "author": "Eutychus",
+      "title": "Manning Kids",
+      "url": "https://eutychusnerd.blogspot.com/2010/07/manning-kids.html",
+      "published": "2010-07-13",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Family"
+      ]
+    },
+    {
+      "id": "eutychus-042",
+      "author": "Eutychus",
+      "title": "Speaking the Truth in Love (Ephesians 4:15)",
+      "url": "https://eutychusnerd.blogspot.com/2010/06/speaking-truth-in-love-ephesians-415.html",
+      "published": "2010-06-24",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Ephesians",
+        "Galatians",
+        "LXX"
+      ]
+    },
+    {
+      "id": "eutychus-043",
+      "author": "Eutychus",
+      "title": "\"Christ who is over all God blessed forever\" (Romans 9:5)",
+      "url": "https://eutychusnerd.blogspot.com/2010/05/christ-who-is-over-all-god-blessed.html",
+      "published": "2010-05-31",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Greek",
+        "LXX",
+        "Romans",
+        "translations"
+      ]
+    },
+    {
+      "id": "eutychus-044",
+      "author": "Eutychus",
+      "title": "Gospel of John Sinaiticus Mug",
+      "url": "https://eutychusnerd.blogspot.com/2010/05/gospel-of-john-sinaiticus-mug.html",
+      "published": "2010-05-06",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Greek",
+        "John"
+      ]
+    },
+    {
+      "id": "eutychus-045",
+      "author": "Eutychus",
+      "title": "Gospel of John Class",
+      "url": "https://eutychusnerd.blogspot.com/2010/05/gospel-of-john-class.html",
+      "published": "2010-05-02",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "John",
+        "Speaking Calendar"
+      ]
+    },
+    {
+      "id": "eutychus-046",
+      "author": "Eutychus",
+      "title": "Talbot Bound",
+      "url": "https://eutychusnerd.blogspot.com/2010/04/talbot-bound.html",
+      "published": "2010-04-29",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-047",
+      "author": "Eutychus",
+      "title": "Easter according to Basic Instructions",
+      "url": "https://eutychusnerd.blogspot.com/2010/04/easter-according-to-basic-instructions.html",
+      "published": "2010-04-04",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Resurrection"
+      ]
+    },
+    {
+      "id": "eutychus-048",
+      "author": "Eutychus",
+      "title": "NT Survey Class at BIH",
+      "url": "https://eutychusnerd.blogspot.com/2010/03/nt-survey-class-at-bih.html",
+      "published": "2010-03-24",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Speaking Calendar"
+      ]
+    },
+    {
+      "id": "eutychus-049",
+      "author": "Eutychus",
+      "title": "The Lord's Prayer in Elvish",
+      "url": "https://eutychusnerd.blogspot.com/2009/03/lords-prayer-in-elvish.html",
+      "published": "2010-03-19",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Tolkien"
+      ]
+    },
+    {
+      "id": "eutychus-050",
+      "author": "Eutychus",
+      "title": "Handling Accurately or Teaching Straight?",
+      "url": "https://eutychusnerd.blogspot.com/2010/03/handling-accurately-or-teaching.html",
+      "published": "2010-03-12",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "2 Timothy",
+        "LXX",
+        "Proverbs",
+        "translations"
+      ]
+    },
+    {
+      "id": "eutychus-051",
+      "author": "Eutychus",
+      "title": "Dr. Seuss and Revelation",
+      "url": "https://eutychusnerd.blogspot.com/2010/03/dr-seuss-and-revelation.html",
+      "published": "2010-03-11",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "hermeneutics",
+        "Revelation"
+      ]
+    },
+    {
+      "id": "eutychus-052",
+      "author": "Eutychus",
+      "title": "Bible Genre Chart",
+      "url": "https://eutychusnerd.blogspot.com/2010/03/genre-chart.html",
+      "published": "2010-03-10",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "hermeneutics"
+      ]
+    },
+    {
+      "id": "eutychus-053",
+      "author": "Eutychus",
+      "title": "Origin of the Name \"Jehovah\"",
+      "url": "https://eutychusnerd.blogspot.com/2010/02/origin-of-name-jehovah.html",
+      "published": "2010-02-23",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Hebrew"
+      ]
+    },
+    {
+      "id": "eutychus-054",
+      "author": "Eutychus",
+      "title": "Bible Translation Quotes",
+      "url": "https://eutychusnerd.blogspot.com/2010/02/bible-translation-quotes.html",
+      "published": "2010-02-22",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Acts",
+        "Greek Quotes",
+        "translations"
+      ]
+    },
+    {
+      "id": "eutychus-055",
+      "author": "Eutychus",
+      "title": "Come on in, you wounded Greeklings",
+      "url": "https://eutychusnerd.blogspot.com/2010/02/come-on-in-you-wounded-greeklings.html",
+      "published": "2010-02-08",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Greek Quotes"
+      ]
+    },
+    {
+      "id": "eutychus-056",
+      "author": "Eutychus",
+      "title": "SBL Survey",
+      "url": "https://eutychusnerd.blogspot.com/2010/01/sbl-survey.html",
+      "published": "2010-01-14",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-057",
+      "author": "Eutychus",
+      "title": "Twitter Ven Diagram",
+      "url": "https://eutychusnerd.blogspot.com/2010/01/twitter-ven-diagram.html",
+      "published": "2010-01-08",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "random smatterings"
+      ]
+    },
+    {
+      "id": "eutychus-058",
+      "author": "Eutychus",
+      "title": "Book of Acts Wordle",
+      "url": "https://eutychusnerd.blogspot.com/2010/01/book-of-acts-wordle.html",
+      "published": "2010-01-06",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Acts",
+        "wordles"
+      ]
+    },
+    {
+      "id": "eutychus-059",
+      "author": "Eutychus",
+      "title": "New Family Picture!",
+      "url": "https://eutychusnerd.blogspot.com/2009/12/new-family-picture.html",
+      "published": "2009-12-29",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Family"
+      ]
+    },
+    {
+      "id": "eutychus-060",
+      "author": "Eutychus",
+      "title": "Herod Remembered",
+      "url": "https://eutychusnerd.blogspot.com/2009/12/herod-remembered.html",
+      "published": "2009-12-22",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Christmas",
+        "Luke",
+        "Matthew"
+      ]
+    },
+    {
+      "id": "eutychus-061",
+      "author": "Eutychus",
+      "title": "Shroud Discovery in Jerusalem",
+      "url": "https://eutychusnerd.blogspot.com/2009/12/shroud-discovery-in-jerusalem.html",
+      "published": "2009-12-21",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "John",
+        "John 11",
+        "John 20"
+      ]
+    },
+    {
+      "id": "eutychus-062",
+      "author": "Eutychus",
+      "title": "Augustine on Greek",
+      "url": "https://eutychusnerd.blogspot.com/2009/12/augustine-on-greek.html",
+      "published": "2009-12-17",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Greek",
+        "Greek Quotes"
+      ]
+    },
+    {
+      "id": "eutychus-063",
+      "author": "Eutychus",
+      "title": "The Real St. Nicholas",
+      "url": "https://eutychusnerd.blogspot.com/2009/12/real-st-nicholas.html",
+      "published": "2009-12-17",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Christmas"
+      ]
+    },
+    {
+      "id": "eutychus-064",
+      "author": "Eutychus",
+      "title": "Christmas Myths",
+      "url": "https://eutychusnerd.blogspot.com/2009/12/christmas-myths.html",
+      "published": "2009-12-15",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Christmas",
+        "Luke",
+        "Matthew"
+      ]
+    },
+    {
+      "id": "eutychus-065",
+      "author": "Eutychus",
+      "title": "Greek Wordle for the Gospel of John",
+      "url": "https://eutychusnerd.blogspot.com/2009/12/greek-wordle-for-gospel-of-john.html",
+      "published": "2009-12-10",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "John",
+        "wordles"
+      ]
+    },
+    {
+      "id": "eutychus-066",
+      "author": "Eutychus",
+      "title": "In the Beginning Was the Wordle...",
+      "url": "https://eutychusnerd.blogspot.com/2009/12/another-wordle-for-gospel-of-john.html",
+      "published": "2009-12-09",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "John",
+        "wordles"
+      ]
+    },
+    {
+      "id": "eutychus-067",
+      "author": "Eutychus",
+      "title": "I am Not Elijah, Intro",
+      "url": "https://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-intro.html",
+      "published": "2009-11-29",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "1 Kings",
+        "2 Kings",
+        "Elijah",
+        "I Am Not Elijah",
+        "John",
+        "John 1",
+        "LXX",
+        "Use of OT in NT"
+      ]
+    },
+    {
+      "id": "eutychus-068",
+      "author": "Eutychus",
+      "title": "I am Not Elijah, Part 1 (John 4:29, 2 Kings 6:12-13)",
+      "url": "https://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-1-john-429-2-kings.html",
+      "published": "2009-11-28",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "1 Kings",
+        "2 Kings",
+        "Elijah",
+        "I Am Not Elijah",
+        "John",
+        "John 1",
+        "John 4",
+        "LXX",
+        "Use of OT in NT"
+      ]
+    },
+    {
+      "id": "eutychus-069",
+      "author": "Eutychus",
+      "title": "I Am Not Elijah, Part 2 (John 2:3-4, 2 Kings 3:9-22)",
+      "url": "https://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-2-john-23-4-kings.html",
+      "published": "2009-11-27",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "2 Kings",
+        "I Am Not Elijah",
+        "John",
+        "John 2",
+        "LXX",
+        "Use of OT in NT"
+      ]
+    },
+    {
+      "id": "eutychus-070",
+      "author": "Eutychus",
+      "title": "I Am Not Elijah, Part 3 (John 4:7, 1 Kings 17:10-14)",
+      "url": "https://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-3-john-47-1-kings.html",
+      "published": "2009-11-26",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "1 Kings",
+        "Elijah",
+        "I Am Not Elijah",
+        "John",
+        "John 4",
+        "LXX",
+        "Use of OT in NT"
+      ]
+    },
+    {
+      "id": "eutychus-071",
+      "author": "Eutychus",
+      "title": "I Am Not Elijah, Part 4 (John 4:50, 1 Kings 17:21-24)",
+      "url": "https://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-4-john-450-1-kings.html",
+      "published": "2009-11-26",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "1 Kings",
+        "Acts",
+        "Elijah",
+        "Eutychus",
+        "I Am Not Elijah",
+        "John",
+        "John 4",
+        "Luke",
+        "LXX",
+        "Use of OT in NT"
+      ]
+    },
+    {
+      "id": "eutychus-072",
+      "author": "Eutychus",
+      "title": "I Am Not Elijah, Part 5 (John 6:9-13, 2 Kings 4:42-44)",
+      "url": "https://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-5-john-69-13-2.html",
+      "published": "2009-11-25",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "2 Kings",
+        "I Am Not Elijah",
+        "John",
+        "John 6",
+        "LXX",
+        "Use of OT in NT"
+      ]
+    },
+    {
+      "id": "eutychus-073",
+      "author": "Eutychus",
+      "title": "I Am Not Elijah, Part 6 (John 9:6-15, 2 Kings 5:10-15)",
+      "url": "https://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-6-john-96-15-2.html",
+      "published": "2009-11-23",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "2 Kings",
+        "I Am Not Elijah",
+        "John",
+        "John 9",
+        "LXX",
+        "Use of OT in NT"
+      ]
+    },
+    {
+      "id": "eutychus-074",
+      "author": "Eutychus",
+      "title": "I Am Not Elijah, Conclusion",
+      "url": "https://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-conclusion.html",
+      "published": "2009-11-22",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "1 Kings",
+        "2 Kings",
+        "Elijah",
+        "I Am Not Elijah",
+        "John",
+        "LXX",
+        "Use of OT in NT"
+      ]
+    },
+    {
+      "id": "eutychus-075",
+      "author": "Eutychus",
+      "title": "Merry Christmas - November 18",
+      "url": "https://eutychusnerd.blogspot.com/2009/11/merry-christmas-november-18.html",
+      "published": "2009-11-18",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Christmas"
+      ]
+    },
+    {
+      "id": "eutychus-076",
+      "author": "Eutychus",
+      "title": "Evangelical Theological Society",
+      "url": "https://eutychusnerd.blogspot.com/2009/11/evangelical-theological-society.html",
+      "published": "2009-11-18",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Acts",
+        "Luke"
+      ]
+    },
+    {
+      "id": "eutychus-077",
+      "author": "Eutychus",
+      "title": "Gospel of John Wordle",
+      "url": "https://eutychusnerd.blogspot.com/2009/11/gospel-of-john-wordle.html",
+      "published": "2009-11-03",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "John",
+        "wordles"
+      ]
+    },
+    {
+      "id": "eutychus-078",
+      "author": "Eutychus",
+      "title": "Writing deadlines!",
+      "url": "https://eutychusnerd.blogspot.com/2009/11/writing-deadlines.html",
+      "published": "2009-11-02",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-079",
+      "author": "Eutychus",
+      "title": "Jesus the Aleph-Tav? (Genesis 1:1, Revelation 21:6)",
+      "url": "https://eutychusnerd.blogspot.com/2009/10/few-people-asked-me-about-nature-of.html",
+      "published": "2009-10-31",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Genesis",
+        "Greek",
+        "Hebrew",
+        "John",
+        "LXX",
+        "Revelation"
+      ]
+    },
+    {
+      "id": "eutychus-080",
+      "author": "Eutychus",
+      "title": "Bad Interpretation and Erasmus",
+      "url": "https://eutychusnerd.blogspot.com/2009/10/bad-interpretation-and-erasmus.html",
+      "published": "2009-10-29",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Erasmus",
+        "Greek",
+        "Greek Quotes",
+        "Hebrew",
+        "hermeneutics"
+      ]
+    },
+    {
+      "id": "eutychus-081",
+      "author": "Eutychus",
+      "title": "Erasmus on Greek",
+      "url": "https://eutychusnerd.blogspot.com/2009/10/erasmus-on-greek_27.html",
+      "published": "2009-10-27",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Erasmus",
+        "Greek Quotes"
+      ]
+    },
+    {
+      "id": "eutychus-082",
+      "author": "Eutychus",
+      "title": "Most Popular Post: Nicodemus and the Samaritan Woman",
+      "url": "https://eutychusnerd.blogspot.com/2009/10/most-popular-post.html",
+      "published": "2009-10-26",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "John",
+        "John 3",
+        "John 4"
+      ]
+    },
+    {
+      "id": "eutychus-083",
+      "author": "Eutychus",
+      "title": "Baptism Pictures",
+      "url": "https://eutychusnerd.blogspot.com/2009/10/baptism-pictures_24.html",
+      "published": "2009-10-24",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "baptism",
+        "Family"
+      ]
+    },
+    {
+      "id": "eutychus-084",
+      "author": "Eutychus",
+      "title": "Romans 7 - Christian or Pre-Christian?",
+      "url": "https://eutychusnerd.blogspot.com/2009/10/today-in-my-undergraduate-class-on.html",
+      "published": "2009-10-23",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Holy Spirit",
+        "Paul",
+        "Romans"
+      ]
+    },
+    {
+      "id": "eutychus-085",
+      "author": "Eutychus",
+      "title": "Eutychus Allusion in Jane Eyre",
+      "url": "https://eutychusnerd.blogspot.com/2009/10/eutychus-allusion.html",
+      "published": "2009-10-23",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Eutychus"
+      ]
+    },
+    {
+      "id": "eutychus-086",
+      "author": "Eutychus",
+      "title": "Baptism Pictures",
+      "url": "https://eutychusnerd.blogspot.com/2009/10/baptism-pictures_22.html",
+      "published": "2009-10-23",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "baptism",
+        "Family"
+      ]
+    },
+    {
+      "id": "eutychus-087",
+      "author": "Eutychus",
+      "title": "Erasmus on Greek",
+      "url": "https://eutychusnerd.blogspot.com/2009/10/erasmus-on-greek_21.html",
+      "published": "2009-10-22",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Erasmus",
+        "Greek Quotes"
+      ]
+    },
+    {
+      "id": "eutychus-088",
+      "author": "Eutychus",
+      "title": "Rowley on Biblical Languages",
+      "url": "https://eutychusnerd.blogspot.com/2009/10/rowley-on-biblical-languages.html",
+      "published": "2009-10-21",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Greek Quotes"
+      ]
+    },
+    {
+      "id": "eutychus-089",
+      "author": "Eutychus",
+      "title": "Wesley on Greek",
+      "url": "https://eutychusnerd.blogspot.com/2009/10/wesley-on-greek.html",
+      "published": "2009-10-20",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Greek",
+        "Greek Quotes",
+        "Hebrew"
+      ]
+    },
+    {
+      "id": "eutychus-090",
+      "author": "Eutychus",
+      "title": "Baptism Pictures",
+      "url": "https://eutychusnerd.blogspot.com/2009/10/baptism-pictures_18.html",
+      "published": "2009-10-18",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "baptism",
+        "Family"
+      ]
+    },
+    {
+      "id": "eutychus-091",
+      "author": "Eutychus",
+      "title": "Baptism Pictures",
+      "url": "https://eutychusnerd.blogspot.com/2009/10/baptism-pictures.html",
+      "published": "2009-10-18",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "baptism",
+        "Family"
+      ]
+    },
+    {
+      "id": "eutychus-092",
+      "author": "Eutychus",
+      "title": "Haleakala Slide Show",
+      "url": "https://eutychusnerd.blogspot.com/2009/10/haleakala-slide-show.html",
+      "published": "2009-10-16",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Family"
+      ]
+    },
+    {
+      "id": "eutychus-093",
+      "author": "Eutychus",
+      "title": "Picture from Haleakala",
+      "url": "https://eutychusnerd.blogspot.com/2009/10/picture-from-haleakala.html",
+      "published": "2009-10-14",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Family"
+      ]
+    },
+    {
+      "id": "eutychus-094",
+      "author": "Eutychus",
+      "title": "Haleakala Trip",
+      "url": "https://eutychusnerd.blogspot.com/2009/10/haleakala-trip.html",
+      "published": "2009-10-08",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Family"
+      ]
+    },
+    {
+      "id": "eutychus-095",
+      "author": "Eutychus",
+      "title": "Martin Luther on Greek",
+      "url": "https://eutychusnerd.blogspot.com/2009/10/martin-luther-on-greek.html",
+      "published": "2009-10-08",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Greek",
+        "Greek Quotes",
+        "Hebrew",
+        "Martin Luther"
+      ]
+    },
+    {
+      "id": "eutychus-096",
+      "author": "Eutychus",
+      "title": "Erasmus on Greek",
+      "url": "https://eutychusnerd.blogspot.com/2009/10/certain-distinguished-theologians.html",
+      "published": "2009-10-07",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Erasmus",
+        "Greek",
+        "Greek Quotes",
+        "Hebrew"
+      ]
+    },
+    {
+      "id": "eutychus-097",
+      "author": "Eutychus",
+      "title": "Erasmus on Greek",
+      "url": "https://eutychusnerd.blogspot.com/2009/10/erasmus-on-greek.html",
+      "published": "2009-10-03",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Erasmus",
+        "Greek",
+        "Greek Quotes"
+      ]
+    },
+    {
+      "id": "eutychus-098",
+      "author": "Eutychus",
+      "title": "ben Sirach on Translation",
+      "url": "https://eutychusnerd.blogspot.com/2009/10/ben-sirach-on-translation.html",
+      "published": "2009-10-02",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Greek",
+        "Greek Quotes",
+        "Hebrew",
+        "translations"
+      ]
+    },
+    {
+      "id": "eutychus-099",
+      "author": "Eutychus",
+      "title": "Scot McKnight on the \"The Evangelical Flip\"",
+      "url": "https://eutychusnerd.blogspot.com/2009/10/scot-mcknight-on-the-evangelical-flip.html",
+      "published": "2009-10-02",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-100",
+      "author": "Eutychus",
+      "title": "Erasmus on Greek",
+      "url": "https://eutychusnerd.blogspot.com/2009/10/theologians-are-dogged-everywhere-by.html",
+      "published": "2009-10-01",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Erasmus",
+        "Greek",
+        "Greek Quotes"
+      ]
+    },
+    {
+      "id": "eutychus-101",
+      "author": "Eutychus",
+      "title": "Relevant Teaching",
+      "url": "https://eutychusnerd.blogspot.com/2009/09/relevant-teaching.html",
+      "published": "2009-09-29",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-102",
+      "author": "Eutychus",
+      "title": "Erasmus on Greek",
+      "url": "https://eutychusnerd.blogspot.com/2009/09/erasmus-on-greek_29.html",
+      "published": "2009-09-29",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Erasmus",
+        "Greek",
+        "Greek Quotes"
+      ]
+    },
+    {
+      "id": "eutychus-103",
+      "author": "Eutychus",
+      "title": "Erasmus on Greek",
+      "url": "https://eutychusnerd.blogspot.com/2009/09/erasmus-on-greek_28.html",
+      "published": "2009-09-28",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Erasmus",
+        "Greek",
+        "Greek Quotes"
+      ]
+    },
+    {
+      "id": "eutychus-104",
+      "author": "Eutychus",
+      "title": "How to Waste Your Theological Education",
+      "url": "https://eutychusnerd.blogspot.com/2009/09/how-to-waste-your-theological-education.html",
+      "published": "2009-09-27",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-105",
+      "author": "Eutychus",
+      "title": "Erasmus on Greek",
+      "url": "https://eutychusnerd.blogspot.com/2009/09/erasmus-on-greek_26.html",
+      "published": "2009-09-26",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Erasmus",
+        "Greek",
+        "Greek Quotes"
+      ]
+    },
+    {
+      "id": "eutychus-106",
+      "author": "Eutychus",
+      "title": "Erasmus on Greek",
+      "url": "https://eutychusnerd.blogspot.com/2009/09/erasmus-on-greek_25.html",
+      "published": "2009-09-25",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Erasmus",
+        "Greek",
+        "Greek Quotes",
+        "translations"
+      ]
+    },
+    {
+      "id": "eutychus-107",
+      "author": "Eutychus",
+      "title": "Erasmus on Greek",
+      "url": "https://eutychusnerd.blogspot.com/2009/09/erasmus-on-greek_24.html",
+      "published": "2009-09-24",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Erasmus",
+        "Greek",
+        "Greek Quotes"
+      ]
+    },
+    {
+      "id": "eutychus-108",
+      "author": "Eutychus",
+      "title": "William Latimer on Greek",
+      "url": "https://eutychusnerd.blogspot.com/2009/09/william-latimer-on-greek.html",
+      "published": "2009-09-23",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Erasmus",
+        "Greek"
+      ]
+    },
+    {
+      "id": "eutychus-109",
+      "author": "Eutychus",
+      "title": "Greek Quotes",
+      "url": "https://eutychusnerd.blogspot.com/2009/09/greek-quotes.html",
+      "published": "2009-09-22",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Erasmus",
+        "Greek",
+        "Greek Quotes",
+        "Martin Luther"
+      ]
+    },
+    {
+      "id": "eutychus-110",
+      "author": "Eutychus",
+      "title": "Erasmus on Greek",
+      "url": "https://eutychusnerd.blogspot.com/2009/09/erasmus-commenting-on-labor-of-editing.html",
+      "published": "2009-09-22",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Erasmus",
+        "Greek",
+        "Greek Quotes"
+      ]
+    },
+    {
+      "id": "eutychus-111",
+      "author": "Eutychus",
+      "title": "Zwingli on Greek",
+      "url": "https://eutychusnerd.blogspot.com/2009/09/zwingli-on-greek.html",
+      "published": "2009-09-21",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Greek",
+        "Greek Quotes",
+        "Martin Luther"
+      ]
+    },
+    {
+      "id": "eutychus-112",
+      "author": "Eutychus",
+      "title": "Erasmus on Greek",
+      "url": "https://eutychusnerd.blogspot.com/2009/09/erasmus-on-greek.html",
+      "published": "2009-09-20",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Erasmus",
+        "Greek",
+        "Greek Quotes"
+      ]
+    },
+    {
+      "id": "eutychus-113",
+      "author": "Eutychus",
+      "title": "Erasmus on Greek",
+      "url": "https://eutychusnerd.blogspot.com/2009/09/erasmus-commenting-on-value-of-studying.html",
+      "published": "2009-09-20",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Erasmus",
+        "Greek",
+        "Greek Quotes"
+      ]
+    },
+    {
+      "id": "eutychus-114",
+      "author": "Eutychus",
+      "title": "Top Ten Things To Do While Learning Greek",
+      "url": "https://eutychusnerd.blogspot.com/2009/09/top-ten-things-to-do-while-learning.html",
+      "published": "2009-09-04",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Antichrist",
+        "Greek"
+      ]
+    },
+    {
+      "id": "eutychus-115",
+      "author": "Eutychus",
+      "title": "Biblioblogger Rankings",
+      "url": "https://eutychusnerd.blogspot.com/2009/09/biblioblogger-rankings.html",
+      "published": "2009-09-01",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-116",
+      "author": "Eutychus",
+      "title": "Barack Obama - Antichrist?",
+      "url": "https://eutychusnerd.blogspot.com/2009/08/barack-obama-antichrist.html",
+      "published": "2009-08-12",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Antichrist",
+        "Isaiah",
+        "Luke"
+      ]
+    },
+    {
+      "id": "eutychus-117",
+      "author": "Eutychus",
+      "title": "\"I am not going up to this feast\" (John 7)",
+      "url": "https://eutychusnerd.blogspot.com/2009/08/i-am-not-going-up-to-this-feast-john-7.html",
+      "published": "2009-08-11",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "John",
+        "John 7",
+        "textual criticism"
+      ]
+    },
+    {
+      "id": "eutychus-118",
+      "author": "Eutychus",
+      "title": "Age of the Fallen",
+      "url": "https://eutychusnerd.blogspot.com/2009/08/age-of-fallen.html",
+      "published": "2009-08-05",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-119",
+      "author": "Eutychus",
+      "title": "Jesus' Prayer for Lazarus (John 11)",
+      "url": "https://eutychusnerd.blogspot.com/2009/07/jesus-prayer-for-lazarus-john-11.html",
+      "published": "2009-07-29",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "1 Kings",
+        "1 Peter",
+        "Acts",
+        "John",
+        "John 11",
+        "LXX",
+        "Matthew",
+        "Psalms",
+        "Use of OT in NT"
+      ]
+    },
+    {
+      "id": "eutychus-120",
+      "author": "Eutychus",
+      "title": "The Adulterous Woman (John 8)",
+      "url": "https://eutychusnerd.blogspot.com/2009/06/adulterous-woman.html",
+      "published": "2009-06-29",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Deuteronomy",
+        "Gnostic gospels",
+        "John",
+        "John 8",
+        "textual criticism"
+      ]
+    },
+    {
+      "id": "eutychus-121",
+      "author": "Eutychus",
+      "title": "The Difference Between Grace and Mercy",
+      "url": "https://eutychusnerd.blogspot.com/2009/06/grace-and-mercy.html",
+      "published": "2009-06-24",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "1 Timothy",
+        "Ephesians",
+        "Family",
+        "Genesis",
+        "Greek",
+        "Luke",
+        "Matthew",
+        "Proverbs",
+        "Questions",
+        "Romans"
+      ]
+    },
+    {
+      "id": "eutychus-122",
+      "author": "Eutychus",
+      "title": "Grace to Naaman (2 Kings 5)",
+      "url": "https://eutychusnerd.blogspot.com/2009/06/grace-to-naaman.html",
+      "published": "2009-06-22",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "1 Corinthians",
+        "2 Kings",
+        "Christmas",
+        "Daniel",
+        "Exodus",
+        "Questions"
+      ]
+    },
+    {
+      "id": "eutychus-123",
+      "author": "Eutychus",
+      "title": "Baptized with Water and Spirit",
+      "url": "https://eutychusnerd.blogspot.com/2009/06/question-whats-difference-between-water.html",
+      "published": "2009-06-11",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "1 Corinthians",
+        "2 Corinthians",
+        "Acts",
+        "baptism",
+        "Colossians",
+        "Galatians",
+        "Holy Spirit",
+        "John",
+        "John 7",
+        "Mark",
+        "Questions",
+        "Romans"
+      ]
+    },
+    {
+      "id": "eutychus-124",
+      "author": "Eutychus",
+      "title": "The One Anothers",
+      "url": "https://eutychusnerd.blogspot.com/2009/06/one-anothers.html",
+      "published": "2009-06-09",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Church",
+        "Greek"
+      ]
+    },
+    {
+      "id": "eutychus-125",
+      "author": "Eutychus",
+      "title": "How many churches can you belong to?",
+      "url": "https://eutychusnerd.blogspot.com/2009/06/how-many-churches-can-you-belong-to.html",
+      "published": "2009-06-09",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "1 Corinthians",
+        "Acts",
+        "Church",
+        "Colossians",
+        "Questions",
+        "Revelation",
+        "Romans"
+      ]
+    },
+    {
+      "id": "eutychus-126",
+      "author": "Eutychus",
+      "title": "Use of NT in OT",
+      "url": "https://eutychusnerd.blogspot.com/2009/06/use-of-nt-in-ot.html",
+      "published": "2009-06-04",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Hosea",
+        "Isaiah",
+        "Jeremiah",
+        "Matthew",
+        "Micah",
+        "Use of OT in NT"
+      ]
+    },
+    {
+      "id": "eutychus-127",
+      "author": "Eutychus",
+      "title": "Baa! We're Lambs (John 10)",
+      "url": "https://eutychusnerd.blogspot.com/2009/05/baa-were-lambs-john-10.html",
+      "published": "2009-05-26",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "John",
+        "John 10",
+        "Luke",
+        "Matthew"
+      ]
+    },
+    {
+      "id": "eutychus-128",
+      "author": "Eutychus",
+      "title": "Judas' Kiss (Matthew 26:50, John 13:27)",
+      "url": "https://eutychusnerd.blogspot.com/2009/05/question-there-seems-to-be-great.html",
+      "published": "2009-05-13",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Greek",
+        "John",
+        "John 13",
+        "LXX",
+        "Matthew",
+        "translations"
+      ]
+    },
+    {
+      "id": "eutychus-129",
+      "author": "Eutychus",
+      "title": "This Generation Will Not Pass Away (Matthew 24:34)",
+      "url": "https://eutychusnerd.blogspot.com/2009/05/question-in-matt-2434-jesus-says-i-tell.html",
+      "published": "2009-05-07",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Colossians",
+        "Greek",
+        "Matthew",
+        "Tolkien"
+      ]
+    },
+    {
+      "id": "eutychus-130",
+      "author": "Eutychus",
+      "title": "Eutychus Drama",
+      "url": "https://eutychusnerd.blogspot.com/2009/05/eutychus-drama.html",
+      "published": "2009-05-07",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Acts",
+        "Eutychus"
+      ]
+    },
+    {
+      "id": "eutychus-131",
+      "author": "Eutychus",
+      "title": "Victory at Ebenezer (1 Samuel 4-7)",
+      "url": "https://eutychusnerd.blogspot.com/2009/05/victory-at-ebenezer-1-samuel-4-7.html",
+      "published": "2009-05-07",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "1 Samuel",
+        "baptism",
+        "Communion"
+      ]
+    },
+    {
+      "id": "eutychus-132",
+      "author": "Eutychus",
+      "title": "Blind and Lame (John 5, John 9)",
+      "url": "https://eutychusnerd.blogspot.com/2009/04/blind-and-lame-john-5-and-9.html",
+      "published": "2009-04-20",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "John",
+        "John 5",
+        "John 9"
+      ]
+    },
+    {
+      "id": "eutychus-133",
+      "author": "Eutychus",
+      "title": "The Rolling Stone",
+      "url": "https://eutychusnerd.blogspot.com/2009/04/rolling-stone.html",
+      "published": "2009-04-13",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Mark",
+        "Matthew",
+        "Resurrection"
+      ]
+    },
+    {
+      "id": "eutychus-134",
+      "author": "Eutychus",
+      "title": "Roman Soldiers at the Tomb",
+      "url": "https://eutychusnerd.blogspot.com/2009/04/roman-soldiers-at-tomb.html",
+      "published": "2009-04-13",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "John",
+        "Luke",
+        "Mark",
+        "Matthew",
+        "Resurrection"
+      ]
+    },
+    {
+      "id": "eutychus-135",
+      "author": "Eutychus",
+      "title": "The Good Shepherd (John 10)",
+      "url": "https://eutychusnerd.blogspot.com/2009/03/good-shepherd-john-10.html",
+      "published": "2009-03-19",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Ezekiel",
+        "John",
+        "John 10",
+        "Numbers",
+        "Use of OT in NT"
+      ]
+    },
+    {
+      "id": "eutychus-136",
+      "author": "Eutychus",
+      "title": "New Podcast",
+      "url": "https://eutychusnerd.blogspot.com/2009/02/new-podcast.html",
+      "published": "2009-02-26",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "2 Corinthians",
+        "Exodus",
+        "Speaking Calendar"
+      ]
+    },
+    {
+      "id": "eutychus-137",
+      "author": "Eutychus",
+      "title": "Jesus and Nicodemus (John 3)",
+      "url": "https://eutychusnerd.blogspot.com/2009/02/jesus-and-nicodemus.html",
+      "published": "2009-02-23",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Greek",
+        "John",
+        "John 3"
+      ]
+    },
+    {
+      "id": "eutychus-138",
+      "author": "Eutychus",
+      "title": "Nicodemus vs. the Samaritan Woman (John 3, John 4)",
+      "url": "https://eutychusnerd.blogspot.com/2009/02/nicodemus-vs-samaritan-woman.html",
+      "published": "2009-02-18",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "John",
+        "John 3",
+        "John 4"
+      ]
+    },
+    {
+      "id": "eutychus-139",
+      "author": "Eutychus",
+      "title": "Six-Word Love Story",
+      "url": "https://eutychusnerd.blogspot.com/2009/02/six-word-love-story.html",
+      "published": "2009-02-13",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-140",
+      "author": "Eutychus",
+      "title": "Good Questions",
+      "url": "https://eutychusnerd.blogspot.com/2009/02/good-questions.html",
+      "published": "2009-02-13",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-141",
+      "author": "Eutychus",
+      "title": "Synergistic Lemons",
+      "url": "https://eutychusnerd.blogspot.com/2009/02/synergistic-lemons.html",
+      "published": "2009-02-10",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "random smatterings"
+      ]
+    },
+    {
+      "id": "eutychus-142",
+      "author": "Eutychus",
+      "title": "Sinner's Prayer",
+      "url": "https://eutychusnerd.blogspot.com/2009/02/sinners-prayer.html",
+      "published": "2009-02-06",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "baptism",
+        "Luke",
+        "Questions"
+      ]
+    },
+    {
+      "id": "eutychus-143",
+      "author": "Eutychus",
+      "title": "Water to Wine (John 2:1-11)",
+      "url": "https://eutychusnerd.blogspot.com/2009/02/water-to-wine-john-21-11.html",
+      "published": "2009-02-05",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "2 Kings",
+        "John",
+        "John 2",
+        "LXX",
+        "Use of OT in NT"
+      ]
+    },
+    {
+      "id": "eutychus-144",
+      "author": "Eutychus",
+      "title": "Jesus' First Disciples in John (John 1:19-51)",
+      "url": "https://eutychusnerd.blogspot.com/2009/02/jesus-first-disciples-in-john.html",
+      "published": "2009-02-02",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "1 Kings",
+        "2 Kings",
+        "Elijah",
+        "Ezekiel",
+        "Genesis",
+        "Greek",
+        "Isaiah",
+        "John",
+        "John 1",
+        "LXX",
+        "Use of OT in NT"
+      ]
+    },
+    {
+      "id": "eutychus-145",
+      "author": "Eutychus",
+      "title": "New Podcast",
+      "url": "https://eutychusnerd.blogspot.com/2009/01/new-podcast.html",
+      "published": "2009-01-31",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Speaking Calendar"
+      ]
+    },
+    {
+      "id": "eutychus-146",
+      "author": "Eutychus",
+      "title": "The Prolog of John (John 1:1-18)",
+      "url": "https://eutychusnerd.blogspot.com/2009/01/prolog-of-john.html",
+      "published": "2009-01-28",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Greek",
+        "John",
+        "John 1"
+      ]
+    },
+    {
+      "id": "eutychus-147",
+      "author": "Eutychus",
+      "title": "Radio Interviews",
+      "url": "https://eutychusnerd.blogspot.com/2009/01/radio-interviews.html",
+      "published": "2009-01-20",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "agape",
+        "Exodus",
+        "Genesis",
+        "John",
+        "Speaking Calendar"
+      ]
+    },
+    {
+      "id": "eutychus-148",
+      "author": "Eutychus",
+      "title": "Judge Not? (Matthew 7:1-6)",
+      "url": "https://eutychusnerd.blogspot.com/2009/01/judge-not.html",
+      "published": "2009-01-19",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "1 Corinthians",
+        "1 Thessalonians",
+        "2 Thessalonians",
+        "Galatians",
+        "Hebrews",
+        "James",
+        "Luke",
+        "Matthew"
+      ]
+    },
+    {
+      "id": "eutychus-149",
+      "author": "Eutychus",
+      "title": "Questioning John",
+      "url": "https://eutychusnerd.blogspot.com/2009/01/questioning-john.html",
+      "published": "2009-01-13",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "hermeneutics",
+        "John"
+      ]
+    },
+    {
+      "id": "eutychus-150",
+      "author": "Eutychus",
+      "title": "Generous Charis",
+      "url": "https://eutychusnerd.blogspot.com/2008/12/generous-charis.html",
+      "published": "2008-12-30",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "1 Corinthians",
+        "Ephesians",
+        "Galatians",
+        "Greek",
+        "Philippians",
+        "Romans"
+      ]
+    },
+    {
+      "id": "eutychus-151",
+      "author": "Eutychus",
+      "title": "All Things Are Better in Koine",
+      "url": "https://eutychusnerd.blogspot.com/2008/12/blog-post.html",
+      "published": "2008-12-28",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Greek"
+      ]
+    },
+    {
+      "id": "eutychus-152",
+      "author": "Eutychus",
+      "title": "Salvation in Luke's Christmas (Luke 1, Luke 2)",
+      "url": "https://eutychusnerd.blogspot.com/2008/12/nativity-salvation-in-luke.html",
+      "published": "2008-12-12",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Christmas",
+        "Luke",
+        "Speaking Calendar"
+      ]
+    },
+    {
+      "id": "eutychus-153",
+      "author": "Eutychus",
+      "title": "Christmas in November?",
+      "url": "https://eutychusnerd.blogspot.com/2008/12/christmas-in-november.html",
+      "published": "2008-12-06",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Christmas",
+        "chronology",
+        "Dionysius Exiguus",
+        "Luke"
+      ]
+    },
+    {
+      "id": "eutychus-154",
+      "author": "Eutychus",
+      "title": "Agape / Phileo (again)",
+      "url": "https://eutychusnerd.blogspot.com/2008/12/agape-phileo-again.html",
+      "published": "2008-12-05",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "agape",
+        "Greek",
+        "John 21"
+      ]
+    },
+    {
+      "id": "eutychus-155",
+      "author": "Eutychus",
+      "title": "OT quotes in Romans",
+      "url": "https://eutychusnerd.blogspot.com/2008/11/ot-quotes-in-romans.html",
+      "published": "2008-11-19",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Isaiah",
+        "Job",
+        "Romans",
+        "Use of OT in NT"
+      ]
+    },
+    {
+      "id": "eutychus-156",
+      "author": "Eutychus",
+      "title": "Darrell Bock on Acts",
+      "url": "https://eutychusnerd.blogspot.com/2008/11/darrell-bock-on-acts.html",
+      "published": "2008-11-19",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Acts",
+        "Luke"
+      ]
+    },
+    {
+      "id": "eutychus-157",
+      "author": "Eutychus",
+      "title": "Gary in Theological Nerdvana",
+      "url": "https://eutychusnerd.blogspot.com/2008/11/gary-in-theological-nerdvana.html",
+      "published": "2008-11-19",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-158",
+      "author": "Eutychus",
+      "title": "More on Good Eye / Bad Eye (Matthew 6:22-23)",
+      "url": "https://eutychusnerd.blogspot.com/2008/11/more-on-good-eye-bad-eye.html",
+      "published": "2008-11-03",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "1 Chronicles",
+        "2 Corinthians",
+        "Colossians",
+        "Deuteronomy",
+        "Ephesians",
+        "Greek",
+        "Hebrew",
+        "James",
+        "Luke",
+        "LXX",
+        "Matthew",
+        "Proverbs",
+        "Romans"
+      ]
+    },
+    {
+      "id": "eutychus-159",
+      "author": "Eutychus",
+      "title": "Good Eye / Bad Eye (Matthew 6:22-23)",
+      "url": "https://eutychusnerd.blogspot.com/2008/10/good-eye-bad-eye.html",
+      "published": "2008-10-30",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "1 Chronicles",
+        "Deuteronomy",
+        "Greek",
+        "James",
+        "Matthew",
+        "Proverbs",
+        "Romans"
+      ]
+    },
+    {
+      "id": "eutychus-160",
+      "author": "Eutychus",
+      "title": "Trinity for Toddlers",
+      "url": "https://eutychusnerd.blogspot.com/2008/10/trinity-for-toddlers.html",
+      "published": "2008-10-20",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Family",
+        "trinity"
+      ]
+    },
+    {
+      "id": "eutychus-161",
+      "author": "Eutychus",
+      "title": "Restoring a Fisherman (John 21:15-17)",
+      "url": "https://eutychusnerd.blogspot.com/2008/10/restoring-fisherman.html",
+      "published": "2008-10-02",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "1 Peter",
+        "agape",
+        "Ezekiel",
+        "Greek",
+        "John",
+        "John 21",
+        "Luke"
+      ]
+    },
+    {
+      "id": "eutychus-162",
+      "author": "Eutychus",
+      "title": "Happy Birthday, Bagginses!",
+      "url": "https://eutychusnerd.blogspot.com/2008/09/hapy-birthday-bagginses.html",
+      "published": "2008-09-22",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Tolkien"
+      ]
+    },
+    {
+      "id": "eutychus-163",
+      "author": "Eutychus",
+      "title": "Do You Love Me (Now that I can Dance) (John 21:15-17)",
+      "url": "https://eutychusnerd.blogspot.com/2008/09/do-you-love-me-now-that-i-can-dance.html",
+      "published": "2008-09-15",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "agape",
+        "Greek",
+        "John",
+        "John 21"
+      ]
+    },
+    {
+      "id": "eutychus-164",
+      "author": "Eutychus",
+      "title": "Make Me a Higher Love? (agape/phileo)",
+      "url": "https://eutychusnerd.blogspot.com/2008/09/make-me-higher-love.html",
+      "published": "2008-09-08",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "2 Peter",
+        "2 Samuel",
+        "agape",
+        "Deuteronomy",
+        "Genesis",
+        "Greek",
+        "Hebrews",
+        "Hosea",
+        "John",
+        "John 21",
+        "Judges",
+        "Luke",
+        "LXX",
+        "Revelation",
+        "Song of Solomon"
+      ]
+    },
+    {
+      "id": "eutychus-165",
+      "author": "Eutychus",
+      "title": "Random Smatterings - Nimrod",
+      "url": "https://eutychusnerd.blogspot.com/2008/07/random-smatterings-nimrod.html",
+      "published": "2008-07-11",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Genesis"
+      ]
+    },
+    {
+      "id": "eutychus-166",
+      "author": "Eutychus",
+      "title": "American Revolutionary War - more",
+      "url": "https://eutychusnerd.blogspot.com/2008/07/american-revolutionary-war-more.html",
+      "published": "2008-07-10",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "government",
+        "Just War",
+        "Romans"
+      ]
+    },
+    {
+      "id": "eutychus-167",
+      "author": "Eutychus",
+      "title": "Just Actions in War",
+      "url": "https://eutychusnerd.blogspot.com/2008/07/just-actions-in-war.html",
+      "published": "2008-07-08",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Deuteronomy",
+        "government",
+        "Just War"
+      ]
+    },
+    {
+      "id": "eutychus-168",
+      "author": "Eutychus",
+      "title": "Just War - the American Revolution",
+      "url": "https://eutychusnerd.blogspot.com/2008/07/just-war-revolution.html",
+      "published": "2008-07-07",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "government",
+        "Isaiah",
+        "Just War",
+        "Romans"
+      ]
+    },
+    {
+      "id": "eutychus-169",
+      "author": "Eutychus",
+      "title": "Caleb the Vegetarian",
+      "url": "https://eutychusnerd.blogspot.com/2008/07/caleb-vegetarian.html",
+      "published": "2008-07-06",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Family"
+      ]
+    },
+    {
+      "id": "eutychus-170",
+      "author": "Eutychus",
+      "title": "Just Reasons for War",
+      "url": "https://eutychusnerd.blogspot.com/2008/07/jus-ad-bello.html",
+      "published": "2008-07-01",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "government",
+        "Just War"
+      ]
+    },
+    {
+      "id": "eutychus-171",
+      "author": "Eutychus",
+      "title": "Eutychus Legos",
+      "url": "https://eutychusnerd.blogspot.com/2008/06/eutychus-legos.html",
+      "published": "2008-06-28",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Acts",
+        "Eutychus"
+      ]
+    },
+    {
+      "id": "eutychus-172",
+      "author": "Eutychus",
+      "title": "More Preaching",
+      "url": "https://eutychusnerd.blogspot.com/2008/06/more-preaching.html",
+      "published": "2008-06-26",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Acts",
+        "Eutychus",
+        "Speaking Calendar"
+      ]
+    },
+    {
+      "id": "eutychus-173",
+      "author": "Eutychus",
+      "title": "That Melchizedek Guy (Psalm 110, Hebrews 5-7)",
+      "url": "https://eutychusnerd.blogspot.com/2008/06/question-what-is-culturalhistorical.html",
+      "published": "2008-06-23",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "2 Samuel",
+        "Acts",
+        "Genesis",
+        "Hebrews",
+        "Matthew",
+        "Psalms",
+        "Use of OT in NT"
+      ]
+    },
+    {
+      "id": "eutychus-174",
+      "author": "Eutychus",
+      "title": "Torah, Torah, Rah Rah Rah! (Psalm 119)",
+      "url": "https://eutychusnerd.blogspot.com/2008/06/torah-torah-rah-rah-rah.html",
+      "published": "2008-06-17",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "LXX",
+        "Psalms"
+      ]
+    },
+    {
+      "id": "eutychus-175",
+      "author": "Eutychus",
+      "title": "Harrowing of Hell?",
+      "url": "https://eutychusnerd.blogspot.com/2008/06/question-i-recently-heard-tony-campolo.html",
+      "published": "2008-06-13",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "1 Peter",
+        "Apostles' Creed",
+        "Colossians",
+        "Ephesians",
+        "Resurrection"
+      ]
+    },
+    {
+      "id": "eutychus-176",
+      "author": "Eutychus",
+      "title": "Mark's Secrecy (Mark 7:36)",
+      "url": "https://eutychusnerd.blogspot.com/2008/06/marks-secrecy.html",
+      "published": "2008-06-12",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Mark"
+      ]
+    },
+    {
+      "id": "eutychus-177",
+      "author": "Eutychus",
+      "title": "Overthrowing Dictators",
+      "url": "https://eutychusnerd.blogspot.com/2008/06/overthrowing-dictators.html",
+      "published": "2008-06-03",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "1 Timothy",
+        "Acts",
+        "government",
+        "Romans"
+      ]
+    },
+    {
+      "id": "eutychus-178",
+      "author": "Eutychus",
+      "title": "Podcasts!",
+      "url": "https://eutychusnerd.blogspot.com/2008/05/podcasts.html",
+      "published": "2008-05-17",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-179",
+      "author": "Eutychus",
+      "title": "Preaching on the Exodus",
+      "url": "https://eutychusnerd.blogspot.com/2008/05/preaching-on-exodus.html",
+      "published": "2008-05-15",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Exodus",
+        "Speaking Calendar"
+      ]
+    },
+    {
+      "id": "eutychus-180",
+      "author": "Eutychus",
+      "title": "Blind Devotion? (Luke 14:26)",
+      "url": "https://eutychusnerd.blogspot.com/2008/04/blind-devotion.html",
+      "published": "2008-04-25",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "discipleship",
+        "Family",
+        "Luke",
+        "Matthew",
+        "Parables"
+      ]
+    },
+    {
+      "id": "eutychus-181",
+      "author": "Eutychus",
+      "title": "Josiah Sermon - correction",
+      "url": "https://eutychusnerd.blogspot.com/2008/04/josiah-sermon-correction.html",
+      "published": "2008-04-11",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Speaking Calendar"
+      ]
+    },
+    {
+      "id": "eutychus-182",
+      "author": "Eutychus",
+      "title": "Big Blogger is Watching You",
+      "url": "https://eutychusnerd.blogspot.com/2008/04/big-blogger-is-watching-you.html",
+      "published": "2008-04-10",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": []
+    },
+    {
+      "id": "eutychus-183",
+      "author": "Eutychus",
+      "title": "Kingdom for the Birds II",
+      "url": "https://eutychusnerd.blogspot.com/2008/04/kingdom-for-birds-ii.html",
+      "published": "2008-04-08",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Ezekiel",
+        "Kingdom of God",
+        "Matthew",
+        "Parables"
+      ]
+    },
+    {
+      "id": "eutychus-184",
+      "author": "Eutychus",
+      "title": "Josiah Sermon",
+      "url": "https://eutychusnerd.blogspot.com/2008/04/josiah-sermon.html",
+      "published": "2008-04-05",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "2 Chronicles",
+        "2 Kings",
+        "Speaking Calendar"
+      ]
+    },
+    {
+      "id": "eutychus-185",
+      "author": "Eutychus",
+      "title": "Blind Devotion and Faith (Luke 14:26)",
+      "url": "https://eutychusnerd.blogspot.com/2008/04/anonymous-posted-this-provocative.html",
+      "published": "2008-04-05",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Family",
+        "Luke",
+        "Questions"
+      ]
+    },
+    {
+      "id": "eutychus-186",
+      "author": "Eutychus",
+      "title": "The Kingdom for the Birds? (Matthew 13:31-32)",
+      "url": "https://eutychusnerd.blogspot.com/2008/04/kingdom-for-birds.html",
+      "published": "2008-04-04",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Daniel",
+        "Ezekiel",
+        "Kingdom of God",
+        "LXX",
+        "Matthew",
+        "Parables",
+        "Use of OT in NT"
+      ]
+    },
+    {
+      "id": "eutychus-187",
+      "author": "Eutychus",
+      "title": "Questions?",
+      "url": "https://eutychusnerd.blogspot.com/2008/04/questions.html",
+      "published": "2008-04-03",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Questions"
+      ]
+    },
+    {
+      "id": "eutychus-188",
+      "author": "Eutychus",
+      "title": "Romans 1 Radio Show",
+      "url": "https://eutychusnerd.blogspot.com/2008/04/romans-1-radio-show.html",
+      "published": "2008-04-01",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Romans",
+        "Speaking Calendar"
+      ]
+    },
+    {
+      "id": "eutychus-189",
+      "author": "Eutychus",
+      "title": "Believe... life (John 4:46-54)",
+      "url": "https://eutychusnerd.blogspot.com/2008/04/believe-life.html",
+      "published": "2008-04-01",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "John",
+        "John 4"
+      ]
+    },
+    {
+      "id": "eutychus-190",
+      "author": "Eutychus",
+      "title": "\"Your Son Lives\" (John 4:46-54)",
+      "url": "https://eutychusnerd.blogspot.com/2008/03/your-son-lives.html",
+      "published": "2008-03-31",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "1 Kings",
+        "Acts",
+        "Elijah",
+        "John",
+        "John 4",
+        "LXX",
+        "Matthew",
+        "Paul",
+        "Use of OT in NT"
+      ]
+    },
+    {
+      "id": "eutychus-191",
+      "author": "Eutychus",
+      "title": "Three Days and Three Nights",
+      "url": "https://eutychusnerd.blogspot.com/2008/03/three-days.html",
+      "published": "2008-03-28",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "1 Peter",
+        "Esther",
+        "John",
+        "John 11",
+        "Resurrection"
+      ]
+    },
+    {
+      "id": "eutychus-192",
+      "author": "Eutychus",
+      "title": "Andrew and the Jelly Bean Crisis",
+      "url": "https://eutychusnerd.blogspot.com/2008/03/andrew-and-jelly-bean.html",
+      "published": "2008-03-26",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Family"
+      ]
+    },
+    {
+      "id": "eutychus-193",
+      "author": "Eutychus",
+      "title": "Why Three Days?",
+      "url": "https://eutychusnerd.blogspot.com/2008/03/why-three-days.html",
+      "published": "2008-03-25",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Hosea",
+        "Jonah",
+        "Luke",
+        "LXX",
+        "Matthew",
+        "Resurrection",
+        "Use of OT in NT"
+      ]
+    },
+    {
+      "id": "eutychus-194",
+      "author": "Eutychus",
+      "title": "Romans 1 Radio Show",
+      "url": "https://eutychusnerd.blogspot.com/2008/03/romans-1-radio-show.html",
+      "published": "2008-03-24",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "Romans",
+        "Speaking Calendar"
+      ]
+    },
+    {
+      "id": "eutychus-195",
+      "author": "Eutychus",
+      "title": "Jesus' Post-Resurrection Teachings and Gnosticism",
+      "url": "https://eutychusnerd.blogspot.com/2008/03/jesus-post-resurrection-teachings-and.html",
+      "published": "2008-03-22",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Gnostic gospels",
+        "Gnosticism",
+        "Resurrection"
+      ]
+    },
+    {
+      "id": "eutychus-196",
+      "author": "Eutychus",
+      "title": "What Did Jesus Teach After the Resurrection? (Part II)",
+      "url": "https://eutychusnerd.blogspot.com/2008/03/what-did-jesus-teach-after-resurrection_22.html",
+      "published": "2008-03-22",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "1 Corinthians",
+        "Communion",
+        "Luke",
+        "Mark",
+        "Resurrection"
+      ]
+    },
+    {
+      "id": "eutychus-197",
+      "author": "Eutychus",
+      "title": "What did Jesus Teach After the Resurrection?",
+      "url": "https://eutychusnerd.blogspot.com/2008/03/what-did-jesus-teach-after-resurrection.html",
+      "published": "2008-03-20",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Acts",
+        "John",
+        "Luke",
+        "Mark",
+        "Matthew",
+        "Resurrection"
+      ]
+    },
+    {
+      "id": "eutychus-198",
+      "author": "Eutychus",
+      "title": "Jesus' Birthday",
+      "url": "https://eutychusnerd.blogspot.com/2008/03/jesus-birthday.html",
+      "published": "2008-03-19",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Christmas",
+        "chronology",
+        "Dionysius Exiguus",
+        "Luke",
+        "Matthew"
+      ]
+    },
+    {
+      "id": "eutychus-199",
+      "author": "Eutychus",
+      "title": "Enough of Eutychus Already",
+      "url": "https://eutychusnerd.blogspot.com/2008/03/one-of-my-friends-asked-if-my-blog.html",
+      "published": "2008-03-15",
+      "review_level": "cribado_bibliografico",
+      "disposition": "sin_cambio_textual_por_registro_bibliografico",
+      "tags": [
+        "1 Corinthians",
+        "1 Kings",
+        "2 Kings",
+        "Acts",
+        "Elijah",
+        "Eutychus",
+        "Paul",
+        "Resurrection",
+        "Use of OT in NT"
+      ]
+    },
+    {
+      "id": "eutychus-200",
+      "author": "Eutychus",
+      "title": "A Toast to Lemuel's Mother",
+      "url": "https://eutychusnerd.blogspot.com/2008/03/toast-to-lemuels-mother.html",
+      "published": "2008-03-13",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Deuteronomy",
+        "Isaiah",
+        "Joel",
+        "John",
+        "Proverbs",
+        "Romans"
+      ]
+    },
+    {
+      "id": "eutychus-201",
+      "author": "Eutychus",
+      "title": "Eutychus, Part III",
+      "url": "https://eutychusnerd.blogspot.com/2008/03/eutychus-part-iii.html",
+      "published": "2008-03-10",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Acts",
+        "Eutychus",
+        "Holy Spirit",
+        "Paul",
+        "Romans"
+      ]
+    },
+    {
+      "id": "eutychus-202",
+      "author": "Eutychus",
+      "title": "Eutychus, part II",
+      "url": "https://eutychusnerd.blogspot.com/2008/03/eutychus-part-ii.html",
+      "published": "2008-03-04",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Acts",
+        "Eutychus",
+        "Holy Spirit"
+      ]
+    },
+    {
+      "id": "eutychus-203",
+      "author": "Eutychus",
+      "title": "Eutychus",
+      "url": "https://eutychusnerd.blogspot.com/2008/03/eutychus.html",
+      "published": "2008-03-03",
+      "review_level": "texto_o_extractos_consultados",
+      "disposition": "estudio_contextual_o_material_para_revision",
+      "tags": [
+        "Acts",
+        "Eutychus"
+      ]
+    },
+    {
+      "id": "nts-john49",
+      "author": "Gary Manning",
+      "title": "Sharing Cups, Associating, or Getting Help?",
+      "url": "https://www.cambridge.org/core/journals/new-testament-studies/article/abs/sharing-cups-associating-or-getting-help-the-meaning-of-in-john-49/0F8C321A81D2257D93CC40360D63CE68",
+      "published": "2025-04-14",
+      "review_level": "resumen_editorial_y_sintesis_del_autor",
+      "disposition": "articulo_70_4_2024_pp_520_530_texto_integro_no_consultado"
+    },
+    {
+      "id": "bgu1208",
+      "author": "Gary Manning",
+      "title": "BGU 1208: Translation and Explanation",
+      "url": "https://biblethinker.org/wp-content/uploads/2023/11/FINAL-BGU-1208-Translation-and-Notes.pdf",
+      "published": null,
+      "review_level": "secciones_metodologicas_y_lexicas_consultadas",
+      "disposition": "testimonio_extrabiblico_no_equivale_a_traduccion_de_1Tim2_12"
+    },
+    {
+      "id": "net-john78",
+      "author": "NET Bible translators",
+      "title": "Nota textual de Juan 7:8",
+      "url": "https://www.stepbible.org/?q=version%3DNET2full%7Creference%3DJohn.7.8",
+      "published": null,
+      "review_level": "consultado",
+      "disposition": "contraste_independiente"
+    },
+    {
+      "id": "net-matt622",
+      "author": "NET Bible translators",
+      "title": "Nota de traducción de Mateo 6:22",
+      "url": "https://www.stepbible.org/?q=version%3DNET2full%7Creference%3DMatt.6.22",
+      "published": null,
+      "review_level": "consultado",
+      "disposition": "contraste_independiente"
+    },
+    {
+      "id": "net-john49",
+      "author": "NET Bible translators",
+      "title": "Nota de traducción de Juan 4:9",
+      "url": "https://www.stepbible.org/?q=version%3DNET2full%7Creference%3DJohn.4.9",
+      "published": null,
+      "review_level": "consultado",
+      "disposition": "alternativa_que_Manning_cuestiona"
+    },
+    {
+      "id": "bibliography-5",
+      "author": "Gary Manning Jr",
+      "title": "Hearers of John, Followers of Jesus",
+      "url": "https://www.biola.edu/directory/people/gary-manning",
+      "published": "2013",
+      "review_level": "solo_ficha_bibliografica",
+      "disposition": "capitulo_no_consultado_no_usado_para_cambiar_texto"
+    },
+    {
+      "id": "bibliography-6",
+      "author": "Gary Manning Jr",
+      "title": "The Temple Police: Double Agents",
+      "url": "https://www.biola.edu/directory/people/gary-manning",
+      "published": "2013",
+      "review_level": "solo_ficha_bibliografica",
+      "disposition": "capitulo_no_consultado_no_usado_para_cambiar_texto"
+    },
+    {
+      "id": "bibliography-7",
+      "author": "Gary Manning Jr",
+      "title": "Use of the Old Testament in the New Testament",
+      "url": "https://www.biola.edu/directory/people/gary-manning",
+      "published": "2011",
+      "review_level": "solo_ficha_bibliografica",
+      "disposition": "capitulo_no_consultado_no_usado_para_cambiar_texto"
+    },
+    {
+      "id": "bibliography-8",
+      "author": "Gary Manning Jr",
+      "title": "Vine, Shepherd and Bones",
+      "url": "https://www.biola.edu/directory/people/gary-manning",
+      "published": "2010",
+      "review_level": "solo_ficha_bibliografica",
+      "disposition": "capitulo_no_consultado_no_usado_para_cambiar_texto"
+    },
+    {
+      "id": "control-bdb-853",
+      "author": "Francis Brown; S. R. Driver; Charles A. Briggs",
+      "title": "Brown–Driver–Briggs: אֵת (H853), reproducido en Bible Hub",
+      "url": "https://biblehub.com/hebrew/853.htm",
+      "review_level": "texto_consultado",
+      "disposition": "control_gramatical",
+      "editorial_summary": "Función de marcador de objeto definido; Génesis 1:1 entre los ejemplos. Apoyo editorial, no aporte de Manning."
+    },
+    {
+      "id": "control-genesis-interlinear",
+      "author": "Bible Hub",
+      "title": "Genesis 1:1 Interlinear",
+      "url": "https://biblehub.com/interlinear/genesis/1-1.htm",
+      "review_level": "texto_consultado",
+      "disposition": "control_textual",
+      "editorial_summary": "Comprobación de las dos apariciones de אֵת y de la conjunción en וְאֵת. No es una publicación de Manning."
+    }
+  ]
+}

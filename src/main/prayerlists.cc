@@ -246,7 +246,7 @@ prayerlist_fundamentals(gchar *summary,
 	}
 
 	if (main_is_module(info->text1)) {
-		gui_generic_warning(_("Xiphos already knows a module by that name."));
+		gui_generic_warning(_("Biblia Elim already knows a module by that name."));
 		goto out;
 	}
 
@@ -254,7 +254,7 @@ prayerlist_fundamentals(gchar *summary,
 	g_string_printf(path, "%s/" DOTSWORD "/modules/genbook/rawgenbook/%s",
 			settings.homedir, info->text1);
 	if (g_access(path->str, F_OK) == 0) {
-		gui_generic_warning(_("Xiphos finds that prayer list already."));
+		gui_generic_warning(_("Biblia Elim finds that prayer list already."));
 		goto out;
 	} else {
 		g_string_printf(path, "%s/" DOTSWORD "/modules/genbook",
@@ -305,7 +305,7 @@ out:
 gboolean
 main_prayerlist_basic_create(void)
 {
-	char *listname = prayerlist_fundamentals(_("A basic prayer list. \\par\\par Module created by Xiphos."),
+	char *listname = prayerlist_fundamentals(_("A basic prayer list. \\par\\par Module created by Biblia Elim."),
 						 _("BasicPrayerList"));
 	if (listname == NULL)
 		return FALSE;
@@ -345,7 +345,7 @@ main_prayerlist_basic_create(void)
 gboolean
 main_prayerlist_subject_create(void)
 {
-	char *listname = prayerlist_fundamentals(_("A subject-based prayer list. \\par\\par Module created by Xiphos."),
+	char *listname = prayerlist_fundamentals(_("A subject-based prayer list. \\par\\par Module created by Biblia Elim."),
 						 _("SubjectPrayerList"));
 	if (listname == NULL)
 		return FALSE;
@@ -389,7 +389,7 @@ main_prayerlist_subject_create(void)
 gboolean
 main_prayerlist_monthly_create(void)
 {
-	char *listname = prayerlist_fundamentals(_("A monthly prayer list. \\par\\par Module created by Xiphos."),
+	char *listname = prayerlist_fundamentals(_("A monthly prayer list. \\par\\par Module created by Biblia Elim."),
 						 _("MonthlyPrayerList"));
 	if (listname == NULL)
 		return FALSE;
@@ -439,7 +439,7 @@ main_prayerlist_monthly_create(void)
 gboolean
 main_prayerlist_journal_create(void)
 {
-	char *listname = prayerlist_fundamentals(_("A daily journal. \\par\\par Module created by Xiphos."),
+	char *listname = prayerlist_fundamentals(_("A daily journal. \\par\\par Module created by Biblia Elim."),
 						 _("DailyJournal"));
 	if (listname == NULL)
 		return FALSE;
@@ -502,7 +502,7 @@ main_prayerlist_journal_create(void)
 gboolean
 main_prayerlist_outlined_topic_create(void)
 {
-	char *listname = prayerlist_fundamentals(_("An outlined topic (e.g. sermon). \\par\\par Module created by Xiphos."),
+	char *listname = prayerlist_fundamentals(_("An outlined topic (e.g. sermon). \\par\\par Module created by Biblia Elim."),
 						 _("OutlinedTopic"));
 	if (listname == NULL)
 		return FALSE;
@@ -549,7 +549,7 @@ main_prayerlist_outlined_topic_create(void)
 gboolean
 main_prayerlist_book_chapter_create(void)
 {
-	char *listname = prayerlist_fundamentals(_("A journal sectioned by Bible book and chapter. \\par\\par Module created by Xiphos."),
+	char *listname = prayerlist_fundamentals(_("A journal sectioned by Bible book and chapter. \\par\\par Module created by Biblia Elim."),
 						 _("BookChapter"));
 	if (listname == NULL)
 		return FALSE;

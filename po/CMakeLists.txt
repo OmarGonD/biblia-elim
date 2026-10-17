@@ -34,13 +34,13 @@ if (GETTEXT_FOUND)
     if(NOT EXISTS ${pofile})
       # missing PO, add a new PO file
       message(STATUS "Creating po/${lang}.po from LINGUAS.")
-      # copy xiphos.pot into build dir
+      # copy biblia-elim.pot into build dir
       file(
-	COPY "${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.pot"
+	COPY "${CMAKE_CURRENT_SOURCE_DIR}/${GETTEXT_PACKAGE}.pot"
 	DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
       # rename pot copy to ${lang}.po
       file(
-	RENAME "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.pot"
+	RENAME "${CMAKE_CURRENT_BINARY_DIR}/${GETTEXT_PACKAGE}.pot"
 	"${CMAKE_CURRENT_BINARY_DIR}/${lang}.po")
       # copy new ${lang}.po into source dir
       file(
@@ -55,7 +55,7 @@ if (GETTEXT_FOUND)
 
   # create and install MO files
   gettext_process_pot_file (
-    ${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.pot
+    ${CMAKE_CURRENT_SOURCE_DIR}/${GETTEXT_PACKAGE}.pot
     ALL
     INSTALL_DESTINATION ${CMAKE_INSTALL_LOCALEDIR}
     LANGUAGES ${langs}
@@ -87,7 +87,7 @@ if (GETTEXT_FOUND)
               "${CMAKE_BINARY_DIR}/locale/${lang}/LC_MESSAGES"
       COMMAND ${CMAKE_COMMAND} -E copy_if_different
               "${CMAKE_CURRENT_BINARY_DIR}/${lang}.gmo"
-              "${CMAKE_BINARY_DIR}/locale/${lang}/LC_MESSAGES/${PROJECT_NAME}.mo"
+              "${CMAKE_BINARY_DIR}/locale/${lang}/LC_MESSAGES/${GETTEXT_PACKAGE}.mo"
       COMMENT "Staging ${lang} translation for uninstalled dev runs"
       VERBATIM
       )
@@ -108,12 +108,12 @@ if (GETTEXT_FOUND)
   # target for updating a given PO file
   foreach (language ${langs})
     add_custom_target (xiphos_${language}.po
-      COMMAND ${GETTEXT_MSGMERGE_EXECUTABLE} --update --verbose ${language}.po ${PROJECT_NAME}.pot
+      COMMAND ${GETTEXT_MSGMERGE_EXECUTABLE} --update --verbose ${language}.po ${GETTEXT_PACKAGE}.pot
       WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/po
       COMMENT "Updating ${language}.po file"
       )
     # prepare command for the all PO target
-    set (PO_UPDATE_ALL ${PO_UPDATE_ALL} && echo ${language}.po: && ${GETTEXT_MSGMERGE_EXECUTABLE} --update --verbose ${language}.po ${PROJECT_NAME}.pot)
+    set (PO_UPDATE_ALL ${PO_UPDATE_ALL} && echo ${language}.po: && ${GETTEXT_MSGMERGE_EXECUTABLE} --update --verbose ${language}.po ${GETTEXT_PACKAGE}.pot)
   endforeach()
 
   # target for updating all PO files

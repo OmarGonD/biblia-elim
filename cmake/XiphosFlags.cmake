@@ -73,6 +73,9 @@ if (NOT WIN32)
   link_libraries( -rdynamic)
   # linker option to stop very recent dbus linkage nightmare.
   link_libraries( -Wl,-z,muldefs)
+else ()
+  # Lo mismo que -z,muldefs en Linux: varias globales están definidas en más de un .c.
+  link_libraries( -Wl,--allow-multiple-definition)
 endif(NOT WIN32)
 
 

@@ -1,5 +1,5 @@
 /*
- * Biblia Elim
+ * Ministerios Elim
  * buscar_notas.c - diálogo «Buscar en mis notas»
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -1012,7 +1012,7 @@ gui_buscar_notas_dialog(GtkWindow *padre)
 
 	gxml = elim_gtk_builder_new();
 	if (!gtk_builder_add_from_resource(
-		gxml, "/org/xiphos/ui/buscar-notas.gtkbuilder", NULL)) {
+		gxml, "/org/bibliaelim/ui/buscar-notas.gtkbuilder", NULL)) {
 		g_object_unref(gxml);
 		gui_generic_warning(_("No se pudo abrir «Buscar en mis notas»."));
 		return;

@@ -176,7 +176,7 @@ if (PYTHON3_EXECUTABLE)
   # (see cmake/XiphosConfig_h.cmake), read back by the same startup
   # probe as a fallback when no build-tree copy is found.
   install (FILES ${xiphos_strongs_lexicon}
-    DESTINATION ${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME})
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/biblia-elim)
 else ()
   message (WARNING
     "python3 not found: Strong lexicon (MORPH-109) will not be generated; "
@@ -210,12 +210,12 @@ if (PYTHON3_EXECUTABLE)
   target_compile_definitions (main PRIVATE
     XIPHOS_BUILD_FICHAS="${xiphos_fichas_db}")
   install (FILES ${xiphos_fichas_db}
-    DESTINATION ${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME})
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/biblia-elim)
 endif ()
 
 # Biblias que vienen en el paquete (Torres Amat, Platense, KJV, coreano, chino,
 # portugués), ya convertidas a
-# SQLite en modulos/sqlite. Se instalan en <share>/biblia-elim/modules, que entra en
+# SQLite en modulos/sqlite. Se instalan en <share>/<proyecto>/modules (share/xiphos), que entra en
 # los paquetes deb, rpm y NSIS de Windows, y la aplicación las copia al directorio de
 # módulos del usuario en el primer arranque (seedBundledSqliteModules).
 install (FILES
@@ -225,4 +225,4 @@ install (FILES
   ${PROJECT_SOURCE_DIR}/modulos/sqlite/KorRV.sqlite
   ${PROJECT_SOURCE_DIR}/modulos/sqlite/ChiUns.sqlite
   ${PROJECT_SOURCE_DIR}/modulos/sqlite/PorAlmeida1911.sqlite
-  DESTINATION ${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME}/modules)
+  DESTINATION ${CMAKE_INSTALL_DATADIR}/biblia-elim/modules)

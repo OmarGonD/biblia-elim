@@ -40,6 +40,8 @@
 #include <url.h>
 
 #include "backend/sword_main.hh"
+#include "backend/sword/bundled_devotional.h"
+#include "main/app_language.h"
 #include "backend/bible_book_map.h"
 
 #include "main/busqueda_tildes.h"
@@ -189,6 +191,7 @@ BackEnd::BackEnd()
 #endif
 
 	main_mgr = new SWMgr(new MarkupFilterMgr(FMT_XHTML));
+	loadBundledDevotional(*main_mgr, app_language_reader_locale());
 
 #ifdef CHATTY
 	g_timer_stop(t);

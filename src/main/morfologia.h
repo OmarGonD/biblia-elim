@@ -55,6 +55,12 @@ gchar *main_morf_codigo(const char *attr);
  * no hay que repetir aquí la tabla de qué esquemas se entienden. */
 gboolean main_morf_reconocido(const char *codigo);
 
+/* MORPH-112: TRUE only when two explicitly recognized Greek morphology
+ * tags encode the same part of speech, case, number and gender for the
+ * nominal Robinson/Logos subset. Unsupported codes and unqualified tags
+ * are never considered equivalent. */
+gboolean main_morf_equivalentes(const char *left, const char *right);
+
 #ifdef __cplusplus
 }
 #endif

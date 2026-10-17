@@ -20,6 +20,18 @@
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
+#include "backend/sword/bundled_devotional.h"
+#endif
+
+#ifdef _WIN32
+/* biblesync.hh trae windows.h, que define ::byte; con "using namespace std" ya
+ * visible choca con std::byte. Que windows.h entre primero. */
+#include <winsock2.h>
+#include <windows.h>
+#include <tchar.h>
+#include <strsafe.h>
+#include <sapi.h>
+#include <sphelper.h>
 #endif
 
 #include <gtk/gtk.h>
@@ -63,6 +75,7 @@ extern "C" {
 #include "gui/main_menu.h"
 #include "gui/navbar_versekey.h"
 #include "gui/notas_verso.h"
+#include "gui/editable_edition_dialog.h"
 
 #include "main/biblesync_glue.h"
 #include "main/display.hh"
@@ -169,9 +182,13 @@ void main_select_bible_backend(const char *name, const char *modules_directory,
 	/* El instalador de Windows es reubicable: se busca junto al ejecutable. */
 	gchar *root = g_win32_get_package_installation_directory_of_module(NULL);
 	if (root) {
-		gchar *dir = g_build_filename(root, "share", "biblia-elim", "modules", NULL);
+		/* El mismo directorio de datos que SHARE_DIR (share/<proyecto>), pero bajo
+		 * la raíz donde se instaló. */
+		gchar *project = g_path_get_basename(SHARE_DIR);
+		gchar *dir = g_build_filename(root, "share", project, "modules", NULL);
 		if (g_file_test(dir, G_FILE_TEST_IS_DIR))
 			bundled = dir;
+		g_free(project);
 		g_free(dir);
 		g_free(root);
 	}
@@ -1001,7 +1018,7 @@ void main_init_language_map()
 	if (language_file) {
 		XI_message(("%s", language_file));
 		if ((language = g_fopen(language_file, "r")) == NULL) {
-			gui_generic_warning(_("Xiphos's language abbreviation\nfile cannot be opened."));
+			gui_generic_warning(_("Biblia Elim's language abbreviation\nfile cannot be opened."));
 			g_free(language_file);
 			return;
 		}
@@ -1013,25 +1030,25 @@ void main_init_language_map()
 		if ((length == 0) ||
 		    (mapspace = (gchar *)g_malloc(length + 2)) == NULL) {
 			fclose(language);
-			gui_generic_warning(_("Xiphos cannot allocate space\nfor language abbreviations."));
+			gui_generic_warning(_("Biblia Elim cannot allocate space\nfor language abbreviations."));
 			return;
 		}
 		if (fread(mapspace, 1, length, language) != length) {
 			fclose(language);
 			g_free(mapspace);
-			gui_generic_warning(_("Xiphos cannot read the\nlanguage abbreviation file."));
+			gui_generic_warning(_("Biblia Elim cannot read the\nlanguage abbreviation file."));
 			return;
 		}
 		fclose(language);
 	} else {
 		/* Uninstalled runs: the languages file is compiled into the
-		 * binary as /org/xiphos/ui/languages (see xiphos.gresource.xml). */
-		GBytes *bytes = g_resources_lookup_data("/org/xiphos/ui/languages",
+		 * binary as /org/bibliaelim/ui/languages (see biblia-elim.gresource.xml). */
+		GBytes *bytes = g_resources_lookup_data("/org/bibliaelim/ui/languages",
 							G_RESOURCE_LOOKUP_FLAGS_NONE, NULL);
 		gsize n = 0;
 		const gchar *data;
 		if (!bytes) {
-			gui_generic_warning(_("Xiphos's file for language\nabbreviations is missing."));
+			gui_generic_warning(_("Biblia Elim's file for language\nabbreviations is missing."));
 			return;
 		}
 		data = (const gchar *)g_bytes_get_data(bytes, &n);
@@ -1226,7 +1243,7 @@ void main_init_backend(void)
 	//
 	// BibleSync backend startup.  identify the user by name.
 	//
-	biblesync = new BibleSync("Xiphos", VERSION,
+	biblesync = new BibleSync("Biblia Elim", VERSION,
 #ifdef WIN32
 				  // in win32 glib, get_real_name and get_user_name are the same.
 				  (string)g_get_real_name()
@@ -2349,6 +2366,7 @@ void main_display_bible(const char *mod_name,
 		 * render, cuando settings.MainWindowModule ya viene seteado desde
 		 * el arranque y por lo tanto ese bloque nunca llega a ejecutarse. */
 		gui_navbar_version_combo_sync();
+		gui_edition_contributions_button_sync(settings.MainWindowModule);
 		if (in_place || !settings.show_lectura_sync)
 			gui_bibletext_mark_current_verse();
 	};
@@ -2549,7 +2567,8 @@ gboolean main_bible_window_needs_recenter(const char *key)
 {
 	BibleKeyInfo info;
 
-	if (!key || !*key || !settings.MainWindowModule || !bible_backend ||
+	if (reading_window_first_paint_pending() ||
+	    !key || !*key || !settings.MainWindowModule || !bible_backend ||
 	    !bible_pane_whole_book || bible_pane_is_interlinear ||
 	    (settings.reading_mode && settings.reading_compare) ||
 	    main_rendered_first_chapter < 1 || !bible_pane_last_verse ||
@@ -2573,22 +2592,32 @@ gboolean main_bible_window_recenter(const char *key)
 	extern GtkAdjustment *adjustment;
 	static gchar no_jump[] = "";
 
-	if (!main_backend_is_sword() ||
-	    !backend || !backend->display_mod || !widgets.html_text ||
+	if (!backend || !widgets.html_text ||
 	    !gtk_widget_get_realized(GTK_WIDGET(widgets.html_text)) ||
 	    !main_bible_window_needs_recenter(key))
 		return FALSE;
+	const bool neutral = sqlite_bible(settings.MainWindowModule);
+	if (!neutral && !backend->display_mod)
+		return FALSE;
 	if (adjustment)
 		g_signal_handler_block(adjustment, scroll_adj_signal);
-	backend->set_module_key(settings.MainWindowModule, key);
 	settings.special_anchor = no_jump; /* HtmlOutput(): no jump */
-	backend->display_mod->display();
+	gboolean rendered = TRUE;
+	if (neutral) {
+		GTKChapDisp pane(widgets.html_text, bible_backend);
+		rendered = pane.displayNeutral(settings.MainWindowModule, key);
+	} else {
+		backend->set_module_key(settings.MainWindowModule, key);
+		backend->display_mod->display();
+	}
 	settings.special_anchor = NULL;
-	g_free(bible_pane_last_verse);
-	bible_pane_last_verse = g_strdup(key);
+	if (rendered) {
+		g_free(bible_pane_last_verse);
+		bible_pane_last_verse = g_strdup(key);
+	}
 	if (adjustment)
 		g_signal_handler_unblock(adjustment, scroll_adj_signal);
-	return TRUE;
+	return rendered;
 }
 
 /******************************************************************************
@@ -2651,19 +2680,15 @@ void main_display_devotional(GtkWidget *target_widget)
 	struct tm *loctime;
 	gchar *text;
 
-	/*
-	 * This makes sense only if you've installed & defined one.
-	 */
-	if (settings.devotionalmod == NULL) {
-		GList *glist = get_list(DEVOTION_LIST);
-
-		if (g_list_length(glist) != 0) {
-			xml_set_value("Xiphos", "modules", "devotional",
-				      (char *)glist->data);
-			gui_reassign_strdup(&settings.devotionalmod, (gchar *)glist->data);
-		} else {
-			gui_generic_warning(_("Daily devotional was requested, but there are none installed."));
-		}
+	const char *selected = selectDevotional(get_list(DEVOTION_LIST), settings.devotionalmod,
+		app_language_reader_locale());
+	if (!selected) {
+		gui_generic_warning(_("Daily devotional was requested, but there are none installed."));
+		return;
+	}
+	if (g_strcmp0(selected, settings.devotionalmod)) {
+		xml_set_value("Xiphos", "modules", "devotional", selected);
+		gui_reassign_strdup(&settings.devotionalmod, (gchar *)selected);
 	}
 
 	/*
@@ -3389,11 +3414,7 @@ void main_dict_history_forward(void)
 // System TTS on Windows
 // moved C++ functions here from src/gtk/utilities.c.
 
-#include <windows.h>
-#include <tchar.h>
-#include <strsafe.h>
-#include <sapi.h>
-#include <sphelper.h>
+/* windows.h, tchar.h, strsafe.h, sapi.h y sphelper.h se incluyen al principio del archivo. */
 
 void WindowsInitSystemTTS(void)
 {

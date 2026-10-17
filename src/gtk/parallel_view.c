@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * gs_parallel.c - support for displaying multiple modules
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team

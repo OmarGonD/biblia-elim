@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * dictlex_dialog.c - dialog for displaying a dictlex module
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -118,11 +118,6 @@ static gint button_press_event(GtkWidget *html,
  * Return value
  *   void
  */
-
-static void dialog_set_focus(GtkWindow *window,
-			     GtkWidget *widget, DIALOG_DATA *dlg)
-{
-}
 
 /******************************************************************************
  * Name
@@ -334,8 +329,6 @@ void gui_create_dictlex_dialog(DIALOG_DATA *dlg)
 			 "popupmenu_requested",
 			 G_CALLBACK(_popupmenu_requested_cb), dlg);
 
-	g_signal_connect(G_OBJECT(dlg->dialog), "set_focus",
-			 G_CALLBACK(dialog_set_focus), dlg);
 	g_signal_connect(G_OBJECT(dlg->dialog), "destroy",
 			 G_CALLBACK(dialog_destroy), dlg);
 	g_signal_connect(G_OBJECT(btnSyncDL), "clicked",

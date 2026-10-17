@@ -2,7 +2,7 @@
        xmlns:its="http://www.w3.org/2005/11/its">
 
   <info>
-    <desc>Collect and export Bible study material from Xiphos into other programmes.</desc>
+    <desc>Collect and export Bible study material from Biblia Elim into other programmes.</desc>
 
     <link type="guide" xref="index#personal-comments"/>
 
@@ -11,7 +11,7 @@
     <revision pkgversion="4.5.0" date="2026-08-10" status="draft"/>
 
     <title type='link' role="trail"></title>
-    <title type='text'>Xiphos</title>
+    <title type='text'>Biblia Elim</title>
 
     <credit type="author" its:translate="no">
       <name>Andy Piper</name>
@@ -46,7 +46,7 @@
 
   <p> The Studypad will save into your working directory, making it useful for
   collecting and exporting information and Bible study material from
-  <app>Xiphos</app> into other programmes.</p>
+  <app>Biblia Elim</app> into other programmes.</p>
 
   <p> Toolbar 1</p>
   <list>

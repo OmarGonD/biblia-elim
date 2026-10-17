@@ -1,5 +1,5 @@
 /*
- * Biblia Elim
+ * Ministerios Elim
  * table_helpers.c - a GtkColumnView over a GListStore of rows
  *
  * This program is free software; you can redistribute it and/or modify

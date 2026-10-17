@@ -1,0 +1,101 @@
+{
+  "app": "/home/ogonzales/Projects/biblia_elim/build/performance/startup-2026-10-16/before-optimized",
+  "display": "current",
+  "app_sha256": "9404226594e2b822eca61a97df438ebe49b6530ec3fa13d557f899014aab6f8f",
+  "settings_sha256": "77b405787d6de60e551c8e94add88e43543f23b05ca8dc6431b4ad2771ccb61d",
+  "tabs_sha256": "3e0ca3b6721c7ab05ef7ae85a5d0a96a92707fc604adfd8f7e8a346da8b27410",
+  "display_environment": {
+    "DISPLAY": ":0",
+    "WAYLAND_DISPLAY": "wayland-1",
+    "GDK_BACKEND": "wayland,x11,*",
+    "GDK_SCALE": "2",
+    "GDK_DPI_SCALE": null
+  },
+  "renderer": "default",
+  "cache_state": "warm",
+  "runs": 5,
+  "warmups_per_mode": 1,
+  "profile": "/tmp/biblia-startup-a9z63kmo",
+  "modes": {
+    "sqlite": {
+      "samples_ms": [
+        {
+          "GTK_INITIALIZED": 89.5,
+          "FIRST_CONTENT_READY": 576.0,
+          "GTK_MAIN_ENTER": 584.7,
+          "FIRST_CHAPTER_PAINTED": 677.0
+        },
+        {
+          "GTK_INITIALIZED": 90.0,
+          "FIRST_CONTENT_READY": 575.6,
+          "GTK_MAIN_ENTER": 584.0,
+          "FIRST_CHAPTER_PAINTED": 672.0
+        },
+        {
+          "GTK_INITIALIZED": 90.6,
+          "FIRST_CONTENT_READY": 571.7,
+          "GTK_MAIN_ENTER": 580.9,
+          "FIRST_CHAPTER_PAINTED": 663.0
+        },
+        {
+          "GTK_INITIALIZED": 90.0,
+          "FIRST_CONTENT_READY": 569.7,
+          "GTK_MAIN_ENTER": 579.3,
+          "FIRST_CHAPTER_PAINTED": 646.9
+        },
+        {
+          "GTK_INITIALIZED": 90.5,
+          "FIRST_CONTENT_READY": 573.7,
+          "GTK_MAIN_ENTER": 581.9,
+          "FIRST_CHAPTER_PAINTED": 674.1
+        }
+      ],
+      "median_ms": {
+        "GTK_INITIALIZED": 90.0,
+        "FIRST_CONTENT_READY": 573.7,
+        "FIRST_CHAPTER_PAINTED": 672.0,
+        "GTK_MAIN_ENTER": 581.9
+      }
+    },
+    "sword": {
+      "samples_ms": [
+        {
+          "GTK_INITIALIZED": 89.3,
+          "FIRST_CONTENT_READY": 572.0,
+          "GTK_MAIN_ENTER": 580.2,
+          "FIRST_CHAPTER_PAINTED": 648.0
+        },
+        {
+          "GTK_INITIALIZED": 88.9,
+          "FIRST_CONTENT_READY": 590.4,
+          "GTK_MAIN_ENTER": 598.4,
+          "FIRST_CHAPTER_PAINTED": 688.2
+        },
+        {
+          "GTK_INITIALIZED": 88.6,
+          "FIRST_CONTENT_READY": 583.4,
+          "GTK_MAIN_ENTER": 591.5,
+          "FIRST_CHAPTER_PAINTED": 678.0
+        },
+        {
+          "GTK_INITIALIZED": 89.2,
+          "FIRST_CONTENT_READY": 586.6,
+          "GTK_MAIN_ENTER": 594.8,
+          "FIRST_CHAPTER_PAINTED": 649.4
+        },
+        {
+          "GTK_INITIALIZED": 89.7,
+          "FIRST_CONTENT_READY": 580.5,
+          "GTK_MAIN_ENTER": 588.4,
+          "FIRST_CHAPTER_PAINTED": 642.2
+        }
+      ],
+      "median_ms": {
+        "GTK_INITIALIZED": 89.2,
+        "FIRST_CONTENT_READY": 583.4,
+        "FIRST_CHAPTER_PAINTED": 649.4,
+        "GTK_MAIN_ENTER": 591.5
+      }
+    }
+  }
+}

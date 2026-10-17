@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * navbar_verse_dialog.c - navigation bar for versekey modules in dialogs
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -679,7 +679,7 @@ GtkWidget *gui_navbar_versekey_dialog_new(DIALOG_DATA *dialog)
 
 /* build the widget */
 	gxml = elim_gtk_builder_new();
-	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/navbar_versekey.gtkbuilder", NULL);
+	gtk_builder_add_from_resource(gxml, "/org/bibliaelim/ui/navbar_versekey.gtkbuilder", NULL);
 	dialog->navbar.dialog = TRUE;
 	dialog->navbar.module_name =
 	    g_string_new(settings.MainWindowModule);

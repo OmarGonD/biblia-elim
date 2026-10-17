@@ -1,0 +1,60 @@
+{
+  "task": "MANNING-107",
+  "backups": {
+    "ManningES": {
+      "path": "/home/ogonzales/.local/share/biblia-elim/edition-backups/Manning-comment-format-1792192652531375016/ManningES.sqlite",
+      "sha256": "ea4c1ac3c1b7f685fbe5e4272f822d75da6d204120c24015da23096aa2d5f8f5"
+    },
+    "ManningEN": {
+      "path": "/home/ogonzales/.local/share/biblia-elim/edition-backups/Manning-comment-format-1792192652531375016/ManningEN.sqlite",
+      "sha256": "cb245797cd84c2e4cce6a7ea18d1aa1fbb266caded030c65af3f72eb5528b7b8"
+    }
+  },
+  "editions": [
+    {
+      "id": "ManningES",
+      "language": "es",
+      "comments_verified": 81,
+      "comments_changed": 80,
+      "source_urls_preserved": true,
+      "other_tables_and_decision_columns_unchanged": true,
+      "integrity_check": "ok",
+      "foreign_key_errors": 0,
+      "sha256": "88517e67ac0500c018384598b3350a7acd603f71138dabc8a66aadc042df69ec"
+    },
+    {
+      "id": "ManningEN",
+      "language": "en",
+      "comments_verified": 81,
+      "comments_changed": 81,
+      "source_urls_preserved": true,
+      "other_tables_and_decision_columns_unchanged": true,
+      "integrity_check": "ok",
+      "foreign_key_errors": 0,
+      "sha256": "2e9562c70e14723952107f1b4c75ff8841b9a14fb7a5b4ff40abe7e8e505bfd9"
+    }
+  ],
+  "other_modules_unchanged": {
+    "SpaRV": "2421dc3a5c676e8fca70809da37c9afa2ee6ec45a65adbcb3a491d6e939db9b5",
+    "KJV": "891bb9bdb680c974f0e88da8b55b3f503b8ca8a9117932389541b8d5a13eff62",
+    "BibliaOGD": "5b04f45f7211d2f5ad04be707360a8569386f09b884bada5a0f05b53de312851"
+  },
+  "transaction": "Atomic transaction across attached SQLite databases, both DELETE journals",
+  "validation": {
+    "curated_edition_test": "PASS, 11 cases including all 162 note structures and custom comment persistence",
+    "fresh_creation": [
+      "ManningES fresh: 81 comments/rationales/source sets/proposals and UTF-8 presentation verified",
+      "ManningES installed: 81 comments/rationales/source sets/proposals and UTF-8 presentation verified",
+      "ManningEN fresh: 81 comments/rationales/source sets/proposals and UTF-8 presentation verified",
+      "ManningEN installed: 81 comments/rationales/source sets/proposals and UTF-8 presentation verified"
+    ],
+    "approved_spanish_genesis_note_preserved": true,
+    "review_note": "Original editorial rationale retained in plan editorial_audit; no automatic approval or Bible text changes.",
+    "final_comparison_with_original_backups": "PASS: every other table, all Bible text, decision sources/proposals/status/confidence, keys and history unchanged"
+  },
+  "focused_source_checks": [
+    "John.4.9: lexical usage with people as complement",
+    "John.19.30: tax receipt abbreviation and different full verb",
+    "Rom.7.14: contrast with Romans 6:18 and 8:2"
+  ]
+}

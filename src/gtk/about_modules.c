@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * about_modules.c - Sword modules about dialog
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team

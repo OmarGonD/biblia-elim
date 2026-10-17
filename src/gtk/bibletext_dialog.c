@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * bibletext_dialog.c - view Bible text module in a dialog
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team

@@ -190,13 +190,13 @@ set(CPACK_DEBIAN_BINARIES_PACKAGE_SOURCE ${CPACK_DEBIAN_PACKAGE_SOURCE})
 # Description
 set(CPACK_COMPONENT_BINARIES_DESCRIPTION "environment for Bible reading, study, and research
  ${CPACK_DEBIAN_PACKAGE_DESCRIPTION} .
- This package provides the main Xiphos program, a digital text reader with
+ This package provides the main Ministerios Elim program, a digital text reader with
  bookmarks and full-text search. It allows viewing multiple versions of the same
  text, for parallel reading of alternatives or translations. It also supports
  personal verse-specific notes and a rich-text study pad, both of which have
  spell checking and full-text search.
  .
- Xiphos has a built-in facility to browse and install freely-distributed content
+ Ministerios Elim has a built-in facility to browse and install freely-distributed content
  from CrossWire repositories.")
 
 # xiphos-data package specific variables
@@ -228,9 +228,9 @@ set(CPACK_DEBIAN_DATA_PACKAGE_SHLIBDEPS OFF)
 # See http://www.debian.org/doc/debian-policy/#s-binarydeps
 set(CPACK_DEBIAN_DATA_PACKAGE_SUGGESTS xiphos)
 
-set(CPACK_COMPONENT_DATA_DESCRIPTION "data files for Xiphos Bible study software
+set(CPACK_COMPONENT_DATA_DESCRIPTION "data files for Ministerios Elim Bible study software
  ${CPACK_DEBIAN_PACKAGE_DESCRIPTION} .
- This package contains the data files that are necessary to use Xiphos.")
+ This package contains the data files that are necessary to use Ministerios Elim.")
 
 # xiphos-dbg package specific variables
 
@@ -286,7 +286,7 @@ set(CPACK_DEBIAN_DBG_PACKAGE_SUGGESTS sword-text)
 set(CPACK_DEBIAN_DBG_PACKAGE_PROVIDES sword-frontend)
 
 # desc header and footer
-set(CPACK_COMPONENT_DBG_DESCRIPTION "debug symbols for Xiphos Bible study software
+set(CPACK_COMPONENT_DBG_DESCRIPTION "debug symbols for Ministerios Elim Bible study software
  ${CPACK_DEBIAN_PACKAGE_DESCRIPTION} .
  This package contains debugging symbols that are necessary to produce
- stacktraces of Xiphos.")
+ stacktraces of Ministerios Elim.")

@@ -175,6 +175,39 @@
     - Compact and pretty range-note imports are neutral-equivalent with three ordered simple targets around two unsupported ranges, exact display text and insertion offset, and `partial_range_failures=0`, `invalid_offsets=0`, and `substring_mismatches=0`.
     - `osis_operational_test`, `osis_semantic_equivalence_test`, `osis_importer_test`, and fixed-seed `osis_property_test` PASS; documentation continues to identify structured ranges as unsupported and display/audit-only.
 
+- [x] OSIS-303 Preserve explicit OSIS cross-reference ranges as structured endpoints
+  - Status: DONE
+  - Depends on: OSIS-302
+  - Description:
+    Preserve ranges only when both OSIS endpoints are explicitly present and
+    parse as complete references. Keep the original display text and all
+    simple targets; never infer a missing book, chapter, or verse endpoint.
+  - Acceptance criteria:
+    - Neutral `BibleCrossReference` exposes exact ordered range endpoint pairs.
+    - SQLite v1 writer persists ranges in an optional compatible child table;
+      old modules without it remain readable.
+    - Explicit full endpoints round-trip exactly through the backend.
+    - Abbreviated, malformed, or unresolved ranges stay display-only and are
+      reported as unresolved; no endpoint is fabricated.
+    - Existing simple target ordering, offsets, and display text stay intact.
+  - Relevant tests:
+    - Extend `osis_operational_test` and `osis_semantic_equivalence_test`;
+      run `osis_importer_test` and `sqlite_bible_backend_test`.
+  - Evidence:
+    - `BibleCrossReference` carries ordered explicit start/end pairs. OSIS
+      parsing accepts only two full `Book.chapter.verse` endpoints; malformed
+      `Exod.2.1-` remains in display text, is counted unresolved, and emits no
+      range. The source-neutral writer persists pairs in the optional
+      `cross_reference_ranges` table without changing SQLite `user_version=1`.
+    - The SQLite backend round-trips both complete ranges, including testament
+      and book/chapter/verse fields. A dedicated regression opens a v1 module
+      with cross-reference tables but without `cross_reference_ranges`.
+    - `osis_operational_test` PASS (`ranges_resolved=2`, `ranges_unresolved=1`,
+      `operational_failures=0`); `osis_semantic_equivalence_test` PASS
+      (`partial_range_failures=0`, `invalid_offsets=0`); `osis_importer_test`
+      PASS; `sqlite_bible_backend_test` PASS (14/14); `biblia-elim` build and
+      `git diff --check` PASS.
+
 # Morphology
 
 - [x] MORPH-101 Audit real morphology data and validate the neutral model
@@ -8778,8 +8811,8 @@
       every equivalence comparison ran on empty lists (offset rows 54 ->
       0, caught by comparing counters with a baseline). It now walks
       testaments by position; all counters equal the baseline again.
-    - Negative control kept: `unsupported-esdras-structure.xml` (1Esd) is
-      still rejected; Tob imports as itself. Docs updated
+    - Negative control kept: a book outside the supported subset is rejected;
+      Tob imports as itself. Docs updated
       (`osis-importer.md`, fixture README).
     - Real data (mod2osis + biblia-osis-import): SpaPlatense 73 books /
       35,792 verses, TorresAmat 73 / 34,122, NacarColunga 73 / 31,102,
@@ -8803,6 +8836,31 @@
       mod2osis `Strong:` prefix not recognized; converted Catholic Bibles
       are declared `custom` (read as KJV), so conversions to/from them
       would use KJV numbering instead of Vulgate/NRSVA.
+
+- [x] DEUTERO-102 Add the remaining OSIS deuterocanonical book identifiers
+  - Status: DONE
+  - Depends on: DEUTERO-101
+  - Description:
+    Extend the neutral Bible book map and OSIS importer to recognize 1Esd,
+    2Esd, PrMan, and Ps151 without aliasing them to another book.
+  - Acceptance criteria:
+    - Each OSIS identifier maps to a stable distinct book id and display name.
+    - A compact fixture imports all four and round-trips their references.
+    - Unknown nearby identifiers remain rejected atomically.
+    - Existing 66-book and DEUTERO-101 regressions remain unchanged.
+  - Relevant tests:
+    - `osis_importer_test`, `osis_semantic_equivalence_test`,
+      `sqlite_bible_backend_test`.
+  - Evidence:
+    - Added stable neutral book IDs 74-77 for 1Esd, 2Esd, PrMan, and Ps151,
+      with English/Spanish display names. OSIS identifiers resolve to distinct
+      IDs; the exact verse references load through SqliteBibleBackend.
+    - Extended the synthetic deuterocanonical order fixture and kept an
+      atomic rejection control for unsupported 3Macc. `osis_importer_test`
+      PASS (`real_world_fixture_failures=0`); semantic equivalence PASS
+      (`container_milestone_mismatches=0`, `usfm_osis_mismatches=0`,
+      `invalid_offsets=0`); `sqlite_bible_backend_test` PASS (13/13).
+      `biblia-elim` target and `git diff --check` PASS.
 
 - [x] BOOKNAMES-ES-101 Spanish book names in SQLite modules; any spelling resolves
   - Status: DONE
@@ -11003,67 +11061,1075 @@
       y `build/multilingual-101/final-build.log`. Binario actualizado:
       `build/src/gtk/biblia-elim`. No se instaló fuera del repositorio.
 
-- [ ] KOREAN-101 Agregar Biblias en coreano
-  - Status: BLOCKED
+- [x] MORPH-112 Add bounded grammatical equivalence across Greek schemes
+  - Status: DONE
+  - Depends on: MORPH-110
   - Description:
-    Incorporar KorRV y KorHKJV del catálogo oficial CrossWire y permitir
-    encontrarlas como «Coreano» en el instalador de Biblias.
+    Compare the shared grammatical features encoded by explicitly recognized
+    Robinson and Logos Greek tags, without guessing for opaque or unsupported
+    schemes.
   - Acceptance criteria:
-    - Ambas versiones incluidas en la instalación inicial; las instalaciones
-      existentes pueden seleccionarlas con el filtro «Coreano».
-    - Conservar los identificadores, idioma ko, UTF-8 y numeración nativa,
-      utilizando la conversión neutral existente a SQLite v1.
-    - Pruebas locales de instalación inicial, etiquetas/búsqueda y UTF-8 PASS.
-    - Descargar, instalar y validar ambas Biblias completas para este usuario.
+    - Compare part of speech, case, number, and gender for supported nominal
+      codes (noun, adjective, article).
+    - Normalize the documented Robinson/Logos article code difference.
+    - Keep exact morphology tags and existing occurrence lookup unchanged.
+    - Unknown schemes, unqualified tags, malformed values, verbs, and
+      unsupported codes are not equivalent.
+    - Document evidence, supported subset, and limitations.
   - Relevant tests:
-    - `default_bibles_test`, `korean_catalog_test`,
-      `osis_semantic_equivalence_test`, `sword_bible_conversion_test`,
-      `osis_importer_test`, `osis_operational_test`, `sqlite_bible_backend_test`.
+    - `morfologia_test`; full application build; `git diff --check`.
   - Evidence:
-    - Catálogo y fichas oficiales de CrossWire consultados: KorRV 2.0.1
-      (dominio público, NRSV) y KorHKJV 1.0 (distribución gratuita no comercial,
-      KJV); ambos OSIS y Lang=ko, también confirmados en el catálogo local.
-    - Ambos IDs añadidos a `main_bootstrap_default_modules`; el instalador
-      traduce 한국말 (nombre real de SWORD), 한국어, 조선말, Korean,
-      Coreano, ko y kor, y permite buscarlos por «Coreano» o por título.
-      README documenta la instalación desde CrossWire HTTPS.
-    - `default_bibles_test`, `korean_catalog_test` y
-      `sword_bible_conversion_test`: CTest 3/3 PASS. La instalación inicial
-      intenta 11 módulos, conserva los anteriores y continúa si falla KorRV;
-      fallo de catálogo sin instalaciones parciales. Diez alias y búsqueda
-      coreana/española PASS, sin red ni cambios en archivos del usuario.
-    - `osis_semantic_equivalence_test`, `osis_importer_test`,
-      `osis_operational_test` y `sqlite_bible_backend_test` ejecutados
-      directamente: 4/4 PASS (no están todos registrados en CTest).
-      Hangul y jamo añadidos a la matriz Unicode: 7 casos, 58 rangos,
-      `unicode_edge_failures=0`, `invalid_offsets=0`,
-      `substring_mismatches=0`; 13 casos del backend SQLite PASS.
-    - `cmake --build build --target ... biblia-elim -j4` PASS;
-      binario actualizado en `build/src/gtk/biblia-elim`, registro en
-      `build/korean-build.log`. `git diff --check` PASS.
-  - Blocker:
-    - Intento real de descarga: `curl --head --location --max-time 20
-      https://crosswire.org/ftpmirror/pub/sword/packages/rawzip/KorRV.zip`.
-      Resultado: código 6, `Could not resolve host: crosswire.org`.
-    - No hay textos completos de KorRV/KorHKJV en los módulos instalados
-      ni en la caché local: solo sus fichas. No se fabricaron Biblias a
-      partir de los casos sintéticos de prueba.
-    - El entorno solo permite escribir en el repositorio y /tmp, no en
-      `~/.sword` ni en `~/.local/share/biblia-elim/modules`; no permite
-      solicitar elevación. Las Biblias completas no quedaron instaladas.
-    - Acción requerida: ejecutar la instalación documentada desde el
-      binario actualizado en un entorno con red y escritura en los
-      directorios del usuario; después validar ambas Biblias completas
-      convertidas mediante `sword_bible_conversion_test` y comprobar
-      lectura, búsqueda, numeración NRSV/KJV y navegación reales.
+    - Added `main_morf_equivalentes()` with explicit `robinson`,
+      `morph.rob.g`, and `logos` handling for nominal bundles only. Robinson
+      article `T` and Logos article `D` normalize to one grammatical category;
+      `morph.gr.g` is explicitly excluded because it identifies GRAMCORD.
+      Documentation and source references are recorded in
+      `src/backend/morphology-audit.md`.
+    - `morfologia_test` PASS (9/9), including equal noun/adjective/article
+      pairs, feature mismatches, unsupported schemes, unqualified tags,
+      unsupported verbs, and null input. Full application build PASS;
+      `git diff --check` PASS.
+
+- [x] DEVOTIONAL-101 Incluir un devocional diario según el idioma de instalación
+  - Status: DONE
+  - Description:
+    Petición explícita: incluir devocionales sin red y corregir el aviso de
+    ausencia, usando la opción de idioma de instalación/interfaz.
+  - Acceptance criteria:
+    - Datos reales incluidos en los ocho idiomas, con todas las fechas.
+    - Desarrollo e instalación cargan la edición correcta sin descargarla.
+    - Preferencia externa válida y módulos del usuario se conservan.
+    - Idioma del instalador se usa solo antes de guardar una preferencia.
+    - Lectura SWORD, selección, empaquetado y regresiones verificadas.
+  - Relevant tests:
+    - `bundled_devotional_test`, `devotional_package_test`,
+      `app_language_test`, `language_settings_test`, regresiones de arranque.
+
+  - Evidence:
+    - Ocho módulos RawLD/ThML UTF-8 reales, 366 entradas distintas por edición
+      (2.928 en total), incluidas 02.29 y 12.31. Contenido original editable,
+      referencias localizadas, reflexión/práctica/oración; ciclo anual de doce
+      temas y 31 prácticas documentado, sin atribuirlo a Spurgeon ni copiar
+      traducciones bíblicas. Regeneración con el escritor SWORD reproducible
+      byte por byte; datos incluidos en `modulos/devotional/`.
+    - El cargador sustituye la dependencia inexistente de SME por la edición
+      Elim del idioma activo. Comprobada la lectura y renderización de todas
+      las fechas con SWMgr real; selecciona el idioma adecuado, repara una
+      preferencia inexistente y conserva una elección externa válida.
+      Segunda carga idempotente; módulo real del usuario con ID coincidente
+      y texto propio conservado, sin modificar los datos distribuidos.
+    - CMake/CPack instalan obligatoriamente los ocho idiomas; componente
+      `Devotional` verificado en un prefijo temporal. Lector reubicado encuentra
+      los datos sin ruta de desarrollo. Instalador local probado con
+      `--language=ko_KR`, todos los datos idénticos y destinos temporales.
+      `--language=es` y `BIBLIA_ELIM_INSTALL_LANGUAGE=es` documentados.
+    - Idioma inicial del instalador usado antes de crear el perfil; XML
+      nuevo conserva la elección para siguientes arranques. Preferencia
+      guardada, idioma del sistema explícito y CLI tienen prioridad adecuada.
+      Default inválido cae al sistema. Creación de clave XML corregida para
+      secciones ausentes; sección locale vacía no se duplica y los ajustes
+      ajenos se conservan.
+    - Build de app y tests PASS. Ocho CTests PASS, 0 fallos/omitidos:
+      bundled_devotional, devotional_package, app_language, language_settings,
+      default_bibles, multilingual_catalog, sword_locale, main_window_layout.
+      Cinco regresiones directas PASS: navigation_prefs, startup_profile,
+      sword_bible_conversion, sqlite_reader_tools y application_name_startup.
+      `bash -n` y `git diff --check` PASS. Evidencia conservada en
+      `build/devotional-101/`; binario `build/src/gtk/biblia-elim` actualizado.
+      Sin instalación fuera del repositorio/perfiles temporales de prueba.
+
+- [x] UI-101 Mejorar contraste y distribución de la interfaz
+  - Status: DONE
+  - Description:
+    Petición explícita basada en captura: unificar controles con la paleta
+    de la aplicación y dar espacio y desplazamiento a preferencias.
+  - Acceptance criteria:
+    - Controles legibles con temas claros y oscuros, navegación por teclado visible.
+    - Preferencias con márgenes y páginas desplazables, conservando índices e IDs.
+    - Build y regresiones de UI pertinentes verificadas.
+  - Relevant tests:
+    - `preferences_layout_test`, `main_window_layout_test`,
+      `navbar_resource_layout_test`, `language_settings_test` y
+      `preferences_resource_layout_test`.
+
+  - Evidence:
+    - Controles, casillas y listas usan colores de la paleta viva; foco visible,
+      estados seleccionado/deshabilitado y acciones del diálogo definidos.
+    - Márgenes 24/20 px, espaciado y desplazamiento por página implementados
+      conservando los IDs GtkBuilder y los índices del cuaderno.
+    - Build `biblia-elim` PASS; análisis real GtkCssProvider del CSS PASS
+      sin errores. `language_settings_test`, `main_window_layout_test` y
+      `navbar_resource_layout_test` PASS; `git diff --check` PASS.
+    - Corregida una referencia const que impedía compilar el trabajo existente
+      de expansión OSIS; `osis_importer_test`, `osis_semantic_equivalence_test`,
+      `osis_operational_test` y `sqlite_bible_backend_test` PASS ejecutados
+      directamente. OSIS-304 conserva su estado pendiente.
+    - Segunda captura aportada por el usuario confirma los controles claros
+      y revela una columna «Cerrar» de altura completa. Corregido el contenedor
+      raíz horizontal por defecto: orientación vertical explícita, formulario
+      expansible y pie sin expansión con botón de altura natural.
+    - Barra lateral ampliada a 220 px para etiquetas e indentación; iconos de
+      acciones planas, pestañas e interlineal/comparar usan la tinta de la paleta.
+    - Nueva regresión sobre `prefs.gtkbuilder` extraído del binario verifica
+      orientación, orden formulario/pie, expansión, ancho lateral y respuesta
+      de Cerrar. `preferences_resource_layout_test` PASS; build PASS y cuatro
+      regresiones CTest PASS. CSS PASS sin errores; widget test sigue SKIPPED.
+    - Petición de hover en «Abrir nueva pestaña»: clase `elim-new-tab`, botón
+      compacto centrado verticalmente, fondo transparente en reposo y acento
+      suave de la paleta al pasar el puntero; estado pulsado más intenso,
+      borde reservado y transición de 120 ms sin cambiar el área clicable.
+    - Build actualizado PASS; GtkCssProvider analiza el hover sin errores.
+      `main_window_layout_test`, `navbar_resource_layout_test` y
+      `preferences_resource_layout_test` PASS; `git diff --check` PASS.
+      La captura confirma el pie «Cerrar» y las etiquetas laterales corregidos;
+      el nuevo hover aún requiere revisión en la sesión gráfica del usuario.
+    - Hover de «Lectura de hoy» y cierre de ventana: fondo transparente en
+      reposo, acento suave para lectura y rojo discreto para cerrar; texto e
+      iconos conservan la tinta del tema. Estado pulsado diferenciado,
+      transición de 120 ms y botón de cierre compacto con borde reservado.
+      El cierre tiene reglas propias para evitar la tarjeta del tema GTK.
+    - Build PASS; CSS analizado con GtkCssProvider sin errores; tres regresiones
+      de distribución/recursos PASS; `git diff --check` PASS. Comprobación
+      visual del nuevo hover pendiente por la misma limitación de pantalla.
+    - La nueva captura demuestra que el círculo negro de cerrar sobrevivía
+      al ajuste exterior. Causa confirmada en el CSS real de GTK instalado:
+      `windowcontrols button:hover > image` pinta el fondo #1b1b1b y el nodo
+      image reserva un círculo de 30 px. Se restablecen fondo, borde, sombras,
+      radio y mínimos del hijo image; el botón conserva el hover rojo suave
+      y el icono hereda la tinta del tema. No se cambia el controlador de cierre.
+    - Recompilación PASS, GtkCssProvider PASS sin errores, tres regresiones
+      de recursos/distribución PASS y `git diff --check` PASS. Falta comprobar
+      el resultado visual corregido en la sesión gráfica del usuario.
+    - Auditoría completa de la cabecera solicitada por el usuario: botones de
+      panel lateral, modo lectura (icono Cairo), lectura diaria, marcar leído,
+      zoom, botones de menú y controles GTK de ventana cubiertos por una regla
+      común de la cabecera `elim-header`, sustituyendo parches por botón.
+      Reposo, hover, activado, activado+hover, pulsado, activación por teclado,
+      foco visible y deshabilitado usan la paleta; cierre conserva rojo suave.
+      Menús GTK4 corregidos mediante nodos `menubar > item` y todos los hijos
+      image de la cabecera tienen fondo/sombras neutros. Minimizar/maximizar
+      también evitan círculos oscuros internos. Icono Cairo ya toma el color
+      del botón, comprobado en su controlador de dibujo.
+    - Build PASS; análisis GtkCssProvider PASS; tres regresiones de recursos y
+      distribución PASS. CSS extraído del binario idéntico al fuente mediante
+      `cmp`; `git diff --check` PASS. Revisión visual de todos los estados
+      pendiente por la limitación de pantalla documentada.
+    - Captura de modo lectura: la barra flotante usaba `theme_bg_color` del
+      escritorio, oscuro aun con papel claro. Fondo/tinta y borde cambian a
+      la paleta viva de Elim; estados e iconos de la tira de lectura comparten
+      las reglas de la cabecera principal (incluido salir activado), evitando
+      fondos GTK ajenos y texto oscuro sobre carbón. Retiradas las reglas de
+      hover/activado duplicadas y los acentos oscuros fijos de esa tira.
+    - Build PASS, CSS GtkCssProvider PASS sin errores, `study_reading_layout_test`
+      PASS (0 fallos), tres regresiones de recursos/distribución PASS y CSS
+      compilado idéntico al fuente. `git diff --check` PASS. La revisión visual
+      de la barra corregida sigue pendiente por el acceso gráfico restringido.
+    - Captura de menú contextual: fondo oscuro interior y flecha del tema
+      GTK sobre envoltorio claro. Confirmado en CSS GTK real que pinta
+      `popover.menu.background > contents` y `popover.menu > arrow` por
+      separado. Ambos nodos usan ahora fondo/tinta/borde Elim; envoltorio
+      transparente elimina el doble marco. Elementos normales, seleccionados,
+      hover, pulsados y deshabilitados tienen colores explícitos; etiquetas
+      e indicadores heredan el color del elemento y separadores usan la paleta.
+    - Build PASS, GtkCssProvider PASS sin errores, tres regresiones de recursos
+      y distribución PASS; CSS extraído del binario idéntico al fuente;
+      `git diff --check` PASS. Verificación visual del emergente corregido
+      pendiente por el acceso gráfico restringido.
+    - Validación externa en la sesión gráfica real aportada por el usuario:
+      `build/tests/preferences_layout_test ui/biblia-elim-style.css` PASS, sin
+      salida 77 ni omisión. Junto con las capturas reales previas, quedan
+      verificadas las aserciones GTK de márgenes, desplazamiento, IDs, índices
+      y clases, y se elimina el único bloqueo restante de la tarea.
+
+- [x] OSIS-304 Expand explicit cross-reference ranges through imported verses
+  - Status: DONE
+  - Description:
+    Retain each explicit range endpoint pair and expose the actual imported
+    verse references between those endpoints for consumers that need navigation.
+  - Acceptance criteria:
+    - Preserve endpoint pairs and display text exactly.
+    - Expand only when both endpoints exist in the imported module and are in
+      module order; include only actual imported verses in that interval.
+    - Missing endpoints, reversed endpoints, and empty intervals produce no
+      expanded targets and do not synthesize verse references.
+    - Persist and round-trip expanded targets through the source-neutral SQLite
+      writer/backend as an optional v1-compatible extension.
+    - Existing simple target ordering and old v1 module readability remain intact.
+  - Relevant tests:
+    - Extend `osis_semantic_equivalence_test`, `osis_operational_test`, and
+      `sqlite_bible_backend_test`; run importer and backend regressions.
+  - Evidence:
+    - Explicit endpoint pairs and display text remain unchanged. The importer
+      expands a valid inclusive interval in module order using only verses
+      actually present: the `Exod.2.1-Exod.2.3` regression returns verses 1
+      and 3 without synthesizing absent verse 2. Missing-endpoint, reversed,
+      and equal-endpoint intervals retain their pairs but expose no targets;
+      surrounding simple targets preserve source order.
+    - The source-neutral writer persists ordered targets, including testament,
+      in the optional v1-compatible `cross_reference_range_targets` table;
+      its verse foreign key rejects absent targets. The backend round-trips the
+      exact rows and still opens a v1 cross-reference module lacking both range
+      extension tables.
+    - `osis_semantic_equivalence_test` PASS
+      (`range_expansion_failures=0`, `invalid_offsets=0`, 64 offset rows),
+      `osis_operational_test` PASS (`operational_failures=0`),
+      `osis_importer_test` PASS, and `sqlite_bible_backend_test` PASS (15/15).
+      Shared-writer regressions `sqlite_module_writer_morphology_test`,
+      `usfm_importer_test`, and fixed-seed `osis_property_test` PASS; the
+      `biblia-elim` target and `git diff --check` PASS.
+
+- [x] READ-PERF-101 Cargar capítulos SQLite por lotes
+  - Status: DONE
+  - Description:
+    Reducir el tiempo de apertura del contenido y de lectura continua evitando
+    una consulta por tipo de anotación y versículo cuando la vista solicita un
+    capítulo completo.
+  - Acceptance criteria:
+    - El contrato neutral ofrece lectura por capítulo con fallback compatible
+      para backends que solo implementan lectura individual.
+    - SQLite carga texto y todas las anotaciones del capítulo con un número
+      acotado de consultas, sin cambiar el esquema v1 ni la lectura individual.
+    - El contenido por lotes es idéntico al individual, incluidos huecos,
+      UTF-8, Strong, morfología, encabezados, párrafos, estilos, notas,
+      referencias y rangos.
+    - Existe medición repetible antes/equivalente y después, y pasan las
+      regresiones de backend, resolvedor e importadores.
+  - Relevant tests:
+    - `sqlite_bible_backend_test`, `content_resolver_test`,
+      `content_resolver_sword_test`, `usfm_importer_test`,
+      `osis_importer_test`, `osis_semantic_equivalence_test`,
+      `osis_operational_test`, `sqlite_module_writer_morphology_test`.
+  - Evidence:
+    - `BibleBackend::getChapterContent()` conserva el camino individual por
+      defecto; `SqliteBibleBackend` prepara consultas por capítulo y ensambla
+      todos los campos neutrales sin SQL específico de importador. El
+      resolvedor usa esta operación antes de aplicar exactamente la misma
+      política de disponibilidad y fallback.
+    - Benchmark Debug, siete procesos sobre los seis módulos distribuidos:
+      mediana de 100 cargas equivalentes de Juan 3 (36 posiciones) de
+      453.595 us mediante lecturas individuales a 172.571 us por lotes:
+      62 % menos tiempo, 2,63 veces más rápido. La apertura de los seis módulos
+      permanece en 9.648 us (9.502 us antes), dentro del ruido y sin regresión
+      material.
+    - `sqlite_bible_backend_test` PASS 16/16 y compara campo por campo ambos
+      caminos, incluidos módulos v1 sin tablas opcionales. Resolvedores SQLite
+      y SWORD PASS; USFM, OSIS importer/equivalence/operational y writer de
+      morfología PASS con todos sus contadores en cero. Build `biblia-elim`
+      PASS; pruebas de parsing/baseline de arranque PASS.
+    - La medición visual de GTK no se inventó: esta sesión no puede abrir el
+      display real y Xvfb no puede crear su socket por propiedad inválida de
+      `/tmp/.X11-unix`; la mejora registrada corresponde al tramo backend que
+      usa la apertura del primer contenido y la lectura posterior.
+
+- [x] UI-102 Aclarar el botón para abrir otra Biblia
+  - Status: DONE
+  - Description:
+    Sustituir el tooltip genérico de la pestaña nueva por una descripción de
+    su propósito real al estudiar otra versión bíblica.
+  - Acceptance criteria:
+    - El tooltip en español indica que abre otra Biblia en una pestaña nueva.
+    - El botón de solo icono expone la misma descripción a tecnologías de
+      asistencia.
+    - Los seis idiomas activos contienen una traducción explícita.
+    - Build y regresiones directas de ventana/catálogos pasan.
+  - Relevant tests:
+    - `main_window_layout_test`, comprobación gettext focalizada y
+      `msgfmt --check --check-format` para los seis catálogos activos.
+  - Evidence:
+    - El botón muestra «Abrir otra Biblia en una pestaña nueva» y usa esa
+      misma cadena como etiqueta accesible; la prueba rechaza que reaparezca
+      el antiguo «Open a new tab».
+    - Traducciones explícitas verificadas en en_GB, es, fr, ko_KR, zh_CN y
+      pt_BR; los seis catálogos compilan y devuelven exactamente el texto
+      esperado mediante gettext.
+    - `main_window_layout_test` PASS, build `biblia-elim` PASS y
+      `git diff --check` PASS. La regresión multilingüe global llega a su
+      auditoría y señala 33 mensajes nuevos ajenos a esta tarea que ya
+      carecen de traducción en los seis catálogos; el nuevo tooltip no está
+      entre ellos y queda cubierto por la comprobación focalizada.
+
+- [x] STARTUP-PERF-106 Mostrar el capítulo inicial antes de cargar sus vecinos
+  - Status: DONE
+  - Description:
+    Mostrar primero el capítulo solicitado y completar después la ventana de
+    lectura, conservando el versículo y midiendo la apertura real antes/después.
+  - Evidence (2026-10-16):
+    - Primera carga acotada al capítulo actual, ampliación tras el primer
+      dibujo y restauración existente de posición; recorrido neutral SQLite
+      habilitado. Radio cero y paneles secundarios conservan su comportamiento.
+    - Build RelWithDebInfo actualizado; README lo selecciona explícitamente.
+      GTK moderno evita recargar el tema otra vez tras cambiar su esquema de
+      color. Corregidos GtkStatusbar/GtkBox en el progreso de conversión,
+      señal vacía inexistente del diccionario e icon-size GTK3 inválido.
+    - Wayland nativo, cinco muestras tras calentamiento por variante, mismo
+      perfil y 14 módulos instalados: SQLite, primer capítulo visible
+      692,9 → 649,6 ms (−6,2 %).
+    - Wayland nativo, cinco muestras tras calentamiento por variante, mismo
+      perfil y 14 módulos instalados: SWORD, primer capítulo visible
+      660,1 → 610,5 ms (−7,5 %).
+    - Ventana completa y posición restaurada a los
+      1145,4 ms SQLite /
+      1065,2 ms SWORD desde el inicio. Cairo:
+      512,9 / 505,9 ms al primer dibujo; sigue opcional.
+      Cachés XDG vacías SQLite: 1161,1 → 1153,8 ms,
+      prácticamente igual; no se afirma una mejora de caché de disco fría.
+    - Las 60 muestras medidas carecen de diagnósticos GTK/GObject, usan los
+      mismos settings/tabs y ancho de 890 px; todas las restauraciones convergen.
+      Se conservan binarios y hashes. El bloqueo de Wayland quedó resuelto.
+    - gtk_lifecycle_smoke PASS (576 comprobaciones), author_commentary_probe
+      PASS, superficie y ancho de lectura PASS con Xvfb; ventana/foco/rueda/
+      estado de panel/distribución PASS. Strong UI PASS 4/4, backend SQLite
+      PASS 16/16, resolvedores SQLite/SWORD PASS. Harness PASS 7/7, baseline
+      PASS 35/35 y recursos/distribución CTest PASS 3/3. Build y diff-check PASS.
+    - Informe, condiciones, muestras, diferencias y comandos reproducibles:
+      `performance/startup-2026-10-16/README.md`;
+      serie final `verified-wayland/comparison.json`. Series intermedias y
+      errores iniciales permanecen identificados, sin sustituir resultados.
+
+- [x] DIST-PLATFORM-101 Corregir los valores de arranque y compilación multiplataforma
+  - Status: DONE
+  - Description:
+    Aplicar preferencias Wayland/X11 y GSK medidas en Linux solo en Linux;
+    conservar la selección nativa de GTK en Windows/macOS y fijar Release
+    en la función común de compilación de instaladores Windows 32/64 bits.
+  - Acceptance criteria:
+    - Windows y macOS no reciben los valores gráficos de Linux; overrides
+      explícitos de GDK_BACKEND/GSK_RENDERER se conservan.
+    - Las invocaciones reales del script Windows seleccionan Release en
+      ambas arquitecturas, incluso con una caché Debug previa.
+    - Regresiones directas y arranque GTK Linux pasan; registrar el alcance
+      real de la validación Windows/macOS sin afirmar ejecución nativa.
+  - Evidence (2026-10-16):
+    - `gui.c` limita las preferencias Wayland/X11 y GSK a `__linux__`;
+      Windows/macOS conservan la elección de GTK. Overrides preservados.
+    - `xc-xiphos-win.sh` fija Release en la función común de 32/64 bits.
+      Tres pruebas ejecutan el script con CMake real, empaquetador simulado
+      y cachés Debug previas: modo ambas arquitecturas, -win32 y -win64.
+    - CTest: 12/12 PASS (9 escenarios de política de plataforma,
+      windows_release_build, gtk_lifecycle_smoke y author_commentary_probe).
+      Smoke GTK Linux: 580 comprobaciones, cero fallos; probe: cero fallos.
+      `bash -n win32/xc-xiphos-win.sh` y `git diff --check`: PASS.
+    - Compilación cruzada real MinGW Windows 64 bits Release: PASS,
+      ejecutable PE32+ generado en
+      `build/platform-windows-check/win64-isolated/src/gtk/biblia-elim.exe`.
+      Fuentes enlazadas desde un árbol aislado sin .git y montaje solo lectura;
+      no se cambió la configuración Git ni el árbol fuente para esta prueba.
+    - Registros: `performance/distribution-2026-10-16/ctest.log` y
+      `performance/distribution-2026-10-16/windows64-release-build.log`.
+      La política Windows/macOS se prueba mediante macros sobre GTK anfitrión;
+      no equivale a ejecución nativa. No se validaron instaladores completos,
+      ejecución Windows/macOS ni compilación real Windows 32 bits/macOS.
+
+- [x] UI-SELECTION-101 Cerrar el menú de selección sin eliminar anotaciones
+  - Status: DONE
+  - Description: Clic fuera y Escape cierran el menú; eliminar solo está
+    disponible para subrayados existentes; otra selección actualiza el menú.
+  - Acceptance criteria: Regresión de interacción y arranque GTK aprobados;
+    cerrar no crea ni borra anotaciones.
+  - Evidence (2026-10-16):
+    - Toolbar sin captura modal; controladores de ventana cierran con clic
+      fuera (sin consumirlo) o Escape. Los clics dentro conservan el menú.
+      Al cerrar se descartan marcas pendientes y se cierran los submenús,
+      sin llamar a operaciones de creación/eliminación de anotaciones.
+    - Tacho oculto en selecciones nuevas, visible al crear/abrir un subrayado.
+      La selección siguiente conserva el flujo existente de actualización.
+    - `selection_toolbar_test` PASS: clic interior/exterior, Escape, otras
+      teclas y reapertura. `gtk_lifecycle_smoke` PASS: selección por teclado
+      en un versículo real, visibilidad del tacho, creación de subrayado,
+      conservación tras clic exterior/Escape y eliminación explícita.
+      Regresión preparada y comprobada en idles consecutivos, evitando
+      procesamiento anidado de frames de popovers en la prueba.
+    - `xvfb-run -a ctest --test-dir build -R
+      '^(selection_toolbar_test|gtk_lifecycle_smoke|author_commentary_probe)$'
+      --output-on-failure`: 3/3 PASS. Smoke: 587 comprobaciones, cero fallos;
+      probe: cero fallos; sin diagnósticos GTK/GDK en la ejecución final.
+      Prueba aislada usa Cairo; aplicación conserva su renderizador normal.
+    - Compilación de `biblia-elim` y `selection_toolbar_test` PASS;
+      `git diff --check` PASS. El lanzador local enlaza al binario actualizado;
+      la sesión de la aplicación que ya estaba abierta requiere reiniciarse.
+
+- [x] BRAND-ELIM-101 Usar identidad Ministerios Elim en la app y sus instaladores
+  - Status: DONE
+  - Description: Aplicar el logo proporcionado y el nombre Ministerios Elim
+    a la aplicación, sus iconos de escritorio y paquetes para Linux, Windows
+    y macOS; actualizar las cadenas de marca visibles en estos flujos.
+  - Acceptance criteria:
+    - Logo proporcionado en la ventana/acerca de, launcher Linux, ejecutable
+      e instalador Windows, bundle/instalador macOS.
+    - Nombre visible Ministerios Elim en la app y metadatos de los instaladores.
+    - Conservar IDs, configuración y atribuciones de copyright de upstream
+      que necesiten compatibilidad o licencia; no presentar esos nombres como
+      marca del producto.
+  - Evidence:
+    - Window title, application name, About dialog/logo, desktop launcher,
+      AppStream metadata, NSIS names/icons/shortcuts and macOS bundle/package
+      name/icon/background use Ministerios Elim and the supplied transparent PNG.
+      Translated UI catalogs, installer descriptions, and documentation labels
+      were updated; legacy SWORD/configuration identifiers and upstream legal
+      copyright notices remain intact.
+    - `cmake --build build --target biblia-elim -j2` PASS;
+      `desktop-file-validate build/desktop/biblia-elim.desktop` PASS;
+      `appstreamcli validate --no-net build/desktop/biblia-elim.metainfo.xml`
+      PASS; icon assets identified as PNG, ICO and ICNS, installer images as
+      Windows BMP and macOS PNG; `git diff --check` PASS.
+
+- [x] ABOUT-ELIM-101 Mejorar el diálogo Acerca de y simplificar créditos
+  - Status: DONE
+  - Description: Dar más presencia al logo y dejar a Omar Gonzáles Díaz como
+    único autor/persona en los créditos del diálogo Acerca de.
+  - Acceptance criteria:
+    - Logo más legible y de mayor tamaño en Acerca de.
+    - Omar Gonzáles Díaz es el único nombre personal en la pestaña Créditos.
+    - Se conserva la atribución obligatoria de los datos TAGNT.
+  - Evidence:
+    - Logo del diálogo ampliado a 310×228; autores y copyright identifican
+      únicamente a Omar Gonzáles Díaz. Se retiraron documentadores y
+      traductores del panel de créditos, manteniendo por separado la atribución
+      institucional obligatoria de los datos TAGNT.
+    - `cmake --build build --target biblia-elim -j2` PASS;
+      `ctest --test-dir build --output-on-failure -R ^gtk_lifecycle_smoke$`
+      PASS (incluye assertions del autor único, logo y copyright);
+      `git diff --check` PASS.
+
+- [x] ABOUT-ELIM-102 Quitar enlaces de GitHub de los créditos
+  - Status: DONE
+  - Description: Mantener la atribución TAGNT sin enlaces de GitHub en la
+    pestaña Créditos.
+  - Acceptance criteria:
+    - La sección TAGNT conserva organización y licencia.
+    - Créditos ya no muestra enlaces de GitHub.
+  - Evidence:
+    - La sección TAGNT muestra solo la atribución textual de STEPBible.org,
+      Tyndale House y la licencia CC BY 4.0; se retiraron ambos enlaces GitHub.
+    - `cmake --build build --target biblia-elim -j2` PASS;
+      `ctest --test-dir build --output-on-failure -R ^gtk_lifecycle_smoke$`
+      PASS; `git diff --check` PASS.
+
+- [x] MANNING-101 Crear Biblia Manning con revisión documentada de fuentes disponibles
+  - Status: DONE
+  - Description: Petición directa del usuario: crear una edición española
+    editable desde SpaRV, contrastada con los artículos públicos localizados
+    de Gary Manning Jr., con corpus inventariado y decisiones por pasaje.
+  - Acceptance criteria:
+    - Biblia Manning se instala como proyecto completo independiente; SpaRV y
+      Biblia OGD conservan sus huellas y el esquema SQLite permanece en v1.
+    - Cada revisión tiene fuente, justificación, confianza y estado de borrador;
+      las propuestas discutidas y la interpretación no se presentan como consenso.
+    - Se inventarían los archivos públicos de Biola y Eutychus, sus duplicados
+      y el material no exegético; las fuentes no accesibles se identifican.
+    - La edición describe su cobertura parcial, su autoría editorial real y la
+      ausencia de participación/aval de Manning. Incluye notas originales con
+      enlaces, sin reproducir artículos completos.
+    - Creación reproducible con verificación de integridad, texto no revisado,
+      historial y persistencia de decisiones; pruebas relevantes pasan.
+  - Evidence:
+    - `doc/manning/sources.json` inventaría 44 entradas de Biola, 204 de
+      Eutychus y 9 recursos de contraste/bibliografía. Distingue texto o
+      extractos consultados de cribado bibliográfico y capítulos no obtenidos;
+      no afirma consulta íntegra de toda la producción del autor.
+    - `doc/manning/editorial-plan.json` y `biblia-curated-edition` generan
+      mediante `EditableEdition` una copia completa de SpaRV con 81 pasajes
+      documentados, 11 revisiones, 3 alternativas sin aplicar, 66 comentarios
+      de libro y 9 términos del glosario. Todas las decisiones quedan pendientes
+      de revisión humana. La edición está instalada en el catálogo personal
+      como `BibliaManning.sqlite`, título «Biblia Manning».
+    - `doc/manning/verification.json`: SQLite integrity_check=ok, ninguna
+      violación FK, user_version=1, 66 libros y 31.096 referencias conservadas,
+      31.085 textos idénticos a SpaRV y exactamente 11 cambios del plan;
+      decisiones, revisiones y FTS comprobados. SpaRV y Biblia OGD conservan
+      sus SHA-256 anteriores. `SqliteBibleBackend` abre el módulo, resuelve
+      Juan 4:9, lee Génesis y busca la frase revisada correctamente.
+    - `curated_edition_test` PASS (6 casos: creación/persistencia, propuesta sin
+      aplicar, referencia inválida atómica, fuente/base incorrecta, duplicados
+      y contrato del corpus). `editable_edition_test` PASS;
+      `sqlite_bible_backend_test` PASS (16/16); compilación de
+      `biblia-curated-edition` PASS; `git diff --check` PASS.
+
+- [x] MANNING-102 Preparar Manning ESP y Manning ENG con fuentes por versículo
+  - Status: DONE
+  - Description: Crear dos ediciones de la misma familia editorial: español
+    sobre SpaRV y inglés sobre KJV, con comentarios en su idioma y enlaces
+    de Manning conservados en cada pasaje documentado.
+  - Acceptance criteria:
+    - Los IDs son ManningES y ManningEN y los nombres visibles Manning ESP y
+      Manning ENG; idioma, base, licencia y procedencia se conservan separados.
+    - Ambas ediciones documentan las mismas referencias editoriales y fuentes;
+      la redacción inglesa se contrasta con KJV y el texto griego consultado.
+    - Cada comentario de pasaje incluye los enlaces usados, accesibles desde
+      el editor; los versículos sin aportes no reciben fuentes inventadas.
+    - La edición española mantiene texto e historial existentes; el original
+      BibliaManning queda respaldado fuera del catálogo. SpaRV/KJV/OGD intactos.
+    - Creación, comentarios, índices, lectura y conservación de datos se
+      verifican con regresiones y comprobación de las copias instaladas.
+
+  - Evidence:
+    - Instaladas `ManningES.sqlite` (31.096 versículos, SpaRV/es) y
+      `ManningEN.sqlite` (31.102 versículos, KJV/en), 66 libros cada una.
+      Cada edición contiene 81 decisiones/comentarios con las mismas URLs,
+      once revisiones, tres propuestas sin aplicar, 66 notas de libro y nueve
+      entradas de glosario; las decisiones siguen pendientes de revisión.
+    - `doc/manning/editions.json`, planes ES/EN y
+      `doc/manning/verification-bilingual.json` registran bases, licencias,
+      SHA-256, cobertura y resultados. Los once borradores ingleses se
+      contrastaron con KJV y TR. Enlaces pulsables bajo el comentario del verso.
+    - Historial español idéntico al original; copia original íntegra en
+      `~/.local/share/biblia-elim/edition-backups/BibliaManning-before-bilingual-20261016.sqlite`.
+      SpaRV/KJV/BibliaOGD conservan SHA-256. Integridad OK y cero errores FK;
+      lectura, referencias, búsqueda y título PASS en ambos módulos instalados.
+    - Creación de copias de proyectos mantiene procedencia e historial;
+      validación opcional de idioma y texto actual, comentarios localizados.
+      `curated_edition_test` PASS (9 casos, incluida migración, idioma y fuentes
+      bilingües); `editable_edition_test` PASS; `sqlite_bible_backend_test`
+      PASS (16/16); `sqlite_reader_tools_test`, `sqlite_interlinear_test`,
+      `sqlite_module_manager_test`, `sqlite_versification_test`,
+      `dropdown_helpers_test` y `gtk_lifecycle_smoke` PASS. Compilación CLI/app
+      PASS; `git diff --check` PASS. El lanzador local apunta al binario actualizado.
+
+- [x] EDITION-105 Identificar y comparar aportes de cualquier Biblia editable
+  - Status: DONE
+  - Description: Marcas genéricas de texto editado y comentarios, comparación
+    con la base original y filtros de cambios/comentarios/propuestas pendientes.
+  - Acceptance criteria:
+    - Las marcas dependen del texto actual, desaparecen al restaurar la base
+      y conservan el historial; no dependen del nombre de ningún proyecto.
+    - Comparación accesible desde el lector y el editor, con diferencias,
+      comentario, justificación, fuentes y procedencia visible.
+    - Filtros navegan a textos modificados, comentarios o propuestas pendientes.
+    - Proyectos existentes siguen funcionando y la base no cambia al actualizar
+      el módulo fuente; regresiones y prueba GTK verificadas.
+
+  - Evidence:
+    - Marcas independientes «Editado»/«Comentario» junto al número y
+      procedencia visible en el lector. El enlace abre la comparación con
+      diferencias UTF-8 resaltadas, comentario, propuesta, fundamento y fuentes.
+      El editor filtra textos modificados, comentarios y propuestas pendientes
+      y navega al versículo elegido. Se protegen los cambios aún sin guardar.
+    - `edition_base_verses` conserva el original sin alterar SQLite v1;
+      proyectos previos reconstruyen el original desde la primera revisión.
+      Consulta de solo lectura por capítulo para el lector, independiente de
+      la disponibilidad o actualización de la Biblia fuente.
+    - Regresiones en `editable_edition_test` PASS: marcas independientes,
+      restauración sin pérdida de historial, migración, actualización de base,
+      ausencia de marcas en módulos normales y diferencias UTF-8/HTML seguras.
+      `curated_edition_test` PASS (9 casos, clonación conserva original).
+    - `gtk_lifecycle_smoke` PASS: marcas/procedencia en lector, ruta real del
+      enlace de comparación, diferencias resaltadas, tres filtros y navegación
+      exacta al verso 2. Corregida firma del callback de GtkSpinButton detectada
+      por esta prueba; se desconectan notificaciones al cerrar el editor.
+    - Compilación app/CLI PASS; `sqlite_module_manager_test`,
+      `sqlite_versification_test`, `sqlite_reader_tools_test` y
+      `sqlite_interlinear_test` PASS; `sqlite_bible_backend_test` PASS (16/16).
+      Consulta real de solo lectura: ManningES y ManningEN, 11 editados y 81
+      comentados cada una; BibliaOGD, 0 editados y 1 comentado. `git diff --check`
+      PASS. El lanzador local usa el binario recompilado.
+
+- [x] EDITION-106 Mejorar presentación de comparación editorial
+  - Status: DONE
+  - Acceptance criteria:
+    - Jerarquía clara, texto en tarjetas y sin duplicación cuando coincide con la base.
+    - Fundamento visible; comentarios completos y evidencia conservados y accesibles.
+    - Alineación estable con español/hebreo, enlaces claros y botones separados.
+    - Regresión visual GTK y pruebas editoriales PASS.
+
+  - Evidence:
+    - Comparación organizada en tarjetas, título de pasaje destacado, estado
+      explícito y márgenes de 22/16 px. Texto idéntico mostrado una sola vez;
+      propuestas ya aplicadas no se duplican. Fundamento visible, comentario
+      completo y evidencia accesibles en desplegables, fuentes como enlaces.
+    - Dirección de párrafo de Pango fijada al mapear etiquetas para conservar
+      alineación con hebreo/español. Botón principal destacado y separado 12 px.
+    - Compilación `biblia-elim` PASS. `gtk_lifecycle_smoke` PASS: jerarquía,
+      alineación, comparación editada e idéntica sin duplicación, enlaces,
+      filtros y navegación. `editable_edition_test` y `curated_edition_test`
+      PASS (9 casos de creación). `git diff --check` PASS. Lanzador local
+      confirmado apuntando al binario recompilado.
+
+- [x] MANNING-103 Ampliar comentario español de Génesis 1:1
+  - Status: DONE
+  - Acceptance criteria:
+    - Explicar contexto, función de אֵת y consecuencias para la traducción.
+    - Distinguir argumento de Manning y apoyo gramatical, conservando fuentes.
+    - Actualizar plan y edición instalada sin cambiar texto bíblico ni otros versos.
+    - Respaldo previo, integridad y regresiones verificadas.
+
+  - Evidence:
+    - Artículo de Manning «Jesus the Aleph-Tav?» consultado completo; contraste
+      con la entrada BDB H853 y el interlineal de Génesis 1:1. Nota original
+      española en secciones, con fuentes y atribución explícitas.
+    - Plan ES y catálogo de fuentes actualizados. Actualización transaccional
+      de comentario/fundamento/evidencia en ManningES, con copia SQLite previa.
+      `doc/manning/verification-genesis-note.json` registra respaldo y SHA-256.
+      Texto bíblico, demás filas/tablas y módulos SpaRV/KJV/ManningEN/BibliaOGD
+      verificados sin cambios; integridad OK, cero errores de claves externas.
+    - `curated_edition_test` PASS (9 casos, mismos aportes de Manning más dos
+      controles complementarios españoles identificados); `editable_edition_test`
+      PASS; `git diff --check` PASS.
+
+- [x] MANNING-104 Explicitar debate Alfa/Omega en Génesis 1:1
+  - Status: DONE
+  - Evidence:
+    - Nota española abre con la cadena Alfa/Omega → alef/tav → אֵת → Jesús
+      que el artículo citado de Manning intenta refutar; explica también el
+      vínculo propuesto con Logos y distingue propuesta y refutación.
+    - Plan ES y comentario/fundamento instalados actualizados; respaldo previo
+      en edition-backups/ManningES-before-alpha-omega-note-*.sqlite. Texto bíblico
+      conservado e integridad SQLite OK; regresión editorial y diff verificados.
+
+- [x] MANNING-105 Redactar nota breve y autónoma de Génesis 1:1
+  - Status: DONE
+  - Acceptance criteria:
+    - Título, bajada, cuerpo breve y fuente al final, sin remitir al lector al artículo.
+    - Nota guardada y plan reproducible; texto bíblico intacto y respaldo previo.
+    - Regresión de comentarios personalizados y corpus verificada.
+
+  - Evidence:
+    - Comentario y fundamento instalados en ManningES con título, bajada,
+      dos párrafos y fuente al final; sin fórmulas «en el artículo» ni envoltorio
+      de metadatos en el comentario. Respaldo SQLite previo; texto bíblico
+      comprobado intacto e integridad OK.
+    - Plan ES conserva la misma nota en `comment`/`rationale`; CLI admite
+      comentario personalizado sin añadir encabezados. Fuente de Manning
+      compartida nuevamente con ENG; controles gramaticales quedan inventariados.
+    - Compilación CLI PASS; `curated_edition_test` PASS (10 casos, incluye
+      persistencia exacta del comentario personalizado). `git diff --check` PASS.
+
+- [x] MANNING-106 Aclarar ubicación y refutación de אֵת en Génesis 1:1
+  - Status: DONE
+  - Acceptance criteria:
+    - Ubicar la partícula en la frase hebrea y explicar vínculo alef/tav–Alfa/Omega.
+    - Explicar por qué no traducirla aparte no omite a Jesús y qué altera sustituirla.
+    - Nota breve con fuente final, guardada sin cambios en el texto bíblico.
+
+  - Evidence:
+    - Nota española ubica אֵת entre Dios/los cielos, explica la segunda aparición,
+      la inferencia Alfa/Omega y la refutación gramatical, incluida la consecuencia
+      de sustituir la partícula por Jesús. Conserva título, bajada, cuerpo y fuente.
+    - Plan ES y comentario/fundamento SQLite actualizados con respaldo previo;
+      comparación de todos los versículos antes/después idéntica, integridad OK
+      y cero errores FK. `curated_edition_test` PASS (10 casos); diff check PASS.
+
+- [x] EDITION-107 Priorizar lectura del comentario y aclarar contexto de Génesis 1:1
+  - Status: DONE
+  - Acceptance criteria:
+    - Nota explica consultas sobre video/blogs que motivaron la refutación.
+    - Sin cuadro de comparación cuando el texto no cambió; comentario prioritario.
+    - Título/bajada/cuerpo/fuente con jerarquía; estado y procedencia en detalles.
+    - Sin duplicar comentario/fuentes; cambios comparables y regresiones verificadas.
+
+  - Evidence:
+    - Nota ES instalada y plan explican consultas de lectores sobre un video y
+      su difusión en blogs. Respaldo SQLite previo; todos los versículos intactos
+      e integridad OK al actualizar comentario/fundamento.
+    - Lector de notas sin marco «Fundamento lingüístico»: título, bajada y cuerpo
+      diferenciados. Comparación solo para texto modificado. Fuentes al final,
+      sin repetir URL/cita; notas idénticas no crean otro desplegable duplicado.
+      Procedencia y estado específico (comentario/traducción) en detalles cerrados.
+    - Compilación app PASS; `gtk_lifecycle_smoke` PASS (ausencia de comparación
+      redundante, título/bajada/cuerpo, detalles cerrados, diferencias para texto
+      editado, filtros y navegación); `editable_edition_test` PASS y
+      `curated_edition_test` PASS (10 casos). `git diff --check` PASS;
+      lanzador local confirmado apuntando al binario nuevo.
+
+- [x] MANNING-107 Unificar los 81 comentarios de cada edición en formato autónomo
+  - Status: DONE
+  - Acceptance criteria:
+    - 81 notas ESP y 81 ENG con título, bajada, cuerpo breve y fuentes finales.
+    - Explicar interpretación debatida y objeción cuando corresponde, sin
+      remisiones a leer artículos ni instrucciones internas de traducción.
+    - Mantener fuentes, cautelas textuales y distinción entre hipótesis y hechos;
+      español/inglés propios y Génesis 1:1 aprobado conservado en español.
+    - Texto bíblico, propuestas, estados, historial y demás datos sin cambios;
+      respaldo de ambos módulos y verificación completa de los 162 registros.
+    - Planes reproducibles y pruebas editoriales/documentación actualizados.
+
+  - Evidence:
+    - 81 notas ESP y 81 ENG en planes e instalación con título/bajada/cuerpo/
+      fuente, redacción autónoma y referencias completas. Se reescribieron 80
+      notas ESP y 81 ENG; Génesis 1:1 ESP se conservó exactamente. Justificación
+      anterior guardada como editorial_audit para no perder trazabilidad.
+    - Revisión focal contra fuentes primarias de Juan 4:9, Juan 19:30,
+      Romanos 7:14, Marcos 7:36, Proverbios 31:6, Salmo 110 y 1 Pedro 3:19;
+      otras notas conservan el alcance de los aportes previamente documentados.
+    - Respaldos SQLite completos antes de cambiar datos. Actualización atómica
+      de ambos módulos con bases adjuntas y diarios DELETE. Comparación final
+      exhaustiva con respaldos: todas las demás tablas, texto, propuestas,
+      fuentes, confianza, estados e historial sin cambios; SpaRV/KJV/OGD intactos.
+      Integridad OK y cero errores FK en ambos módulos.
+    - `curated_edition_test` PASS (11 casos, estructura de las 162 notas,
+      comentarios literales y contratos de fuente); `editable_edition_test` PASS.
+      Creación desde SpaRV/KJV con CLI PASS; 81 comentarios/fundamentos/fuentes/
+      propuestas UTF-8 idénticos a los planes en cada copia generada e instalada.
+      `doc/manning/verification-comment-format.json` registra evidencia y hashes;
+      README actualizado; `git diff --check` PASS.
+
+- [x] EDITION-108 Encontrar aportes desde la lectura de cualquier Biblia editable
+  - Status: DONE
+  - Acceptance criteria:
+    - Botón Aportes accesible en la lectura de Biblias editables.
+    - Listado por referencia con títulos, búsqueda y filtros de comentarios,
+      textos modificados y propuestas pendientes; todos los aportes por defecto.
+    - Seleccionar un resultado abre el versículo de la Biblia correspondiente.
+    - Lectura sin escrituras, estados vacíos claros y regresiones GTK verificadas.
+  - Evidence:
+    - Botón Aportes junto a Interlineal/Comparar y acceso compacto en modo
+      lectura; siguen la Biblia seleccionada y se ocultan en Biblias fuente.
+      Navegador genérico reutiliza los filtros del editor y lee con
+      `EditableEdition::comparisons` (READONLY, sin migración).
+    - Todos los aportes por defecto, títulos/referencias/tipos, búsqueda por
+      libro/referencia/comentario/fundamento/propuesta/fuente sin distinguir
+      mayúsculas o tildes, filtros combinables y salto al versículo exacto.
+      Proyectos vacíos y búsquedas sin resultados tienen mensajes propios.
+    - Consulta READONLY de módulos instalados: ManningES y ManningEN tienen
+      cada uno 81 versículos con aportes, 81 comentarios, 11 textos editados y
+      14 propuestas pendientes; resultados únicos por referencia. Sin cambios
+      en los módulos del usuario. Documentación de edición actualizada.
+    - Regresión GTK cubre controles en ambos modos, cuatro filtros, búsqueda
+      por referencia y contenido, combinación de filtros, navegación exacta,
+      proyecto vacío y ocultación al volver a una Biblia fuente.
+    - La secuencia adicional de navegación expuso un fallo repetible en
+      `_gtk_text_line_get_number` / `gtk_text_line_display_compare` al dibujar
+      líneas antiguas. Se vacía el buffer retirado aún conectado antes de
+      sustituirlo; la construcción del nuevo documento sigue fuera de la vista.
+      La misma secuencia y la nube de palabras posterior completan la prueba.
+    - Compilación app PASS. `GSK_RENDERER=cairo ctest --test-dir build
+      --output-on-failure -R '^gtk_lifecycle_smoke$'` PASS, 632 comprobaciones
+      y cero fallos (Xvfb/software evita una advertencia de frame del renderizador
+      predeterminado). editable_edition_test, curated_edition_test (11 casos),
+      main_window_layout_test, navbar_resource_layout_test,
+      sqlite_reader_tools_test y sqlite_interlinear_test PASS.
+    - Binarios reconstruidos wk_html_surface_test, reading_window_test,
+      reading_focus_test, reading_width_contract_test, study_reading_layout_test
+      y panel_load_state_test PASS. Lanzador local apunta al binario compilado;
+      `git diff --check` PASS.
+
+- [x] MANNING-108 Rehacer resúmenes con contexto, argumentos y evidencia concreta
+  - Status: DONE
+  - Acceptance criteria:
+    - Revisar los 81 aportes de Manning ESP y ENG contra las fuentes citadas.
+    - Comentarios autónomos con título, bajada, contexto y explicación concreta
+      del argumento, sin generalidades ni remitir al lector a leer el artículo.
+    - Mantener alcance e incertidumbres de las fuentes y enlazarlas al final.
+    - Actualizar planes e instalación con respaldo; conservar texto bíblico,
+      propuestas, estados, fuentes, historial y ediciones originales.
+    - Verificar contenido, persistencia y reproducción en ambos idiomas.
+  - Evidence:
+    - Se reescribieron e instalaron las 162 notas, 81 por idioma, con título,
+      bajada y tres párrafos que explican contexto, argumento/evidencia y alcance.
+      Los cuerpos españoles tienen 149–184 palabras y los ingleses 126–169;
+      no se alargaron mediante plantillas ni aplicaciones genéricas.
+    - Consulta de pasajes pertinentes en las 93 URL ya citadas, incluyendo
+      los controles NET y BGU 1208. Cambridge: ficha, resumen y referencias
+      públicas, sin acceso al texto completo de pago. Eutychus II se recuperó
+      mediante navegador tras un HTTP 503. Fuentes conservadas al final.
+    - 1 Samuel 7:12 explica la derrota con el arca, Ofni/Finees, abandono de
+      ídolos, confesión, intercesión y diferencia entre rito y arrepentimiento.
+      Otras notas recuperan pruebas concretas: recibos y sus formas completas,
+      paralelos del pastor con Ezequiel, estructura de Romanos 7–8, usos de et,
+      matices de BGU 1208 y otras lecturas relevantes. Las hipótesis literarias
+      y dificultades textuales siguen distinguidas de hechos demostrados.
+    - Planes ES/EN actualizados con archivo íntegro de cada nota anterior en
+      comment_review_history; editorial_audit previo conservado. Actualización
+      atómica de ambos módulos adjuntos con diarios DELETE, con respaldo SQLite
+      completo en edition-backups/Manning-summary-depth-20261016-192539.
+    - Comparación exhaustiva contra respaldos: solo cambiaron comment/rationale
+      y sus fechas de modificación. Tablas restantes, texto bíblico, propuestas,
+      fuentes, confianza, estados e historial idénticos; SHA-256 de SpaRV/KJV/OGD
+      intactos. Integridad OK, cero errores FK, user_version=1 y 11 revisiones
+      existentes por edición; las 14 propuestas pendientes se conservan.
+    - editable_edition_test PASS; curated_edition_test PASS (12 casos), con
+      regresiones semánticas sobre argumentos concretos y estructura de las
+      162 notas. Creación fresca desde SpaRV/KJV PASS: 81 comentarios,
+      fundamentos, fuentes y propuestas idénticos a planes e instalación en
+      cada idioma. Verificación UTF-8 y correspondencia con textos bíblicos PASS.
+    - README y verification-summary-depth.json registran alcance, huellas,
+      respaldos y resultados reproducibles. Lectura final del comentario
+      instalado de 1 Samuel 7:12 confirmada; git diff --check PASS.
+
+- [x] EDITION-109 Leer aportes sin cerrar su lista
+  - Status: DONE
+  - Acceptance criteria:
+    - Pulsar una fila abre su comentario y cambios como diálogo hijo.
+    - Al cerrar el comentario permanecen la lista, búsqueda, filtro y posición.
+    - Ir al versículo es una acción explícita que conserva la navegación previa.
+    - Regresión GTK de apertura repetida, retorno a lista y navegación verificada.
+  - Evidence:
+    - Pulsar un resultado abre el lector de comentarios como diálogo hijo;
+      cerrar ese lector conserva las filas, selección, búsqueda y filtro.
+      «Ir al versículo» es una acción explícita, deshabilitada sin selección.
+    - Compilación de biblia-elim PASS. gtk_lifecycle_smoke PASS, 648 checks,
+      incluyendo lectura consecutiva de dos aportes, retorno a la misma lista
+      y navegación exacta a Génesis 1:2 mediante el botón explícito.
+    - editable_edition_test y curated_edition_test PASS. La primera ejecución
+      GTK completó los 648 checks sin fallos, pero su detector rechazó una
+      advertencia Gdk sobre frame timings; repetición completa PASS sin cambios.
+    - Documentación de interacción actualizada; git diff --check PASS.
+
+- [x] EDITION-110 Exportar Biblias de estudio a PDF navegable
+  - Status: DONE
+  - Acceptance criteria:
+    - Exportación genérica desde Biblias de estudio, incluidas Manning ESP/ENG.
+    - Biblia completa o selección de versículos con aportes; comentarios,
+      fuentes, atribución y licencia conservados sin modificar el proyecto.
+    - Índices, marcadores y enlaces de ida y vuelta entre versos y aportes.
+    - Exportación en segundo plano, cancelación y errores sin archivos parciales.
+    - Regresiones de contenido, enlaces PDF reales e integración GTK verificadas.
+  - Evidence:
+    - «Exportar PDF…» disponible en Aportes y en el gestor de Biblias de
+      estudio. Ofrece Biblia completa o versículos con aportes; exporta el
+      proyecto guardado, independientemente del filtro de la lista.
+    - Cairo/Pango generan PDF con índices, marcadores por libro/capítulo y
+      aporte, enlaces verso/comentario/retorno y fuentes pulsables. Incluye
+      comentarios de libro, fuente/licencia, cambios frente a la base y
+      propuestas pendientes diferenciadas. Sin autor o módulo hardcodeado.
+    - GTask mantiene la generación fuera del hilo GTK. Cancelación, errores
+      y finalización fallida eliminan el temporal y conservan el PDF previo;
+      se rechaza sobrescribir el módulo fuente. Compatible con proyectos
+      antiguos sin migraciones; huellas Manning ESP/ENG idénticas antes/después.
+    - study_bible_pdf_test PASS: 111 checks con Poppler como lector
+      independiente (contenido multilingüe, paginación, destinos y áreas de
+      enlaces reales, propuestas, alcance, cancelación, errores y legado).
+      editable_edition_test y curated_edition_test PASS; biblia-elim y
+      biblia-study-pdf compilan; git diff --check PASS.
+    - gtk_lifecycle_smoke PASS: 653 checks, incluidas opciones, cancelación
+      del selector, guardado real mediante el worker y apertura ofrecida del
+      PDF. Entorno Xvfb con GSK_RENDERER=cairo y GDK_DISABLE=gl,vulkan;
+      pruebas previas completaban los checks pero fallaban por advertencia
+      de frame timings de Gdk al inicio. La automatización usa la carpeta
+      inicial en vez de cambiarla durante su carga: se diagnosticó con core
+      un fallo de GtkPathBar 4.24 en esa navegación prematura. No se filtran
+      diagnósticos ni se debilitan comprobaciones; copias del core eliminadas.
+    - Generados salida/pdf/Manning-{ESP,ENG}.pdf completos (31.096/31.102
+      versos) y Manning-{ESP,ENG}-aportes.pdf; 81 aportes en cada archivo.
+      Verificación independiente: 162 enlaces a notas y 81 retornos por PDF,
+      todos los destinos resueltos. Evidencia y SHA-256 en
+      doc/manning/verification-pdf.json; páginas de texto/comentario revisadas.
+
+- [ ] ENOCH-101 Añadir 1 Enoc como libro reconocible e importable
+  - Status: BLOCKED
+  - Description: Incorporar 1 Enoch (`1En`) como libro distinto en el modelo
+    neutral y habilitar su importación en Biblias OSIS/USFM; integrar una
+    edición redistribuible cuando se confirme idioma/fuente.
+  - Acceptance criteria:
+    - `1En` tiene un ID estable y nombre español sin desplazar IDs existentes.
+    - Importación y navegación conservan sus referencias y el orden del módulo.
+    - El texto incluido, si lo hay, tiene fuente y licencia verificables.
+  - Progress:
+    - Added stable id 78, OSIS id `1En`, USFM code `1EN`, and Spanish name
+      `1 Enoc`; the synthetic OSIS fixture verifies reference resolution and
+      source order. The USFM regression imports and opens a separate 1En
+      fixture. Importer documentation describes the expanded subset.
+    - `osis_importer_test`, `osis_semantic_equivalence_test`,
+      `usfm_importer_test`, `sqlite_bible_backend_test`, and the
+      `biblia-elim` target PASS; `git diff --check` PASS.
+    - Spanish edition research (2026-10-16): Elejandría offers a free-to-read
+      Spanish text, described as its own translation based on R. H. Charles
+      (1917), and says it is free of copyright restrictions in Spain. Its
+      terms also prohibit reproducing site content without express
+      authorization and distinguish rights in translations/critical editions;
+      this does not establish a redistribution license for bundling it in the
+      app, particularly for international distribution. No Spanish edition
+      with a clear cross-border redistribution license was verified.
+    - Concrete obstacle: permission or a suitably licensed Spanish text is
+      required before including the actual text. Support for recognizing and
+      importing `1En` is implemented and its importer/backend regressions
+      passed; text inclusion remains blocked on rights/source.
 
 # Future / not scheduled
 
-- Human-readable grammatical decoding of morphology codes.
-- Dedicated morphology search/browser UI beyond MORPH-107's bounded backend capability.
-- Cross-scheme grammatical equivalence.
-- Deuterocanonical OSIS books beyond Tob/Jdt/Wis/Sir/Bar/1-2Macc (1Esd, 2Esd, PrMan, Ps151): DEUTERO-101 covers the reader's Bibles.
-- Structured OSIS range expansion.
+- [ ] UI-STUDY-101 Integrar StudyPad junto a la Biblia estándar
+  - Status: IN PROGRESS
+  - Description: Abrir el editor de estudios dentro de la ventana principal,
+    junto a la Biblia en vista estándar, con orden intercambiable y una
+    distribución útil en pantallas normales, wide y extra wide.
+  - Acceptance criteria:
+    - Un control abre y cierra el editor junto a la misma referencia bíblica.
+    - Biblia y editor comparten un divisor ajustable; el usuario puede
+      intercambiar sus lados.
+    - Documento, visibilidad y ancho elegido se conservan entre sesiones.
+    - La vista dividida se adapta a los anchos normales, wide y extra wide.
+    - Al ampliar el editor, la Biblia permanece visible; su tipografía se
+      reduce dinámicamente hasta un mínimo efectivo de 10 px. El usuario
+      puede ajustar el tamaño con los controles de zoom existentes.
+    - No se pierde texto al ocultar el panel o cerrar la aplicación.
+  - Phases:
+    - Phase 1 behavior and width contract approved by the requester.
+    - Phase 2 inline StudyPad integration implemented; interactive GTK
+      verification remains pending.
+    - Phase 3 responsive behavior updated per requester: the Bible stays
+      visible beside the editor and its font responds to the divider width.
+    - Phase 4 save/unsaved-change lifecycle reviewed and corrected.
+    - Phase 5 verification and documentation pending.
+  - Relevant tests:
+    - `main_window_layout_test`, `studypad_lifecycle_contract_test`,
+      `gtk_lifecycle_smoke`.
+  - Evidence:
+    - `biblia-elim` builds; `main_window_layout_test` PASS (including editor
+      visibility, swap-position and Bible-width policies). GTK lifecycle smoke
+      exposed a missing null check for an absent StudyPad delete button; the
+      check was added. An earlier rerun was skipped because Xvfb could not
+      create an X11 socket (`no-usable-xvfb`).
+    - Phase 3 keeps the horizontal Bible/editor split at every width, gives
+      the Bible a 180 px minimum pane width, scales its font with the Bible
+      allocation, and clamps the effective size to at least 10 px based on
+      the configured Bible baseline. The existing Bible zoom controls remain
+      available to the user. The editor column remains capped at 900 px.
+    - Phase 4 keeps the embedded editor alive when its panel is hidden. Cancel
+      in Save As or on a failed write preserves the dirty state; opening or
+      replacing a document asks before discarding edits; failed loads leave
+      the current buffer intact. App shutdown now preflights all dirty editors
+      and stops if any save prompt is canceled.
+    - `biblia-elim` build PASS; `main_window_layout_test` PASS;
+      `studypad_lifecycle_contract_test` PASS; `git diff --check` PASS.
+      Xvfb now starts and `gtk_lifecycle_smoke` reaches 664 checks with zero
+      smoke assertions failing. The inline editor is attached to the Bible
+      splitter when first built; the GTK smoke verifies it is a splitter child.
+      CTest still rejects GTK diagnostics:
+      `gdk_frame_timings_submitted() called on submitted frame` and `Trying to
+      snapshot GtkGizmo ... without a current allocation`. GDB traces the
+      latter to the internal scrollbar of the Bible `WkHtml` surface. GTK-only
+      scrollbar and overlay changes did not clear the warnings. The smoke also
+      reports the existing invalid `response` signal on `GtkAboutDialog`, so
+      Phase 5 remains pending.
+    - Added a Bible-version picker to the Bible pane's control strip; it shares
+      the grouped version menu and selection action with the global picker,
+      stays synchronized with the active module, and is shown while the inline
+      study editor is visible. `biblia-elim` builds and the local install
+      script completes; `git diff --check` passes.
+
+- [x] EDITION-101 Crear una Biblia propia e instalable desde una fuente autorizada
+  - Status: DONE
+  - Description: Crear una Biblia completa y editable a partir de un módulo
+    cuya licencia permita obras derivadas y redistribución. La Biblia fuente
+    no se modifica.
+  - Acceptance criteria:
+    - Solo se pueden escoger fuentes con licencia/procedencia verificadas que
+      permitan redistribuir la Biblia derivada completa.
+    - La copia incluye todos los libros/versículos de la fuente y registra
+      módulo, versificación, huella de contenido, atribución y licencia.
+    - Se pueden editar versículos y añadir comentarios por libro/versículo;
+      la Biblia fuente permanece intacta.
+  - Progress:
+    - `src/backend/editable-edition.md` establece una copia completa e
+      independiente basada solo en fuentes que permitan derivados y
+      redistribución, con registro de licencia, atribución y huella.
+    - Auditoría inicial: `TorresAmat` (incluida en el paquete) y `SpaRV`
+      (instalada localmente) se declaran Public Domain y son candidatas.
+      `SpaRVG` es CC BY-NC-ND; `SpaRV1909` autoriza distribución solo a
+      CrossWire; `NacarColunga` indica explícitamente no distribuir. Se
+      excluyen. `SpaPlatense` aparece como Public Domain en CrossWire, pero
+      su ficha se basa en años desde publicación mientras la ley argentina
+      vigente establece vida + 70 y su traductor murió en 1956; excluida hasta
+      aclarar derechos.
+  - Evidence:
+    - `EditableEdition` crea una copia SQLite v1 completa usando
+      `SqliteModuleWriter`, añade metadatos de proyecto/fuente y comentarios
+      por libro y versículo, y permite cambiar nombre y texto en transacciones
+      sucesivas sin sobrescribir la fuente ni un proyecto existente.
+    - La elegibilidad exige IDs/licencias permitidos; fuentes no aprobadas
+      (Nácar-Colunga, SpaRVG, permiso exclusivo de CrossWire y SpaPlatense
+      pendiente de derechos) se rechazan. El proyecto guarda huella SHA-256,
+      fuente, versificación, atribución y licencia.
+    - Al editar texto se reconstruye FTS y se retiran solo las anotaciones con
+      offsets que quedarían obsoletos; navegación/contenido SQLite siguen
+      abriendo el módulo.
+    - `editable_edition_test` PASS (creación atómica, allowlist, nombre,
+      persistencia de texto/comentarios, aparato del texto fuente, fuente
+      intacta, indexación y rechazo a sobrescribir); `sqlite_bible_backend_test`
+      PASS (16/16); `biblia-elim` compila; `git diff --check` PASS.
+    - La interfaz visual se implementa en EDITION-102; colaboración y catálogo
+      visible siguen en EDITION-103/104.
+- [x] EDITION-102 Añadir flujo de creación y edición al lector
+  - Status: DONE
+  - Description: Crear proyectos desde Biblias instaladas y editar texto y
+    comentarios desde la interfaz GTK.
+  - Acceptance criteria:
+    - La fuente no se puede sobrescribir desde el editor de proyectos.
+    - La interfaz permite editar texto de un versículo y comentarios de libro
+      o versículo, y muestra el estado de guardado.
+  - Evidence:
+    - El menú Estudio incorpora «Mis Biblias de estudio…». Permite crear una
+      copia completa desde fuentes instaladas que superan la allowlist de
+      licencia, asignarle nombre, reabrir proyectos existentes y editar texto,
+      comentario de libro y comentario de versículo por referencia. El botón
+      de guardado informa éxito/error; los cambios persisten en el módulo
+      SQLite de usuario.
+    - La creación clona la base SQLite íntegra a un ID/ruta nuevos y solo
+      cambia metadatos del proyecto; la fuente queda intacta. El selector no
+      incluye biblias no aprobadas.
+    - `editable_edition_test` PASS, incluida creación desde módulo SQLite,
+      preservación de aparato, lectura de fuente y copia; `sqlite_bible_backend_test`
+      PASS (16/16); `gtk_lifecycle_smoke` PASS y verifica la acción del menú;
+      build de `biblia-elim` y `git diff --check` PASS.
+    - Regresión de guardado mientras la Biblia sigue abierta en el lector:
+      `editable_edition_test` cubre resolución, navegación, referencias OSIS,
+      lectura de capítulo/versículo y guardado del nombre, texto y comentarios
+      sin bloquear la base. También elimina anotaciones con tablas opcionales
+      ausentes en módulos SQLite v1 sin fallar (`cross_reference_range_targets`);
+      `sqlite_bible_backend_test` PASS (16/16).
+- [ ] EDITION-103 Exportar e importar paquetes colaborativos
+  - Status: PLANNED
+  - Description: Compartir Biblias completas e instalables entre
+    colaboradores en paquetes portables, sin servidor obligatorio.
+  - Acceptance criteria:
+    - El paquete contiene la Biblia completa, comentarios, autoría, fuente,
+      atribuciones y licencia de la fuente elegible.
+    - La importación valida fuente/versificación, conserva referencias,
+      incorpora aportes nuevos y reporta conflictos concurrentes sin
+      sobrescribir silenciosamente el trabajo local.
+- [ ] EDITION-104 Mantener catálogo de fuentes elegibles para derivados
+  - Status: PLANNED
+  - Description: Registrar evidencia de licencia/procedencia y filtrar el
+    selector para ofrecer solo Biblias redistribuibles como obras derivadas.
+  - Acceptance criteria:
+    - El catálogo documenta cada fuente aprobada, la licencia y la evidencia.
+    - Fuentes con términos no claros o incompatibles no se ofrecen como base.
+    - Los paquetes completos heredan e incluyen los avisos y atribuciones
+      exigidos por la licencia de origen.
+- [x] OGD-101 Inicializar Biblia OGD y fijar el protocolo editorial
+  - Status: DONE
+  - Description: Crear el proyecto de trabajo desde SpaRV, definir política
+    lingüística, fuentes de referencia y tratamiento del piloto Jn 19:30.
+  - Acceptance criteria:
+    - La fuente RV1909 no se modifica y se registra con licencia, procedencia,
+      versificación y huella.
+    - La copia completa se instala con el nombre Biblia OGD.
+    - El piloto documenta por qué «la deuda ha sido pagada» no se incorpora
+      como traducción directa de τετέλεσται.
+  - Evidence:
+    - `doc/BIBLIA-OGD.md` registra protocolo, recursos/licencias, decisiones,
+      evidencia del piloto y los seis pasos editoriales. `SpaRV` declara
+      Public Domain y su huella antes/después fue idéntica:
+      `2421dc3a5c676e8fca70809da37c9afa2ee6ec45a65adbcb3a491d6e939db9b5`.
+    - Proyecto personal `BibliaOGD.sqlite` creado mediante `EditableEdition`
+      desde `/home/ogonzales/.local/share/biblia-elim/modules/SpaRV.sqlite`;
+      66 libros y 31.096 versículos idénticos, `user_version=1`. Se añadió el
+      comentario piloto de Jn 19:30; el texto completo permanece idéntico e
+      incluye «Consumado es».
+    - `editable_edition_test`, `sqlite_bible_backend_test` (16/16),
+      `gtk_lifecycle_smoke`, build de `biblia-elim` y `git diff --check` PASS.
+- [ ] OGD-102 Revisar la traducción por libros con registro de decisiones
+  - Status: PLANNED
+  - Description: Revisar SpaRV contra los textos originales con propuestas,
+    evidencia, nivel de confianza y aprobación humana por pasaje.
+  - Acceptance criteria:
+    - Cada cambio se contrasta con la copia base y tiene una decisión
+      lingüística documentada.
+    - Las variantes textuales y los desacuerdos permanecen visibles.
+    - El sistema automático detecta omisiones y cambios no registrados.
+  - Progress:
+    - El editor OGD ya presenta texto de la base e interlineal Strong disponible,
+      comparación por referencia con módulos SQLite de la misma versificación,
+      glosario del proyecto, propuesta/fundamento/fuentes por pasaje e historial
+      de cada cambio. Advierte si se modifica texto sin adjuntar fuentes/evidencia.
+    - Pendiente para completar este protocolo: detector lingüístico validado de
+      omisiones, registro de alternativas/variantes textuales y flujo de
+      aprobación humana. No se debe inferir fidelidad de una traducción a partir
+      de una comparación automática superficial.
+    - `editable_edition_test` pasa creación, migración de proyectos antiguos,
+      guardado/reapertura de glosario, decisiones y revisiones; `sqlite_bible_backend_test`
+      pasa 16/16; `gtk_lifecycle_smoke` pasa; `biblia-elim` compila;
+      `git diff --check` pasa.
+- Deuterocanonical OSIS books beyond the supported 11-book subset.
 - `xmlTextReader` migration; measured decision remains `KEEP DOM`.
 - Non-Bible OSIS modules.
 - Importer-specific UI.

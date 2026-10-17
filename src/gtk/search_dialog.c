@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * search_dialog.c - gui for searching Sword modules
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -1461,7 +1461,7 @@ static void _create_search_dialog(void)
 
 /* build the widget */
 	gxml = elim_gtk_builder_new();
-	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/search-dialog.gtkbuilder", NULL);
+	gtk_builder_add_from_resource(gxml, "/org/bibliaelim/ui/search-dialog.gtkbuilder", NULL);
 	g_return_if_fail(gxml != NULL);
 
 	/* lookup the root widget */

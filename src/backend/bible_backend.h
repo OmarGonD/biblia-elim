@@ -113,6 +113,27 @@ public:
 		const std::string &module_id,
 		const BibleReference &reference,
 		bool include_plain_text = false) = 0;
+	/* Read a 1-based chapter window in one backend operation. Backends with
+	 * chapter-oriented storage should override this to avoid an N+1 query
+	 * pattern; the default preserves the existing per-verse contract. */
+	virtual std::vector<BibleVerseContent> getChapterContent(
+		const std::string &module_id,
+		const BibleReference &chapter_reference,
+		int verse_count,
+		bool include_plain_text = false)
+	{
+		std::vector<BibleVerseContent> result;
+		if (verse_count < 1)
+			return result;
+		result.reserve(static_cast<std::size_t>(verse_count));
+		for (int verse = 1; verse <= verse_count; ++verse) {
+			BibleReference reference = chapter_reference;
+			reference.verse = verse;
+			result.push_back(getVerseContent(
+				module_id, reference, include_plain_text));
+		}
+		return result;
+	}
 	/* The verse body on its own: no notes, no footnotes, no cross
 	 * references, no editorial apparatus -- and no display-oriented
 	 * reinterpretation of the body either.  This is what a consumer

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osis xmlns="http://www.bibletechnologies.net/2003/OSIS/namespace">
+  <osisText osisIDWork="TorresAmat" osisRefWork="bible" xml:lang="es">
+    <div type="book" osisID="3Macc">
+      <chapter osisID="3Macc.1">
+        <verse osisID="3Macc.1.1"/>
+      </chapter>
+    </div>
+  </osisText>
+</osis>

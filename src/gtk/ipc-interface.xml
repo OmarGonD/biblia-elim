@@ -4,7 +4,7 @@
 	  "-//freedesktop//DTD D-Bus Object Introspection 1.0//EN"
 	  "http://standards.freedesktop.org/dbus/1.0/introspect.dtd">
 <node>
-  <interface name="org.xiphos.remote">
+  <interface name="org.bibliaelim.remote">
 
     <method name="setCurrentReference">
       <arg type="s" name="reference" direction="in" />

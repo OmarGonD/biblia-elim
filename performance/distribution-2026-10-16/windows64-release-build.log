@@ -1,0 +1,1531 @@
+-- GLOB mismatch!
+The following files were added:
+  +/validation/source/data/citas/citas_nt.json
+-- GLOB mismatch!
+The following files were added:
+  +/validation/source/data/fichas_v2/1Cor.01.json
+  +/validation/source/data/fichas_v2/1Cor.02.json
+  +/validation/source/data/fichas_v2/1Cor.03.json
+  +/validation/source/data/fichas_v2/1Cor.04.json
+  +/validation/source/data/fichas_v2/1Cor.05.json
+  +/validation/source/data/fichas_v2/1Cor.06.json
+  +/validation/source/data/fichas_v2/1Cor.07.json
+  +/validation/source/data/fichas_v2/1Cor.08.json
+  +/validation/source/data/fichas_v2/1Cor.09.json
+  +/validation/source/data/fichas_v2/1Cor.10.json
+  +/validation/source/data/fichas_v2/1Cor.11.json
+  +/validation/source/data/fichas_v2/1Cor.12.json
+  +/validation/source/data/fichas_v2/1Cor.13.json
+  +/validation/source/data/fichas_v2/1Cor.14.json
+  +/validation/source/data/fichas_v2/1Cor.15.json
+  +/validation/source/data/fichas_v2/1Cor.16.json
+  +/validation/source/data/fichas_v2/1John.01.json
+  +/validation/source/data/fichas_v2/1John.02.json
+  +/validation/source/data/fichas_v2/1John.03.json
+  +/validation/source/data/fichas_v2/1John.04.json
+  +/validation/source/data/fichas_v2/1John.05.json
+  +/validation/source/data/fichas_v2/1Pet.01.json
+  +/validation/source/data/fichas_v2/1Pet.02.json
+  +/validation/source/data/fichas_v2/1Pet.03.json
+  +/validation/source/data/fichas_v2/1Pet.04.json
+  +/validation/source/data/fichas_v2/1Pet.05.json
+  +/validation/source/data/fichas_v2/1Thess.01.json
+  +/validation/source/data/fichas_v2/1Thess.02.json
+  +/validation/source/data/fichas_v2/1Thess.03.json
+  +/validation/source/data/fichas_v2/1Thess.04.json
+  +/validation/source/data/fichas_v2/1Thess.05.json
+  +/validation/source/data/fichas_v2/1Tim.01.json
+  +/validation/source/data/fichas_v2/1Tim.02.json
+  +/validation/source/data/fichas_v2/1Tim.03.json
+  +/validation/source/data/fichas_v2/1Tim.04.json
+  +/validation/source/data/fichas_v2/1Tim.05.json
+  +/validation/source/data/fichas_v2/1Tim.06.json
+  +/validation/source/data/fichas_v2/2Cor.01.json
+  +/validation/source/data/fichas_v2/2Cor.02.json
+  +/validation/source/data/fichas_v2/2Cor.03.json
+  +/validation/source/data/fichas_v2/2Cor.04.json
+  +/validation/source/data/fichas_v2/2Cor.05.json
+  +/validation/source/data/fichas_v2/2Cor.06.json
+  +/validation/source/data/fichas_v2/2Cor.07.json
+  +/validation/source/data/fichas_v2/2Cor.08.json
+  +/validation/source/data/fichas_v2/2Cor.09.json
+  +/validation/source/data/fichas_v2/2Cor.10.json
+  +/validation/source/data/fichas_v2/2Cor.11.json
+  +/validation/source/data/fichas_v2/2Cor.12.json
+  +/validation/source/data/fichas_v2/2Cor.13.json
+  +/validation/source/data/fichas_v2/2John.01.json
+  +/validation/source/data/fichas_v2/2Pet.01.json
+  +/validation/source/data/fichas_v2/2Pet.02.json
+  +/validation/source/data/fichas_v2/2Pet.03.json
+  +/validation/source/data/fichas_v2/2Thess.01.json
+  +/validation/source/data/fichas_v2/2Thess.02.json
+  +/validation/source/data/fichas_v2/2Thess.03.json
+  +/validation/source/data/fichas_v2/2Tim.01.json
+  +/validation/source/data/fichas_v2/2Tim.02.json
+  +/validation/source/data/fichas_v2/2Tim.03.json
+  +/validation/source/data/fichas_v2/2Tim.04.json
+  +/validation/source/data/fichas_v2/3John.01.json
+  +/validation/source/data/fichas_v2/Acts.01.json
+  +/validation/source/data/fichas_v2/Acts.02.json
+  +/validation/source/data/fichas_v2/Acts.03.json
+  +/validation/source/data/fichas_v2/Acts.04.json
+  +/validation/source/data/fichas_v2/Acts.05.json
+  +/validation/source/data/fichas_v2/Acts.06.json
+  +/validation/source/data/fichas_v2/Acts.07.json
+  +/validation/source/data/fichas_v2/Acts.08.json
+  +/validation/source/data/fichas_v2/Acts.09.json
+  +/validation/source/data/fichas_v2/Acts.10.json
+  +/validation/source/data/fichas_v2/Acts.11.json
+  +/validation/source/data/fichas_v2/Acts.12.json
+  +/validation/source/data/fichas_v2/Acts.13.json
+  +/validation/source/data/fichas_v2/Acts.14.json
+  +/validation/source/data/fichas_v2/Acts.15.json
+  +/validation/source/data/fichas_v2/Acts.16.json
+  +/validation/source/data/fichas_v2/Acts.17.json
+  +/validation/source/data/fichas_v2/Acts.18.json
+  +/validation/source/data/fichas_v2/Acts.19.json
+  +/validation/source/data/fichas_v2/Acts.20.json
+  +/validation/source/data/fichas_v2/Acts.21.json
+  +/validation/source/data/fichas_v2/Acts.22.json
+  +/validation/source/data/fichas_v2/Acts.23.json
+  +/validation/source/data/fichas_v2/Acts.24.json
+  +/validation/source/data/fichas_v2/Acts.25.json
+  +/validation/source/data/fichas_v2/Acts.26.json
+  +/validation/source/data/fichas_v2/Acts.27.json
+  +/validation/source/data/fichas_v2/Acts.28.json
+  +/validation/source/data/fichas_v2/Col.01.json
+  +/validation/source/data/fichas_v2/Col.02.json
+  +/validation/source/data/fichas_v2/Col.03.json
+  +/validation/source/data/fichas_v2/Col.04.json
+  +/validation/source/data/fichas_v2/Eph.01.json
+  +/validation/source/data/fichas_v2/Eph.02.json
+  +/validation/source/data/fichas_v2/Eph.03.json
+  +/validation/source/data/fichas_v2/Eph.04.json
+  +/validation/source/data/fichas_v2/Eph.05.json
+  +/validation/source/data/fichas_v2/Eph.06.json
+  +/validation/source/data/fichas_v2/Gal.01.json
+  +/validation/source/data/fichas_v2/Gal.02.json
+  +/validation/source/data/fichas_v2/Gal.03.json
+  +/validation/source/data/fichas_v2/Gal.04.json
+  +/validation/source/data/fichas_v2/Gal.05.json
+  +/validation/source/data/fichas_v2/Gal.06.json
+  +/validation/source/data/fichas_v2/Heb.01.json
+  +/validation/source/data/fichas_v2/Heb.02.json
+  +/validation/source/data/fichas_v2/Heb.03.json
+  +/validation/source/data/fichas_v2/Heb.04.json
+  +/validation/source/data/fichas_v2/Heb.05.json
+  +/validation/source/data/fichas_v2/Heb.06.json
+  +/validation/source/data/fichas_v2/Heb.07.json
+  +/validation/source/data/fichas_v2/Heb.08.json
+  +/validation/source/data/fichas_v2/Heb.09.json
+  +/validation/source/data/fichas_v2/Heb.10.json
+  +/validation/source/data/fichas_v2/Heb.11.json
+  +/validation/source/data/fichas_v2/Heb.12.json
+  +/validation/source/data/fichas_v2/Heb.13.json
+  +/validation/source/data/fichas_v2/Jas.01.json
+  +/validation/source/data/fichas_v2/Jas.02.json
+  +/validation/source/data/fichas_v2/Jas.03.json
+  +/validation/source/data/fichas_v2/Jas.04.json
+  +/validation/source/data/fichas_v2/Jas.05.json
+  +/validation/source/data/fichas_v2/John.01.json
+  +/validation/source/data/fichas_v2/John.02.json
+  +/validation/source/data/fichas_v2/John.03.json
+  +/validation/source/data/fichas_v2/John.04.json
+  +/validation/source/data/fichas_v2/John.05.json
+  +/validation/source/data/fichas_v2/John.06.json
+  +/validation/source/data/fichas_v2/John.07.json
+  +/validation/source/data/fichas_v2/John.08.json
+  +/validation/source/data/fichas_v2/John.09.json
+  +/validation/source/data/fichas_v2/John.10.json
+  +/validation/source/data/fichas_v2/John.11.json
+  +/validation/source/data/fichas_v2/John.12.json
+  +/validation/source/data/fichas_v2/John.13.json
+  +/validation/source/data/fichas_v2/John.14.json
+  +/validation/source/data/fichas_v2/John.15.json
+  +/validation/source/data/fichas_v2/John.16.json
+  +/validation/source/data/fichas_v2/John.17.json
+  +/validation/source/data/fichas_v2/John.18.json
+  +/validation/source/data/fichas_v2/John.19.json
+  +/validation/source/data/fichas_v2/John.20.json
+  +/validation/source/data/fichas_v2/John.21.json
+  +/validation/source/data/fichas_v2/Jude.01.json
+  +/validation/source/data/fichas_v2/Luke.01.json
+  +/validation/source/data/fichas_v2/Luke.02.json
+  +/validation/source/data/fichas_v2/Luke.03.json
+  +/validation/source/data/fichas_v2/Luke.04.json
+  +/validation/source/data/fichas_v2/Luke.05.json
+  +/validation/source/data/fichas_v2/Luke.06.json
+  +/validation/source/data/fichas_v2/Luke.07.json
+  +/validation/source/data/fichas_v2/Luke.08.json
+  +/validation/source/data/fichas_v2/Luke.09.json
+  +/validation/source/data/fichas_v2/Luke.10.json
+  +/validation/source/data/fichas_v2/Luke.11.json
+  +/validation/source/data/fichas_v2/Luke.12.json
+  +/validation/source/data/fichas_v2/Luke.13.json
+  +/validation/source/data/fichas_v2/Luke.14.json
+  +/validation/source/data/fichas_v2/Luke.15.json
+  +/validation/source/data/fichas_v2/Luke.16.json
+  +/validation/source/data/fichas_v2/Luke.17.json
+  +/validation/source/data/fichas_v2/Luke.18.json
+  +/validation/source/data/fichas_v2/Luke.19.json
+  +/validation/source/data/fichas_v2/Luke.20.json
+  +/validation/source/data/fichas_v2/Luke.21.json
+  +/validation/source/data/fichas_v2/Luke.22.json
+  +/validation/source/data/fichas_v2/Luke.23.json
+  +/validation/source/data/fichas_v2/Luke.24.json
+  +/validation/source/data/fichas_v2/Mark.01.json
+  +/validation/source/data/fichas_v2/Mark.02.json
+  +/validation/source/data/fichas_v2/Mark.03.json
+  +/validation/source/data/fichas_v2/Mark.04.json
+  +/validation/source/data/fichas_v2/Mark.05.json
+  +/validation/source/data/fichas_v2/Mark.06.json
+  +/validation/source/data/fichas_v2/Mark.07.json
+  +/validation/source/data/fichas_v2/Mark.08.json
+  +/validation/source/data/fichas_v2/Mark.09.json
+  +/validation/source/data/fichas_v2/Mark.10.json
+  +/validation/source/data/fichas_v2/Mark.11.json
+  +/validation/source/data/fichas_v2/Mark.12.json
+  +/validation/source/data/fichas_v2/Mark.13.json
+  +/validation/source/data/fichas_v2/Mark.14.json
+  +/validation/source/data/fichas_v2/Mark.15.json
+  +/validation/source/data/fichas_v2/Mark.16.json
+  +/validation/source/data/fichas_v2/Matt.01.json
+  +/validation/source/data/fichas_v2/Matt.02.json
+  +/validation/source/data/fichas_v2/Matt.03.json
+  +/validation/source/data/fichas_v2/Matt.04.json
+  +/validation/source/data/fichas_v2/Matt.05.json
+  +/validation/source/data/fichas_v2/Matt.06.json
+  +/validation/source/data/fichas_v2/Matt.07.json
+  +/validation/source/data/fichas_v2/Matt.08.json
+  +/validation/source/data/fichas_v2/Matt.09.json
+  +/validation/source/data/fichas_v2/Matt.10.json
+  +/validation/source/data/fichas_v2/Matt.11.json
+  +/validation/source/data/fichas_v2/Matt.12.json
+  +/validation/source/data/fichas_v2/Matt.13.json
+  +/validation/source/data/fichas_v2/Matt.14.json
+  +/validation/source/data/fichas_v2/Matt.15.json
+  +/validation/source/data/fichas_v2/Matt.16.json
+  +/validation/source/data/fichas_v2/Matt.17.json
+  +/validation/source/data/fichas_v2/Matt.18.json
+  +/validation/source/data/fichas_v2/Matt.19.json
+  +/validation/source/data/fichas_v2/Matt.20.json
+  +/validation/source/data/fichas_v2/Matt.21.json
+  +/validation/source/data/fichas_v2/Matt.22.json
+  +/validation/source/data/fichas_v2/Matt.23.json
+  +/validation/source/data/fichas_v2/Matt.24.json
+  +/validation/source/data/fichas_v2/Matt.25.json
+  +/validation/source/data/fichas_v2/Matt.26.json
+  +/validation/source/data/fichas_v2/Matt.27.json
+  +/validation/source/data/fichas_v2/Matt.28.json
+  +/validation/source/data/fichas_v2/Phil.01.json
+  +/validation/source/data/fichas_v2/Phil.02.json
+  +/validation/source/data/fichas_v2/Phil.03.json
+  +/validation/source/data/fichas_v2/Phil.04.json
+  +/validation/source/data/fichas_v2/Phlm.01.json
+  +/validation/source/data/fichas_v2/Rev.01.json
+  +/validation/source/data/fichas_v2/Rev.02.json
+  +/validation/source/data/fichas_v2/Rev.03.json
+  +/validation/source/data/fichas_v2/Rev.04.json
+  +/validation/source/data/fichas_v2/Rev.05.json
+  +/validation/source/data/fichas_v2/Rev.06.json
+  +/validation/source/data/fichas_v2/Rev.07.json
+  +/validation/source/data/fichas_v2/Rev.08.json
+  +/validation/source/data/fichas_v2/Rev.09.json
+  +/validation/source/data/fichas_v2/Rev.10.json
+  +/validation/source/data/fichas_v2/Rev.11.json
+  +/validation/source/data/fichas_v2/Rev.12.json
+  +/validation/source/data/fichas_v2/Rev.13.json
+  +/validation/source/data/fichas_v2/Rev.14.json
+  +/validation/source/data/fichas_v2/Rev.15.json
+  +/validation/source/data/fichas_v2/Rev.16.json
+  +/validation/source/data/fichas_v2/Rev.17.json
+  +/validation/source/data/fichas_v2/Rev.18.json
+  +/validation/source/data/fichas_v2/Rev.19.json
+  +/validation/source/data/fichas_v2/Rev.20.json
+  +/validation/source/data/fichas_v2/Rev.21.json
+  +/validation/source/data/fichas_v2/Rev.22.json
+  +/validation/source/data/fichas_v2/Rom.01.json
+  +/validation/source/data/fichas_v2/Rom.02.json
+  +/validation/source/data/fichas_v2/Rom.03.json
+  +/validation/source/data/fichas_v2/Rom.04.json
+  +/validation/source/data/fichas_v2/Rom.05.json
+  +/validation/source/data/fichas_v2/Rom.06.json
+  +/validation/source/data/fichas_v2/Rom.07.json
+  +/validation/source/data/fichas_v2/Rom.08.json
+  +/validation/source/data/fichas_v2/Rom.09.json
+  +/validation/source/data/fichas_v2/Rom.10.json
+  +/validation/source/data/fichas_v2/Rom.11.json
+  +/validation/source/data/fichas_v2/Rom.12.json
+  +/validation/source/data/fichas_v2/Rom.13.json
+  +/validation/source/data/fichas_v2/Rom.14.json
+  +/validation/source/data/fichas_v2/Rom.15.json
+  +/validation/source/data/fichas_v2/Rom.16.json
+  +/validation/source/data/fichas_v2/Titus.01.json
+  +/validation/source/data/fichas_v2/Titus.02.json
+  +/validation/source/data/fichas_v2/Titus.03.json
+-- GLOB mismatch!
+The following files were added:
+  +/validation/source/data/fichas_v3/1Cor.01.json
+  +/validation/source/data/fichas_v3/1Cor.02.json
+  +/validation/source/data/fichas_v3/1Cor.03.json
+  +/validation/source/data/fichas_v3/1Cor.04.json
+  +/validation/source/data/fichas_v3/1Cor.05.json
+  +/validation/source/data/fichas_v3/1Cor.06.json
+  +/validation/source/data/fichas_v3/1Cor.07.json
+  +/validation/source/data/fichas_v3/1Cor.08.json
+  +/validation/source/data/fichas_v3/1Cor.09.json
+  +/validation/source/data/fichas_v3/1Cor.10.json
+  +/validation/source/data/fichas_v3/1Cor.11.json
+  +/validation/source/data/fichas_v3/1Cor.12.json
+  +/validation/source/data/fichas_v3/1Cor.13.json
+  +/validation/source/data/fichas_v3/1Cor.14.json
+  +/validation/source/data/fichas_v3/1Cor.15.json
+  +/validation/source/data/fichas_v3/1Cor.16.json
+  +/validation/source/data/fichas_v3/1John.01.json
+  +/validation/source/data/fichas_v3/1John.02.json
+  +/validation/source/data/fichas_v3/1John.03.json
+  +/validation/source/data/fichas_v3/1John.04.json
+  +/validation/source/data/fichas_v3/1John.05.json
+  +/validation/source/data/fichas_v3/1Pet.01.json
+  +/validation/source/data/fichas_v3/1Pet.02.json
+  +/validation/source/data/fichas_v3/1Pet.03.json
+  +/validation/source/data/fichas_v3/1Pet.04.json
+  +/validation/source/data/fichas_v3/1Pet.05.json
+  +/validation/source/data/fichas_v3/1Thess.01.json
+  +/validation/source/data/fichas_v3/1Thess.02.json
+  +/validation/source/data/fichas_v3/1Thess.03.json
+  +/validation/source/data/fichas_v3/1Thess.04.json
+  +/validation/source/data/fichas_v3/1Thess.05.json
+  +/validation/source/data/fichas_v3/1Tim.01.json
+  +/validation/source/data/fichas_v3/1Tim.02.json
+  +/validation/source/data/fichas_v3/1Tim.03.json
+  +/validation/source/data/fichas_v3/1Tim.04.json
+  +/validation/source/data/fichas_v3/1Tim.05.json
+  +/validation/source/data/fichas_v3/1Tim.06.json
+  +/validation/source/data/fichas_v3/2Cor.01.json
+  +/validation/source/data/fichas_v3/2Cor.02.json
+  +/validation/source/data/fichas_v3/2Cor.03.json
+  +/validation/source/data/fichas_v3/2Cor.04.json
+  +/validation/source/data/fichas_v3/2Cor.05.json
+  +/validation/source/data/fichas_v3/2Cor.06.json
+  +/validation/source/data/fichas_v3/2Cor.07.json
+  +/validation/source/data/fichas_v3/2Cor.08.json
+  +/validation/source/data/fichas_v3/2Cor.09.json
+  +/validation/source/data/fichas_v3/2Cor.10.json
+  +/validation/source/data/fichas_v3/2Cor.11.json
+  +/validation/source/data/fichas_v3/2Cor.12.json
+  +/validation/source/data/fichas_v3/2Cor.13.json
+  +/validation/source/data/fichas_v3/2John.01.json
+  +/validation/source/data/fichas_v3/2Pet.01.json
+  +/validation/source/data/fichas_v3/2Pet.02.json
+  +/validation/source/data/fichas_v3/2Pet.03.json
+  +/validation/source/data/fichas_v3/2Thess.01.json
+  +/validation/source/data/fichas_v3/2Thess.02.json
+  +/validation/source/data/fichas_v3/2Thess.03.json
+  +/validation/source/data/fichas_v3/2Tim.01.json
+  +/validation/source/data/fichas_v3/2Tim.02.json
+  +/validation/source/data/fichas_v3/2Tim.03.json
+  +/validation/source/data/fichas_v3/2Tim.04.json
+  +/validation/source/data/fichas_v3/3John.01.json
+  +/validation/source/data/fichas_v3/Acts.01.json
+  +/validation/source/data/fichas_v3/Acts.02.json
+  +/validation/source/data/fichas_v3/Acts.03.json
+  +/validation/source/data/fichas_v3/Acts.04.json
+  +/validation/source/data/fichas_v3/Acts.05.json
+  +/validation/source/data/fichas_v3/Acts.06.json
+  +/validation/source/data/fichas_v3/Acts.07.json
+  +/validation/source/data/fichas_v3/Acts.08.json
+  +/validation/source/data/fichas_v3/Acts.09.json
+  +/validation/source/data/fichas_v3/Acts.10.json
+  +/validation/source/data/fichas_v3/Acts.11.json
+  +/validation/source/data/fichas_v3/Acts.12.json
+  +/validation/source/data/fichas_v3/Acts.13.json
+  +/validation/source/data/fichas_v3/Acts.14.json
+  +/validation/source/data/fichas_v3/Acts.15.json
+  +/validation/source/data/fichas_v3/Acts.16.json
+  +/validation/source/data/fichas_v3/Acts.17.json
+  +/validation/source/data/fichas_v3/Acts.18.json
+  +/validation/source/data/fichas_v3/Acts.19.json
+  +/validation/source/data/fichas_v3/Acts.20.json
+  +/validation/source/data/fichas_v3/Acts.21.json
+  +/validation/source/data/fichas_v3/Acts.22.json
+  +/validation/source/data/fichas_v3/Acts.23.json
+  +/validation/source/data/fichas_v3/Acts.24.json
+  +/validation/source/data/fichas_v3/Acts.25.json
+  +/validation/source/data/fichas_v3/Acts.26.json
+  +/validation/source/data/fichas_v3/Acts.27.json
+  +/validation/source/data/fichas_v3/Acts.28.json
+  +/validation/source/data/fichas_v3/Col.01.json
+  +/validation/source/data/fichas_v3/Col.02.json
+  +/validation/source/data/fichas_v3/Col.03.json
+  +/validation/source/data/fichas_v3/Col.04.json
+  +/validation/source/data/fichas_v3/Eph.01.json
+  +/validation/source/data/fichas_v3/Eph.02.json
+  +/validation/source/data/fichas_v3/Eph.03.json
+  +/validation/source/data/fichas_v3/Eph.04.json
+  +/validation/source/data/fichas_v3/Eph.05.json
+  +/validation/source/data/fichas_v3/Eph.06.json
+  +/validation/source/data/fichas_v3/Gal.01.json
+  +/validation/source/data/fichas_v3/Gal.02.json
+  +/validation/source/data/fichas_v3/Gal.03.json
+  +/validation/source/data/fichas_v3/Gal.04.json
+  +/validation/source/data/fichas_v3/Gal.05.json
+  +/validation/source/data/fichas_v3/Gal.06.json
+  +/validation/source/data/fichas_v3/Heb.01.json
+  +/validation/source/data/fichas_v3/Heb.02.json
+  +/validation/source/data/fichas_v3/Heb.03.json
+  +/validation/source/data/fichas_v3/Heb.04.json
+  +/validation/source/data/fichas_v3/Heb.05.json
+  +/validation/source/data/fichas_v3/Heb.06.json
+  +/validation/source/data/fichas_v3/Heb.07.json
+  +/validation/source/data/fichas_v3/Heb.08.json
+  +/validation/source/data/fichas_v3/Heb.09.json
+  +/validation/source/data/fichas_v3/Heb.10.json
+  +/validation/source/data/fichas_v3/Heb.11.json
+  +/validation/source/data/fichas_v3/Heb.12.json
+  +/validation/source/data/fichas_v3/Heb.13.json
+  +/validation/source/data/fichas_v3/Jas.01.json
+  +/validation/source/data/fichas_v3/Jas.02.json
+  +/validation/source/data/fichas_v3/Jas.03.json
+  +/validation/source/data/fichas_v3/Jas.04.json
+  +/validation/source/data/fichas_v3/Jas.05.json
+  +/validation/source/data/fichas_v3/John.01.json
+  +/validation/source/data/fichas_v3/John.02.json
+  +/validation/source/data/fichas_v3/John.03.json
+  +/validation/source/data/fichas_v3/John.04.json
+  +/validation/source/data/fichas_v3/John.05.json
+  +/validation/source/data/fichas_v3/John.06.json
+  +/validation/source/data/fichas_v3/John.07.json
+  +/validation/source/data/fichas_v3/John.08.json
+  +/validation/source/data/fichas_v3/John.09.json
+  +/validation/source/data/fichas_v3/John.10.json
+  +/validation/source/data/fichas_v3/John.11.json
+  +/validation/source/data/fichas_v3/John.12.json
+  +/validation/source/data/fichas_v3/John.13.json
+  +/validation/source/data/fichas_v3/John.14.json
+  +/validation/source/data/fichas_v3/John.15.json
+  +/validation/source/data/fichas_v3/John.16.json
+  +/validation/source/data/fichas_v3/John.17.json
+  +/validation/source/data/fichas_v3/John.18.json
+  +/validation/source/data/fichas_v3/John.19.json
+  +/validation/source/data/fichas_v3/John.20.json
+  +/validation/source/data/fichas_v3/John.21.json
+  +/validation/source/data/fichas_v3/Jude.01.json
+  +/validation/source/data/fichas_v3/Luke.01.json
+  +/validation/source/data/fichas_v3/Luke.02.json
+  +/validation/source/data/fichas_v3/Luke.03.json
+  +/validation/source/data/fichas_v3/Luke.04.json
+  +/validation/source/data/fichas_v3/Luke.05.json
+  +/validation/source/data/fichas_v3/Luke.06.json
+  +/validation/source/data/fichas_v3/Luke.07.json
+  +/validation/source/data/fichas_v3/Luke.08.json
+  +/validation/source/data/fichas_v3/Luke.09.json
+  +/validation/source/data/fichas_v3/Luke.10.json
+  +/validation/source/data/fichas_v3/Luke.11.json
+  +/validation/source/data/fichas_v3/Luke.12.json
+  +/validation/source/data/fichas_v3/Luke.13.json
+  +/validation/source/data/fichas_v3/Luke.14.json
+  +/validation/source/data/fichas_v3/Luke.15.json
+  +/validation/source/data/fichas_v3/Luke.16.json
+  +/validation/source/data/fichas_v3/Luke.17.json
+  +/validation/source/data/fichas_v3/Luke.18.json
+  +/validation/source/data/fichas_v3/Luke.19.json
+  +/validation/source/data/fichas_v3/Luke.20.json
+  +/validation/source/data/fichas_v3/Luke.21.json
+  +/validation/source/data/fichas_v3/Luke.22.json
+  +/validation/source/data/fichas_v3/Luke.23.json
+  +/validation/source/data/fichas_v3/Luke.24.json
+  +/validation/source/data/fichas_v3/Mark.01.json
+  +/validation/source/data/fichas_v3/Mark.02.json
+  +/validation/source/data/fichas_v3/Mark.03.json
+  +/validation/source/data/fichas_v3/Mark.04.json
+  +/validation/source/data/fichas_v3/Mark.05.json
+  +/validation/source/data/fichas_v3/Mark.06.json
+  +/validation/source/data/fichas_v3/Mark.07.json
+  +/validation/source/data/fichas_v3/Mark.08.json
+  +/validation/source/data/fichas_v3/Mark.09.json
+  +/validation/source/data/fichas_v3/Mark.10.json
+  +/validation/source/data/fichas_v3/Mark.11.json
+  +/validation/source/data/fichas_v3/Mark.12.json
+  +/validation/source/data/fichas_v3/Mark.13.json
+  +/validation/source/data/fichas_v3/Mark.14.json
+  +/validation/source/data/fichas_v3/Mark.15.json
+  +/validation/source/data/fichas_v3/Mark.16.json
+  +/validation/source/data/fichas_v3/Matt.01.json
+  +/validation/source/data/fichas_v3/Matt.02.json
+  +/validation/source/data/fichas_v3/Matt.03.json
+  +/validation/source/data/fichas_v3/Matt.04.json
+  +/validation/source/data/fichas_v3/Matt.05.json
+  +/validation/source/data/fichas_v3/Matt.06.json
+  +/validation/source/data/fichas_v3/Matt.07.json
+  +/validation/source/data/fichas_v3/Matt.08.json
+  +/validation/source/data/fichas_v3/Matt.09.json
+  +/validation/source/data/fichas_v3/Matt.10.json
+  +/validation/source/data/fichas_v3/Matt.11.json
+  +/validation/source/data/fichas_v3/Matt.12.json
+  +/validation/source/data/fichas_v3/Matt.13.json
+  +/validation/source/data/fichas_v3/Matt.14.json
+  +/validation/source/data/fichas_v3/Matt.15.json
+  +/validation/source/data/fichas_v3/Matt.16.json
+  +/validation/source/data/fichas_v3/Matt.17.json
+  +/validation/source/data/fichas_v3/Matt.18.json
+  +/validation/source/data/fichas_v3/Matt.19.json
+  +/validation/source/data/fichas_v3/Matt.20.json
+  +/validation/source/data/fichas_v3/Matt.21.json
+  +/validation/source/data/fichas_v3/Matt.22.json
+  +/validation/source/data/fichas_v3/Matt.23.json
+  +/validation/source/data/fichas_v3/Matt.24.json
+  +/validation/source/data/fichas_v3/Matt.25.json
+  +/validation/source/data/fichas_v3/Matt.26.json
+  +/validation/source/data/fichas_v3/Matt.27.json
+  +/validation/source/data/fichas_v3/Matt.28.json
+  +/validation/source/data/fichas_v3/Phil.01.json
+  +/validation/source/data/fichas_v3/Phil.02.json
+  +/validation/source/data/fichas_v3/Phil.03.json
+  +/validation/source/data/fichas_v3/Phil.04.json
+  +/validation/source/data/fichas_v3/Phlm.01.json
+  +/validation/source/data/fichas_v3/Rev.01.json
+  +/validation/source/data/fichas_v3/Rev.02.json
+  +/validation/source/data/fichas_v3/Rev.03.json
+  +/validation/source/data/fichas_v3/Rev.04.json
+  +/validation/source/data/fichas_v3/Rev.05.json
+  +/validation/source/data/fichas_v3/Rev.06.json
+  +/validation/source/data/fichas_v3/Rev.07.json
+  +/validation/source/data/fichas_v3/Rev.08.json
+  +/validation/source/data/fichas_v3/Rev.09.json
+  +/validation/source/data/fichas_v3/Rev.10.json
+  +/validation/source/data/fichas_v3/Rev.11.json
+  +/validation/source/data/fichas_v3/Rev.12.json
+  +/validation/source/data/fichas_v3/Rev.13.json
+  +/validation/source/data/fichas_v3/Rev.14.json
+  +/validation/source/data/fichas_v3/Rev.15.json
+  +/validation/source/data/fichas_v3/Rev.16.json
+  +/validation/source/data/fichas_v3/Rev.17.json
+  +/validation/source/data/fichas_v3/Rev.18.json
+  +/validation/source/data/fichas_v3/Rev.19.json
+  +/validation/source/data/fichas_v3/Rev.20.json
+  +/validation/source/data/fichas_v3/Rev.21.json
+  +/validation/source/data/fichas_v3/Rev.22.json
+  +/validation/source/data/fichas_v3/Rom.01.json
+  +/validation/source/data/fichas_v3/Rom.02.json
+  +/validation/source/data/fichas_v3/Rom.03.json
+  +/validation/source/data/fichas_v3/Rom.04.json
+  +/validation/source/data/fichas_v3/Rom.05.json
+  +/validation/source/data/fichas_v3/Rom.06.json
+  +/validation/source/data/fichas_v3/Rom.07.json
+  +/validation/source/data/fichas_v3/Rom.08.json
+  +/validation/source/data/fichas_v3/Rom.09.json
+  +/validation/source/data/fichas_v3/Rom.10.json
+  +/validation/source/data/fichas_v3/Rom.11.json
+  +/validation/source/data/fichas_v3/Rom.12.json
+  +/validation/source/data/fichas_v3/Rom.13.json
+  +/validation/source/data/fichas_v3/Rom.14.json
+  +/validation/source/data/fichas_v3/Rom.15.json
+  +/validation/source/data/fichas_v3/Rom.16.json
+  +/validation/source/data/fichas_v3/Titus.01.json
+  +/validation/source/data/fichas_v3/Titus.02.json
+  +/validation/source/data/fichas_v3/Titus.03.json
+-- Looking for glib-genmarshal
+-- Looking for glib-genmarshal - found
+-- Looking for xmllint
+-- Looking for xmllint - found
+-- Looking for xsltproc
+-- Looking for xsltproc - found
+-- Looking for itstool
+-- Looking for itstool - found
+-- Looking for makensis
+-- Looking for makensis - found
+-- Looking for yelp-build
+-- Looking for yelp-build - found
+-- Looking for chmcmd
+-- Looking for chmcmd - found
+-- Looking for uuidgen
+-- Looking for uuidgen - found
+-- Looking for zip
+-- Looking for zip - found
+-- Cross-Compiling for Windows
+-- Setting up flags
+-- Generating config.h
+-- Editor: GtkTextView (GTK4 native)
+-- win32: /usr/x86_64-w64-mingw32/sys-root/mingw/lib/enchant no existe; no se instala
+-- win32: /usr/x86_64-w64-mingw32/sys-root/mingw/share/enchant no existe; no se instala
+CMake Warning (dev) at win32/CMakeLists.txt:122 (install):
+  Policy CMP0177 is not set: install() DESTINATION paths are normalized.  Run
+  "cmake --help-policy CMP0177" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Configuring Biblia Elim target
+CMake Warning at src/gtk/CMakeLists.txt:353 (message):
+  Speech Dispatcher not found - TTS support disabled
+
+
+-- Configuring Help files
+-- Configuring Help to ePub export
+-- Configuring Help to HTML export
+-- Configuring Help to Windows© Help export
+-- Configuring binary and source packagers
+-- Summary
+--   Biblia Elim version          4.4.0.513
+--   Release date                 Feb 2020
+--   Build type                   Release
+--   Install prefix               /usr/local
+--   Gtk version                  GTK 4.22.2
+--   Editor                       GtkTextView (GTK4 native)
+--   D-Bus                        OFF
+-- Windows© summary
+--   Crosscompiling:              TRUE
+--   Toolchain:                   /usr/share/mingw/toolchain-mingw64.cmake
+--   root path:                   /usr/x86_64-w64-mingw32/sys-root/mingw
+--   Console:                     OFF
+--   Library prefixes:            lib;
+--   Library suffixes:            .dll.a;.a;.lib
+
+
+-- Configuring done (0.2s)
+-- Generating done (0.2s)
+-- Build files have been written to: /validation/win64-isolated
+[  1%] Built target help-C-pages
+[  1%] Built target help-fa-pages
+[  1%] Built target help-fr-pages
+[  1%] Built target help-it-pages
+[  1%] Built target strongs_lexicon
+[  2%] Generating fichas.sqlite from data/fichas_v2, fichas_v3 and citas
+[  2%] Marshalling webkit files
+[  3%] Built target editor
+[  4%] Marshalling xiphos_html files
+INFO: Reading /validation/source/src/webkit/marshal.list...
+[ 11%] Built target backend
+INFO: Reading /validation/source/src/xiphos_html/marshal.list...
+[ 13%] Generating ar.gmo
+INFO: Reading /validation/source/src/webkit/marshal.list...
+[ 13%] Generating bg.gmo
+INFO: Reading /validation/source/src/xiphos_html/marshal.list...
+[ 13%] Building C object src/webkit/CMakeFiles/webkit.dir/wk-html.c.obj
+[ 13%] Generating cs.gmo
+[ 13%] Building C object src/xiphos_html/CMakeFiles/xiphos_html.dir/xiphos_html.c.obj
+[ 14%] Generating cy.gmo
+[ 14%] Generating da.gmo
+[ 14%] Generating de.gmo
+[ 14%] Generating en_GB.gmo
+[ 15%] Generating es.gmo
+[ 15%] Generating fa.gmo
+[ 15%] Generating fi.gmo
+[ 16%] Generating fr.gmo
+[ 16%] Generating he.gmo
+[ 16%] Generating hu.gmo
+[ 17%] Generating it.gmo
+[ 17%] Generating ja.gmo
+[ 17%] Building C object src/xiphos_html/CMakeFiles/xiphos_html.dir/marshal.c.obj
+[ 17%] Generating ko_KR.gmo
+[ 17%] Generating lt.gmo
+[ 19%] Generating lv.gmo
+[ 19%] Generating my.gmo
+[ 20%] Linking C static library libxiphos_html.a
+[ 20%] Generating nb.gmo
+[ 20%] Built target xiphos_html
+[ 21%] Generating nl.gmo
+[ 22%] 'it' help - mallard pages validation report
+index.page validates
+xiphos-01-introduction.page validates
+xiphos-02-shortcut-keys.page validates
+xiphos-10-start.page validates
+xiphos-11-interface.page validates
+xiphos-20-modules-introduction.page validates
+xiphos-21-modules-configuration.page validates
+xiphos-22-modules-install.page validates
+xiphos-23-modules-maintenance.page validates
+xiphos-24-modules-third-party.page validates
+xiphos-30-search.page validates
+xiphos-31-advanced-search.page validates
+xiphos-32-search-syntax.page validates
+xiphos-33-original-language.page validates
+xiphos-40-personal-commentary.page validates
+xiphos-41-studypad.page validates
+xiphos-42-journals.page validates
+xiphos-43-bookmarks.page validates
+xiphos-50-preferences-general-settings.page validates
+xiphos-51-preferences-biblesync.page validates
+xiphos-52-preferences-fonts-colors.page validates
+xiphos-53-preferences-modules.page validates
+xiphos-60-online-help.page validates
+xiphos-90-credits.page validates
+[ 22%] Generating pl.gmo
+[ 22%] Built target validate-it-pages
+[ 22%] Generating pt.gmo
+[ 23%] 'C' help - mallard pages validation report
+index.page validates
+xiphos-01-introduction.page validates
+xiphos-02-shortcut-keys.page validates
+xiphos-10-start.page validates
+xiphos-11-interface.page validates
+xiphos-20-modules-introduction.page validates
+xiphos-21-modules-configuration.page validates
+xiphos-22-modules-install.page validates
+xiphos-23-modules-maintenance.page validates
+xiphos-24-modules-third-party.page validates
+xiphos-30-search.page validates
+xiphos-31-advanced-search.page validates
+xiphos-32-search-syntax.page validates
+xiphos-33-original-language.page validates
+xiphos-40-personal-commentary.page validates
+xiphos-41-studypad.page validates
+xiphos-42-journals.page validates
+xiphos-43-bookmarks.page validates
+xiphos-50-preferences-general-settings.page validates
+xiphos-51-preferences-biblesync.page validates
+xiphos-52-preferences-fonts-colors.page validates
+xiphos-53-preferences-modules.page validates
+xiphos-60-online-help.page validates
+xiphos-90-credits.page validates
+[ 23%] Built target validate-C-pages
+[ 25%] Generating pt_BR.gmo
+[ 25%] 'fa' help - mallard pages validation report
+index.page validates
+xiphos-01-introduction.page validates
+xiphos-02-shortcut-keys.page validates
+xiphos-10-start.page validates
+xiphos-11-interface.page validates
+[ 25%] Generating ro.gmo
+xiphos-20-modules-introduction.page validates
+xiphos-21-modules-configuration.page validates
+xiphos-22-modules-install.page validates
+xiphos-23-modules-maintenance.page validates
+xiphos-24-modules-third-party.page validates
+xiphos-30-search.page validates
+xiphos-31-advanced-search.page validates
+xiphos-32-search-syntax.page validates
+xiphos-33-original-language.page validates
+xiphos-40-personal-commentary.page validates
+xiphos-41-studypad.page validates
+xiphos-42-journals.page validates
+xiphos-43-bookmarks.page validates
+xiphos-50-preferences-general-settings.page validates
+xiphos-51-preferences-biblesync.page validates
+xiphos-52-preferences-fonts-colors.page validates
+xiphos-53-preferences-modules.page validates
+xiphos-60-online-help.page validates
+xiphos-90-credits.page validates
+[ 25%] Built target validate-fa-pages
+[ 25%] Generating ru.gmo
+[ 25%] 'fr' help - mallard pages validation report
+index.page validates
+xiphos-01-introduction.page validates
+xiphos-02-shortcut-keys.page validates
+xiphos-10-start.page validates
+xiphos-11-interface.page validates
+xiphos-20-modules-introduction.page validates
+xiphos-21-modules-configuration.page validates
+xiphos-22-modules-install.page validates
+xiphos-23-modules-maintenance.page validates
+xiphos-24-modules-third-party.page validates
+xiphos-30-search.page validates
+xiphos-31-advanced-search.page validates
+xiphos-32-search-syntax.page validates
+xiphos-33-original-language.page validates
+xiphos-40-personal-commentary.page validates
+xiphos-41-studypad.page validates
+xiphos-42-journals.page validates
+xiphos-43-bookmarks.page validates
+xiphos-50-preferences-general-settings.page validates
+xiphos-51-preferences-biblesync.page validates
+xiphos-52-preferences-fonts-colors.page validates
+xiphos-53-preferences-modules.page validates
+xiphos-60-online-help.page validates
+xiphos-90-credits.page validates
+[ 25%] Generating sk.gmo
+[ 25%] Built target validate-fr-pages
+[ 26%] Building C object src/webkit/CMakeFiles/webkit.dir/wk-html-zoom-anchor.c.obj
+[ 27%] Generating sl.gmo
+[ 27%] Generating sv.gmo
+[ 27%] Generating tr.gmo
+[ 28%] Generating vi_VN.gmo
+[ 28%] Generating 'C' ePub Help file
+[ 28%] Generating zh_CN.gmo
+[ 28%] Generating zh_TW.gmo
+[ 40%] Built target potfiles_1
+[ 40%] Generating 'fa' ePub Help file
+[ 40%] Built target mhelp-epub-C
+[ 40%] Built target mhelp-epub-fa
+[ 40%] Generating 'fr' ePub Help file
+[ 41%] Generating 'it' ePub Help file
+[ 41%] Building C object src/webkit/CMakeFiles/webkit.dir/wk-html-surface.c.obj
+[ 41%] Built target mhelp-epub-it
+[ 41%] Generating 'C' html files
+[ 41%] Built target mhelp-epub-fr
+[ 41%] Generating 'fa' html files
+[ 41%] Building C object src/webkit/CMakeFiles/webkit.dir/__/gtk/panel_load_state.c.obj
+[ 41%] Building C object src/webkit/CMakeFiles/webkit.dir/marshal.c.obj
+[ 42%] Linking C static library libwebkit.a
+[ 42%] Built target webkit
+[ 44%] Generating 'fr' html files
+html
+html/C.css
+html/yelp.js
+html/index.html
+html/xiphos-01-introduction.html
+html/xiphos-02-shortcut-keys.html
+html/xiphos-10-start.html
+html/xiphos-11-interface.html
+html/xiphos-20-modules-introduction.html
+html/xiphos-21-modules-configuration.html
+html/xiphos-22-modules-install.html
+html/xiphos-23-modules-maintenance.html
+html/xiphos-24-modules-third-party.html
+html/xiphos-30-search.html
+html/xiphos-31-advanced-search.html
+html/xiphos-32-search-syntax.html
+html/xiphos-33-original-language.html
+html/xiphos-40-personal-commentary.html
+html/xiphos-41-studypad.html
+html/xiphos-42-journals.html
+html/xiphos-43-bookmarks.html
+html/xiphos-50-preferences-general-settings.html
+html/xiphos-51-preferences-biblesync.html
+html/xiphos-52-preferences-fonts-colors.html
+html/xiphos-53-preferences-modules.html
+html/xiphos-60-online-help.html
+html/xiphos-90-credits.html
+html/figures
+html/figures/xiphos-trail-icon.png
+html/figures/xiphos-icon.png
+html/figures/interface.png
+html/figures/sword3.png
+html/figures/first_start.png
+html/figures/interface_menubar.png
+html/figures/interface_toolbar.png
+html/figures/interface_sidepane.png
+html/figures/interface_shortcut.png
+html/figures/interface_biblepane.png
+html/figures/interface_parallel.png
+html/figures/interface_parallel-separate.png
+html/figures/interface_biblepane-options.png
+html/figures/interface_menubar-view.png
+html/figures/interface_viewer.png
+html/figures/interface_commentarypane.png
+html/figures/interface_dictionary.png
+html/figures/interface_devotional.png
+html/figures/module.png
+html/figures/sword_sources.png
+html/figures/sword_config.png
+html/figures/sword_install.png
+html/figures/sword_remove.png
+html/figures/interface_searchpane.png
+html/figures/search_search.png
+html/figures/personal.png
+html/figures/studypad.png
+html/figures/journal.png
+html/figures/bookmarks.png
+html/figures/preferences_general-misc.png
+html/figures/preferences_general-biblesync.png
+html/figures/preferences_fonts-color.png
+html/figures/preferences_fonts-misc.png
+html/figures/preferences_modules-parallel.png
+html/figures/preferences_modules-misc.png
+html/highlight.pack.js
+[ 44%] Built target mhelp-html-C
+html
+html/fa.css
+html/yelp.js
+html/index.html
+html/xiphos-01-introduction.html
+html/xiphos-02-shortcut-keys.html
+html/xiphos-10-start.html
+html/xiphos-11-interface.html
+html/xiphos-20-modules-introduction.html
+html/xiphos-21-modules-configuration.html
+html/xiphos-22-modules-install.html
+html/xiphos-23-modules-maintenance.html
+html/xiphos-24-modules-third-party.html
+html/xiphos-30-search.html
+html/xiphos-31-advanced-search.html
+html/xiphos-32-search-syntax.html
+html/xiphos-33-original-language.html
+html/xiphos-40-personal-commentary.html
+html/xiphos-41-studypad.html
+html/xiphos-42-journals.html
+html/xiphos-43-bookmarks.html
+html/xiphos-50-preferences-general-settings.html
+html/xiphos-51-preferences-biblesync.html
+html/xiphos-52-preferences-fonts-colors.html
+html/xiphos-53-preferences-modules.html
+html/xiphos-60-online-help.html
+html/xiphos-90-credits.html
+html/C.css
+html/figures
+html/figures/xiphos-trail-icon.png
+html/figures/xiphos-icon.png
+html/figures/interface.png
+html/figures/sword3.png
+html/figures/first_start.png
+html/figures/interface_menubar.png
+html/figures/interface_toolbar.png
+html/figures/interface_sidepane.png
+html/figures/interface_shortcut.png
+html/figures/interface_biblepane.png
+html/figures/interface_parallel.png
+html/figures/interface_parallel-separate.png
+html/figures/interface_biblepane-options.png
+html/figures/interface_menubar-view.png
+html/figures/interface_viewer.png
+html/figures/interface_commentarypane.png
+html/figures/interface_dictionary.png
+html/figures/interface_devotional.png
+html/figures/module.png
+html/figures/sword_sources.png
+html/figures/sword_config.png
+html/figures/sword_install.png
+html/figures/sword_remove.png
+html/figures/interface_searchpane.png
+html/figures/search_search.png
+html/figures/personal.png
+html/figures/studypad.png
+html/figures/journal.png
+html/figures/bookmarks.png
+html/figures/preferences_general-misc.png
+html/figures/preferences_general-biblesync.png
+html/figures/preferences_fonts-color.png
+html/figures/preferences_fonts-misc.png
+html/figures/preferences_modules-parallel.png
+html/figures/preferences_modules-misc.png
+html/highlight.pack.js
+[ 44%] Built target mhelp-html-fa
+[ 44%] Generating 'it' html files
+[ 44%] Generating 'C' Windows© Help file - chmcmd
+html
+html/fr.css
+html/yelp.js
+html/index.html
+html/xiphos-01-introduction.html
+html/xiphos-02-shortcut-keys.html
+html/xiphos-10-start.html
+html/xiphos-11-interface.html
+html/xiphos-20-modules-introduction.html
+html/xiphos-21-modules-configuration.html
+html/xiphos-22-modules-install.html
+html/xiphos-23-modules-maintenance.html
+html/xiphos-24-modules-third-party.html
+html/xiphos-30-search.html
+html/xiphos-31-advanced-search.html
+html/xiphos-32-search-syntax.html
+html/xiphos-33-original-language.html
+html/xiphos-40-personal-commentary.html
+html/xiphos-41-studypad.html
+html/xiphos-42-journals.html
+html/xiphos-43-bookmarks.html
+html/xiphos-50-preferences-general-settings.html
+html/xiphos-51-preferences-biblesync.html
+html/xiphos-52-preferences-fonts-colors.html
+html/xiphos-53-preferences-modules.html
+html/xiphos-60-online-help.html
+html/xiphos-90-credits.html
+html/C.css
+html/figures
+html/figures/xiphos-trail-icon.png
+html/figures/xiphos-icon.png
+html/figures/interface.png
+html/figures/sword3.png
+html/figures/first_start.png
+html/figures/interface_menubar.png
+html/figures/interface_toolbar.png
+html/figures/interface_sidepane.png
+html/figures/interface_shortcut.png
+html/figures/interface_biblepane.png
+html/figures/interface_parallel.png
+html/figures/interface_parallel-separate.png
+html/figures/interface_biblepane-options.png
+html/figures/interface_menubar-view.png
+html/figures/interface_viewer.png
+html/figures/interface_commentarypane.png
+html/figures/interface_dictionary.png
+html/figures/interface_devotional.png
+html/figures/module.png
+html/figures/sword_sources.png
+html/figures/sword_config.png
+html/figures/sword_install.png
+html/figures/sword_remove.png
+html/figures/interface_searchpane.png
+html/figures/search_search.png
+html/figures/personal.png
+html/figures/studypad.png
+html/figures/journal.png
+html/figures/bookmarks.png
+html/figures/preferences_general-misc.png
+html/figures/preferences_general-biblesync.png
+html/figures/preferences_fonts-color.png
+html/figures/preferences_fonts-misc.png
+html/figures/preferences_modules-parallel.png
+html/figures/preferences_modules-misc.png
+html/highlight.pack.js
+[ 44%] Built target mhelp-html-fr
+[ 45%] Generating 'fa' Windows© Help file - chmcmd
+html
+html/it.css
+html/yelp.js
+html/index.html
+html/xiphos-01-introduction.html
+html/xiphos-02-shortcut-keys.html
+html/xiphos-10-start.html
+html/xiphos-11-interface.html
+html/xiphos-20-modules-introduction.html
+html/xiphos-21-modules-configuration.html
+html/xiphos-22-modules-install.html
+html/xiphos-23-modules-maintenance.html
+html/xiphos-24-modules-third-party.html
+html/xiphos-30-search.html
+html/xiphos-31-advanced-search.html
+html/xiphos-32-search-syntax.html
+html/xiphos-33-original-language.html
+html/xiphos-40-personal-commentary.html
+html/xiphos-41-studypad.html
+html/xiphos-42-journals.html
+html/xiphos-43-bookmarks.html
+html/xiphos-50-preferences-general-settings.html
+html/xiphos-51-preferences-biblesync.html
+html/xiphos-52-preferences-fonts-colors.html
+html/xiphos-53-preferences-modules.html
+html/xiphos-60-online-help.html
+html/xiphos-90-credits.html
+html/C.css
+html/figures
+html/figures/xiphos-trail-icon.png
+html/figures/xiphos-icon.png
+html/figures/interface.png
+html/figures/sword3.png
+html/figures/first_start.png
+html/figures/interface_menubar.png
+html/figures/interface_toolbar.png
+html/figures/interface_sidepane.png
+html/figures/interface_shortcut.png
+html/figures/interface_biblepane.png
+html/figures/interface_parallel.png
+html/figures/interface_parallel-separate.png
+html/figures/interface_biblepane-options.png
+html/figures/interface_menubar-view.png
+html/figures/interface_viewer.png
+html/figures/interface_commentarypane.png
+html/figures/interface_dictionary.png
+html/figures/interface_devotional.png
+html/figures/module.png
+html/figures/sword_sources.png
+html/figures/sword_config.png
+html/figures/sword_install.png
+html/figures/sword_remove.png
+html/figures/interface_searchpane.png
+html/figures/search_search.png
+html/figures/personal.png
+html/figures/studypad.png
+html/figures/journal.png
+html/figures/bookmarks.png
+html/figures/preferences_general-misc.png
+html/figures/preferences_general-biblesync.png
+html/figures/preferences_fonts-color.png
+html/figures/preferences_fonts-misc.png
+html/figures/preferences_modules-parallel.png
+html/figures/preferences_modules-misc.png
+html/highlight.pack.js
+[ 45%] Built target mhelp-html-it
+Writing htmlhelp.hhp
+Writing toc.hhc
+Warning: Found file id1.html while scanning index.html, but couldn't find it on disk
+Warning: Found file id1.html while scanning index.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-01-introduction.html, but couldn't find it on disk
+Warning: Found file figures/interface.png while scanning xiphos-01-introduction.html, but couldn't find it on disk
+Warning: Found file figures/sword3.png while scanning xiphos-01-introduction.html, but couldn't find it [ 45%] Generating 'fr' Windows© Help file - chmcmd
+on disk
+Warning: Found file figures/xiphos-icon.png while scanning xiphos-01-introduction.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-02-shortcut-keys.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-icon.png while scanning xiphos-02-shortcut-keys.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-10-start.html, but couldn't find it on disk
+Warning: Found file figures/first_start.png while scanning xiphos-10-start.html, but couldn't find it on disk
+Warning: Found file figures/interface.png while scanning xiphos-10-start.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_menubar.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_toolbar.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_sidepane.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_shortcut.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_biblepane.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_parallel.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_parallel-separate.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_biblepane-options.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_menubar-view.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_viewer.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_commentarypane.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_dictionary.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_devotional.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-20-modules-introduction.html, but couldn't find it on disk
+Warning: Found file figures/module.png while scanning xiphos-20-modules-introduction.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-21-modules-configuration.html, but couldn't find it on disk
+Warning: Found file figures/sword_sources.png while scanning xiphos-21-modules-configuration.html, but couldn't find it on disk
+Warning: Found file figures/sword_config.png while scanning xiphos-21-modules-configuration.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-22-modules-install.html, but couldn't find it on disk
+Warning: Found file figures/sword_install.png while scanning xiphos-22-modules-install.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-23-modules-maintenance.html, but couldn't find it on disk
+Warning: Found file figures/sword_remove.png while scanning xiphos-23-modules-maintenance.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-24-modules-third-party.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-30-search.html, but couldn't find it on disk
+Warning: Found file figures/interface_searchpane.png while scanning xiphos-30-search.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-31-advanced-search.html, but couldn't find it on disk
+Warning: Found file figures/search_search.png while scanning xiphos-31-advanced-search.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-32-search-syntax.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-33-original-language.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-40-personal-commentary.html, but couldn't find it on disk
+Warning: Found file figures/personal.png while scanning xiphos-40-personal-commentary.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-41-studypad.html, but couldn't find it on disk
+Warning: Found file figures/studypad.png while scanning xiphos-41-studypad.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-42-journals.html, but couldn't find it on disk
+Warning: Found file figures/journal.png while scanning xiphos-42-journals.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-43-bookmarks.html, but couldn't find it on disk
+Warning: Found file figures/bookmarks.png while scanning xiphos-43-bookmarks.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-50-preferences-general-settings.html, but couldn't find it on disk
+Warning: Found file figures/preferences_general-misc.png while scanning xiphos-50-preferences-general-settings.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-51-preferences-biblesync.html, but couldn't find it on disk
+Warning: Found file figures/preferences_general-biblesync.png while scanning xiphos-51-preferences-biblesync.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-52-preferences-fonts-colors.html, but couldn't find it on disk
+Warning: Found file figures/preferences_fonts-color.png while scanning xiphos-52-preferences-fonts-colors.html, but couldn't find it on disk
+Warning: Found file figures/preferences_fonts-misc.png while scanning xiphos-52-preferences-fonts-colors.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-53-preferences-modules.html, but couldn't find it on disk
+Warning: Found file figures/preferences_modules-parallel.png while scanning xiphos-53-preferences-modules.html, but couldn't find it on disk
+Warning: Found file figures/preferences_modules-misc.png while scanning xiphos-53-preferences-modules.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-60-online-help.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-icon.png while scanning xiphos-60-online-help.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-90-credits.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-icon.png while scanning xiphos-90-credits.html, but couldn't find it on disk
+Writing CHM xiphos_C.chm
+Note: CHM has binary toc
+Error: Anchor index.html#getting-started undefined; first use xiphos-10-start.html
+Error: Anchor index.html#module-manager undefined; first use xiphos-20-modules-introduction.html
+Error: Anchor index.html#personal-comments undefined; first use xiphos-40-personal-commentary.html
+Error: Anchor index.html#preferences undefined; first use xiphos-50-preferences-general-settings.html
+Error: Anchor index.html#search-function undefined; first use xiphos-30-search.html
+chmcmd, a CHM compiler. (c) 2010-2024 Free Pascal core.
+
+[ 45%] Built target mhelp-windows-C
+[ 45%] Built target potfiles
+[ 45%] Generating 'it' Windows© Help file - chmcmd
+Writing htmlhelp.hhp
+Writing toc.hhc
+Warning: Found file id1.html while scanning index.html, but couldn't find it on disk
+Warning: Found file id1.html while scanning index.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-01-introduction.html, but couldn't find it on disk
+Warning: Found file figures/interface.png while scanning xiphos-01-introduction.html, but couldn't find it on disk
+Warning: Found file figures/sword3.png while scanning xiphos-01-introduction.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-icon.png while scanning xiphos-01-introduction.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-02-shortcut-keys.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-icon.png while scanning xiphos-02-shortcut-keys.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-10-start.html, but couldn't find it on disk
+Warning: Found file figures/first_start.png while scanning xiphos-10-start.html, but couldn't find it on disk
+Warning: Found file figures/interface.png while scanning xiphos-10-start.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_menubar.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_toolbar.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_sidepane.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_shortcut.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_biblepane.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_parallel.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_parallel-separate.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_biblepane-options.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_menubar-view.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_viewer.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_commentarypane.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_dictionary.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_devotional.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-20-modules-introduction.html, but couldn't find it on disk
+Warning: Found file figures/module.png while scanning xiphos-20-modules-introduction.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-21-modules-configuration.html, but couldn't find it on disk
+Warning: Found file figures/sword_sources.png while scanning xiphos-21-modules-configuration.html, but couldn't find it on disk
+Warning: Found file figures/sword_config.png while scanning xiphos-21-modules-configuration.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-22-modules-install.html, but couldn't find it on disk
+Warning: Found file figures/sword_install.png while scanning xiphos-22-modules-install.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-23-modules-maintenance.html, but couldn't find it on disk
+Warning: Found file figures/sword_remove.png while scanning xiphos-23-modules-maintenance.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-24-modules-third-party.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-30-search.html, but couldn't find it on disk
+Warning: Found file figures/interface_searchpane.png while scanning xiphos-30-search.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-31-advanced-search.html, but couldn't find it on disk
+Warning: Found file figures/search_search.png while scanning xiphos-31-advanced-search.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-32-search-syntax.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-33-original-language.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-40-personal-commentary.html, but couldn't find it on disk
+Warning: Found file figures/personal.png while scanning xiphos-40-personal-commentary.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-41-studypad.html, but couldn't find it on disk
+Warning: Found file figures/studypad.png while scanning xiphos-41-studypad.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-42-journals.html, but couldn't find it on disk
+Warning: Found file figures/journal.png while scanning xiphos-42-journals.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-43-bookmarks.html, but couldn't find it on disk
+Warning: Found file figures/bookmarks.png while scanning xiphos-43-bookmarks.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-50-preferences-general-settings.html, but couldn't find it on disk
+Warning: Found file figures/preferences_general-misc.png while scanning xiphos-50-preferences-general-settings.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-51-preferences-biblesync.html, but couldn't find it on disk
+Warning: Found file figures/preferences_general-biblesync.png while scanning xiphos-51-preferences-biblesync.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-52-preferences-fonts-colors.html, but couldn't find it on disk
+Warning: Found file figures/preferences_fonts-color.png while scanning xiphos-52-preferences-fonts-colors.html, but couldn't find it on disk
+Warning: Found file figures/preferences_fonts-misc.png while scanning xiphos-52-preferences-fonts-colors.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-53-preferences-modules.html, but couldn't find it on disk
+Warning: Found file figures/preferences_modules-parallel.png while scanning xiphos-53-preferences-modules.html, but couldn't find it on disk
+Warning: Found file figures/preferences_modules-misc.png while scanning xiphos-53-preferences-modules.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-60-online-help.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-icon.png while scanning xiphos-60-online-help.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-90-credits.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-icon.png while scanniWriting htmlhelp.hhp
+Writing toc.hhc
+Warning: Found file id1.html while scanning index.html, but couldn't find it on disk
+Warning: Found file id1.html while scanning index.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-01-introduction.html, but couldn't find it on disk
+Warning: Found file figures/interface.png while scanning xiphos-01-introduction.html, but couldn't find it on disk
+Warning: Found file figures/sword3.png while scanning xiphos-01-introduction.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-icon.png while scanning xiphos-01-introduction.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-02-shortcut-keys.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-icon.png while scanning xiphos-02-shortcut-keys.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-10-start.html, but couldn't find it on disk
+Warning: Found file figures/first_start.png while scanning xiphos-10-start.html, but couldn't find it on disk
+Warning: Found file figures/interface.png while scanning xiphos-10-start.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_menubar.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_toolbar.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_sidepane.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_shortcut.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_biblepane.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_parallel.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_parallel-separate.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_biblepane-options.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_menubar-view.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_viewer.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_commentarypane.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_dictionary.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_devotional.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-20-modules-introduction.html, but couldn't find it on disk
+Warning: Found file figures/module.png while scanning xiphos-20-modules-introduction.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-21-modules-configuration.html, but couldn't find it on disk
+Warning: Found file figures/sword_sources.png while scanning xiphos-21-modules-configuration.html, but couldn't find it on disk
+Warning: Found file figures/sword_config.png while scanning xiphos-21-modules-configuration.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-22-modules-install.html, but couldn't find it on disk
+Warning: Found file figures/sword_install.png while scanning xiphos-22-modules-install.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-23-modules-maintenance.html, but couldn't find it on disk
+Warning: Found file figures/sword_remove.png while scanning xiphos-23-modules-maintenance.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-24-modules-third-party.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-30-search.html, but couldn't find it on disk
+Warning: Found file figures/interface_searchpane.png while scanning xiphos-30-search.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-31-advanced-search.html, but couldn't find it on disk
+Warning: Found file figures/search_search.png while scanning xiphos-31-advanced-search.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-32-search-syntax.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-33-original-language.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-40-personal-commentary.html, but couldn't find it on disk
+Warning: Found file figures/personal.png while scanning xiphos-40-personal-commentary.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-41-studypad.html, but couldn't find it on disk
+Warning: Found file figures/studypad.png while scanning xiphos-41-studypad.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-42-journals.html, but couldn't find it on disk
+Warning: Found file figures/journal.png while scanning xiphos-42-journals.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-43-bookmarks.html, but couldn't find it on disk
+Warning: Found file figures/bookmarks.png while scanning xiphos-43-bookmarks.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-50-preferences-general-settings.html, but couldn't find it on disk
+Warning: Found file figures/preferences_general-misc.png while scanning xiphos-50-preferences-general-settings.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-51-preferences-biblesync.html, but couldn't find it on disk
+Warning: Found file figures/preferences_general-biblesync.png while scanning xiphos-51-preferences-biblesync.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-52-preferences-fonts-colors.html, but couldn't find it on disk
+Warning: Found file figures/preferences_fonts-color.png while scanning xiphos-52-preferences-fonts-colors.html, but couldn't find it on disk
+Warning: Found file figures/preferences_fonts-misc.png while scanning xiphos-52-preferences-fonts-colors.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-53-preferences-modules.html, but couldn't find it on disk
+Warning: Found file figures/preferences_modules-parallel.png while scanning xiphos-53-preferences-modules.html, but couldn't find it on disk
+Warning: Found file figures/preferences_modules-misc.png while scanning xiphos-53-preferences-modules.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-60-online-help.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-icon.png while scanning xiphos-60-online-help.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-90-credits.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-icon.png while scanning xiphos-90-credits.html, but couldn't find it on disk
+Writing CHM xiphos_fa.chm
+Note: CHM has binary toc
+Error: Anchor index.html#getting-started undefined; first use xiphos-10-start.html
+Error: Anchor index.html#module-manager undefined; first use xiphos-20-modules-introduction.html
+Error: Anchor index.html#personal-comments undefined; first use xiphos-40-personal-commentary.html
+Error: Anchor index.html#preferences undefined; first use xiphos-50-preferences-general-settings.html
+Error: Anchor index.html#search-function undefined; first use xiphos-30-search.html
+chmcmd, a CHM compiler. (c) 2010-2024 Free Pascal core.
+
+[ 45%] Built target mhelp-windows-fa
+Staging ar translation for uninstalled dev runs
+Staging bg translation for uninstalled dev runs
+Staging cs translation for uninstalled dev runs
+chmcmd, a CHM compiler. (c) 2010-2024 Free Pascal core.
+
+ng xiphos-90-credits.html, but couldn't find it on disk
+Writing CHM xiphos_fr.chm
+Note: CHM has binary toc
+Error: Anchor index.html#getting-started undefined; first use xiphos-10-start.html
+Error: Anchor index.html#module-manager undefined; first use xiphos-20-modules-introduction.html
+Error: Anchor index.html#personal-comments undefined; first use xiphos-40-personal-commentary.html
+Error: Anchor index.html#preferences undefined; first use xiphos-50-preferences-general-settings.html
+Error: Anchor index.html#search-function undefined; first use xiphos-30-search.html
+[ 45%] Built target mhelp-windows-fr
+Staging cy translation for uninstalled dev runs
+Writing htmlhelp.hhp
+Writing toc.hhc
+Warning: Found file id1.html while scanning index.html, but couldn't find it on disk
+Warning: Found file id1.html while scanning index.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-01-introduction.html, but couldn't find it on disk
+Warning: Found file figures/interface.png while scanning xiphos-01-introduction.html, but couldn't find it on disk
+Warning: Found file figures/sword3.png while scanning xiphos-01-introduction.html, but couldn't find it Staging da translation for uninstalled dev runs
+on disk
+Warning: Found file figures/xiphos-icon.png while scanning xiphos-01-introduction.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-02-shortcut-keys.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-icon.png while scanning xiphos-02-shortcut-keys.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-10-start.html, but couldn't find it on disk
+Warning: Found file figures/first_start.png while scanning xiphos-10-start.html, but couldn't find it on disk
+Warning: Found file figures/interface.png while scanning xiphos-10-start.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_menubar.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_toolbar.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_sidepane.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_shortcut.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_biblepane.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_parallel.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_parallel-separate.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_biblepane-options.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_menubar-view.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_viewer.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_commentarypane.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_dictionary.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/interface_devotional.png while scanning xiphos-11-interface.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-20-modules-introduction.html, but couldn't find it on disk
+Warning: Found file figures/module.png while scanning xiphos-20-modules-introduction.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-21-modules-configuration.html, but couldn't find it on disk
+Warning: Found file figures/sword_sources.png while scanning xiphos-21-modules-configuration.html, but couldn't find it on disk
+Warning: Found file figures/sword_config.png while scanning xiphos-21-modules-configuration.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-22-modules-install.html, but couldn't find it on disk
+Warning: Found file figures/sword_install.png while scanning xiphos-22-modules-install.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-23-modules-maintenance.html, but couldn't find it on disk
+Warning: Found file figures/sword_remove.png while scanning xiphos-23-modules-maintenance.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-24-modules-third-party.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-30-search.html, but couldn't find it on disk
+Warning: Found file figures/interface_searchpane.png while scanning xiphos-30-search.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-31-advanced-search.html, but couldn't find it on disk
+Warning: Found file figures/search_searStaging de translation for uninstalled dev runs
+ch.png while scanning xiphos-31-advanced-search.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-32-search-syntax.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-33-original-language.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-40-personal-commentary.html, but couldn't find it on disk
+Warning: Found file figures/personal.png while scanning xiphos-40-personal-commentary.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-41-studypad.html, but couldn't find it on disk
+Warning: Found file figures/studypad.png while scanning xiphos-41-studypad.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-42-journals.html, but couldn't find it on disk
+Warning: Found file figures/journal.png while scanning xiphos-42-journals.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-43-bookmarks.html, but couldn't find it on disk
+Warning: Found file figures/bookmarks.png while scanning xiphos-43-bookmarks.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-50-preferences-general-settings.html, but couldn't find it on disk
+Warning: Found file figures/preferences_general-misc.png while scanning xiphos-50-preferences-general-settings.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-51-preferences-biblesync.html, but couldn't find it on disk
+Warning: Found file figures/preferences_general-biblesync.png while scanning xiphos-51-preferences-biblesync.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-52-preferences-fonts-colors.html, but couldn't find it on disk
+Warning: Found file figures/preferences_fonts-color.png while scanning xiphos-52-preferences-fonts-colors.html, but couldn't find it on disk
+Warning: Found file figures/preferences_fonts-misc.png while scanning xiphos-52-preferences-fonts-colors.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-53-preferences-modules.html, but couldn't find it on disk
+Warning: Found file figures/preferences_modules-parallel.png while scanning xiphos-53-preferences-modules.html, but couldn't find it on disk
+Warning: Found file figures/preferences_modules-misc.png while scanning xiphos-53-preferences-modules.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-60-online-help.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-icon.png while scanning xiphos-60-online-help.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-trail-icon.png while scanning xiphos-90-credits.html, but couldn't find it on disk
+Warning: Found file figures/xiphos-icon.png while scanniStaging en_GB translation for uninstalled dev runs
+Staging es translation for uninstalled dev runs
+Staging fa translation for uninstalled dev runs
+Staging fi translation for uninstalled dev runs
+Staging fr translation for uninstalled dev runs
+Staging he translation for uninstalled dev runs
+Staging hu translation for uninstalled dev runs
+Staging it translation for uninstalled dev runs
+Staging ja translation for uninstalled dev runs
+chmcmd, a CHM compiler. (c) 2010-2024 Free Pascal core.
+
+ng xiphos-90-credits.html, but couldn't find it on disk
+Writing CHM xiphos_it.chm
+Note: CHM has binary toc
+Error: Anchor index.html#getting-started undefined; first use xiphos-10-start.html
+Error: Anchor index.html#module-manager undefined; first use xiphos-20-modules-introduction.html
+Error: Anchor index.html#personal-comments undefined; first use xiphos-40-personal-commentary.html
+Error: Anchor index.html#preferences undefined; first use xiphos-50-preferences-general-settings.html
+Error: Anchor index.html#search-function undefined; first use xiphos-30-search.html
+[ 45%] Built target mhelp-windows-it
+Staging ko_KR translation for uninstalled dev runs
+[ 45%] Built target mhelp
+Staging lt translation for uninstalled dev runs
+Staging lv translation for uninstalled dev runs
+Staging my translation for uninstalled dev runs
+Staging nb translation for uninstalled dev runs
+Staging nl translation for uninstalled dev runs
+Staging pl translation for uninstalled dev runs
+Staging pt translation for uninstalled dev runs
+Staging pt_BR translation for uninstalled dev runs
+Staging ro translation for uninstalled dev runs
+Staging ru translation for uninstalled dev runs
+Staging sk translation for uninstalled dev runs
+Staging sl translation for uninstalled dev runs
+Staging sv translation for uninstalled dev runs
+Staging tr translation for uninstalled dev runs
+Staging vi_VN translation for uninstalled dev runs
+Staging zh_CN translation for uninstalled dev runs
+Staging zh_TW translation for uninstalled dev runs
+[ 45%] Built target process-pot-file
+/validation/win64-isolated/fichas/fichas.sqlite: 136728 fichas, 15676 citas
+[ 45%] Built target fichas_sqlite
+[ 46%] Building C object src/main/CMakeFiles/main.dir/app_language.c.obj
+[ 46%] Building CXX object src/main/CMakeFiles/main.dir/biblesync_glue.cc.obj
+[ 46%] Building CXX object src/main/CMakeFiles/main.dir/configs.cc.obj
+[ 46%] Building C object src/main/CMakeFiles/main.dir/app_language_settings.c.obj
+[ 46%] Building CXX object src/main/CMakeFiles/main.dir/display.cc.obj
+[ 46%] Building C object src/main/CMakeFiles/main.dir/notes_store.c.obj
+[ 47%] Building C object src/main/CMakeFiles/main.dir/note_value.c.obj
+[ 47%] Building C object src/main/CMakeFiles/main.dir/notes_exchange.c.obj
+[ 47%] Building CXX object src/main/CMakeFiles/main.dir/diccionario.cc.obj
+[ 48%] Building C object src/main/CMakeFiles/main.dir/interl_enriq.c.obj
+[ 48%] Building CXX object src/main/CMakeFiles/main.dir/export_passage.cc.obj
+[ 48%] Building CXX object src/main/CMakeFiles/main.dir/global_ops.cc.obj
+[ 50%] Building CXX object src/main/CMakeFiles/main.dir/import_andbible.cc.obj
+[ 50%] Building CXX object src/main/CMakeFiles/main.dir/import_modfile.cc.obj
+[ 50%] Building CXX object src/main/CMakeFiles/main.dir/interlineal.cc.obj
+[ 50%] Building C object src/main/CMakeFiles/main.dir/interlineal_aviso.c.obj
+[ 51%] Building CXX object src/main/CMakeFiles/main.dir/lists.cc.obj
+[ 51%] Building CXX object src/main/CMakeFiles/main.dir/lectura_sync.cc.obj
+[ 51%] Building C object src/main/CMakeFiles/main.dir/main.c.obj
+[ 52%] Building CXX object src/main/CMakeFiles/main.dir/mod_mgr.cc.obj
+[ 52%] Building CXX object src/main/CMakeFiles/main.dir/modulecache.cc.obj
+[ 52%] Building CXX object src/main/CMakeFiles/main.dir/module_dialogs.cc.obj
+[ 53%] Building CXX object src/main/CMakeFiles/main.dir/navbar_book.cc.obj
+[ 53%] Building CXX object src/main/CMakeFiles/main.dir/navbar_book_dialog.cc.obj
+[ 53%] Building CXX object src/main/CMakeFiles/main.dir/navbar.cc.obj
+[ 53%] Building CXX object src/main/CMakeFiles/main.dir/navbar_key.cc.obj
+[ 54%] Building CXX object src/main/CMakeFiles/main.dir/navbar_versekey.cc.obj
+[ 54%] Building C object src/main/CMakeFiles/main.dir/note_action.c.obj
+[ 54%] Building CXX object src/main/CMakeFiles/main.dir/reference_transition.cc.obj
+[ 55%] Building C object src/main/CMakeFiles/main.dir/reading_focus.c.obj
+[ 55%] Building C object src/main/CMakeFiles/main.dir/reading_window.c.obj
+[ 55%] Building C object src/main/CMakeFiles/main.dir/picker_entry.c.obj
+[ 57%] Building C object src/main/CMakeFiles/main.dir/wheel_scroll.c.obj
+[ 57%] Building C object src/main/CMakeFiles/main.dir/navigation_prefs.c.obj
+[ 57%] Building C object src/main/CMakeFiles/main.dir/navigation_prefs_settings.c.obj
+[ 57%] Building CXX object src/main/CMakeFiles/main.dir/verse_navigation.cc.obj
+[ 58%] Building CXX object src/main/CMakeFiles/main.dir/nube_palabras.cc.obj
+[ 58%] Building C object src/main/CMakeFiles/main.dir/nube_mayusculas.c.obj
+[ 58%] Building C object src/main/CMakeFiles/main.dir/planes_lectura.c.obj
+[ 59%] Building CXX object src/main/CMakeFiles/main.dir/pulpito.cc.obj
+[ 59%] Building C object src/main/CMakeFiles/main.dir/pulpito_pasos.c.obj
+[ 59%] Building C object src/main/CMakeFiles/main.dir/memorizacion.c.obj
+[ 60%] Building C object src/main/CMakeFiles/main.dir/busqueda_tildes.c.obj
+[ 60%] Building C object src/main/CMakeFiles/main.dir/buscar_notas.c.obj
+[ 60%] Building C object src/main/CMakeFiles/main.dir/morfologia.c.obj
+[ 60%] Building C object src/main/CMakeFiles/main.dir/glosa.c.obj
+[ 61%] Building C object src/main/CMakeFiles/main.dir/racha.c.obj
+[ 61%] Building C object src/main/CMakeFiles/main.dir/texto_verso.c.obj
+[ 61%] Building C object src/main/CMakeFiles/main.dir/tiempo_lectura.c.obj
+[ 63%] Building C object src/main/CMakeFiles/main.dir/recordatorio.c.obj
+[ 63%] Building C object src/main/CMakeFiles/main.dir/versiculo_dia.c.obj
+[ 63%] Building CXX object src/main/CMakeFiles/main.dir/parallel_view.cc.obj
+[ 64%] Building CXX object src/main/CMakeFiles/main.dir/psalm_title.cc.obj
+[ 64%] Building CXX object src/main/CMakeFiles/main.dir/prayerlists.cc.obj
+[ 64%] Building CXX object src/main/CMakeFiles/main.dir/previewer.cc.obj
+[ 64%] Building CXX object src/main/CMakeFiles/main.dir/search_dialog.cc.obj
+/validation/source/src/main/parallel_view.cc:92:16: warning: ISO C++ forbids converting a string constant to 'gchar*' {aka 'char*'} [-Wwrite-strings]
+   92 | gchar *white = "#FFFFFF", *grey  = "#606060", *bg_choice;
+      |                ^~~~~~~~~
+/validation/source/src/main/parallel_view.cc:92:36: warning: ISO C++ forbids converting a string constant to 'gchar*' {aka 'char*'} [-Wwrite-strings]
+   92 | gchar *white = "#FFFFFF", *grey  = "#606060", *bg_choice;
+      |                                    ^~~~~~~~~
+[ 65%] Building CXX object src/main/CMakeFiles/main.dir/search_sidebar.cc.obj
+[ 65%] Building C object src/main/CMakeFiles/main.dir/settings.c.obj
+[ 65%] Building C object src/main/CMakeFiles/main.dir/startup_profile.c.obj
+[ 66%] Building CXX object src/main/CMakeFiles/main.dir/startup_diagnostics.cc.obj
+[ 66%] Building C object src/main/CMakeFiles/main.dir/zoom_state.c.obj
+[ 66%] Building C object src/main/CMakeFiles/main.dir/font_size.c.obj
+[ 67%] Building CXX object src/main/CMakeFiles/main.dir/sidebar.cc.obj
+[ 67%] Building CXX object src/main/CMakeFiles/main.dir/strong_interaction.cc.obj
+[ 67%] Building CXX object src/main/CMakeFiles/main.dir/strong_lexicon_startup.cc.obj
+[ 67%] Building CXX object src/main/CMakeFiles/main.dir/strong_ui.cc.obj
+[ 69%] Building CXX object src/main/CMakeFiles/main.dir/sword.cc.obj
+[ 69%] Building CXX object src/main/CMakeFiles/main.dir/sword_treekey.cc.obj
+[ 69%] Building C object src/main/CMakeFiles/main.dir/tab_history.c.obj
+[ 70%] Building C object src/main/CMakeFiles/main.dir/testimonios.c.obj
+[ 70%] Building CXX object src/main/CMakeFiles/main.dir/url.cc.obj
+[ 70%] Building C object src/main/CMakeFiles/main.dir/xml.c.obj
+[ 71%] Linking CXX static library libmain.a
+[ 71%] Built target main
+[ 72%] Generating Biblia Elim resources
+[ 73%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/about_sword.c.obj
+[ 73%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/about_modules.c.obj
+[ 73%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/about_trans.c.obj
+[ 73%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/atajos.c.obj
+[ 73%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/about_xiphos.c.obj
+[ 75%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/bibletext.c.obj
+[ 75%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/bibletext_dialog.c.obj
+[ 75%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/bookmark_dialog.c.obj
+[ 75%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/bookmarks_menu.c.obj
+[ 76%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/bookmarks_treeview.c.obj
+[ 76%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/cipher_key_dialog.c.obj
+[ 76%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/commentary.c.obj
+[ 77%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/commentary_dialog.c.obj
+[ 77%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/dialog.c.obj
+[ 77%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/dictlex.c.obj
+[ 78%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/dictlex_dialog.c.obj
+[ 78%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/diccionario.c.obj
+[ 78%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/display_info.c.obj
+[ 78%] Building CXX object src/gtk/CMakeFiles/biblia-elim.dir/dummy.cpp.obj
+[ 79%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/elim_tema.c.obj
+[ 79%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/export_bookmarks.c.obj
+[ 79%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/export_dialog.c.obj
+[ 80%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/find_dialog.c.obj
+[ 80%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/font_dialog.c.obj
+[ 80%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/gbs.c.obj
+[ 82%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/gbs_dialog.c.obj
+[ 82%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/gui.c.obj
+[ 82%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/gtk_lifecycle_smoke.c.obj
+[ 82%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/author_commentary_probe.c.obj
+[ 83%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/interlineal.c.obj
+[ 83%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/instalar_biblias.c.obj
+[ 83%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/lectura_sync.c.obj
+[ 84%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/main_menu.c.obj
+[ 84%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/navigation_prefs_dialog.c.obj
+[ 84%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/main_window.c.obj
+[ 85%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/main_window_layout.c.obj
+[ 85%] Building CXX object src/gtk/CMakeFiles/biblia-elim.dir/sqlite_module_manager_dialog.cc.obj
+[ 85%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/menu_popup.c.obj
+[ 85%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/mod_mgr.c.obj
+[ 86%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/navbar_book.c.obj
+[ 86%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/navbar_book_dialog.c.obj
+[ 86%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/navbar_entry_reference.c.obj
+[ 88%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/navbar_versekey.c.obj
+[ 88%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/navbar_versekey_dialog.c.obj
+[ 88%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/navbar_versekey_editor.c.obj
+[ 89%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/navbar_versekey_parallel.c.obj
+[ 89%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/notas_verso.c.obj
+[ 89%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/barra_busqueda.c.obj
+[ 89%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/buscar_notas.c.obj
+[ 90%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/nube_palabras.c.obj
+[ 90%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/memorizacion.c.obj
+[ 90%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/table_helpers.c.obj
+[ 91%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/entry_suggest.c.obj
+[ 91%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/planes_lectura.c.obj
+[ 91%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/pulpito.c.obj
+[ 92%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/plan_personal.c.obj
+[ 92%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/progreso_lectura.c.obj
+[ 92%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/recordatorio.c.obj
+[ 92%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/versiculo_dia.c.obj
+[ 94%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/parallel_dialog.c.obj
+[ 94%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/parallel_tab.c.obj
+[ 94%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/parallel_view.c.obj
+[ 95%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/preferences_dialog.c.obj
+[ 95%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/search_dialog.c.obj
+[ 95%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/search_sidebar.c.obj
+[ 96%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/sidebar.c.obj
+[ 96%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/sidebar_dialog.c.obj
+[ 96%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/splash.c.obj
+[ 96%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/tabbed_browser.c.obj
+[ 97%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/testimonios.c.obj
+[ 97%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/treekey-editor.c.obj
+[ 97%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/utilities.c.obj
+[ 98%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/xiphos.c.obj
+[ 98%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/zoom_indicator.c.obj
+[ 98%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/locale_set.c.obj
+[100%] Building C object src/gtk/CMakeFiles/biblia-elim.dir/biblia_elim_resources.c.obj
+[100%] Building RC object src/gtk/CMakeFiles/biblia-elim.dir/xiphos-winres.rc.res
+/validation/source/src/gtk/utilities.c: In function 'xiphos_open_default':
+/validation/source/src/gtk/utilities.c:2202:14: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+ 2202 |         rt = (gint)ShellExecuteW(NULL, L"open", w_file, NULL, NULL,
+      |              ^
+[100%] Linking CXX executable biblia-elim.exe
+[100%] Built target biblia-elim

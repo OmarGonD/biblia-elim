@@ -6,6 +6,7 @@
 build-win*/
 build/
 build-asan/
+android/local.properties
 src/examples/ipc-interface.xml
 win*/binaries/
 win32/nsis/xiphos*.exe

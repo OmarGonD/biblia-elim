@@ -93,24 +93,31 @@ GPid dbus_pid;
 
 static void
 server_callback_media(SoupServer *server,
-		      SoupMessage *msg,
+		      SoupServerMessage *msg,
 		      const char *path,
 		      GHashTable *query,
-		      SoupClientContext *client, gpointer user_data)
+		      gpointer user_data)
 {
 	char *contents;
 	gsize length;
 	GError *error = NULL;
-	gchar *real_path = path + 1;
+	const gchar *real_path = path + 1;
+	gchar *type;
 
-	if (!g_file_test(real_path, G_FILE_TEST_EXISTS))
+	if (!g_file_test(real_path, G_FILE_TEST_EXISTS)) {
+		soup_server_message_set_status(msg, SOUP_STATUS_NOT_FOUND, NULL);
 		return;
-	g_file_get_contents(real_path, &contents, &length, &error);
-	g_assert(!error);
+	}
+	if (!g_file_get_contents(real_path, &contents, &length, &error)) {
+		g_clear_error(&error);
+		soup_server_message_set_status(msg, SOUP_STATUS_INTERNAL_SERVER_ERROR, NULL);
+		return;
+	}
 
-	soup_message_body_append(msg->response_body, SOUP_MEMORY_TAKE,
-				 contents, length);
-	soup_message_set_status(msg, SOUP_STATUS_OK);
+	type = g_content_type_guess(real_path, (const guchar *)contents, length, NULL);
+	soup_server_message_set_response(msg, type, SOUP_MEMORY_TAKE, contents, length);
+	soup_server_message_set_status(msg, SOUP_STATUS_OK, NULL);
+	g_free(type);
 }
 #endif /* WIN32 */
 
@@ -248,7 +255,7 @@ int main(int argc, char *argv[])
 
 	/* get this error check out of the way before risking leaking win32 resources */
 	if (argc > 2) {
-		gui_generic_warning_modal(_("Xiphos does not understand more than one argument."));
+		gui_generic_warning_modal(_("Biblia Elim does not understand more than one argument."));
 		exit(1);
 	}
 #ifdef WIN32
@@ -315,10 +322,17 @@ int main(int argc, char *argv[])
 	g_setenv("HOME", g_getenv("APPDATA"), TRUE);
 
 	/* see comments near top of file. */
-	server = soup_server_new(SOUP_SERVER_PORT, 7878, NULL);
+	server = soup_server_new(NULL, NULL);
 	soup_server_add_handler(server, "/", server_callback_media,
 				NULL, NULL);
-	soup_server_run_async(server);
+	{
+		GError *listen_error = NULL;
+
+		if (!soup_server_listen_local(server, 7878, 0, &listen_error)) {
+			g_warning("local image server: %s", listen_error->message);
+			g_clear_error(&listen_error);
+		}
+	}
 
 #ifdef HAVE_DBUS
 	/* we must start dbus-daemon on our own as well */
@@ -479,7 +493,7 @@ int main(int argc, char *argv[])
 	gui_splash_step(_("Loading Settings"), 0.8, 2 + base_step);
 	frontend_init();
 
-	gui_splash_step(_("Displaying Xiphos"), 1.0, 3 + base_step);
+	gui_splash_step(_("Displaying Biblia Elim"), 1.0, 3 + base_step);
 
 	/* need to get rid of wrongly-formatted annotation labels. */
 	xml_convert_to_osisref();

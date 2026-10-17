@@ -79,7 +79,7 @@ trap 'exit 1' ERR
 function do_build {
     bits="${1}"
     mkdir -p win${bits} && cd win${bits}
-    cmake -DCMAKE_TOOLCHAIN_FILE=/usr/share/mingw/toolchain-mingw${bits}.cmake -DGTKTVEDITOR=ON -DCONSOLE=OFF "${XIPHOS_PATH}"
+    cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=/usr/share/mingw/toolchain-mingw${bits}.cmake -DGTKTVEDITOR=ON -DCONSOLE=OFF "${XIPHOS_PATH}"
     make VERBOSE=1
     make mhelp-epub-{C,fa,fr,it} package
     cd ..

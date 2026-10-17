@@ -1,0 +1,22 @@
+{
+  "family_id": "Manning",
+  "shared": "editorial_id and evidence URLs; wording, revision history and approvals remain independent",
+  "editions": [
+    {
+      "id": "ManningES",
+      "name": "Manning ESP",
+      "full_name": "Biblia Manning — Español",
+      "language": "es",
+      "base": "SpaRV",
+      "plan": "editorial-plan-es.json"
+    },
+    {
+      "id": "ManningEN",
+      "name": "Manning ENG",
+      "full_name": "Manning Bible — English",
+      "language": "en",
+      "base": "KJV",
+      "plan": "editorial-plan-en.json"
+    }
+  ]
+}

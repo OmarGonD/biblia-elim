@@ -117,7 +117,7 @@ main_diccionario_init(void)
 		return;
 	loaded = TRUE;
 
-	GBytes *bytes = g_resources_lookup_data("/org/xiphos/ui/diccionario-elim.xml",
+	GBytes *bytes = g_resources_lookup_data("/org/bibliaelim/ui/diccionario-elim.xml",
 						G_RESOURCE_LOOKUP_FLAGS_NONE, NULL);
 	if (bytes) {
 		gsize n = 0;

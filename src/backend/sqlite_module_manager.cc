@@ -9,11 +9,28 @@
 #include <fstream>
 #include <set>
 #include <unistd.h>
+#ifdef G_OS_WIN32
+#include <windows.h>
+#endif
 
 namespace {
 std::string dirOrDefault(const std::string &d) {
     if (!d.empty()) return d;
     return sqliteModuleDirectory();
+}
+// Moves `from` to `to` only if `to` does not exist, atomically (hard link on
+// POSIX; MoveFileEx without MOVEFILE_REPLACE_EXISTING on Windows, which has no link()).
+bool publishWithoutReplacing(const char *from, const char *to) {
+#ifdef G_OS_WIN32
+    gunichar2 *wfrom = g_utf8_to_utf16(from, -1, nullptr, nullptr, nullptr);
+    gunichar2 *wto = g_utf8_to_utf16(to, -1, nullptr, nullptr, nullptr);
+    bool ok = wfrom && wto &&
+        MoveFileExW(reinterpret_cast<LPCWSTR>(wfrom), reinterpret_cast<LPCWSTR>(wto), 0);
+    g_free(wfrom); g_free(wto);
+    return ok;
+#else
+    return link(from, to) == 0;
+#endif
 }
 bool copyAtomic(const std::string &source, const std::string &dest, std::string &error) {
     std::string tmp = dest + ".tmp-XXXXXX";
@@ -28,7 +45,7 @@ bool copyAtomic(const std::string &source, const std::string &dest, std::string 
     g_object_unref(src); g_object_unref(dst);
     if (!ok) { error = ge ? ge->message : "copy failed"; if (ge) g_error_free(ge); g_unlink(mutablePath); g_free(mutablePath); return false; }
     // Publish without replacement, including concurrent installs of the same ID.
-    if (link(mutablePath, dest.c_str()) != 0) { error = "cannot atomically install module"; g_unlink(mutablePath); g_free(mutablePath); return false; }
+    if (!publishWithoutReplacing(mutablePath, dest.c_str())) { error = "cannot atomically install module"; g_unlink(mutablePath); g_free(mutablePath); return false; }
     g_unlink(mutablePath);
     g_free(mutablePath); return true;
 }

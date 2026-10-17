@@ -11,6 +11,9 @@
 #include <glib/gstdio.h>
 #include <gtk/gtk.h>
 #include "gui/widget_helpers.h"
+#include "gui/about_xiphos.h"
+#include "gui/bibletext.h"
+#include "gui/selection_toolbar.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -37,6 +40,7 @@
 #include "main/memorizacion.h"
 #include "gui/table_helpers.h"
 #include "gui/sqlite_module_manager_dialog.h"
+#include "gui/editable_edition_dialog.h"
 #include "gui/dictlex_dialog.h"
 #include "main/planes_lectura.h"
 #include "gui/planes_lectura.h"
@@ -59,6 +63,7 @@
 #include "main/parallel_view.h"
 #include "gui/parallel_view.h"
 #include "main/reading_focus.h"
+#include "main/reading_window.h"
 #include "main/module_dialogs.h"
 #include "main/url.hh"
 #include "main/xml.h"
@@ -208,6 +213,79 @@ give_previews_room(void)
 	}
 }
 
+/* Offer a real reader selection, then verify it from the next idle. */
+static void
+prepare_selection_toolbar(void)
+{
+	GtkTextView *view = wk_html_get_view(WK_HTML(widgets.html_text));
+	GtkTextBuffer *buffer = gtk_text_view_get_buffer(view);
+	GtkTextIter start, end;
+	gtk_text_buffer_get_start_iter(buffer, &start);
+	while (!gtk_text_iter_is_end(&start)) {
+		gchar *anchor = wk_html_anchor_at(WK_HTML(widgets.html_text), &start);
+		gboolean word = atoi(anchor) > 0 &&
+			g_unichar_isalpha(gtk_text_iter_get_char(&start));
+		g_free(anchor);
+		if (word) break;
+		gtk_text_iter_forward_char(&start);
+	}
+	check(!gtk_text_iter_is_end(&start), "selection toolbar fixture text exists");
+	if (gtk_text_iter_is_end(&start)) return;
+	end = start;
+	gtk_text_iter_forward_word_end(&end);
+	gtk_text_buffer_select_range(buffer, &end, &start);
+	GListModel *controllers = gtk_widget_observe_controllers(GTK_WIDGET(view));
+	for (guint i = 0; i < g_list_model_get_n_items(controllers); ++i) {
+		GObject *controller = g_list_model_get_item(controllers, i);
+		if (GTK_IS_EVENT_CONTROLLER_KEY(controller))
+			g_signal_emit_by_name(controller, "key-released", GDK_KEY_Shift_L,
+					     0, GDK_SHIFT_MASK);
+		g_object_unref(controller);
+	}
+	g_object_unref(controllers);
+}
+
+static void
+check_selection_toolbar(void)
+{
+	GtkTextView *view = wk_html_get_view(WK_HTML(widgets.html_text));
+	GtkTextBuffer *buffer = gtk_text_view_get_buffer(view);
+	GtkTextIter start, end;
+	check(gtk_text_buffer_get_selection_bounds(buffer, &start, &end),
+	      "selection survives offering toolbar");
+	GtkWidget *toolbar = NULL;
+	for (GtkWidget *child = gtk_widget_get_first_child(widgets.html_text);
+	     child; child = gtk_widget_get_next_sibling(child))
+		if (gtk_widget_has_css_class(child, "highlight-toolbar")) toolbar = child;
+	check(toolbar && gtk_widget_get_visible(toolbar), "selection offers toolbar");
+	if (!toolbar) return;
+	GtkWidget *box = gtk_popover_get_child(GTK_POPOVER(toolbar));
+	GtkWidget *remove = gtk_widget_get_first_child(box);
+	GtkWidget *underline = gtk_widget_get_next_sibling(remove);
+	check(!gtk_widget_get_visible(remove), "fresh selection hides delete action");
+	g_signal_emit_by_name(underline, "clicked");
+	check(gtk_widget_get_visible(remove), "committed highlight enables delete action");
+	gchar *gid = wk_html_highlight_id_at(&start);
+	check(gid != NULL, "underline creates a highlight");
+	GuiButtonEvent click = {.target = widgets.html_text};
+	selection_toolbar_outside_press(widgets.app, &click, toolbar);
+	check(!gtk_widget_get_visible(toolbar), "outside click closes selection toolbar");
+	gchar *remaining = wk_html_highlight_id_at(&start);
+	check(gid && !g_strcmp0(gid, remaining), "outside click preserves highlight");
+	g_free(remaining);
+	gtk_popover_popup(GTK_POPOVER(toolbar));
+	GuiKeyEvent key = {.keyval = GDK_KEY_Escape};
+	check(selection_toolbar_escape(widgets.app, &key, toolbar), "Escape closes toolbar");
+	remaining = wk_html_highlight_id_at(&start);
+	check(gid && !g_strcmp0(gid, remaining), "Escape preserves highlight");
+	g_free(remaining);
+	g_signal_emit_by_name(remove, "clicked");
+	remaining = wk_html_highlight_id_at(&start);
+	check(remaining == NULL, "delete action removes existing highlight");
+	g_free(remaining);
+	g_free(gid);
+}
+
 /* gui_init() defaults GSK_RENDERER to the OpenGL renderer (GTK4-PERF-101): the
  * window must not end up on the Vulkan renderer unless the environment asked
  * for it. GTK 4.22 renamed "ngl" to "gl" and warns about the old name at every
@@ -219,7 +297,9 @@ check_gsk_renderer(void)
 	const char *requested = g_getenv("GSK_RENDERER");
 	GskRenderer *renderer;
 
-	check(requested != NULL, "GSK_RENDERER has a default");
+#ifdef __linux__
+	check(requested != NULL, "GSK_RENDERER has a default on Linux");
+#endif
 	if (requested && gtk_get_minor_version() >= 22)
 		check(strcmp(requested, "ngl") != 0,
 		      "GSK_RENDERER default is not a renamed renderer name");
@@ -1015,6 +1095,19 @@ find_widget_of_type(GtkWidget *widget, GType type)
 	GtkWidget *found = NULL;
 	for (GList *l = children; l && !found; l = l->next)
 		found = find_widget_of_type(l->data, type);
+	g_list_free(children);
+	return found;
+}
+
+static GtkWidget *
+find_widget_named(GtkWidget *widget, const gchar *name)
+{
+	if (!g_strcmp0(gtk_widget_get_name(widget), name))
+		return widget;
+	GList *children = gui_widget_get_children(widget);
+	GtkWidget *found = NULL;
+	for (GList *l = children; l && !found; l = l->next)
+		found = find_widget_named(l->data, name);
 	g_list_free(children);
 	return found;
 }
@@ -2192,8 +2285,31 @@ check_menu_bar(void)
 	check(actions && g_action_group_has_action(actions, "read-aloud") &&
 	      g_action_group_has_action(actions, "interlinear") &&
 	      g_action_group_has_action(actions, "reading-mode") &&
-	      g_action_group_has_action(actions, "studypad"),
+	      g_action_group_has_action(actions, "studypad") &&
+	      g_action_group_has_action(actions, "editable-editions"),
 	      "main menu state actions missing");
+	if (actions && widgets.notebook_bible_parallel) {
+		gtk_notebook_set_current_page(
+			GTK_NOTEBOOK(widgets.notebook_bible_parallel), 0);
+		g_action_group_activate_action(actions, "studypad", NULL);
+		check(widgets.study_editor_panel &&
+		      gtk_widget_get_visible(widgets.study_editor_panel),
+		      "StudyPad action did not open the inline editor");
+		check(widgets.study_editor_panel &&
+		      GTK_IS_PANED(gtk_widget_get_parent(
+			      widgets.study_editor_panel)) &&
+		      (gtk_paned_get_start_child(GTK_PANED(
+			       gtk_widget_get_parent(widgets.study_editor_panel))) ==
+			       widgets.study_editor_panel ||
+		       gtk_paned_get_end_child(GTK_PANED(
+			       gtk_widget_get_parent(widgets.study_editor_panel))) ==
+			       widgets.study_editor_panel),
+		      "StudyPad panel is visible but not attached to its splitter");
+		g_action_group_activate_action(actions, "studypad", NULL);
+		check(widgets.study_editor_panel &&
+		      !gtk_widget_get_visible(widgets.study_editor_panel),
+		      "StudyPad action did not close the inline editor");
+	}
 	GVariant *state = actions ? g_action_group_get_action_state(
 	    actions, "interlinear") : NULL;
 	check(state && g_variant_get_boolean(state) ==
@@ -2222,13 +2338,399 @@ check_menu_bar(void)
 	}
 
 	gchar *mode = g_strdup(settings.ui_mode);
+#if GTK_CHECK_VERSION(4, 20, 0)
+	gchar *theme_before = NULL;
+	g_object_get(gtk_settings_get_default(), "gtk-theme-name", &theme_before, NULL);
+#endif
 	gui_elim_tema_set(!g_strcmp0(mode, "oscuro") ? "claro" : "oscuro");
 	state = actions ? g_action_group_get_action_state(actions, "theme") : NULL;
 	check(state && !g_strcmp0(g_variant_get_string(state, NULL), settings.ui_mode),
 	      "main menu theme radio does not follow the theme");
 	g_clear_pointer(&state, g_variant_unref);
+#if GTK_CHECK_VERSION(4, 20, 0)
+	GtkInterfaceColorScheme scheme;
+	gchar *theme_after = NULL;
+	gboolean dark = !g_strcmp0(settings.ui_mode, "oscuro");
+	g_object_get(gtk_settings_get_default(), "gtk-interface-color-scheme", &scheme,
+		     "gtk-theme-name", &theme_after, NULL);
+	check(scheme == (dark ? GTK_INTERFACE_COLOR_SCHEME_DARK : GTK_INTERFACE_COLOR_SCHEME_LIGHT),
+	      "theme action did not select the GTK color scheme");
+	check(!g_strcmp0(theme_before, theme_after),
+	      "theme action reloaded the theme name after selecting its color scheme");
+	GdkRGBA theme_background = {0};
+	check(gtk_style_context_lookup_color(gtk_widget_get_style_context(widgets.app),
+					    "theme_bg_color", &theme_background),
+	      "GTK theme background unavailable");
+	check((theme_background.red + theme_background.green + theme_background.blue < 1.5) == dark,
+	      "GTK theme background does not follow the selected light/dark scheme");
+	g_free(theme_before);
+	g_free(theme_after);
+#endif
 	gui_elim_tema_set(mode);
 	g_free(mode);
+}
+
+static gboolean
+inspect_editable_edition_create_dialog(gpointer data)
+{
+	(void)data;
+	GList *toplevels = gtk_window_list_toplevels();
+	GtkWidget *dialog = NULL;
+	for (GList *l = toplevels; l && !dialog; l = l->next)
+		if (!g_strcmp0(gtk_widget_get_name(GTK_WIDGET(l->data)),
+			       "editable-edition-create"))
+			dialog = GTK_WIDGET(l->data);
+	g_list_free(toplevels);
+	if (!dialog)
+		return G_SOURCE_CONTINUE;
+	GtkWidget *source = find_widget_named(dialog, "editable-edition-source");
+	GtkWidget *create = gtk_dialog_get_widget_for_response(GTK_DIALOG(dialog),
+								       GTK_RESPONSE_ACCEPT);
+	check(gtk_widget_get_width(dialog) <= 700,
+	      "editable-edition source chooser expanded too wide");
+	check(source && gtk_widget_get_width(source) <= 480,
+	      "editable-edition source selector exceeds its compact width");
+	check(create && gtk_widget_get_margin_start(create) >= 10,
+	      "editable-edition create and cancel buttons need visible spacing");
+	gtk_dialog_response(GTK_DIALOG(dialog), GTK_RESPONSE_CANCEL);
+	return G_SOURCE_REMOVE;
+}
+
+static gboolean
+inspect_editable_edition_dialog(gpointer data)
+{
+	(void)data;
+	GList *toplevels = gtk_window_list_toplevels();
+	GtkWidget *dialog = NULL;
+	for (GList *l = toplevels; l && !dialog; l = l->next)
+		if (!g_strcmp0(gtk_widget_get_name(GTK_WIDGET(l->data)),
+			       "editable-edition-manager"))
+			dialog = GTK_WIDGET(l->data);
+	g_list_free(toplevels);
+	if (!dialog)
+		return G_SOURCE_CONTINUE;
+	check(gtk_widget_get_width(dialog) <= 760,
+	      "editable-edition chooser expanded too wide");
+	GtkWidget *description = find_widget_named(dialog,
+						   "editable-edition-description");
+	check(description && GTK_IS_LABEL(description) &&
+	      gtk_label_get_wrap(GTK_LABEL(description)) &&
+	      gtk_label_get_max_width_chars(GTK_LABEL(description)) == 66,
+	      "editable-edition chooser description is not constrained and wrapped");
+	GtkWidget *create = find_widget_named(dialog,
+					      "editable-edition-create-button");
+	check(create != NULL, "editable-edition create button is available");
+	check(find_widget_named(dialog,"editable-edition-export-pdf")!=NULL,
+	      "study Bible manager exposes PDF export for saved projects");
+	if (create) {
+		g_timeout_add(50, inspect_editable_edition_create_dialog, NULL);
+		g_signal_emit_by_name(create, "clicked");
+	}
+	gtk_dialog_response(GTK_DIALOG(dialog), GTK_RESPONSE_CLOSE);
+	return G_SOURCE_REMOVE;
+}
+
+static void
+check_editable_edition_dialog_layout(void)
+{
+	g_timeout_add(50, inspect_editable_edition_dialog, NULL);
+	gui_open_editable_edition_dialog(GTK_WINDOW(widgets.app));
+}
+
+static GtkWidget *edition_window(const char *name)
+{
+ GList *windows=gtk_window_list_toplevels();GtkWidget *found=NULL;
+ for(GList*l=windows;l&&!found;l=l->next)if(!g_strcmp0(gtk_widget_get_name(l->data),name))found=l->data;
+ g_list_free(windows);return found;
+}
+
+typedef struct {gchar *output;gboolean folder_set;} StudyPdfUiCheck;
+
+static gboolean inspect_study_pdf_file(gpointer data)
+{
+ GtkWidget *dialog=edition_window("study-pdf-file");
+ if(!dialog)return G_SOURCE_CONTINUE;
+ StudyPdfUiCheck *state=data;
+ if(state){
+  if(!state->folder_set){
+   // Exercise the initially chosen folder. Changing it during GtkPathBar's
+   // first async load triggers a GTK 4.24 bug unrelated to exporting.
+   gtk_file_chooser_set_current_name(GTK_FILE_CHOOSER(dialog),"study-pdf-smoke.pdf");
+   state->folder_set=TRUE;return G_SOURCE_CONTINUE;
+  }
+  gchar *selected=gui_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
+  if(!selected)return G_SOURCE_CONTINUE;
+  state->output=selected;
+  gtk_dialog_response(GTK_DIALOG(dialog),GTK_RESPONSE_ACCEPT);return G_SOURCE_REMOVE;
+ }
+ check(GTK_IS_FILE_CHOOSER(dialog) && gtk_file_chooser_get_action(GTK_FILE_CHOOSER(dialog))==GTK_FILE_CHOOSER_ACTION_SAVE,
+       "study PDF export uses the save-file chooser");
+ gchar *name=gtk_file_chooser_get_current_name(GTK_FILE_CHOOSER(dialog));
+ check(name && g_str_has_suffix(name," - aportes.pdf"),"contribution-only export suggests a distinct PDF filename");
+ g_free(name);gtk_dialog_response(GTK_DIALOG(dialog),GTK_RESPONSE_CANCEL);return G_SOURCE_REMOVE;
+}
+
+static gboolean inspect_study_pdf_options(gpointer data)
+{
+ GtkWidget *dialog=edition_window("study-pdf-options");
+ if(!dialog)return G_SOURCE_CONTINUE;
+ GtkWidget *scope=find_widget_named(dialog,"study-pdf-scope");
+ check(scope && gtk_drop_down_get_selected(GTK_DROP_DOWN(scope))==0 &&
+       g_list_model_get_n_items(gtk_drop_down_get_model(GTK_DROP_DOWN(scope)))==2,
+       "study PDF export offers a complete Bible by default and contribution-only selection");
+ if(scope)gtk_drop_down_set_selected(GTK_DROP_DOWN(scope),1);
+ g_timeout_add(50,inspect_study_pdf_file,data);
+ gtk_dialog_response(GTK_DIALOG(dialog),GTK_RESPONSE_ACCEPT);return G_SOURCE_REMOVE;
+}
+
+static gboolean study_pdf_finished(GtkWidget *unused)
+{
+ (void)unused;GtkWidget *dialog=edition_window("study-pdf-progress");if(!dialog)return FALSE;
+ GtkWidget *close=gtk_dialog_get_widget_for_response(GTK_DIALOG(dialog),GTK_RESPONSE_CANCEL);
+ return close && !g_strcmp0(gtk_button_get_label(GTK_BUTTON(close)),"Cerrar");
+}
+
+static gboolean inspect_edition_comparison(gpointer unused)
+{
+ (void)unused;GtkWidget *dialog=edition_window("edition-comparison");
+ if(!dialog)return G_SOURCE_CONTINUE;
+ GtkWidget *base=find_widget_named(dialog,"edition-base-text");
+ GtkWidget *current=find_widget_named(dialog,"edition-current-text");
+ check(find_widget_named(dialog,"edition-comparison-title")!=NULL,
+       "comparison uses a distinct passage heading");
+ check(base && !pango_layout_get_auto_dir(gtk_label_get_layout(GTK_LABEL(base))) && gtk_label_get_xalign(GTK_LABEL(base))==0,
+       "comparison keeps mixed Hebrew and Spanish aligned to the interface");
+ check(base && current && strcmp(gtk_label_get_text(GTK_LABEL(base)),gtk_label_get_text(GTK_LABEL(current))),
+       "comparison presents different original and edited wording");
+ check(current && strstr(gtk_label_get_label(GTK_LABEL(current)),"<b><u>")!=NULL,
+       "comparison highlights actual text differences");
+ gtk_dialog_response(GTK_DIALOG(dialog),GTK_RESPONSE_CLOSE);return G_SOURCE_REMOVE;
+}
+
+static gboolean inspect_identical_edition_comparison(gpointer unused)
+{
+ (void)unused;GtkWidget *dialog=edition_window("edition-comparison");
+ if(!dialog)return G_SOURCE_CONTINUE;
+ check(find_widget_named(dialog,"edition-text-comparison")==NULL &&
+       find_widget_named(dialog,"edition-base-text")==NULL &&
+       find_widget_named(dialog,"edition-current-text")==NULL,
+       "unchanged verses omit the redundant text comparison");
+ check(find_widget_named(dialog,"edition-comment-body")!=NULL &&
+       find_widget_named(dialog,"edition-note-title")!=NULL &&
+       find_widget_named(dialog,"edition-note-lead")!=NULL,
+       "comment reader presents title, lead and body as separate elements");
+ GtkWidget *details=find_widget_named(dialog,"edition-editorial-details");
+ check(details && !gtk_expander_get_expanded(GTK_EXPANDER(details)),
+       "editorial status and source provenance are available without crowding the comment");
+ gtk_dialog_response(GTK_DIALOG(dialog),GTK_RESPONSE_CLOSE);return G_SOURCE_REMOVE;
+}
+
+static gboolean inspect_edition_changes(gpointer unused)
+{
+ (void)unused;GtkWidget *dialog=edition_window("edition-changes-dialog");
+ if(!dialog)return G_SOURCE_CONTINUE;
+ GtkWidget *filter=find_widget_named(dialog,"edition-change-filter");
+ GtkWidget *list=find_widget_named(dialog,"edition-change-list");
+ check(filter && list,"generic changes browser exposes filters and navigation");
+ if(filter && list){
+  for(guint i=0;i<3;++i){
+   gtk_drop_down_set_selected(GTK_DROP_DOWN(filter),i);
+   check(gtk_list_box_get_row_at_index(GTK_LIST_BOX(list),0)!=NULL && gtk_list_box_get_row_at_index(GTK_LIST_BOX(list),1)==NULL,
+         "changed, comment-only and pending filters have expected coverage");
+  }
+  gtk_drop_down_set_selected(GTK_DROP_DOWN(filter),1);
+  g_signal_emit_by_name(list,"row-activated",gtk_list_box_get_row_at_index(GTK_LIST_BOX(list),0));
+ }else gtk_dialog_response(GTK_DIALOG(dialog),GTK_RESPONSE_CLOSE);
+ return G_SOURCE_REMOVE;
+}
+
+static gboolean inspect_edition_editor(gpointer unused)
+{
+ (void)unused;GtkWidget *dialog=edition_window("editable-edition-editor");
+ if(!dialog)return G_SOURCE_CONTINUE;
+ GtkWidget *compare=find_widget_named(dialog,"edition-compare");
+ GtkWidget *changes=find_widget_named(dialog,"edition-changes");
+ check(compare && changes,"all editable projects expose comparison and contribution browser");
+ if(compare){g_timeout_add(50,inspect_edition_comparison,NULL);g_signal_emit_by_name(compare,"clicked");}
+ if(changes){g_timeout_add(50,inspect_edition_changes,NULL);g_signal_emit_by_name(changes,"clicked");}
+ GtkWidget *verse=find_widget_named(dialog,"edition-verse");
+ check(verse && gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(verse))==2,
+       "selecting a filtered comment navigates to its exact verse");
+ gtk_dialog_response(GTK_DIALOG(dialog),GTK_RESPONSE_CLOSE);return G_SOURCE_REMOVE;
+}
+
+typedef struct {
+ gboolean inspected;
+ gboolean edited;
+} ReaderContributionCheck;
+
+static gboolean inspect_reader_contribution_note(gpointer data)
+{
+ ReaderContributionCheck *state=data;
+ GtkWidget *dialog=edition_window("edition-comparison");
+ if(!dialog)return G_SOURCE_CONTINUE;
+ state->inspected=TRUE;
+ GtkWindow *parent=gtk_window_get_transient_for(GTK_WINDOW(dialog));
+ check(parent && GTK_WIDGET(parent)==edition_window("edition-contributions-dialog") &&
+       gtk_widget_get_visible(GTK_WIDGET(parent)),
+       "contribution comment opens above its still-visible browser");
+ if(!state->edited){
+  GtkWidget *title=find_widget_named(dialog,"edition-note-title");
+  check(title && !g_strcmp0(gtk_label_get_text(GTK_LABEL(title)),"A study note title"),
+        "activating a contribution opens that verse's actual commentary");
+ }
+ return state->edited?inspect_edition_comparison(NULL):inspect_identical_edition_comparison(NULL);
+}
+
+static void activate_reader_contribution(GtkWidget *list,GtkListBoxRow *row,gboolean edited)
+{
+ ReaderContributionCheck state={FALSE,edited};
+ guint timeout=g_timeout_add(50,inspect_reader_contribution_note,&state);
+ g_signal_emit_by_name(list,"row-activated",row);
+ if(!state.inspected)g_source_remove(timeout);
+ check(state.inspected,"activating a contribution opens its comment instead of closing the browser");
+}
+
+static gboolean inspect_reader_contributions(gpointer unused)
+{
+ (void)unused;GtkWidget *dialog=edition_window("edition-contributions-dialog");
+ if(!dialog)return G_SOURCE_CONTINUE;
+ GtkWidget *filter=find_widget_named(dialog,"edition-contribution-filter");
+ GtkWidget *search=find_widget_named(dialog,"edition-contribution-search");
+ GtkWidget *list=find_widget_named(dialog,"edition-contribution-list");
+ GtkWidget *count=find_widget_named(dialog,"edition-contribution-count");
+ GtkWidget *exportPdf=find_widget_named(dialog,"edition-contribution-export-pdf");
+ check(exportPdf!=NULL,"contribution browser exposes PDF export without selecting a verse");
+ if(exportPdf){g_timeout_add(50,inspect_study_pdf_options,NULL);g_signal_emit_by_name(exportPdf,"clicked");}
+ check(edition_window("edition-contributions-dialog")==dialog && gtk_widget_get_visible(dialog),
+       "cancelling PDF export returns to the contribution browser");
+ if(exportPdf){
+  StudyPdfUiCheck state={NULL,FALSE};
+  g_timeout_add(50,inspect_study_pdf_options,&state);g_signal_emit_by_name(exportPdf,"clicked");
+  pump_until(study_pdf_finished,NULL,5*G_USEC_PER_SEC);
+  GtkWidget *progress=edition_window("study-pdf-progress");
+  check(progress && study_pdf_finished(NULL) &&
+        gtk_dialog_get_widget_for_response(GTK_DIALOG(progress),GTK_RESPONSE_ACCEPT)!=NULL,
+        "background PDF export finishes and offers to open the saved document");
+  gchar *bytes=NULL;gsize length=0;
+  check(g_file_get_contents(state.output,&bytes,&length,NULL) && length>5 && !strncmp(bytes,"%PDF-",5),
+        "GUI export writes a real PDF at the selected filename");
+  g_free(bytes);g_unlink(state.output);g_free(state.output);
+  if(progress)gtk_dialog_response(GTK_DIALOG(progress),GTK_RESPONSE_CLOSE);
+ }
+ check(filter && search && list && count,"reader contribution browser exposes search, filters and count");
+ if(!(filter && search && list && count)){
+  gtk_dialog_response(GTK_DIALOG(dialog),GTK_RESPONSE_CLOSE);return G_SOURCE_REMOVE;
+ }
+ check(gtk_drop_down_get_selected(GTK_DROP_DOWN(filter))==0 &&
+       gtk_list_box_get_row_at_index(GTK_LIST_BOX(list),1)!=NULL &&
+       gtk_list_box_get_row_at_index(GTK_LIST_BOX(list),2)==NULL,
+       "all contributions includes edited and comment-only verses exactly once");
+ GtkWidget *goTo=find_widget_named(dialog,"edition-contribution-goto");
+ check(goTo && !gtk_widget_get_sensitive(goTo),
+       "explicit verse navigation waits for a selected contribution");
+ for(guint i=1;i<4;++i){
+  gtk_drop_down_set_selected(GTK_DROP_DOWN(filter),i);
+  check(gtk_list_box_get_row_at_index(GTK_LIST_BOX(list),0)!=NULL &&
+        gtk_list_box_get_row_at_index(GTK_LIST_BOX(list),1)==NULL,
+        "reader filters distinguish edited text, comments and pending proposals");
+ }
+ gtk_drop_down_set_selected(GTK_DROP_DOWN(filter),0);
+ gtk_editable_set_text(GTK_EDITABLE(search),"GÉNESIS 1:2");
+ check(gtk_list_box_get_row_at_index(GTK_LIST_BOX(list),0)!=NULL &&
+       gtk_list_box_get_row_at_index(GTK_LIST_BOX(list),1)==NULL,
+       "contribution references match without case or accent sensitivity");
+ gtk_editable_set_text(GTK_EDITABLE(search),"does-not-exist");
+ check(gtk_list_box_get_row_at_index(GTK_LIST_BOX(list),0)==NULL &&
+       *gtk_label_get_text(GTK_LABEL(count)),"empty search explains the absence of matching contributions");
+ gtk_editable_set_text(GTK_EDITABLE(search),"EXPLANATORY LEAD");
+ check(gtk_list_box_get_row_at_index(GTK_LIST_BOX(list),0)!=NULL &&
+       gtk_list_box_get_row_at_index(GTK_LIST_BOX(list),1)==NULL,
+       "search finds commentary body without changing Bible text");
+ gtk_drop_down_set_selected(GTK_DROP_DOWN(filter),1);
+ check(gtk_list_box_get_row_at_index(GTK_LIST_BOX(list),0)==NULL,
+       "type and content search filters combine");
+ gtk_drop_down_set_selected(GTK_DROP_DOWN(filter),2);
+ GtkListBoxRow *row=gtk_list_box_get_row_at_index(GTK_LIST_BOX(list),0);
+ if(row){
+  activate_reader_contribution(list,row,FALSE);
+  check(edition_window("edition-contributions-dialog")==dialog && gtk_widget_get_visible(dialog) &&
+        gtk_list_box_get_row_at_index(GTK_LIST_BOX(list),0)==row &&
+        gtk_list_box_get_selected_row(GTK_LIST_BOX(list))==row &&
+        gtk_drop_down_get_selected(GTK_DROP_DOWN(filter))==2 &&
+        !g_strcmp0(gtk_editable_get_text(GTK_EDITABLE(search)),"EXPLANATORY LEAD"),
+        "return from a comment preserves the browser, result rows, selection, filter and search");
+  gtk_drop_down_set_selected(GTK_DROP_DOWN(filter),1);
+  gtk_editable_set_text(GTK_EDITABLE(search),"");
+  row=gtk_list_box_get_row_at_index(GTK_LIST_BOX(list),0);
+  if(row)activate_reader_contribution(list,row,TRUE);
+  check(edition_window("edition-contributions-dialog")==dialog && gtk_widget_get_visible(dialog),
+        "another contribution can be read without reopening the browser");
+  gtk_drop_down_set_selected(GTK_DROP_DOWN(filter),2);
+  row=gtk_list_box_get_row_at_index(GTK_LIST_BOX(list),0);
+  gtk_list_box_select_row(GTK_LIST_BOX(list),row);
+  check(goTo && gtk_widget_get_sensitive(goTo),"selected contribution enables explicit verse navigation");
+  if(goTo)g_signal_emit_by_name(goTo,"clicked");
+  else gtk_dialog_response(GTK_DIALOG(dialog),GTK_RESPONSE_CLOSE);
+ }else gtk_dialog_response(GTK_DIALOG(dialog),GTK_RESPONSE_CLOSE);
+ return G_SOURCE_REMOVE;
+}
+
+static gboolean inspect_empty_contributions(gpointer unused)
+{
+ (void)unused;GtkWidget *dialog=edition_window("edition-contributions-dialog");
+ if(!dialog)return G_SOURCE_CONTINUE;
+ GtkWidget *list=find_widget_named(dialog,"edition-contribution-list");
+ GtkWidget *count=find_widget_named(dialog,"edition-contribution-count");
+ check(list && !gtk_list_box_get_row_at_index(GTK_LIST_BOX(list),0) && count &&
+       strstr(gtk_label_get_text(GTK_LABEL(count)),"aún no tiene aportes"),
+       "new editable Bibles explain their empty contribution list");
+ gtk_dialog_response(GTK_DIALOG(dialog),GTK_RESPONSE_CLOSE);return G_SOURCE_REMOVE;
+}
+
+static void check_edition_contributions(void)
+{
+ gchar *module=g_strdup(settings.MainWindowModule),*passage=g_strdup(settings.currentverse);
+ main_display_bible("EditionFixture","Genesis 1:1");
+ GtkTextBuffer *buffer=gtk_text_view_get_buffer(wk_html_get_view(WK_HTML(widgets.html_text)));
+ GtkTextIter start,end;gtk_text_buffer_get_bounds(buffer,&start,&end);
+ gchar *text=gtk_text_buffer_get_text(buffer,&start,&end,FALSE);
+ check(strstr(text,"Editado") && strstr(text,"Comentario") && strstr(text,"Original fixture"),
+       "reader shows generic edit/comment badges and original source");
+ g_free(text);
+ GtkWidget *contributions=find_widget_named(widgets.app,"edition-contributions-button");
+ check(contributions && gtk_widget_get_visible(contributions),
+       "editable Bible exposes the contribution button beside reader tools");
+ const gboolean wasReading=settings.reading_mode;
+ gui_toggle_reading_mode(TRUE);
+ GtkWidget *readingContributions=find_widget_named(widgets.app,"reading-edition-contributions-button");
+ check(readingContributions && gtk_widget_get_visible(readingContributions),
+       "reading mode also has access to editable Bible contributions");
+ gui_toggle_reading_mode(wasReading);
+ if(contributions){
+  g_timeout_add(50,inspect_reader_contributions,NULL);
+  g_signal_emit_by_name(contributions,"clicked");
+  check(!g_strcmp0(settings.MainWindowModule,"EditionFixture") &&
+        strstr(settings.currentverse,"1:2")!=NULL,
+        "reader contribution selection navigates to its exact Bible and verse");
+ }
+ g_timeout_add(50,inspect_edition_comparison,NULL);
+ check(main_url_handler("passagestudy.jsp?action=showEditionComparison&module=EditionFixture&passage=Genesis%201%3A1",TRUE)!=0,
+       "reader badge route opens the matching comparison");
+ g_timeout_add(50,inspect_identical_edition_comparison,NULL);
+ gui_show_edition_comparison(GTK_WINDOW(widgets.app),"EditionFixture",1,1,2);
+ g_timeout_add(50,inspect_edition_editor,NULL);
+ gui_open_edition_editor(GTK_WINDOW(widgets.app),"EditionFixture");
+ main_display_bible("EmptyEditionFixture","Genesis 1:1");
+ check(contributions && gtk_widget_get_visible(contributions),
+       "empty editable projects retain a discoverable contribution filter");
+ g_timeout_add(50,inspect_empty_contributions,NULL);
+ gui_open_edition_contributions(GTK_WINDOW(widgets.app),"EmptyEditionFixture");
+ main_display_bible("FakeBible","Genesis 1:1");
+ check(contributions && !gtk_widget_get_visible(contributions) &&
+       readingContributions && !gtk_widget_get_visible(readingContributions),
+       "ordinary source Bibles do not show an editable contribution filter");
+ main_display_bible(module,passage);g_free(module);g_free(passage);
 }
 
 static void
@@ -2236,9 +2738,11 @@ check_sqlite_parallel(void)
 {
     gchar **saved = settings.parallel_list;
     gboolean docked = settings.dockedInt;
+    gboolean strongs = settings.parallel_strongs;
     gchar *list[] = { "FakeBible", "OtherBible", NULL };
     settings.parallel_list = list;
     settings.dockedInt = TRUE;
+    settings.parallel_strongs = FALSE;
     main_display_bible(settings.MainWindowModule, "John 3:16");
     check(!g_strcmp0(settings.cvparallel, settings.currentverse),
           "SQLite parallel follows current passage");
@@ -2246,13 +2750,33 @@ check_sqlite_parallel(void)
     check(html != NULL, "SQLite parallel chapter generated");
     if (html) {
         check(strstr(html, "OtherBible") != NULL, "SQLite-only second column");
-        check(strstr(html, "For God so loved the world.") != NULL, "parallel verse body");
+        check(strstr(html, "For <i>God</i> so loved the world.") != NULL,
+              "parallel verse body and fixture italics");
         check(strstr(html, "God sent his Son to save the world.") != NULL, "parallel chapter verse count");
         check(strstr(html, "SQLite parallel heading") != NULL, "parallel neutral heading");
     }
     g_free(html);
     settings.parallel_list = saved;
     settings.dockedInt = docked;
+    settings.parallel_strongs = strongs;
+}
+
+static void
+check_about_dialog_branding(void)
+{
+	GtkWidget *about = gui_create_about_xiphos();
+	const gchar * const *authors = gtk_about_dialog_get_authors(
+		GTK_ABOUT_DIALOG(about));
+	GdkPaintable *logo = gtk_about_dialog_get_logo(GTK_ABOUT_DIALOG(about));
+	check(authors && authors[0] &&
+	      !g_strcmp0(authors[0], "Omar Gonzáles Díaz") && !authors[1],
+	      "About credits must list Omar Gonzáles Díaz as the sole author");
+	check(logo && gdk_paintable_get_intrinsic_width(logo) >= 300,
+	      "About dialog must show the enlarged Elim logo");
+	check(!g_strcmp0(gtk_about_dialog_get_copyright(
+		GTK_ABOUT_DIALOG(about)), "Copyright © 2026 Omar Gonzáles Díaz"),
+	      "About copyright must identify Omar Gonzáles Díaz");
+	gtk_window_destroy(GTK_WINDOW(about));
 }
 
 static gboolean
@@ -2262,6 +2786,20 @@ exercise_application(gpointer unused)
 	guint i;
 
 	(void)unused;
+	static gboolean about_checked;
+	if (!about_checked) {
+		about_checked = TRUE;
+		check_about_dialog_branding();
+	}
+	static gboolean selection_prepared;
+	if (settings.havebible && !selection_prepared) {
+		selection_prepared = TRUE;
+		prepare_selection_toolbar();
+		g_idle_add(exercise_application, NULL);
+		return G_SOURCE_REMOVE;
+	}
+	if (settings.havebible)
+		check_selection_toolbar();
 
 	GListStore *modules = elim_table_get_store(sidebar.module_list);
 	check(GTK_IS_LIST_VIEW(sidebar.module_list) && modules != NULL &&
@@ -2427,6 +2965,8 @@ exercise_application(gpointer unused)
 	check(gtk_widget_get_visible(widgets.app), "main window was not shown");
 	check(gtk_widget_get_realized(widgets.app), "main window was not realized");
 	check(gtk_widget_get_mapped(widgets.app), "main window was not mapped");
+	check(GTK_IS_BOX(gtk_widget_get_parent(widgets.appbar)),
+	      "status progress has no application-owned box beside GtkStatusbar");
 	/* GTK 4 dropped show_all()/no-show-all along with it: gtk_widget_show()
 	 * no longer cascades to children, so the hazard these checks used to
 	 * guard against (a startup-hidden panel resurrected by some ancestor's
@@ -2507,6 +3047,8 @@ exercise_application(gpointer unused)
               "mixed backend status missing");
         g_free(status);
 		check_menu_bar();
+		check_editable_edition_dialog_layout();
+		check_edition_contributions();
 		check_word_cloud();
 		check_word_cloud_dialog();
 		check_builder_dialog_opens("preferences", gui_setup_preferences_dialog);
@@ -2608,9 +3150,43 @@ exercise_application(gpointer unused)
 	return G_SOURCE_REMOVE;
 }
 
+static gchar *startup_requested_key;
+static gint startup_chapter;
+
+static gboolean
+wait_for_initial_reading_window(gpointer unused)
+{
+	extern int main_rendered_first_chapter, main_rendered_last_chapter;
+	static guint tries;
+	(void)unused;
+	gboolean pending = reading_window_first_paint_pending() ||
+		main_bible_window_needs_recenter(settings.currentverse) ||
+		gui_bibletext_window_pending() ||
+		wk_html_anchor_jump_pending(WK_HTML(widgets.html_text));
+	if (pending && ++tries < 200)
+		return G_SOURCE_CONTINUE;
+	check(!pending, "initial chapter never painted or neighbours never loaded");
+	check(!g_strcmp0(startup_requested_key, settings.currentverse),
+	      "loading the initial neighbours changed the requested verse");
+	check(main_rendered_first_chapter <= startup_chapter &&
+	      main_rendered_last_chapter >= startup_chapter &&
+	      main_rendered_first_chapter < main_rendered_last_chapter,
+	      "initial multi-chapter Bible did not regain its reading window");
+	g_clear_pointer(&startup_requested_key, g_free);
+	g_idle_add(exercise_application, NULL);
+	return G_SOURCE_REMOVE;
+}
+
 void
 gtk_lifecycle_smoke_schedule(void)
 {
-	if (requested)
-		g_idle_add(exercise_application, NULL);
+	extern int main_rendered_first_chapter, main_rendered_last_chapter;
+	if (!requested)
+		return;
+	startup_requested_key = g_strdup(settings.currentverse);
+	startup_chapter = main_rendered_first_chapter;
+	if (reading_window_first_paint_pending())
+		check(startup_chapter > 0 && startup_chapter == main_rendered_last_chapter,
+		      "initial main pane rendered neighbours before its first paint");
+	g_timeout_add(25, wait_for_initial_reading_window, NULL);
 }

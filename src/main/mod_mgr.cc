@@ -470,8 +470,6 @@ static const TrustedRemote trusted_remotes[] = {
 	  "ftp.stepbible.org", "/pub/sword" },
 	{ "FTPSource", "FTP", "Bible.org",
 	  "ftp.crosswire.org", "/pub/bible.org/sword" },
-	{ "FTPSource", "FTP", "Xiphos",
-	  "ftp.xiphos.org", "/pub/xiphos" },
 	{ NULL, NULL, NULL, NULL, NULL }
 };
 

@@ -16,18 +16,18 @@
 # along with this program; if not, see <https://www.gnu.org/licenses/>.
 #
 
-# building xiphos
+# building Ministerios Elim
 
-message (STATUS "Configuring xiphos target")
+message (STATUS "Configuring Ministerios Elim target")
 
-# compile ui/xiphos.gresource.xml (embedded GtkBuilder UI files) into
-# a C source linked directly into the xiphos binary. See issue #894
+# compile the embedded GtkBuilder UI files into
+# a C source linked directly into the Ministerios Elim binary. See issue #894
 # item 4 - avoids looking up .gtkbuilder files on disk at runtime.
 find_program (GLIB_COMPILE_RESOURCES NAMES glib-compile-resources REQUIRED)
 
-set (xiphos_gresource_xml ${PROJECT_SOURCE_DIR}/ui/xiphos.gresource.xml)
-set (xiphos_resources_c ${CMAKE_CURRENT_BINARY_DIR}/xiphos_resources.c)
-set (xiphos_resources_dep ${CMAKE_CURRENT_BINARY_DIR}/xiphos_resources.c.d)
+set (biblia_elim_gresource_xml ${PROJECT_SOURCE_DIR}/ui/biblia-elim.gresource.xml)
+set (biblia_elim_resources_c ${CMAKE_CURRENT_BINARY_DIR}/biblia_elim_resources.c)
+set (biblia_elim_resources_dep ${CMAKE_CURRENT_BINARY_DIR}/biblia_elim_resources.c.d)
 
 # ask glib-compile-resources for the list of files the manifest
 # references, so the custom command re-runs whenever any of the
@@ -36,28 +36,28 @@ execute_process (
   COMMAND ${GLIB_COMPILE_RESOURCES}
           --sourcedir=${PROJECT_SOURCE_DIR}/ui
           --generate-dependencies
-          ${xiphos_gresource_xml}
-  OUTPUT_VARIABLE xiphos_gresource_deps_raw
-  RESULT_VARIABLE xiphos_gresource_deps_result
+          ${biblia_elim_gresource_xml}
+  OUTPUT_VARIABLE biblia_elim_gresource_deps_raw
+  RESULT_VARIABLE biblia_elim_gresource_deps_result
   )
-if (NOT xiphos_gresource_deps_result EQUAL 0)
-  message (FATAL_ERROR "Failed to list dependencies of ${xiphos_gresource_xml}")
+if (NOT biblia_elim_gresource_deps_result EQUAL 0)
+  message (FATAL_ERROR "Failed to list dependencies of ${biblia_elim_gresource_xml}")
 endif ()
-string (STRIP "${xiphos_gresource_deps_raw}" xiphos_gresource_deps_raw)
-string (REPLACE "\n" ";" xiphos_gresource_deps "${xiphos_gresource_deps_raw}")
+string (STRIP "${biblia_elim_gresource_deps_raw}" biblia_elim_gresource_deps_raw)
+string (REPLACE "\n" ";" biblia_elim_gresource_deps "${biblia_elim_gresource_deps_raw}")
 
 add_custom_command (
-  OUTPUT ${xiphos_resources_c}
+  OUTPUT ${biblia_elim_resources_c}
   COMMAND ${GLIB_COMPILE_RESOURCES}
           --sourcedir=${PROJECT_SOURCE_DIR}/ui
-          --target=${xiphos_resources_c}
+          --target=${biblia_elim_resources_c}
           --generate-source
-          ${xiphos_gresource_xml}
-  DEPENDS ${xiphos_gresource_xml} ${xiphos_gresource_deps}
-  COMMENT "Generating xiphos_resources.c from xiphos.gresource.xml"
+          ${biblia_elim_gresource_xml}
+  DEPENDS ${biblia_elim_gresource_xml} ${biblia_elim_gresource_deps}
+  COMMENT "Generating Ministerios Elim resources"
   VERBATIM
   )
-set_source_files_properties(${xiphos_resources_c} PROPERTIES GENERATED 1)
+set_source_files_properties(${biblia_elim_resources_c} PROPERTIES GENERATED 1)
 
 # generate locale_set.c:
 
@@ -123,7 +123,7 @@ file (APPEND ${locale_set} "  (char*)0
 set_source_files_properties(${CMAKE_CURRENT_BINARY_DIR}/locale_set.c PROPERTIES GENERATED 1)
 
 
-# build xiphos
+# build Ministerios Elim
 add_executable (biblia-elim
   about_modules.c
   about_sword.c
@@ -162,6 +162,8 @@ add_executable (biblia-elim
   main_window.c
   main_window_layout.c
   sqlite_module_manager_dialog.cc
+  editable_edition_dialog.cc
+  study_bible_pdf_dialog.cc
   menu_popup.c
   mod_mgr.c
   navbar_book.c
@@ -201,8 +203,23 @@ add_executable (biblia-elim
   zoom_indicator.c
   zoom_indicator.h
   ${CMAKE_CURRENT_BINARY_DIR}/locale_set.c
-  ${xiphos_resources_c}
+  ${biblia_elim_resources_c}
   )
+
+if (APPLE)
+  set_source_files_properties(${PROJECT_SOURCE_DIR}/pixmaps/ministerios-elim.icns
+    PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
+  target_sources(biblia-elim PRIVATE
+    ${PROJECT_SOURCE_DIR}/pixmaps/ministerios-elim.icns)
+  set_target_properties (biblia-elim PROPERTIES
+    MACOSX_BUNDLE TRUE
+    MACOSX_BUNDLE_GUI_IDENTIFIER "org.bibliaelim.app"
+    MACOSX_BUNDLE_BUNDLE_NAME "Ministerios Elim"
+    MACOSX_BUNDLE_ICON_FILE "ministerios-elim.icns"
+    MACOSX_BUNDLE_BUNDLE_VERSION "${PROJECT_VERSION}"
+    MACOSX_BUNDLE_SHORT_VERSION_STRING "${PROJECT_VERSION}"
+    INSTALL_RPATH_USE_LINK_PATH TRUE)
+endif ()
 
 if (DBUS)
   # need to generate 4 files using gdbus-codegen:
@@ -229,9 +246,9 @@ if (DBUS)
 
     # process ipc-interface.xml with gdbus-codegen to generate GDBus bindings
     COMMAND gdbus-codegen
-    --interface-prefix org.xiphos.
+    --interface-prefix org.bibliaelim.
     --generate-c-code ipc-gdbus
-    --c-namespace Xiphos
+    --c-namespace BibliaElim
     ${CMAKE_CURRENT_SOURCE_DIR}/ipc-interface.xml
     MAIN_DEPENDENCY ${CMAKE_CURRENT_SOURCE_DIR}/ipc-interface.xml
 
@@ -265,6 +282,13 @@ target_include_directories(biblia-elim
   )
 
 # specify libraries or flags to use when linking
+pkg_check_modules(StudyPdf REQUIRED IMPORTED_TARGET "cairo-pdf>=1.16" "pangocairo" "gio-2.0")
+add_library(study_bible_pdf STATIC study_bible_pdf.cc study_bible_pdf.h)
+target_include_directories(study_bible_pdf PUBLIC ${PROJECT_SOURCE_DIR}/src)
+target_link_libraries(study_bible_pdf PUBLIC backend PkgConfig::StudyPdf)
+add_executable(biblia-study-pdf EXCLUDE_FROM_ALL study_bible_pdf_main.cc)
+target_link_libraries(biblia-study-pdf PRIVATE study_bible_pdf)
+
 target_link_libraries(biblia-elim
   PRIVATE
   Threads::Threads
@@ -276,6 +300,7 @@ target_link_libraries(biblia-elim
   PkgConfig::Biblesync
   Xiphos::Main
   Xiphos::Backend
+  study_bible_pdf
   Xiphos::Editor
   Xiphos::Webkit
   Xiphos::Xiphos_html
@@ -311,9 +336,10 @@ if (WIN32)
   target_link_libraries(biblia-elim
     PRIVATE
     -lsapi
+    -lws2_32 # closesocket() en utilities.c
   )
-else()
-  # only Linux builds link against speech lib.
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+  # Speech Dispatcher is available on Linux only.
   target_link_libraries(biblia-elim
     PRIVATE
     -lspeechd
@@ -322,15 +348,21 @@ endif ()
 
 
 # install executable
-install (TARGETS biblia-elim
-  DESTINATION ${CMAKE_INSTALL_BINDIR}
-  COMPONENT binaries)
+if (APPLE)
+  install (TARGETS biblia-elim
+    BUNDLE DESTINATION /Applications
+    COMPONENT binaries)
+else ()
+  install (TARGETS biblia-elim
+    DESTINATION ${CMAKE_INSTALL_BINDIR}
+    COMPONENT binaries)
+endif ()
 
 # Find Speech Dispatcher for TTS
 # pkg_check_modules(SPEECHD libspeechd)  # Commenté car .pc manquant
-if(TRUE)  # Force l'activation
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
     target_include_directories(biblia-elim PRIVATE /usr/include/libspeechd)
-    add_definitions(-DHAVE_LIBSPEECHD)
+    target_compile_definitions(biblia-elim PRIVATE HAVE_LIBSPEECHD)
     message(STATUS "Speech Dispatcher found (manual) - TTS support enabled")
 else()
     message(WARNING "Speech Dispatcher not found - TTS support disabled")

@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * tabbed_browser.c - functions to facilitate tabbed browsing of different passages at once
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -584,7 +584,7 @@ void gui_load_tabs(const gchar *filename)
 				error = TRUE;
 			} else if (xmlStrcmp(tmp_node->name,
 					     (const xmlChar *)"Xiphos_Tabs")) {
-				gui_generic_warning_modal("Tabs document has wrong type, root node != Xiphos_Tabs");
+				gui_generic_warning_modal("Tabs document has wrong type, root node != Ministerios Elim_Tabs");
 				xmlFreeDoc(xml_doc);
 				error = TRUE;
 			}

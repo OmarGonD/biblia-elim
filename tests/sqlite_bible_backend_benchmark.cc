@@ -50,6 +50,19 @@ int main(int argc, char **argv)
 	const long long verses = benchmark([&] {
 		(void)backend.getVerseContent(module, reference);
 	}, 1000);
+	const BibleReference chapterReference = { 2, 40, 3, 1 };
+	const int chapterVerseCount = 36;
+	const long long chapterVerseReads = benchmark([&] {
+		for (int verse = 1; verse <= chapterVerseCount; ++verse) {
+			BibleReference item = chapterReference;
+			item.verse = verse;
+			(void)backend.getVerseContent(module, item);
+		}
+	}, 100);
+	const long long chapterBulkReads = benchmark([&] {
+		(void)backend.getChapterContent(
+			module, chapterReference, chapterVerseCount);
+	}, 100);
 	const long long search = benchmark([&] { (void)backend.search(module, query); });
 	StrongId h430{StrongLanguage::Hebrew, 430};
 	StrongId g25{StrongLanguage::Greek, 25};
@@ -63,9 +76,11 @@ int main(int argc, char **argv)
 	};
 
 	std::printf("backend=sqlite startup_us=%lld 100_chapters_us=%lld "
-		"1000_verses_us=%lld search_us=%lld feature_strong=%d "
-		"feature_morphology=%d\n", startup, chapters, verses, search,
-		capabilities.strongs ? 1 : 0, capabilities.morphology ? 1 : 0);
+		"1000_verses_us=%lld 100_chapter_verse_reads_us=%lld "
+		"100_chapter_bulk_reads_us=%lld search_us=%lld feature_strong=%d "
+		"feature_morphology=%d\n", startup, chapters, verses,
+		chapterVerseReads, chapterBulkReads, search, capabilities.strongs ? 1 : 0,
+		capabilities.morphology ? 1 : 0);
 	std::printf("h430_limit_10_us=%lld h430_limit_100_us=%lld "
 		"h430_offset_100_limit_100_us=%lld\n",
 		strongBenchmark(h430, 10, 0), strongBenchmark(h430, 100, 0),

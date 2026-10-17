@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * sidebar.c - create and maintain the new sidebar bar
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team

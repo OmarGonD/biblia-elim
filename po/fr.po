@@ -1,7 +1,7 @@
-# Additional Biblia Elim interface translations: see po/elim/.
-# Messages de traduction en français de Xiphos
-# Copyright (C) 2002, 2017 The Xiphos Developement Team
-# Ce fichier est distribué sous la même license que Xiphos
+# Additional Ministerios Elim interface translations: see po/elim/.
+# Messages de traduction en français de Ministerios Elim
+# Copyright (C) 2002, 2017 The Ministerios Elim Developement Team
+# Ce fichier est distribué sous la même license que Ministerios Elim
 # Dominique Corbex <dominique@corbex.org>, 2002.
 #
 # Notes de Traduction
@@ -25,9 +25,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Biblia Elim 1\n"
+"Project-Id-Version: Ministerios Elim 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-15 15:34+0200\n"
+"POT-Creation-Date: 2026-10-08 11:06-0500\n"
 "PO-Revision-Date: 2026-08-15 15:38+0200\n"
 "Last-Translator: Cyrille <lafricain79@gmail.com>\n"
 "Language-Team: none\n"
@@ -121,7 +121,7 @@ msgid "Are you sure you want to delete the note for"
 msgstr "Êtes-vous certain de vouloir supprimer le commentaire de"
 
 msgid "Open"
-msgstr "Ouvrir"
+msgstr "_Ouvrir"
 
 msgid "Studies and Word documents"
 msgstr "Études et documents Word"
@@ -302,10 +302,10 @@ msgid ""
 "in personal mode, to share within a small group;\n"
 "or as either speaker or audience in a formal lecture setting.\n"
 "\n"
-"There are options for how BibleSync behaves in Xiphos:\n"
+"There are options for how BibleSync behaves in Ministerios Elim:\n"
 "- To follow others' navigation directly or indirectly.\n"
 "- To send your navigation every time or only via keyboard.\n"
-"- To select speakers to whom Xiphos should listen.\n"
+"- To select speakers to whom Ministerios Elim should listen.\n"
 "\n"
 "A simple chat capability provides brief messages to be shared as well.\n"
 "\n"
@@ -331,31 +331,28 @@ msgid "BibleSync technical details"
 msgstr "Détails techniques BibleSync"
 
 msgid ""
-"Do you like using Xiphos to study the Bible? Would you like to see its user "
-"interface in your native language? You could translate Xiphos! \n"
+"Do you like using Ministerios Elim to study the Bible? Would you like to see its "
+"user interface in your native language? You could translate Ministerios Elim! \n"
 "\n"
-"We are always looking for contributions of new translations of Xiphos into "
-"other languages. If you are able to translate for us, please see the link "
-"below, contact us, and get involved with our efforts. Your help will be much "
-"appreciated!"
+"We are always looking for contributions of new translations of Ministerios Elim "
+"into other languages. If you are able to translate for us, please see the "
+"link below, contact us, and get involved with our efforts. Your help will be "
+"much appreciated!"
 msgstr ""
-"Vous aimez étudier la Bible avec Xiphos ? Vous pouvez aider à traduire son "
-"interface dans votre langue.\n"
+"Vous aimez étudier la Bible avec Ministerios Elim ? Vous pouvez aider à traduire "
+"son interface dans votre langue.\n"
 "\n"
 "Les nouvelles traductions sont les bienvenues. Le lien ci-dessous explique "
 "comment participer."
 
-msgid "About Xiphos Translation"
-msgstr "À propos de de la traduction de Biblia Elim"
+msgid "About Ministerios Elim Translation"
+msgstr "À propos de de la traduction de Ministerios Elim"
 
-msgid "See TRANSLATION-HOWTO in Xiphos source"
-msgstr "Voir le TRANSLATION-HOWTO dans les sources de Biblia Elim"
+msgid "See TRANSLATION-HOWTO in Ministerios Elim source"
+msgstr "Voir le TRANSLATION-HOWTO dans les sources de Ministerios Elim"
 
-msgid "Xiphos development"
-msgstr "SIte de développement de Biblia Elim"
-
-msgid "Copyright © 2000-2026 Xiphos Development Team"
-msgstr "Copyright © 2000-2026 Équipe de développement Xiphos"
+msgid "Ministerios Elim development"
+msgstr "SIte de développement de Ministerios Elim"
 
 msgid "Datos del texto griego (TAGNT)"
 msgstr "Données du texte grec (TAGNT)"
@@ -625,7 +622,7 @@ msgstr ""
 "Continuer ?"
 
 msgid "Unknown error"
-msgstr "Erreur inconnue"
+msgstr "erreur inconnue"
 
 #, c-format
 msgid "%d bookmark(s) imported, %d skipped."
@@ -806,74 +803,6 @@ msgid "No se ha importado nada."
 msgstr "Rien n’a été importé."
 
 #, c-format
-msgid "%u nota nueva."
-msgid_plural "%u notas nuevas."
-msgstr[0] "%u nouvelle note."
-msgstr[1] "%u nouvelles notes."
-
-#, c-format
-msgid " %u de ellas va junto a otra nota tuya del mismo versículo."
-msgid_plural " %u de ellas van junto a otra nota tuya del mismo versículo."
-msgstr[0] " %u rejoint une autre de vos notes sur le même verset."
-msgstr[1] " %u rejoignent une autre de vos notes sur le même verset."
-
-#, c-format
-msgid ""
-"\n"
-"%u ya estaba."
-msgid_plural ""
-"\n"
-"%u ya estaban."
-msgstr[0] ""
-"\n"
-"%u existait déjà."
-msgstr[1] ""
-"\n"
-"%u existaient déjà."
-
-#, c-format
-msgid ""
-"\n"
-"%u enlace nuevo."
-msgid_plural ""
-"\n"
-"%u enlaces nuevos."
-msgstr[0] ""
-"\n"
-"%u nouveau lien."
-msgstr[1] ""
-"\n"
-"%u nouveaux liens."
-
-#, c-format
-msgid ""
-"\n"
-"%u subrayado o enlace distinto del tuyo: se conservó el tuyo."
-msgid_plural ""
-"\n"
-"%u subrayados o enlaces distintos de los tuyos: se conservaron los tuyos."
-msgstr[0] ""
-"\n"
-"%u surlignage ou lien différent : le vôtre a été conservé."
-msgstr[1] ""
-"\n"
-"%u surlignages ou liens différents : les vôtres ont été conservés."
-
-#, c-format
-msgid ""
-"\n"
-"%u entrada no válida, ignorada."
-msgid_plural ""
-"\n"
-"%u entradas no válidas, ignoradas."
-msgstr[0] ""
-"\n"
-"%u entrée non valide ignorée."
-msgstr[1] ""
-"\n"
-"%u entrées non valides ignorées."
-
-#, c-format
 msgid ""
 "\n"
 "\n"
@@ -918,7 +847,7 @@ msgid "Cerrar panel de comentarios y notas"
 msgstr "Fermer le panneau des commentaires et notes"
 
 msgid "_OK"
-msgstr "_Valider"
+msgstr "Valider"
 
 msgid "_Yes"
 msgstr "_Oui"
@@ -930,7 +859,7 @@ msgid "_No"
 msgstr "_Non"
 
 msgid "_Cancel"
-msgstr "_Annuler"
+msgstr "Annuler"
 
 msgid "Close without Saving"
 msgstr "Ferme sans enre_gistrer"
@@ -1044,15 +973,15 @@ msgstr "Valider"
 msgid "Cannot open the display"
 msgstr "Impossible d’ouvrir l’affichage"
 
-msgid "BUG! Biblia Elim is about to crash due to a \"STRDUP\" error."
-msgstr "BUG ! Biblia Elim va s’arrêter sur une erreur « STRDUP »."
+msgid "BUG! Ministerios Elim is about to crash due to a \"STRDUP\" error."
+msgstr "BUG ! Ministerios Elim va s’arrêter sur une erreur « STRDUP »."
 
-msgid "Please report this error to the Biblia Elim team with:"
+msgid "Please report this error to the Ministerios Elim team with:"
 msgstr ""
-"Merci de signaler cette erreur à l’équipe de développement Biblia Elim avec :"
+"Merci de signaler cette erreur à l’équipe de développement Ministerios Elim avec :"
 
-msgid "BUG! Biblia Elim is about to crash due to a \"STRING\" error."
-msgstr "BUG ! Biblia Elim va s’arrêter sur une erreur « STRING »."
+msgid "BUG! Ministerios Elim is about to crash due to a \"STRING\" error."
+msgstr "BUG ! Ministerios Elim va s’arrêter sur une erreur « STRING »."
 
 msgid "Desconocido"
 msgstr "Inconnu"
@@ -1696,8 +1625,8 @@ msgstr "_Raccourcis clavier"
 msgid "Informar de un _error"
 msgstr "_Signaler une erreur"
 
-msgid "Acerca de _Biblia Elim"
-msgstr "À propos de _Biblia Elim"
+msgid "Acerca de _Ministerios Elim"
+msgstr "À propos de _Ministerios Elim"
 
 msgid "_SWORD"
 msgstr "_SWORD"
@@ -1769,8 +1698,8 @@ msgstr "[message à envoyer]"
 msgid "Comment:"
 msgstr "Commentaire :"
 
-msgid "Biblia Elim: No windows."
-msgstr "Biblia Elim : aucune fenêtre."
+msgid "Ministerios Elim: No windows."
+msgstr "Ministerios Elim : aucune fenêtre."
 
 msgid "BibleSync: Current navigation sent."
 msgstr "BibleSync : La navigation courante a été envoyée."
@@ -1778,8 +1707,8 @@ msgstr "BibleSync : La navigation courante a été envoyée."
 msgid "BibleSync: Not speaking."
 msgstr "BibleSync : Ne transmet pas."
 
-msgid "Biblia Elim"
-msgstr "Biblia Elim"
+msgid "Ministerios Elim"
+msgstr "Ministerios Elim"
 
 msgid "Mostrar/ocultar panel lateral (Ctrl+S)"
 msgstr "Afficher/masquer le panneau latéral (Ctrl+S)"
@@ -1793,8 +1722,8 @@ msgstr "Agrandir le texte"
 msgid "Reducir tamaño del texto"
 msgstr "Réduire le texte"
 
-msgid "Open a new tab"
-msgstr "Ouvre un nouvel onglet"
+msgid "Open another Bible in a new tab"
+msgstr "Ouvrir une autre Bible dans un nouvel onglet"
 
 msgid "Standard View"
 msgstr "Affichage standard"
@@ -1805,8 +1734,8 @@ msgstr "Notes"
 msgid "Devotional"
 msgstr "Méditation quotidienne"
 
-msgid "Bienvenido a Biblia Elim"
-msgstr "Bienvenue dans Biblia Elim"
+msgid "Bienvenido a Ministerios Elim"
+msgstr "Bienvenue dans Ministerios Elim"
 
 msgid "No se pudo leer el texto: abre una Biblia en la ventana principal."
 msgstr ""
@@ -1817,12 +1746,6 @@ msgstr "Récitez de mémoire, puis révélez le texte."
 
 msgid "hoy"
 msgstr "aujourd’hui"
-
-#, c-format
-msgid "atrasado %d día"
-msgid_plural "atrasado %d días"
-msgstr[0] "%d jour de retard"
-msgstr[1] "%d jours de retard"
 
 msgid "mañana"
 msgstr "demain"
@@ -1837,20 +1760,8 @@ msgstr "Vous ne mémorisez encore aucun verset"
 msgid "Nada que repasar hoy"
 msgstr "Rien à réviser aujourd’hui"
 
-#, c-format
-msgid "%d versículo para repasar hoy"
-msgid_plural "%d versículos para repasar hoy"
-msgstr[0] "%d verset à réviser aujourd’hui"
-msgstr[1] "%d versets à réviser aujourd’hui"
-
 msgid "Tus versículos"
 msgstr "Vos versets"
-
-#, c-format
-msgid "Tus versículos · %d en total"
-msgid_plural "Tus versículos · %d en total"
-msgstr[0] "Vos versets · %d au total"
-msgstr[1] "Vos versets · %d au total"
 
 msgid ""
 "Esta semana todavía no has elegido ninguno. Uno por semana es un ritmo que "
@@ -1858,18 +1769,6 @@ msgid ""
 msgstr ""
 "Vous n’avez pas encore choisi de verset cette semaine. Un par semaine est un "
 "rythme durable."
-
-#, c-format
-msgid "Esta semana ya elegiste %d."
-msgid_plural "Esta semana ya elegiste %d."
-msgstr[0] "Vous en avez déjà choisi %d cette semaine."
-msgstr[1] "Vous en avez déjà choisi %d cette semaine."
-
-#, c-format
-msgid "  ·  %d en la última caja"
-msgid_plural "  ·  %d en la última caja"
-msgstr[0] "  ·  %d dans la dernière boîte"
-msgstr[1] "  ·  %d dans la dernière boîte"
 
 msgid "No hay ningún versículo abierto."
 msgstr "Aucun verset n’est ouvert."
@@ -1924,7 +1823,7 @@ msgstr ""
 msgid ""
 "Renaming is not available in Windows.\n"
 "\n"
-"Xiphos is limited by Windows' filesystem,\n"
+"Ministerios Elim is limited by Windows' filesystem,\n"
 "because it disallows the renaming of filename\n"
 "components of currently-open files,\n"
 "such as the contents of this commentary.\n"
@@ -1954,7 +1853,7 @@ msgid "Module names must contain [A-Za-z0-9_] only."
 msgstr ""
 "Les noms de modules ne peuvent contenir que des lettres et des chiffres."
 
-msgid "Xiphos already knows a module by that name."
+msgid "Ministerios Elim already knows a module by that name."
 msgstr "Il existe déjà un module de ce nom."
 
 #, c-format
@@ -2021,7 +1920,7 @@ msgid "Lectura principal"
 msgstr "Lecture principale"
 
 msgid "Lectura secundaria"
-msgstr "Lecture secondaire"
+msgstr "Lectures secondaires"
 
 msgid "Todas las lecturas"
 msgstr "Toutes les lectures"
@@ -2186,9 +2085,6 @@ msgstr "Suppression"
 msgid "The module has no About information."
 msgstr "Ce module ne contient pas d’information À propos."
 
-msgid "Module Name"
-msgstr "Nom du module"
-
 msgid "Installed"
 msgstr "Installé"
 
@@ -2320,9 +2216,6 @@ msgstr "Rafraîchissement en cours"
 msgid "Remote source not found"
 msgstr "Serveur non trouvé"
 
-msgid "Type"
-msgstr "Type :"
-
 msgid "Caption"
 msgstr "Libellé :"
 
@@ -2350,6 +2243,9 @@ msgstr "Ajouter/Supprimer"
 msgid "Choose"
 msgstr "Sélection"
 
+msgid "Modules"
+msgstr "Modules"
+
 msgid "Install/Update"
 msgstr "Installer/Maj"
 
@@ -2364,17 +2260,17 @@ msgstr "La liste des modules n’est pas à jour !"
 
 msgid ""
 "You have uninstalled your last Bible.\n"
-"Xiphos requires at least one."
+"Ministerios Elim requires at least one."
 msgstr ""
 "Vous avez désinstallé votre dernière Bible.\n"
-"Biblia Elim requiert au minimum une."
+"Ministerios Elim requiert au minimum une."
 
 msgid ""
 "There are still no Bibles installed.\n"
-"Xiphos cannot continue without one."
+"Ministerios Elim cannot continue without one."
 msgstr ""
 "Toujours aucune Bible installée.\n"
-"Biblia Elim ne peut pas continuer sans."
+"Ministerios Elim ne peut pas continuer sans."
 
 #, c-format
 msgid ""
@@ -2405,9 +2301,6 @@ msgstr "Ajouter un dépôt distant"
 
 msgid "Caption:"
 msgstr "Libellé :"
-
-msgid "Type:"
-msgstr "Type :"
 
 msgid "Host:"
 msgstr "Serveur :"
@@ -2684,12 +2577,6 @@ msgid "Parallel View"
 msgstr "Affichage parallèle"
 
 #, c-format
-msgid "%d capítulo"
-msgid_plural "%d capítulos"
-msgstr[0] "%d chapitre"
-msgstr[1] "%d chapitres"
-
-#, c-format
 msgid "%d capítulos"
 msgstr "%d chapitres"
 
@@ -2703,29 +2590,11 @@ msgid "Nuevo Testamento"
 msgstr "Nouveau Testament"
 
 #, c-format
-msgid "%s y %d libro más"
-msgid_plural "%s y %d libros más"
-msgstr[0] "%s et %d autre livre"
-msgstr[1] "%s et %d autres livres"
-
-#, c-format
 msgid "%d de %s de %d"
 msgstr "%d %s %d"
 
 msgid "<i>Marca los libros que quieras leer.</i>"
 msgstr "<i>Sélectionnez les livres que vous voulez lire.</i>"
-
-#, c-format
-msgid "%d libro"
-msgid_plural "%d libros"
-msgstr[0] "%d livre"
-msgstr[1] "%d livres"
-
-#, c-format
-msgid "%d día"
-msgid_plural "%d días"
-msgstr[0] "%d jour"
-msgstr[1] "%d jours"
 
 #, c-format
 msgid "Si empiezas hoy, terminarías el %s."
@@ -2739,20 +2608,6 @@ msgstr "Modifier le plan"
 
 msgid "Guardar los cambios"
 msgstr "Enregistrer les modifications"
-
-#, c-format
-msgid ""
-"Llevas %d día marcado. Las marcas se quedan donde están: si cambias los "
-"libros o los días, el día 1 pasa a ser otra lectura."
-msgid_plural ""
-"Llevas %d días marcados. Las marcas se quedan donde están: si cambias los "
-"libros o los días, el día 1 pasa a ser otra lectura."
-msgstr[0] ""
-"Vous avez marqué %d jour. Les marques restent en place : modifier les livres "
-"ou les jours change la lecture du jour 1."
-msgstr[1] ""
-"Vous avez marqué %d jours. Les marques restent en place : modifier les "
-"livres ou les jours change la lecture du jour 1."
 
 msgid "Mi plan"
 msgstr "Mon plan"
@@ -2798,18 +2653,6 @@ msgid "Sin empezar · %d capítulos en total"
 msgstr "Non commencé · %d chapitres au total"
 
 #, c-format
-msgid "Toca el día %d · vas %d día por detrás del calendario"
-msgid_plural "Toca el día %d · vas %d días por detrás del calendario"
-msgstr[0] "C’est le jour %d · vous avez %d jour de retard"
-msgstr[1] "C’est le jour %d · vous avez %d jours de retard"
-
-#, c-format
-msgid "Toca el día %d · vas %d día adelantado"
-msgid_plural "Toca el día %d · vas %d días adelantado"
-msgstr[0] "C’est le jour %d · vous avez %d jour d’avance"
-msgstr[1] "C’est le jour %d · vous avez %d jours d’avance"
-
-#, c-format
 msgid "Toca el día %d · vas al día"
 msgstr "C’est le jour %d · vous êtes à jour"
 
@@ -2840,12 +2683,6 @@ msgid "¿Borrar el plan «%s» y lo que llevas leído de él?"
 msgstr "Supprimer le plan « %s » et sa progression ?"
 
 #, c-format
-msgid "Vas %d día por detrás en «%s»."
-msgid_plural "Vas %d días por detrás en «%s»."
-msgstr[0] "Vous avez %d jour de retard dans « %s »."
-msgstr[1] "Vous avez %d jours de retard dans « %s »."
-
-#, c-format
 msgid ""
 "Del día %d al %d están sin marcar.\n"
 "\n"
@@ -2868,7 +2705,7 @@ msgid "Darlos por leídos"
 msgstr "Les marquer comme lus"
 
 msgid ""
-"Aviso del escritorio, solo en este equipo. Llega aunque Biblia Elim esté "
+"Aviso del escritorio, solo en este equipo. Llega aunque Ministerios Elim esté "
 "cerrada. Si ya marcaste la lectura del día, no avisa."
 msgstr ""
 "Rappel du bureau, uniquement sur cet ordinateur. Il arrive même si Biblia "
@@ -2927,6 +2764,9 @@ msgstr "[ Aucun ]"
 msgid "Locale will take effect after restart."
 msgstr "La langue prendra effet après redémarrage."
 
+msgid "Options"
+msgstr "Options"
+
 msgid "BibleSync"
 msgstr "BibleSync"
 
@@ -2938,6 +2778,9 @@ msgstr "Couleurs"
 
 msgid "Sizes and Faces"
 msgstr "Tailles et apparence"
+
+msgid "Special"
+msgstr "Spécial"
 
 msgid "Idioma del sistema"
 msgstr "Langue du système"
@@ -3002,12 +2845,6 @@ msgid "terminado · %d días"
 msgstr "terminé · %d jours"
 
 #, c-format
-msgid "%d de %d días · %d por detrás"
-msgid_plural "%d de %d días · %d por detrás"
-msgstr[0] "%d jours sur %d · %d de retard"
-msgstr[1] "%d jours sur %d · %d de retard"
-
-#, c-format
 msgid "%d de %d días · al día"
 msgstr "%d jours sur %d · à jour"
 
@@ -3023,12 +2860,6 @@ msgstr "Rien à compter pour le moment"
 msgid "Sin racha ahora mismo"
 msgstr "Aucune série en cours"
 
-#, c-format
-msgid "%d día seguido"
-msgid_plural "%d días seguidos"
-msgstr[0] "%d jour consécutif"
-msgstr[1] "%d jours consécutifs"
-
 msgid ""
 "La constancia empieza a medirse con la primera lectura que marques. De lo de "
 "antes no hay registro: el progreso guardaba qué días del plan estaban "
@@ -3040,18 +2871,6 @@ msgstr ""
 
 msgid "Hoy todavía no. La racha sigue viva hasta medianoche.  ·  "
 msgstr "Pas encore aujourd’hui. Votre série reste active jusqu’à minuit.  ·  "
-
-#, c-format
-msgid "La más larga: %d día"
-msgid_plural "La más larga: %d días"
-msgstr[0] "La plus longue : %d jour"
-msgstr[1] "La plus longue : %d jours"
-
-#, c-format
-msgid "  ·  %d día con lectura"
-msgid_plural "  ·  %d días con lectura"
-msgstr[0] "  ·  %d jour de lecture"
-msgstr[1] "  ·  %d jours de lecture"
 
 #, c-format
 msgid "  ·  desde el %s"
@@ -3370,6 +3189,12 @@ msgstr "_Ouvrir la recherche avancée"
 msgid "Open the separate Advanced Search dialog"
 msgstr "Ouvrir la recherche avancée dans une fenêtre séparée"
 
+msgid "Search Module"
+msgstr "Module"
+
+msgid "Search Type"
+msgstr "Type de requête"
+
 msgid "Optimized (\"Lucene\")"
 msgstr "Optimisée « Lucene »"
 
@@ -3479,7 +3304,7 @@ msgid "Libro/capítulo"
 msgstr "Livre/chapitre"
 
 msgid "Search"
-msgstr "_Rechercher"
+msgstr "Recherche ✓"
 
 msgid "Sidebar"
 msgstr "Barre latérale"
@@ -3643,12 +3468,6 @@ msgstr ""
 "gestionnaire : « Josephus », traduction anglaise de Whiston, dans le domaine "
 "public."
 
-#, c-format
-msgid "%u fuente, y funciona sin internet."
-msgid_plural "%u fuentes, y funcionan sin internet."
-msgstr[0] "%u source, disponible hors ligne."
-msgstr[1] "%u sources, disponibles hors ligne."
-
 msgid "No se pudo abrir «Jesús en la historia»."
 msgstr "Impossible d’ouvrir « Jésus dans l’histoire »."
 
@@ -3715,19 +3534,13 @@ msgstr "Décembre"
 
 msgid ""
 "An image file's size could not be determined.\n"
-"Xiphos cannot resize images to fit window."
+"Ministerios Elim cannot resize images to fit window."
 msgstr ""
 "La taille d’une image n’a pu être déterminée.\n"
-"Biblia Elim ne peut redimensionner les images pour s’adapter à la fenêtre."
+"Ministerios Elim ne peut redimensionner les images pour s’adapter à la fenêtre."
 
 msgid "Se guarda sola mientras escribes."
 msgstr "Enregistrée automatiquement pendant la saisie."
-
-#, c-format
-msgid "Se guarda sola · %d día con algo escrito."
-msgid_plural "Se guarda sola · %d días con algo escrito."
-msgstr[0] "Enregistrée automatiquement · %d jour avec un écrit."
-msgstr[1] "Enregistrée automatiquement · %d jours avec un écrit."
 
 msgid "Tu reflexión de hoy"
 msgstr "Votre réflexion du jour"
@@ -4026,8 +3839,8 @@ msgstr "Ce verset n’est pas dans cette version."
 msgid "Elige una o más Biblias para comparar este versículo."
 msgstr "Choisissez une ou plusieurs Bibles pour comparer ce verset."
 
-msgid "Xiphos does not understand more than one argument."
-msgstr "Biblia Elim n’accepte pas plus d’un argument."
+msgid "Ministerios Elim does not understand more than one argument."
+msgstr "Ministerios Elim n’accepte pas plus d’un argument."
 
 msgid "Initiating HTML"
 msgstr "Initialisation HTML"
@@ -4041,8 +3854,8 @@ msgstr "Démarrage de Sword"
 msgid "Loading Settings"
 msgstr "Chargement des préférences"
 
-msgid "Displaying Xiphos"
-msgstr "Affichage de Biblia Elim"
+msgid "Displaying Ministerios Elim"
+msgstr "Affichage de Ministerios Elim"
 
 msgid "Previewer"
 msgstr "Aperçu"
@@ -4880,20 +4693,14 @@ msgstr "Les notes ne sont pas ouvertes."
 msgid "El archivo está vacío."
 msgstr "Le fichier est vide."
 
-msgid "No es una copia de notas de Biblia Elim."
-msgstr "Ce n’est pas une sauvegarde des notes de Biblia Elim."
+msgid "No es una copia de notas de Ministerios Elim."
+msgstr "Ce n’est pas une sauvegarde des notes de Ministerios Elim."
 
-msgid "La copia es de una versión de Biblia Elim más nueva que esta."
-msgstr "La sauvegarde provient d’une version plus récente de Biblia Elim."
+msgid "La copia es de una versión de Ministerios Elim más nueva que esta."
+msgstr "La sauvegarde provient d’une version plus récente de Ministerios Elim."
 
 msgid "Mis notas"
 msgstr "Mes notes"
-
-#, c-format
-msgid "Exportadas de Biblia Elim el %s · %u nota.\n"
-msgid_plural "Exportadas de Biblia Elim el %s · %u notas.\n"
-msgstr[0] "Exportées de Biblia Elim le %s · %u note.\n"
-msgstr[1] "Exportées de Biblia Elim le %s · %u notes.\n"
 
 msgid "Unknown parallel module: "
 msgstr "Module parallèle inconnu : "
@@ -5201,12 +5008,6 @@ msgid "menos de un capítulo por día"
 msgstr "moins d’un chapitre par jour"
 
 #, c-format
-msgid "%d capítulo por día"
-msgid_plural "%d capítulos por día"
-msgstr[0] "%d chapitre par jour"
-msgstr[1] "%d chapitres par jour"
-
-#, c-format
 msgid "entre %d y %d capítulos por día"
 msgstr "entre %d et %d chapitres par jour"
 
@@ -5287,19 +5088,19 @@ msgstr "<b>Section 4</b><br/>"
 msgid "Name for new prayer list or journal"
 msgstr "Nom de la nouvelle liste de prières ou du journal"
 
-msgid "Xiphos finds that prayer list already."
+msgid "Ministerios Elim finds that prayer list already."
 msgstr "Cette liste de prières ou note existe déjà."
 
 #, c-format
 msgid ""
-"Biblia Elim cannot create module's path:\n"
+"Ministerios Elim cannot create module's path:\n"
 "%s"
 msgstr ""
-"Biblia Elim ne peut pas créer le chemin du module :\n"
+"Ministerios Elim ne peut pas créer le chemin du module :\n"
 "%s"
 
-msgid "A basic prayer list. \\par\\par Module created by Xiphos."
-msgstr "Une simple liste de prières. \\par\\par Module crée par Biblia Elim."
+msgid "A basic prayer list. \\par\\par Module created by Ministerios Elim."
+msgstr "Une simple liste de prières. \\par\\par Module crée par Ministerios Elim."
 
 msgid "BasicPrayerList"
 msgstr "MaSimpleListeDePrieres"
@@ -5315,7 +5116,7 @@ msgstr ""
 "><b>Assemblée :</b><br/>Participants<br/>Fonctionnement<br/>Missions<br/><br/"
 "><br/>"
 
-msgid "A subject-based prayer list. \\par\\par Module created by Xiphos."
+msgid "A subject-based prayer list. \\par\\par Module created by Ministerios Elim."
 msgstr ""
 "Liste de prières organisée par sujets. \\par\\par Module crée par Biblia "
 "Elim."
@@ -5329,39 +5130,40 @@ msgstr "Personne 1<br/>Personne 2<br/>Personne 3<br/>Personne 4<br/>"
 msgid "Spiritual Growth"
 msgstr "Croissance spirituelle"
 
-msgid "A monthly prayer list. \\par\\par Module created by Xiphos."
-msgstr "Liste de prières mensuelle. \\par\\par Module crée par Biblia Elim."
+msgid "A monthly prayer list. \\par\\par Module created by Ministerios Elim."
+msgstr "Liste de prières mensuelle. \\par\\par Module crée par Ministerios Elim."
 
 msgid "MonthlyPrayerList"
 msgstr "MaListeDePrieresMensuelle"
 
-msgid "A daily journal. \\par\\par Module created by Xiphos."
-msgstr "Un journal quotidien. \\par\\par Module crée par Biblia Elim."
+msgid "A daily journal. \\par\\par Module created by Ministerios Elim."
+msgstr "Un journal quotidien. \\par\\par Module crée par Ministerios Elim."
 
 msgid "DailyJournal"
 msgstr "JournalQuotidien"
 
-msgid "An outlined topic (e.g. sermon). \\par\\par Module created by Xiphos."
-msgstr "Thème structuré (ex message). \\par\\par Module crée par Biblia Elim."
+msgid ""
+"An outlined topic (e.g. sermon). \\par\\par Module created by Ministerios Elim."
+msgstr "Thème structuré (ex message). \\par\\par Module crée par Ministerios Elim."
 
 msgid "OutlinedTopic"
 msgstr "ThemeStructure"
 
-msgid "<b>Major Topic A</b><br/>"
-msgstr "<b>Sujet majeur A</b><br/>"
+msgid "Major Topic A"
+msgstr "Sujet majeur A"
 
-msgid "<b>Major Topic B</b><br/>"
-msgstr "<b>Sujet majeur B</b><br/>"
+msgid "Major Topic B"
+msgstr "Sujet majeur B"
 
-msgid "<b>Major Topic C</b><br/>"
-msgstr "<b>Sujet majeur C</b><br/>"
+msgid "Major Topic C"
+msgstr "Sujet majeur C"
 
 msgid ""
 "A journal sectioned by Bible book and chapter. \\par\\par Module created by "
-"Xiphos."
+"Ministerios Elim."
 msgstr ""
 "Un journal organisé par livre et chapitre bibliques. \\par\\par Module créé "
-"par Xiphos."
+"par Ministerios Elim."
 
 msgid "BookChapter"
 msgstr "BookChapter"
@@ -5380,9 +5182,6 @@ msgstr "illustration"
 
 msgid "Multi-word"
 msgstr "Plusieurs mots"
-
-msgid "Attribute"
-msgstr "Attribut"
 
 #, c-format
 msgid "Search result %s: %s"
@@ -5439,15 +5238,15 @@ msgstr "$HOME n’est pas défini !"
 
 #, c-format
 msgid ""
-"Biblia Elim cannot create directory %s:\n"
+"Ministerios Elim cannot create directory %s:\n"
 "%s\n"
 "\n"
-"Biblia Elim cannot continue."
+"Ministerios Elim cannot continue."
 msgstr ""
-"Biblia Elim ne peut pas créer le dossier %s :\n"
+"Ministerios Elim ne peut pas créer le dossier %s :\n"
 "%s\n"
 "\n"
-"Biblia Elim ne peut pas continuer."
+"Ministerios Elim ne peut pas continuer."
 
 msgid "can not create "
 msgstr "impossible de créer "
@@ -5468,12 +5267,12 @@ msgid ""
 "Evidently, you declined to install any.\n"
 "\n"
 "Without any Bible modules to display,\n"
-"Xiphos cannot proceed,\n"
+"Ministerios Elim cannot proceed,\n"
 "and will now exit."
 msgstr ""
 "Aucune Bible n’a été installée !\n"
 "\n"
-"Biblia Elim ne peut fonctionner sans une Bible à présenter,\n"
+"Ministerios Elim ne peut fonctionner sans une Bible à présenter,\n"
 "et va maintenant se terminer."
 
 msgid "Bible module installation complete."
@@ -5547,32 +5346,18 @@ msgid "Migración SQLite incompleta: revise la ruta antigua"
 msgstr "Migration SQLite incomplète : vérifiez l’ancien chemin"
 
 msgid ""
-"Xiphos's language abbreviation\n"
-"file cannot be opened."
-msgstr ""
-"Ouverture impossible du fichier\n"
-"d’abréviation des langues."
-
-msgid ""
-"Xiphos cannot allocate space\n"
+"Ministerios Elim cannot allocate space\n"
 "for language abbreviations."
 msgstr ""
 "Impossible d’allouer l’espace suffisant\n"
 "aux abréviations de langues."
 
 msgid ""
-"Xiphos cannot read the\n"
+"Ministerios Elim cannot read the\n"
 "language abbreviation file."
 msgstr ""
 "Erreur de lecture du fichier\n"
 "d’abréviation des langues."
-
-msgid ""
-"Xiphos's file for language\n"
-"abbreviations is missing."
-msgstr ""
-"Le fichier d’abréviation\n"
-"des langues est absent."
 
 #, c-format
 msgid ""
@@ -5663,8 +5448,8 @@ msgid "URL not found:"
 msgstr "URL non trouvée :"
 
 #, c-format
-msgid "Xiphos could not execute %s: %s"
-msgstr "Biblia Elim n’a pas pu exécuter %s : %s"
+msgid "Ministerios Elim could not execute %s: %s"
+msgstr "Ministerios Elim n’a pas pu exécuter %s : %s"
 
 #, c-format
 msgid "Show %s in main window"
@@ -5714,10 +5499,6 @@ msgstr "type incorrect, nœud racine différent de Copy_Export\n"
 #, c-format
 msgid "%s<center>%s<br>Chapter %d</center><br>"
 msgstr "%s<center>%s<br>Chapitre %d</center><br>"
-
-#, c-format
-msgid "<br><center>Chapter %d</center><br>"
-msgstr "<br><center>Chapitre %d</center><br>"
 
 #, c-format
 msgid ""
@@ -5899,12 +5680,6 @@ msgstr "Écrivez les étiquettes dans la note : #prière, #prophétie"
 msgid "_Libro:"
 msgstr "Livre"
 
-msgid "_Versión:"
-msgstr "Version"
-
-msgid "E_xportar…"
-msgstr "Exporter"
-
 msgid ""
 "Las notas mostradas en Markdown, para leer o imprimir; o una copia completa "
 "de todas en JSON"
@@ -5958,17 +5733,14 @@ msgstr "Valider"
 msgid "Copy/Export Passage"
 msgstr "Copier/exporter le passage"
 
-msgid "Version"
-msgstr "Version"
-
 msgid ": "
 msgstr ": "
 
 msgid "Key"
 msgstr "Clé"
 
-msgid "<b>Copy</b>"
-msgstr "<b>Copier</b>"
+msgid "<b>Export</b>"
+msgstr "<b>Exporter</b>"
 
 msgid "Book"
 msgstr "Livre"
@@ -5999,6 +5771,9 @@ msgstr "Bouton radio Verset"
 
 msgid "Verse range"
 msgstr "Plage de versets"
+
+msgid "<b>Format</b>"
+msgstr "<b>Format</b>"
 
 msgid "Plain Text"
 msgstr "Texte simple"
@@ -6244,8 +6019,8 @@ msgid "Actualizar"
 msgstr "Actualiser"
 
 msgid ""
-"Refresh Xiphos' knowledge of what modules are available at the selected "
-"remote repository"
+"Refresh Ministerios Elim's knowledge of what modules are available at the "
+"selected remote repository"
 msgstr "Actualise la liste des modules disponibles dans les dépôts"
 
 msgid "Install or update the selected modules"
@@ -6434,6 +6209,9 @@ msgstr "_Préférences"
 msgid "Cover"
 msgstr "Accueil"
 
+msgid "<b>Font Colors</b>"
+msgstr "<b>Couleurs des polices</b>"
+
 msgid "Background"
 msgstr "Arrière-plan"
 
@@ -6466,9 +6244,6 @@ msgstr "Texte normal"
 
 msgid "Highlight"
 msgstr "Surlignement"
-
-msgid "Font Colors"
-msgstr "Couleurs de police"
 
 msgid "<b>Font Sizes</b>"
 msgstr "<b>Tailles des polices</b>"
@@ -6582,9 +6357,10 @@ msgstr "<i>Naviguer :</i>"
 msgid "_Direct"
 msgstr "_Direct"
 
-msgid "BibleSync navigation will send Xiphos directly to the verse indicated."
+msgid ""
+"BibleSync navigation will send Ministerios Elim directly to the verse indicated."
 msgstr ""
-"Le verset indiqué s’affiche directement dans Biblia Elim durant la "
+"Le verset indiqué s’affiche directement dans Ministerios Elim durant la "
 "navigation Biblesync."
 
 msgid "BSP nav direct radio button"
@@ -6593,7 +6369,7 @@ msgstr "Bouton radio BSP navigation directe"
 msgid "_Verse list"
 msgstr "Liste de _versets"
 
-msgid "BibleSync navigation will use Xiphos' sidebar verse list."
+msgid "BibleSync navigation will use Ministerios Elim's sidebar verse list."
 msgstr "Le verset indiqué s’affiche dans la liste de versets."
 
 msgid "BSP nav verse list radio button"
@@ -6603,17 +6379,17 @@ msgid "Sólo con el _teclado"
 msgstr "_Uniquement au clavier"
 
 msgid ""
-"When checked, do not transmit every time Xiphos navigates; instead, transmit "
-"only using keyboard shortcut (Ctrl-Shift-Alt-N)."
+"When checked, do not transmit every time Ministerios Elim navigates; instead, "
+"transmit only using keyboard shortcut (Ctrl-Shift-Alt-N)."
 msgstr ""
 "Si coché, transmettre la navigation uniquement avec Ctrl-Maj-Alt-N, pas à "
-"chaque déplacement de Xiphos."
+"chaque déplacement de Ministerios Elim."
 
 msgid "BSP keyboard button"
 msgstr "Contrôle clavier BibleSync"
 
-msgid "Xiphos will listen to Speakers according to choice here."
-msgstr "Biblia Elim écoutera ici les orateurs selon leur choix."
+msgid "Ministerios Elim will listen to Speakers according to choice here."
+msgstr "Ministerios Elim écoutera ici les orateurs selon leur choix."
 
 msgid "<i>Escuchar:</i>"
 msgstr "<i>Écouter :</i>"
@@ -6648,7 +6424,8 @@ msgstr "Bouton radio BSP ecouter aucun"
 msgid ""
 "Additional traces can be presented during BibleSync operation by enabling "
 "presence, mismatch, and debug. Beware enabling these, they can be very "
-"chatty. Also, decide whether to allow group parameter as Xiphos' tab number."
+"chatty. Also, decide whether to allow group parameter as Ministerios Elim's tab "
+"number."
 msgstr ""
 "Des informations supplémentaires peuvent être affichées pendant le "
 "fonctionnement de BibleSync en activant ces options. Attention ces "
@@ -6690,7 +6467,7 @@ msgid "_Group as tab"
 msgstr "_Groupe en onglet"
 
 msgid ""
-"Interpret the protocol's group number parameter as Xiphos' tab number. "
+"Interpret the protocol's group number parameter as Ministerios Elim's tab number. "
 "Disabling this may be necessary if some Speakers' use of group number is not "
 "appropriate as a tab number."
 msgstr ""
@@ -6899,9 +6676,6 @@ msgstr "Boite combinée Changement de dictionnaire"
 msgid "Change Book Combo"
 msgstr "Boite combinée Changement de livre"
 
-msgid "<b>Modules</b>"
-msgstr "<b>Modules</b>"
-
 msgid "Clear all modules from the list"
 msgstr "Efface tous les modules de la liste"
 
@@ -7013,9 +6787,6 @@ msgstr "Régularité"
 msgid "Advanced Search"
 msgstr "Recherche _avancée"
 
-msgid "<b>search module</b>"
-msgstr "<b>rechercher un module</b>"
-
 msgid "For: "
 msgstr "Pour : "
 
@@ -7092,9 +6863,6 @@ msgstr "Recherche dans une liste de modules prédéfinie"
 msgid "Custom module list radiobutton"
 msgstr "Bouton radio Liste de modules"
 
-msgid "<b>Search Type</b>"
-msgstr "<b>Type de requête</b>"
-
 msgid ""
 "Fast, featureful, index-based search\n"
 "Indexes must have been built beforehand:\n"
@@ -7125,9 +6893,6 @@ msgstr "Fait des sélections dans l’onglet de recherche « Attributs »"
 msgid "Attributes radiobutton"
 msgstr "Bouton radio Attributs"
 
-msgid "<b>Options</b>"
-msgstr "<b>Options de la requête</b>"
-
 msgid "Match case checkbox"
 msgstr "Case à cocher Respecter la casse"
 
@@ -7145,9 +6910,6 @@ msgstr ""
 msgid "Export current search results"
 msgstr "Exporte les résultats de la requête"
 
-msgid "Export"
-msgstr "Exporter"
-
 msgid "Clear lists for new search"
 msgstr "Efface tous les résultats"
 
@@ -7162,6 +6924,9 @@ msgstr "Fenêtre Récapitulatif des résultats"
 
 msgid "<b>Search Results</b>"
 msgstr "<b>Détail</b>"
+
+msgid "<b>Preview</b>"
+msgstr "<b>Aperçu</b>"
 
 msgid "Results"
 msgstr "Résultats"
@@ -7360,8 +7125,8 @@ msgstr "Exporter le dossier des signets"
 msgid "<b>Export to:</b>"
 msgstr "<b>Exporter sous :</b>"
 
-msgid "Xiphos bookmarks"
-msgstr "Signets Biblia Elim"
+msgid "Ministerios Elim bookmarks"
+msgstr "Signets Ministerios Elim"
 
 msgid "Html"
 msgstr "Html"
@@ -7369,208 +7134,207 @@ msgstr "Html"
 msgid "Include Bible text"
 msgstr "Inclure le texte biblique"
 
-msgid "Modules"
-msgstr "Modules"
+msgid "Module Name"
+msgstr "Nom du module"
 
-msgid "Options"
-msgstr "Options"
+msgid "Type"
+msgstr "Type :"
 
-msgid "Search Module"
-msgstr "Module"
+msgid "Type:"
+msgstr "Type :"
 
-msgid "Search Type"
-msgstr "Type de requête"
+msgid "<b>Major Topic A</b><br/>"
+msgstr "<b>Sujet majeur A</b><br/>"
 
-msgid "Major Topic A"
-msgstr "Sujet majeur A"
+msgid "<b>Major Topic B</b><br/>"
+msgstr "<b>Sujet majeur B</b><br/>"
 
-msgid "Major Topic B"
-msgstr "Sujet majeur B"
+msgid "<b>Major Topic C</b><br/>"
+msgstr "<b>Sujet majeur C</b><br/>"
 
-msgid "Major Topic C"
-msgstr "Sujet majeur C"
+msgid "Attribute"
+msgstr "Attribut"
 
-msgid "<b>Export</b>"
-msgstr "<b>Exporter</b>"
+#, c-format
+msgid "<br><center>Chapter %d</center><br>"
+msgstr "<br><center>Chapitre %d</center><br>"
 
-msgid "<b>Font Colors</b>"
-msgstr "<b>Couleurs des polices</b>"
+msgid "_Versión:"
+msgstr "Version"
 
-msgid "<b>Format</b>"
-msgstr "<b>Format</b>"
+msgid "E_xportar…"
+msgstr "Exporter"
 
-#: ../src/editor/slib-editor.c:238 ../ui/gtk2_webedit.ui.h:77
-#: ../ui/gtk_webedit.ui.h:77
-msgid "Save As"
-msgstr "Enregistrer sous"
+msgid "Version"
+msgstr "Version"
 
-#: ../src/editor/slib-editor.c:317
-msgid "_Close"
-msgstr "_Fermer"
+msgid "<b>Copy</b>"
+msgstr "<b>Copier</b>"
 
-#: ../src/editor/slib-editor.c:482
-msgid "HTML Output"
-msgstr "Sortie HTML"
+msgid "<b>Module Manager</b>"
+msgstr "<b>Gestionnaire de modules</b>"
 
-#: ../src/editor/slib-editor.c:488
-msgid "HTML Source"
-msgstr "Source HTML"
+msgid "Font Colors"
+msgstr "Couleurs de police"
 
-#: ../src/editor/slib-editor.c:494
-msgid "Plain Source"
-msgstr "Source texte"
+msgid "<b>Modules</b>"
+msgstr "<b>Modules</b>"
 
-#: ../src/editor/slib-editor.c:505 ../ui/editor_note.xml.h:13
-#: ../ui/editor_studypad.xml.h:19
-msgid "_Print..."
-msgstr "_Imprimer..."
+msgid "<b>search module</b>"
+msgstr "<b>rechercher un module</b>"
 
-#: ../src/editor/slib-editor.c:516 ../ui/editor_note.xml.h:12
-#: ../ui/editor_studypad.xml.h:18
-msgid "Print Pre_view"
-msgstr "A_perçu avant impression"
+msgid "<b>Search Type</b>"
+msgstr "<b>Type de requête</b>"
 
-#: ../src/editor/slib-editor.c:527
-msgid "_Quit"
-msgstr "_Quitter"
+msgid "<b>Options</b>"
+msgstr "<b>Options de la requête</b>"
 
-#: ../src/editor/slib-editor.c:560
-msgid "Save _As..."
-msgstr "Enregistrer _sous..."
+msgid "Export"
+msgstr "Exporter"
 
-#: ../src/editor/slib-editor.c:566 ../ui/gtk2_webedit.ui.h:56
-#: ../ui/gtk_webedit.ui.h:56
-msgid "New"
-msgstr "Nouveau"
+msgid "Open a new tab"
+msgstr "Ouvre un nouvel onglet"
 
-#: ../src/editor/slib-editor.c:568
-msgid "Open new document"
-msgstr "Ouvre un nouveau document"
-
-#: ../src/editor/slib-editor.c:572 ../ui/gtk2_webedit.ui.h:14
-#: ../ui/gtk_webedit.ui.h:14
-msgid "Delete"
-msgstr "Supprimer"
-
-#: ../src/editor/slib-editor.c:574
-msgid "Delete current note"
-msgstr "Supprime la note en cours"
-
-#: ../src/editor/slib-editor.c:579 ../ui/editor_note.xml.h:9
-#: ../ui/editor_studypad.xml.h:7 ../ui/gtk2_webedit.ui.h:86
-#: ../ui/gtk_webedit.ui.h:87 ../ui/xi-menus.glade.h:1
-#: ../ui/xi-menus.gtkbuilder.h:1
-msgid "_File"
-msgstr "_Fichier"
-
-#: ../src/editor/slib-editor.c:634
-msgid "HTML _Output"
-msgstr "_Sortie HTML"
-
-#: ../src/editor/slib-editor.c:641
-msgid "_HTML Source"
-msgstr "Source _HTML"
-
-#: ../src/editor/slib-editor.c:648
-msgid "_Plain Source"
-msgstr "Source _texte"
-
-#: ../src/editor/slib-editor.c:655 ../ui/xi-menus.glade.h:17
-#: ../ui/xi-menus.gtkbuilder.h:11
-msgid "_View"
-msgstr "Afficha_ge"
-
-#: ../src/editor/slib-editor.c:664 ../ui/editor_note.xml.h:16
-#: ../ui/editor_studypad.xml.h:11 ../ui/gtk2_webedit.ui.h:75
-#: ../ui/gtk_webedit.ui.h:75
-msgid "Save"
-msgstr "Enregistrer"
-
-#: ../src/editor/slib-editor.c:1071 ../src/editor/webkit_editor.c:1236
-#: ../ui/xi-menus.glade.h:63 ../ui/xi-menus-popup.gtkbuilder.h:48
-msgid "File"
-msgstr "Fichier"
-
-#: ../src/editor/webkit_editor.c:40
 msgid ""
-"The editor is disabled on this platform due to missing dependencies.\n"
-"We hope to re-enable it in a future release."
+"Ministerios Elim'ss language abbreviation\n"
+"file cannot be opened."
 msgstr ""
-"L’éditeur est désactivé sur cette plate-forme en raison de dépendance "
-"manquante.\n"
-"Nous espérons le réactiver dans une prochaine version."
+"Ouverture impossible du fichier\n"
+"d’abréviation des langues."
 
-#: ../src/gtk/about_xiphos.c:134
+msgid ""
+"Ministerios Elim'ss file for language\n"
+"abbreviations is missing."
+msgstr ""
+"Le fichier d’abréviation\n"
+"des langues est absent."
+
+#: src/gtk/about_xiphos.c:125
+msgid "Copyright © 2026 Ministerios Elim contributors"
+msgstr ""
+
+#: src/gtk/buscar_notas.c:807
+#, c-format
+msgid "%u nota nueva."
+msgid_plural "%u notas nuevas."
+msgstr[0] "%u nouvelle note."
+msgstr[1] "%u nouvelles notes."
+
+#: src/gtk/buscar_notas.c:811
+#, c-format
+msgid " %u de ellas va junto a otra nota tuya del mismo versículo."
+msgid_plural " %u de ellas van junto a otra nota tuya del mismo versículo."
+msgstr[0] " %u rejoint une autre de vos notes sur le même verset."
+msgstr[1] " %u rejoignent une autre de vos notes sur le même verset."
+
+#: src/gtk/buscar_notas.c:817
+#, c-format
 msgid ""
 "\n"
-"Powered by The SWORD Project.\n"
-"We would like to thank Troy Griffitts and all the other folks who have given "
-"us The SWORD Project."
-msgstr ""
+"%u ya estaba."
+msgid_plural ""
 "\n"
-"Xiphos est basé sur le Projet SWORD.    \n"
-"Tous nos remerciements vont à Troy Griffitts et toutes\n"
-"les autres personnes qui font vivre le Projet SWORD."
+"%u ya estaban."
+msgstr[0] ""
+"\n"
+"%u existait déjà."
+msgstr[1] ""
+"\n"
+"%u existaient déjà."
 
-#: ../src/gtk/dialog.c:724
-msgid "Xiphos:"
-msgstr "Xiphos :"
+#: src/gtk/buscar_notas.c:821
+#, c-format
+msgid ""
+"\n"
+"%u enlace nuevo."
+msgid_plural ""
+"\n"
+"%u enlaces nuevos."
+msgstr[0] ""
+"\n"
+"%u nouveau lien."
+msgstr[1] ""
+"\n"
+"%u nouveaux liens."
 
-#: ../src/gtk/font_dialog.c:376 ../src/gtk/font_dialog.c:391
-msgid "+0"
-msgstr "+0"
+#: src/gtk/buscar_notas.c:826
+#, c-format
+msgid ""
+"\n"
+"%u subrayado o enlace distinto del tuyo: se conservó el tuyo."
+msgid_plural ""
+"\n"
+"%u subrayados o enlaces distintos de los tuyos: se conservaron los tuyos."
+msgstr[0] ""
+"\n"
+"%u surlignage ou lien différent : le vôtre a été conservé."
+msgstr[1] ""
+"\n"
+"%u surlignages ou liens différents : les vôtres ont été conservés."
 
-#: ../src/gtk/gui.c:107
-msgid "BUG! Xiphos is about to crash due to a \"STRDUP\" error."
-msgstr "BUG ! Xiphos va s’arrêter sur une erreur « STRDUP »."
+#: src/gtk/buscar_notas.c:832
+#, c-format
+msgid ""
+"\n"
+"%u entrada no válida, ignorada."
+msgid_plural ""
+"\n"
+"%u entradas no válidas, ignoradas."
+msgstr[0] ""
+"\n"
+"%u entrée non valide ignorée."
+msgstr[1] ""
+"\n"
+"%u entrées non valides ignorées."
 
-#: ../src/gtk/gui.c:108 ../src/gtk/gui.c:138
-msgid "Please report this error to the Xiphos team with:"
-msgstr ""
-"Merci de signaler cette erreur à l’équipe de développement Xiphos avec :"
+#: src/gtk/memorizacion.c:213
+#, c-format
+msgid "atrasado %d día"
+msgid_plural "atrasado %d días"
+msgstr[0] "%d jour de retard"
+msgstr[1] "%d jours de retard"
 
-#: ../src/gtk/gui.c:137
-msgid "BUG! Xiphos is about to crash due to a \"STRING\" error."
-msgstr "BUG ! Xiphos va s’arrêter sur une erreur « STRING »."
+#: src/gtk/memorizacion.c:267
+#, c-format
+msgid "%d versículo para repasar hoy"
+msgid_plural "%d versículos para repasar hoy"
+msgstr[0] "%d verset à réviser aujourd’hui"
+msgstr[1] "%d versets à réviser aujourd’hui"
 
-#: ../src/gtk/main_window.c:678
-msgid "Xiphos: No windows."
-msgstr "Xiphos : Pas de fenêtres."
+#: src/gtk/memorizacion.c:283
+#, c-format
+msgid "Tus versículos · %d en total"
+msgid_plural "Tus versículos · %d en total"
+msgstr[0] "Vos versets · %d au total"
+msgstr[1] "Vos versets · %d au total"
 
-#: ../src/gtk/main_window.c:1055
-msgid "Xiphos - Bible Study Software"
-msgstr "Xiphos - Logiciel d’étude biblique"
+#: src/gtk/memorizacion.c:303
+#, c-format
+msgid "Esta semana ya elegiste %d."
+msgid_plural "Esta semana ya elegiste %d."
+msgstr[0] "Vous en avez déjà choisi %d cette semaine."
+msgstr[1] "Vous en avez déjà choisi %d cette semaine."
 
-# Je traduis seulement commentaire pour des raisons d'affichage. Mais cela donne très bien.
-#: ../src/gtk/main_window.c:1214
-msgid "Commentary View"
-msgstr "Commentaire"
+#: src/gtk/memorizacion.c:310
+#, c-format
+msgid "  ·  %d en la última caja"
+msgid_plural "  ·  %d en la última caja"
+msgstr[0] "  ·  %d dans la dernière boîte"
+msgstr[1] "  ·  %d dans la dernière boîte"
 
-# Je traduis juste livre car sinon la ligne est trop grand mais cela donne très bien dans l'affichage.
-#: ../src/gtk/main_window.c:1222
-msgid "Book View"
-msgstr "Livre"
-
-#: ../src/gtk/main_window.c:1261
-msgid "Welcome to Xiphos"
-msgstr "Bienvenue dans Xiphos"
-
-#. *****************************************************************************
-#. * defines
-#.
-#: ../src/gtk/mod_mgr.c:65
+#: src/gtk/mod_mgr.c:64
 msgid ""
 "<b>Overview of the Module Manager.</b>\n"
 "\n"
-"This is Xiphos' mechanism to get new and updated content.\n"
+"This is Ministerios Elim's mechanism to get new and updated content.\n"
 "If you have never been here before, please take a moment to look it over.\n"
 "\n"
 "Modules come from different <u>repositories</u>.  <b>Module Sources: Add/"
 "Remove</b> will show you what repositories are currently known.\n"
 "\n"
 "<b>Module Sources: Choose</b> is for deciding from where modules should "
-"come, that is, from which repository Xiphos should obtain them, as well as "
-"where they should be placed on your system. Set <i>Install Source</i> and "
+"come, that is, from which repository Ministerios Elim should obtain them, as well "
+"as where they should be placed on your system. Set <i>Install Source</i> and "
 "<i>Install Destination</i>, then click <i>Refresh</i>.\n"
 "\n"
 "<b>Modules: Install/Update</b> is for selecting and obtaining modules after "
@@ -7584,9 +7348,9 @@ msgid ""
 msgstr ""
 "<b>Bienvenue dans le Gestionnaire de modules !</b>\n"
 "\n"
-"C’est l’outil utilisé par Xiphos pour installer et mettre à jour les modules "
-"de textes bibliques, commentaires ou autres. Si vous ne l’avez pas encore "
-"utilisé, prenez quelques instants pour le découvrir.\n"
+"C’est l’outil utilisé par Ministerios Elim pour installer et mettre à jour les "
+"modules de textes bibliques, commentaires ou autres. Si vous ne l’avez pas "
+"encore utilisé, prenez quelques instants pour le découvrir.\n"
 "\n"
 "Les modules proviennent de diverses sources appelées <i>dépôts</i>.\n"
 "\n"
@@ -7594,9 +7358,9 @@ msgstr ""
 "répertoriés.\n"
 "\n"
 "<b>Dépôts → Sélection</b>: permet de définir la provenance des modules, à "
-"partir de quel dépôt Xiphos doit les rapatrier, ainsi que l’endroit où ils "
-"doivent être placés sur le système. Sélectionnez <i>Source des dépôts</i> et "
-"<i>Dossier d’installation</i>, puis ensuite <b>Actualiser</b>.\n"
+"partir de quel dépôt Ministerios Elim doit les rapatrier, ainsi que l’endroit où "
+"ils doivent être placés sur le système. Sélectionnez <i>Source des dépôts</"
+"i> et <i>Dossier d’installation</i>, puis ensuite <b>Actualiser</b>.\n"
 "\n"
 "<b>Modules → Installer/Maj</b>: permet de sélectionner et d’installer des "
 "modules après avoir choisi la source et le dossier d’installation.\n"
@@ -7605,16 +7369,16 @@ msgstr ""
 "\n"
 "la section 5 du manuel d’aide.\n"
 
-#: ../src/gtk/mod_mgr.c:68
+#: src/gtk/mod_mgr.c:67
 msgid ""
-"<b>Welcome to Xiphos.</b>\n"
+"<b>Welcome to Ministerios Elim.</b>\n"
 "\n"
-"There are no Bibles installed. In order to initialize, Xiphos needs at least "
-"one Bible module. To facilitate this, the Module Manager has been opened so "
-"that you may install one or more Bibles, either from a local module set "
-"(cdrom, flash drive) or over the network from CrossWire Bible Society. "
-"Please refer to these step-by-step instructions, and to the general module "
-"manager overview that has also been opened.\n"
+"There are no Bibles installed. In order to initialize, Ministerios Elim needs at "
+"least one Bible module. To facilitate this, the Module Manager has been "
+"opened so that you may install one or more Bibles, either from a local "
+"module set (cdrom, flash drive) or over the network from CrossWire Bible "
+"Society. Please refer to these step-by-step instructions, and to the general "
+"module manager overview that has also been opened.\n"
 "\n"
 "<u>For local install:</u>\n"
 "- In <i>Module Sources: Add/Remove</i>, add a new local folder name where "
@@ -7639,10 +7403,10 @@ msgid ""
 "Both this step-by-step instruction dialog and the general introduction "
 "dialog may be closed at any time."
 msgstr ""
-"<b>Bienvenue dans Xiphos.</b>\n"
+"<b>Bienvenue dans Ministerios Elim.</b>\n"
 "\n"
-"Aucune Bible n’a été détectée. Pour démarrer, Xiphos a maintenant besoin "
-"d’au moins un texte biblique.\n"
+"Aucune Bible n’a été détectée. Pour démarrer, Ministerios Elim a maintenant "
+"besoin d’au moins un texte biblique.\n"
 "Le <i>Gestionnaire de modules</i> a donc été ouvert pour vous permettre "
 "d’installer une ou plusieurs Bibles à partir d’un dépôt local (cdrom, disque "
 "flash), ou par téléchargement depuis le serveur de la Société Biblique "
@@ -7672,45 +7436,100 @@ msgstr ""
 "<u>Attention</u> : La plus extrême prudence est requise dans les pays ou des "
 "faits de persécution ont été recensés."
 
-#: ../src/gtk/mod_mgr.c:664 ../src/main/biblesync_glue.cc:640
-#: ../ui/gtk2_webedit.ui.h:2 ../ui/gtk_webedit.ui.h:2 ../ui/xi-menus.glade.h:59
-#: ../ui/xi-menus-popup.gtkbuilder.h:41
-msgid "About"
-msgstr "À propos"
+#: src/gtk/plan_personal.c:70 src/gtk/plan_personal.c:258
+#, c-format
+msgid "%d capítulo"
+msgid_plural "%d capítulos"
+msgstr[0] "%d chapitre"
+msgstr[1] "%d chapitres"
 
-#: ../src/gtk/mod_mgr.c:1960
-msgid "Configure"
-msgstr "Configurer"
+#: src/gtk/plan_personal.c:168
+#, c-format
+msgid "%s y %d libro más"
+msgid_plural "%s y %d libros más"
+msgstr[0] "%s et %d autre livre"
+msgstr[1] "%s et %d autres livres"
 
-#: ../src/gtk/mod_mgr.c:3748
-msgid "[no module]"
-msgstr "[Pas de module]"
+#: src/gtk/plan_personal.c:262 src/main/planes_lectura.c:504
+#, c-format
+msgid "%d libro"
+msgid_plural "%d libros"
+msgstr[0] "%d livre"
+msgstr[1] "%d livres"
 
-#: ../src/gtk/preferences_dialog.c:2313
-msgid "Special"
-msgstr "Spécial"
+#: src/gtk/plan_personal.c:266 src/gtk/planes_lectura.c:491
+#: src/main/planes_lectura.c:507
+#, c-format
+msgid "%d día"
+msgid_plural "%d días"
+msgstr[0] "%d jour"
+msgstr[1] "%d jours"
 
-#: ../src/gtk/preferences_dialog.c:3717
-msgid "Set:"
-msgstr "Groupe :"
+#: src/gtk/plan_personal.c:476
+#, c-format
+msgid ""
+"Llevas %d día marcado. Las marcas se quedan donde están: si cambias los "
+"libros o los días, el día 1 pasa a ser otra lectura."
+msgid_plural ""
+"Llevas %d días marcados. Las marcas se quedan donde están: si cambias los "
+"libros o los días, el día 1 pasa a ser otra lectura."
+msgstr[0] ""
+"Vous avez marqué %d jour. Les marques restent en place : modifier les livres "
+"ou les jours change la lecture du jour 1."
+msgstr[1] ""
+"Vous avez marqué %d jours. Les marques restent en place : modifier les "
+"livres ou les jours change la lecture du jour 1."
 
-#. *****************************************************************************
-#. * Name
-#. *   on_lucene_intro_clicked
-#. *
-#. * Synopsis
-#. *   #include "gui/search_dialog.h"
-#. *
-#. *   void on_lucene_intro_clicked(GtkToggleButton *button,
-#. *				  gpointer user_data)
-#. *
-#. * Description
-#. *
-#. *
-#. * Return value
-#. *   void
-#.
-#: ../src/gtk/search_dialog.c:837
+#: src/gtk/planes_lectura.c:418
+#, c-format
+msgid "Toca el día %d · vas %d día por detrás del calendario"
+msgid_plural "Toca el día %d · vas %d días por detrás del calendario"
+msgstr[0] "C’est le jour %d · vous avez %d jour de retard"
+msgstr[1] "C’est le jour %d · vous avez %d jours de retard"
+
+#: src/gtk/planes_lectura.c:423
+#, c-format
+msgid "Toca el día %d · vas %d día adelantado"
+msgid_plural "Toca el día %d · vas %d días adelantado"
+msgstr[0] "C’est le jour %d · vous avez %d jour d’avance"
+msgstr[1] "C’est le jour %d · vous avez %d jours d’avance"
+
+#: src/gtk/planes_lectura.c:744
+#, c-format
+msgid "Vas %d día por detrás en «%s»."
+msgid_plural "Vas %d días por detrás en «%s»."
+msgstr[0] "Vous avez %d jour de retard dans « %s »."
+msgstr[1] "Vous avez %d jours de retard dans « %s »."
+
+#: src/gtk/progreso_lectura.c:164
+#, c-format
+msgid "%d de %d días · %d por detrás"
+msgid_plural "%d de %d días · %d por detrás"
+msgstr[0] "%d jours sur %d · %d de retard"
+msgstr[1] "%d jours sur %d · %d de retard"
+
+#: src/gtk/progreso_lectura.c:378
+#, c-format
+msgid "%d día seguido"
+msgid_plural "%d días seguidos"
+msgstr[0] "%d jour consécutif"
+msgstr[1] "%d jours consécutifs"
+
+#: src/gtk/progreso_lectura.c:403
+#, c-format
+msgid "La más larga: %d día"
+msgid_plural "La más larga: %d días"
+msgstr[0] "La plus longue : %d jour"
+msgstr[1] "La plus longue : %d jours"
+
+#: src/gtk/progreso_lectura.c:407
+#, c-format
+msgid "  ·  %d día con lectura"
+msgid_plural "  ·  %d días con lectura"
+msgstr[0] "  ·  %d jour de lecture"
+msgstr[1] "  ·  %d jours de lecture"
+
+#: src/gtk/search_dialog.c:714
 msgid ""
 "<b>Syntax overview for optimized \"lucene\" searches</b>\n"
 "Search for verses that contain...\n"
@@ -7768,2109 +7587,38 @@ msgstr ""
 "Pour plus d’amples détails, rechercher sur Internet : « Syntaxe requête "
 "Lucene »."
 
-#: ../src/gtk/sidebar.c:612
-msgid "Open in Detached Window"
-msgstr "Ouvrir dans une fenêtre séparée"
-
-#: ../src/gtk/sidebar.c:613
-msgid "Open in New Tab"
-msgstr "Ouvrir dans un nouvel onglet"
-
-#: ../src/gtk/splash.c:403
-msgid "Powered by the SWORD Project"
-msgstr "Xiphos utilise les logiciels du Projet SWORD"
-
-#: ../src/main/biblesync_glue.cc:590
-msgid "Check the box to listen to this Speaker"
-msgstr "Cocher la case pour suivre cet intervenant"
-
-#: ../src/main/biblesync_glue.cc:603
-msgid "Available Speakers"
-msgstr "Intervenants disponibles"
-
-#: ../src/main/biblesync_glue.cc:622
-msgid "Last navigation was Direct or Indirect"
-msgstr "La dernière navigation était directe ou indirecte"
-
-#: ../src/main/biblesync_glue.cc:631
-msgid "Last Navigation"
-msgstr "Dernière navigation"
-
-#: ../src/main/biblesync_glue.cc:650
-msgid "UUID"
-msgstr "UUID"
-
-#: ../src/main/display.cc:267
+#: src/gtk/testimonios.c:300
 #, c-format
-msgid ""
-"Improperly encoded personal annotation label:\n"
-"'%s'"
-msgstr ""
-"Ce nom d’annotation personnelle est improprement formé :\n"
-"’%s’"
+msgid "%u fuente, y funciona sin internet."
+msgid_plural "%u fuentes, y funcionan sin internet."
+msgstr[0] "%u source, disponible hors ligne."
+msgstr[1] "%u sources, disponibles hors ligne."
 
-#: ../src/main/parallel_view.cc:361 ../ui/xi-menus.glade.h:73
-#: ../ui/xi-menus-popup.gtkbuilder.h:57
-msgid "Strong's Numbers"
-msgstr "Nombres de Strong"
-
-#: ../src/main/parallel_view.cc:388 ../ui/xi-menus.glade.h:81
-#: ../ui/xi-menus-popup.gtkbuilder.h:64
-msgid "Hebrew Vowel Points"
-msgstr "Ponctuation des voyelles en hébreu"
-
-#: ../src/main/parallel_view.cc:397 ../ui/xi-menus.glade.h:82
-#: ../ui/xi-menus-popup.gtkbuilder.h:65
-msgid "Hebrew Cantillation"
-msgstr "Vocalisations en hébreu"
-
-#: ../src/main/parallel_view.cc:406 ../ui/xi-menus.glade.h:80
-#: ../ui/xi-menus-popup.gtkbuilder.h:63
-msgid "Greek Accents"
-msgstr "Accents grecs"
-
-#: ../src/main/parallel_view.cc:415 ../ui/xi-menus.glade.h:77
-#: ../ui/xi-menus-popup.gtkbuilder.h:61
-msgid "Cross-references"
-msgstr "Références croisées"
-
-#: ../src/main/parallel_view.cc:424 ../ui/xi-menus.glade.h:74
-#: ../ui/xi-menus-popup.gtkbuilder.h:58
-msgid "Lemmas"
-msgstr "Lemmes"
-
-#: ../src/main/parallel_view.cc:433 ../ui/xi-menus.glade.h:70
-#: ../ui/xi-menus-popup.gtkbuilder.h:54
-msgid "Headings"
-msgstr "Titres"
-
-#: ../src/main/parallel_view.cc:443 ../ui/xi-menus.glade.h:71
-#: ../ui/xi-menus-popup.gtkbuilder.h:55
-msgid "Italic Headings"
-msgstr "Titres en italique"
-
-#: ../src/main/parallel_view.cc:453 ../src/main/parallel_view.cc:542
-#: ../ui/xi-menus.glade.h:91 ../ui/xi-menus-popup.gtkbuilder.h:74
-msgid "Morpheme Segmentation"
-msgstr "Segmentation de morphème"
-
-#: ../src/main/parallel_view.cc:462 ../ui/xi-menus.glade.h:72
-#: ../ui/xi-menus-popup.gtkbuilder.h:56
-msgid "Words of Christ in Red"
-msgstr "Paroles de Christ en rouge"
-
-#: ../src/main/parallel_view.cc:471 ../ui/xi-menus.glade.h:83
-#: ../ui/xi-menus-popup.gtkbuilder.h:66
-msgid "Transliteration"
-msgstr "Translittération"
-
-#: ../src/main/parallel_view.cc:488 ../ui/xi-menus.glade.h:85
-#: ../ui/xi-menus-popup.gtkbuilder.h:68
-msgid "Primary Reading"
-msgstr "Lectures principales"
-
-#: ../src/main/parallel_view.cc:497 ../ui/xi-menus.glade.h:86
-#: ../ui/xi-menus-popup.gtkbuilder.h:69
-msgid "Secondary Reading"
-msgstr "Lectures secondaires"
-
-#: ../src/main/parallel_view.cc:506 ../ui/xi-menus.glade.h:87
-#: ../ui/xi-menus-popup.gtkbuilder.h:70
-msgid "All Readings"
-msgstr "Toutes les lectures"
-
-#: ../src/main/parallel_view.cc:515 ../ui/xi-menus.glade.h:88
-#: ../ui/xi-menus-popup.gtkbuilder.h:71
-msgid "Transliterated Forms"
-msgstr "Formes translittérées"
-
-#: ../src/main/parallel_view.cc:524 ../ui/xi-menus.glade.h:89
-#: ../ui/xi-menus-popup.gtkbuilder.h:72
-msgid "Enumerations"
-msgstr "Énumérations"
-
-#: ../src/main/parallel_view.cc:533 ../ui/xi-menus.glade.h:90
-#: ../ui/xi-menus-popup.gtkbuilder.h:73
-msgid "Glosses"
-msgstr "Annotations"
-
-#: ../src/main/parallel_view.cc:736
-msgid "view context"
-msgstr "voir le contexte"
-
-#. this one matters.
-#: ../src/main/prayerlists.cc:274
+#: src/gtk/versiculo_dia.c:120
 #, c-format
-msgid ""
-"Xiphos cannot create module's path:\n"
-"%s"
-msgstr ""
-"Impossible de créer le chemin d’accès au module :\n"
-"%s"
+msgid "Se guarda sola · %d día con algo escrito."
+msgid_plural "Se guarda sola · %d días con algo escrito."
+msgstr[0] "Enregistrée automatiquement · %d jour avec un écrit."
+msgstr[1] "Enregistrée automatiquement · %d jours avec un écrit."
 
-#: ../src/main/prayerlists.cc:371
+#: src/main/notes_exchange.c:379
+#, c-format
+msgid "Exportadas de Ministerios Elim el %s · %u nota.\n"
+msgid_plural "Exportadas de Ministerios Elim el %s · %u notas.\n"
+msgstr[0] "Exportées de Ministerios Elim le %s · %u note.\n"
+msgstr[1] "Exportées de Ministerios Elim le %s · %u notes.\n"
+
+#: src/main/planes_lectura.c:490
+#, c-format
+msgid "%d capítulo por día"
+msgid_plural "%d capítulos por día"
+msgstr[0] "%d chapitre par jour"
+msgstr[1] "%d chapitres par jour"
+
+#: src/main/prayerlists.cc:366
 msgid "Mike<br/>Steve<br/>"
 msgstr "Personne 1<br/>Personne 2<br/>Personne 3<br/>"
 
-#: ../src/main/prayerlists.cc:373
+#: src/main/prayerlists.cc:368
 msgid "Sue<br/>John<br/>"
 msgstr "Personne 1<br/>Personne 2<br/>Personne 3<br/>"
-
-#: ../src/main/search_dialog.cc:651 ../src/main/search_dialog.cc:1068
-#: ../src/main/search_dialog.cc:1071 ../src/main/search_dialog.cc:1091
-#: ../src/main/search_dialog.cc:1094
-msgid "Search: "
-msgstr "Dans : "
-
-#: ../src/main/settings.c:145
-#, c-format
-msgid "Xiphos can not create directory "
-msgstr "Impossible de créer le dossier "
-
-#: ../src/main/sidebar.cc:408
-msgid "verse"
-msgstr "verset"
-
-#: ../src/main/sidebar.cc:467
-msgid "chapter"
-msgstr "chapitre"
-
-#: ../ui/editor_note.xml.h:1 ../ui/editor_studypad.xml.h:1
-msgid "Exit the program"
-msgstr "Quitter l’application"
-
-#: ../ui/editor_note.xml.h:2 ../ui/editor_studypad.xml.h:2
-msgid "Exit"
-msgstr "Quitter"
-
-#: ../ui/editor_note.xml.h:3
-msgid "Print this note"
-msgstr "Imprime cette note"
-
-#: ../ui/editor_note.xml.h:4
-msgid "Preview the note to be printed"
-msgstr "Aperçu avant impression de la note"
-
-#: ../ui/editor_note.xml.h:5 ../ui/editor_studypad.xml.h:5
-msgid "HTML Format switch"
-msgstr "Commutateur de format HTML"
-
-#: ../ui/editor_note.xml.h:6 ../ui/editor_studypad.xml.h:6
-msgid "HTML mode"
-msgstr "Mode HTML"
-
-#: ../ui/editor_note.xml.h:7
-msgid "Delete the current note"
-msgstr "Supprime la note actuelle"
-
-#: ../ui/editor_note.xml.h:8
-msgid "_Delete Personal Comment"
-msgstr "Su_pprimer le commentaire perso"
-
-#: ../ui/editor_note.xml.h:10
-msgid "Save the current note"
-msgstr "Enregistre la note en cours"
-
-#: ../ui/editor_note.xml.h:11
-msgid "_Save (Personal Comment)"
-msgstr "_Enregistrer le commentaire"
-
-#: ../ui/editor_note.xml.h:14 ../ui/editor_studypad.xml.h:20
-msgid "E_xit"
-msgstr "_Quitter"
-
-#: ../ui/editor_note.xml.h:15 ../ui/editor_studypad.xml.h:21
-msgid "For_mat"
-msgstr "For_mat"
-
-#: ../ui/editor_studypad.xml.h:3
-msgid "Print this document"
-msgstr "Imprime ce document"
-
-#: ../ui/editor_studypad.xml.h:4
-msgid "Preview the document to be printed"
-msgstr "Aperçu avant impression"
-
-#: ../ui/editor_studypad.xml.h:8
-msgid "Open a file in Studypad"
-msgstr "Ouvre un fichier dans le bloc-notes"
-
-#: ../ui/editor_studypad.xml.h:10
-msgid "Save the current file"
-msgstr "Enregistre le fichier en cours"
-
-#: ../ui/editor_studypad.xml.h:12
-msgid "Save the current file as"
-msgstr "Enregistre le fichier en cours sous"
-
-#: ../ui/editor_studypad.xml.h:13
-msgid "Save As…"
-msgstr "Enregistrer sous…"
-
-#: ../ui/editor_studypad.xml.h:14
-msgid "Add this file to your bookmarks"
-msgstr "Ajouter ce fichier à vos signets"
-
-#: ../ui/editor_studypad.xml.h:16
-msgid "Create a new document"
-msgstr "Crée un nouveau document"
-
-#: ../ui/editor_studypad.xml.h:17
-msgid "New Document"
-msgstr "Nouveau document"
-
-#: ../ui/export-dialog.glade.h:25
-msgid ""
-"Indicates whether verse numbers should appear inline in the text for more "
-"than 1 verse."
-msgstr ""
-"Indique si les numéros de versets doivent apparaître en ligne dans un texte "
-"sur plusieurs versets."
-
-#: ../ui/export-dialog.glade.h:32
-msgid "Include Version"
-msgstr "Inclure la version de Bible"
-
-#: ../ui/export-dialog.glade.h:34
-msgid "Save Export As"
-msgstr "Enregistrer / Exporter sous"
-
-#: ../ui/folder.gtkbuilder.h:1
-msgid "Folder"
-msgstr "Dossier"
-
-#: ../ui/folder.gtkbuilder.h:2
-msgid "Name:"
-msgstr "Nom :"
-
-#: ../ui/folder.gtkbuilder.h:3
-msgid "Tag color:"
-msgstr "Couleur de l’étiquette :"
-
-#: ../ui/folder.gtkbuilder.h:4
-msgid "Choose a highlight color for this tag group"
-msgstr "Choisis une couleur de surlignement pour ce groupe d’étiquettes"
-
-#: ../ui/folder.gtkbuilder.h:6
-msgid "Remove tag color from this folder"
-msgstr "Supprime le la couleur de l’étiquette de ce dossier"
-
-#: ../ui/gtk2_webedit.ui.h:1 ../ui/gtk_webedit.ui.h:1
-msgid "About Studypad"
-msgstr "À propos du bloc-notes"
-
-#: ../ui/gtk2_webedit.ui.h:3 ../ui/gtk_webedit.ui.h:3
-msgid "Open about dialog"
-msgstr "Ouvre la boite à propos"
-
-#: ../ui/gtk2_webedit.ui.h:5 ../ui/gtk_webedit.ui.h:5
-msgid "Make selection bold"
-msgstr "Met en gras le texte sélectionné"
-
-#: ../ui/gtk2_webedit.ui.h:6 ../ui/gtk_webedit.ui.h:6
-msgid "Copy"
-msgstr "Copier"
-
-#: ../ui/gtk2_webedit.ui.h:7 ../ui/gtk_webedit.ui.h:7
-msgid "Copy selection to clipboard"
-msgstr "Copie le texte sélectionné dans le presse-papier"
-
-#: ../ui/gtk2_webedit.ui.h:8 ../ui/gtk_webedit.ui.h:8
-msgid "Cut"
-msgstr "Couper"
-
-#: ../ui/gtk2_webedit.ui.h:9 ../ui/gtk_webedit.ui.h:9
-msgid "Cut selection"
-msgstr "Coupe le texte sélectionné dans le presse-papier"
-
-#: ../ui/gtk2_webedit.ui.h:10 ../ui/gtk_webedit.ui.h:10
-msgid "Decrease indent"
-msgstr "Diminue le retrait"
-
-#: ../ui/gtk2_webedit.ui.h:11 ../ui/gtk_webedit.ui.h:11
-msgid "Decrease"
-msgstr "Diminuer"
-
-#: ../ui/gtk2_webedit.ui.h:12 ../ui/gtk_webedit.ui.h:12
-msgid "Decrease paragraph indent"
-msgstr "Diminue le retrait du paragraphe"
-
-#: ../ui/gtk2_webedit.ui.h:13 ../ui/gtk_webedit.ui.h:13
-msgid "Delete selection"
-msgstr "Supprimer la sélection"
-
-#: ../ui/gtk2_webedit.ui.h:15 ../ui/gtk_webedit.ui.h:15
-msgid "Remove selection"
-msgstr "Enlève la sélection"
-
-#: ../ui/gtk2_webedit.ui.h:16 ../ui/gtk_webedit.ui.h:16
-#: ../ui/xi-menus.glade.h:129 ../ui/xi-menus-popup.gtkbuilder.h:11
-msgid "Delete Item"
-msgstr "Supprimer l’élément"
-
-#: ../ui/gtk2_webedit.ui.h:17 ../ui/gtk_webedit.ui.h:17
-msgid "Delete current item"
-msgstr "Supprime l’élément en cours"
-
-#: ../ui/gtk2_webedit.ui.h:19 ../ui/gtk_webedit.ui.h:19
-msgid "Search current document"
-msgstr "Recherche dans le document en cours"
-
-#: ../ui/gtk2_webedit.ui.h:20 ../ui/gtk_webedit.ui.h:20
-msgid "Font"
-msgstr "Police"
-
-#: ../ui/gtk2_webedit.ui.h:21 ../ui/gtk_webedit.ui.h:21
-msgid "Change font"
-msgstr "Change de police"
-
-#: ../ui/gtk2_webedit.ui.h:22 ../ui/gtk_webedit.ui.h:22
-msgid "Increase indent"
-msgstr "Augmente le retrait"
-
-#: ../ui/gtk2_webedit.ui.h:23 ../ui/gtk_webedit.ui.h:23
-msgid "Increase"
-msgstr "Augmenter"
-
-#: ../ui/gtk2_webedit.ui.h:24 ../ui/gtk_webedit.ui.h:24
-msgid "Increase paragraph indent"
-msgstr "Augmente le retrait du paragraphe"
-
-#: ../ui/gtk2_webedit.ui.h:25 ../ui/gtk_webedit.ui.h:25
-msgid "Insert emoticon"
-msgstr "Insérer une émoticône"
-
-#: ../ui/gtk2_webedit.ui.h:26 ../ui/gtk_webedit.ui.h:26
-msgid "Emoticon"
-msgstr "Émoticône"
-
-#: ../ui/gtk2_webedit.ui.h:27 ../ui/gtk_webedit.ui.h:27
-msgid "Insert an emoticon"
-msgstr "Insére une émoticône"
-
-#: ../ui/gtk2_webedit.ui.h:28 ../ui/gtk_webedit.ui.h:28
-msgid "Insert image"
-msgstr "Insére une image"
-
-#: ../ui/gtk2_webedit.ui.h:29 ../ui/gtk_webedit.ui.h:29
-msgid "Image"
-msgstr "Image"
-
-#: ../ui/gtk2_webedit.ui.h:30 ../ui/gtk_webedit.ui.h:30
-msgid "Insert image at cursor"
-msgstr "Insère une image à l’endroit du curseur"
-
-#: ../ui/gtk2_webedit.ui.h:31 ../ui/gtk_webedit.ui.h:31
-msgid "Insert link"
-msgstr "Insérer un lien"
-
-#: ../ui/gtk2_webedit.ui.h:32 ../ui/gtk_webedit.ui.h:32
-msgid "Link"
-msgstr "Lien"
-
-#: ../ui/gtk2_webedit.ui.h:33 ../ui/gtk_webedit.ui.h:33
-msgid "Insert a link"
-msgstr "Insére un lien"
-
-#: ../ui/gtk2_webedit.ui.h:34 ../ui/gtk_webedit.ui.h:34
-msgid "Insert Outline"
-msgstr "Insérer liste"
-
-#: ../ui/gtk2_webedit.ui.h:35 ../ui/gtk_webedit.ui.h:35
-msgid "Outline"
-msgstr "Plan"
-
-#: ../ui/gtk2_webedit.ui.h:36 ../ui/gtk_webedit.ui.h:36
-msgid "Insert outline"
-msgstr "Insère une liste"
-
-#: ../ui/gtk2_webedit.ui.h:37 ../ui/gtk_webedit.ui.h:37
-msgid "Insert rule"
-msgstr "Insère une règle"
-
-#: ../ui/gtk2_webedit.ui.h:38 ../ui/gtk_webedit.ui.h:38
-msgid "Rule"
-msgstr "Règle"
-
-#: ../ui/gtk2_webedit.ui.h:39 ../ui/gtk_webedit.ui.h:39
-msgid "Insert horizontal rule"
-msgstr "Insère une ligne horizontale"
-
-#: ../ui/gtk2_webedit.ui.h:40 ../ui/gtk_webedit.ui.h:40
-msgid "Xiphos Link"
-msgstr "Lien Xiphos"
-
-#: ../ui/gtk2_webedit.ui.h:41 ../ui/gtk_webedit.ui.h:41
-msgid "Xiphos"
-msgstr "Xiphos"
-
-#: ../ui/gtk2_webedit.ui.h:42 ../ui/gtk_webedit.ui.h:42
-msgid "Insert a link to a sword module"
-msgstr "Insère un lien vers un module de Xiphos"
-
-#: ../ui/gtk2_webedit.ui.h:43 ../ui/gtk_webedit.ui.h:43
-msgid "Insert table"
-msgstr "Insère une table"
-
-#: ../ui/gtk2_webedit.ui.h:44 ../ui/gtk_webedit.ui.h:44
-msgid "Table"
-msgstr "Table"
-
-#: ../ui/gtk2_webedit.ui.h:45 ../ui/gtk_webedit.ui.h:45
-msgid "Insert a table"
-msgstr "Insère une table"
-
-#: ../ui/gtk2_webedit.ui.h:46 ../ui/gtk_webedit.ui.h:46
-msgid "Italic"
-msgstr "Italique"
-
-#: ../ui/gtk2_webedit.ui.h:47 ../ui/gtk_webedit.ui.h:47
-msgid "Change selection to italic font"
-msgstr "Met en italique le texte sélectionné"
-
-#: ../ui/gtk2_webedit.ui.h:48 ../ui/gtk_webedit.ui.h:48
-msgid "Center"
-msgstr "Centré"
-
-#: ../ui/gtk2_webedit.ui.h:49 ../ui/gtk_webedit.ui.h:49
-msgid "Center justify paragraph"
-msgstr "Centre le paragraphe"
-
-#: ../ui/gtk2_webedit.ui.h:50 ../ui/gtk_webedit.ui.h:50
-msgid "Full"
-msgstr "Justifié"
-
-#: ../ui/gtk2_webedit.ui.h:51 ../ui/gtk_webedit.ui.h:51
-msgid "full justify"
-msgstr "justifie le paragraphe"
-
-#: ../ui/gtk2_webedit.ui.h:52 ../ui/gtk_webedit.ui.h:52
-msgid "Left"
-msgstr "Aligner à gauche"
-
-#: ../ui/gtk2_webedit.ui.h:53 ../ui/gtk_webedit.ui.h:53
-msgid "Left justify paragraph"
-msgstr "Aligne le paragraphe à gauche"
-
-#: ../ui/gtk2_webedit.ui.h:54 ../ui/gtk_webedit.ui.h:54
-msgid "Right"
-msgstr "Aligner à droite"
-
-#: ../ui/gtk2_webedit.ui.h:55 ../ui/gtk_webedit.ui.h:55
-msgid "Right justify paragraph"
-msgstr "Aligne le paragraphe à droite"
-
-#: ../ui/gtk2_webedit.ui.h:57 ../ui/gtk_webedit.ui.h:57
-msgid "Create new file"
-msgstr "Crée un nouveau fichier"
-
-#: ../ui/gtk2_webedit.ui.h:59 ../ui/gtk_webedit.ui.h:59
-msgid "Open file"
-msgstr "Ouvrir un fichier"
-
-#: ../ui/gtk2_webedit.ui.h:60 ../ui/gtk_webedit.ui.h:60
-msgid "Paste"
-msgstr "Coller"
-
-#: ../ui/gtk2_webedit.ui.h:61 ../ui/gtk_webedit.ui.h:61
-msgid "Paste clipboard at cursor."
-msgstr "Colle le contenu du presse-papier à l’emplacement du curseur."
-
-#: ../ui/gtk2_webedit.ui.h:62 ../ui/gtk_webedit.ui.h:62
-msgid "Print Document"
-msgstr "Imprimer"
-
-#: ../ui/gtk2_webedit.ui.h:63 ../ui/gtk_webedit.ui.h:63
-msgid "Print"
-msgstr "Imprimer"
-
-#: ../ui/gtk2_webedit.ui.h:64 ../ui/gtk_webedit.ui.h:64
-msgid "Print the current document"
-msgstr "Imprime le document"
-
-#: ../ui/gtk2_webedit.ui.h:65 ../ui/gtk_webedit.ui.h:65
-msgid "Print Preview"
-msgstr "Aperçu avant impression"
-
-#: ../ui/gtk2_webedit.ui.h:66 ../ui/gtk_webedit.ui.h:66
-msgid "Preview"
-msgstr "Aperçu"
-
-#: ../ui/gtk2_webedit.ui.h:67 ../ui/gtk_webedit.ui.h:67
-msgid "Print preview of current document"
-msgstr "Affiche un aperçu de ce document"
-
-#: ../ui/gtk2_webedit.ui.h:68 ../ui/gtk_webedit.ui.h:68
-msgid "Quit"
-msgstr "Quitter"
-
-#: ../ui/gtk2_webedit.ui.h:69 ../ui/gtk_webedit.ui.h:69
-msgid "Shut down editor"
-msgstr "Ferme l’éditeur"
-
-#: ../ui/gtk2_webedit.ui.h:70 ../ui/gtk_webedit.ui.h:70
-msgid "Redo"
-msgstr "Rétablir"
-
-#: ../ui/gtk2_webedit.ui.h:71 ../ui/gtk_webedit.ui.h:71
-msgid "Redo last undo"
-msgstr "Rétablit la dernière annulation"
-
-#: ../ui/gtk2_webedit.ui.h:72 ../ui/gtk_webedit.ui.h:72
-msgid "Find and replace"
-msgstr "Recherche et remplace"
-
-#: ../ui/gtk2_webedit.ui.h:73 ../ui/gtk_webedit.ui.h:73
-msgid "Replace"
-msgstr "Remplacer"
-
-#: ../ui/gtk2_webedit.ui.h:74 ../ui/gtk_webedit.ui.h:74
-msgid "Search and replace"
-msgstr "Recherche et remplace du texte"
-
-#: ../ui/gtk2_webedit.ui.h:76 ../ui/gtk_webedit.ui.h:76
-msgid "Save changes to file"
-msgstr "Enregistre le fichier en cours"
-
-#: ../ui/gtk2_webedit.ui.h:78 ../ui/gtk_webedit.ui.h:78
-msgid "Save File As..."
-msgstr "Enregistrer le fichier comme..."
-
-#: ../ui/gtk2_webedit.ui.h:79 ../ui/gtk_webedit.ui.h:79
-msgid "Strikethrough"
-msgstr "Barré"
-
-#: ../ui/gtk2_webedit.ui.h:80 ../ui/gtk_webedit.ui.h:80
-msgid "Strikethrough selection"
-msgstr "Barre le texte sélectionné"
-
-#: ../ui/gtk2_webedit.ui.h:81 ../ui/gtk_webedit.ui.h:81
-msgid "Underline"
-msgstr "Souligné"
-
-#: ../ui/gtk2_webedit.ui.h:82 ../ui/gtk_webedit.ui.h:82
-msgid "Underline selection"
-msgstr "Souligne le texte sélectionné"
-
-#: ../ui/gtk2_webedit.ui.h:83 ../ui/gtk_webedit.ui.h:83
-msgid "Undo"
-msgstr "Annuler"
-
-#: ../ui/gtk2_webedit.ui.h:84 ../ui/gtk_webedit.ui.h:84
-msgid "Undo last change"
-msgstr "Annule les dernières modifications"
-
-#: ../ui/gtk2_webedit.ui.h:85 ../ui/gtk_webedit.ui.h:86
-msgid "Editor"
-msgstr "Éditeur"
-
-#: ../ui/gtk2_webedit.ui.h:87 ../ui/gtk_webedit.ui.h:88
-msgid "Recent files"
-msgstr "Derniers doc_uments utilisés"
-
-#: ../ui/gtk2_webedit.ui.h:88 ../ui/gtk_webedit.ui.h:89
-#: ../ui/xi-menus.glade.h:9 ../ui/xi-menus.gtkbuilder.h:6
-msgid "_Edit"
-msgstr "É_dition"
-
-#: ../ui/gtk2_webedit.ui.h:89 ../ui/gtk_webedit.ui.h:90
-#: ../ui/xi-menus.glade.h:40 ../ui/xi-menus.gtkbuilder.h:25
-msgid "_Help"
-msgstr "_Aide"
-
-#: ../ui/gtk2_webedit.ui.h:90 ../ui/gtk_webedit.ui.h:91
-msgid "Normal"
-msgstr "Texte principal"
-
-#: ../ui/gtk2_webedit.ui.h:91 ../ui/gtk_webedit.ui.h:92
-msgid "Header 1"
-msgstr "Titre 1"
-
-#: ../ui/gtk2_webedit.ui.h:92 ../ui/gtk_webedit.ui.h:93
-msgid "Header 2"
-msgstr "Titre 2"
-
-#: ../ui/gtk2_webedit.ui.h:93 ../ui/gtk_webedit.ui.h:94
-msgid "Header 3"
-msgstr "Titre 3"
-
-#: ../ui/gtk2_webedit.ui.h:94 ../ui/gtk_webedit.ui.h:95
-msgid "Header 4"
-msgstr "Titre 4"
-
-#: ../ui/gtk2_webedit.ui.h:95 ../ui/gtk_webedit.ui.h:96
-msgid "Header 5"
-msgstr "Titre 5"
-
-#: ../ui/gtk2_webedit.ui.h:96 ../ui/gtk_webedit.ui.h:97
-msgid "Header 6"
-msgstr "Titre 6"
-
-#: ../ui/gtk2_webedit.ui.h:97 ../ui/gtk_webedit.ui.h:98
-msgid "Address"
-msgstr "Adresse"
-
-#: ../ui/gtk2_webedit.ui.h:98 ../ui/gtk_webedit.ui.h:99
-msgid "Preformatted"
-msgstr "Préformatté"
-
-#: ../ui/gtk2_webedit.ui.h:99 ../ui/gtk_webedit.ui.h:100
-msgid "Bulleted List"
-msgstr "Liste à puces"
-
-#: ../ui/gtk2_webedit.ui.h:100 ../ui/gtk_webedit.ui.h:101
-msgid "Roman Numeral List"
-msgstr "Liste à chiffres romains"
-
-#: ../ui/gtk2_webedit.ui.h:101 ../ui/gtk_webedit.ui.h:102
-msgid "Numbered List"
-msgstr "Liste numérotée"
-
-#: ../ui/gtk2_webedit.ui.h:102 ../ui/gtk_webedit.ui.h:103
-msgid "Alphabetical List"
-msgstr "Liste alphabétique"
-
-#: ../ui/gtk2_webedit.ui.h:103 ../ui/gtk_webedit.ui.h:104
-msgid "Strike"
-msgstr "Barré"
-
-#: ../ui/gtk2_webedit.ui.h:104 ../ui/gtk_webedit.ui.h:105
-msgid "Set font color of selected text."
-msgstr "Modifie la couleur de police du texte sélectionné."
-
-#: ../ui/gtk2_webedit.ui.h:105 ../ui/gtk_webedit.ui.h:106
-msgid "Highlight selected text by setting background color."
-msgstr "Met en surbrillance le texte sélectionné."
-
-#: ../ui/markverse.glade.h:12 ../ui/xi-export-bookmarks.glade.h:7
-msgid "gtk-cancel"
-msgstr "annuler"
-
-#: ../ui/module-manager.glade.h:21 ../ui/module-manager.gtkbuilder.h:22
-msgid "<b>Module Manager</b>"
-msgstr "<b>Gestionnaire de modules</b>"
-
-#: ../ui/navbar_versekey.glade.h:2
-msgid "Choose book to display"
-msgstr "Sélection du livre à afficher"
-
-#: ../ui/navbar_versekey.glade.h:5
-msgid "Choose chapter to display"
-msgstr "Sélection du chapitre à afficher"
-
-#: ../ui/navbar_versekey.glade.h:8
-msgid "Choose Verse to display"
-msgstr "Sélection du verset à afficher"
-
-#: ../ui/prefs.glade.h:21
-msgid ""
-"-2\n"
-"-1\n"
-"+0\n"
-"+1\n"
-"+2\n"
-"+3\n"
-"+4\n"
-"+5"
-msgstr ""
-"-2\n"
-"-1\n"
-"+0\n"
-"+1\n"
-"+2\n"
-"+3\n"
-"+4\n"
-"+5"
-
-#: ../ui/prefs.glade.h:30 ../ui/prefs.gtkbuilder.h:25
-msgid "Font preferences, per language"
-msgstr "Police préférée par langue"
-
-#: ../ui/prefs.glade.h:33 ../ui/prefs.gtkbuilder.h:28
-msgid "Default display columns"
-msgstr "Affichage des colonnes par défaut"
-
-#: ../ui/prefs.glade.h:34 ../ui/prefs.gtkbuilder.h:29
-msgid "Justify margins"
-msgstr "Marges justifiées"
-
-#: ../ui/prefs.glade.h:38 ../ui/prefs.gtkbuilder.h:33
-msgid ""
-"Xiphos is the first Bible study program to provide an implementation of "
-"BibleSync, a synchronization protocol for Bible programs. If you work with "
-"multiple Bible programs, or if you work in a team, or if you have classroom "
-"activities using shared study, BibleSync can be a useful tool for you. "
-"BibleSync operates in 1 of 3 modes: Personal, to synchronize multiple Bible "
-"applications of your own, or in a working team; Speaker, to drive a lecture "
-"audience's Bible programs to follow along; Audience, to receive the "
-"speaker's navigation."
-msgstr ""
-"BibleSync est un protocole de synchronisation entre programmes bibliques. Si "
-"vous\n"
-"utilisez plusieurs logiciels bibliques, travaillez en équipe, ou participez "
-"à des\n"
-"études en commun, BibleSync est un outil intéressant.\n"
-"BibleSync opère dans trois modes distincts : Personnel, pour synchroniser "
-"plusieurs\n"
-"logiciels bibliques entre eux ou au sein d’une équipe de travail ; "
-"Intervenant,\n"
-"pour piloter à distance les logiciels bibliques d’un auditoire ; Audience, "
-"pour\n"
-"recevoir la navigation de l’intervenant.\n"
-"Xiphos est le premier programme d’étude biblique à disposer de BibleSync."
-
-#: ../ui/prefs.glade.h:39 ../ui/prefs.gtkbuilder.h:35
-msgid "<i>Mode:</i>"
-msgstr "<i>Mode :</i>"
-
-#: ../ui/prefs.glade.h:56 ../ui/prefs.gtkbuilder.h:52
-msgid "<i>Navigate:</i>"
-msgstr "<i>Navigation :</i>"
-
-#: ../ui/prefs.glade.h:64 ../ui/prefs.gtkbuilder.h:59
-msgid "_Keyboard only"
-msgstr "_Clavier uniquement"
-
-#: ../ui/prefs.glade.h:67 ../ui/prefs.gtkbuilder.h:63
-msgid "<i>Listen:</i>"
-msgstr "<i>Suivi :</i>"
-
-#: ../ui/prefs.glade.h:78 ../ui/prefs.gtkbuilder.h:74
-msgid "<i>Special:</i>"
-msgstr "<i>Spécial :</i>"
-
-#: ../ui/prefs.glade.h:94 ../ui/prefs.gtkbuilder.h:89
-msgid ""
-"Select a particular language for interface display, other than your usual "
-"setting"
-msgstr ""
-"Sélectionne une langue différente de la configuration habituelle pour "
-"l’affichage de l’interface"
-
-#: ../ui/prefs.glade.h:95 ../ui/prefs.gtkbuilder.h:90
-msgid "Locale (requires restart)"
-msgstr "Langue de l’interface (Nécessite un redémarrage)"
-
-#: ../ui/prefs.glade.h:121 ../ui/prefs.gtkbuilder.h:116
-msgid "Enable Statusbar"
-msgstr "Afficher la barre de statut"
-
-#: ../ui/prefs.glade.h:122
-msgid "Enable/Disable Statusbar."
-msgstr "Affiche/cache la barre de statut."
-
-#: ../ui/prefs.glade.h:124 ../ui/prefs.gtkbuilder.h:119
-msgid "Parallel color alternation"
-msgstr "Couleurs spécifiques dans l’Affichage parallèle"
-
-#: ../ui/prefs.glade.h:127 ../ui/prefs.gtkbuilder.h:122
-msgid "Display whole Bible books"
-msgstr "Afficher l'entièreté des livres bibliques"
-
-#: ../ui/prefs.glade.h:128
-msgid "Display entire Bible books, not just single chapters, in main window"
-msgstr ""
-"Affiche dans la fenêtre principale les livres bibliques dans leur "
-"intégralité, et pas seulement des chapitres isolés"
-
-#: ../ui/prefs.glade.h:129
-msgid "Display Whole Book Checkbox"
-msgstr "Case à cocher « Afficher le livre entier »"
-
-#: ../ui/prefs.glade.h:170 ../ui/prefs.gtkbuilder.h:165
-msgid "Hebrew Morphology Lexicon"
-msgstr "Lexique morphologique hébreu"
-
-#: ../ui/prefs.glade.h:172 ../ui/prefs.gtkbuilder.h:167
-msgid "OT Greek Morphology Lexicon"
-msgstr "Lexique morphologique grec pour l’AT"
-
-#: ../ui/prefs.glade.h:174 ../ui/prefs.gtkbuilder.h:169
-msgid "NT Greek Morphology Lexicon"
-msgstr "Lexique morphologique grec pour le NT"
-
-#: ../ui/prefs.glade.h:180 ../ui/prefs.gtkbuilder.h:175
-msgid "Module List Grouping"
-msgstr "Regroupement de la liste de modules"
-
-#: ../ui/prefs.glade.h:181
-msgid ""
-"Category, then Language\n"
-"Category only\n"
-"Language, then Category"
-msgstr ""
-"Catégorie, puis langue\n"
-"Catégorie uniquement\n"
-"Langue, puis catégorie"
-
-#: ../ui/prefs.glade.h:185 ../ui/prefs.gtkbuilder.h:177
-msgid "Show hidden modules"
-msgstr "Montrer les modules masqués"
-
-#: ../ui/prefs.gtkbuilder.h:117
-msgid "Enable/disable the Statusbar"
-msgstr "Affiche la barre de statut au bas de la fenêtre principale"
-
-#: ../ui/prefs.gtkbuilder.h:123
-msgid "Display entire Bible books in main window, not just single chapters"
-msgstr ""
-"Afficher les livres bibliques dans leur intégralité dans la fenêtre "
-"principale, et pas seulement des chapitres isolés"
-
-#: ../ui/search-dialog.glade.h:32
-msgid "Custom Module List Combo"
-msgstr "Boite combinée Listes de modules"
-
-#: ../ui/search-dialog.glade.h:61 ../ui/search-dialog.gtkbuilder.h:61
-msgid "<b>Preview</b>"
-msgstr "<b>Aperçu</b>"
-
-#: ../ui/xi-export-bookmarks.glade.h:8
-msgid "gtk-ok"
-msgstr "gtk-ok"
-
-#: ../ui/xi-menus.glade.h:2 ../ui/xi-menus.gtkbuilder.h:2
-msgid "Open Study_pad"
-msgstr "Ouvrir le bloc-_notes"
-
-#: ../ui/xi-menus.glade.h:3 ../ui/xi-menus.gtkbuilder.h:3
-msgid "_Open Session"
-msgstr "_Ouvrir une session"
-
-#: ../ui/xi-menus.glade.h:4
-msgid "Open a saved tab settings collection"
-msgstr "Ouvre une session d’onglets enregistrée"
-
-#: ../ui/xi-menus.glade.h:5 ../ui/xi-menus.gtkbuilder.h:4
-msgid "_Save Session"
-msgstr "_Enregistrer la session"
-
-#: ../ui/xi-menus.glade.h:6
-msgid "Save this collection of tab settings"
-msgstr "Enregistre cette session d’onglets"
-
-#: ../ui/xi-menus.glade.h:7 ../ui/xi-menus.gtkbuilder.h:5
-msgid "_New Prayerlist/Journal"
-msgstr "Nouvelle Liste de prières / _Journal"
-
-#: ../ui/xi-menus.glade.h:8
-msgid "Create a new journal or prayerlist from a template"
-msgstr "Crée un journal ou une nouvelle liste de prières à partir d’un modèle"
-
-#: ../ui/xi-menus.glade.h:10 ../ui/xi-menus.gtkbuilder.h:7
-msgid "_Search"
-msgstr "_Rechercher"
-
-#: ../ui/xi-menus.glade.h:11
-msgid "Bring the simple sidebar search forward"
-msgstr "Affiche l’option recherche du volet latéral"
-
-#: ../ui/xi-menus.glade.h:12 ../ui/xi-menus.gtkbuilder.h:8
-msgid "_Advanced Search"
-msgstr "Recherche _avancée"
-
-#: ../ui/xi-menus.glade.h:13
-msgid "Open the advanced search dialog, to run complex queries"
-msgstr ""
-"Ouvre la boîte de dialogue de recherche avancée, pour exécuter des requêtes "
-"complexes"
-
-#: ../ui/xi-menus.glade.h:14 ../ui/xi-menus.gtkbuilder.h:9
-msgid "_Preferences"
-msgstr "_Préférences"
-
-#: ../ui/xi-menus.glade.h:15
-msgid "Use module manager to install and remove Sword modules"
-msgstr "Installe ou supprime des modules du Projet SWORD"
-
-#: ../ui/xi-menus.glade.h:16 ../ui/xi-menus.gtkbuilder.h:10
-msgid "_Module Manager"
-msgstr "Gérer les _modules"
-
-#: ../ui/xi-menus.glade.h:18 ../ui/xi-menus.gtkbuilder.h:12
-msgid "Preview _Daily Devotion"
-msgstr "Prévisualiser les lectures _du jour"
-
-#: ../ui/xi-menus.glade.h:19
-msgid "Show today's entry from your selected daily devotional in the previewer"
-msgstr ""
-"Affiche le texte d’aujourd’hui du calendrier biblique dans le volet Aperçu"
-
-#: ../ui/xi-menus.glade.h:20 ../ui/xi-menus.gtkbuilder.h:13
-msgid "_Bible"
-msgstr "_Bible"
-
-#: ../ui/xi-menus.glade.h:21 ../ui/xi-menus.gtkbuilder.h:14
-msgid "_Preview"
-msgstr "_Aperçu"
-
-#: ../ui/xi-menus.glade.h:22 ../ui/xi-menus.gtkbuilder.h:15
-msgid "_Commentary/Book"
-msgstr "_Commentaire/Livre"
-
-#: ../ui/xi-menus.glade.h:23 ../ui/xi-menus.gtkbuilder.h:16
-msgid "Dictionar_y"
-msgstr "D_ictionnaire"
-
-#: ../ui/xi-menus.glade.h:24 ../ui/xi-menus.gtkbuilder.h:17
-msgid "L_ink Tabs"
-msgstr "On_glets liés"
-
-#: ../ui/xi-menus.glade.h:25
-msgid "Make all tabs' Bibles navigate together"
-msgstr "Fait naviguer tous les onglets de texte biblique simultanément"
-
-#: ../ui/xi-menus.glade.h:26 ../ui/xi-menus.gtkbuilder.h:18
-msgid "_Read Aloud (CTRL+R)"
-msgstr "Lectu_re à voix haute (CTRL+R)"
-
-#: ../ui/xi-menus.glade.h:27
-msgid "Turn on text-to-speech reading of Bible verses as they are selected"
-msgstr ""
-"Active la lecture audio par synthèse vocale des textes bibliques lors de "
-"leur sélection"
-
-#: ../ui/xi-menus.glade.h:28 ../ui/xi-menus.gtkbuilder.h:19
-msgid "Show Verse _Numbers"
-msgstr "Afficher les _numéros de verset"
-
-#: ../ui/xi-menus.glade.h:29
-msgid "Display verse numbers in the text"
-msgstr "Affiche les numéros de verset dans le texte"
-
-#: ../ui/xi-menus.glade.h:30 ../ui/xi-menus.gtkbuilder.h:20
-msgid "_Highlight Current Verse"
-msgstr "_Verset en cours surligné"
-
-#: ../ui/xi-menus.glade.h:31
-msgid "Apply a high-contrast highlight to the current verse"
-msgstr "Applique un contraste élevé au verset en cours"
-
-#: ../ui/xi-menus.glade.h:32 ../ui/xi-menus.gtkbuilder.h:21
-msgid "Highlight _Annotated Verses"
-msgstr "Versets _annotés surlignés"
-
-#: ../ui/xi-menus.glade.h:33
-msgid "Apply inverse highlight to annotated verses"
-msgstr "Appliquer un surlignement inversé aux versets annotés"
-
-#: ../ui/xi-menus.glade.h:34 ../ui/xi-menus.gtkbuilder.h:22
-msgid "_Show/Hide Attached Sidebar"
-msgstr "Afficher/Cacher le v_olet latéral"
-
-#: ../ui/xi-menus.glade.h:35
-msgid "Remove the sidebar entirely from view"
-msgstr "Retire entièrement le volet latéral de la fenêtre principale"
-
-#: ../ui/xi-menus.glade.h:36 ../ui/xi-menus.gtkbuilder.h:23
-msgid "Show Parallel View in a _Tab"
-msgstr "Affichage parallèle dans un ongle_t"
-
-#: ../ui/xi-menus.glade.h:37
-msgid "Provide the full-chapter parallel Bible window as another tab"
-msgstr ""
-"Active l’affichage parallèle entre textes bibliques dans un nouvel onglet"
-
-#: ../ui/xi-menus.glade.h:38 ../ui/xi-menus.gtkbuilder.h:24
-msgid "Show Previe_wer in the Sidebar"
-msgstr "Aperçu dans le volet _latéral"
-
-#: ../ui/xi-menus.glade.h:39
-msgid "Select Previewer position between sidebar or beneath Bible"
-msgstr ""
-"Positionne le volet Aperçu dans le volet latéral ou sous le texte biblique"
-
-#: ../ui/xi-menus.glade.h:41 ../ui/xi-menus.gtkbuilder.h:26
-msgid "_Contents"
-msgstr "Som_maire"
-
-#: ../ui/xi-menus.glade.h:42
-msgid "Open the help viewer on the Xiphos manual"
-msgstr "Ouvre le manuel d’aide de Xiphos"
-
-#: ../ui/xi-menus.glade.h:43 ../ui/xi-menus.gtkbuilder.h:27
-msgid "_Mailing List"
-msgstr "_Liste de diffusion"
-
-#: ../ui/xi-menus.glade.h:44
-msgid "Open a browser on the users' mailing list webpage"
-msgstr ""
-"Ouvre un navigateur sur la page Web de la liste de diffusion des utilisateurs"
-
-#: ../ui/xi-menus.glade.h:45 ../ui/xi-menus.gtkbuilder.h:28
-msgid "_Live Chat"
-msgstr "Chat en _ligne"
-
-#: ../ui/xi-menus.glade.h:46
-msgid "Open a browser on an interface to live IRC chat"
-msgstr "Ouvrir un navigateur sur une interface web de Chat IRC"
-
-#: ../ui/xi-menus.glade.h:47 ../ui/xi-menus.gtkbuilder.h:29
-msgid "_Report Bug"
-msgstr "_Signaler un bogue"
-
-#: ../ui/xi-menus.glade.h:48
-msgid "Open a browser on our bug tracker"
-msgstr "Ouvre un navigateur sur le bug tracker"
-
-#: ../ui/xi-menus.glade.h:49 ../ui/xi-menus.gtkbuilder.h:30
-msgid "About _Translation"
-msgstr "À propos de la _traduction"
-
-#: ../ui/xi-menus.glade.h:50
-msgid "Learn about translating the Xiphos interface to other languages"
-msgstr "En savoir plus pour traduire l’interface Xiphos en d’autres langues"
-
-#: ../ui/xi-menus.glade.h:51 ../ui/xi-menus.gtkbuilder.h:31
-msgid "_About The SWORD Project"
-msgstr "_À propos du projet SWORD"
-
-#: ../ui/xi-menus.glade.h:52
-msgid "Learn about The Sword Project, of which Xiphos is one application"
-msgstr "En savoir plus sur le Projet Sword, dont Xiphos est une application"
-
-#: ../ui/xi-menus.glade.h:53 ../ui/xi-menus.gtkbuilder.h:32
-msgid "About _BibleSync"
-msgstr "À propos de _BibleSync"
-
-#: ../ui/xi-menus.glade.h:54
-msgid "Learn about BibleSync, the shared navigation protocol"
-msgstr "En apprendre au sujet de BibleSync, le protocole de navigation partagé"
-
-#: ../ui/xi-menus.glade.h:55 ../ui/xi-menus.gtkbuilder.h:33
-msgid "_View Xiphos Releases"
-msgstr "_Voir les versions de Xiphos"
-
-#: ../ui/xi-menus.glade.h:56
-msgid "Visit the releases web page. Is your Xiphos current?"
-msgstr ""
-"Visiter la page Web des révisions de Xiphos. Votre version est-elle à jour ?"
-
-#: ../ui/xi-menus.glade.h:57 ../ui/xi-menus.gtkbuilder.h:34
-msgid "About _Xiphos"
-msgstr "À propos de _Xiphos"
-
-#: ../ui/xi-menus.glade.h:58
-msgid "Learn about Xiphos"
-msgstr "En savoir plus sur Xiphos"
-
-#: ../ui/xi-menus.glade.h:61 ../ui/xi-menus-popup.gtkbuilder.h:46
-msgid "Annotate Verse"
-msgstr "Annoter ce verset"
-
-#: ../ui/xi-menus.glade.h:64 ../ui/xi-menus-popup.gtkbuilder.h:49
-msgid "Open Module"
-msgstr "Ouvrir le module"
-
-#: ../ui/xi-menus.glade.h:66 ../ui/xi-menus-popup.gtkbuilder.h:50
-msgid "Note"
-msgstr "Note"
-
-#: ../ui/xi-menus.glade.h:67 ../ui/xi-menus-popup.gtkbuilder.h:51
-msgid "Open in editor"
-msgstr "Modifier le commentaire"
-
-#: ../ui/xi-menus.glade.h:69 ../ui/xi-menus-popup.gtkbuilder.h:53
-msgid "Verse Per Line"
-msgstr "Verset par ligne"
-
-#: ../ui/xi-menus.glade.h:78 ../ui/xi-menus-popup.gtkbuilder.h:62
-msgid "Footnote/Cross-ref Markers"
-msgstr "Marques des notes de bas de page et des références croisées"
-
-#: ../ui/xi-menus.glade.h:79
-msgid "Show non-anonymous markers e.g. \"*n23\""
-msgstr "Afficher les marques non-anonymes comme « *n23 »"
-
-#: ../ui/xi-menus.glade.h:84 ../ui/xi-menus-popup.gtkbuilder.h:67
-msgid "Variants"
-msgstr "Variantes"
-
-#: ../ui/xi-menus.glade.h:92 ../ui/xi-menus-popup.gtkbuilder.h:75
-msgid "Image Content"
-msgstr "Afficher les images"
-
-#: ../ui/xi-menus.glade.h:93 ../ui/xi-menus-popup.gtkbuilder.h:76
-msgid "Respect Font Faces"
-msgstr "Respect des polices"
-
-#: ../ui/xi-menus.glade.h:94 ../ui/xi-menus-popup.gtkbuilder.h:77
-msgid "Display chapter numbers"
-msgstr "Afficher les numéros de chapitres"
-
-#: ../ui/xi-menus.glade.h:95 ../ui/xi-menus-popup.gtkbuilder.h:78
-msgid "Commentary by Chapter"
-msgstr "Commentaire par chapitre"
-
-#: ../ui/xi-menus.glade.h:96 ../ui/xi-menus-popup.gtkbuilder.h:79
-msgid "Doublespace"
-msgstr "Double espace"
-
-#: ../ui/xi-menus.glade.h:97 ../ui/xi-menus-popup.gtkbuilder.h:80
-msgid "Lookup Selection"
-msgstr "Définition du mot sélectionné"
-
-# src/gs_preferences_dlg.c
-#: ../ui/xi-menus.glade.h:98 ../ui/xi-menus-popup.gtkbuilder.h:81
-msgid "_Use Current Dictionary"
-msgstr "_Utiliser le dictionnaire en cours"
-
-#: ../ui/xi-menus.glade.h:99 ../ui/xi-menus-popup.gtkbuilder.h:82
-msgid "_Translate selection"
-msgstr "_Traduire la sélection"
-
-#: ../ui/xi-menus.glade.h:100 ../ui/xi-menus-popup.gtkbuilder.h:83
-msgid "_Browse in BibleMap.org"
-msgstr "_Parcourir sur BibleMap.org"
-
-#: ../ui/xi-menus.glade.h:101 ../ui/xi-menus-popup.gtkbuilder.h:84
-msgid "Unlock This Module"
-msgstr "Déverrouiller ce module"
-
-#: ../ui/xi-menus.glade.h:102 ../ui/xi-menus-popup.gtkbuilder.h:85
-msgid "Display Book Heading"
-msgstr "Affiche l’entête du livre"
-
-#: ../ui/xi-menus.glade.h:103 ../ui/xi-menus-popup.gtkbuilder.h:86
-msgid "Display Chapter Heading"
-msgstr "Affiche l’entête du chapitre"
-
-#: ../ui/xi-menus.glade.h:104 ../ui/xi-menus-popup.gtkbuilder.h:87
-msgid "Rename Pers.Comm."
-msgstr "Renommer le com. perso."
-
-#: ../ui/xi-menus.glade.h:105 ../ui/xi-menus-popup.gtkbuilder.h:88
-msgid "Dump Pers.Comm."
-msgstr "Quitter le Com. Perso."
-
-#: ../ui/xi-menus.glade.h:106 ../ui/xi-menus-popup.gtkbuilder.h:89
-msgid "Read Selection Aloud"
-msgstr "Synthèse vocale du texte sélectionné"
-
-#: ../ui/xi-menus.glade.h:107 ../ui/xi-menus-popup.gtkbuilder.h:105
-msgid "Save these results as a single bookmark"
-msgstr "Enregistre ces résultats sous un seul signet"
-
-#: ../ui/xi-menus.glade.h:108 ../ui/xi-menus-popup.gtkbuilder.h:104
-msgid "Save list as a single bookmark"
-msgstr "Enregistrer la liste sous un seul signet"
-
-#: ../ui/xi-menus.glade.h:109 ../ui/xi-menus-popup.gtkbuilder.h:107
-msgid "Save these results as a series of bookmarks in their own folder"
-msgstr ""
-"Enregistre ces résultats sous une série de signets dans leur propre dossier"
-
-#: ../ui/xi-menus.glade.h:110 ../ui/xi-menus-popup.gtkbuilder.h:106
-msgid "Save list as a series of bookmarks"
-msgstr "Enregistrer la liste dans une série de signets"
-
-#: ../ui/xi-menus.glade.h:111 ../ui/xi-menus-popup.gtkbuilder.h:109
-msgid ""
-"Provide a dialog in which to paste a line of verse references, to fill the "
-"verse list."
-msgstr ""
-"Remplit la liste de versets au moyen d’une boîte de dialogue dans laquelle "
-"sera collée une ligne de références de versets."
-
-#: ../ui/xi-menus.glade.h:112 ../ui/xi-menus-popup.gtkbuilder.h:108
-msgid "Populate verse list"
-msgstr "Remplir la liste de versets"
-
-#: ../ui/xi-menus.glade.h:113 ../ui/xi-menus-popup.gtkbuilder.h:111
-msgid "Push the entire verse list contents directly into the history list."
-msgstr ""
-"Place le contenu entier de la liste de versets dans l’historique de "
-"consultation."
-
-#: ../ui/xi-menus.glade.h:114 ../ui/xi-menus-popup.gtkbuilder.h:110
-msgid "Preload history from verse list"
-msgstr "Charger la liste de versets dans l’historique"
-
-#: ../ui/xi-menus.glade.h:115 ../ui/xi-menus-popup.gtkbuilder.h:113
-msgid ""
-"Send this verse list via BibleSync to others, if you are in Personal or "
-"Speaker mode."
-msgstr ""
-"Envoie cette liste de versets via BibleSync si vous êtes en mode Personnel "
-"ou Intervenant."
-
-#: ../ui/xi-menus.glade.h:116 ../ui/xi-menus-popup.gtkbuilder.h:112
-msgid "Send list via BibleSync"
-msgstr "Envoyer la liste via BibleSync"
-
-#: ../ui/xi-menus.glade.h:117 ../ui/xi-menus-popup.gtkbuilder.h:114
-msgid "Export List"
-msgstr "Exporter la liste"
-
-#: ../ui/xi-menus.glade.h:118 ../ui/xi-menus-popup.gtkbuilder.h:2
-msgid "Open this bookmark in a new tab"
-msgstr "Ouvre ce signet dans un nouvel onglet"
-
-#: ../ui/xi-menus.glade.h:119 ../ui/xi-menus-popup.gtkbuilder.h:1
-msgid "Open in new tab"
-msgstr "Ouvrir dans un nouvel onglet"
-
-#: ../ui/xi-menus.glade.h:120 ../ui/xi-menus-popup.gtkbuilder.h:4
-msgid "Open this bookmark in a dialog"
-msgstr "Ouvre le signet dans une nouvelle fenêtre"
-
-#: ../ui/xi-menus.glade.h:121 ../ui/xi-menus-popup.gtkbuilder.h:3
-msgid "Open in a dialog"
-msgstr "Ouvrir dans une fenêtre"
-
-#: ../ui/xi-menus.glade.h:122 ../ui/xi-menus-popup.gtkbuilder.h:6
-msgid "Add new folder to selected folder"
-msgstr "Ajoute un nouveau dossier au dossier sélectionné"
-
-#: ../ui/xi-menus.glade.h:124 ../ui/xi-menus-popup.gtkbuilder.h:8
-msgid "Insert new bookmark here"
-msgstr "Insère un nouveau signet dans le dossier sélectionné"
-
-#: ../ui/xi-menus.glade.h:125 ../ui/xi-menus-popup.gtkbuilder.h:7
-msgid "Insert Bookmark"
-msgstr "Insérer un signet"
-
-#: ../ui/xi-menus.glade.h:126 ../ui/xi-menus-popup.gtkbuilder.h:10
-msgid "Edit bookmark item"
-msgstr "Édite ce signet"
-
-#: ../ui/xi-menus.glade.h:127 ../ui/xi-menus-popup.gtkbuilder.h:9
-msgid "_Edit Item"
-msgstr "_Éditer l’élément"
-
-#: ../ui/xi-menus.glade.h:128 ../ui/xi-menus-popup.gtkbuilder.h:12
-msgid "Delete item"
-msgstr "Supprime l’élément sélectionné"
-
-#: ../ui/xi-menus.glade.h:130 ../ui/xi-menus-popup.gtkbuilder.h:14
-msgid "Expand all Bookmarks groups"
-msgstr "Développe tous les groupes de signets"
-
-#: ../ui/xi-menus.glade.h:131 ../ui/xi-menus-popup.gtkbuilder.h:13
-msgid "Expand All"
-msgstr "Développer tout"
-
-#: ../ui/xi-menus.glade.h:132 ../ui/xi-menus-popup.gtkbuilder.h:16
-msgid "Collapse all Bookmarks groups"
-msgstr "Réduit tous les groupes de signets"
-
-#: ../ui/xi-menus.glade.h:133 ../ui/xi-menus-popup.gtkbuilder.h:15
-msgid "Collapse All"
-msgstr "Réduire tout"
-
-#: ../ui/xi-menus.glade.h:134 ../ui/xi-menus-popup.gtkbuilder.h:17
-msgid "Allow items to be moved from one folder to another"
-msgstr "Active/désactive le déplacement des éléments"
-
-#: ../ui/xi-menus.glade.h:135 ../ui/xi-menus-popup.gtkbuilder.h:18
-msgid "Allow Reordering"
-msgstr "Déplacer les signets"
-
-#: ../ui/xi-menus.glade.h:136 ../ui/xi-menus-popup.gtkbuilder.h:19
-msgid "Open cross-references in a popup menu"
-msgstr "Ouvre les références croisées dans un menu contextuel"
-
-#: ../ui/xi-menus.glade.h:137 ../ui/xi-menus-popup.gtkbuilder.h:21
-msgid "Highlight Bible verses using their bookmark folder color"
-msgstr ""
-"Met en évidence les versets bibliques en fonction de la couleur de leur "
-"dossier de signets"
-
-#: ../ui/xi-menus.glade.h:138 ../ui/xi-menus-popup.gtkbuilder.h:22
-msgid "Colorize verses by folder color"
-msgstr "Coloriser les versets avec les couleurs de dossier"
-
-#: ../ui/xi-menus.glade.h:139 ../ui/xi-menus-popup.gtkbuilder.h:24
-msgid "Load other bookmarks file (default: from BibleTime)"
-msgstr "Importe un fichier de signets (par défaut: de BibleTime)"
-
-#: ../ui/xi-menus.glade.h:140 ../ui/xi-menus-popup.gtkbuilder.h:23
-msgid "Import Bookmarks"
-msgstr "Importer les signets"
-
-#: ../ui/xi-menus.glade.h:141 ../ui/xi-menus-popup.gtkbuilder.h:26
-msgid ""
-"Import bookmarks from an AndBible sqlite backup file (replaces any previous "
-"AndBible import - don't file things by hand into this folder)"
-msgstr ""
-"Importe les signets à partir d'un fichier de sauvegarde SQLite d’AndBible "
-"(cette opération remplace toute importation AndBible précédente — ne placez "
-"pas de fichiers manuellement dans ce dossier)"
-
-#: ../ui/xi-menus.glade.h:142 ../ui/xi-menus-popup.gtkbuilder.h:25
-msgid "Import AndBible Bookmarks"
-msgstr "Importer les signets d’Andbible"
-
-#: ../ui/xi-menus.glade.h:143 ../ui/xi-menus-popup.gtkbuilder.h:28
-msgid "Remove folder and save it"
-msgstr "Supprimer le dossier et le sauvegarder"
-
-#: ../ui/xi-menus.glade.h:144 ../ui/xi-menus-popup.gtkbuilder.h:27
-msgid "Export Folder"
-msgstr "Exporter le dossier"
-
-#: ../ui/xi-menus.glade.h:145 ../ui/xi-menus-popup.gtkbuilder.h:37
-msgid "Open selected module in a new tab"
-msgstr "Ouvrir le module sélectionné dans un nouvel onglet"
-
-#: ../ui/xi-menus.glade.h:146 ../ui/xi-menus-popup.gtkbuilder.h:39
-msgid ""
-"Open selected module in a\n"
-"\tseparate ['dialog'] window"
-msgstr ""
-"Ouvrir le module sélectionné dans une\n"
-"nouvelle fenêtre"
-
-#: ../ui/xi-menus.glade.h:148 ../ui/xi-menus-popup.gtkbuilder.h:38
-msgid "Open in a separate window"
-msgstr "Ouvrir dans une fenêtre séparée"
-
-#: ../ui/xi-menus.glade.h:151 ../ui/xi-menus-popup.gtkbuilder.h:91
-msgid "Create a new simple prayer list"
-msgstr "Crée une nouvelle liste simple de prières"
-
-#: ../ui/xi-menus.glade.h:153 ../ui/xi-menus-popup.gtkbuilder.h:93
-msgid "Create a new subject prayer list"
-msgstr "Crée une nouvelle liste de prières organisée par sujets"
-
-#: ../ui/xi-menus.glade.h:154 ../ui/xi-menus-popup.gtkbuilder.h:92
-msgid "Subject"
-msgstr "Liste ordonnée par sujet"
-
-#: ../ui/xi-menus.glade.h:155 ../ui/xi-menus-popup.gtkbuilder.h:95
-msgid "Create a new monthly journal"
-msgstr "Crée un nouveau journal mensuel"
-
-#: ../ui/xi-menus.glade.h:156 ../ui/xi-menus-popup.gtkbuilder.h:94
-msgid "Monthly"
-msgstr "Mensuel"
-
-#: ../ui/xi-menus.glade.h:157 ../ui/xi-menus-popup.gtkbuilder.h:97
-msgid "Create a new daily journal"
-msgstr "Crée un nouveau journal quotidien"
-
-#: ../ui/xi-menus.glade.h:158 ../ui/xi-menus-popup.gtkbuilder.h:96
-msgid "Daily"
-msgstr "Quotidien"
-
-#: ../ui/xi-menus.glade.h:159 ../ui/xi-menus-popup.gtkbuilder.h:99
-msgid "Create a new outlined topic"
-msgstr "Crée un nouveau thème structuré hiérarchiquement"
-
-#: ../ui/xi-menus.glade.h:160 ../ui/xi-menus-popup.gtkbuilder.h:98
-msgid "Outlined"
-msgstr "Thème structuré"
-
-#: ../ui/xi-menus.glade.h:161 ../ui/xi-menus-popup.gtkbuilder.h:101
-msgid "Create a new book/chapter outline"
-msgstr "Crée un nouvelle trame organisée par Livre/Chapitre de la Bible"
-
-#: ../ui/xi-menus.glade.h:162 ../ui/xi-menus-popup.gtkbuilder.h:100
-msgid "Book/Chapter"
-msgstr "Trame Livre/Chapitre"
-
-#: ../ui/xi-menus.glade.h:163 ../ui/xi-menus-popup.gtkbuilder.h:102
-msgid "Open module in editor or plain display window"
-msgstr "Ouvre le module dans l’éditeur ou en lecture dans une fenêtre séparée"
-
-#: ../ui/xi-menus.glade.h:164 ../ui/xi-menus-popup.gtkbuilder.h:103
-msgid "Open this prayer list in the editor"
-msgstr "Ouvre la liste de prière dans l’éditeur"
-
-#: ../ui/xi-menus.glade.h:165
-msgid "Open selected module in a separate window"
-msgstr "Ouvre le module sélectionné dans une nouvelle fenêtre"
-
-#: ../ui/xi-menus.glade.h:166 ../ui/xi-menus-popup.gtkbuilder.h:44
-msgid "Open this personal commentary in the editor"
-msgstr "Ouvre le commentaire personnel dans l’éditeur"
-
-#: ../ui/xi-menus.glade.h:167 ../ui/xi-menus-popup.gtkbuilder.h:30
-msgid "Add a sub-item"
-msgstr "Ajoute un sous-élément"
-
-#: ../ui/xi-menus.glade.h:168 ../ui/xi-menus-popup.gtkbuilder.h:29
-msgid "Add Sub-Item"
-msgstr "Ajouter un sous-élément"
-
-#: ../ui/xi-menus.glade.h:169 ../ui/xi-menus-popup.gtkbuilder.h:32
-msgid "Add an item"
-msgstr "Ajouter un élément"
-
-#: ../ui/xi-menus.glade.h:170 ../ui/xi-menus-popup.gtkbuilder.h:31
-msgid "Add Item"
-msgstr "Ajouter un élément"
-
-#: ../ui/xi-menus.glade.h:171 ../ui/xi-menus-popup.gtkbuilder.h:34
-msgid "Remove this item"
-msgstr "Supprimer cet élément"
-
-#: ../ui/xi-menus.glade.h:173 ../ui/xi-menus-popup.gtkbuilder.h:36
-msgid "Edit this item"
-msgstr "Éditer cet élément"
-
-#: ../ui/xi-menus-popup.gtkbuilder.h:20
-msgid "Popup menu for cross-references"
-msgstr "Menu contextuel pour les références croisées"
-
-#~ msgid "Date MM.DD"
-#~ msgstr "Date MM.DD"
-
-#~ msgid "-2"
-#~ msgstr "-2"
-
-#~ msgid "-1"
-#~ msgstr "-1"
-
-#~ msgid "+1"
-#~ msgstr "+1"
-
-#~ msgid "+2"
-#~ msgstr "+2"
-
-#~ msgid "+3"
-#~ msgstr "+3"
-
-#~ msgid "+4"
-#~ msgstr "+4"
-
-#~ msgid "+5"
-#~ msgstr "+5"
-
-#~ msgid "2"
-#~ msgstr "2"
-
-#~ msgid "3"
-#~ msgstr "3"
-
-#~ msgid "4"
-#~ msgstr "4"
-
-#~ msgid "5"
-#~ msgstr "5"
-
-#~ msgid "6"
-#~ msgstr "6"
-
-#~ msgid "7"
-#~ msgstr "7"
-
-#~ msgid "8"
-#~ msgstr "8"
-
-#~ msgid ""
-#~ "Xiphos failure: \"can't happen\", display_mod: null\n"
-#~ "Please report this. sword_main.cc:set_treekey\n"
-#~ "What were you doing when this occurred?"
-#~ msgstr ""
-#~ "Erreur Xiphos : \"can’t happen\", display_mod: null\n"
-#~ "Merci de le signaler. sword_main.cc:set_treekey\n"
-#~ "Que faisiez-vous lorsque c’est arrivé ?"
-
-#~ msgid "Folder Name"
-#~ msgstr "Nom du dossier"
-
-#~ msgid "Folder name: "
-#~ msgstr "Nom du dossier : "
-
-#~ msgid "Viewer error:\n"
-#~ msgstr "Erreur d’aperçu :\n"
-
-#, c-format
-#~ msgid "language: %s"
-#~ msgstr "la langue : %s"
-
-#~ msgid "none"
-#~ msgstr "aucune"
-
-#~ msgid "Multi word"
-#~ msgstr "Mots multiples"
-
-#~ msgid "_Ok"
-#~ msgstr "_Ok"
-
-#~ msgid "Optimized (\"lucene\")"
-#~ msgstr "Optimisée (« Lucene »)"
-
-# T'es sûr de la traduction? Evidement on voit pas trop le contexte
-#~ msgid "for "
-#~ msgstr "expression "
-
-#~ msgid "Plain text"
-#~ msgstr "Texte simple"
-
-#~ msgid "Page %d of %d"
-#~ msgstr "Page %d de %d"
-
-#~ msgid "Journals and prayer lists cannot be indexed."
-#~ msgstr "Les listes de prières et journaux ne peuvent pas être indexés."
-
-#~ msgid "The last module list may not be deleted"
-#~ msgstr "Le dernier module de la liste ne peut être supprimé"
-
-#~ msgid "Save AS"
-#~ msgstr "Enregistrer _sous.."
-
-#~ msgid "Xiphos Bible Guide"
-#~ msgstr "Xiphos"
-
-#~ msgid "Study the Bible"
-#~ msgstr "Étudier la Bible"
-
-#~ msgid "Text;Bible;Study;"
-#~ msgstr "Texte;Bible;Étude;"
-
-#~ msgid "_Attach/Detach Sidebar"
-#~ msgstr "Attacher/Détacher le volet latéral"
-
-#~ msgid "Operate the sidebar as a separate window"
-#~ msgstr "Positionne le volet latéral dans une fenêtre séparée"
-
-#~ msgid "yes"
-#~ msgstr "Oui"
-
-#~ msgid "no"
-#~ msgstr "Non"
-
-#~ msgid "network setup errors."
-#~ msgstr "erreurs de configuration du réseau."
-
-#~ msgid " client socket"
-#~ msgstr "socket client"
-
-#~ msgid " server socket"
-#~ msgstr "socket serveur"
-
-#~ msgid "bad magic"
-#~ msgstr "mauvaise clé"
-
-#~ msgid "bad protocol version"
-#~ msgstr "mauvaise version du protocole"
-
-#~ msgid "bad msg type"
-#~ msgstr "mauvais type de message"
-
-#~ msgid "bad packet count"
-#~ msgstr "mauvais nombre de paquets"
-
-#~ msgid "bad packet index"
-#~ msgstr "mauvais indice de paquets"
-
-#~ msgid "bad body format"
-#~ msgstr "mauvais format du corps"
-
-#~ msgid "missing required header "
-#~ msgstr "entête requis manquant"
-
-#~ msgid "UUID spoofed: wrong ipaddr."
-#~ msgstr "UUID usurpé: mauvaise addresse IP."
-
-#~ msgid "Ignoring echo."
-#~ msgstr "Écho ignoré."
-
-#~ msgid "Domain not 'BIBLE-VERSE': "
-#~ msgstr "Le domaine n'est pas 'BIBLE-VERSE' : "
-
-#~ msgid "Invalid group: "
-#~ msgstr "Groupe invalide : "
-
-#~ msgid " present at "
-#~ msgstr " présent à "
-
-#~ msgid " using "
-#~ msgstr " utilisant "
-
-#~ msgid "[no dump ready]"
-#~ msgstr "[Pas de vidage prêt]"
-
-#~ msgid "select < 0"
-#~ msgstr "select < 0"
-
-#~ msgid "recvfrom < 0"
-#~ msgstr "recvfrom < 0"
-
-#~ msgid "Transmit failed.\n"
-#~ msgstr "Échec de la transmission.\n"
-
-#~ msgid ""
-#~ "Unable to multicast; BibleSync is now disabled. If your network "
-#~ "connection changed while this program was active, it may be sufficient to "
-#~ "re-enable."
-#~ msgstr ""
-#~ "Multidiffusion impossible. BibleSync est à présent déactivé. Si votre "
-#~ "connection réseau a changé pendant que ce programme était actif, il peut "
-#~ "être suffisant de la réactiver."
-
-#~ msgid "Unlock "
-#~ msgstr "Entrez la clé de déverrouillage "
-
-#~ msgid "Preparing to print"
-#~ msgstr "Préparation de l'impression"
-
-#~ msgid "Printing is not supported on this printer"
-#~ msgstr "L'impression n'est pas supportée par ce périphérique."
-
-#~ msgid "Printer %s does not support PostScript printing."
-#~ msgstr "L'imprimante %s n'accepte pas les impressions de type PostScript."
-
-#~ msgid "Printing"
-#~ msgstr "Impression"
-
-#~ msgid "Waiting to print"
-#~ msgstr "En attente de l'impression"
-
-#~ msgid "An error occurred while printing"
-#~ msgstr "Une erreur s'est produite pendant l'impression"
-
-#~ msgid "It was not possible to print your document: %s"
-#~ msgstr "Le document %s n'a pas pu être imprimé"
-
-#~ msgid ""
-#~ "Xiphos can not create  .xiphos:\n"
-#~ "%s\n"
-#~ "\n"
-#~ "Xiphos cannot continue."
-#~ msgstr ""
-#~ "Xiphos n'a pas pu créer ~/.xiphos:\n"
-#~ "%s\n"
-#~ "\n"
-#~ "Xiphos ne peut s'exécuter normalement."
-
-#~ msgid "toolbutton1"
-#~ msgstr "toolbutton1"
-
-#~ msgid "toolbutton10"
-#~ msgstr "toolbutton10"
-
-#~ msgid "toolbutton3"
-#~ msgstr "toolbutton3"
-
-#~ msgid "toolbutton2"
-#~ msgstr "toolbutton2"
-
-#~ msgid "toolbutton4"
-#~ msgstr "toolbutton4"
-
-#~ msgid "toolbutton6"
-#~ msgstr "toolbutton6"
-
-#~ msgid "toolbutton7"
-#~ msgstr "toolbutton7"
-
-#~ msgid "toolbutton11"
-#~ msgstr "toolbutton11"
-
-#~ msgid "toolbutton12"
-#~ msgstr "toolbutton12"
-
-#~ msgid "toolbutton9"
-#~ msgstr "toolbutton9"
-
-#~ msgid "Mode"
-#~ msgstr "Mode"
-
-#~ msgid "Listen"
-#~ msgstr "Écouter"
-
-#~ msgid "<b>Tabs</b>"
-#~ msgstr "<b>Onglets</b>"
-
-#~ msgid "Use tabbed browsing"
-#~ msgstr "Utiliser les onglets"
-
-#~ msgid ""
-#~ "Single selection of Bible+commentary+book+dictionary, or many sets of "
-#~ "such selections in a tabbed interface"
-#~ msgstr ""
-#~ "Fenêtre unique d'une Bible + commentaire + livre + dictionnaire, ou de "
-#~ "nombreux ensembles de telles sélections dans une interface à onglets"
-
-#~ msgid "Use tabbed browsing Checkbox"
-#~ msgstr "Case à cocher Utiliser les onglets"
-
-#~ msgid "<b>Show</b>"
-#~ msgstr "<b>Volets</b>"
-
-#~ msgid "Bible Texts"
-#~ msgstr "Texte biblique"
-
-#~ msgid "Bible Texts Checkbox"
-#~ msgstr "Case à cocher Textes bibliques"
-
-#~ msgid "Previewer Checkbox"
-#~ msgstr "Case à cocher Volet Aperçu"
-
-#~ msgid "Commentaries Checkbox"
-#~ msgstr "Case à cocher Commentaires"
-
-#~ msgid "Dictionary/Lexicon"
-#~ msgstr "Dictionnaire/Lexique"
-
-#~ msgid "Dictionary/Lexicon Checkbox"
-#~ msgstr "Case à cocher Dictionnaire/Lexique"
-
-#~ msgid "Parallel View in a tab"
-#~ msgstr "Vue parallèle dans un onglet"
-
-#~ msgid "Tabs and Panes"
-#~ msgstr "Onglets et volets"
-
-# src/gs_preferences_dlg.c
-#~ msgid "<b>StudyPad default directory</b>"
-#~ msgstr "<b>Répertoire par défaut du bloc-notes</b>"
-
-#~ msgid ""
-#~ "URL references using \"sword://\" (similar to web page\n"
-#~ "references) can be used by programs to look up\n"
-#~ "scripture references. Your system currently has no\n"
-#~ "program set to handle these references.\n"
-#~ "\n"
-#~ "Would you like Xiphos to set itself as the\n"
-#~ "program to handle these references?"
-#~ msgstr ""
-#~ "Des adresses URL de type « sword:// » (similaires aux\n"
-#~ "pages web) peuvent être utilisées par d'autres applications\n"
-#~ "pour retrouver une référence biblique. Votre système n'a\n"
-#~ "pas de programme configuré pour traiter ces adresses.\n"
-#~ "\n"
-#~ "Voulez-vous que Xiphos soit paramétré comme\n"
-#~ "l'application gérant ces adresses URL?"
-
-#~ msgid ""
-#~ "Xiphos has successfully set itself\n"
-#~ "as the handler of sword:// and bible:// URLs.\n"
-#~ "\n"
-#~ "You may wish to run the program \"gconf-editor\"\n"
-#~ "to examine keys under /desktop/gnome/url-handlers,\n"
-#~ "if you need to change these."
-#~ msgstr ""
-#~ "Xiphos a été déclaré comme gestionnaire \n"
-#~ "par défaut des URL de type sword:// et bible://\n"
-#~ "\n"
-#~ "Le programme \"gconf-editor\" permet de modifier \n"
-#~ "les clés sous : /desktop/gnome/url-handlers,\n"
-#~ "si vous éprouvez le besoin de les changer."
-
-#~ msgid ""
-#~ "Xiphos failed to complete handler init for key #%d:\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Xiphos n'a pas pu initialiser la clé #%d:\n"
-#~ "%s"
-
-#~ msgid "Go to "
-#~ msgstr "Aller à "
-
-#~ msgid "Main"
-#~ msgstr "Base"
-
-#~ msgid "Modules Main"
-#~ msgstr "Base"
-
-#~ msgid "Choose to enable Prayer lists "
-#~ msgstr "Active les listes de prières "
-
-#~ msgid ""
-#~ "Without any Bible modules to display,\n"
-#~ "Xiphos cannot proceed,\n"
-#~ "and will now exit."
-#~ msgstr ""
-#~ "Sans aucun texte biblique,\n"
-#~ "Xiphos ne peut fonctionner\n"
-#~ "et va maintenant se terminer."
-
-#~ msgid "Cipher Key?"
-#~ msgstr "Clé de déverrouillage ?"
-
-#~ msgid "Change parallel 1"
-#~ msgstr "Changer parallèle 1"
-
-#~ msgid "Change parallel 2"
-#~ msgstr "Changer parallèle 2"
-
-#~ msgid "Change parallel 3"
-#~ msgstr "Changer parallèle 3"
-
-#~ msgid "Change parallel 4"
-#~ msgstr "Changer parallèle 4"
-
-#~ msgid "Change parallel 5"
-#~ msgstr "Changer parallèle 5"
-
-#~ msgid "Sizes"
-#~ msgstr "Tailles"
-
-#~ msgid ""
-#~ "Welcome to Xiphos.\n"
-#~ "\n"
-#~ "There are no Bible modules installed. In order to initialize, Xiphos "
-#~ "needs you to install at least one Bible.\n"
-#~ "\n"
-#~ "With your permission, Xiphos will invoke the Module Manager so that you "
-#~ "may install from Crosswire:\n"
-#~ "1. Configure remote install.\n"
-#~ "2. Connect.\n"
-#~ "3. Select a Bible text of your language preference.\n"
-#~ "4. Click `install'.\n"
-#~ "Close the Module Manager when you are done.\n"
-#~ "\n"
-#~ "Warning: If you live in a persecuted country, use with care.\n"
-#~ "\n"
-#~ "May Xiphos invoke the Module Manager so that you may install a Bible?"
-#~ msgstr ""
-#~ "Bienvenue dans Xiphos.\n"
-#~ "\n"
-#~ "Aucun module de texte biblique n'est installé. Xiphos a besoin d'au moins "
-#~ "un module de ce type pour fonctionner.\n"
-#~ "\n"
-#~ "Avec votre permission, Xiphos va lancer le gestionnaire de modules pour "
-#~ "télécharger des modules depuis le site de Crosswire, les opérations à "
-#~ "effectuer sont :\n"
-#~ "1. Configuration du dépôt distant\n"
-#~ "2. Connexion\n"
-#~ "3. Choix d'un texte biblique dans la langue désirée\n"
-#~ "4. Validation par le bouton \"Installer'\n"
-#~ "\n"
-#~ "Attention : Prudence dans les pays de persécution.\n"
-#~ "\n"
-#~ "Autorisez-vous Xiphos à lancer le gestionnaire de modules pour "
-#~ "télécharger un texte biblique ?"
-
-#~ msgid "<b>Parallel View</b>"
-#~ msgstr "<b>Vue parallèle</b>"
-
-#~ msgid "Parallel 1 Combo"
-#~ msgstr "Boite combinée Bible parallèle n°1"
-
-#~ msgid "Parallel 2"
-#~ msgstr "Bible parallèle n°2"
-
-#~ msgid "Parallel 2 Combo"
-#~ msgstr "Boite combinée Bible parallèle n°2"
-
-#~ msgid "Parallel 3"
-#~ msgstr "Bible parallèle n°3"
-
-#~ msgid "Parallel 3 Combo"
-#~ msgstr "Boite combinée Bible parallèle n°3"
-
-#~ msgid "Parallel 4"
-#~ msgstr "Bible parallèle n°4"
-
-#~ msgid "Parallel 4 Combo"
-#~ msgstr "Boite combinée Bible parallèle n°4"
-
-#~ msgid "Parallel 5"
-#~ msgstr "Bible parallèle n°5"
-
-#~ msgid "Parallel 5 Combo"
-#~ msgstr "Boite combinée Bible parallèle n°5"
-
-#~ msgid "Use Verse Per Line"
-#~ msgstr "Affichage d'un verset par ligne"
-
-#~ msgid "Restore Folder"
-#~ msgstr "Restaurer le dossier"
-
-#~ msgid "Restore saved folder"
-#~ msgstr "Restaure un dossier sauvegardé"
-
-#~ msgid "About the SWORD Project"
-#~ msgstr "À propos du Projet SWORD"
-
-#~ msgid "Books can be downloaded from the SWORD Project"
-#~ msgstr ""
-#~ "Plus d'informations en ligne sur le site du Projet SWORD (en anglais) :"
-
-#~ msgid "Open the file in Studypad"
-#~ msgstr "Ouvre le fichier dans le bloc-notes"
-
-#~ msgid "Open in a new tab"
-#~ msgstr "Ouvrir dans un nouvel onglet"
-
-#~ msgid "View information about the selected dialog"
-#~ msgstr "Information à propos du module sélectionné"
-
-#~ msgid "Daily Journal"
-#~ msgstr "Journal quotidien"
-
-#~ msgid "Outlined Topic"
-#~ msgstr "Note structurée"
-
-#~ msgid "Open selected module in a dialog"
-#~ msgstr "Ouvrir le module sélectionné dans une nouvelle fenêtre"
-
-#~ msgid "Add Child"
-#~ msgstr "Ajouter un sous-sujet"
-
-#~ msgid "Add Sibling"
-#~ msgstr "Ajouter un élément"
-
-#~ msgid "H_istory/<Separator>"
-#~ msgstr "H_istorique/<Separator>"
-
-#~ msgid "H_istory/C_lear"
-#~ msgstr "H_istorique/_Effacer"
-
-#~ msgid "Text"
-#~ msgstr "Texte"
-
-#~ msgid "Text to render"
-#~ msgstr "Texte à reproduire"
-
-#~ msgid "Pixbuf Object"
-#~ msgstr "Objet pixbuf"
-
-#~ msgid "The pixbuf to render."
-#~ msgstr "Le pixbuf à restituer"
-
-#~ msgid "Xiphos could not execute archiver"
-#~ msgstr "Xiphos n'a pas pu démarrer l'archivage"
-
-#~ msgid ""
-#~ " archival result:\n"
-#~ "\n"
-#~ msgstr ""
-#~ " résultat de l'archivage\n"
-#~ "\n"
-
-#~ msgid "Remove - Restore"
-#~ msgstr "Charger - Sauver"
-
-#~ msgid "Remove Folder"
-#~ msgstr "Supprimer le dossier"
-
-#~ msgid "Sources"
-#~ msgstr "Dépôts"
-
-#~ msgid "Xiphos has renamed .xiphos-2.0 to .xiphos"
-#~ msgstr "Le répertoire ~/.xiphos-2.0 a été renommé en ~/.xiphos"
-
-#~ msgid ""
-#~ "Xiphos can not rename  .xiphos-2.0 to .xiphos:\n"
-#~ "%s\n"
-#~ "\n"
-#~ "Xiphos cannot continue."
-#~ msgstr ""
-#~ "Xiphos n'a pas pu renommer ~/.xiphos-2.0 en ~/.xiphos\n"
-#~ "%s\n"
-#~ "\n"
-#~ "Xiphos ne peut s'exécuter normalement."
-
-#~ msgid "Select a Book of the Bible"
-#~ msgstr "Change de livre"
-
-#~ msgid "Change Chapter"
-#~ msgstr "Change de chapitre"
-
-#~ msgid "Dictionary/_Lexicon"
-#~ msgstr "Dictionnaire/Lexique"
-
-#~ msgid "_Bible Text"
-#~ msgstr "Texte _biblique"
-
-#~ msgid "Open StudyPad File"
-#~ msgstr "Ouvrir"
-
-#~ msgid "Save StudyPad File"
-#~ msgstr "Enregistre le fichier du bloc-notes"
-
-#~ msgid "item1"
-#~ msgstr "Élément1"
-
-#~ msgid "item2"
-#~ msgstr "Élement2"
-
-#~ msgid "_Module Options"
-#~ msgstr "Options du module"
-
-#~ msgid "Sync with main"
-#~ msgstr "Synchroniser avec la fenêtre principale"
-
-#~ msgid "Stay in sync"
-#~ msgstr "Synchronisé"
-
-#~ msgid "Failed to print the document"
-#~ msgstr "Le document n'a pas pu être imprimé"
-
-#~ msgid "_Modules"
-#~ msgstr "_Modules"
-
-#~ msgid "_Bookmarks"
-#~ msgstr "_Signets"
-
-#~ msgid "Verse _List"
-#~ msgstr "Liste de _versets"
-
-#~ msgid "%s not found"
-#~ msgstr "%s non trouvé"
-
-#~ msgid "has been modified. Do you wish to save it?"
-#~ msgstr "a été modifié. Voulez-vous l'enregistrer ?"
-
-#~ msgid "not loaded"
-#~ msgstr "non chargé"
-
-#~ msgid "Open the StudyPad editor"
-#~ msgstr "Ouvre le bloc-notes"
-
-#~ msgid "Save the current session to a file"
-#~ msgstr "Enregistre la session actuelle dans un fichier"
-
-#~ msgid "Copy highlighted text from main window"
-#~ msgstr ""
-#~ "Copie le texte biblique mis en surbrillance dans la fenêtre principale"
-
-#~ msgid "Search using the shortcut bar"
-#~ msgstr "Utilise la recherche simple du volet latéral"
-
-#~ msgid "Advanced search using the search dialog"
-#~ msgstr "Utilise la fenêtre de recherche avancée"
-
-#~ msgid "C_lear"
-#~ msgstr "_Effacer l'historique"
-
-#~ msgid "Show the Daily Devotion for today"
-#~ msgstr "Affiche le calendrier biblique d'aujourd'hui"
-
-#~ msgid "Show or hide Bible texts window"
-#~ msgstr "Affiche/cache le volet des textes bibliques"
-
-#~ msgid "Show or hide Preview window"
-#~ msgstr "Affiche/cache le volet aperçu"
-
-#~ msgid "Show or hide commentaries"
-#~ msgstr "Affiche/cache le volet des commentaires"
-
-#~ msgid "Show or hide - dictionaries and lexicons"
-#~ msgstr "Affiche/cache le volet des dictionnaires"
-
-#~ msgid "Chat with other users and developers"
-#~ msgstr "Chatter avec d'autres utilisateurs et les développeurs"
-
-#~ msgid "Report bug to SourceForge"
-#~ msgstr "Signaler un bogue sur Sourceforge"
-
-#~ msgid "More information about the SWORD Project"
-#~ msgstr "Plus d'information à propos du Projet SWORD"
-
-#~ msgid "Hi_story"
-#~ msgstr "H_istorique"
-
-#~ msgid "1 Cor 15:1"
-#~ msgstr "1 Cor 15:1"
-
-#~ msgid "Name for new prayer list"
-#~ msgstr "Nom de la nouvelle liste de prières"
-
-#~ msgid "can not create path\n"
-#~ msgstr "impossible de créer path\n"
-
-#~ msgid "Prayer list already exist\n"
-#~ msgstr "La liste de prières existe déjà\n"
-
-#~ msgid "\\par\\par My prayer list \\par\\par Module created in Xiphos"
-#~ msgstr "\\par\\par Liste simple\\par\\par Module crée par Xiphos"
-
-#~ msgid "-3"
-#~ msgstr "-3"

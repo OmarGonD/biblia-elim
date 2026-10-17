@@ -1,5 +1,5 @@
 /*
- * Biblia Elim
+ * Ministerios Elim
  * entry_suggest.c - suggestions under a text entry
  *
  * This program is free software; you can redistribute it and/or modify

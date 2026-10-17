@@ -37,6 +37,32 @@ pump(void)
 		g_main_context_iteration(NULL, FALSE);
 }
 
+static gboolean
+count_layout_frame(GtkWidget *widget, GdkFrameClock *clock, gpointer data)
+{
+	(void)widget;
+	(void)clock;
+	++*(gint *)data;
+	return G_SOURCE_CONTINUE;
+}
+
+static void
+settle_layout(GtkWidget *widget)
+{
+	/* Draining idles alone can sample the first load before the scrollbar
+	 * allocation, and the second after it. Let real GTK frames allocate both. */
+	gint frames = 0;
+	guint tick = gtk_widget_add_tick_callback(widget, count_layout_frame, &frames, NULL);
+	gint64 deadline = g_get_monotonic_time() + 2 * G_USEC_PER_SEC;
+	while (frames < 4 && g_get_monotonic_time() < deadline) {
+		pump();
+		g_usleep(1000);
+	}
+	gtk_widget_remove_tick_callback(widget, tick);
+	CHECK(frames >= 4);
+	pump();
+}
+
 static LineGeom
 first_long_line(GtkTextView *tv)
 {
@@ -104,7 +130,7 @@ run_contract(void)
 	gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scroll), GTK_WIDGET(tv));
 	gtk_window_set_child(GTK_WINDOW(win), scroll);
 	gtk_widget_show(win);
-	pump();
+	settle_layout(GTK_WIDGET(tv));
 
 	buf = gtk_text_view_get_buffer(tv);
 	long_text = g_string_new(NULL);
@@ -113,7 +139,7 @@ run_contract(void)
 
 	/* Load A: continuous prose (SpaRV-like). */
 	gtk_text_buffer_set_text(buf, long_text->str, -1);
-	pump();
+	settle_layout(GTK_WIDGET(tv));
 	left_a = gtk_text_view_get_left_margin(tv);
 	right_a = gtk_text_view_get_right_margin(tv);
 	alloc_a = gtk_widget_get_width(GTK_WIDGET(tv));
@@ -121,7 +147,7 @@ run_contract(void)
 
 	/* Load B: identical text after a "module switch". */
 	gtk_text_buffer_set_text(buf, long_text->str, -1);
-	pump();
+	settle_layout(GTK_WIDGET(tv));
 	left_b = gtk_text_view_get_left_margin(tv);
 	right_b = gtk_text_view_get_right_margin(tv);
 	alloc_b = gtk_widget_get_width(GTK_WIDGET(tv));
@@ -138,7 +164,7 @@ run_contract(void)
 				 "I. LA IGLESIA EN JERUSALÉN\n"
 				 "Últimos avisos de Jesús\n",
 				 -1);
-	pump();
+	settle_layout(GTK_WIDGET(tv));
 	CHECK(gtk_text_view_get_left_margin(tv) == 14);
 	CHECK(gtk_text_view_get_right_margin(tv) == 14);
 	heading_geom = first_long_line(tv);
@@ -151,7 +177,7 @@ run_contract(void)
 		GString *mixed = g_string_new("PRÓLOGO\nÚltimos avisos\n");
 		g_string_append(mixed, long_text->str);
 		gtk_text_buffer_set_text(buf, mixed->str, -1);
-		pump();
+		settle_layout(GTK_WIDGET(tv));
 		CHECK(gtk_text_view_get_left_margin(tv) == 14);
 		check_fill(tv, "mixed_prose", 80);
 		g_string_free(mixed, TRUE);

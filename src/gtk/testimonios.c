@@ -1,5 +1,5 @@
 /*
- * Biblia Elim
+ * Ministerios Elim
  * testimonios.c - diálogo «Jesús en la historia»
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -435,7 +435,7 @@ crear_dialogo(GtkWindow *padre)
 
 	gxml = elim_gtk_builder_new();
 	if (!gtk_builder_add_from_resource(
-		gxml, "/org/xiphos/ui/testimonios.gtkbuilder", NULL)) {
+		gxml, "/org/bibliaelim/ui/testimonios.gtkbuilder", NULL)) {
 		g_object_unref(gxml);
 		gui_generic_warning(
 		    _("No se pudo abrir «Jesús en la historia»."));

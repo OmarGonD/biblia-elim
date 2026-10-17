@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Ministerios Elim GResource manifest - GtkBuilder UI definitions
+  Copyright (C) 2026 Ministerios Elim Developer Team
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU Library General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, see <https://www.gnu.org/licenses/>.
+
+  Lists the .gtkbuilder / .ui files compiled directly into the biblia-elim
+  binary via glib-compile-resources, instead of being looked up on
+  disk at runtime through gui_general_user_file(). Each file is
+  reachable at runtime as "/org/bibliaelim/ui/<filename>".
+-->
+<gresources>
+  <gresource prefix="/org/bibliaelim/ui">
+    <file>bookmarks.gtkbuilder</file>
+    <file>editor_link_dialog.gtkbuilder</file>
+    <file>export-dialog.gtkbuilder</file>
+    <file>folder.gtkbuilder</file>
+    <file>gtk_tvedit.gtkbuilder</file>
+    <file>markverse.gtkbuilder</file>
+    <file>module-manager.gtkbuilder</file>
+    <file>navbar_versekey.gtkbuilder</file>
+    <file>nube-palabras.gtkbuilder</file>
+    <file>memorizacion.gtkbuilder</file>
+    <file>planes-lectura.gtkbuilder</file>
+    <file>plan-personal.gtkbuilder</file>
+    <file>progreso-lectura.gtkbuilder</file>
+    <file>versiculo-dia.gtkbuilder</file>
+    <file>prefs.gtkbuilder</file>
+    <file>search-dialog.gtkbuilder</file>
+    <file>selector-prefs.gtkbuilder</file>
+    <file>xi-export-bookmarks.gtkbuilder</file>
+    <file>biblia-elim-style.css</file>
+    <file>languages</file>
+    <file>diccionario-elim.xml</file>
+    <file>diccionario.gtkbuilder</file>
+    <file>testimonios.gtkbuilder</file>
+    <file>buscar-notas.gtkbuilder</file>
+    <file>testimonios-elim.xml</file>
+    <file>strongs-elim.xml</file>
+
+    <!--
+      Images referenced by relative <property name="pixbuf">file.png</property>
+      inside the .gtkbuilder files above. GtkBuilder resolves those paths
+      relative to this same resource prefix when the .gtkbuilder itself is
+      loaded via gtk_builder_add_from_resource() - so each image must be
+      bundled here too, or the icon silently fails to load (found the hard
+      way: prefs/module-manager/splash icons went blank after switching to
+      GResource, see issue #894 item 4 follow-up).
+    -->
+    <file>logo.png</file>
+    <file>biblesync-v1-50.png</file>
+    <file>sword3.png</file>
+    <file>splash.png</file>
+    <file>gnome-windows.png</file>
+    <file>sword.png</file>
+    <file>gnome-session.png</file>
+    <file>gs2-48x48.png</file>
+    <file>biblia-elim-x-16.png</file>
+  </gresource>
+</gresources>

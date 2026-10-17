@@ -1,5 +1,5 @@
 /*
- * Biblia Elim — scripted reproduction of the clicked-note panel bug.
+ * Ministerios Elim — scripted reproduction of the clicked-note panel bug.
  *
  * The "Comentarios del autor" heading and body are produced together by
  * one GTKEntryDisp::display() pass, but they used to read two different

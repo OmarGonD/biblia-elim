@@ -1,0 +1,23 @@
+{
+  "task": "MANNING-103",
+  "verse": "Gen.1.1",
+  "edition": "ManningES",
+  "backup": "/home/ogonzales/.local/share/biblia-elim/edition-backups/ManningES-before-genesis-note-1792190753960678830.sqlite",
+  "backup_sha256": "ac3f44248e820a5a75b63ee435df585d4e8022e883a4e361a5214afe4da80bd9",
+  "updated_sha256": "48d8ab3dd38a2710c123d204c96cf43f069e61fa7a8a73a81a3e0b0d753c7b3e",
+  "verse_text_unchanged": "EN el principio crió Dios los cielos y la tierra.",
+  "other_rows_and_tables_unchanged": true,
+  "other_module_hashes_unchanged": {
+    "SpaRV": "2421dc3a5c676e8fca70809da37c9afa2ee6ec45a65adbcb3a491d6e939db9b5",
+    "KJV": "891bb9bdb680c974f0e88da8b55b3f503b8ca8a9117932389541b8d5a13eff62",
+    "ManningEN": "af348e0d11391822eb0cf5b818ffa228bb6c915be817635e0ade76d9c59025eb",
+    "BibliaOGD": "5b04f45f7211d2f5ad04be707360a8569386f09b884bada5a0f05b53de312851"
+  },
+  "sources": [
+    "https://eutychusnerd.blogspot.com/2009/10/few-people-asked-me-about-nature-of.html",
+    "https://biblehub.com/hebrew/853.htm",
+    "https://biblehub.com/interlinear/genesis/1-1.htm"
+  ],
+  "integrity_check": "ok",
+  "foreign_key_errors": 0
+}

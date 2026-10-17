@@ -81,6 +81,95 @@ int morphologyCapability(const std::string &sql)
 	return capability;
 }
 
+bool sameReference(const BibleReference &left, const BibleReference &right)
+{
+	return left.testament == right.testament && left.book == right.book &&
+		left.chapter == right.chapter && left.verse == right.verse;
+}
+
+void assertSameContent(const BibleVerseContent &expected,
+	const BibleVerseContent &actual)
+{
+	g_assert_true(sameReference(expected.reference, actual.reference));
+	g_assert_cmpstr(expected.plainText.c_str(), ==, actual.plainText.c_str());
+	g_assert_cmpstr(expected.renderedText.c_str(), ==, actual.renderedText.c_str());
+	g_assert_cmpint(expected.paragraphBreak, ==, actual.paragraphBreak);
+	g_assert_cmpint(expected.valid, ==, actual.valid);
+	g_assert_cmpuint(expected.headings.size(), ==, actual.headings.size());
+	for (std::size_t i = 0; i < expected.headings.size(); ++i)
+		g_assert_cmpstr(expected.headings[i].text.c_str(), ==,
+			actual.headings[i].text.c_str());
+	g_assert_cmpuint(expected.spans.size(), ==, actual.spans.size());
+	for (std::size_t i = 0; i < expected.spans.size(); ++i) {
+		g_assert_cmpuint(expected.spans[i].start, ==, actual.spans[i].start);
+		g_assert_cmpuint(expected.spans[i].length, ==, actual.spans[i].length);
+		g_assert_cmpint(static_cast<int>(expected.spans[i].style), ==,
+			static_cast<int>(actual.spans[i].style));
+	}
+	g_assert_cmpuint(expected.words.size(), ==, actual.words.size());
+	for (std::size_t i = 0; i < expected.words.size(); ++i) {
+		const BibleWordInfo &a = expected.words[i], &b = actual.words[i];
+		g_assert_cmpuint(a.start, ==, b.start);
+		g_assert_cmpuint(a.length, ==, b.length);
+		g_assert_cmpstr(a.text.c_str(), ==, b.text.c_str());
+		g_assert_cmpstr(a.strong.c_str(), ==, b.strong.c_str());
+		g_assert_cmpuint(a.morphologyTags.size(), ==, b.morphologyTags.size());
+		for (std::size_t j = 0; j < a.morphologyTags.size(); ++j) {
+			g_assert_cmpstr(a.morphologyTags[j].scheme.c_str(), ==,
+				b.morphologyTags[j].scheme.c_str());
+			g_assert_cmpstr(a.morphologyTags[j].code.c_str(), ==,
+				b.morphologyTags[j].code.c_str());
+		}
+	}
+	g_assert_cmpuint(expected.footnotes.size(), ==, actual.footnotes.size());
+	for (std::size_t i = 0; i < expected.footnotes.size(); ++i) {
+		g_assert_cmpuint(expected.footnotes[i].offset, ==,
+			actual.footnotes[i].offset);
+		g_assert_cmpstr(expected.footnotes[i].id.c_str(), ==,
+			actual.footnotes[i].id.c_str());
+		g_assert_cmpstr(expected.footnotes[i].body.c_str(), ==,
+			actual.footnotes[i].body.c_str());
+	}
+	g_assert_cmpuint(expected.crossReferences.size(), ==,
+		actual.crossReferences.size());
+	for (std::size_t i = 0; i < expected.crossReferences.size(); ++i) {
+		const BibleCrossReference &a = expected.crossReferences[i];
+		const BibleCrossReference &b = actual.crossReferences[i];
+		g_assert_cmpuint(a.offset, ==, b.offset);
+		g_assert_cmpstr(a.displayText.c_str(), ==, b.displayText.c_str());
+		g_assert_cmpuint(a.references.size(), ==, b.references.size());
+		for (std::size_t j = 0; j < a.references.size(); ++j)
+			g_assert_true(sameReference(a.references[j], b.references[j]));
+		g_assert_cmpuint(a.ranges.size(), ==, b.ranges.size());
+		for (std::size_t j = 0; j < a.ranges.size(); ++j) {
+			g_assert_true(sameReference(a.ranges[j].start, b.ranges[j].start));
+			g_assert_true(sameReference(a.ranges[j].end, b.ranges[j].end));
+			g_assert_cmpuint(a.ranges[j].expandedReferences.size(), ==,
+				b.ranges[j].expandedReferences.size());
+			for (std::size_t k = 0;
+			     k < a.ranges[j].expandedReferences.size(); ++k)
+				g_assert_true(sameReference(
+					a.ranges[j].expandedReferences[k],
+					b.ranges[j].expandedReferences[k]));
+		}
+	}
+}
+
+void chapterContentMatchesVerseReads()
+{
+	SqliteBibleBackend backend(fixtureDirectory);
+	const BibleReference chapter{2, 40, 3, 1};
+	const std::vector<BibleVerseContent> contents =
+		backend.getChapterContent("FakeBible", chapter, 18);
+	g_assert_cmpuint(contents.size(), ==, 18);
+	for (int verse = 1; verse <= 18; ++verse) {
+		BibleReference reference = chapter;
+		reference.verse = verse;
+		assertSameContent(backend.getVerseContent("FakeBible", reference),
+			contents[static_cast<std::size_t>(verse - 1)]);
+	}
+}
+
 void contractTest()
 {
 	SqliteBibleBackend backend(fixtureDirectory);
@@ -341,6 +430,129 @@ void opensReadOnly()
 	g_assert_cmpint(stat(path.c_str(), &after), ==, 0);
 	g_assert_cmpint(before.st_size, ==, after.st_size);
 }
+
+void opensCrossReferencesWithoutRangeTable()
+{
+	gchar *directory = g_dir_make_tmp("xiphos-sqlite-old-crossref-XXXXXX", nullptr);
+	g_assert_nonnull(directory);
+	const std::string path = std::string(directory) + "/Legacy.sqlite";
+	const char *sql =
+		"PRAGMA user_version=1;"
+		"CREATE TABLE metadata(key TEXT PRIMARY KEY,value TEXT NOT NULL);"
+		"INSERT INTO metadata VALUES('schema_version','1'),('module_id','Legacy'),"
+		"('name','Legacy'),('language','en'),('module_type','bible'),"
+		"('versification','custom'),('feature.verses','true'),('feature.search','true'),"
+		"('feature.strong','false'),('feature.morphology','false'),"
+		"('feature.headings','false'),('feature.footnotes','false'),"
+		"('feature.crossrefs','true'),('feature.dictionary','false');"
+		"CREATE TABLE books(book_id INTEGER PRIMARY KEY,osis TEXT UNIQUE,name TEXT,"
+		"short_name TEXT,testament INTEGER,position INTEGER UNIQUE);"
+		"INSERT INTO books VALUES(40,'John','John','Jn',2,1);"
+		"CREATE TABLE verses(book_id INTEGER,chapter INTEGER,verse INTEGER,text TEXT,"
+		"PRIMARY KEY(book_id,chapter,verse));"
+		"INSERT INTO verses VALUES(40,3,16,'one'),(40,3,17,'two');"
+		"CREATE TABLE cross_references(book_id INTEGER,chapter INTEGER,verse INTEGER,"
+		"sequence INTEGER,offset INTEGER,display_text TEXT,PRIMARY KEY(book_id,chapter,verse,sequence));"
+		"CREATE TABLE cross_reference_targets(book_id INTEGER,chapter INTEGER,verse INTEGER,"
+		"sequence INTEGER,target_sequence INTEGER,target_book_id INTEGER,target_chapter INTEGER,"
+		"target_verse INTEGER,PRIMARY KEY(book_id,chapter,verse,sequence,target_sequence));"
+		"INSERT INTO cross_references VALUES(40,3,16,0,0,'John 3:17');"
+		"INSERT INTO cross_reference_targets VALUES(40,3,16,0,0,40,3,17);";
+	g_assert_true(createDatabase(path, sql));
+	{
+		SqliteBibleBackend backend(directory);
+		BibleKeyInfo key;
+		g_assert_true(backend.hasModule("Legacy"));
+		g_assert_true(backend.resolveKey("Legacy", "John 3:16", key));
+		const BibleVerseContent content = backend.getVerseContent("Legacy", key.reference);
+		const std::vector<BibleVerseContent> chapter =
+			backend.getChapterContent("Legacy", key.reference, 17);
+		g_assert_cmpuint(chapter.size(), ==, 17);
+		assertSameContent(content, chapter[15]);
+		g_assert_true(content.valid);
+		g_assert_cmpuint(content.crossReferences.size(), ==, 1);
+		g_assert_cmpuint(content.crossReferences[0].references.size(), ==, 1);
+		g_assert_true(content.crossReferences[0].ranges.empty());
+	}
+	g_remove(path.c_str());
+	g_remove((std::string(directory) + "/.validation-cache").c_str());
+	g_rmdir(directory);
+	g_free(directory);
+}
+
+void loadsExpandedCrossReferenceRanges()
+{
+	gchar *directory = g_dir_make_tmp("xiphos-sqlite-range-targets-XXXXXX", nullptr);
+	g_assert_nonnull(directory);
+	const std::string path = std::string(directory) + "/Ranges.sqlite";
+	const char *sql =
+		"PRAGMA user_version=1;"
+		"CREATE TABLE metadata(key TEXT PRIMARY KEY,value TEXT NOT NULL);"
+		"INSERT INTO metadata VALUES('schema_version','1'),('module_id','Ranges'),"
+		"('name','Ranges'),('language','en'),('module_type','bible'),"
+		"('versification','custom'),('feature.verses','true'),('feature.search','true'),"
+		"('feature.strong','false'),('feature.morphology','false'),"
+		"('feature.headings','false'),('feature.footnotes','false'),"
+		"('feature.crossrefs','true'),('feature.dictionary','false');"
+		"CREATE TABLE books(book_id INTEGER PRIMARY KEY,osis TEXT UNIQUE,name TEXT,"
+		"short_name TEXT,testament INTEGER,position INTEGER UNIQUE);"
+		"INSERT INTO books VALUES(2,'Exod','Exodus','Ex',1,1),"
+		"(43,'John','John','Jn',2,2);"
+		"CREATE TABLE verses(book_id INTEGER,chapter INTEGER,verse INTEGER,text TEXT,"
+		"PRIMARY KEY(book_id,chapter,verse));"
+		"INSERT INTO verses VALUES(2,2,1,'one'),(2,2,3,'three'),"
+		"(43,3,16,'source');"
+		"CREATE TABLE cross_references(book_id INTEGER,chapter INTEGER,verse INTEGER,"
+		"sequence INTEGER,offset INTEGER,display_text TEXT,"
+		"PRIMARY KEY(book_id,chapter,verse,sequence));"
+		"INSERT INTO cross_references VALUES(43,3,16,0,0,'Exodus 2:1-3');"
+		"CREATE TABLE cross_reference_ranges(book_id INTEGER,chapter INTEGER,verse INTEGER,"
+		"sequence INTEGER,range_sequence INTEGER,start_testament INTEGER,start_book_id INTEGER,"
+		"start_chapter INTEGER,start_verse INTEGER,end_testament INTEGER,end_book_id INTEGER,"
+		"end_chapter INTEGER,end_verse INTEGER,"
+		"PRIMARY KEY(book_id,chapter,verse,sequence,range_sequence));"
+		"INSERT INTO cross_reference_ranges VALUES(43,3,16,0,0,1,2,2,1,1,2,2,3);"
+		"CREATE TABLE cross_reference_range_targets(book_id INTEGER,chapter INTEGER,"
+		"verse INTEGER,sequence INTEGER,range_sequence INTEGER,target_sequence INTEGER,"
+		"target_testament INTEGER,target_book_id INTEGER,target_chapter INTEGER,"
+		"target_verse INTEGER,"
+		"PRIMARY KEY(book_id,chapter,verse,sequence,range_sequence,target_sequence));"
+		"INSERT INTO cross_reference_range_targets VALUES"
+		"(43,3,16,0,0,0,1,2,2,1),(43,3,16,0,0,1,1,2,2,3);";
+	g_assert_true(createDatabase(path, sql));
+	{
+		SqliteBibleBackend backend(directory);
+		BibleKeyInfo key;
+		g_assert_true(backend.resolveKey("Ranges", "John 3:16", key));
+		const BibleVerseContent content = backend.getVerseContent("Ranges", key.reference);
+		const std::vector<BibleVerseContent> chapter =
+			backend.getChapterContent("Ranges", key.reference, 16);
+		g_assert_cmpuint(chapter.size(), ==, 16);
+		assertSameContent(content, chapter[15]);
+		g_assert_true(content.valid);
+		g_assert_cmpuint(content.crossReferences.size(), ==, 1);
+		g_assert_cmpstr(content.crossReferences[0].displayText.c_str(), ==, "Exodus 2:1-3");
+		g_assert_cmpuint(content.crossReferences[0].ranges.size(), ==, 1);
+		const BibleCrossReference::Range &range = content.crossReferences[0].ranges[0];
+		g_assert_cmpint(range.start.testament, ==, 1);
+		g_assert_cmpint(range.start.book, ==, 2);
+		g_assert_cmpint(range.start.verse, ==, 1);
+		g_assert_cmpint(range.end.testament, ==, 1);
+		g_assert_cmpint(range.end.book, ==, 2);
+		g_assert_cmpint(range.end.verse, ==, 3);
+		g_assert_cmpuint(range.expandedReferences.size(), ==, 2);
+		g_assert_cmpint(range.expandedReferences[0].testament, ==, 1);
+		g_assert_cmpint(range.expandedReferences[0].book, ==, 2);
+		g_assert_cmpint(range.expandedReferences[0].verse, ==, 1);
+		g_assert_cmpint(range.expandedReferences[1].testament, ==, 1);
+		g_assert_cmpint(range.expandedReferences[1].book, ==, 2);
+		g_assert_cmpint(range.expandedReferences[1].verse, ==, 3);
+	}
+	g_remove(path.c_str());
+	g_remove((std::string(directory) + "/.validation-cache").c_str());
+	g_rmdir(directory);
+	g_free(directory);
+}
 }
 
 int main(int argc, char **argv)
@@ -359,6 +571,7 @@ int main(int argc, char **argv)
 	g_free(sql);
 
 	g_test_add_func("/backend/sqlite/contract", contractTest);
+	g_test_add_func("/backend/sqlite/chapter-content", chapterContentMatchesVerseReads);
 	g_test_add_func("/backend/sqlite/metadata", metadataAndCapabilities);
 	g_test_add_func("/backend/sqlite/navigation-boundaries", navigationBoundaries);
 	g_test_add_func("/backend/sqlite/search-modes", searchModes);
@@ -373,6 +586,10 @@ int main(int argc, char **argv)
 		legacyMorphologyLookupWithoutIndex);
 	g_test_add_func("/backend/sqlite/validation-verdicts", validationVerdictsFollowTheFile);
 	g_test_add_func("/backend/sqlite/read-only", opensReadOnly);
+	g_test_add_func("/backend/sqlite/crossrefs-no-range-extension",
+		opensCrossReferencesWithoutRangeTable);
+	g_test_add_func("/backend/sqlite/crossref-range-targets",
+		loadsExpandedCrossReferenceRanges);
 	const int result = g_test_run();
 	g_remove(database.c_str());
 	g_rmdir(fixtureDirectory.c_str());

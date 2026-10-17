@@ -11,7 +11,7 @@ import xml.etree.ElementTree as ET
 
 resource = subprocess.check_output([
     sys.argv[1], "extract", sys.argv[2],
-    "/org/xiphos/ui/navbar_versekey.gtkbuilder",
+    "/org/bibliaelim/ui/navbar_versekey.gtkbuilder",
 ])
 tree = ET.fromstring(resource)
 

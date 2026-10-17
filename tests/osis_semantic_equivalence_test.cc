@@ -62,6 +62,28 @@ std::string mixedDocument(const std::string &body, bool pretty)
 		"\n      </verse>\n    </chapter>\n  </osisText>\n</osis>\n";
 }
 
+std::string rangeExpansionDocument(bool pretty)
+{
+	const std::string reference =
+		"Antes<note type=\"crossReference\"><reference osisRef=\""
+		"Exod.2.1 Exod.2.1-Exod.2.3 John.3.16 "
+		"Exod.2.1-Exod.2.4 Exod.2.3 Exod.2.3-Exod.2.1 "
+		"John.3.16-John.3.16\">Rangos explícitos</reference></note> después.";
+	if (!pretty)
+		return "<osis><osisText><chapter osisID=\"Exod.2\">"
+			"<verse osisID=\"Exod.2.1\">Uno.</verse>"
+			"<verse osisID=\"Exod.2.3\">Tres.</verse></chapter>"
+			"<chapter osisID=\"John.3\"><verse osisID=\"John.3.16\">" +
+			reference + "</verse></chapter></osisText></osis>";
+	return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+		"<osis>\n  <osisText>\n    <chapter osisID=\"Exod.2\">\n"
+		"      <verse osisID=\"Exod.2.1\">Uno.</verse>\n"
+		"      <verse osisID=\"Exod.2.3\">Tres.</verse>\n"
+		"    </chapter>\n    <chapter osisID=\"John.3\">\n"
+		"      <verse osisID=\"John.3.16\">" + reference +
+		"</verse>\n    </chapter>\n  </osisText>\n</osis>\n";
+}
+
 struct MixedCase {
 	const char *compact;
 	const char *pretty;
@@ -387,6 +409,21 @@ int main()
 		if (!importOsisFixture(rangePrettyInput, directory + "/range-note-pretty.sqlite",
 			"range-note-pretty", &rangePrettyStats)) ++importFailures;
 	}
+	UsfmImportStats expansionCompactStats;
+	UsfmImportStats expansionPrettyStats;
+	const std::string expansionCompactInput = directory + "/range-expansion-compact.xml";
+	const std::string expansionPrettyInput = directory + "/range-expansion-pretty.xml";
+	if (!writeFile(expansionCompactInput, rangeExpansionDocument(false)) ||
+	    !writeFile(expansionPrettyInput, rangeExpansionDocument(true))) {
+		++importFailures;
+	} else {
+		if (!importOsisFixture(expansionCompactInput,
+			directory + "/range-expansion-compact.sqlite",
+			"range-expansion-compact", &expansionCompactStats)) ++importFailures;
+		if (!importOsisFixture(expansionPrettyInput,
+			directory + "/range-expansion-pretty.sqlite",
+			"range-expansion-pretty", &expansionPrettyStats)) ++importFailures;
+	}
 
 	std::size_t containerMilestoneMismatches = importFailures;
 	std::size_t usfmOsisMismatches = importFailures;
@@ -395,6 +432,7 @@ int main()
 	std::size_t nestedNoteFailures = importFailures;
 	std::size_t headingParagraphFailures = importFailures;
 	std::size_t rangeReferenceFailures = importFailures;
+	std::size_t rangeExpansionFailures = importFailures;
 	if (boundaryContainerStats.headingsImported != 7 ||
 	    boundaryMilestoneStats.headingsImported != 7 ||
 	    boundaryContainerStats.paragraphMarkers != 6 ||
@@ -544,6 +582,8 @@ int main()
 			if (stats->crossReferencesImported != 1 ||
 			    stats->crossrefTargetsResolved != 3 ||
 			    stats->crossrefTargetsUnresolved != 0 ||
+			    stats->crossrefRangesResolved != 2 ||
+			    stats->crossrefRangesUnresolved != 0 ||
 			    !stats->unresolvedReferences.empty() ||
 			    stats->rangeReferences !=
 				std::map<std::string, std::size_t>{
@@ -552,6 +592,60 @@ int main()
 				++rangeReferenceFailures;
 				std::cerr << "field=rangeAudit\nexpected=1 cross-reference, 3 simple "
 					"targets, 2 exact ranges, 0 unresolved\nactual=unexpected\n";
+			}
+		}
+
+		rangeExpansionFailures += compareNeutralModules(backend,
+			"range-expansion-compact", backend, "range-expansion-pretty").mismatches;
+		for (const UsfmImportStats *stats :
+		     { &expansionCompactStats, &expansionPrettyStats }) {
+			if (stats->crossReferencesImported != 1 ||
+			    stats->crossrefTargetsResolved != 3 ||
+			    stats->crossrefTargetsUnresolved != 0 ||
+			    stats->crossrefRangesResolved != 4 ||
+			    stats->crossrefRangesUnresolved != 0)
+				++rangeExpansionFailures;
+		}
+		BibleKeyInfo expansionKey;
+		if (!backend.resolveKey("range-expansion-compact", "John 3:16", expansionKey)) {
+			++rangeExpansionFailures;
+		} else {
+			const BibleVerseContent expansion = backend.getVerseContent(
+				"range-expansion-compact", expansionKey.reference);
+			const bool exact = expansion.valid && expansion.plainText == "Antes después." &&
+				expansion.crossReferences.size() == 1 &&
+				expansion.crossReferences[0].displayText == "Rangos explícitos" &&
+				expansion.crossReferences[0].references.size() == 3 &&
+				expansion.crossReferences[0].references[0].book == 2 &&
+				expansion.crossReferences[0].references[0].verse == 1 &&
+				expansion.crossReferences[0].references[1].book == 43 &&
+				expansion.crossReferences[0].references[1].verse == 16 &&
+				expansion.crossReferences[0].references[2].book == 2 &&
+				expansion.crossReferences[0].references[2].verse == 3 &&
+				expansion.crossReferences[0].ranges.size() == 4 &&
+				expansion.crossReferences[0].ranges[0].start.verse == 1 &&
+				expansion.crossReferences[0].ranges[0].end.verse == 3 &&
+				expansion.crossReferences[0].ranges[0].expandedReferences.size() == 2 &&
+				expansion.crossReferences[0].ranges[0].expandedReferences[0].testament == 1 &&
+				expansion.crossReferences[0].ranges[0].expandedReferences[0].book == 2 &&
+				expansion.crossReferences[0].ranges[0].expandedReferences[0].verse == 1 &&
+				expansion.crossReferences[0].ranges[0].expandedReferences[1].testament == 1 &&
+				expansion.crossReferences[0].ranges[0].expandedReferences[1].book == 2 &&
+				expansion.crossReferences[0].ranges[0].expandedReferences[1].verse == 3 &&
+				expansion.crossReferences[0].ranges[1].end.verse == 4 &&
+				expansion.crossReferences[0].ranges[1].expandedReferences.empty() &&
+				expansion.crossReferences[0].ranges[2].start.verse == 3 &&
+				expansion.crossReferences[0].ranges[2].end.verse == 1 &&
+				expansion.crossReferences[0].ranges[2].expandedReferences.empty() &&
+				expansion.crossReferences[0].ranges[3].start.book == 43 &&
+				expansion.crossReferences[0].ranges[3].start.verse == 16 &&
+				expansion.crossReferences[0].ranges[3].end.verse == 16 &&
+				expansion.crossReferences[0].ranges[3].expandedReferences.empty();
+			if (!exact) {
+				++rangeExpansionFailures;
+				std::cerr << "reference=John.3.16\nfield=expandedRanges\n"
+					<< "expected=2 actual imported targets; missing/reversed/empty ranges empty\n"
+					<< "actual=unexpected\n";
 			}
 		}
 		BibleKeyInfo rangeKey;
@@ -565,6 +659,7 @@ int main()
 				"Romanos 8:28-30; Salmo 23:1.";
 			const bool orderedSimpleTargets = range.crossReferences.size() == 1 &&
 				range.crossReferences[0].references.size() == 3 &&
+				range.crossReferences[0].ranges.size() == 2 &&
 				range.crossReferences[0].references[0].book == 1 &&
 				range.crossReferences[0].references[0].chapter == 1 &&
 				range.crossReferences[0].references[0].verse == 1 &&
@@ -573,7 +668,14 @@ int main()
 				range.crossReferences[0].references[1].verse == 16 &&
 				range.crossReferences[0].references[2].book == 19 &&
 				range.crossReferences[0].references[2].chapter == 23 &&
-				range.crossReferences[0].references[2].verse == 1;
+				range.crossReferences[0].references[2].verse == 1 &&
+				range.crossReferences[0].ranges[0].start.book == 2 &&
+				range.crossReferences[0].ranges[0].start.chapter == 2 &&
+				range.crossReferences[0].ranges[0].start.verse == 1 &&
+				range.crossReferences[0].ranges[0].end.verse == 3 &&
+				range.crossReferences[0].ranges[1].start.book == 45 &&
+				range.crossReferences[0].ranges[1].start.chapter == 8 &&
+				range.crossReferences[0].ranges[1].end.verse == 30;
 			if (range.plainText != "Antes después." || !orderedSimpleTargets ||
 			    range.crossReferences[0].displayText != expectedDisplay ||
 			    range.crossReferences[0].offset > range.plainText.size() ||
@@ -609,7 +711,8 @@ int main()
 
 		for (const std::string &module : { "container", "milestone", "usfm", "osis",
 			"nested-note-compact", "nested-note-pretty", "boundaries-container",
-			"boundaries-milestone", "range-note-compact", "range-note-pretty" }) {
+			"boundaries-milestone", "range-note-compact", "range-note-pretty",
+			"range-expansion-compact", "range-expansion-pretty" }) {
 			const NeutralOffsetValidationResult validation = validateNeutralOffsets(backend, module);
 			offsetRows += validation.rowsChecked;
 			invalidOffsets += validation.invalidOffsets;
@@ -636,6 +739,7 @@ int main()
 		<< "nested_note_failures=" << nestedNoteFailures << '\n'
 		<< "heading_paragraph_boundary_failures=" << headingParagraphFailures << '\n'
 		<< "partial_range_failures=" << rangeReferenceFailures << '\n'
+		<< "range_expansion_failures=" << rangeExpansionFailures << '\n'
 		<< "offset_rows_checked=" << offsetRows << '\n'
 		<< "invalid_offsets=" << invalidOffsets << '\n'
 		<< "substring_mismatches=" << substringMismatches << '\n';
@@ -643,7 +747,7 @@ int main()
 	const bool success = containerMilestoneMismatches == 0 &&
 		usfmOsisMismatches == 0 && mixedFailures == 0 && unicodeFailures == 0 &&
 		nestedNoteFailures == 0 && headingParagraphFailures == 0 &&
-		rangeReferenceFailures == 0 &&
+		rangeReferenceFailures == 0 && rangeExpansionFailures == 0 &&
 		invalidOffsets == 0 && substringMismatches == 0;
 	g_free(temporary);
 	return success ? 0 : 1;

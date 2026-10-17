@@ -12,7 +12,7 @@
     <revision pkgversion="4.5.0" date="2026-08-10" status="draft"/>
 
     <title type='link' role="trail"></title>
-    <title type='text'>Xiphos</title>
+    <title type='text'>Biblia Elim</title>
 
     <credit type="author" its:translate="no">
       <name>Andy Piper</name>
@@ -42,17 +42,17 @@
 
     <title>Installing Needed Modules</title>
 
-    <p><app>Xiphos</app> is ideally suited for studying the original Greek and
+    <p><app>Biblia Elim</app> is ideally suited for studying the original Greek and
     Hebrew. To get started, you will want the following modules:</p>
 
     <p>From Crosswire Repository:</p>
     <list>
       <item>
-	<p>StrongsHebrew Dictionary (or get StrongsRealHebrew from the Xiphos
+	<p>StrongsHebrew Dictionary (or get StrongsRealHebrew from the Biblia Elim
 	Repository)</p>
       </item>
       <item>
-	<p>StrongsGreek Dictionary (or get StrongsRealGreek from the Xiphos
+	<p>StrongsGreek Dictionary (or get StrongsRealGreek from the Biblia Elim
 	Repository)</p>
       </item>
       <item>
@@ -63,7 +63,7 @@
       </item>
     </list>
 
-    <p>From Xiphos Repository:</p>
+    <p>From Biblia Elim Repository:</p>
     <list>
       <item>
 	<p>StrongsRealGreek Dictionary (same as StrongsGreek, but with Greek
@@ -131,7 +131,7 @@
 
     <list>
       <item>
-	<p>2TGreek (Xiphos Repository) : This module contains the entire Bible
+	<p>2TGreek (Biblia Elim Repository) : This module contains the entire Bible
 	in Greek. It combines the LXX and Tischendorf8 NT into one easy-to-use
 	module. In addition, it contains Strongs, Morphology,Greek Accents,
 	and primary/secondary readings. As with all modules that include
@@ -156,7 +156,7 @@
 	and Morphology</p>
       </item>
       <item>
-	<p>TischMorph (Xiphos Repository) : As described above, this has
+	<p>TischMorph (Biblia Elim Repository) : As described above, this has
 	Strongs, Morphology, accents, and alternate readings.</p>
       </item>
       <item>

@@ -1,0 +1,1215 @@
+{
+  "format": "biblia-elim-curated-edition-1",
+  "project_id": "BibliaManning",
+  "name": "Biblia Manning",
+  "source_id": "SpaRV",
+  "source_sha256": "2421dc3a5c676e8fca70809da37c9afa2ee6ec45a65adbcb3a491d6e939db9b5",
+  "edition_notice": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.",
+  "checked_on": "2026-10-16",
+  "passages": [
+    {
+      "book": "John",
+      "chapter": 4,
+      "verse": 9,
+      "action": "revise",
+      "expected_base": "Y la mujer Samaritana le dice: ¿Cómo tú, siendo Judío, me pides á mí de beber, que soy mujer Samaritana? porque los Judíos no se tratan con los Samaritanos.",
+      "text": "La mujer samaritana le dijo: «¿Cómo tú, siendo judío, me pides de beber a mí, que soy una mujer samaritana?». Porque los judíos no piden ayuda a los samaritanos.",
+      "rationale": "Borrador que adopta la propuesta de Manning: pedir ayuda. La traducción tradicional y la lectura de compartir utensilios se mantienen como alternativas discutidas, no como errores demostrados por consenso. TR conserva la explicación final; el módulo Tisch local la omite: diferencia textual separada de la cuestión léxica.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2025/jews-do-not-associate-with-samaritans-or-do-not-share-vessels-with-samaritans-or-something-else-john-4-9\nhttps://www.cambridge.org/core/journals/new-testament-studies/article/abs/sharing-cups-associating-or-getting-help-the-meaning-of-in-john-49/0F8C321A81D2257D93CC40360D63CE68\nhttps://www.stepbible.org/?q=version%3DNET2full%7Creference%3DJohn.4.9",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 3,
+      "verse": 16,
+      "action": "revise",
+      "expected_base": "Porque de tal manera amó Dios al mundo, que ha dado á su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna.",
+      "text": "Porque tanto amó Dios al mundo que dio a su Hijo unigénito, para que todo aquel que cree en él no se pierda, sino que tenga vida eterna.",
+      "rationale": "Se hace explícito el grado del amor. Manning defiende que οὕτως con ὥστε puede indicar intensidad; no enseña que deba eliminarse en favor exclusivo de la manera. RV1909 ya expresa un sentido compatible.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2025/god-so-loved-or-god-loved-in-this-way",
+      "confidence": "Alta"
+    },
+    {
+      "book": "John",
+      "chapter": 3,
+      "verse": 21,
+      "action": "revise",
+      "expected_base": "Mas el que obra verdad, viene á la luz, para que sus obras sean manifestadas que son hechas en Dios.",
+      "text": "Pero quien practica la verdad se acerca a la luz para que los demás vean que sus obras han sido hechas en Dios.",
+      "rationale": "La redacción explicita receptores humanos de la manifestación. Es una opción funcional: los demás no aparece como sintagma independiente en el griego. Se conserva en Dios sin resolver aquí sus posibles matices.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2011/revealed-to-whom-john-3-21",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 19,
+      "verse": 30,
+      "action": "revise",
+      "expected_base": "Y como Jesús tomó el vinagre, dijo: Consumado es. Y habiendo inclinado la cabeza, dió el espíritu.",
+      "text": "Cuando Jesús recibió el vinagre, dijo: «Está cumplido». Luego inclinó la cabeza y entregó el espíritu.",
+      "rationale": "τετέλεσται expresa culminación. El vínculo con 19:28 sostiene cumplido; no se añade una deuda inexistente en la frase. La interpretación de la expiación pertenece al comentario, no a una sustitución léxica por pagado.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2022/paid-in-full-the-meaning-of-tetelestai-in-jesus-final-words",
+      "confidence": "Alta"
+    },
+    {
+      "book": "John",
+      "chapter": 19,
+      "verse": 28,
+      "action": "annotate",
+      "expected_base": "Después de esto, sabiendo Jesús que todas las cosas eran ya cumplidas, para que la Escritura se cumpliese, dijo: Sed tengo.",
+      "text": "",
+      "rationale": "Relacionar la culminación de la obra con el cumplimiento de la Escritura; conservar el vocabulario compartido con 19:30.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2022/paid-in-full-the-meaning-of-tetelestai-in-jesus-final-words",
+      "confidence": "Media"
+    },
+    {
+      "book": "Phil",
+      "chapter": 3,
+      "verse": 8,
+      "action": "revise",
+      "expected_base": "Y ciertamente, aun reputo todas las cosas pérdida por el eminente conocimiento de Cristo Jesús, mi Señor, por amor del cual lo he perdido todo, y téngolo por estiércol, para ganar á Cristo,",
+      "text": "Y aún más: considero que todo es pérdida ante el incomparable valor de conocer a Cristo Jesús, mi Señor. Por él lo he perdido todo y lo considero basura, para ganar a Cristo.",
+      "rationale": "σκύβαλα admite desechos; no es demostrable como palabrota. Basura mantiene el contraste entre ganancias y pérdida sin imponer una vulgaridad. Estiércol sigue siendo una posibilidad léxica, no un error en toda traducción.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2022/more-skubala-did-the-apostle-paul-use-swear-words\nhttps://www.biola.edu/blogs/good-book-blog/2015/did-the-apostle-paul-use-profanity",
+      "confidence": "Media"
+    },
+    {
+      "book": "Matt",
+      "chapter": 6,
+      "verse": 22,
+      "action": "revise",
+      "expected_base": "La lámpara del cuerpo es el ojo: así que, si tu ojo fuere sincero, todo tu cuerpo será luminoso:",
+      "text": "El ojo es la lámpara del cuerpo. Por eso, si tu ojo es generoso, todo tu cuerpo estará lleno de luz.",
+      "rationale": "Se ensaya generoso dentro del marco sobre riquezas. Se mantiene la metáfora del ojo. Alternativas: sano, íntegro o sincero. La nota NET favorece sano; por tanto esta decisión sigue discutida. El artículo de 2016 rotula este texto erróneamente como 6:20.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2011/good-eye-bad-eye\nhttps://eutychusnerd.blogspot.com/2008/11/more-on-good-eye-bad-eye.html\nhttps://www.biola.edu/blogs/good-book-blog/2016/problem-passages-in-the-message\nhttps://www.stepbible.org/?q=version%3DNET2full%7Creference%3DMatt.6.22",
+      "confidence": "Media"
+    },
+    {
+      "book": "Matt",
+      "chapter": 6,
+      "verse": 23,
+      "action": "revise",
+      "expected_base": "Mas si tu ojo fuere malo, todo tu cuerpo será tenebroso. Así que, si la lumbre que en ti hay son tinieblas, ¿cuántas serán las mismas tinieblas?",
+      "text": "Pero si tu ojo es mezquino, todo tu cuerpo estará en oscuridad. Si la luz que hay en ti es oscuridad, ¡qué grande será esa oscuridad!",
+      "rationale": "Mezquino interpreta el ojo malo en el marco económico. Se conservan la imagen de oscuridad y la pregunta final; no se reemplaza toda la metáfora por una explicación.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2011/good-eye-bad-eye\nhttps://www.biola.edu/blogs/good-book-blog/2016/problem-passages-in-the-message",
+      "confidence": "Media"
+    },
+    {
+      "book": "Matt",
+      "chapter": 20,
+      "verse": 15,
+      "action": "revise",
+      "expected_base": "¿No me es lícito á mí hacer lo que quiero con lo mío? ó ¿es malo tu ojo, porque yo soy bueno?",
+      "text": "¿No tengo derecho a hacer lo que quiero con lo mío? ¿O miras con envidia que yo sea generoso?",
+      "rationale": "El ojo malo de esta pregunta se refiere a envidia ante la generosidad del dueño. Se expone el modismo sin trasladar una teoría óptica al español.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2011/good-eye-bad-eye",
+      "confidence": "Alta"
+    },
+    {
+      "book": "Luke",
+      "chapter": 2,
+      "verse": 7,
+      "action": "revise",
+      "expected_base": "Y parió á su hijo primogénito, y le envolvió en pañales, y acostóle en un pesebre, porque no había lugar para ellos en el mesón.",
+      "text": "Y dio a luz a su hijo primogénito, lo envolvió en pañales y lo acostó en un pesebre, porque no había lugar para ellos en el cuarto de huéspedes.",
+      "rationale": "La lectura de κατάλυμα como cuarto de huéspedes evita convertirlo necesariamente en una posada comercial. Es una opción contextual; alojamiento es una alternativa más amplia. Los pañales son una práctica normal, sin implicación léxica de mortaja.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/12/christmas-myths.html\nhttps://www.biola.edu/blogs/good-book-blog/2021/what-are-swaddling-clothes",
+      "confidence": "Media"
+    },
+    {
+      "book": "Luke",
+      "chapter": 2,
+      "verse": 12,
+      "action": "annotate",
+      "expected_base": "Y esto os será por señal: hallaréis al niño envuelto en pañales, echado en un pesebre.",
+      "text": "",
+      "rationale": "Los pañales describen un recién nacido; el término por sí solo no aporta un simbolismo funerario o sacrificial.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2021/what-are-swaddling-clothes",
+      "confidence": "Media"
+    },
+    {
+      "book": "2Tim",
+      "chapter": 2,
+      "verse": 15,
+      "action": "revise",
+      "expected_base": "Procura con diligencia presentarte á Dios aprobado, como obrero que no tiene de qué avergonzarse, que traza bien la palabra de verdad.",
+      "text": "Esfuérzate por presentarte ante Dios aprobado, como un obrero que no tiene de qué avergonzarse y que expone rectamente la palabra de verdad.",
+      "rationale": "Expone rectamente actualiza traza bien. Manning propone enfatizar no desviarse hacia discusiones inútiles; la nota conserva esa opción sin reducir el verbo únicamente a una técnica de división del texto.",
+      "evidence": "https://eutychusnerd.blogspot.com/2010/03/handling-accurately-or-teaching.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "Eph",
+      "chapter": 4,
+      "verse": 15,
+      "action": "revise",
+      "expected_base": "Antes siguiendo la verdad en amor, crezcamos en todas cosas en aquel que es la cabeza, á saber, Cristo;",
+      "text": "Sino que, diciendo la verdad con amor, crezcamos en todo hacia aquel que es la cabeza: Cristo.",
+      "rationale": "Diciendo la verdad conserva el componente verbal de ἀληθεύω. Según Manning, el contexto opone enseñanza verdadera a doctrina engañosa; no se limita a una regla para resolver conflictos. Practicando la verdad queda como alternativa de alcance mayor.",
+      "evidence": "https://eutychusnerd.blogspot.com/2010/06/speaking-truth-in-love-ephesians-415.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 21,
+      "verse": 15,
+      "action": "annotate",
+      "expected_base": "Y cuando hubieron comido, Jesús dijo á Simón Pedro: Simón, hijo de Jonás, ¿me amas más que éstos? Dícele: Sí, Señor: tú sabes que te amo. Dícele: Apacienta mis corderos.",
+      "text": "",
+      "rationale": "La alternancia entre ἀγαπάω y φιλέω no exige dos grados de amor aquí. RV1909 ya utiliza amar. Se conserva; repetición y restauración explican el diálogo.",
+      "evidence": "https://eutychusnerd.blogspot.com/2008/09/make-me-higher-love.html\nhttps://eutychusnerd.blogspot.com/2008/09/do-you-love-me-now-that-i-can-dance.html\nhttps://eutychusnerd.blogspot.com/2008/12/agape-phileo-again.html\nhttps://eutychusnerd.blogspot.com/2008/10/restoring-fisherman.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 21,
+      "verse": 16,
+      "action": "annotate",
+      "expected_base": "Vuélvele á decir la segunda vez: Simón, hijo de Jonás, ¿me amas? Respóndele: Sí, Señor: tú sabes que te amo. Dícele: Apacienta mis ovejas.",
+      "text": "",
+      "rationale": "La alternancia entre ἀγαπάω y φιλέω no exige dos grados de amor aquí. RV1909 ya utiliza amar. Se conserva; repetición y restauración explican el diálogo.",
+      "evidence": "https://eutychusnerd.blogspot.com/2008/09/make-me-higher-love.html\nhttps://eutychusnerd.blogspot.com/2008/09/do-you-love-me-now-that-i-can-dance.html\nhttps://eutychusnerd.blogspot.com/2008/12/agape-phileo-again.html\nhttps://eutychusnerd.blogspot.com/2008/10/restoring-fisherman.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 21,
+      "verse": 17,
+      "action": "annotate",
+      "expected_base": "Dícele la tercera vez: Simón, hijo de Jonás, ¿me amas? Entristecióse Pedro de que le dijese la tercera vez: ¿Me amas? y dícele: Señor, tú sabes todas las cosas; tú sabes que te amo. Dícele Jesús: Apacienta mis ovejas.",
+      "text": "",
+      "rationale": "La alternancia entre ἀγαπάω y φιλέω no exige dos grados de amor aquí. RV1909 ya utiliza amar. Se conserva; repetición y restauración explican el diálogo.",
+      "evidence": "https://eutychusnerd.blogspot.com/2008/09/make-me-higher-love.html\nhttps://eutychusnerd.blogspot.com/2008/09/do-you-love-me-now-that-i-can-dance.html\nhttps://eutychusnerd.blogspot.com/2008/12/agape-phileo-again.html\nhttps://eutychusnerd.blogspot.com/2008/10/restoring-fisherman.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 21,
+      "verse": 9,
+      "action": "annotate",
+      "expected_base": "Y como descendieron á tierra, vieron ascuas puestas, y un pez encima de ellas, y pan.",
+      "text": "",
+      "rationale": "El fuego de brasas evoca 18:18 en la lectura narrativa de la restauración; es una relación interpretativa, no una palabra adicional para el texto.",
+      "evidence": "https://eutychusnerd.blogspot.com/2008/10/restoring-fisherman.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 10,
+      "verse": 10,
+      "action": "annotate",
+      "expected_base": "El ladrón no viene sino para hurtar, y matar, y destruir: yo he venido para que tengan vida, y para que la tengan en abundancia.",
+      "text": "",
+      "rationale": "En la lectura de Manning el ladrón representa liderazgo abusivo dentro de Juan 9–10, con Ezequiel 34 de fondo. No sustituir ladrón por Satanás ni por una identificación de dirigentes en el texto traducido.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2016/misinterpreting-the-thief-john-10-10\nhttps://eutychusnerd.blogspot.com/2009/03/good-shepherd-john-10.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 10,
+      "verse": 11,
+      "action": "annotate",
+      "expected_base": "Yo soy el buen pastor: el buen pastor su vida da por las ovejas.",
+      "text": "",
+      "rationale": "El pastor es una imagen real con trasfondo en Ezequiel 34; mantener la metáfora y explicar su relación con el liderazgo en la nota.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/03/good-shepherd-john-10.html\nhttps://www.biola.edu/blogs/good-book-blog/2011/reading-john",
+      "confidence": "Media"
+    },
+    {
+      "book": "Rom",
+      "chapter": 7,
+      "verse": 14,
+      "action": "annotate",
+      "expected_base": "Porque sabemos que la ley es espiritual; mas yo soy carnal, vendido á sujeción del pecado.",
+      "text": "",
+      "rationale": "Manning favorece un yo retórico precristiano; existe también una lectura cristiana autobiográfica. Se conservan primera persona y presente: ninguna hipótesis autoriza cambiarlos para decidir el debate por traducción.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2012/paul-is-not-talking-about-himself-why-i-take-the-pre-christian-reading-of-romans-7-14-25\nhttps://eutychusnerd.blogspot.com/2009/10/today-in-my-undergraduate-class-on.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "Rom",
+      "chapter": 9,
+      "verse": 5,
+      "action": "annotate",
+      "expected_base": "Cuyos son los padres, y de los cuales es Cristo según la carne, el cual es Dios sobre todas las cosas, bendito por los siglos. Amén.",
+      "text": "",
+      "rationale": "Manning favorece vincular Dios sobre todos con Cristo. La alternativa de una doxología al Padre depende de otra puntuación. RV1909 coincide con la primera lectura; se conserva sin presentar la otra como inexistente.",
+      "evidence": "https://eutychusnerd.blogspot.com/2010/05/christ-who-is-over-all-god-blessed.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 7,
+      "verse": 8,
+      "action": "annotate",
+      "expected_base": "Vosotros subid á esta fiesta; yo no subo aún á esta fiesta, porque mi tiempo aun no es cumplido.",
+      "text": "",
+      "rationale": "Se conserva aún no de RV1909. Existe la variante no. El blog de 2009 invierte los testigos: según la nota NET, P66/P75/B leen οὔπω y Sinaiticus οὐκ. La posible alusión a la glorificación es interpretativa, no base suficiente para corregir manuscritos.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/08/i-am-not-going-up-to-this-feast-john-7.html\nhttps://www.stepbible.org/?q=version%3DNET2full%7Creference%3DJohn.7.8",
+      "confidence": "Baja"
+    },
+    {
+      "book": "John",
+      "chapter": 7,
+      "verse": 53,
+      "action": "annotate",
+      "expected_base": "Y fuése cada uno á su casa.",
+      "text": "",
+      "rationale": "Juan 7:53–8:11 tiene historia textual discutida y falta en testigos tempranos. Se conserva íntegro en la base, con aviso. La autenticidad histórica de la escena no se demuestra únicamente por su plausibilidad narrativa.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/06/adulterous-woman.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 8,
+      "verse": 1,
+      "action": "annotate",
+      "expected_base": "Y JESÚS se fué al monte de las Olivas.",
+      "text": "",
+      "rationale": "Juan 7:53–8:11 tiene historia textual discutida y falta en testigos tempranos. Se conserva íntegro en la base, con aviso. La autenticidad histórica de la escena no se demuestra únicamente por su plausibilidad narrativa.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/06/adulterous-woman.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 8,
+      "verse": 11,
+      "action": "annotate",
+      "expected_base": "Y ella dijo: Señor, ninguno. Entonces Jesús le dijo: Ni yo te condeno: vete, y no peques más.",
+      "text": "",
+      "rationale": "Juan 7:53–8:11 tiene historia textual discutida y falta en testigos tempranos. Se conserva íntegro en la base, con aviso. La autenticidad histórica de la escena no se demuestra únicamente por su plausibilidad narrativa.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/06/adulterous-woman.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 1,
+      "verse": 5,
+      "action": "propose",
+      "expected_base": "Y la luz en las tinieblas resplandece; mas las tinieblas no la comprendieron.",
+      "text": "La luz brilla en la oscuridad, y la oscuridad no la ha vencido.",
+      "rationale": "καταλαμβάνω permite entender comprender o vencer. Se registra la posible doble resonancia como propuesta, sin borrar silenciosamente una lectura de RV1909.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/01/prolog-of-john.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 3,
+      "verse": 3,
+      "action": "propose",
+      "expected_base": "Respondió Jesús, y díjole: De cierto, de cierto te digo, que el que no naciere otra vez, no puede ver el reino de Dios.",
+      "text": "Jesús le respondió: «En verdad te digo que, si alguien no nace de lo alto, no puede ver el reino de Dios».",
+      "rationale": "ἄνωθεν admite de nuevo y de lo alto. La propuesta privilegia el origen divino; el malentendido de Nicodemo mantiene activa la otra lectura.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/02/jesus-and-nicodemus.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 3,
+      "verse": 8,
+      "action": "annotate",
+      "expected_base": "El viento de donde quiere sopla, y oyes su sonido; mas ni sabes de dónde viene, ni á dónde vaya: así es todo aquel que es nacido del Espíritu.",
+      "text": "",
+      "rationale": "πνεῦμα comparte los sentidos de viento y espíritu; no multiplicar seres ni borrar el juego de palabras al explicar la comparación.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/02/jesus-and-nicodemus.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "Matt",
+      "chapter": 26,
+      "verse": 50,
+      "action": "propose",
+      "expected_base": "Y Jesús le dijo: Amigo, ¿á qué vienes? Entonces llegaron, y echaron mano á Jesús, y le prendieron.",
+      "text": "Jesús le dijo: «Amigo, haz lo que has venido a hacer». Entonces se acercaron, echaron mano a Jesús y lo arrestaron.",
+      "rationale": "La frase elíptica admite discusión entre pregunta y orden. Se guarda una alternativa imperativa sin aplicarla todavía. El blog tiene una formulación contradictoria sobre la preferencia gramatical; requiere contraste adicional.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/05/question-there-seems-to-be-great.html",
+      "confidence": "Baja"
+    },
+    {
+      "book": "1Thess",
+      "chapter": 4,
+      "verse": 17,
+      "action": "annotate",
+      "expected_base": "Luego nosotros, los que vivimos, los que quedamos, juntamente con ellos seremos arrebatados en las nubes á recibir al Señor en el aire, y así estaremos siempre con el Señor.",
+      "text": "",
+      "rationale": "El encuentro puede evocar recibir a un dignatario. No añadir al cuerpo del versículo un itinerario de regreso ni una cronología escatológica que el término solo no expresa.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2014/snatched-up-for-a-meeting",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 19,
+      "verse": 14,
+      "action": "annotate",
+      "expected_base": "Y era la víspera de la Pascua, y como la hora de sexta. Entonces dijo á los Judíos: He aquí vuestro Rey.",
+      "text": "",
+      "rationale": "Preparación puede referirse al viernes; Manning propone viernes de la semana pascual. Las soluciones cronológicas rivales no se resuelven insertando una fecha en la traducción.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2015/chronology-of-easter-in-john-and-the-synoptic-gospels",
+      "confidence": "Media"
+    },
+    {
+      "book": "Matt",
+      "chapter": 12,
+      "verse": 40,
+      "action": "annotate",
+      "expected_base": "Porque como estuvo Jonás en el vientre de la ballena tres días y tres noches, así estará el Hijo del hombre en el corazón de la tierra tres días y tres noches.",
+      "text": "",
+      "rationale": "El cómputo inclusivo y la comparación con Jonás permiten explicar los tres días. Se preserva la expresión, sin convertir la nota cronológica en un cambio del número.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2015/three-days-and-three-nights\nhttps://eutychusnerd.blogspot.com/2008/03/three-days.html\nhttps://eutychusnerd.blogspot.com/2008/03/why-three-days.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "Matt",
+      "chapter": 24,
+      "verse": 2,
+      "action": "annotate",
+      "expected_base": "Y respondiendo él, les dijo: ¿Veis todo esto? de cierto os digo, que no será dejada aquí piedra sobre piedra, que no sea destruída.",
+      "text": "",
+      "rationale": "Posible eco de Hageo 2:15 en piedra sobre piedra; anotar la conexión sin añadir el nombre del profeta al discurso.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2013/no-stone-left-unturned-solving-a-minor-mystery",
+      "confidence": "Media"
+    },
+    {
+      "book": "Hag",
+      "chapter": 2,
+      "verse": 15,
+      "action": "annotate",
+      "expected_base": "Ahora pues, poned vuestro corazón desde este día en adelante, antes que pusiesen piedra sobre piedra en el templo de Jehová,",
+      "text": "",
+      "rationale": "La imagen de construcción se contrasta con el anuncio del templo en los evangelios. La alusión propuesta no obliga a cambiar el texto hebreo.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2013/no-stone-left-unturned-solving-a-minor-mystery",
+      "confidence": "Media"
+    },
+    {
+      "book": "Zech",
+      "chapter": 8,
+      "verse": 17,
+      "action": "annotate",
+      "expected_base": "Y ninguno de vosotros piense mal en su corazón contra su prójimo, ni améis juramento falso: porque todas estas son cosas que aborrezco, dice Jehová.",
+      "text": "",
+      "rationale": "Manning identifica una pequeña diferencia de traducción griega en un fragmento; no basta para corregir automáticamente la base hebrea de RV1909.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2021/new-dead-sea-scroll-discovery-a-closer-look",
+      "confidence": "Media"
+    },
+    {
+      "book": "Luke",
+      "chapter": 6,
+      "verse": 15,
+      "action": "annotate",
+      "expected_base": "Mateo y Tomás, Jacobo hijo de Alfeo, y Simón el que se llama Celador,",
+      "text": "",
+      "rationale": "Zelote puede ser un apodo de celo; no es una prueba automática de pertenencia al partido de 67–70 d.C. La referencia paralela correcta es Marcos 3:18, no 3:8 como aparece en la nota del blog.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2025/simon-the-zealot-was-not-a-zealot",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 14,
+      "verse": 26,
+      "action": "annotate",
+      "expected_base": "Mas el Consolador, el Espíritu Santo, al cual el Padre enviará en mi nombre, él os enseñará todas las cosas, y os recordará todas las cosas que os he dicho.",
+      "text": "",
+      "rationale": "El género de los pronombres responde a sus antecedentes griegos. No probar personalidad o impersonalidad solo por neutro/masculino. El ejemplo de guía de Jesús citado como Lucas 4:10 corresponde a 4:1.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2026/the-holy-spirit-and-grammatical-gender",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 20,
+      "verse": 25,
+      "action": "annotate",
+      "expected_base": "Dijéronle pues los otros discípulos: Al Señor hemos visto. Y él les dijo: Si no viere en sus manos la señal de los clavos, y metiere mi dedo en el lugar de los clavos, y metiere mi mano en su costado, no creeré.",
+      "text": "",
+      "rationale": "Las marcas de los clavos forman parte de lo que Tomás pide ver. La investigación histórica se explica en nota, sin insertar clavos en cada verbo crucificar.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2025/yes-jesus-was-crucified-with-nails",
+      "confidence": "Media"
+    },
+    {
+      "book": "Matt",
+      "chapter": 2,
+      "verse": 2,
+      "action": "annotate",
+      "expected_base": "Diciendo: ¿Dónde está el Rey de los Judíos, que ha nacido? porque su estrella hemos visto en el oriente, y venimos á adorarle.",
+      "text": "",
+      "rationale": "El título real contrasta con la legitimidad de Herodes; no significa que deba reemplazarse judíos por una descripción política añadida.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2024/herod-the-king-of-the-jews\nhttps://eutychusnerd.blogspot.com/2009/12/herod-remembered.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 1,
+      "verse": 12,
+      "action": "annotate",
+      "expected_base": "Mas á todos los que le recibieron, dióles potestad de ser hechos hijos de Dios, á los que creen en su nombre:",
+      "text": "",
+      "rationale": "Recibir y creer describen al mismo grupo de hijos de Dios; conservar su conexión con el nacimiento divino en 1:13.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2012/children-of-god-john-1-13",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 1,
+      "verse": 13,
+      "action": "annotate",
+      "expected_base": "Los cuales no son engendrados de sangre, ni de voluntad de carne, ni de voluntad de varón, mas de Dios.",
+      "text": "",
+      "rationale": "Los contrastes con el nacimiento humano subrayan el origen divino. No convertir una explicación de ascendencia en una nueva variante textual.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2012/children-of-god-john-1-13",
+      "confidence": "Media"
+    },
+    {
+      "book": "Eph",
+      "chapter": 2,
+      "verse": 8,
+      "action": "annotate",
+      "expected_base": "Porque por gracia sois salvos por la fe; y esto no de vosotros, pues es don de Dios:",
+      "text": "",
+      "rationale": "χάρις puede explicar la generosidad del don. Se mantiene gracia en el texto y se evita imponer una equivalencia española uniforme en todas sus apariciones.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2011/generous-charis\nhttps://eutychusnerd.blogspot.com/2009/06/grace-and-mercy.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "Rom",
+      "chapter": 4,
+      "verse": 4,
+      "action": "annotate",
+      "expected_base": "Empero al que obra, no se le cuenta el salario por merced, sino por deuda.",
+      "text": "",
+      "rationale": "El contraste es entre don y obligación salarial. Generosidad ayuda a explicar gracia en este contexto, sin convertir el experimento léxico en regla universal.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2011/generous-charis",
+      "confidence": "Media"
+    },
+    {
+      "book": "1Tim",
+      "chapter": 2,
+      "verse": 12,
+      "action": "annotate",
+      "expected_base": "Porque no permito á la mujer enseñar, ni tomar autoridad sobre el hombre, sino estar en silencio.",
+      "text": "",
+      "rationale": "La lectura de BGU 1208 propone ejercer o hacer valer autoridad en una negociación. El propio estudio reconoce lagunas. Un uso extrabíblico no decide por sí solo el sentido exacto de αὐθεντέω ni toda la aplicación de este pasaje.",
+      "evidence": "https://biblethinker.org/wp-content/uploads/2023/11/FINAL-BGU-1208-Translation-and-Notes.pdf",
+      "confidence": "Baja"
+    },
+    {
+      "book": "Gen",
+      "chapter": 1,
+      "verse": 1,
+      "action": "annotate",
+      "expected_base": "EN el principio crió Dios los cielos y la tierra.",
+      "text": "",
+      "rationale": "אֵת funciona aquí como marcador de objeto directo. No se inserta una referencia oculta a Jesús por las letras alef y tav.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/10/few-people-asked-me-about-nature-of.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "Rev",
+      "chapter": 13,
+      "verse": 18,
+      "action": "annotate",
+      "expected_base": "Aquí hay sabiduría. El que tiene entendimiento, cuente el número de la bestia; porque es el número de hombre: y el número de ella, seiscientos sesenta y seis.",
+      "text": "",
+      "rationale": "Conservar el número: girar letras de una copia tardía no demuestra una frase árabe original. La identificación histórica por gematría se discute en la nota, sin reemplazar el número por un nombre moderno.",
+      "evidence": "https://eutychusnerd.blogspot.com/2010/07/the-mark-of-beast-is-islam-walid.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "Matt",
+      "chapter": 24,
+      "verse": 34,
+      "action": "annotate",
+      "expected_base": "De cierto os digo, que no pasará esta generación, que todas estas cosas no acontezcan.",
+      "text": "",
+      "rationale": "Generación no se sustituye por raza para resolver la cronología. La relación del capítulo con 70 d.C. y la venida futura tiene propuestas rivales.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/05/question-in-matt-2434-jesus-says-i-tell.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "Luke",
+      "chapter": 14,
+      "verse": 26,
+      "action": "annotate",
+      "expected_base": "Si alguno viene á mí, y no aborrece á su padre, y madre, y mujer, é hijos, y hermanos, y hermanas, y aun también su vida, no puede ser mi discípulo.",
+      "text": "",
+      "rationale": "La lectura de prioridad y lealtad en conflicto se explica en la nota. Se conserva la fuerza retórica del texto sin introducir una orden independiente de maltratar a la familia.",
+      "evidence": "https://eutychusnerd.blogspot.com/2008/04/blind-devotion.html\nhttps://eutychusnerd.blogspot.com/2008/04/anonymous-posted-this-provocative.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "Matt",
+      "chapter": 13,
+      "verse": 32,
+      "action": "annotate",
+      "expected_base": "El cual á la verdad es la más pequeña de todas las simientes; mas cuando ha crecido, es la mayor de las hortalizas, y se hace árbol, que vienen las aves del cielo y hacen nidos en sus ramas.",
+      "text": "",
+      "rationale": "Manning relaciona árbol y aves con el reino descrito en Ezequiel 17. El símbolo de las aves no mantiene necesariamente el mismo referente en todas las parábolas.",
+      "evidence": "https://eutychusnerd.blogspot.com/2008/04/kingdom-for-birds.html\nhttps://eutychusnerd.blogspot.com/2008/04/kingdom-for-birds-ii.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "Ps",
+      "chapter": 110,
+      "verse": 1,
+      "action": "annotate",
+      "expected_base": "Salmo de David. JEHOVÁ dijo á mi Señor: Siéntate á mi diestra, en tanto que pongo tus enemigos por estrado de tus pies.",
+      "text": "",
+      "rationale": "Leer primero el salmo real en su contexto y luego sus usos cristológicos; no identificar una explicación histórica de Melquisedec con una variante del texto.",
+      "evidence": "https://eutychusnerd.blogspot.com/2008/06/question-what-is-culturalhistorical.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "Ps",
+      "chapter": 119,
+      "verse": 1,
+      "action": "annotate",
+      "expected_base": "ALEPH. BIENAVENTURADOS los perfectos de camino; los que andan en la ley de Jehová.",
+      "text": "",
+      "rationale": "La forma acróstica y el conjunto del salmo orientan la lectura de cada estrofa; no imponerle la estructura de un ensayo moderno.",
+      "evidence": "https://eutychusnerd.blogspot.com/2008/06/torah-torah-rah-rah-rah.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "1Pet",
+      "chapter": 3,
+      "verse": 19,
+      "action": "annotate",
+      "expected_base": "En el cual también fué y predicó á los espíritus encarcelados;",
+      "text": "",
+      "rationale": "El pasaje admite lecturas diferentes sobre espíritus, proclamación y momento. No insertar descenso al infierno como si fuera la traducción inequívoca del versículo.",
+      "evidence": "https://eutychusnerd.blogspot.com/2008/06/question-i-recently-heard-tony-campolo.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "Matt",
+      "chapter": 7,
+      "verse": 1,
+      "action": "annotate",
+      "expected_base": "NO juzguéis, para que no seáis juzgados.",
+      "text": "",
+      "rationale": "La advertencia se lee hasta 7:5: confronta juicio hipócrita y la necesidad de corregirse antes de ayudar al otro; no anula toda evaluación moral.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/01/judge-not.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "Eph",
+      "chapter": 5,
+      "verse": 17,
+      "action": "annotate",
+      "expected_base": "Por tanto, no seáis imprudentes, sino entendidos de cuál sea la voluntad del Señor.",
+      "text": "",
+      "rationale": "El contraste con conductas destructivas orienta voluntad del Señor; el artículo no propone una fórmula para descubrir decisiones privadas por traducción.",
+      "evidence": "https://eutychusnerd.blogspot.com/2010/10/not-this-but-that-ephesians-4-5.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 4,
+      "verse": 29,
+      "action": "annotate",
+      "expected_base": "Venid, ved un hombre que me ha dicho todo lo que he hecho: ¿si quizás es éste el Cristo?",
+      "text": "",
+      "rationale": "La posible relación con Eliseo es reconocida como más débil; no se incorpora a la traducción como si fuera una cita identificada.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-1-john-429-2-kings.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 2,
+      "verse": 4,
+      "action": "annotate",
+      "expected_base": "Y dícele Jesús: ¿Qué tengo yo contigo, mujer? aun no ha venido mi hora.",
+      "text": "",
+      "rationale": "La respuesta tiene forma idiomática y puede evocar a Eliseo. Conservar texto y explicar el posible eco, sin añadir un rechazo definitivo de Jesús a ayudar.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-2-john-23-4-kings.html\nhttps://eutychusnerd.blogspot.com/2009/02/water-to-wine-john-21-11.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 4,
+      "verse": 7,
+      "action": "annotate",
+      "expected_base": "Vino una mujer de Samaria á sacar agua: y Jesús le dice: Dame de beber.",
+      "text": "",
+      "rationale": "La petición de agua se compara con Elías y la viuda; es un recurso intertextual posible, no una frase nueva en Juan.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-3-john-47-1-kings.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 4,
+      "verse": 50,
+      "action": "annotate",
+      "expected_base": "Dícele Jesús: Ve, tu hijo vive. Y el hombre creyó á la palabra que Jesús le dijo, y se fué.",
+      "text": "",
+      "rationale": "Mantener la repetición de tu hijo vive, importante para fe y vida; el eco de Elías se discute como lectura narrativa.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-4-john-450-1-kings.html\nhttps://eutychusnerd.blogspot.com/2008/04/believe-life.html\nhttps://eutychusnerd.blogspot.com/2008/03/your-son-lives.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 6,
+      "verse": 9,
+      "action": "annotate",
+      "expected_base": "Un muchacho está aquí que tiene cinco panes de cebada y dos pececillos; ¿mas qué es esto entre tantos?",
+      "text": "",
+      "rationale": "Los panes de cebada pueden evocar el relato de Eliseo; preservar los detalles del relato antes de explicar la conexión.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-5-john-69-13-2.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 9,
+      "verse": 7,
+      "action": "annotate",
+      "expected_base": "Y díjole: Ve, lávate en el estanque de Siloé (que significa, si lo interpretares, Enviado). Y fué entonces, y lavóse, y volvió viendo.",
+      "text": "",
+      "rationale": "La orden de lavarse invita a comparar Naamán; los verbos son similares, no idénticos. La comparación no autoriza igualarlos artificialmente.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-6-john-96-15-2.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 1,
+      "verse": 21,
+      "action": "annotate",
+      "expected_base": "Y le preguntaron: ¿Qué pues? ¿Eres tú Elías? Dijo: No soy. ¿Eres tú el profeta? Y respondió: No.",
+      "text": "",
+      "rationale": "La negación del Bautista y las alusiones posteriores a Elías/Eliseo pueden cumplir funciones literarias diferentes; no modificar la negación para eliminar la tensión.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-intro.html\nhttps://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-conclusion.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 11,
+      "verse": 41,
+      "action": "annotate",
+      "expected_base": "Entonces quitaron la piedra de donde el muerto había sido puesto. Y Jesús, alzando los ojos arriba, dijo: Padre, gracias te doy que me has oído.",
+      "text": "",
+      "rationale": "La oración pública se dirige a fortalecer la fe de los presentes; conservar su relación con 11:42.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/07/jesus-prayer-for-lazarus-john-11.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "2Kgs",
+      "chapter": 5,
+      "verse": 15,
+      "action": "annotate",
+      "expected_base": "Y volvió al varón de Dios, él y toda su compañía, y púsose delante de él, y dijo: He aquí ahora conozco que no hay Dios en toda la tierra, sino en Israel. Ruégote que recibas algún presente de tu siervo.",
+      "text": "",
+      "rationale": "La curación se considera en el relato de Naamán como manifestación del poder y favor de Dios; la aplicación pastoral no reemplaza la narración.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/06/grace-to-naaman.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 13,
+      "verse": 34,
+      "action": "annotate",
+      "expected_base": "Un mandamiento nuevo os doy: Que os améis unos á otros: como os he amado, que también os améis los unos á los otros.",
+      "text": "",
+      "rationale": "La reciprocidad de unos a otros se conserva como dimensión comunitaria; la lista temática es una ayuda de estudio, no un texto alternativo.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/06/one-anothers.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "1Sam",
+      "chapter": 7,
+      "verse": 12,
+      "action": "annotate",
+      "expected_base": "Tomó luego Samuel una piedra, y púsola entre Mizpa y Sen, y púsole por nombre Eben-ezer, diciendo: Hasta aquí nos ayudó Jehová.",
+      "text": "",
+      "rationale": "El relato se lee junto al fracaso de 1 Samuel 4 y el cambio comunitario; no atribuir poder autónomo al objeto ritual.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/05/victory-at-ebenezer-1-samuel-4-7.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 9,
+      "verse": 3,
+      "action": "annotate",
+      "expected_base": "Respondió Jesús: Ni éste pecó, ni sus padres: mas para que las obras de Dios se manifiesten en él.",
+      "text": "",
+      "rationale": "El contraste con Juan 5 distingue las situaciones de los dos hombres; no generalizar una sola explicación del sufrimiento a todos los relatos.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/04/blind-and-lame-john-5-and-9.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 19,
+      "verse": 41,
+      "action": "annotate",
+      "expected_base": "Y en aquel lugar donde había sido crucificado, había un huerto; y en el huerto un sepulcro nuevo, en el cual aun no había sido puesto ninguno.",
+      "text": "",
+      "rationale": "El trasfondo de sepulturas ayuda a imaginar la escena; no añadir medidas o peso de la piedra que el versículo no da.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/04/rolling-stone.html\nhttps://eutychusnerd.blogspot.com/2009/12/shroud-discovery-in-jerusalem.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "Matt",
+      "chapter": 27,
+      "verse": 65,
+      "action": "annotate",
+      "expected_base": "Y Pilato les dijo: Tenéis una guardia: id, aseguradlo como sabéis.",
+      "text": "",
+      "rationale": "La identidad y el encargo de la guardia deben contrastarse con el relato completo; no cambiar todo guardia o centurión por romano automáticamente.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/04/roman-soldiers-at-tomb.html\nhttps://www.biola.edu/blogs/good-book-blog/2026/soldiers-in-the-gospels1\nhttps://www.biola.edu/blogs/good-book-blog/2011/soldiers-in-the-gospels",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 1,
+      "verse": 39,
+      "action": "annotate",
+      "expected_base": "Díceles: Venid y ved. Vinieron, y vieron donde moraba, y quedáronse con él aquel día: porque era como la hora de las diez.",
+      "text": "",
+      "rationale": "La repetición de ver y seguir estructura el llamamiento; no imponer diferencias teológicas fijas a cada sinónimo de ver.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/02/jesus-first-disciples-in-john.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "Luke",
+      "chapter": 2,
+      "verse": 10,
+      "action": "annotate",
+      "expected_base": "Mas el ángel les dijo: No temáis; porque he aquí os doy nuevas de gran gozo, que será para todo el pueblo:",
+      "text": "",
+      "rationale": "Pueblo señala en esta lectura el marco de Israel al comienzo de Lucas, sin negar la ampliación de la misión en el conjunto de la obra.",
+      "evidence": "https://eutychusnerd.blogspot.com/2008/12/nativity-salvation-in-luke.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "Mark",
+      "chapter": 7,
+      "verse": 36,
+      "action": "annotate",
+      "expected_base": "Y les mandó que no lo dijesen á nadie; pero cuanto más les mandaba, tanto más y más lo divulgaban.",
+      "text": "",
+      "rationale": "La orden de silencio debe leerse en la narración de Marcos; la explicación de motivos no se inserta como frase adicional de Jesús.",
+      "evidence": "https://eutychusnerd.blogspot.com/2008/06/marks-secrecy.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "Prov",
+      "chapter": 31,
+      "verse": 6,
+      "action": "annotate",
+      "expected_base": "Dad la cerveza al desfallecido, y el vino á los de amargo ánimo:",
+      "text": "",
+      "rationale": "La advertencia al gobernante se interpreta dentro de 31:1–9. No convertir una comparación retórica en consejo universal de embriaguez para quien sufre.",
+      "evidence": "https://eutychusnerd.blogspot.com/2008/03/toast-to-lemuels-mother.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "Acts",
+      "chapter": 20,
+      "verse": 10,
+      "action": "annotate",
+      "expected_base": "Entonces descendió Pablo, y derribóse sobre él, y abrazándole, dijo: No os alborotéis, que su alma está en él.",
+      "text": "",
+      "rationale": "El relato se compara con restauraciones de vida proféticas y con el cuidado comunitario; la semejanza se mantiene en comentario.",
+      "evidence": "https://eutychusnerd.blogspot.com/2008/03/eutychus.html\nhttps://eutychusnerd.blogspot.com/2008/03/eutychus-part-ii.html\nhttps://eutychusnerd.blogspot.com/2008/03/eutychus-part-iii.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "Luke",
+      "chapter": 24,
+      "verse": 44,
+      "action": "annotate",
+      "expected_base": "Y él les dijo: Estas son las palabras que os hablé, estando aún con vosotros: que era necesario que se cumpliesen todas las cosas que están escritas de mí en la ley de Moisés, y en los profetas, y en los salmos.",
+      "text": "",
+      "rationale": "Los textos canónicos describen enseñanza sobre cumplimiento y misión; las reconstrucciones gnósticas posteriores no se insertan como discurso perdido.",
+      "evidence": "https://eutychusnerd.blogspot.com/2008/03/what-did-jesus-teach-after-resurrection.html\nhttps://eutychusnerd.blogspot.com/2008/03/what-did-jesus-teach-after-resurrection_22.html\nhttps://eutychusnerd.blogspot.com/2008/03/jesus-post-resurrection-teachings-and.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "Luke",
+      "chapter": 23,
+      "verse": 43,
+      "action": "annotate",
+      "expected_base": "Entonces Jesús le dijo: De cierto te digo, que hoy estarás conmigo en el paraíso.",
+      "text": "",
+      "rationale": "El diálogo del crucificado no debe reescribirse como una fórmula litúrgica moderna de conversión; distinguir confesión narrativa y práctica pastoral.",
+      "evidence": "https://eutychusnerd.blogspot.com/2009/02/sinners-prayer.html",
+      "confidence": "Media"
+    },
+    {
+      "book": "Matt",
+      "chapter": 3,
+      "verse": 7,
+      "action": "annotate",
+      "expected_base": "Y viendo él muchos de los Fariseos y de los Saduceos, que venían á su bautismo, decíales: Generación de víboras, ¿quién os ha enseñado á huir de la ira que vendrá?",
+      "text": "",
+      "rationale": "Se conserva la advertencia de ira venidera; no reducirla a una imagen decorativa al parafrasear.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2016/problem-passages-in-the-message",
+      "confidence": "Media"
+    },
+    {
+      "book": "Matt",
+      "chapter": 5,
+      "verse": 12,
+      "action": "annotate",
+      "expected_base": "Gozaos y alegraos; porque vuestra merced es grande en los cielos: que así persiguieron á los profetas que fueron antes de vosotros.",
+      "text": "",
+      "rationale": "La promesa de recompensa no se sustituye por aprobación presente ni se añaden causas psicológicas de la persecución.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2016/problem-passages-in-the-message",
+      "confidence": "Media"
+    },
+    {
+      "book": "Matt",
+      "chapter": 6,
+      "verse": 28,
+      "action": "annotate",
+      "expected_base": "Y por el vestido ¿por qué os congojáis? Reparad los lirios del campo, cómo crecen; no trabajan ni hilan;",
+      "text": "",
+      "rationale": "La inquietud por necesidades de vestido no se sustituye por vanidad o compras de moda.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2016/problem-passages-in-the-message",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 6,
+      "verse": 20,
+      "action": "annotate",
+      "expected_base": "Mas él les dijo: Yo soy; no tengáis miedo.",
+      "text": "",
+      "rationale": "Yo soy/soy yo se interpreta según el episodio; el contexto puede aportar una resonancia divina sin hacerla regla léxica universal.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2015/does-i-am-always-refer-to-god-in-the-gospel-of-john",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 8,
+      "verse": 58,
+      "action": "annotate",
+      "expected_base": "Díjoles Jesús: De cierto, de cierto os digo: Antes que Abraham fuese, yo soy.",
+      "text": "",
+      "rationale": "Se conserva la afirmación en su contexto de preexistencia, distinta de usos corrientes de soy yo.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2015/does-i-am-always-refer-to-god-in-the-gospel-of-john",
+      "confidence": "Media"
+    },
+    {
+      "book": "John",
+      "chapter": 9,
+      "verse": 9,
+      "action": "annotate",
+      "expected_base": "Unos decían: Este es; y otros: A él se parece. El decía: Yo soy.",
+      "text": "",
+      "rationale": "El hombre se identifica a sí mismo con la misma expresión; no escribir un título divino por una equivalencia mecánica.",
+      "evidence": "https://www.biola.edu/blogs/good-book-blog/2015/does-i-am-always-refer-to-god-in-the-gospel-of-john",
+      "confidence": "Media"
+    }
+  ],
+  "book_notes": [
+    {
+      "book": "Gen",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Génesis\n\nPasajes documentados: 1:1 (annotate)\n\nFuentes del libro:\nhttps://eutychusnerd.blogspot.com/2009/10/few-people-asked-me-about-nature-of.html"
+    },
+    {
+      "book": "Exod",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Éxodo\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Lev",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Levítico\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Num",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Números\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Deut",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Deuteronomio\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Josh",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Josué\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Judg",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Jueces\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Ruth",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Rut\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "1Sam",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: 1 Samuel\n\nPasajes documentados: 7:12 (annotate)\n\nFuentes del libro:\nhttps://eutychusnerd.blogspot.com/2009/05/victory-at-ebenezer-1-samuel-4-7.html"
+    },
+    {
+      "book": "2Sam",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: 2 Samuel\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "1Kgs",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: 1 Reyes\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "2Kgs",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: 2 Reyes\n\nPasajes documentados: 5:15 (annotate)\n\nFuentes del libro:\nhttps://eutychusnerd.blogspot.com/2009/06/grace-to-naaman.html"
+    },
+    {
+      "book": "1Chr",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: 1 Crónicas\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "2Chr",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: 2 Crónicas\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Ezra",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Esdras\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Neh",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Nehemías\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Esth",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Ester\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Job",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Job\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Ps",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Salmos\n\nPasajes documentados: 110:1 (annotate), 119:1 (annotate)\n\nFuentes del libro:\nhttps://eutychusnerd.blogspot.com/2008/06/question-what-is-culturalhistorical.html\nhttps://eutychusnerd.blogspot.com/2008/06/torah-torah-rah-rah-rah.html"
+    },
+    {
+      "book": "Prov",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Proverbios\n\nPasajes documentados: 31:6 (annotate)\n\nFuentes del libro:\nhttps://eutychusnerd.blogspot.com/2008/03/toast-to-lemuels-mother.html"
+    },
+    {
+      "book": "Eccl",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Eclesiastés\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Song",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Cantares\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Isa",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Isaías\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Jer",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Jeremías\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Lam",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Lamentaciones\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Ezek",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Ezequiel\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Dan",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Daniel\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Hos",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Oseas\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Joel",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Joel\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Amos",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Amós\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Obad",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Abdías\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Jonah",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Jonás\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Mic",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Miqueas\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Nah",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Nahum\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Hab",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Habacuc\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Zeph",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Sofonías\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Hag",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Hageo\n\nPasajes documentados: 2:15 (annotate)\n\nFuentes del libro:\nhttps://www.biola.edu/blogs/good-book-blog/2013/no-stone-left-unturned-solving-a-minor-mystery"
+    },
+    {
+      "book": "Zech",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Zacarías\n\nPasajes documentados: 8:17 (annotate)\n\nFuentes del libro:\nhttps://www.biola.edu/blogs/good-book-blog/2021/new-dead-sea-scroll-discovery-a-closer-look"
+    },
+    {
+      "book": "Mal",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Malaquías\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Matt",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Mateo\n\nPasajes documentados: 6:22 (revise), 6:23 (revise), 20:15 (revise), 26:50 (propose), 12:40 (annotate), 24:2 (annotate), 2:2 (annotate), 24:34 (annotate), 13:32 (annotate), 7:1 (annotate), 27:65 (annotate), 3:7 (annotate), 5:12 (annotate), 6:28 (annotate)\n\nFuentes del libro:\nhttps://eutychusnerd.blogspot.com/2008/03/three-days.html\nhttps://eutychusnerd.blogspot.com/2008/03/why-three-days.html\nhttps://eutychusnerd.blogspot.com/2008/04/kingdom-for-birds-ii.html\nhttps://eutychusnerd.blogspot.com/2008/04/kingdom-for-birds.html\nhttps://eutychusnerd.blogspot.com/2008/11/more-on-good-eye-bad-eye.html\nhttps://eutychusnerd.blogspot.com/2009/01/judge-not.html\nhttps://eutychusnerd.blogspot.com/2009/04/roman-soldiers-at-tomb.html\nhttps://eutychusnerd.blogspot.com/2009/05/question-in-matt-2434-jesus-says-i-tell.html\nhttps://eutychusnerd.blogspot.com/2009/05/question-there-seems-to-be-great.html\nhttps://eutychusnerd.blogspot.com/2009/12/herod-remembered.html\nhttps://www.biola.edu/blogs/good-book-blog/2011/good-eye-bad-eye\nhttps://www.biola.edu/blogs/good-book-blog/2011/soldiers-in-the-gospels\nhttps://www.biola.edu/blogs/good-book-blog/2013/no-stone-left-unturned-solving-a-minor-mystery\nhttps://www.biola.edu/blogs/good-book-blog/2015/three-days-and-three-nights\nhttps://www.biola.edu/blogs/good-book-blog/2016/problem-passages-in-the-message\nhttps://www.biola.edu/blogs/good-book-blog/2024/herod-the-king-of-the-jews\nhttps://www.biola.edu/blogs/good-book-blog/2026/soldiers-in-the-gospels1\nhttps://www.stepbible.org/?q=version%3DNET2full%7Creference%3DMatt.6.22"
+    },
+    {
+      "book": "Mark",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Marcos\n\nPasajes documentados: 7:36 (annotate)\n\nFuentes del libro:\nhttps://eutychusnerd.blogspot.com/2008/06/marks-secrecy.html"
+    },
+    {
+      "book": "Luke",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Lucas\n\nPasajes documentados: 2:7 (revise), 2:12 (annotate), 6:15 (annotate), 14:26 (annotate), 2:10 (annotate), 24:44 (annotate), 23:43 (annotate)\n\nFuentes del libro:\nhttps://eutychusnerd.blogspot.com/2008/03/jesus-post-resurrection-teachings-and.html\nhttps://eutychusnerd.blogspot.com/2008/03/what-did-jesus-teach-after-resurrection.html\nhttps://eutychusnerd.blogspot.com/2008/03/what-did-jesus-teach-after-resurrection_22.html\nhttps://eutychusnerd.blogspot.com/2008/04/anonymous-posted-this-provocative.html\nhttps://eutychusnerd.blogspot.com/2008/04/blind-devotion.html\nhttps://eutychusnerd.blogspot.com/2008/12/nativity-salvation-in-luke.html\nhttps://eutychusnerd.blogspot.com/2009/02/sinners-prayer.html\nhttps://eutychusnerd.blogspot.com/2009/12/christmas-myths.html\nhttps://www.biola.edu/blogs/good-book-blog/2021/what-are-swaddling-clothes\nhttps://www.biola.edu/blogs/good-book-blog/2025/simon-the-zealot-was-not-a-zealot"
+    },
+    {
+      "book": "John",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Juan\n\nPasajes documentados: 4:9 (revise), 3:16 (revise), 3:21 (revise), 19:30 (revise), 19:28 (annotate), 21:15 (annotate), 21:16 (annotate), 21:17 (annotate), 21:9 (annotate), 10:10 (annotate), 10:11 (annotate), 7:8 (annotate), 7:53 (annotate), 8:1 (annotate), 8:11 (annotate), 1:5 (propose), 3:3 (propose), 3:8 (annotate), 19:14 (annotate), 14:26 (annotate), 20:25 (annotate), 1:12 (annotate), 1:13 (annotate), 4:29 (annotate), 2:4 (annotate), 4:7 (annotate), 4:50 (annotate), 6:9 (annotate), 9:7 (annotate), 1:21 (annotate), 11:41 (annotate), 13:34 (annotate), 9:3 (annotate), 19:41 (annotate), 1:39 (annotate), 6:20 (annotate), 8:58 (annotate), 9:9 (annotate)\n\nFuentes del libro:\nhttps://eutychusnerd.blogspot.com/2008/03/your-son-lives.html\nhttps://eutychusnerd.blogspot.com/2008/04/believe-life.html\nhttps://eutychusnerd.blogspot.com/2008/09/do-you-love-me-now-that-i-can-dance.html\nhttps://eutychusnerd.blogspot.com/2008/09/make-me-higher-love.html\nhttps://eutychusnerd.blogspot.com/2008/10/restoring-fisherman.html\nhttps://eutychusnerd.blogspot.com/2008/12/agape-phileo-again.html\nhttps://eutychusnerd.blogspot.com/2009/01/prolog-of-john.html\nhttps://eutychusnerd.blogspot.com/2009/02/jesus-and-nicodemus.html\nhttps://eutychusnerd.blogspot.com/2009/02/jesus-first-disciples-in-john.html\nhttps://eutychusnerd.blogspot.com/2009/02/water-to-wine-john-21-11.html\nhttps://eutychusnerd.blogspot.com/2009/03/good-shepherd-john-10.html\nhttps://eutychusnerd.blogspot.com/2009/04/blind-and-lame-john-5-and-9.html\nhttps://eutychusnerd.blogspot.com/2009/04/rolling-stone.html\nhttps://eutychusnerd.blogspot.com/2009/06/adulterous-woman.html\nhttps://eutychusnerd.blogspot.com/2009/06/one-anothers.html\nhttps://eutychusnerd.blogspot.com/2009/07/jesus-prayer-for-lazarus-john-11.html\nhttps://eutychusnerd.blogspot.com/2009/08/i-am-not-going-up-to-this-feast-john-7.html\nhttps://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-conclusion.html\nhttps://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-intro.html\nhttps://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-1-john-429-2-kings.html\nhttps://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-2-john-23-4-kings.html\nhttps://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-3-john-47-1-kings.html\nhttps://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-4-john-450-1-kings.html\nhttps://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-5-john-69-13-2.html\nhttps://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-6-john-96-15-2.html\nhttps://eutychusnerd.blogspot.com/2009/12/shroud-discovery-in-jerusalem.html\nhttps://www.biola.edu/blogs/good-book-blog/2011/reading-john\nhttps://www.biola.edu/blogs/good-book-blog/2011/revealed-to-whom-john-3-21\nhttps://www.biola.edu/blogs/good-book-blog/2012/children-of-god-john-1-13\nhttps://www.biola.edu/blogs/good-book-blog/2015/chronology-of-easter-in-john-and-the-synoptic-gospels\nhttps://www.biola.edu/blogs/good-book-blog/2015/does-i-am-always-refer-to-god-in-the-gospel-of-john\nhttps://www.biola.edu/blogs/good-book-blog/2016/misinterpreting-the-thief-john-10-10\nhttps://www.biola.edu/blogs/good-book-blog/2022/paid-in-full-the-meaning-of-tetelestai-in-jesus-final-words\nhttps://www.biola.edu/blogs/good-book-blog/2025/god-so-loved-or-god-loved-in-this-way\nhttps://www.biola.edu/blogs/good-book-blog/2025/jews-do-not-associate-with-samaritans-or-do-not-share-vessels-with-samaritans-or-something-else-john-4-9\nhttps://www.biola.edu/blogs/good-book-blog/2025/yes-jesus-was-crucified-with-nails\nhttps://www.biola.edu/blogs/good-book-blog/2026/the-holy-spirit-and-grammatical-gender\nhttps://www.cambridge.org/core/journals/new-testament-studies/article/abs/sharing-cups-associating-or-getting-help-the-meaning-of-in-john-49/0F8C321A81D2257D93CC40360D63CE68\nhttps://www.stepbible.org/?q=version%3DNET2full%7Creference%3DJohn.4.9\nhttps://www.stepbible.org/?q=version%3DNET2full%7Creference%3DJohn.7.8\n\nRegistro general de fuentes inventariadas. Consultado no significa que cada propuesta esté aceptada; cribado bibliográfico no significa lectura íntegra. Las noticias, recursos didácticos y reediciones no agregan evidencia independiente. Hay capítulos de acceso no verificado que no se usan para modificar texto.\n\nbiola-000 | Solving Interpretational Problems | 2026-07-29 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2026/solving-interpretational-problems2\nbiola-001 | Soldiers in the Gospels | 2026-04-27 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2026/soldiers-in-the-gospels1\nbiola-002 | The Holy Spirit and Grammatical Gender | 2026-02-09 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2026/the-holy-spirit-and-grammatical-gender\nbiola-003 | Simon the Zealot was not a Zealot! | 2025-10-08 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2025/simon-the-zealot-was-not-a-zealot\nbiola-004 | Jews do not “associate with” Samaritans? Or do not “share vessels with” Samaritans? Or something else? (John 4:9) | 2025-07-30 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2025/jews-do-not-associate-with-samaritans-or-do-not-share-vessels-with-samaritans-or-something-else-john-4-9\nbiola-005 | “God so loved” or “God loved in this way”? | 2025-05-05 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2025/god-so-loved-or-god-loved-in-this-way\nbiola-006 | Yes, Jesus was Crucified with Nails | 2025-04-25 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2025/yes-jesus-was-crucified-with-nails\nbiola-007 | Herod, the King of the Jews | 2024-12-23 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2024/herod-the-king-of-the-jews\nbiola-008 | Best of the Blog: Fall 2022 | 2022-12-14 | cribado_bibliografico\nhttps://www.biola.edu/blogs/talbot-magazine/2022/best-of-the-blog-fall-2022\nbiola-009 | “Paid in Full”? The Meaning of τετέλεσται (Tetelestai) in Jesus’ Final Words | 2022-04-20 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2022/paid-in-full-the-meaning-of-tetelestai-in-jesus-final-words\nbiola-010 | More Skubala: Did the Apostle Paul use Swear Words? | 2022-03-24 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2022/more-skubala-did-the-apostle-paul-use-swear-words\nbiola-011 | What are Swaddling Clothes? | 2021-12-20 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2021/what-are-swaddling-clothes\nbiola-012 | New Program Roundup: Summer 2021 | 2021-06-16 | cribado_bibliografico\nhttps://www.biola.edu/blogs/talbot-magazine/2021/new-program-roundup-summer-2021\nbiola-013 | Best of the Blog: Summer 2021 | 2021-06-16 | cribado_bibliografico\nhttps://www.biola.edu/blogs/talbot-magazine/2021/best-of-the-blog-summer-2021\nbiola-014 | New Dead Sea Scroll Discovery: A Closer Look | 2021-03-17 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2021/new-dead-sea-scroll-discovery-a-closer-look\nbiola-015 | Can you read \"Peter Rabbit\" in Greek? | 2020-11-13 | cribado_bibliografico\nhttps://www.biola.edu/blogs/good-book-blog/2020/can-you-read-peter-rabbit-in-greek\nbiola-016 | Best of the Blog | 2019-06-04 | cribado_bibliografico\nhttps://www.biola.edu/blogs/talbot-magazine/2019/best-of-the-blog-paul-s-name-change\nbiola-017 | Paul’s Name Change | 2019-02-06 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2019/paul-s-name-change\nbiola-018 | Solving Interpretational Problems | 2019-01-02 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2019/solving-interpretational-problems1\nbiola-019 | Streamlining Seminary | 2017-11-13 | cribado_bibliografico\nhttps://www.biola.edu/blogs/talbot-magazine/2017/streamlining-seminary\nbiola-020 | Problem Passages in The Message | 2016-11-29 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2016/problem-passages-in-the-message\nbiola-021 | Misinterpreting the Thief (John 10:10) | 2016-04-28 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2016/misinterpreting-the-thief-john-10-10\nbiola-022 | Did the Apostle Paul Use Profanity? | 2015-10-01 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2015/did-the-apostle-paul-use-profanity\nbiola-023 | Does \"I Am\" always refer to God in the Gospel of John? | 2015-09-21 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2015/does-i-am-always-refer-to-god-in-the-gospel-of-john\nbiola-024 | I am the Very Model of a Doctor of New Testament | 2015-05-13 | cribado_bibliografico\nhttps://www.biola.edu/blogs/good-book-blog/2015/i-am-the-very-model-of-a-doctor-of-new-testament\nbiola-025 | New Claims Regarding the “Family of Jesus” Tomb | 2015-04-13 | cribado_bibliografico\nhttps://www.biola.edu/blogs/good-book-blog/2015/new-claims-regarding-the-family-of-jesus-tomb\nbiola-026 | Three Days and Three Nights | 2015-04-01 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2015/three-days-and-three-nights\nbiola-027 | Chronology of Easter in John and the Synoptic Gospels | 2015-03-30 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2015/chronology-of-easter-in-john-and-the-synoptic-gospels\nbiola-028 | Christmas in November? | 2014-11-18 | cribado_bibliografico\nhttps://www.biola.edu/blogs/good-book-blog/2014/christmas-in-november\nbiola-029 | Snatched Up For a Meeting | 2014-10-16 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2014/snatched-up-for-a-meeting\nbiola-030 | The Parable of the Foolish Weightlifter | 2014-02-18 | cribado_bibliografico\nhttps://www.biola.edu/blogs/good-book-blog/2014/the-parable-of-the-foolish-weightlifter\nbiola-031 | A Response to Zealot by Reza Aslan | 2013-08-04 | cribado_bibliografico\nhttps://www.biola.edu/blogs/good-book-blog/2013/a-response-to-zealot-by-reza-aslan\nbiola-032 | No Stone Left Unturned: Solving a Minor Mystery | 2013-05-21 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2013/no-stone-left-unturned-solving-a-minor-mystery\nbiola-033 | Pictures of Jesus | 2012-10-19 | cribado_bibliografico\nhttps://www.biola.edu/blogs/good-book-blog/2012/pictures-of-jesus\nbiola-034 | \"Children of God\" (John 1:13) | 2012-10-15 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2012/children-of-god-john-1-13\nbiola-035 | \"Jesus' Wife\" Papyrus: an Update | 2012-09-28 | cribado_bibliografico\nhttps://www.biola.edu/blogs/good-book-blog/2012/jesus-wife-papyrus-an-update\nbiola-036 | Did Jesus Have a Wife? A New Gnostic Fragment | 2012-09-19 | cribado_bibliografico\nhttps://www.biola.edu/blogs/good-book-blog/2012/did-jesus-have-a-wife-a-new-gnostic-fragment\nbiola-037 | Paul is not Talking about Himself: Why I take the \"pre-Christian\" Reading of Romans 7:14-25 | 2012-04-27 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2012/paul-is-not-talking-about-himself-why-i-take-the-pre-christian-reading-of-romans-7-14-25\nbiola-038 | Revealed to Whom? (John 3:21) | 2011-07-18 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2011/revealed-to-whom-john-3-21\nbiola-039 | Generous Charis | 2011-05-02 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2011/generous-charis\nbiola-040 | Dr. Seuss and Revelation | 2011-03-31 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2011/dr-seuss-and-revelation\nbiola-041 | Soldiers in the Gospels | 2011-03-14 | cribado_bibliografico\nhttps://www.biola.edu/blogs/good-book-blog/2011/soldiers-in-the-gospels\nbiola-042 | Reading John | 2011-02-15 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2011/reading-john\nbiola-043 | Good Eye / Bad Eye | 2011-02-04 | texto_consultado\nhttps://www.biola.edu/blogs/good-book-blog/2011/good-eye-bad-eye\neutychus-000 | The Hobbit in Ancient Greek, part 17 | 2016-01-19 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2016/01/the-hobbit-in-ancient-greek-part-17.html\neutychus-001 | Did the Apostle Paul use Profanity? | 2015-10-01 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2015/10/did-apostle-paul-use-profanity.html\neutychus-002 | Does \"I Am\" always refer to God in the Gospel of John? | 2015-09-23 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2015/09/does-i-am-always-refer-to-god-in-gospel.html\neutychus-003 | The Hobbit in Ancient Greek, paragraph 16 | 2015-07-16 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2015/07/blog-post.html\neutychus-004 | I am the Very Model of a Doctor of New Testament | 2015-05-14 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2015/05/i-am-very-model-of-doctor-of-new.html\neutychus-005 | The Hobbit in Ancient Greek, paragraphs 14-15 | 2015-05-08 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2015/05/the-hobbit-in-ancient-greek-paragraphs.html\neutychus-006 | The Hobbit in Ancient Greek, paragraphs 12-13 | 2015-04-29 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2015/04/the-hobbit-in-ancient-greek-paragraphs_29.html\neutychus-007 | The Hobbit in Ancient Greek, paragraphs 10-11 | 2015-04-14 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2015/04/the-hobbit-in-ancient-greek-paragraphs_14.html\neutychus-008 | New claims regarding the \"Family of Jesus\" tomb | 2015-04-13 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2015/04/new-claims-regarding-family-of-jesus.html\neutychus-009 | The Hobbit in Ancient Greek, paragraph 9 | 2015-04-07 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2015/04/the-hobbit-in-ancient-greek-paragraph-9.html\neutychus-010 | The Hobbit in Ancient Greek, paragraphs 7-8 | 2015-04-02 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2015/04/the-hobbit-in-ancient-greek-paragraphs.html\neutychus-011 | Three Days and Three Nights | 2015-04-01 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2015/04/three-days-and-three-nights.html\neutychus-012 | Chronology of Easter in John and the Synoptic Gospels | 2015-03-30 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2015/03/chronology-of-easter-in-john-and.html\neutychus-013 | The Hobbit in Ancient Greek, paragraph 6 | 2015-03-29 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2015/03/the-hobbit-in-ancient-greek-paragraph-6.html\neutychus-014 | The Hobbit in Ancient Greek, paragraph 5 | 2015-03-25 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2015/03/blog-post.html\neutychus-015 | Hobbit in Ancient Greek, parag 4 | 2015-03-13 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2015/03/hobbit-in-ancient-greek-parag-4.html\neutychus-016 | The Hobbit in Ancient Greek, parags 2-3 | 2015-03-12 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2015/03/the-hobbit-in-ancient-greek-parags-2-3.html\neutychus-017 | The Hobbit in Αncient Greek (paragraph 1) | 2015-03-11 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2015/03/the-hobbit-in-ncient-greek.html\neutychus-018 | Did Jesus Have a Wife? A New Gnostic Fragment | 2012-09-19 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2012/09/did-jesus-have-wife-new-gnostic-fragment.html\neutychus-019 | Revealed to Whom? (John 3:21) | 2011-07-18 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2011/07/revealed-to-whom-john-321.html\neutychus-020 | Greek Scholars Rule? | 2011-04-09 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2011/04/greek-scholars-rule_09.html\neutychus-021 | Greek Scholars Rule! | 2011-04-08 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2011/04/greek-scholars-rule.html\neutychus-022 | Erasmus on Interpretation | 2011-04-08 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2011/04/erasmus-on-interpretation.html\neutychus-023 | Review of Bell's Book | 2011-03-29 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2011/03/review-of-bells-book.html\neutychus-024 | Are You Hungry? Blessings on the Hungry and Meek (Matthew 5:5-6) | 2011-03-22 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2011/03/are-you-hungry-blessings-on-hungry-and.html\neutychus-025 | The Good Shepherd | 2011-03-21 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2011/03/good-shepherd.html\neutychus-026 | Gospel of Luke Wordle | 2011-03-21 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2011/03/gospel-of-luke-wordle.html\neutychus-027 | Soldiers in the Gospels | 2011-03-14 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2011/03/soldiers-in-gospels.html\neutychus-028 | Reading John | 2011-02-15 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2011/02/reading-john.html\neutychus-029 | Talbot Blog | 2011-02-10 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2011/02/talbot-blog.html\neutychus-030 | Why It's OK to Have a Christmas Tree | 2010-12-26 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2010/12/why-its-ok-to-have-christmas-tree.html\neutychus-031 | The Real Saint Nicholas (re-post) | 2010-12-23 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2010/12/real-saint-nicholas-re-post.html\neutychus-032 | Evangelical Theological Society, Day 3 | 2010-11-20 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2010/11/evangelical-theological-society-day-3.html\neutychus-033 | Evangelical Theological Society, Day 2 | 2010-11-18 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2010/11/evangelical-theological-society-day-2.html\neutychus-034 | Evangelical Theological Society, Day 1 | 2010-11-17 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2010/11/evangelical-theological-society-day-1.html\neutychus-035 | Not this... but that. (Ephesians 4-5) | 2010-10-06 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2010/10/not-this-but-that-ephesians-4-5.html\neutychus-036 | Erasmus on Interpretation | 2010-08-31 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2010/08/erasmus-on-interpretation.html\neutychus-037 | Jesus in Context | 2010-08-16 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2010/08/jesus-in-context.html\neutychus-038 | Vacation Pictures | 2010-08-05 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2010/08/vacation-pictures.html\neutychus-039 | Jesus Was Not a Rebel | 2010-08-02 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2010/08/jesus-was-not-rebel.html\neutychus-040 | The Mark of the Beast is Islam? Walid Shoebat and 666 | 2010-07-13 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2010/07/the-mark-of-beast-is-islam-walid.html\neutychus-041 | Manning Kids | 2010-07-13 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2010/07/manning-kids.html\neutychus-042 | Speaking the Truth in Love (Ephesians 4:15) | 2010-06-24 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2010/06/speaking-truth-in-love-ephesians-415.html\neutychus-043 | \"Christ who is over all God blessed forever\" (Romans 9:5) | 2010-05-31 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2010/05/christ-who-is-over-all-god-blessed.html\neutychus-044 | Gospel of John Sinaiticus Mug | 2010-05-06 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2010/05/gospel-of-john-sinaiticus-mug.html\neutychus-045 | Gospel of John Class | 2010-05-02 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2010/05/gospel-of-john-class.html\neutychus-046 | Talbot Bound | 2010-04-29 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2010/04/talbot-bound.html\neutychus-047 | Easter according to Basic Instructions | 2010-04-04 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2010/04/easter-according-to-basic-instructions.html\neutychus-048 | NT Survey Class at BIH | 2010-03-24 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2010/03/nt-survey-class-at-bih.html\neutychus-049 | The Lord's Prayer in Elvish | 2010-03-19 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/03/lords-prayer-in-elvish.html\neutychus-050 | Handling Accurately or Teaching Straight? | 2010-03-12 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2010/03/handling-accurately-or-teaching.html\neutychus-051 | Dr. Seuss and Revelation | 2010-03-11 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2010/03/dr-seuss-and-revelation.html\neutychus-052 | Bible Genre Chart | 2010-03-10 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2010/03/genre-chart.html\neutychus-053 | Origin of the Name \"Jehovah\" | 2010-02-23 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2010/02/origin-of-name-jehovah.html\neutychus-054 | Bible Translation Quotes | 2010-02-22 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2010/02/bible-translation-quotes.html\neutychus-055 | Come on in, you wounded Greeklings | 2010-02-08 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2010/02/come-on-in-you-wounded-greeklings.html\neutychus-056 | SBL Survey | 2010-01-14 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2010/01/sbl-survey.html\neutychus-057 | Twitter Ven Diagram | 2010-01-08 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2010/01/twitter-ven-diagram.html\neutychus-058 | Book of Acts Wordle | 2010-01-06 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2010/01/book-of-acts-wordle.html\neutychus-059 | New Family Picture! | 2009-12-29 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/12/new-family-picture.html\neutychus-060 | Herod Remembered | 2009-12-22 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/12/herod-remembered.html\neutychus-061 | Shroud Discovery in Jerusalem | 2009-12-21 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/12/shroud-discovery-in-jerusalem.html\neutychus-062 | Augustine on Greek | 2009-12-17 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/12/augustine-on-greek.html\neutychus-063 | The Real St. Nicholas | 2009-12-17 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/12/real-st-nicholas.html\neutychus-064 | Christmas Myths | 2009-12-15 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/12/christmas-myths.html\neutychus-065 | Greek Wordle for the Gospel of John | 2009-12-10 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/12/greek-wordle-for-gospel-of-john.html\neutychus-066 | In the Beginning Was the Wordle... | 2009-12-09 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/12/another-wordle-for-gospel-of-john.html\neutychus-067 | I am Not Elijah, Intro | 2009-11-29 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-intro.html\neutychus-068 | I am Not Elijah, Part 1 (John 4:29, 2 Kings 6:12-13) | 2009-11-28 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-1-john-429-2-kings.html\neutychus-069 | I Am Not Elijah, Part 2 (John 2:3-4, 2 Kings 3:9-22) | 2009-11-27 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-2-john-23-4-kings.html\neutychus-070 | I Am Not Elijah, Part 3 (John 4:7, 1 Kings 17:10-14) | 2009-11-26 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-3-john-47-1-kings.html\neutychus-071 | I Am Not Elijah, Part 4 (John 4:50, 1 Kings 17:21-24) | 2009-11-26 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-4-john-450-1-kings.html\neutychus-072 | I Am Not Elijah, Part 5 (John 6:9-13, 2 Kings 4:42-44) | 2009-11-25 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-5-john-69-13-2.html\neutychus-073 | I Am Not Elijah, Part 6 (John 9:6-15, 2 Kings 5:10-15) | 2009-11-23 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-part-6-john-96-15-2.html\neutychus-074 | I Am Not Elijah, Conclusion | 2009-11-22 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/11/i-am-not-elijah-conclusion.html\neutychus-075 | Merry Christmas - November 18 | 2009-11-18 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/11/merry-christmas-november-18.html\neutychus-076 | Evangelical Theological Society | 2009-11-18 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/11/evangelical-theological-society.html\neutychus-077 | Gospel of John Wordle | 2009-11-03 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/11/gospel-of-john-wordle.html\neutychus-078 | Writing deadlines! | 2009-11-02 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/11/writing-deadlines.html\neutychus-079 | Jesus the Aleph-Tav? (Genesis 1:1, Revelation 21:6) | 2009-10-31 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/10/few-people-asked-me-about-nature-of.html\neutychus-080 | Bad Interpretation and Erasmus | 2009-10-29 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/10/bad-interpretation-and-erasmus.html\neutychus-081 | Erasmus on Greek | 2009-10-27 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/10/erasmus-on-greek_27.html\neutychus-082 | Most Popular Post: Nicodemus and the Samaritan Woman | 2009-10-26 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/10/most-popular-post.html\neutychus-083 | Baptism Pictures | 2009-10-24 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/10/baptism-pictures_24.html\neutychus-084 | Romans 7 - Christian or Pre-Christian? | 2009-10-23 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/10/today-in-my-undergraduate-class-on.html\neutychus-085 | Eutychus Allusion in Jane Eyre | 2009-10-23 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/10/eutychus-allusion.html\neutychus-086 | Baptism Pictures | 2009-10-23 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/10/baptism-pictures_22.html\neutychus-087 | Erasmus on Greek | 2009-10-22 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/10/erasmus-on-greek_21.html\neutychus-088 | Rowley on Biblical Languages | 2009-10-21 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/10/rowley-on-biblical-languages.html\neutychus-089 | Wesley on Greek | 2009-10-20 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/10/wesley-on-greek.html\neutychus-090 | Baptism Pictures | 2009-10-18 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/10/baptism-pictures_18.html\neutychus-091 | Baptism Pictures | 2009-10-18 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/10/baptism-pictures.html\neutychus-092 | Haleakala Slide Show | 2009-10-16 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/10/haleakala-slide-show.html\neutychus-093 | Picture from Haleakala | 2009-10-14 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/10/picture-from-haleakala.html\neutychus-094 | Haleakala Trip | 2009-10-08 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/10/haleakala-trip.html\neutychus-095 | Martin Luther on Greek | 2009-10-08 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/10/martin-luther-on-greek.html\neutychus-096 | Erasmus on Greek | 2009-10-07 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/10/certain-distinguished-theologians.html\neutychus-097 | Erasmus on Greek | 2009-10-03 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/10/erasmus-on-greek.html\neutychus-098 | ben Sirach on Translation | 2009-10-02 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/10/ben-sirach-on-translation.html\neutychus-099 | Scot McKnight on the \"The Evangelical Flip\" | 2009-10-02 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/10/scot-mcknight-on-the-evangelical-flip.html\neutychus-100 | Erasmus on Greek | 2009-10-01 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/10/theologians-are-dogged-everywhere-by.html\neutychus-101 | Relevant Teaching | 2009-09-29 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/09/relevant-teaching.html\neutychus-102 | Erasmus on Greek | 2009-09-29 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/09/erasmus-on-greek_29.html\neutychus-103 | Erasmus on Greek | 2009-09-28 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/09/erasmus-on-greek_28.html\neutychus-104 | How to Waste Your Theological Education | 2009-09-27 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/09/how-to-waste-your-theological-education.html\neutychus-105 | Erasmus on Greek | 2009-09-26 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/09/erasmus-on-greek_26.html\neutychus-106 | Erasmus on Greek | 2009-09-25 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/09/erasmus-on-greek_25.html\neutychus-107 | Erasmus on Greek | 2009-09-24 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/09/erasmus-on-greek_24.html\neutychus-108 | William Latimer on Greek | 2009-09-23 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/09/william-latimer-on-greek.html\neutychus-109 | Greek Quotes | 2009-09-22 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/09/greek-quotes.html\neutychus-110 | Erasmus on Greek | 2009-09-22 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/09/erasmus-commenting-on-labor-of-editing.html\neutychus-111 | Zwingli on Greek | 2009-09-21 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/09/zwingli-on-greek.html\neutychus-112 | Erasmus on Greek | 2009-09-20 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/09/erasmus-on-greek.html\neutychus-113 | Erasmus on Greek | 2009-09-20 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/09/erasmus-commenting-on-value-of-studying.html\neutychus-114 | Top Ten Things To Do While Learning Greek | 2009-09-04 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/09/top-ten-things-to-do-while-learning.html\neutychus-115 | Biblioblogger Rankings | 2009-09-01 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/09/biblioblogger-rankings.html\neutychus-116 | Barack Obama - Antichrist? | 2009-08-12 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/08/barack-obama-antichrist.html\neutychus-117 | \"I am not going up to this feast\" (John 7) | 2009-08-11 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/08/i-am-not-going-up-to-this-feast-john-7.html\neutychus-118 | Age of the Fallen | 2009-08-05 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/08/age-of-fallen.html\neutychus-119 | Jesus' Prayer for Lazarus (John 11) | 2009-07-29 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/07/jesus-prayer-for-lazarus-john-11.html\neutychus-120 | The Adulterous Woman (John 8) | 2009-06-29 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/06/adulterous-woman.html\neutychus-121 | The Difference Between Grace and Mercy | 2009-06-24 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/06/grace-and-mercy.html\neutychus-122 | Grace to Naaman (2 Kings 5) | 2009-06-22 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/06/grace-to-naaman.html\neutychus-123 | Baptized with Water and Spirit | 2009-06-11 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/06/question-whats-difference-between-water.html\neutychus-124 | The One Anothers | 2009-06-09 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/06/one-anothers.html\neutychus-125 | How many churches can you belong to? | 2009-06-09 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/06/how-many-churches-can-you-belong-to.html\neutychus-126 | Use of NT in OT | 2009-06-04 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/06/use-of-nt-in-ot.html\neutychus-127 | Baa! We're Lambs (John 10) | 2009-05-26 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/05/baa-were-lambs-john-10.html\neutychus-128 | Judas' Kiss (Matthew 26:50, John 13:27) | 2009-05-13 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/05/question-there-seems-to-be-great.html\neutychus-129 | This Generation Will Not Pass Away (Matthew 24:34) | 2009-05-07 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/05/question-in-matt-2434-jesus-says-i-tell.html\neutychus-130 | Eutychus Drama | 2009-05-07 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/05/eutychus-drama.html\neutychus-131 | Victory at Ebenezer (1 Samuel 4-7) | 2009-05-07 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/05/victory-at-ebenezer-1-samuel-4-7.html\neutychus-132 | Blind and Lame (John 5, John 9) | 2009-04-20 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/04/blind-and-lame-john-5-and-9.html\neutychus-133 | The Rolling Stone | 2009-04-13 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/04/rolling-stone.html\neutychus-134 | Roman Soldiers at the Tomb | 2009-04-13 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/04/roman-soldiers-at-tomb.html\neutychus-135 | The Good Shepherd (John 10) | 2009-03-19 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/03/good-shepherd-john-10.html\neutychus-136 | New Podcast | 2009-02-26 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/02/new-podcast.html\neutychus-137 | Jesus and Nicodemus (John 3) | 2009-02-23 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/02/jesus-and-nicodemus.html\neutychus-138 | Nicodemus vs. the Samaritan Woman (John 3, John 4) | 2009-02-18 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/02/nicodemus-vs-samaritan-woman.html\neutychus-139 | Six-Word Love Story | 2009-02-13 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/02/six-word-love-story.html\neutychus-140 | Good Questions | 2009-02-13 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/02/good-questions.html\neutychus-141 | Synergistic Lemons | 2009-02-10 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/02/synergistic-lemons.html\neutychus-142 | Sinner's Prayer | 2009-02-06 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/02/sinners-prayer.html\neutychus-143 | Water to Wine (John 2:1-11) | 2009-02-05 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/02/water-to-wine-john-21-11.html\neutychus-144 | Jesus' First Disciples in John (John 1:19-51) | 2009-02-02 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/02/jesus-first-disciples-in-john.html\neutychus-145 | New Podcast | 2009-01-31 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/01/new-podcast.html\neutychus-146 | The Prolog of John (John 1:1-18) | 2009-01-28 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/01/prolog-of-john.html\neutychus-147 | Radio Interviews | 2009-01-20 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2009/01/radio-interviews.html\neutychus-148 | Judge Not? (Matthew 7:1-6) | 2009-01-19 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/01/judge-not.html\neutychus-149 | Questioning John | 2009-01-13 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2009/01/questioning-john.html\neutychus-150 | Generous Charis | 2008-12-30 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/12/generous-charis.html\neutychus-151 | All Things Are Better in Koine | 2008-12-28 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2008/12/blog-post.html\neutychus-152 | Salvation in Luke's Christmas (Luke 1, Luke 2) | 2008-12-12 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/12/nativity-salvation-in-luke.html\neutychus-153 | Christmas in November? | 2008-12-06 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2008/12/christmas-in-november.html\neutychus-154 | Agape / Phileo (again) | 2008-12-05 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/12/agape-phileo-again.html\neutychus-155 | OT quotes in Romans | 2008-11-19 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/11/ot-quotes-in-romans.html\neutychus-156 | Darrell Bock on Acts | 2008-11-19 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2008/11/darrell-bock-on-acts.html\neutychus-157 | Gary in Theological Nerdvana | 2008-11-19 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2008/11/gary-in-theological-nerdvana.html\neutychus-158 | More on Good Eye / Bad Eye (Matthew 6:22-23) | 2008-11-03 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/11/more-on-good-eye-bad-eye.html\neutychus-159 | Good Eye / Bad Eye (Matthew 6:22-23) | 2008-10-30 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/10/good-eye-bad-eye.html\neutychus-160 | Trinity for Toddlers | 2008-10-20 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2008/10/trinity-for-toddlers.html\neutychus-161 | Restoring a Fisherman (John 21:15-17) | 2008-10-02 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/10/restoring-fisherman.html\neutychus-162 | Happy Birthday, Bagginses! | 2008-09-22 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2008/09/hapy-birthday-bagginses.html\neutychus-163 | Do You Love Me (Now that I can Dance) (John 21:15-17) | 2008-09-15 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/09/do-you-love-me-now-that-i-can-dance.html\neutychus-164 | Make Me a Higher Love? (agape/phileo) | 2008-09-08 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/09/make-me-higher-love.html\neutychus-165 | Random Smatterings - Nimrod | 2008-07-11 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/07/random-smatterings-nimrod.html\neutychus-166 | American Revolutionary War - more | 2008-07-10 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2008/07/american-revolutionary-war-more.html\neutychus-167 | Just Actions in War | 2008-07-08 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2008/07/just-actions-in-war.html\neutychus-168 | Just War - the American Revolution | 2008-07-07 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2008/07/just-war-revolution.html\neutychus-169 | Caleb the Vegetarian | 2008-07-06 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2008/07/caleb-vegetarian.html\neutychus-170 | Just Reasons for War | 2008-07-01 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2008/07/jus-ad-bello.html\neutychus-171 | Eutychus Legos | 2008-06-28 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2008/06/eutychus-legos.html\neutychus-172 | More Preaching | 2008-06-26 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2008/06/more-preaching.html\neutychus-173 | That Melchizedek Guy (Psalm 110, Hebrews 5-7) | 2008-06-23 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/06/question-what-is-culturalhistorical.html\neutychus-174 | Torah, Torah, Rah Rah Rah! (Psalm 119) | 2008-06-17 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/06/torah-torah-rah-rah-rah.html\neutychus-175 | Harrowing of Hell? | 2008-06-13 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/06/question-i-recently-heard-tony-campolo.html\neutychus-176 | Mark's Secrecy (Mark 7:36) | 2008-06-12 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/06/marks-secrecy.html\neutychus-177 | Overthrowing Dictators | 2008-06-03 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2008/06/overthrowing-dictators.html\neutychus-178 | Podcasts! | 2008-05-17 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2008/05/podcasts.html\neutychus-179 | Preaching on the Exodus | 2008-05-15 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/05/preaching-on-exodus.html\neutychus-180 | Blind Devotion? (Luke 14:26) | 2008-04-25 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/04/blind-devotion.html\neutychus-181 | Josiah Sermon - correction | 2008-04-11 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/04/josiah-sermon-correction.html\neutychus-182 | Big Blogger is Watching You | 2008-04-10 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2008/04/big-blogger-is-watching-you.html\neutychus-183 | Kingdom for the Birds II | 2008-04-08 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/04/kingdom-for-birds-ii.html\neutychus-184 | Josiah Sermon | 2008-04-05 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/04/josiah-sermon.html\neutychus-185 | Blind Devotion and Faith (Luke 14:26) | 2008-04-05 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/04/anonymous-posted-this-provocative.html\neutychus-186 | The Kingdom for the Birds? (Matthew 13:31-32) | 2008-04-04 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/04/kingdom-for-birds.html\neutychus-187 | Questions? | 2008-04-03 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2008/04/questions.html\neutychus-188 | Romans 1 Radio Show | 2008-04-01 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2008/04/romans-1-radio-show.html\neutychus-189 | Believe... life (John 4:46-54) | 2008-04-01 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/04/believe-life.html\neutychus-190 | \"Your Son Lives\" (John 4:46-54) | 2008-03-31 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/03/your-son-lives.html\neutychus-191 | Three Days and Three Nights | 2008-03-28 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/03/three-days.html\neutychus-192 | Andrew and the Jelly Bean Crisis | 2008-03-26 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2008/03/andrew-and-jelly-bean.html\neutychus-193 | Why Three Days? | 2008-03-25 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/03/why-three-days.html\neutychus-194 | Romans 1 Radio Show | 2008-03-24 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2008/03/romans-1-radio-show.html\neutychus-195 | Jesus' Post-Resurrection Teachings and Gnosticism | 2008-03-22 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/03/jesus-post-resurrection-teachings-and.html\neutychus-196 | What Did Jesus Teach After the Resurrection? (Part II) | 2008-03-22 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/03/what-did-jesus-teach-after-resurrection_22.html\neutychus-197 | What did Jesus Teach After the Resurrection? | 2008-03-20 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/03/what-did-jesus-teach-after-resurrection.html\neutychus-198 | Jesus' Birthday | 2008-03-19 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/03/jesus-birthday.html\neutychus-199 | Enough of Eutychus Already | 2008-03-15 | cribado_bibliografico\nhttps://eutychusnerd.blogspot.com/2008/03/one-of-my-friends-asked-if-my-blog.html\neutychus-200 | A Toast to Lemuel's Mother | 2008-03-13 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/03/toast-to-lemuels-mother.html\neutychus-201 | Eutychus, Part III | 2008-03-10 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/03/eutychus-part-iii.html\neutychus-202 | Eutychus, part II | 2008-03-04 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/03/eutychus-part-ii.html\neutychus-203 | Eutychus | 2008-03-03 | texto_o_extractos_consultados\nhttps://eutychusnerd.blogspot.com/2008/03/eutychus.html\nnts-john49 | Sharing Cups, Associating, or Getting Help? | 2025-04-14 | resumen_editorial_y_sintesis_del_autor\nhttps://www.cambridge.org/core/journals/new-testament-studies/article/abs/sharing-cups-associating-or-getting-help-the-meaning-of-in-john-49/0F8C321A81D2257D93CC40360D63CE68\nbgu1208 | BGU 1208: Translation and Explanation | sin fecha verificada | secciones_metodologicas_y_lexicas_consultadas\nhttps://biblethinker.org/wp-content/uploads/2023/11/FINAL-BGU-1208-Translation-and-Notes.pdf\nnet-john78 | Nota textual de Juan 7:8 | sin fecha verificada | consultado\nhttps://www.stepbible.org/?q=version%3DNET2full%7Creference%3DJohn.7.8\nnet-matt622 | Nota de traducción de Mateo 6:22 | sin fecha verificada | consultado\nhttps://www.stepbible.org/?q=version%3DNET2full%7Creference%3DMatt.6.22\nnet-john49 | Nota de traducción de Juan 4:9 | sin fecha verificada | consultado\nhttps://www.stepbible.org/?q=version%3DNET2full%7Creference%3DJohn.4.9\nbibliography-5 | Hearers of John, Followers of Jesus | 2013 | solo_ficha_bibliografica\nhttps://www.biola.edu/directory/people/gary-manning\nbibliography-6 | The Temple Police: Double Agents | 2013 | solo_ficha_bibliografica\nhttps://www.biola.edu/directory/people/gary-manning\nbibliography-7 | Use of the Old Testament in the New Testament | 2011 | solo_ficha_bibliografica\nhttps://www.biola.edu/directory/people/gary-manning\nbibliography-8 | Vine, Shepherd and Bones | 2010 | solo_ficha_bibliografica\nhttps://www.biola.edu/directory/people/gary-manning"
+    },
+    {
+      "book": "Acts",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Hechos\n\nPasajes documentados: 20:10 (annotate)\n\nFuentes del libro:\nhttps://eutychusnerd.blogspot.com/2008/03/eutychus-part-ii.html\nhttps://eutychusnerd.blogspot.com/2008/03/eutychus-part-iii.html\nhttps://eutychusnerd.blogspot.com/2008/03/eutychus.html"
+    },
+    {
+      "book": "Rom",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Romanos\n\nPasajes documentados: 7:14 (annotate), 9:5 (annotate), 4:4 (annotate)\n\nFuentes del libro:\nhttps://eutychusnerd.blogspot.com/2009/10/today-in-my-undergraduate-class-on.html\nhttps://eutychusnerd.blogspot.com/2010/05/christ-who-is-over-all-god-blessed.html\nhttps://www.biola.edu/blogs/good-book-blog/2011/generous-charis\nhttps://www.biola.edu/blogs/good-book-blog/2012/paul-is-not-talking-about-himself-why-i-take-the-pre-christian-reading-of-romans-7-14-25"
+    },
+    {
+      "book": "1Cor",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: 1 Corintios\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "2Cor",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: 2 Corintios\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Gal",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Gálatas\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Eph",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Efesios\n\nPasajes documentados: 4:15 (revise), 2:8 (annotate), 5:17 (annotate)\n\nFuentes del libro:\nhttps://eutychusnerd.blogspot.com/2009/06/grace-and-mercy.html\nhttps://eutychusnerd.blogspot.com/2010/06/speaking-truth-in-love-ephesians-415.html\nhttps://eutychusnerd.blogspot.com/2010/10/not-this-but-that-ephesians-4-5.html\nhttps://www.biola.edu/blogs/good-book-blog/2011/generous-charis"
+    },
+    {
+      "book": "Phil",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Filipenses\n\nPasajes documentados: 3:8 (revise)\n\nFuentes del libro:\nhttps://www.biola.edu/blogs/good-book-blog/2015/did-the-apostle-paul-use-profanity\nhttps://www.biola.edu/blogs/good-book-blog/2022/more-skubala-did-the-apostle-paul-use-swear-words"
+    },
+    {
+      "book": "Col",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Colosenses\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "1Thess",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: 1 Tesalonicenses\n\nPasajes documentados: 4:17 (annotate)\n\nFuentes del libro:\nhttps://www.biola.edu/blogs/good-book-blog/2014/snatched-up-for-a-meeting"
+    },
+    {
+      "book": "2Thess",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: 2 Tesalonicenses\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "1Tim",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: 1 Timoteo\n\nPasajes documentados: 2:12 (annotate)\n\nFuentes del libro:\nhttps://biblethinker.org/wp-content/uploads/2023/11/FINAL-BGU-1208-Translation-and-Notes.pdf"
+    },
+    {
+      "book": "2Tim",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: 2 Timoteo\n\nPasajes documentados: 2:15 (revise)\n\nFuentes del libro:\nhttps://eutychusnerd.blogspot.com/2010/03/handling-accurately-or-teaching.html"
+    },
+    {
+      "book": "Titus",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Tito\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Phlm",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Filemón\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Heb",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Hebreos\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Jas",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Santiago\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "1Pet",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: 1 Pedro\n\nPasajes documentados: 3:19 (annotate)\n\nFuentes del libro:\nhttps://eutychusnerd.blogspot.com/2008/06/question-i-recently-heard-tony-campolo.html"
+    },
+    {
+      "book": "2Pet",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: 2 Pedro\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "1John",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: 1 Juan\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "2John",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: 2 Juan\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "3John",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: 3 Juan\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Jude",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Judas\n\nCobertura: texto base aún sin revisión específica de traducción en este proyecto."
+    },
+    {
+      "book": "Rev",
+      "comment": "Biblia Manning · versión 0.1 de estudio en revisión. Proyecto de Omar Gonzáles Díaz con redacción española provisional asistida por herramientas automáticas. Gary Manning Jr. es una fuente consultada: no es autor, traductor, revisor ni avalista de esta edición. Base completa: Reina-Valera 1909 (SpaRV, Public Domain). Solo los pasajes con registro editorial están estudiados en esta versión; los demás conservan la base. Toda propuesta y revisión permanece pendiente de revisión humana. Los artículos se consultan y enlazan, no se reproducen completos. No se afirma una traducción completa nueva ni superioridad demostrada.\n\nLibro: Apocalipsis\n\nPasajes documentados: 13:18 (annotate)\n\nFuentes del libro:\nhttps://eutychusnerd.blogspot.com/2010/07/the-mark-of-beast-is-islam-walid.html"
+    }
+  ],
+  "glossary": [
+    {
+      "source_term": "συγχράομαι",
+      "target_term": "pedir ayuda (Juan 4:9, propuesta)",
+      "note": "Equivalencia contextual discutida. Véanse alternativas y evidencia del pasaje."
+    },
+    {
+      "source_term": "τελέω / τετέλεσται",
+      "target_term": "cumplir / está cumplido",
+      "note": "Juan 19:28–30. No equiparar la forma con abreviaturas de recibos fiscales."
+    },
+    {
+      "source_term": "σκύβαλα",
+      "target_term": "basura / desechos",
+      "note": "Filipenses 3:8. El registro antiguo no exige vulgaridad; otras acepciones dependen del contexto."
+    },
+    {
+      "source_term": "ἀγαπάω / φιλέω",
+      "target_term": "amar",
+      "note": "Juan 21:15–17: la alternancia no demuestra dos grados fijos de amor."
+    },
+    {
+      "source_term": "χάρις",
+      "target_term": "gracia / favor / generosidad",
+      "note": "Seleccionar según pasaje; sin sustitución global automática."
+    },
+    {
+      "source_term": "ἄνωθεν",
+      "target_term": "de lo alto / de nuevo",
+      "note": "Juan 3:3 mantiene un juego de sentidos; la propuesta debe acompañarse de nota."
+    },
+    {
+      "source_term": "ὀρθοτομέω",
+      "target_term": "exponer rectamente",
+      "note": "2 Timoteo 2:15: posibilidad de no desviarse hacia enseñanza inútil; no es una instrucción técnica de fragmentar el texto."
+    },
+    {
+      "source_term": "ὀφθαλμὸς ἁπλοῦς / πονηρός",
+      "target_term": "ojo generoso / mezquino (propuesta)",
+      "note": "Mateo 6:22–23: lectura contextual; sano/íntegro y malo siguen como alternativas."
+    },
+    {
+      "source_term": "κατάλυμα",
+      "target_term": "cuarto de huéspedes / alojamiento",
+      "note": "Lucas 2:7: no confundir automáticamente con una posada comercial."
+    }
+  ]
+}

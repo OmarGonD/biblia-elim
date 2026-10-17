@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * gui.c - The heart of the gui.
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -50,7 +50,8 @@ void gui_init(int argc, char *argv[])
 	gui_init_done = TRUE;
 
 	g_set_prgname("biblia-elim");
-	g_set_application_name("Biblia Elim");
+	g_set_application_name("Ministerios Elim");
+#ifdef __linux__
 	/* Prefer native Wayland on Hyprland/Omarchy; fall back to X11. */
 	if (!g_getenv("GDK_BACKEND"))
 		gdk_set_allowed_backends("wayland,x11");
@@ -61,6 +62,7 @@ void gui_init(int argc, char *argv[])
 	 * and warns about the old name at every start. */
 	g_setenv("GSK_RENDERER", gtk_get_minor_version() >= 22 ? "gl" : "ngl",
 		 FALSE);
+#endif
 
 	/* Gettext was initialized before startup content by app_language_initialize. */
 #ifdef WIN32
@@ -91,7 +93,7 @@ void gui_init(int argc, char *argv[])
 	{
 		GtkCssProvider *css_provider = gtk_css_provider_new();
 		gtk_css_provider_load_from_resource(css_provider,
-						    "/org/xiphos/ui/xiphos-style.css");
+						    "/org/bibliaelim/ui/biblia-elim-style.css");
 		gtk_style_context_add_provider_for_display(gdk_display_get_default(),
 		    GTK_STYLE_PROVIDER(css_provider),
 		    GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
@@ -153,8 +155,8 @@ gchar *XI_g_strdup_printf(const char *filename,
 		next = va_arg(args, gchar *);
 		if ((next == (gchar *)NULL) && (*(s + 1) == 's')) {
 			gchar *msg = g_strdup_printf("%s\n%s\n\n%s:%d \"%s\"",
-						     _("BUG! Biblia Elim is about to crash due to a \"STRDUP\" error."),
-						     _("Please report this error to the Biblia Elim team with:"),
+						     _("BUG! Ministerios Elim is about to crash due to a \"STRDUP\" error."),
+						     _("Please report this error to the Ministerios Elim team with:"),
 						     filename, linenumber, format);
 			gui_generic_warning_modal(msg);
 			g_free(msg);
@@ -191,8 +193,8 @@ XI_g_string_printf(const char *filename,
 		next = va_arg(args, gchar *);
 		if ((next == (gchar *)NULL) && (*(s + 1) == 's')) {
 			gchar *msg = g_strdup_printf("%s\n%s\n\n%s:%d \"%s\"",
-						     _("BUG! Biblia Elim is about to crash due to a \"STRING\" error."),
-						     _("Please report this error to the Biblia Elim team with:"),
+						     _("BUG! Ministerios Elim is about to crash due to a \"STRING\" error."),
+						     _("Please report this error to the Ministerios Elim team with:"),
 						     filename, linenumber, format);
 			gui_generic_warning_modal(msg);
 			g_free(msg);

@@ -1,5 +1,5 @@
 /*
- * Biblia Elim — modos de apariencia (claro, oscuro, claroluna, pergamino, omarchy).
+ * Ministerios Elim — modos de apariencia (claro, oscuro, claroluna, pergamino, omarchy).
  */
 
 #ifdef HAVE_CONFIG_H
@@ -288,13 +288,26 @@ static void
 alinear_tema_gtk(gboolean dark)
 {
 	GtkSettings *gs = gtk_settings_get_default();
-	gchar *actual = NULL;
-	gboolean es_oscuro;
 
 	if (!gs)
 		return;
 	/* Each change to these settings reloads the whole GTK theme (its CSS
 	 * and every widget's style): change only what differs. */
+#if GTK_CHECK_VERSION(4, 20, 0)
+	{
+		GtkInterfaceColorScheme current;
+		GtkInterfaceColorScheme wanted = dark
+			? GTK_INTERFACE_COLOR_SCHEME_DARK : GTK_INTERFACE_COLOR_SCHEME_LIGHT;
+		g_object_get(gs, "gtk-interface-color-scheme", &current, NULL);
+		if (current != wanted)
+			g_object_set(gs, "gtk-interface-color-scheme", wanted, NULL);
+	}
+	/* The scheme also selects the light/dark theme variant, including
+	 * legacy names such as Adwaita-dark. Renaming it reloads the same
+	 * variant a second time during startup. */
+#else
+	gchar *actual = NULL;
+	gboolean es_oscuro;
 	{
 		gboolean preferido = FALSE;
 
@@ -319,6 +332,7 @@ alinear_tema_gtk(gboolean dark)
 		g_free(quiero);
 	}
 	g_free(actual);
+#endif
 }
 
 /* Una sola paleta para todos los modos.

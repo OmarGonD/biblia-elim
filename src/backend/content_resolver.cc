@@ -2,6 +2,7 @@
 
 #include <map>
 #include <string>
+#include <utility>
 #include <vector>
 
 #include <versificationmgr.h>
@@ -458,21 +459,32 @@ resolveChapterContent(BibleBackend &backend, const std::string &module_id,
 		!any_usable &&
 		shouldAttemptFallback(backend, module_id, policy) &&
 		moduleContainsBook(backend, module_id, chapter_ref);
+	std::vector<BibleVerseContent> originals = backend.getChapterContent(
+		module_id, chapter_ref, verse_count, include_plain_text);
 
 	resolved.reserve((std::size_t)verse_count);
 	for (int verse = 1; verse <= verse_count; verse++) {
 		BibleReference reference = chapter_ref;
 		reference.verse = verse;
-		if (!try_bulk) {
-			resolved.push_back(resolveVerseContent(
-				backend, module_id, reference,
-				include_plain_text, policy));
-			continue;
-		}
-		BibleVerseContent original = backend.getVerseContent(
-			module_id, reference, include_plain_text);
+		BibleVerseContent original;
+		if ((std::size_t)verse <= originals.size())
+			original = std::move(originals[(std::size_t)verse - 1]);
 		splitIntroductoryMaterial(original);
 		stampOriginal(original, module_id);
+		if (!try_bulk) {
+			const ContentAvailability availability =
+				classifyVerseContent(original, reference);
+			if (availability != ContentAvailability::Missing ||
+			    !shouldAttemptFallback(backend, module_id, policy) ||
+			    !moduleContainsBook(backend, module_id, reference)) {
+				resolved.push_back(std::move(original));
+				continue;
+			}
+			resolved.push_back(fetchFallback(
+				backend, module_id, policy.fallbackModuleId, reference,
+				include_plain_text, original));
+			continue;
+		}
 		if (classifyVerseContent(original, reference) !=
 		    ContentAvailability::Missing) {
 			resolved.push_back(original);

@@ -22,6 +22,8 @@ pkg_check_modules(XML2 REQUIRED IMPORTED_TARGET libxml-2.0)
 add_library (backend STATIC
   bible_backend.h
   bible_types.h
+  editable_edition.cc
+  editable_edition.h
   bible_resources.h
   strong_id.cc
   strong_id.h
@@ -56,6 +58,7 @@ add_library (backend STATIC
   sqlite/sqlite_module_writer.h
   sword_main.cc
   sword/sword_backend.cc
+  sword/bundled_devotional.cc
   sword/sword_locale.cc
   sword/sword_backend.h
   )
@@ -84,6 +87,13 @@ target_include_directories (biblia-osis-import PRIVATE PkgConfig::Core PkgConfig
 target_link_libraries (biblia-osis-import PRIVATE PkgConfig::Core PkgConfig::Sqlite3 PkgConfig::XML2)
 # Add alias
 add_library(Xiphos::Backend ALIAS backend)
+
+# Reproducible curated editions use the existing editable project API.
+add_executable(biblia-curated-edition EXCLUDE_FROM_ALL curated_edition_main.cc)
+target_include_directories(biblia-curated-edition PRIVATE ${PROJECT_SOURCE_DIR}/src
+  PkgConfig::Core PkgConfig::Gnome PkgConfig::Sqlite3)
+target_link_libraries(biblia-curated-edition PRIVATE backend PkgConfig::Core
+  PkgConfig::Gnome PkgConfig::Sqlite3)
 
 
 # specify include directories to use when compiling
@@ -130,3 +140,14 @@ if (SWORD_INSTALL_PREFIX)
   target_compile_definitions (backend PRIVATE
     SWORD_INSTALL_PREFIX="${SWORD_INSTALL_PREFIX}")
 endif ()
+
+# Development builds use the same read-only asset as installed packages.
+target_compile_definitions(backend PRIVATE
+  BIBLIA_ELIM_BUILD_DEVOTIONAL="${PROJECT_SOURCE_DIR}/modulos/devotional")
+
+# These complete SWORD assets are required package data, including offline use.
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/modulos/devotional/
+  DESTINATION ${CMAKE_INSTALL_DATADIR}/biblia-elim/devotional COMPONENT Devotional)
+add_executable(biblia-devotional-writer EXCLUDE_FROM_ALL
+  ${PROJECT_SOURCE_DIR}/scripts/devotional/write_module.cc)
+target_link_libraries(biblia-devotional-writer PRIVATE PkgConfig::Sword)

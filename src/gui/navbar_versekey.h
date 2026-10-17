@@ -46,6 +46,8 @@ void gui_navbar_version_combo_sync(void);
  * levantado: antes de eso no se le puede preguntar el idioma a un
  * módulo. */
 void gui_navbar_version_combo_refill(void);
+/* Selector local de versión para la franja de controles de la Biblia. */
+GtkWidget *gui_navbar_version_combo_new_study_picker(void);
 
 #ifdef __cplusplus
 }

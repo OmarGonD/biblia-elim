@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * about_trans.c - About Translation
  *
  * Copyright (C) 2008-2026 Xiphos Developer Team
@@ -79,12 +79,12 @@ GtkWidget *gui_create_about_trans(void)
 	GtkWidget *hbuttonbox;
 	GtkWidget *button;
 	gchar *about =
-	    _("Do you like using Xiphos to study the Bible? "
+	    _("Do you like using Ministerios Elim to study the Bible? "
 	      "Would you like to see its user interface in your native language? "
-	      "You could translate Xiphos! "
+	      "You could translate Ministerios Elim! "
 	      "\n\n"
 	      "We are always looking for contributions of new "
-	      "translations of Xiphos into other languages. "
+	      "translations of Ministerios Elim into other languages. "
 	      "If you are able to translate for us, please see the link "
 	      "below, contact us, and get involved with our efforts. Your help will "
 	      "be much appreciated!");
@@ -93,7 +93,7 @@ GtkWidget *gui_create_about_trans(void)
 	g_object_set_data(G_OBJECT(dialog_about_trans),
 			  "dialog_about_trans", dialog_about_trans);
 	gtk_window_set_title(GTK_WINDOW(dialog_about_trans),
-			     _("About Xiphos Translation"));
+			     _("About Ministerios Elim Translation"));
 	set_window_icon(GTK_WINDOW(dialog_about_trans));
 	gtk_window_set_resizable(GTK_WINDOW(dialog_about_trans), FALSE);
 
@@ -130,13 +130,13 @@ GtkWidget *gui_create_about_trans(void)
 	gtk_text_buffer_set_text(gtk_text_view_get_buffer(GTK_TEXT_VIEW(textview)), about, -1);
 	gtk_widget_set_sensitive(textview, FALSE);
 
-	label = gtk_label_new(_("See TRANSLATION-HOWTO in Xiphos source"));
+	label = gtk_label_new(_("See TRANSLATION-HOWTO in Ministerios Elim source"));
 	gtk_widget_show(label);
 	gtk_box_append(GTK_BOX(vbox), label);
 	gtk_widget_set_size_request(label, -2, 24);
 
 	href =
-	    gtk_link_button_new_with_label("http://xiphos.org/development/", _("Xiphos development"));
+	    gtk_link_button_new_with_label("https://github.com/OmarGonD/biblia-elim", _("Ministerios Elim development"));
 	gtk_widget_show(href);
 	gtk_box_append(GTK_BOX(vbox), href);
 

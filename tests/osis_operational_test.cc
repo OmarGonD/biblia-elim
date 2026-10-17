@@ -174,8 +174,8 @@ int main(int argc, char **argv)
 		"<w lemma=\"lemma:λόγος strong:G25\" morph=\"robinson:N-NSM oshm:He,Ncmsa\" foo=\"x\">Palabra</w>"
 		"<note type=\"footnote\" n=\"+\" foo=\"x\">Nota.</note> continúa "
 		"<note type=\"crossReference\" foo=\"x\"><reference foo=\"x\" "
-		"osisRef=\"John.3.16 John.3.16-John.3.18 Bogus.1.1 Rom.8.28 Gen.1.1-Gen.1.3\">"
-		"John 3:16; John 3:16-18; inválida; Romans 8:28; Genesis 1:1-3</reference>"
+		"osisRef=\"John.3.16 John.3.16-John.3.18 Bogus.1.1 Rom.8.28 Gen.1.1-Gen.1.3 Exod.2.1-\">"
+		"John 3:16; John 3:16-18; inválida; Romans 8:28; Genesis 1:1-3; Éxodo 2:1-</reference>"
 		"</note> termina.</verse></p></chapter></unknownSection></osisText></osis>");
 	UsfmImportStats auditStats;
 	if (!import(auditInput, directory + "/audit.sqlite", "audit", auditStats))
@@ -281,12 +281,14 @@ int main(int argc, char **argv)
 	    auditStats.crossReferencesImported != 1 ||
 	    auditStats.crossrefTargetsResolved != 2 ||
 	    auditStats.crossrefTargetsUnresolved != 1 ||
+	    auditStats.crossrefRangesResolved != 2 ||
+	    auditStats.crossrefRangesUnresolved != 1 ||
 	    auditStats.rangeReferences !=
 		std::map<std::string, std::size_t>{
 			{ "Gen.1.1-Gen.1.3", 1 },
-			{ "John.3.16-John.3.18", 1 } } ||
+			{ "John.3.16-John.3.18", 1 }, { "Exod.2.1-", 1 } } ||
 	    auditStats.unresolvedReferences !=
-		std::map<std::string, std::size_t>{ { "Bogus.1.1", 1 } })
+		std::map<std::string, std::size_t>{ { "Bogus.1.1", 1 }, { "Exod.2.1-", 1 } })
 		++failures;
 	if (!backend.resolveKey("audit", "John 1:1", key)) {
 		++failures;
@@ -300,14 +302,24 @@ int main(int argc, char **argv)
 		    content.plainText.substr(0, content.crossReferences[0].offset) !=
 			"Texto preservado aquí Palabra continúa" ||
 		    content.crossReferences[0].displayText !=
-			"John 3:16; John 3:16-18; inválida; Romans 8:28; Genesis 1:1-3" ||
+			"John 3:16; John 3:16-18; inválida; Romans 8:28; Genesis 1:1-3; Éxodo 2:1-" ||
 		    content.crossReferences[0].references.size() != 2 ||
+		    content.crossReferences[0].ranges.size() != 2 ||
 		    content.crossReferences[0].references[0].book != 43 ||
 		    content.crossReferences[0].references[0].chapter != 3 ||
 		    content.crossReferences[0].references[0].verse != 16 ||
 		    content.crossReferences[0].references[1].book != 45 ||
 		    content.crossReferences[0].references[1].chapter != 8 ||
 		    content.crossReferences[0].references[1].verse != 28 ||
+		    content.crossReferences[0].ranges[0].start.book != 43 ||
+		    content.crossReferences[0].ranges[0].start.chapter != 3 ||
+		    content.crossReferences[0].ranges[0].start.verse != 16 ||
+		    content.crossReferences[0].ranges[0].end.verse != 18 ||
+		    !content.crossReferences[0].ranges[0].expandedReferences.empty() ||
+		    content.crossReferences[0].ranges[1].start.book != 1 ||
+		    content.crossReferences[0].ranges[1].start.verse != 1 ||
+		    content.crossReferences[0].ranges[1].end.verse != 3 ||
+		    !content.crossReferences[0].ranges[1].expandedReferences.empty() ||
 		    !backend.moduleCapabilities("audit").morphology)
 			++failures;
 	}
@@ -339,7 +351,9 @@ int main(int argc, char **argv)
 		<< "morph_attributes=" << total(auditStats.morphAttributes) << '\n'
 		<< "non_strong_lemmas=" << total(auditStats.nonStrongLemmaAttributes) << '\n'
 		<< "ranges_detected=" << total(auditStats.rangeReferences) << '\n'
-		<< "unresolved_targets=" << total(auditStats.unresolvedReferences) << '\n'
+		<< "ranges_resolved=" << auditStats.crossrefRangesResolved << '\n'
+		<< "ranges_unresolved=" << auditStats.crossrefRangesUnresolved << '\n'
+		<< "unresolved_reference_tokens=" << total(auditStats.unresolvedReferences) << '\n'
 		<< "near_eof_import_failed=" << (!malformedAccepted ? "true" : "false") << '\n'
 		<< "near_eof_rollback_clean=" << (rollbackClean ? "true" : "false") << '\n'
 		<< "malformed_milestone_cases="

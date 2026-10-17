@@ -61,9 +61,9 @@
   SetShellVarContext current
 
 
-  !define APP_BINARY_NAME "xiphos.exe"
+  !define APP_BINARY_NAME "biblia-elim.exe"
 
-  ; Xiphos as default handler of url  sword://
+  ; Ministerios Elim as the default handler for sword:// URLs
   ;WriteRegStr HKCR "sword" "" "URL:sword Protocol"
   ;WriteRegStr HKCR "sword" "URL Protocol" ""
   ;WriteRegStr HKCR "sword\DefaultIcon" "" \

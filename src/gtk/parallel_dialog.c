@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * parallel_dialog.c - dialog for detached parallel
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team

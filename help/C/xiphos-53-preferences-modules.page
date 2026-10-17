@@ -11,7 +11,7 @@
     <revision pkgversion="4.5.0" date="2026-08-10" status="draft"/>
 
     <title type='link' role="trail"></title>
-    <title type='text'>Xiphos</title>
+    <title type='text'>Biblia Elim</title>
 
     <credit type="author" its:translate="no">
       <name>Andy Piper</name>
@@ -51,7 +51,7 @@
   <section id="xiphos-modules-special">
     <title>Special</title>
 
-    <p>The <gui>Special</gui> tab gathers the default modules <app>Xiphos</app>
+    <p>The <gui>Special</gui> tab gathers the default modules <app>Biblia Elim</app>
     falls back on for particular kinds of lookups, so you do not have to
     choose a source module every time:</p>
 
@@ -91,7 +91,7 @@
       </item>
 	 <item>
 	<p><gui>Default Dictionary</gui> - the dictionary module used when you
-	double-click a word anywhere in <app>Xiphos</app>, if the <gui>Default
+	double-click a word anywhere in <app>Biblia Elim</app>, if the <gui>Default
 	Dictionary</gui> option is enabled in
 	<link xref="xiphos-50-preferences-general-settings"/>.</p>
       </item>

@@ -166,7 +166,7 @@ void editor_link_dialog(EDITOR *e)
 
 	builder = elim_gtk_builder_new();
 	gtk_builder_add_from_resource(builder,
-				      "/org/xiphos/ui/editor_link_dialog.gtkbuilder",
+				      "/org/bibliaelim/ui/editor_link_dialog.gtkbuilder",
 				      NULL);
 
 	window = GTK_WIDGET(gtk_builder_get_object(builder, "dialog1"));

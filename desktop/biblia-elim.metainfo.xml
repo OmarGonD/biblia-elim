@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Ministerios Elim AppStream metadata -->
+<component type="desktop">
+ <id>org.bibliaelim.app</id>
+ <metadata_license>CC0-1.0</metadata_license>
+ <project_license>GPL-2.0+</project_license>
+ <name>Ministerios Elim</name>
+ <summary>Bible Study Guide</summary>
+ <launchable type="desktop-id">biblia-elim.desktop</launchable>
+ <developer id="org.bibliaelim">
+    <name>Ministerios Elim</name>
+ </developer>
+ <description>
+  <p>
+    Ministerios Elim is a program for high-grade Bible study using the modules and
+    underlying engine support of The Sword Project. Sword modules provide the
+    widest language coverage of any Bible software anywhere: 400+ Bibles in 150+
+    languages, with major support for original languages (a dozen each in Hebrew
+    and Greek) plus major support in e.g. English, Russian, German, Portuguese,
+    and French.
+  </p>
+  <ul>
+    <li>Tabbed Bible, commentary and dictionary reading</li>
+    <li>Hierarchical bookmarks, personal verse annotations, journals and
+    prayer lists</li>
+    <li>Search, footnotes, cross-references and text-to-speech</li>
+    <li>Strong's identifiers, morphology and interlinear display</li>
+    <li>BibleSync shared navigation</li>
+  </ul>
+ </description>
+ <content_rating type="oars-1.1">
+   <content_attribute id="social-location">none</content_attribute>
+   <content_attribute id="social-contacts">none</content_attribute>
+ </content_rating>
+  <url type="homepage">https://github.com/OmarGonD/biblia-elim</url>
+  <url type="bugtracker">https://github.com/OmarGonD/biblia-elim/issues</url>
+ <translation type="gettext">biblia-elim</translation>
+</component>

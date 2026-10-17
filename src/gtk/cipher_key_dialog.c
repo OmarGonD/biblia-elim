@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * cipher_key_dialog.c  - asks for key to unlock sword module
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team

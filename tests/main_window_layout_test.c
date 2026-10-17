@@ -172,6 +172,37 @@ expect_hpaned_position(void)
 }
 
 static void
+expect_study_editor_layout(void)
+{
+	EXPECT_FIELD("requested in standard view", main_study_editor_visible(
+			TRUE, TRUE, FALSE), TRUE);
+	EXPECT_FIELD("not requested", main_study_editor_visible(
+			FALSE, TRUE, FALSE), FALSE);
+	EXPECT_FIELD("hidden for parallel view", main_study_editor_visible(
+			TRUE, FALSE, FALSE), FALSE);
+	EXPECT_FIELD("hidden in reading mode", main_study_editor_visible(
+			TRUE, TRUE, TRUE), FALSE);
+	EXPECT_FIELD("swap preserves bible width",
+		     main_study_editor_swapped_position(620, 1200), 580);
+	EXPECT_FIELD("unallocated swap waits for width",
+		     main_study_editor_swapped_position(620, 1), 620);
+	EXPECT_FIELD("bible is start child",
+		     main_study_editor_bible_width(FALSE, 620, 1200), 620);
+	EXPECT_FIELD("bible is end child",
+		     main_study_editor_bible_width(TRUE, 580, 1200), 620);
+	EXPECT_FIELD("normal Bible width keeps its font",
+		     main_study_editor_responsive_font_zoom(520, 520), 100);
+	EXPECT_FIELD("narrow Bible width scales its font",
+		     main_study_editor_responsive_font_zoom(260, 520), 50);
+	EXPECT_FIELD("unallocated width keeps the chosen font",
+		     main_study_editor_responsive_font_zoom(0, 520), 100);
+	EXPECT_FIELD("minimum 10 px from 16 px base",
+		     main_study_editor_min_font_zoom(16), 63);
+	EXPECT_FIELD("minimum 10 px from 12 px base",
+		     main_study_editor_min_font_zoom(12), 84);
+}
+
+static void
 expect_escape_action(void)
 {
 	EXPECT_FIELD("escape outside reading mode",
@@ -202,6 +233,34 @@ expect_key_reaches_shortcuts(void)
 		     main_key_reaches_shortcuts(TRUE, FALSE, TRUE), TRUE);
 }
 
+static void
+expect_new_tab_purpose(void)
+{
+	gchar *source = NULL;
+
+	EXPECT_FIELD("main window source readable",
+		g_file_get_contents(SRCDIR "/src/gtk/main_window.c", &source,
+				    NULL, NULL), TRUE);
+	if (source) {
+		EXPECT_FIELD("tooltip describes another Bible",
+			strstr(source,
+			       "_(\"Open another Bible in a new tab\")") != NULL,
+			TRUE);
+		EXPECT_FIELD("tooltip uses purpose description",
+			strstr(source,
+			       "gtk_widget_set_tooltip_text(widgets.button_new_tab, "
+			       "new_tab_description);") != NULL,
+			TRUE);
+		EXPECT_FIELD("icon button has accessible label",
+			strstr(source,
+			       "GTK_ACCESSIBLE_PROPERTY_LABEL") != NULL,
+			TRUE);
+		EXPECT_FIELD("obsolete generic tooltip removed",
+			strstr(source, "_(\"Open a new tab\")") == NULL, TRUE);
+	}
+	g_free(source);
+}
+
 int
 main(void)
 {
@@ -213,9 +272,11 @@ main(void)
 	expect_all_visible_startup();
 	expect_reading_startup();
 	expect_hpaned_position();
+	expect_study_editor_layout();
 	expect_reading_column();
 	expect_escape_action();
 	expect_key_reaches_shortcuts();
+	expect_new_tab_purpose();
 
 	printf("main_window_layout_failures=%d\n", failures);
 	return failures ? 1 : 0;

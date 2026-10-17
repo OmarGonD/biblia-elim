@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * main_menu.c - creation of and call backs for xiphos main menu
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -45,6 +45,7 @@
 #include "gui/sidebar.h"
 #include "gui/sidebar_dialog.h"
 #include "gui/sqlite_module_manager_dialog.h"
+#include "gui/editable_edition_dialog.h"
 #include "gui/search_dialog.h"
 #include "gui/nube_palabras.h"
 #include "gui/planes_lectura.h"
@@ -129,7 +130,7 @@ on_help_contents_activate(gpointer menuitem, gpointer user_data)
 	xiphos_open_default(help_file);
 	g_free(help_file);
 #else
-	xiphos_open_default("help:xiphos");
+	xiphos_open_default("help:biblia-elim");
 #endif /* WIN32 */
 }
 
@@ -532,7 +533,8 @@ on_quit_activate(gpointer menuitem, gpointer user_data)
 #endif
 
 	/* offer to save all editors remaining open */
-	editor_maybe_save_all();
+	if (!editor_maybe_save_all())
+		return;
 	/* y la nota de versículo que estuviera a medio escribir */
 	gui_verse_notes_guardar_pendiente();
 	/* y la reflexión del día, por lo mismo */
@@ -923,7 +925,7 @@ on_buscar_notas_activate(gpointer menuitem, gpointer user_data)
 G_MODULE_EXPORT void
 on_studypad_activate(gpointer menuitem, gpointer user_data)
 {
-	editor_open_studypad();
+	gui_toggle_study_editor();
 }
 
 G_MODULE_EXPORT void
@@ -964,6 +966,11 @@ MENU_ACTION(studypad_action, on_studypad_activate)
 MENU_ACTION(dictionary_dialog_action, on_diccionario_activate)
 MENU_ACTION(cloud_action, on_nube_palabras_activate)
 MENU_ACTION(testimonies_action, on_testimonios_activate)
+static void editable_edition_action(GSimpleAction *action, GVariant *parameter, gpointer data)
+{
+	(void)action; (void)parameter; (void)data;
+	gui_open_editable_edition_dialog(widgets.app ? GTK_WINDOW(widgets.app) : NULL);
+}
 MENU_ACTION(plans_action, on_planes_lectura_activate)
 MENU_ACTION(progress_action, on_progreso_lectura_activate)
 MENU_ACTION(daily_verse_action, on_versiculo_dia_activate)
@@ -1109,6 +1116,7 @@ GtkWidget *gui_create_main_menu(void)
 		{"studypad", studypad_action},
 		{"dictionary-dialog", dictionary_dialog_action}, {"cloud", cloud_action},
 		{"testimonies", testimonies_action}, {"plans", plans_action},
+		{"editable-editions", editable_edition_action},
 		{"progress", progress_action}, {"daily-verse", daily_verse_action},
 		{"memorize", memorize_action}, {"pulpit", pulpit_action},
 		{"devotion", devotion_action}, {"sidebar", sidebar_action},
@@ -1164,6 +1172,7 @@ GtkWidget *gui_create_main_menu(void)
 
 	m = section();
 	append(m, _("_Mis estudios…"), "menu.studypad", NULL);
+	append(m, _("Mis Biblias de estudio…"), "menu.editable-editions", NULL);
 	append(m, _("Biblia _interlineal"), "menu.interlinear", NULL);
 	append(m, _("Di_ccionario…"), "menu.dictionary-dialog", NULL);
 	append(m, _("_Nube de palabras…"), "menu.cloud", NULL);
@@ -1233,7 +1242,7 @@ GtkWidget *gui_create_main_menu(void)
 	append(s, _("Informar de un _error"), "menu.report", NULL);
 	add_section(m, s);
 	s = section();
-	append(s, _("Acerca de _Biblia Elim"), "menu.about", NULL);
+	append(s, _("Acerca de _Ministerios Elim"), "menu.about", NULL);
 	sub = section();
 	append(sub, _("_SWORD"), "menu.sword", NULL);
 	append(sub, _("Bible_Sync"), "menu.biblesync", NULL);

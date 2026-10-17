@@ -21,16 +21,16 @@
 message (STATUS "Generating config.h")
 
 # pixmaps dir
-set (PACKAGE_PIXMAPS_DIR "${CMAKE_INSTALL_FULL_DATADIR}/${PROJECT_NAME}")
+set (PACKAGE_PIXMAPS_DIR "${CMAKE_INSTALL_FULL_DATADIR}/biblia-elim")
 
 # locale dir
 set (PACKAGE_LOCALE_DIR "${CMAKE_INSTALL_FULL_LOCALEDIR}")
 
 # share dir
-set (SHARE_DIR "${CMAKE_INSTALL_FULL_DATADIR}/${PROJECT_NAME}")
+set (SHARE_DIR "${CMAKE_INSTALL_FULL_DATADIR}/biblia-elim")
 
 # textdomain
-set (GETTEXT_PACKAGE "${PROJECT_NAME}")
+set (GETTEXT_PACKAGE "biblia-elim")
 
 # GTK4 has one native editor path.  The old WebKit/GTKHTML editors use
 # removed GTK3 widgets and must not be selectable in a GTK4 build.

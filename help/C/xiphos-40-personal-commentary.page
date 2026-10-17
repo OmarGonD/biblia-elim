@@ -11,7 +11,7 @@
     <revision pkgversion="4.5.0" date="2026-08-10" status="draft"/>
 
     <title type='link' role="trail"></title>
-    <title type='text'>Xiphos</title>
+    <title type='text'>Biblia Elim</title>
 
     <credit type="author" its:translate="no">
       <name>Andy Piper</name>
@@ -134,7 +134,7 @@
 
   <note style="tip">
     <p>The created commentary page will be attached to an individual verse only.
-    To write commentary pages from within <app>Xiphos</app>, attached to longer
+    To write commentary pages from within <app>Biblia Elim</app>, attached to longer
     stretches of text use the <gui>Link</gui> function to link several pages
     together.</p>
   </note>

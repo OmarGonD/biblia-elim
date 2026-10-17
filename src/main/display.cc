@@ -44,6 +44,8 @@
 #include "main/intro_lookup.h"
 #include "main/strong_interaction.h"
 #include "backend/bible_book_map.h"
+#include "backend/editable_edition.h"
+#include "backend/sqlite_module_manager.h"
 #include "main/settings.h"
 #include "main/global_ops.hh"
 #include "main/sword.h"
@@ -3363,6 +3365,22 @@ GTKChapDisp::RenderOneChapter(int thisChapter)
 		content_book = book ? book->bookId : 0;
 	}
 
+ // Read editorial state once per chapter, independently of the rendered-text
+ // cache, so reverting a verse also removes its badge after a refresh.
+ std::vector<EditionComparison> editionVerses;
+ EditableEditionMetadata editionMetadata;
+ if (!swmodule) {
+  const char *configured=main_sqlite_modules_directory();
+  const std::string directory=configured&&*configured?configured:sqliteModuleDirectory();
+  std::string error;
+  if(EditableEdition::comparisons(directory+"/"+ModuleName+".sqlite",editionMetadata,editionVerses,error,content_book,thisChapter)){
+   gchar *base=g_markup_escape_text(editionMetadata.sourceName.c_str(),-1);
+   gchar *caption=g_markup_escape_text(_("Basada en: "),-1);
+   swbuf.appendFormatted("<div class=\"edition-provenance\"><small>%s%s</small></div>",caption,base);
+   g_free(base);g_free(caption);
+  }
+ }
+
 	for (int k = 1 ; k <= verse_max ; ++k) {
 
 		key->setVerse(k);
@@ -3500,6 +3518,21 @@ GTKChapDisp::RenderOneChapter(int thisChapter)
 					     (tag_color ? (tag_color + 8) : settings.bible_verse_num_color),
 					     PRETTYPRINT(num));
 		g_free(num);
+  for(const auto &entry:editionVerses) {
+   if(entry.reference.verse!=k)continue;
+   if(!entry.edited() && !entry.commented())break;
+   gchar *module=g_uri_escape_string(ModuleName,nullptr,FALSE);
+   gchar *passage=g_uri_escape_string(key->getText(),nullptr,FALSE);
+   auto badge=[&](const char *label){
+    gchar *escaped=g_markup_escape_text(label,-1);
+    swbuf.appendFormatted(" <a class=\"edition-badge\" href=\"passagestudy.jsp?action=showEditionComparison&amp;module=%s&amp;passage=%s\"><small>[%s]</small></a> ",module,passage,escaped);
+    g_free(escaped);
+   };
+   if(entry.edited())badge(_("Editado"));
+   if(entry.commented())badge(_("Comentario"));
+   g_free(module);g_free(passage);break;
+  }
+
 
 		if (tag_color) {
 			*(tag_color + 7)  = '-';		// restore format
@@ -3632,8 +3665,10 @@ GTKChapDisp::RenderWholeBook(int radius, bool book_edge_previews)
 	int thisChapter, first_chapter, last_chapter;
 	const int chapter_count = key->getChapterMax();
 
-	reading_window_bounds(curChapter, chapter_count, radius,
-			      &first_chapter, &last_chapter);
+	/* Only the initial main pane is narrowed. Neighbours are filled in
+	 * after the first painted chapter, through the normal recenter path. */
+	reading_window_render_bounds(curChapter, chapter_count, radius,
+		gtkText == widgets.html_text, &first_chapter, &last_chapter);
 
 	if (book_edge_previews) {
 		if (first_chapter == 1 && swmodule) {

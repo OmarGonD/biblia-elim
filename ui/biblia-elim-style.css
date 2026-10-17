@@ -1,0 +1,1338 @@
+/*
+ * Ministerios Elim — cromática académica, estilo macOS.
+ * Se superpone al tema del sistema (claro u oscuro).
+ */
+
+@define-color elim_navy #2C4A6E;
+@define-color elim_navy_soft #5B7A9D;
+@define-color elim_ink #1C1917;
+@define-color elim_paper #F7F4EE;
+@define-color elim_panel #EFEAE2;
+@define-color elim_line alpha(#1C1917, 0.10);
+
+* {
+	-gtk-icon-style: symbolic;
+}
+
+window {
+	font-family: "Inter", "SF Pro Text", "Segoe UI Variable", "Cantarell",
+		"Noto Sans", sans-serif;
+	font-size: 10.5pt;
+	letter-spacing: 0.01em;
+}
+
+textview.elim-html,
+textview.elim-html text {
+	background-color: @elim_paper;
+	color: @elim_ink;
+	font-family: "Palatino Linotype", Palatino, Georgia, "Liberation Serif",
+		"Noto Serif", serif;
+	font-size: 12.5pt;
+}
+
+/* StudyPad keeps its commands compact so the writing surface remains the
+ * focus when the editor is beside the Bible. */
+.studypad-ribbon {
+	background-color: @elim_panel;
+	border-bottom: 1px solid @elim_line;
+}
+.studypad-command-flow,
+.studypad-command-flow flowboxchild {
+	background-color: transparent;
+	box-shadow: none;
+}
+
+.study-editor-panel {
+	background-color: @elim_panel;
+}
+
+.study-editor-header {
+	background-color: @elim_panel;
+	border-bottom: 1px solid @elim_line;
+}
+
+.study-editor-title {
+	font-weight: 600;
+	letter-spacing: 0.01em;
+}
+.ribbon-group {
+	border-right: 1px solid alpha(@elim_ink, 0.10);
+	padding: 0 6px 0 0;
+}
+.ribbon-group:last-child { border-right: 0; }
+.ribbon-group button,
+.ribbon-group dropdown {
+	min-height: 24px;
+	border-radius: 6px;
+	box-shadow: none;
+	font-size: 8.5pt;
+}
+.ribbon-group button {
+	padding: 0 4px;
+	background-image: none;
+	background-color: alpha(#ffffff, 0.76);
+	border-color: alpha(@elim_ink, 0.10);
+}
+.ribbon-group button:hover {
+	background-color: #ffffff;
+	border-color: alpha(@elim_navy, 0.30);
+}
+.ribbon-group button:checked {
+	background-color: alpha(@elim_navy, 0.12);
+	color: @elim_navy;
+}
+.ribbon-group button.studypad-save-primary {
+	min-width: 38px;
+	background-image: none;
+	background-color: @elim_navy;
+	border-color: @elim_navy;
+	color: #ffffff;
+	font-weight: 700;
+}
+.ribbon-group button.studypad-save-primary:hover {
+	background-color: @elim_navy_soft;
+}
+.ribbon-group-title {
+	margin-top: 2px;
+	font-size: 7.5pt;
+	color: alpha(@elim_ink, 0.50);
+}
+.ribbon-format-button {
+	min-width: 24px;
+	font-family: Georgia, serif;
+	font-weight: 700;
+}
+.ribbon-format-button:nth-child(2) { font-style: italic; }
+.ribbon-format-button:nth-child(3) { text-decoration-line: underline; }
+.ribbon-underline-button label {
+	font-family: "Cantarell", sans-serif;
+	font-size: 14pt;
+	font-weight: 700;
+}
+.ribbon-text-color-glyph {
+	color: #fffefa;
+	font-family: "Cantarell", sans-serif;
+	font-size: 14pt;
+	font-weight: 800;
+	text-shadow: 0 1px 2px alpha(#000000, 0.75);
+}
+textview.studypad-document,
+textview.studypad-document text {
+	background-color: #fffefa;
+	color: #25221f;
+	font-family: "Aptos", "Calibri", "Noto Serif", serif;
+	font-size: 13pt;
+}
+textview.studypad-document {
+	border: 1px solid alpha(@elim_ink, 0.08);
+	border-radius: 5px;
+}
+.studypad-canvas {
+	background-color: alpha(@elim_navy, 0.055);
+}
+.studypad-save-dialog {
+	background-color: @elim_panel;
+}
+.studypad-save-dialog .studypad-save-title {
+	font-size: 14pt;
+	color: @elim_ink;
+}
+.studypad-save-dialog image {
+	color: #c48125;
+}
+
+/* The outer pane and scroller are painted before the renderer has a body.
+ * Keep every layer on the live application palette so no toolkit/WebKit
+ * default-white edge can appear during the first document load. */
+.elim-html-surface {
+	background-color: @elim_paper;
+	color: @elim_ink;
+}
+
+/* A deliberately quiet per-panel placeholder.  It occupies the complete
+ * content allocation; only its low-emphasis status text distinguishes it
+ * from the final reading surface. */
+.elim-html-loading {
+	/* Loading is application chrome, not an empty document.  In particular,
+	 * a light reading-paper color must not appear as a blank page while the
+	 * real document is still being prepared. */
+	background-color: @elim_chrome;
+	color: alpha(@elim_ink, 0.58);
+}
+
+.elim-html-error {
+	background-color: @elim_paper;
+	color: @elim_ink;
+}
+
+/* ——— Header bar (Mac titlebar) ——— */
+headerbar {
+	min-height: 44px;
+	padding: 2px 10px;
+	background-image: none;
+	background-color: @elim_chrome;
+	box-shadow: none;
+	border-bottom: 1px solid @elim_line;
+	font-weight: 500;
+}
+headerbar:backdrop {
+	background-image: none;
+	opacity: 0.96;
+}
+headerbar .title {
+	font-size: 11pt;
+	font-weight: 600;
+	letter-spacing: 0.01em;
+}
+headerbar .subtitle {
+	font-size: 8.5pt;
+	opacity: 0.62;
+	font-weight: 400;
+}
+headerbar button {
+	border-radius: 8px;
+	box-shadow: none;
+	min-height: 28px;
+	padding: 2px 8px;
+}
+headerbar button:hover,
+headerbar button:active {
+	box-shadow: none;
+}
+headerbar button.circular {
+	border-radius: 999px;
+	min-width: 28px;
+	padding: 0;
+}
+headerbar button.reading-mode {
+	min-width: 32px;
+	min-height: 32px;
+}
+headerbar button.reading-mode:checked {
+	background-color: alpha(@elim_navy, 0.16);
+}
+.elim-dark headerbar button.reading-mode:checked {
+	background-color: alpha(#E6C989, 0.22);
+}
+button.reading-exit {
+	min-width: 40px;
+	min-height: 40px;
+	background-image: none;
+	background-color: alpha(@elim_chrome, 0.92);
+	border: 1px solid alpha(@elim_navy, 0.22);
+	box-shadow: 0 1px 8px alpha(#000, 0.16);
+}
+button.reading-exit:hover,
+button.reading-exit:checked {
+	background-image: none;
+	background-color: @elim_chrome;
+}
+.elim-dark button.reading-exit {
+	background-color: alpha(#1A1610, 0.88);
+	border-color: alpha(#E6C989, 0.28);
+}
+.elim-dark button.reading-exit:hover,
+.elim-dark button.reading-exit:checked {
+	background-color: #1A1610;
+}
+
+headerbar menubar {
+	background: transparent;
+	box-shadow: none;
+	padding: 0;
+	margin: 0 4px 0 0;
+}
+headerbar menubar > menuitem {
+	border-radius: 8px;
+	padding: 4px 10px;
+	margin: 0 1px;
+	font-weight: 500;
+}
+
+/* ——— Menús / popovers ———
+ *
+ * Un menú desplegable es una ventana propia, no un hijo de la principal:
+ * las reglas colgadas de .elim-dark y compañía no lo alcanzan. De ahí que
+ * todo lo de aquí sea global y tire de @elim_menu_bg y @elim_ink, que
+ * elim_tema.c redefine con cada tema.
+ */
+menu,
+.menu,
+.context-menu {
+	background-color: @elim_menu_bg;
+	color: @elim_ink;
+	border: 1px solid @elim_line;
+	border-radius: 11px;
+	padding: 6px;
+}
+/* La ventana que sostiene el menú se queda transparente. Si se pinta —y
+ * se pintaba, porque el tema le da fondo a "window"— el rectángulo asoma
+ * por fuera de las esquinas redondeadas y el menú vuelve a ser una caja. */
+window.popup,
+.csd.popup,
+menu window {
+	background-color: transparent;
+}
+window.popup decoration,
+.csd.popup decoration,
+menu decoration {
+	background-color: transparent;
+	border-radius: 11px;
+	/* El margen no separa nada: es el hueco que GTK reserva alrededor de
+	 * la ventana para que quepa la sombra. Sin él, se recorta. */
+	margin: 8px;
+	box-shadow: 0 8px 22px alpha(black, 0.30),
+		0 2px 5px alpha(black, 0.16);
+}
+menuitem {
+	border-radius: 8px;
+	padding: 6px 10px;
+	min-height: 26px;
+	color: @elim_ink;
+}
+menu menuitem:hover,
+menu menuitem:selected,
+.context-menu menuitem:hover {
+	background-color: @elim_menu_sel;
+	color: @elim_menu_sel_fg;
+}
+menu menuitem:disabled {
+	color: alpha(@elim_ink, 0.4);
+}
+/* Los accesos rápidos y las flechas de submenú, un paso por detrás del
+ * texto: están para consultarse, no para leerse en la primera pasada. */
+menuitem accelerator {
+	color: alpha(@elim_ink, 0.45);
+	padding-left: 18px;
+}
+menuitem arrow {
+	color: alpha(@elim_ink, 0.5);
+	min-width: 16px;
+}
+menuitem:hover accelerator,
+menuitem:hover arrow {
+	color: alpha(@elim_menu_sel_fg, 0.75);
+}
+/* Cabecera de grupo dentro de un menú (los idiomas del selector de
+ * versión): no es una opción, así que no se comporta como tal —va
+ * apagada— pero tampoco debe leerse como una opción deshabilitada. */
+menu menuitem.elim-menu-titulo,
+menu menuitem.elim-menu-titulo:disabled {
+	color: alpha(@elim_ink, 0.5);
+	font-size: 8.5pt;
+	font-weight: 700;
+	letter-spacing: 0.07em;
+	min-height: 0;
+	padding: 10px 10px 3px 10px;
+}
+
+menu separator,
+.menu separator,
+.context-menu separator {
+	background-color: alpha(@elim_ink, 0.13);
+	background-image: none;
+	min-height: 1px;
+	margin: 6px 8px;
+}
+menu check,
+menu radio {
+	min-width: 15px;
+	min-height: 15px;
+	margin-right: 4px;
+}
+menu check:checked,
+menu radio:checked {
+	color: @elim_navy;
+}
+menu menuitem:hover check:checked,
+menu menuitem:hover radio:checked {
+	color: @elim_menu_sel_fg;
+}
+menu > arrow {
+	background-color: @elim_menu_bg;
+	color: alpha(@elim_ink, 0.6);
+	min-height: 14px;
+}
+
+/* La barra de menús vive dentro de la cabecera y hereda su color */
+menubar {
+	background-color: transparent;
+	color: @elim_ink;
+}
+menubar > menuitem {
+	color: @elim_ink;
+	border-radius: 8px;
+}
+/* El rótulo de un menú abierto —y el que está bajo el puntero, que para
+ * GtkMenuBar es el mismo estado: los dos son :hover— toma el color del
+ * propio menú, de modo que rótulo y desplegable se lean como una pieza.
+ *
+ * El "box-shadow" es lo que quita el subrayado azul: Adwaita marca ese
+ * estado con "inset 0 -3px" de SU color de selección, ajeno a la paleta
+ * del tema, y esa raya cortaba el rótulo por debajo. Aquí la sombra
+ * interior se reaprovecha como reborde de un píxel, que a diferencia de
+ * un "border" no cambia el tamaño del elemento al entrar el puntero. */
+menubar > menuitem:hover,
+menubar > menuitem:selected {
+	background-color: @elim_menu_bg;
+	color: @elim_ink;
+	box-shadow: inset 0 0 0 1px @elim_line;
+}
+
+/* GTK4 paints contents and its pointing arrow separately from the popover
+ * wrapper. Theme both actual surfaces; leave the outer wrapper transparent. */
+popover {
+    padding: 4px;
+}
+popover.background {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    color: @elim_ink;
+}
+popover.background > contents {
+    background-image: none;
+    background-color: @elim_menu_bg;
+    color: @elim_ink;
+    border: 1px solid @elim_line;
+    border-radius: 12px;
+    box-shadow: 0 8px 28px alpha(black, 0.18);
+}
+popover.background > arrow {
+    background-image: none;
+    background-color: @elim_menu_bg;
+    border-color: @elim_line;
+    box-shadow: none;
+}
+popover.background modelbutton {
+    background-image: none;
+    background-color: transparent;
+    color: @elim_ink;
+    border-radius: 8px;
+    min-height: 26px;
+    padding: 4px 10px;
+}
+popover.background modelbutton:hover,
+popover.background modelbutton:selected,
+popover.background modelbutton:active {
+    background-color: @elim_menu_sel;
+    color: @elim_menu_sel_fg;
+}
+popover.background modelbutton:disabled,
+popover.background modelbutton:disabled:selected {
+    background-color: transparent;
+    color: alpha(@elim_ink, 0.45);
+}
+popover.background modelbutton label,
+popover.menu modelbutton check,
+popover.menu modelbutton radio {
+    color: inherit;
+}
+popover.background > contents separator {
+    background-image: none;
+    background-color: @elim_line;
+}
+
+tooltip.background {
+	background-color: @elim_menu_bg;
+	color: @elim_ink;
+	border: 1px solid @elim_line;
+	border-radius: 8px;
+}
+
+/* ——— Buttons, entries, combos ——— */
+button {
+	border-radius: 8px;
+	box-shadow: none;
+	min-height: 28px;
+}
+button:hover {
+	box-shadow: none;
+}
+button.elim-pill,
+button.elim-pill:checked {
+	border-radius: 999px;
+	padding: 4px 16px;
+	font-weight: 600;
+	letter-spacing: 0.03em;
+	font-size: 9.5pt;
+}
+button.elim-pill:checked {
+	background-image: none;
+	background-color: @elim_navy;
+	color: white;
+	border-color: transparent;
+}
+button.elim-greek {
+	min-width: 34px;
+	min-height: 28px;
+	padding: 0 8px;
+}
+button.elim-greek label,
+label.elim-greek-glyph {
+	font-family: "Palatino Linotype", Palatino, "Noto Serif",
+		"Liberation Serif", serif;
+	font-size: 16pt;
+	font-weight: 600;
+	padding: 0;
+}
+/* ——— Tablas HTML reales (comentarios, vista paralela) ——— */
+.elim-table-cell {
+	padding: 4px 6px;
+}
+
+/* ——— Interlineal académico (Forward / Reverse) ——— */
+.il-table {
+	border-radius: 6px;
+	margin: 4px 0 10px 0;
+	padding: 0;
+	background-image: none;
+}
+.il-tabs {
+	padding: 2px 6px 0 6px;
+	background-image: none;
+}
+button.il-tab {
+	background-image: none;
+	background-color: transparent;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+	padding: 7px 16px 6px 16px;
+	font-size: 9.5pt;
+	letter-spacing: 0.05em;
+	font-weight: 600;
+	min-height: 28px;
+	opacity: 1;
+}
+button.il-origbtn,
+button.il-origbtn:hover,
+button.il-origbtn:active,
+button.il-strong,
+button.il-strong:hover,
+button.il-strong:active {
+	background-image: none;
+	background-color: transparent;
+	border: none;
+	box-shadow: none;
+	padding: 0 2px;
+	min-height: 0;
+	min-width: 0;
+}
+button.il-strong,
+button.il-strong label {
+	font-family: "Liberation Serif", "Noto Serif", serif;
+	font-size: 11pt;
+	font-weight: 700;
+	letter-spacing: 0.03em;
+}
+.il-pie {
+	font-size: 8.5pt;
+	font-style: italic;
+	opacity: 0.85;
+}
+.il-table.il-dark .il-pie {
+	color: #D2C094;
+}
+.il-table.il-light .il-pie {
+	color: #5A4A30;
+}
+.il-hdr {
+	padding: 8px 12px 6px 12px;
+}
+.il-hdr-cell {
+	font-size: 8.5pt;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	opacity: 1;
+}
+.il-row {
+	padding: 9px 12px;
+}
+.il-es {
+	font-size: 11pt;
+	font-weight: 600;
+}
+.il-phrase {
+	font-size: 7.5pt;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	color: #FFFFFF;
+	border-radius: 8px;
+	padding: 1px 7px;
+	margin-top: 2px;
+}
+.il-forma,
+.il-forma-he {
+	font-size: 14pt;
+	font-weight: 600;
+}
+.il-forma {
+	font-family: "Noto Serif", "Liberation Serif", serif;
+}
+.il-forma-he {
+	font-family: "Noto Serif Hebrew", "Noto Serif", serif;
+}
+.il-raiz {
+	font-family: "Noto Serif", "Noto Serif Hebrew", serif;
+	font-size: 10.5pt;
+	opacity: 1;
+}
+.il-trans {
+	font-family: "Liberation Serif", "Noto Serif", serif;
+	font-size: 10pt;
+	font-style: italic;
+	letter-spacing: 0.02em;
+	opacity: 1;
+}
+.il-morph {
+	font-size: 8.5pt;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	border-radius: 11px;
+	padding: 3px 9px;
+	opacity: 1;
+}
+
+/* Claro: tinta oscura sobre papel */
+.il-table.il-light,
+.il-table.il-light .il-tabs,
+.il-table.il-light .il-rows,
+.il-table.il-light .il-hdr {
+	background-image: none;
+	background-color: #F7F1E3;
+	color: #1A140C;
+	border-color: #C4B08A;
+}
+.il-table.il-light {
+	border: 1px solid #C4B08A;
+}
+.il-table.il-light .il-tabs {
+	border-bottom: 1px solid #D2C19A;
+}
+.il-table.il-light .il-hdr {
+	border-bottom: 1px solid #D2C19A;
+}
+.il-table.il-light .il-row {
+	border-top: 1px solid #E2D4B4;
+	background-color: #F7F1E3;
+}
+.il-table.il-light .il-row-alt {
+	background-color: #EEE4CC;
+}
+.il-table.il-light .il-hdr-cell {
+	color: #4A3A22;
+}
+.il-table.il-light button.il-tab {
+	color: #6A5738;
+}
+.il-table.il-light button.il-tab:checked,
+.il-table.il-light button.il-tab.il-tab-active {
+	color: #1A140C;
+	box-shadow: inset 0 -2px 0 #2C4A6E;
+}
+.il-table.il-light .il-es {
+	color: #1A140C;
+}
+.il-table.il-light button.il-strong,
+.il-table.il-light button.il-strong label {
+	color: #5A1878;
+}
+.il-table.il-light .il-forma,
+.il-table.il-light .il-forma-he {
+	color: #1A140C;
+}
+.il-table.il-light .il-raiz {
+	color: #3D2E16;
+}
+.il-table.il-light .il-trans {
+	color: #5A4A30;
+}
+.il-table.il-light .il-morph {
+	color: #2A2218;
+	border: 1px solid #8A7348;
+	background-color: #EDE3C8;
+}
+.il-table.il-light .il-phrase {
+	background-color: #2C4A6E;
+}
+
+/* Oscuro: crema sobre carbón (nunca tinta clara sobre pergamino) */
+.il-table.il-dark,
+.il-table.il-dark .il-tabs,
+.il-table.il-dark .il-rows,
+.il-table.il-dark .il-hdr {
+	background-image: none;
+	background-color: #1C1914;
+	color: #F6EBD4;
+}
+.il-table.il-dark {
+	border: 1px solid #7A6848;
+}
+.il-table.il-dark .il-tabs {
+	border-bottom: 1px solid #5A4C34;
+}
+.il-table.il-dark .il-hdr {
+	border-bottom: 1px solid #5A4C34;
+}
+.il-table.il-dark .il-row {
+	border-top: 1px solid #3A3228;
+	background-color: #1C1914;
+}
+.il-table.il-dark .il-row-alt {
+	background-color: #262119;
+}
+.il-table.il-dark .il-hdr-cell {
+	color: #E6D3A4;
+}
+.il-table.il-dark button.il-tab {
+	color: #C8B48A;
+}
+.il-table.il-dark button.il-tab:checked,
+.il-table.il-dark button.il-tab.il-tab-active {
+	color: #FFF6DC;
+	box-shadow: inset 0 -2px 0 #E6C989;
+}
+.il-table.il-dark .il-es {
+	color: #F7F0E2;
+}
+.il-table.il-dark button.il-strong,
+.il-table.il-dark button.il-strong label {
+	color: #E8B8FF;
+}
+.il-table.il-dark .il-forma,
+.il-table.il-dark .il-forma-he {
+	color: #FFEFC8;
+}
+.il-table.il-dark .il-raiz {
+	color: #E0CC96;
+}
+.il-table.il-dark .il-trans {
+	color: #D2C094;
+}
+.il-table.il-dark .il-morph {
+	color: #F4E6C4;
+	border: 1px solid #B89A62;
+	background-color: #2E281E;
+}
+.il-table.il-dark .il-phrase {
+	background-color: #4A6A8A;
+}
+
+/* El interlineal dentro del modo lectura: vive en la columna de lectura,
+ * no en su propia franja, así que la caja se suaviza para no abrir un
+ * hueco en medio del texto. El ancho ya lo limita il_table_fit() a la
+ * medida de la lectura; aquí solo la apariencia. */
+.il-table.il-reading {
+	border-radius: 10px;
+	margin: 10px 8px 14px 8px;
+}
+.il-table.il-reading.il-light {
+	border-color: #D8C9A4;
+}
+.il-table.il-reading.il-dark {
+	border-color: #5A4C34;
+}
+
+entry,
+combobox,
+combobox > box,
+combobox button,
+spinbutton,
+spinbutton entry {
+	border-radius: 8px;
+	box-shadow: none;
+	min-height: 28px;
+}
+entry:focus {
+	box-shadow: 0 0 0 2px alpha(@elim_navy, 0.28);
+	border-color: @elim_navy;
+}
+
+/* ——— Sidebar ——— */
+.elim-sidebar {
+	background-color: @elim_panel;
+	border-right: 1px solid @elim_line;
+	padding: 4px 0;
+}
+.elim-sidebar treeview,
+.elim-sidebar treeview.view {
+	background: transparent;
+	padding: 2px 6px;
+}
+.elim-sidebar button {
+	border-radius: 8px;
+	margin: 2px 8px;
+}
+
+treeview {
+	border-radius: 6px;
+}
+/* Las listas de los diálogos venían con el blanco de Adwaita, que sobre
+ * un fondo de pergamino o de noche se ve como un recorte de otro sitio.
+ * Toman el color del papel; el árbol del panel lateral no entra aquí,
+ * que lo deja transparente unas líneas más arriba. */
+treeview.view {
+	background-color: @elim_paper;
+}
+treeview.view row {
+	padding: 5px 8px;
+}
+treeview.view:selected,
+treeview.view:selected:focus {
+	border-radius: 8px;
+	background-color: alpha(@elim_navy, 0.88);
+	color: white;
+}
+
+/* ——— Navigation bar ——— */
+.elim-navbar {
+	background-color: @elim_chrome;
+	border-bottom: 1px solid @elim_line;
+	padding: 3px 10px;
+	min-height: 36px;
+}
+/* Reading mode: floats over the text instead of taking a layout row,
+ * appearing only when the pointer hovers near the top of the window --
+ * the shadow is what reads "floating on top" instead of "part of the
+ * page" now that it's not pinned to a fixed spot in the layout. */
+/* La cabecera del modo lectura: aparece al acercar el puntero al borde
+ * superior y lleva todos los controles del modo. Se despega del texto
+ * como una tarjeta flotante en vez de ser una franja pegada al borde,
+ * porque aparece y desaparece sobre el contenido y necesita leerse como
+ * una capa por encima, no como parte de la página. */
+.elim-navbar-floating {
+	background-color: alpha(@elim_chrome, 0.98);
+	color: @elim_ink;
+	border: 1px solid @elim_line;
+	border-radius: 12px;
+	margin: 8px 12px;
+	padding: 4px 8px;
+	box-shadow: 0 6px 20px alpha(#000000, 0.28);
+}
+.elim-dark .elim-navbar-floating {
+	border-color: @elim_line;
+	box-shadow: 0 6px 22px alpha(#000000, 0.55);
+}
+.elim-reading-strip button {
+	min-width: 30px;
+	min-height: 30px;
+	padding: 2px 6px;
+	border-radius: 8px;
+}
+.elim-reading-strip separator {
+	background-color: @elim_line;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.elim-navbar button {
+	border-radius: 8px;
+	min-width: 28px;
+	min-height: 30px;
+	padding: 2px 7px;
+}
+.elim-navbar entry {
+	font-variant: small-caps;
+	letter-spacing: 0.03em;
+	font-weight: 500;
+	min-height: 30px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.elim-navbar spinbutton,
+.elim-navbar dropdown,
+.elim-navbar menubutton {
+	min-height: 30px;
+}
+
+/* ——— Tabs ——— */
+.elim-tabs,
+notebook {
+	background: transparent;
+}
+.elim-tabs {
+	min-height: 38px;
+}
+.elim-tabs > stack {
+	min-height: 0;
+	margin: 0;
+}
+notebook > header {
+	background: transparent;
+	border: none;
+	padding: 4px 8px 0 8px;
+}
+notebook > header tab {
+	border-radius: 8px;
+	box-shadow: none;
+	border: none;
+	margin: 2px 3px;
+	padding: 6px 12px;
+	min-height: 22px;
+	font-weight: 500;
+}
+notebook > header tab:checked {
+	background-image: none;
+	background-color: alpha(@elim_navy, 0.14);
+	box-shadow: none;
+}
+notebook > header.bottom tab {
+	border-radius: 8px;
+	margin: 2px 4px 4px 4px;
+	font-size: 9pt;
+	letter-spacing: 0.04em;
+	font-weight: 600;
+}
+
+/* Secondary panes read like quiet cards, not like a second application
+ * window.  Keep their title row compact and make the active tab obvious
+ * without adding another heavy border around the commentary surface. */
+.elim-side-notebook > header.bottom {
+	padding: 3px 8px 5px 8px;
+	background-color: alpha(@elim_panel, 0.72);
+	border-top: 1px solid @elim_line;
+}
+.elim-side-notebook > header.bottom tab {
+	min-height: 24px;
+	padding: 5px 12px;
+	margin: 0 2px;
+	font-size: 9pt;
+}
+.elim-side-notebook > header.bottom tab:checked {
+	background-color: alpha(@elim_navy, 0.14);
+	color: @elim_navy;
+}
+.elim-dark .elim-side-notebook > header.bottom {
+	background-color: alpha(#1A1610, 0.72);
+	border-color: alpha(white, 0.08);
+}
+.elim-dark .elim-side-notebook > header.bottom tab:checked {
+	color: #E6C989;
+	background-color: alpha(#E6C989, 0.16);
+}
+
+/* Passage tabs strip */
+.elim-tabstrip {
+	padding: 1px 6px 0 6px;
+	min-height: 38px;
+	border-bottom: 1px solid @elim_line;
+	background-color: @elim_chrome;
+}
+
+/* ——— Panes ——— */
+paned > separator {
+	background-color: @elim_line;
+	background-image: none;
+	min-width: 1px;
+	min-height: 1px;
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+paned > separator:hover {
+	background-color: alpha(@elim_navy, 0.35);
+}
+
+/* ——— Scrollbars (overlay-like) ——— */
+scrollbar {
+	background-color: transparent;
+	border: none;
+	min-width: 10px;
+	min-height: 10px;
+}
+scrollbar slider {
+	border-radius: 8px;
+	min-width: 8px;
+	min-height: 8px;
+	background-color: alpha(currentColor, 0.22);
+	border: none;
+	margin: 2px;
+}
+scrollbar slider:hover {
+	background-color: alpha(currentColor, 0.38);
+}
+
+/* ——— Tooltips ——— */
+tooltip {
+	border-radius: 8px;
+	padding: 6px 10px;
+	font-size: 9.5pt;
+	box-shadow: 0 4px 16px alpha(black, 0.16);
+}
+
+/* ——— Dialogs ——— */
+dialog,
+messagedialog {
+	border-radius: 12px;
+}
+dialog .titlebar,
+messagedialog .titlebar {
+	background-image: none;
+	border-radius: 12px 12px 0 0;
+}
+
+/* Kindle-style selection toolbar */
+popover.highlight-toolbar {
+	border-radius: 12px;
+	padding: 4px;
+}
+popover.highlight-toolbar button {
+	min-width: 30px;
+	min-height: 30px;
+	border-radius: 8px;
+}
+/* Color swatch: keep a true circle; do not inherit the 30x30 rounded square. */
+popover.highlight-toolbar button.highlight-swatch,
+button.highlight-swatch {
+	min-width: 22px;
+	min-height: 22px;
+	padding: 1px;
+	border: none;
+	border-radius: 11px;
+	background: none;
+	background-image: none;
+	box-shadow: none;
+	outline-style: none;
+}
+
+/* Interlinear / compare bars */
+/* El lienzo de lectura: la caja que sostiene el texto bíblico y las
+ * cintas que lo acompañan. */
+.elim-lienzo {
+	background-color: @elim_paper;
+}
+
+/* La cinta del interlineal y la de comparar van pegadas al texto: si se
+ * dejan transparentes asoma el blanco del contenedor y cortan la página
+ * en dos. Toman el color del papel para leerse como parte de ella. */
+.elim-toolbar-strip {
+	background-color: @elim_paper;
+	padding: 4px 10px;
+}
+
+/* Grip to drag a compared Bible onto another and swap their order. */
+.elim-drag-handle {
+	opacity: 0.45;
+	padding: 0 2px;
+}
+.elim-drag-handle:hover {
+	opacity: 0.95;
+}
+
+/* ⇄ between two compared Bibles in the Comparar strip. */
+button.elim-swap-ord {
+	padding: 0 4px;
+	min-width: 1.6em;
+	font-size: 1.15em;
+	opacity: 0.55;
+}
+button.elim-swap-ord:hover {
+	opacity: 1;
+}
+
+/* Dark variant: slightly cooler ink, keep the same geometry */
+.elim-dark headerbar,
+.elim-dark .elim-navbar,
+.elim-dark .elim-tabstrip {
+	border-color: alpha(white, 0.08);
+}
+.elim-dark .elim-sidebar {
+	border-color: alpha(white, 0.08);
+}
+.elim-dark notebook > header tab:checked {
+	background-color: alpha(@elim_navy_soft, 0.28);
+}
+.elim-dark button.elim-pill:checked {
+	background-color: @elim_navy_soft;
+	color: @elim_ink;
+}
+.elim-dark entry:focus {
+	box-shadow: 0 0 0 2px alpha(@elim_navy_soft, 0.35);
+	border-color: @elim_navy_soft;
+}
+.elim-dark treeview.view:selected,
+.elim-dark treeview.view:selected:focus {
+	background-color: alpha(@elim_navy_soft, 0.75);
+}
+
+/* Claro luna: papel plateado, tinta de noche */
+.elim-luna headerbar,
+.elim-luna .elim-navbar,
+.elim-luna .elim-tabstrip {
+	border-color: alpha(#243044, 0.12);
+}
+
+/* Pergamino */
+.elim-pergamino headerbar,
+.elim-pergamino .elim-navbar,
+.elim-pergamino .elim-tabstrip {
+	border-color: alpha(#3D2B1F, 0.14);
+}
+
+/* Franja de búsqueda dentro del texto (Ctrl-F). Se despliega bajo la
+ * navegación y empuja al capítulo hacia abajo, así que no hay nada que
+ * apartar para ver el versículo hallado. Se lee como una continuación
+ * de la barra de arriba, no como una ventana pegada. */
+/* El relleno va dentro del revealer, no en la franja: plegada mide cero
+ * de alto y un padding ahí le da altura negativa, que GTK protesta. */
+.elim-barra-busqueda > revealer > box {
+	background-color: @elim_chrome;
+	border-bottom: 1px solid @elim_line;
+	padding: 4px 12px;
+}
+.elim-barra-busqueda entry {
+	border-radius: 8px;
+}
+.elim-barra-busqueda button {
+	border-radius: 8px;
+	min-width: 28px;
+}
+
+/* Lista de notas del versículo: tarjetas discretas, acciones con iconos
+ * que solo se acentúan al pasar el ratón. */
+.elim-nota-card {
+	border: 1px solid @elim_line;
+	border-radius: 8px;
+	padding: 8px 8px 8px 12px;
+}
+.elim-nota-acciones button {
+	min-width: 24px;
+	min-height: 24px;
+	padding: 2px;
+	border-radius: 6px;
+	opacity: 0.55;
+}
+.elim-nota-card:hover .elim-nota-acciones button {
+	opacity: 1;
+}
+.elim-nota-acciones button.elim-nota-borrar:hover {
+	color: @error_color;
+}
+
+/* GTK controls must follow the application's live palette even when the
+ * desktop theme supplies dark widgets for a light application window. */
+.elim-app button:not(:checked):not(.suggested-action):not(.close):not(.minimize):not(.maximize):not(.flat):not(.elim-pill):not(.il-tab):not(.il-strong):not(.il-origbtn):not(.highlight-swatch),
+.elim-app entry,
+.elim-app spinbutton,
+.elim-app dropdown > button {
+    background-image: none;
+    background-color: @elim_menu_bg;
+    color: @elim_ink;
+    border: 1px solid @elim_line;
+    box-shadow: none;
+}
+.elim-app button:not(:checked):not(.suggested-action):not(.close):not(.minimize):not(.maximize):not(.flat):not(.elim-pill):not(.il-tab):not(.il-strong):not(.il-origbtn):not(.highlight-swatch):hover {
+    background-color: alpha(@elim_navy, 0.12);
+}
+.elim-app button:not(:checked):not(.suggested-action):not(.close):not(.minimize):not(.maximize):not(.flat):not(.elim-pill):not(.il-tab):not(.il-strong):not(.il-origbtn):not(.highlight-swatch):disabled,
+.elim-app entry:disabled {
+    color: alpha(@elim_ink, 0.45);
+}
+.elim-app button:checked,
+.elim-app button.suggested-action {
+    background-image: none;
+    background-color: @elim_menu_sel;
+    color: @elim_menu_sel_fg;
+}
+.elim-app checkbutton {
+    color: @elim_ink;
+}
+.elim-app checkbutton check {
+    background-image: none;
+    background-color: @elim_menu_bg;
+    border: 1px solid alpha(@elim_ink, 0.35);
+    border-radius: 4px;
+    color: @elim_ink;
+}
+.elim-app checkbutton check:checked {
+    background-color: @elim_menu_sel;
+    border-color: @elim_menu_sel;
+    color: @elim_menu_sel_fg;
+}
+.elim-app listview {
+    background-color: @elim_paper;
+    color: @elim_ink;
+}
+.elim-app listview > row:selected {
+    background-color: @elim_menu_sel;
+    color: @elim_menu_sel_fg;
+}
+.elim-app button:focus-visible,
+.elim-app dropdown:focus-visible,
+.elim-app checkbutton:focus-visible {
+    outline: 2px solid @elim_navy;
+    outline-offset: 2px;
+}
+.elim-preferences .elim-preferences-sidebar {
+    background-color: @elim_panel;
+    border-right: 1px solid @elim_line;
+    padding: 12px 6px;
+}
+.elim-preferences-sidebar > row {
+    padding: 6px 8px;
+    border-radius: 6px;
+}
+.elim-preferences-page > label:first-child {
+    font-size: 15pt;
+    margin-bottom: 12px;
+}
+.elim-preferences-page checkbutton {
+    padding: 5px 0;
+}
+.elim-app.dialog > box {
+    background-color: @elim_chrome;
+    color: @elim_ink;
+}
+.elim-app .dialog-action-area {
+    padding: 12px;
+    border-top: 1px solid @elim_line;
+}
+
+/* Flat header actions and inactive tabs also need application ink: a dark
+ * system theme otherwise leaves white icons and labels on light chrome. */
+.elim-app button.flat,
+.elim-app notebook > header tab {
+    color: @elim_ink;
+}
+.elim-app button.flat:disabled {
+    color: alpha(@elim_ink, 0.45);
+}
+.elim-app button.elim-pill:not(:checked) {
+    background-image: none;
+    background-color: alpha(@elim_navy, 0.08);
+    border: 1px solid alpha(@elim_navy, 0.25);
+    color: @elim_ink;
+}
+.elim-app button.elim-pill:not(:checked):hover {
+    background-color: alpha(@elim_navy, 0.16);
+}
+
+/* New passage: a compact square, with a palette-based hover instead of the
+ * desktop theme's dark flat-button background. Keep the hit area stationary. */
+.elim-app .elim-tabstrip button.elim-new-tab {
+    background-image: none;
+    background-color: transparent;
+    color: @elim_ink;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    box-shadow: none;
+    min-width: 28px;
+    min-height: 28px;
+    padding: 4px;
+    margin: 4px 8px 4px 2px;
+    transition: background-color 120ms ease-in-out;
+}
+.elim-app .elim-tabstrip button.elim-new-tab:hover {
+    background-color: alpha(@elim_navy, 0.12);
+    border-color: alpha(@elim_navy, 0.20);
+}
+.elim-app .elim-tabstrip button.elim-new-tab:active {
+    background-color: alpha(@elim_navy, 0.22);
+    border-color: alpha(@elim_navy, 0.30);
+}
+.elim-app .elim-tabstrip button.elim-new-tab:disabled {
+    background-color: transparent;
+    border-color: transparent;
+    color: alpha(@elim_ink, 0.45);
+}
+
+/* Main and floating reading headers share every action state, including
+ * toggles, menu-button children, zoom and generated window controls. */
+.elim-app headerbar.elim-header button,
+.elim-app .elim-reading-strip button {
+    background-image: none;
+    background-color: transparent;
+    color: @elim_ink;
+    border: 1px solid transparent;
+    box-shadow: none;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+    transition: background-color 120ms ease-in-out;
+}
+.elim-app headerbar.elim-header button:hover,
+.elim-app .elim-reading-strip button:hover {
+    background-color: alpha(@elim_navy, 0.12);
+    border-color: alpha(@elim_navy, 0.20);
+}
+.elim-app headerbar.elim-header button:checked,
+.elim-app .elim-reading-strip button:checked {
+    background-color: alpha(@elim_navy, 0.16);
+    border-color: alpha(@elim_navy, 0.24);
+}
+.elim-app headerbar.elim-header button:checked:hover,
+.elim-app .elim-reading-strip button:checked:hover {
+    background-color: alpha(@elim_navy, 0.22);
+    border-color: alpha(@elim_navy, 0.30);
+}
+.elim-app headerbar.elim-header button:active,
+.elim-app .elim-reading-strip button:active,
+.elim-app headerbar.elim-header button.keyboard-activating,
+.elim-app .elim-reading-strip button.keyboard-activating,
+.elim-app headerbar.elim-header button:checked:active,
+.elim-app .elim-reading-strip button:checked:active {
+    background-color: alpha(@elim_navy, 0.28);
+    border-color: alpha(@elim_navy, 0.34);
+}
+.elim-app headerbar.elim-header button:focus-visible,
+.elim-app .elim-reading-strip button:focus-visible {
+    outline: 2px solid @elim_navy;
+    outline-offset: 2px;
+}
+/* The GTK4 menu bar uses item nodes, whereas older menu bars used menuitem. */
+.elim-app headerbar.elim-header menubar > item {
+    background-color: transparent;
+    color: @elim_ink;
+    border-radius: 8px;
+    box-shadow: none;
+    transition: background-color 120ms ease-in-out;
+}
+.elim-app headerbar.elim-header menubar > item:hover,
+.elim-app headerbar.elim-header menubar > item:selected {
+    background-color: alpha(@elim_navy, 0.12);
+    color: @elim_ink;
+    box-shadow: inset 0 0 0 1px alpha(@elim_navy, 0.20);
+}
+.elim-app headerbar.elim-header windowcontrols button {
+    min-width: 28px;
+    min-height: 28px;
+    padding: 4px;
+    border-radius: 8px;
+}
+.elim-app headerbar.elim-header windowcontrols button.close:hover {
+    background-color: alpha(#D04B4B, 0.14);
+    border-color: alpha(#D04B4B, 0.28);
+}
+.elim-app headerbar.elim-header windowcontrols button.close:active {
+    background-color: alpha(#D04B4B, 0.24);
+    border-color: alpha(#D04B4B, 0.40);
+}
+/* GTK can paint a second hover circle on the child image. The button is the
+ * sole feedback surface for all header icons, including minimize/maximize. */
+.elim-app headerbar.elim-header button image,
+.elim-app .elim-reading-strip button image {
+    background-image: none;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    -gtk-icon-shadow: none;
+    color: inherit;
+}
+.elim-app headerbar.elim-header windowcontrols button > image {
+    border-radius: 0;
+    min-width: 16px;
+    min-height: 16px;
+    padding: 0;
+}
+.elim-app headerbar.elim-header button:disabled,
+.elim-app .elim-reading-strip button:disabled,
+.elim-app headerbar.elim-header button:disabled:hover,
+.elim-app .elim-reading-strip button:disabled:hover,
+.elim-app headerbar.elim-header button:disabled:checked,
+.elim-app .elim-reading-strip button:disabled:checked,
+.elim-app headerbar.elim-header windowcontrols button.close:disabled:hover,
+.elim-app headerbar.elim-header menubar > item:disabled {
+    background-color: transparent;
+    border-color: transparent;
+    color: alpha(@elim_ink, 0.45);
+    box-shadow: none;
+}

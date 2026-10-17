@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * find_dialog.c
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team

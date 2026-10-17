@@ -206,6 +206,8 @@ static WkHtml *active_zoom_surface = NULL;
 static GList *live_panes = NULL;
 static WkHtmlZoomObserver zoom_observer = NULL;
 static gpointer zoom_observer_data = NULL;
+static gint responsive_zoom_percent[ZOOM_SURFACE_COUNT];
+static gint responsive_zoom_min_percent[ZOOM_SURFACE_COUNT];
 
 static void
 notify_zoom_observer(void)
@@ -2281,6 +2283,11 @@ apply_surface_style(WkHtml *html)
 
 	if (!priv->css)
 		return;
+	if (priv->zoom_surface >= 0 && priv->zoom_surface < ZOOM_SURFACE_COUNT &&
+	    responsive_zoom_percent[priv->zoom_surface] > 0) {
+		zoom = MAX(responsive_zoom_min_percent[priv->zoom_surface],
+			   zoom * responsive_zoom_percent[priv->zoom_surface] / 100);
+	}
 	css = g_strdup_printf(
 	    "textview { background-color: %s; color: %s; font-size: %d%%; } "
 	    "textview text { background-color: %s; color: %s; }",
@@ -2356,6 +2363,14 @@ static void
 attach_buffer(WkHtmlPrivate *priv, GtkTextBuffer *buf, GPtrArray *kids)
 {
 	guint i;
+	GtkTextBuffer *previous = gtk_text_view_get_buffer(priv->view);
+
+	/* Retire the displayed lines while their buffer is still attached.
+	 * Rapid passage/module changes can otherwise leave GTK's line-display
+	 * cache holding lines from a freed buffer until the next snapshot.
+	 * Build the new document offline as before; only clear the retired one. */
+	if (previous != buf)
+		gtk_text_buffer_set_text(previous, "", 0);
 
 	gtk_text_view_set_buffer(priv->view, buf);
 	g_object_unref(buf);	/* the view holds the reference now */
@@ -2897,6 +2912,24 @@ wk_html_zoom_active_reset(void)
 			       ZOOM_PERCENT_DEFAULT);
 	apply_zoom_to_surface(active_zoom_surface);
 	notify_zoom_observer();
+}
+
+void
+wk_html_set_responsive_zoom(ZoomSurface surface, gint scale_percent,
+			    gint minimum_effective_percent)
+{
+	if (surface < 0 || surface >= ZOOM_SURFACE_COUNT)
+		return;
+	responsive_zoom_percent[surface] = scale_percent <= 0
+		? 0 : CLAMP(scale_percent, 1, 100);
+	responsive_zoom_min_percent[surface] = MAX(0, minimum_effective_percent);
+	for (GList *l = live_panes; l; l = l->next) {
+		WkHtml *pane = l->data;
+		if (pane->priv->zoom_surface != surface)
+			continue;
+		capture_zoom_anchor(pane);
+		apply_surface_style(pane);
+	}
 }
 
 GtkTextView *
@@ -4155,6 +4188,13 @@ wk_html_cancel_anchor_jump(WkHtml *html)
 		html->priv->timeout = 0;
 	}
 	html->priv->jump_tries = 0;
+}
+
+gboolean
+wk_html_anchor_jump_pending(WkHtml *html)
+{
+	g_return_val_if_fail(WK_HTML_IS_HTML(html), FALSE);
+	return html->priv->timeout != 0;
 }
 
 void

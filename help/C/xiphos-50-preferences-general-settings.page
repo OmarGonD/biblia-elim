@@ -11,7 +11,7 @@
     <revision pkgversion="4.5.0" date="2026-08-10" status="draft"/>
 
     <title type='link' role="trail"></title>
-    <title type='text'>Xiphos</title>
+    <title type='text'>Biblia Elim</title>
 
     <credit type="author" its:translate="no">
       <name>Andy Piper</name>
@@ -40,27 +40,27 @@
   <media style="image" mime="image/png"
   	 src="figures/preferences_general-misc.png" />
 
-  <p>If you wish <app>Xiphos</app> to display its interface in a language
+  <p>If you wish <app>Biblia Elim</app> to display its interface in a language
   other than the default, you may select one here.  A restart will be
   required, so that the locale can be initialized.</p>
 
   <p>If you enable <gui>Default Dictionary</gui>, then that named dictionary
   (chosen on the <gui>Special</gui> tab, see
   <link xref="xiphos-53-preferences-modules#xiphos-modules-special"/>) module
-  will always be used when double-clicking a word anywhere in <app>Xiphos</app>.</p>
+  will always be used when double-clicking a word anywhere in <app>Biblia Elim</app>.</p>
 
   <p>Certain dictionary-style modules are <gui>Daily Devotionals</gui> whose
   keys are numerically in the form "Month.Day".  If you have such a module
   installed and it has been selected as your preferred devotional (also on the
-  <gui>Special</gui> tab), then you can ask that <app>Xiphos</app> display
+  <gui>Special</gui> tab), then you can ask that <app>Biblia Elim</app> display
   today's selection during startup, and it also populates the
   <link xref="xiphos-11-interface#xiphos-devotional">Devotional tab</link>.</p>
 
-  <p>If you enable <gui>Resize images</gui>, <app>Xiphos</app> will
+  <p>If you enable <gui>Resize images</gui>, <app>Biblia Elim</app> will
   automatically resize image content in commentaries, general books, and
   dictionaries so as to fit the subwindow which contains them.</p>
 
-  <p><gui>Highlight current verse</gui>, if enabled, will cause <app>Xiphos
+  <p><gui>Highlight current verse</gui>, if enabled, will cause <app>Biblia Elim
   </app> to substitute mere current verse colorization with a high-contrast
   alternate color scheme on the current verse.  The colors used may be chosen
   from the color selector pane (see below).</p>

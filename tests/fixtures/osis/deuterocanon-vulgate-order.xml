@@ -25,6 +25,31 @@
         <verse osisID="Esth.1.1">Ester uno uno.</verse>
       </chapter>
     </div>
+    <div type="book" osisID="1Esd">
+      <chapter osisID="1Esd.1">
+        <verse osisID="1Esd.1.1">Esdras griego uno.</verse>
+      </chapter>
+    </div>
+    <div type="book" osisID="2Esd">
+      <chapter osisID="2Esd.1">
+        <verse osisID="2Esd.1.1">Esdras segundo uno.</verse>
+      </chapter>
+    </div>
+    <div type="book" osisID="PrMan">
+      <chapter osisID="PrMan.1">
+        <verse osisID="PrMan.1.1">Oración de Manasés.</verse>
+      </chapter>
+    </div>
+    <div type="book" osisID="Ps151">
+      <chapter osisID="Ps151.1">
+        <verse osisID="Ps151.1.1">Salmo ciento cincuenta y uno.</verse>
+      </chapter>
+    </div>
+    <div type="book" osisID="1En">
+      <chapter osisID="1En.1">
+        <verse osisID="1En.1.1">Texto sintético de prueba para 1 Enoc.</verse>
+      </chapter>
+    </div>
     <div type="book" osisID="Matt">
       <chapter osisID="Matt.1">
         <verse osisID="Matt.1.1">Mateo uno uno.</verse>

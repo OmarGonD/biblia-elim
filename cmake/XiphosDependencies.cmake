@@ -71,6 +71,12 @@ if(WIN32)
     "icu-i18n"
     "libssh2"
     )
+elseif(APPLE)
+  pkg_check_modules(Core REQUIRED IMPORTED_TARGET
+    "glib-2.0"
+    "gmodule-2.0"
+    "icu-i18n"
+    )
 else()
   pkg_check_modules(Core REQUIRED IMPORTED_TARGET
     "glib-2.0"

@@ -1,9 +1,9 @@
-# Biblia Elim
+# Ministerios Elim
 
 Estudio bíblico de [Iglesia Elim](https://github.com/OmarGonD) para Linux,
 con interfaz en inglés, español, francés, coreano, chino y portugués.
 
-Es un fork de [Xiphos](https://github.com/crosswire/xiphos) (CrossWire / The SWORD Project): GTK nativo, sin reescribir el lector en WebKit.
+Aplicación de estudio bíblico de Ministerios Elim, basada en el motor y los módulos de The SWORD Project, con interfaz GTK nativa.
 
 ## Qué incluye
 
@@ -27,15 +27,22 @@ Es un fork de [Xiphos](https://github.com/crosswire/xiphos) (CrossWire / The SWO
 
 ## Compilar e instalar
 
-Dependencias típicas de Xiphos (GTK3, Sword, libxml2, CMake). Desde la raíz del repo:
+Dependencias típicas (GTK3, Sword, libxml2, CMake). Desde la raíz del repo:
 
 ```bash
-cmake -S . -B build -DEPUB=OFF -DHELP=OFF
+cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo -DEPUB=OFF -DHELP=OFF
 cmake --build build --target biblia-elim -j$(nproc)
 ./scripts/install-biblia-elim.sh
 ```
 
 El instalador copia el binario a `~/.local/bin/biblia-elim` y el `.desktop` al menú de aplicaciones.
+
+## Android
+
+La aplicación nativa para Android permite leer capítulos, buscar texto e
+importar módulos SQLite. Cada compilación puede incluir las biblias instaladas
+en Linux para que Android reciba sus versiones actualizadas. Consulta
+[`android/README.md`](android/README.md) para compilarla.
 
 ## Idioma de la interfaz
 
@@ -60,24 +67,20 @@ explicaciones gramaticales. El texto de cada Biblia, las notas personales y
 las fuentes de estudio conservan su idioma original.
 
 Los mensajes de la interfaz se extraen con
-`python3 tools/i18n_catalogs.py --extract po/xiphos.pot`; las traducciones
+`python3 tools/i18n_catalogs.py --extract po/biblia-elim.pot`; las traducciones
 añadidas están en `po/elim/` y en los catálogos gettext de `po/`.
 Construir `biblia-elim` recompila y prepara esos catálogos para ejecutarlo
 directamente desde `build/` o instalarlos con el script habitual.
 
 ## Origen
 
-El historial de git incluye el de Xiphos. El remoto `upstream` apunta a CrossWire:
+El código conserva las atribuciones de copyright y licencia de sus componentes originales.
 
-```bash
-git remote add upstream https://github.com/crosswire/xiphos.git
-```
+Licencia: GPL-2.0-or-later. Léxico Strong 1890 y glosas Reina-Valera 1909: dominio público. Las fuentes históricas de «Jesús en la historia» son textos de la antigüedad, de dominio público; sus traducciones al castellano se hicieron para esta aplicación y salen con ella bajo la GPL.
 
-Licencia: GPL-2.0-or-later, igual que Xiphos. Léxico Strong 1890 y glosas Reina-Valera 1909: dominio público. Las fuentes históricas de «Jesús en la historia» son textos de la antigüedad, de dominio público; sus traducciones al castellano se hicieron para esta aplicación y salen con ella bajo la GPL.
+## Compilación desde fuentes
 
-## Construir Xiphos (documentación original)
-
-Véase `INSTALL.md` para el proceso de compilación heredado.
+Véase `INSTALL.md` para instrucciones de compilación e instalación.
 
 ## Módulos SQLite de Biblia
 
@@ -173,3 +176,12 @@ de una base SQLite **local de solo lectura**; la app no necesita conexión a int
 - **Clave de una ficha:** `ref_tisch` (numeración del módulo Tisch) + `posicion` de la palabra en el versículo + `strong`.
   El clic en una palabra del interlineal lleva la posición; sin posición solo se resuelve un Strong único en el versículo.
 - Atribución de los datos del texto griego: STEPBible.org, Tyndale House, Cambridge (CC BY 4.0); ver `data/sources/tagnt/SOURCE.md`.
+
+### Devocional diario incluido
+
+La instalación incluye un devocional Elim sin conexión en los ocho idiomas de
+la interfaz. `scripts/install-biblia-elim.sh --language=es` elige el idioma del
+perfil nuevo; para paquetes CMake, `-DBIBLIA_ELIM_INSTALL_LANGUAGE=es`.
+Las preferencias existentes tienen prioridad y un devocional externo elegido
+por el usuario se conserva. La edición Elim predeterminada sigue el idioma de
+la interfaz. [Contenido y regeneración](scripts/devotional/README.md).

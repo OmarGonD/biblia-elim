@@ -23,16 +23,13 @@
 #FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 #OTHER DEALINGS IN THE SOFTWARE.
 
-function makeBMP { convert $1 PPM:- | convert PPM:- $2; }
+function makeBMP { magick "$1" -background white -alpha remove -alpha off -depth 8 BMP3:"$2"; }
 
-#converted via PPM format to remove gAMA and cHRM chunks so resulting 
-#BMP is an older BMP3 instead of BMP4, as seems to be required by NSIS.
-#-- from http://www.cit.gu.edu.au/~anthony/info/graphics/imagemagick.hints
+# Write BMP3 files explicitly because NSIS does not handle newer BMP variants.
 
 makeBMP header.svg header.bmp
 makeBMP header-r.svg header-r.bmp
 cp header.bmp header-uninstall.bmp
 cp header-r.bmp header-uninstall-r.bmp
-makeBMP wizard.png wizard.bmp
+makeBMP wizard.svg wizard.bmp
 cp wizard.bmp wizard-uninstall.bmp
-

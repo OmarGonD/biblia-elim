@@ -11,7 +11,7 @@
     <revision pkgversion="4.1.0" date="2018-05-28" status="candidate"/>
 
     <title type='link' role="trail"></title>
-    <title type='text'>Xiphos</title>
+    <title type='text'>Biblia Elim</title>
 
     <credit type="author" its:translate="no">
       <name>Andy Piper</name>
@@ -49,7 +49,7 @@
     http://www.crosswire.org/wiki/Module_Repositories</link></p>
 
     <p>The list of standard repositories is maintained at CrossWire.
-    <app>Xiphos</app> normally auto-synchronizes with that list one time, when
+    <app>Biblia Elim</app> normally auto-synchronizes with that list one time, when
     the user first puts the Module Manager to use. The list may change, as new
     repositories come into existence; occasional re-synchronization with the
     list is suggested, which is accomplished by clicking <gui>Load Standard
@@ -61,7 +61,7 @@
     <media style="image" mime="image/png" src="figures/sword_config.png" />
 
     <p>After you have selected your Install Source, click the <gui>Refresh</gui>
-    button to cause <app>Xiphos</app> to find the module summary available from
+    button to cause <app>Biblia Elim</app> to find the module summary available from
     that source before moving on.</p>
 
     <p>Take note of the "Install Destination". In most cases, you will have a
@@ -74,7 +74,7 @@
       install in your personal area, under ~/.sword. If you run as root, or
       change permissions on the shared directory, you will also be able to
       install modules for all users, typically in /usr/share/sword. There have
-      been some requests for <app>Xiphos</app> to provide a means by which an
+      been some requests for <app>Biblia Elim</app> to provide a means by which an
       ordinary (non-root) user could start the program, gain temporary write
       access to the system area while installing modules, and then revoke that
       access after installation is complete.
@@ -82,7 +82,7 @@
       given the different superuser management schemes employed by various Linux
       distributions. Therefore, at this time there are no ongoing plans to try
       to solve this problem, and users are advised to enable write access to the
-      system area outside <app>Xiphos</app>.</p>
+      system area outside <app>Biblia Elim</app>.</p>
     </section>
 
     <section id="destination-xp">

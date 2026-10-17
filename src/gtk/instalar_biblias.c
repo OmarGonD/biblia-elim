@@ -1,5 +1,5 @@
 /*
- * Biblia Elim — diálogo simple para descargar e instalar Biblias.
+ * Ministerios Elim — diálogo simple para descargar e instalar Biblias.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -629,6 +629,11 @@ on_filter_changed(GtkWidget *w, gpointer data)
  * propietarios: esos requieren su propio conversor, que esta app no
  * implementa.
  */
+
+#ifndef S_ISLNK
+/* Windows (MinGW) no tiene enlaces simbólicos en stat(). */
+#define S_ISLNK(m) 0
+#endif
 
 static void
 rm_rf(const char *path)

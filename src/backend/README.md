@@ -291,7 +291,11 @@ entry through the neutral backend API. Footnote callers `+`/`-` are displayed
 as generated per-verse numbers, while explicit callers are preserved. Cross
 reference targets are shown in source order and only resolved targets are
 navigable; unresolved display text remains selectable. No marker is inserted
-into the stored verse text.
+into the stored verse text. OSIS cross-reference ranges with complete explicit
+endpoints are available as neutral start/end pairs; abbreviated or malformed
+ranges remain display-only and are never completed by inference. A complete
+range additionally exposes only the actual imported verses in its inclusive
+module-order interval when both endpoints exist and the interval is non-empty.
 
 `biblia-osis-import` supports the initial Bible subset of OSIS and converges
 through the same SQLite v1 writer as USFM (`source_format=osis`). OSIS parsing

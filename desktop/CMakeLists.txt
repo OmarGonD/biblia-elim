@@ -23,37 +23,34 @@ if (UNIX)
 
   add_custom_target(desktop)
 
-  # xiphos.desktop file
-  # describes how xiphos program is to be launched and how it appears in menus
-  message(STATUS "Configuring ${PROJECT_NAME}.desktop file")
-  # copy xiphos.desktop.in
-  configure_file (${PROJECT_NAME}.desktop.in ${PROJECT_NAME}.desktop.in)
-  # add translations
+  # Ministerios Elim launcher entry and its translated display labels.
+  message(STATUS "Configuring biblia-elim.desktop file")
   if (GETTEXT_FOUND)
-    add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.desktop
-      COMMAND ${GETTEXT_MSGFMT_EXECUTABLE} --desktop --template=${PROJECT_NAME}.desktop.in -d ${PROJECT_SOURCE_DIR}/po -o ${PROJECT_NAME}.desktop
-      COMMAND ${DESKTOP_FILE_VALIDATE} ${PROJECT_NAME}.desktop
+    add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/biblia-elim.desktop
+      COMMAND ${GETTEXT_MSGFMT_EXECUTABLE} --desktop
+              --template=${CMAKE_CURRENT_SOURCE_DIR}/biblia-elim.desktop
+              -d ${PROJECT_SOURCE_DIR}/po -o biblia-elim.desktop
+      COMMAND ${DESKTOP_FILE_VALIDATE} biblia-elim.desktop
       WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-      COMMENT "Configuring ${PROJECT_NAME}.desktop file"
+      COMMENT "Configuring biblia-elim.desktop file"
       )
-
-    # install xiphos.desktop file
-    install (FILES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.desktop
-      DESTINATION  ${CMAKE_INSTALL_DATADIR}/applications
-      COMPONENT data
-      )
-
+    install (FILES ${CMAKE_CURRENT_BINARY_DIR}/biblia-elim.desktop
+      DESTINATION ${CMAKE_INSTALL_DATADIR}/applications
+      COMPONENT data)
     add_custom_target(desktop-entry
-      DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.desktop
-      )
+      DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/biblia-elim.desktop)
     add_dependencies(desktop desktop-entry)
-  endif (GETTEXT_FOUND)
+  else ()
+    install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/biblia-elim.desktop
+      DESTINATION ${CMAKE_INSTALL_DATADIR}/applications
+      COMPONENT data)
+  endif ()
 
    # Icon
    # for use in the programs menu
    # TODO: on uninstall run gtk-update-icon-cache
    # install icon
-  install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/biblia-elim.svg
+  install (FILES ${PROJECT_SOURCE_DIR}/pixmaps/ministerios-elim.svg
     DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/hicolor/scalable/apps
     COMPONENT data
     )
@@ -82,25 +79,25 @@ if (UNIX)
 
 
 
-  # xiphos.appdata.xml
+  # Ministerios Elim AppStream metadata.
   # allows the user to look at screenshots and a long description of the application
   # before it is installed on a Linux system.
   message (STATUS "Configuring the AppData metadata file")
-  # add translations and validate xiphos.appdata.xml
-  add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.appdata.xml
-    COMMAND ${GETTEXT_MSGFMT_EXECUTABLE} --xml --template "${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.appdata.xml" -d "${PROJECT_SOURCE_DIR}/po" -o "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.appdata.xml"
-    COMMAND ${APPSTREAMCLI} validate --no-net ${PROJECT_NAME}.appdata.xml > validate.timestamp
+  add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/biblia-elim.metainfo.xml
+    COMMAND ${GETTEXT_MSGFMT_EXECUTABLE} --xml
+            --template "${CMAKE_CURRENT_SOURCE_DIR}/biblia-elim.metainfo.xml"
+            -d "${PROJECT_SOURCE_DIR}/po" -o biblia-elim.metainfo.xml
+    COMMAND ${APPSTREAMCLI} validate --no-net biblia-elim.metainfo.xml > validate.timestamp
     WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-    COMMENT "Configuring the AppData metadata file"
+    COMMENT "Configuring Ministerios Elim AppStream metadata"
     )
-  # install file
-  install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.appdata.xml
+  install(FILES ${CMAKE_CURRENT_BINARY_DIR}/biblia-elim.metainfo.xml
     DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/metainfo
     COMPONENT data
     )
 
   add_custom_target(appdata
-    DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.appdata.xml
+    DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/biblia-elim.metainfo.xml
     )
   add_dependencies(desktop appdata)
 
@@ -108,23 +105,19 @@ if (UNIX)
   # unix man pages
   # TODO: make man pages translatable
   message (STATUS "Building man pages")
-  # configure xiphos man page
-  configure_file (${PROJECT_NAME}.1.in ${PROJECT_NAME}.1)
-  # install xiphos man pages
+  configure_file (biblia-elim.1.in biblia-elim.1)
   install (
     FILES
-    ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.1
+    ${CMAKE_CURRENT_BINARY_DIR}/biblia-elim.1
     DESTINATION ${CMAKE_INSTALL_MANDIR}/man1
     COMPONENT data
     )
 
   if (HAVE_DBUS)
-    # configure xiphos-nav man page
-    configure_file (${PROJECT_NAME}-nav.1.in ${PROJECT_NAME}-nav.1)
-    # install xiphos-nav man pages
+    configure_file (biblia-elim-nav.1.in biblia-elim-nav.1)
     install (
       FILES
-      ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}-nav.1
+      ${CMAKE_CURRENT_BINARY_DIR}/biblia-elim-nav.1
       DESTINATION ${CMAKE_INSTALL_MANDIR}/man1
       COMPONENT data
       )

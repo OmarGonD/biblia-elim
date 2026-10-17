@@ -22,6 +22,8 @@
 #define _LISTS_H
 
 #ifdef __cplusplus
+/* Fuera de extern "C": el gwin32.h de glib declara una plantilla C++. */
+#include <gtk/gtk.h>
 extern "C" {
 #endif
 

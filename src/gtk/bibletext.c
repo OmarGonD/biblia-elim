@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * bibletext.c - gui for Bible text modules
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -57,6 +57,7 @@
 #include "main/lists.h"
 #include "main/navbar_versekey.h"
 #include "main/reading_focus.h"
+#include "main/reading_window.h"
 #include "main/wheel_scroll.h"
 #include "main/sword.h"
 #include "main/url.hh"
@@ -116,6 +117,8 @@ _popupmenu_requested_cb(XiphosHtml *html, gchar *uri, gpointer user_data)
 
 #define DEFAULT_HIGHLIGHT_COLOR "#FFEB3B"
 
+#include "gui/selection_toolbar.h"
+
 static const gchar *highlight_palette[] = {
 	"#FFEB3B",
 	"#A5D6A7",
@@ -133,6 +136,7 @@ static GtkWidget *highlight_note_popover = NULL;
 static GtkWidget *highlight_color_button = NULL;
 static GtkWidget *highlight_color_da = NULL;
 static GtkWidget *highlight_note_button = NULL;
+static GtkWidget *highlight_delete_button = NULL;
 static GtkWidget *highlight_note_link_box = NULL;
 static GtkTextView *highlight_note_textview = NULL;
 static gchar *current_highlight_label = NULL;
@@ -279,6 +283,7 @@ commit_pending_highlight(const gchar *color)
 
 	g_free(current_highlight_label);
 	current_highlight_label = gid;
+	gtk_widget_set_visible(highlight_delete_button, gid != NULL);
 	pending_color = use_color;
 	set_circle_color(highlight_color_da, use_color);
 	if (highlight_color_button)
@@ -640,6 +645,18 @@ point_toolbar_at(const GdkRectangle *rect)
 }
 
 static void
+on_highlight_toolbar_closed(GtkPopover *popover, gpointer data)
+{
+	(void)popover;
+	(void)data;
+	if (highlight_color_popover)
+		gtk_popover_popdown(GTK_POPOVER(highlight_color_popover));
+	if (highlight_note_popover)
+		gtk_popover_popdown(GTK_POPOVER(highlight_note_popover));
+	clear_pending_selection();
+}
+
+static void
 ensure_highlight_toolbar(void)
 {
 	if (highlight_toolbar_popover)
@@ -648,12 +665,16 @@ ensure_highlight_toolbar(void)
 	/* on the pane, not on the text view: GtkTextView positions only its
 	 * own popovers */
 	highlight_toolbar_popover = gui_popover_new(widgets.html_text);
+	selection_toolbar_install(highlight_toolbar_popover);
+	g_signal_connect(highlight_toolbar_popover, "closed",
+			 G_CALLBACK(on_highlight_toolbar_closed), NULL);
 	gtk_popover_set_position(GTK_POPOVER(highlight_toolbar_popover), GTK_POS_TOP);
 
 	GtkWidget *box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 2);
 	gui_widget_set_margins(box, 4);
 
 	GtkWidget *del_btn = gtk_button_new_from_icon_name("edit-delete-symbolic");
+	highlight_delete_button = del_btn;
 	gtk_widget_set_tooltip_text(del_btn, _("Eliminar"));
 	gtk_button_set_has_frame(GTK_BUTTON(del_btn), FALSE);
 	g_signal_connect(del_btn, "clicked", G_CALLBACK(on_highlight_delete_clicked), NULL);
@@ -729,6 +750,7 @@ gui_handle_text_selection(const gchar *full_text, GList *segments,
 	}
 
 	ensure_highlight_toolbar();
+	gtk_widget_set_visible(highlight_delete_button, current_highlight_label != NULL);
 	color = current_highlight_label
 		    ? highlight_get_color(current_highlight_label)
 		    : NULL;
@@ -827,6 +849,7 @@ show_hl_toolbar(const gchar *id, const gchar *text, GdkRectangle *rect)
 	current_highlight_label = g_strdup(id);
 	current_highlight_text = g_strdup(text);
 	ensure_highlight_toolbar();
+	gtk_widget_set_visible(highlight_delete_button, current_highlight_label != NULL);
 	if (current_highlight_label) {
 		clear_pending_selection();
 		color = highlight_get_color(current_highlight_label);
@@ -1391,7 +1414,14 @@ static gdouble window_restore_last_target = -1.0;
 static gdouble window_restore_last_upper = -1.0;
 static gboolean window_restore_frozen = FALSE;
 static gint64 window_restore_started = 0;
+static gboolean initial_window_expanding = FALSE;
 static void schedule_window_recenter(void);
+
+gboolean
+gui_bibletext_window_pending(void)
+{
+	return window_tick_id != 0 || window_restore_pending;
+}
 /* bottom margin wk-html gives the view, before any reading reserve */
 static gint reading_reserve_base = -1;
 /* the reserve now applied below the last paragraph (see
@@ -2206,6 +2236,11 @@ finish_window_restore(GtkTextView *view, gboolean converged)
 		window_restore_frozen = FALSE;
 	}
 	window_restore_pending = FALSE;
+	if (initial_window_expanding) {
+		panel_load_debug("app", converged ? "FIRST_READING_WINDOW_READY"
+						 : "FIRST_READING_WINDOW_FAILED", NULL);
+		initial_window_expanding = FALSE;
+	}
 
 	/* the focus band, on the new buffer */
 	focus_anchor = reading_focus_id ? g_strdup_printf("%d", reading_focus_id)
@@ -2368,6 +2403,10 @@ on_window_tick(GtkWidget *widget, GdkFrameClock *clock, gpointer data)
 		window_tick_id = 0;
 		return G_SOURCE_REMOVE;
 	}
+	/* Let the initial verse jump settle before preserving the viewport.
+	 * Otherwise the restore would cancel its remaining layout retries. */
+	if (wk_html_anchor_jump_pending(WK_HTML(widgets.html_text)))
+		return G_SOURCE_CONTINUE;
 	value = gtk_adjustment_get_value(vadj);
 	/* A touchpad, the scrollbar or GTK's kinetic scrolling still moving
 	 * the view would fight the restored position: wait for a still frame.
@@ -2600,16 +2639,24 @@ on_bible_key_press(GtkWidget *widget, GuiKeyEvent *event, gpointer user_data)
 static void
 on_first_chapter_draw(GtkWidget *view, gpointer data)
 {
+	extern int main_rendered_first_chapter;
 	GtkTextBuffer *buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(view));
 
 	(void)data;
-	if (buffer && gtk_text_buffer_get_char_count(buffer) > 200) {
+	if (gtk_widget_get_mapped(view) && main_rendered_first_chapter > 0 &&
+	    buffer && gtk_text_buffer_get_char_count(buffer) > 0) {
 		gchar *detail = g_strdup_printf("width=%d",
 						gtk_widget_get_width(view));
 		panel_load_debug("app", "FIRST_CHAPTER_PAINTED", detail);
 		g_free(detail);
 		g_signal_handlers_disconnect_by_func(view,
 			G_CALLBACK(on_first_chapter_draw), NULL);
+		reading_window_first_painted();
+		initial_window_expanding =
+			main_bible_window_needs_recenter(settings.currentverse);
+		if (!initial_window_expanding)
+			panel_load_debug("app", "FIRST_READING_WINDOW_READY", NULL);
+		schedule_window_recenter();
 	}
 }
 
@@ -2640,9 +2687,8 @@ gui_setup_text_selection_bridge(void)
 		}
 	}
 
-	if (panel_load_debug_enabled())
-		g_signal_connect(view, "after-paint",
-				 G_CALLBACK(on_first_chapter_draw), NULL);
+	g_signal_connect(view, "after-paint",
+			 G_CALLBACK(on_first_chapter_draw), NULL);
 
 	vadj = gtk_scrollable_get_vadjustment(GTK_SCROLLABLE(view));
 	if (vadj) {

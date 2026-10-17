@@ -25,12 +25,13 @@ function build_sword {
     export STRIP="${arch}-w64-mingw32-strip"
     export LD="${arch}-w64-mingw32-ld"
     export CFLAGS="-I/usr/${arch}-w64-mingw32/sys-root/mingw/include -I$(pwd)/../sword-1.9.0/include"
-    export CXXFLAGS="${CXXFLAGS} ${CFLAGS}"
+    # SWORD 1.9.0 no compila en C++20 (GCC 16 lo usa por defecto): operator<<(wchar_t*) está borrado.
+    export CXXFLAGS="${CXXFLAGS} ${CFLAGS} -std=gnu++17"
+    # GCC 14+ trata las declaraciones implícitas como error; SWORD 1.9.0 usa _mkdir sin declararla.
+    export CFLAGS="${CFLAGS} -Wno-error=implicit-function-declaration"
     export LDFLAGS="-L/usr/${arch}-w64-mingw32/sys-root/mingw/lib"
     export PATH="/usr/${arch}-w64-mingw32/sys-root/mingw/bin:${PATH}"
     export PKG_CONFIG_PATH="/usr/${arch}-w64-mingw32/sys-root/mingw/lib/pkgconfig"
-    export CLUCENE2_CFLAGS="-I/usr/${arch}-w64-mingw32/sys-root/mingw/include"
-    export CLUCENE2_LIBS="-L/usr/${arch}-w64-mwing32/sys-root/mingw/lib -lclucene-core -lclucene-shared"
     ../sword-1.9.0/configure \
         --enable-shared \
         --disable-static \
@@ -52,7 +53,7 @@ function build_sword {
         --sharedstatedir=/usr/${arch}-w64-mingw32/sys-root/mingw/com \
         --mandir=/usr/${arch}-w64-mingw32/sys-root/mingw/share/man \
         --infodir=/usr/${arch}-w64-mingw32/sys-root/mingw/share/info \
-        --with-clucene=/usr/${arch}-w64-mingw32/sys-root/mingw || cat config.log
+        --without-clucene || cat config.log
     make -j10 || cat config.log
     make install
     mv "utilities/.libs/addld.exe" "/usr/${arch}-w64-mingw32/sys-root/mingw/bin/addld.exe"

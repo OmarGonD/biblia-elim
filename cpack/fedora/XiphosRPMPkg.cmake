@@ -59,11 +59,11 @@ set(CPACK_RPM_PACKAGE_URL "${XIPHOS_WEBSITE}")
 
 # RPM package description
 set(CPACK_RPM_PACKAGE_DESCRIPTION
-"Xiphos is a Bible study tool written for Linux,
+"Ministerios Elim is a Bible study tool written for Linux,
 UNIX, and Windows under the GNOME toolkit, offering a rich and featureful
 environment for reading, study, and research using modules from The SWORD
 Project and elsewhere.
-This build produced by Xiphos development; not from official Fedora repo.")
+This build produced by Ministerios Elim; not from official Fedora repo.")
 
 # RPM spec requires field
 set(CPACK_RPM_PACKAGE_REQUIRES

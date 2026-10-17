@@ -37,10 +37,12 @@ install (FILES
   sword-big.png
   tt.png
   window-close.png
-  xiphos-button-125.png
+  biblia-elim-button-125.png
+  ministerios-elim.png
+  ministerios-elim.ico
   gs2.xpm
-  xiphos.xpm
+  biblia-elim.xpm
   gs2-48x48.ico
-  DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}
+  DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/biblia-elim
   COMPONENT data
   )

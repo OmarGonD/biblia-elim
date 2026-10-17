@@ -10,16 +10,19 @@
     <property name="default_height">380</property>
     <child>
       <object class="GtkBox" id="dialog-vbox1">
+        <property name="orientation">vertical</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <child>
           <object class="GtkBox" id="hbox1">
+            <property name="hexpand">True</property>
+            <property name="vexpand">True</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="spacing">6</property>
             <child>
               <object class="GtkScrolledWindow" id="scrolledwindow">
-                <property name="width_request">165</property>
+                <property name="width_request">220</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <child>
@@ -38,7 +41,7 @@
                 <property name="show_border">False</property>
                 <property name="scrollable">True</property>
                 <child>
-                  <!-- Primera hoja del cuaderno. Llevaba el logo de Xiphos
+                  <!-- Primera hoja del cuaderno. Llevaba el logo de Ministerios Elim
                        ocupando el panel entero: era lo que se veía al abrir
                        el diálogo y al pulsar un grupo del árbol. Ahora el
                        árbol siempre lleva a un ajuste, así que esta hoja no
@@ -774,7 +777,7 @@
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="has_tooltip">True</property>
-                            <property name="tooltip_text" translatable="yes">BibleSync navigation will send Xiphos directly to the verse indicated.</property>
+                            <property name="tooltip_text" translatable="yes">BibleSync navigation will send Ministerios Elim directly to the verse indicated.</property>
                             <property name="use_underline">True</property>
                             <property name="active">True</property>
                             <accessibility>
@@ -790,7 +793,7 @@
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="has_tooltip">True</property>
-                            <property name="tooltip_text" translatable="yes">BibleSync navigation will use Xiphos' sidebar verse list.</property>
+                            <property name="tooltip_text" translatable="yes">BibleSync navigation will use Ministerios Elim's sidebar verse list.</property>
                             <property name="use_underline">True</property>
                             <property name="active">True</property>
                             <property name="group">radiobutton_BSP_nav_direct</property>
@@ -817,7 +820,7 @@
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="has_tooltip">True</property>
-                            <property name="tooltip_text" translatable="yes">When checked, do not transmit every time Xiphos navigates; instead, transmit only using keyboard shortcut (Ctrl-Shift-Alt-N).</property>
+                            <property name="tooltip_text" translatable="yes">When checked, do not transmit every time Ministerios Elim navigates; instead, transmit only using keyboard shortcut (Ctrl-Shift-Alt-N).</property>
                             <property name="use_underline">True</property>
                             <property name="active">True</property>
                             <accessibility>
@@ -838,7 +841,7 @@
                           <object class="GtkLabel" id="label-biblesync-listen">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="tooltip_text" translatable="yes">Xiphos will listen to Speakers according to choice here.</property>
+                            <property name="tooltip_text" translatable="yes">Ministerios Elim will listen to Speakers according to choice here.</property>
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes">&lt;i&gt;Escuchar:&lt;/i&gt;</property>
                             <property name="use_markup">True</property>
@@ -935,7 +938,7 @@
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="has_tooltip">True</property>
-                            <property name="tooltip_text" translatable="yes">Additional traces can be presented during BibleSync operation by enabling presence, mismatch, and debug. Beware enabling these, they can be very chatty. Also, decide whether to allow group parameter as Xiphos' tab number.</property>
+                            <property name="tooltip_text" translatable="yes">Additional traces can be presented during BibleSync operation by enabling presence, mismatch, and debug. Beware enabling these, they can be very chatty. Also, decide whether to allow group parameter as Ministerios Elim's tab number.</property>
                             <property name="xalign">0</property>
                             <property name="label" translatable="yes">&lt;i&gt;Otros:&lt;/i&gt;</property>
                             <property name="use_markup">True</property>
@@ -997,7 +1000,7 @@
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="has_tooltip">True</property>
-                            <property name="tooltip_text" translatable="yes">Interpret the protocol's group number parameter as Xiphos' tab number. Disabling this may be necessary if some Speakers' use of group number is not appropriate as a tab number.</property>
+                            <property name="tooltip_text" translatable="yes">Interpret the protocol's group number parameter as Ministerios Elim's tab number. Disabling this may be necessary if some Speakers' use of group number is not appropriate as a tab number.</property>
                             <property name="use_underline">True</property>
                             <property name="active">True</property>
                             <accessibility>
@@ -1864,6 +1867,8 @@
         </child>
         <child>
           <object class="GtkBox" id="dialog-action_area1">
+            <property name="vexpand">False</property>
+            <property name="valign">end</property>
             <property name="halign">end</property>
             <property name="margin_start">12</property>
             <property name="margin_end">12</property>
@@ -1873,6 +1878,9 @@
             <property name="can_focus">False</property>
             <child>
               <object class="GtkButton" id="closebutton1">
+                <property name="vexpand">False</property>
+                <property name="valign">center</property>
+                <property name="width_request">100</property>
                 <property name="label" translatable="yes">Cerrar</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>

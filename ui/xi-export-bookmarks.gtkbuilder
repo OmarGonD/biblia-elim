@@ -41,7 +41,7 @@
                     <property name="row_spacing">6</property>
                     <child>
                       <object class="GtkCheckButton" id="radiobutton_xiphos_bookmarks">
-                        <property name="label" translatable="yes">Xiphos bookmarks</property>
+                        <property name="label" translatable="yes">Ministerios Elim bookmarks</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>

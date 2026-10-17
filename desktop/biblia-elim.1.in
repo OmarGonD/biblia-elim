@@ -1,0 +1,47 @@
+.TH BIBLIA-ELIM "1" "@XIPHOS_RELEASE_DATE@" "Ministerios Elim @PROJECT_VERSION@" "User Commands"
+.SH NAME
+biblia-elim \- A Bible research tool
+.SH SYNOPSIS
+.B biblia-elim [OPTION...]
+
+.SH DESCRIPTION
+.B Ministerios Elim
+is a Bible study application for GTK+ environments, a widget set which
+is available for several Unix and Linux flavors. It is based on Sword by the
+CrossWire Bible Society, a framework providing the possibility to study the
+Bible and additional information like commentaries, dictionaries and other
+texts using your computer. Display multiple translations in the interlinear
+window. Search for passages in any translation by word, phrase, or regular
+expression.
+.PP
+The program can be started from the command line as
+.B biblia-elim
+or from one of the menus provided by the underlying platform.
+.P
+When started on the command line,
+.B biblia-elim
+may be followed by the options listed below.
+.SH "OPTIONS"
+.SS "Help Options:"
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Show help options
+.TP
+\fB\-\-help\-all\fR
+Show all help options
+.TP
+\fB\-\-help\-gtk\fR
+Show GTK+ Options
+.SS "Application Options:"
+.TP
+\fB\-\-display\fR=\fI\,DISPLAY\/\fR
+X display to use
+.SH "SEE ALSO"
+The full documentation for
+.B biblia-elim
+can be found in the application help.
+.SH "BUGS"
+Please report bugs online at: https://github.com/OmarGonD/biblia-elim/issues
+.SH "AUTHOR"
+Ministerios Elim contributors
+.PP

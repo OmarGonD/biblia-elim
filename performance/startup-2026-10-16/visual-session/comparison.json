@@ -1,0 +1,75 @@
+{
+  "cases": {
+    "before-debug": {
+      "error": {
+        "app": "/home/ogonzales/Projects/biblia_elim/build/performance/startup-2026-10-16/before-debug",
+        "display": "current",
+        "renderer": "default",
+        "cache_state": "warm",
+        "error": "GTK diagnostic: performance/startup-2026-10-16/visual-session/before-debug/sqlite-0.log"
+      }
+    },
+    "before-optimized": {
+      "error": {
+        "app": "/home/ogonzales/Projects/biblia_elim/build/performance/startup-2026-10-16/before-optimized",
+        "display": "current",
+        "renderer": "default",
+        "cache_state": "warm",
+        "error": "GTK diagnostic: performance/startup-2026-10-16/visual-session/before-optimized/sqlite-0.log"
+      }
+    },
+    "after-optimized": {
+      "error": {
+        "app": "/home/ogonzales/Projects/biblia_elim/build/performance/startup-2026-10-16/after-optimized",
+        "display": "current",
+        "renderer": "default",
+        "cache_state": "warm",
+        "error": "GTK diagnostic: performance/startup-2026-10-16/visual-session/after-optimized/sqlite-0.log"
+      }
+    },
+    "after-cairo": {
+      "error": {
+        "app": "/home/ogonzales/Projects/biblia_elim/build/performance/startup-2026-10-16/after-optimized",
+        "display": "current",
+        "renderer": "cairo",
+        "cache_state": "warm",
+        "error": "GTK diagnostic: performance/startup-2026-10-16/visual-session/after-cairo/sqlite-0.log"
+      }
+    },
+    "before-empty-cache": {
+      "error": {
+        "app": "/home/ogonzales/Projects/biblia_elim/build/performance/startup-2026-10-16/before-optimized",
+        "display": "current",
+        "renderer": "default",
+        "cache_state": "empty",
+        "error": "GTK diagnostic: performance/startup-2026-10-16/visual-session/before-empty-cache/sqlite-0.log"
+      }
+    },
+    "after-empty-cache": {
+      "error": {
+        "app": "/home/ogonzales/Projects/biblia_elim/build/performance/startup-2026-10-16/after-optimized",
+        "display": "current",
+        "renderer": "default",
+        "cache_state": "empty",
+        "error": "GTK diagnostic: performance/startup-2026-10-16/visual-session/after-empty-cache/sqlite-0.log"
+      }
+    }
+  },
+  "comparisons": {
+    "optimized-build": {
+      "status": "unavailable"
+    },
+    "deferred-neighbours": {
+      "status": "unavailable"
+    },
+    "total": {
+      "status": "unavailable"
+    },
+    "cairo": {
+      "status": "unavailable"
+    },
+    "empty-cache": {
+      "status": "unavailable"
+    }
+  }
+}

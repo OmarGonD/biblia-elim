@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+  File "/home/ogonzales/Projects/biblia_elim/tools/bench_startup.py", line 168, in main
+    raise RuntimeError(f'GTK diagnostic: {log_path}')
+RuntimeError: GTK diagnostic: performance/startup-2026-10-16/visual-session/before-debug/sqlite-0.log
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ogonzales/Projects/biblia_elim/tools/bench_startup.py", line 198, in <module>
+    main()
+    ~~~~^^
+  File "/home/ogonzales/Projects/biblia_elim/tools/bench_startup.py", line 194, in main
+    shutil.rmtree(root)
+    ~~~~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.14/shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/shutil.py", line 721, in _rmtree_safe_fd
+    _rmtree_safe_fd_step(stack, onexc)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/shutil.py", line 802, in _rmtree_safe_fd_step
+    onexc(func, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/shutil.py", line 753, in _rmtree_safe_fd_step
+    os.rmdir(name, dir_fd=dirfd)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 39] Directory not empty: '/tmp/biblia-startup-no0u0747/data/biblia-elim/modules'

@@ -46,7 +46,14 @@ const BibleBookDefinition books[] = {
  {67,"TOB","Tob","Tobit","Tob",1,67},{68,"JDT","Jdt","Judith","Jdt",1,68},
  {69,"WIS","Wis","Wisdom","Wis",1,69},{70,"SIR","Sir","Sirach","Sir",1,70},
  {71,"BAR","Bar","Baruch","Bar",1,71},{72,"1MA","1Macc","1 Maccabees","1Macc",1,72},
- {73,"2MA","2Macc","2 Maccabees","2Macc",1,73}
+ {73,"2MA","2Macc","2 Maccabees","2Macc",1,73},
+ {74,"1ESD","1Esd","1 Esdras","1Esd",1,74},
+ {75,"2ESD","2Esd","2 Esdras","2Esd",1,75},
+ {76,"PRM","PrMan","Prayer of Manasseh","PrMan",1,76},
+ {77,"PS151","Ps151","Psalm 151","Ps151",1,77},
+ /* 1 Enoch belongs to the Ethiopian Orthodox canon and is also present in
+  * SWORD's LXX versification. Keep it distinct from 2/3 Enoch. */
+ {78,"1EN","1En","1 Enoch","1En",1,78}
 };
 
 /* Spanish names, by book id: the same spelling SWORD's Spanish locale
@@ -64,7 +71,8 @@ const char *const spanishNames[] = {
  "2 Corintios","Gálatas","Efesios","Filipenses","Colosenses","1 Tesalonicenses",
  "2 Tesalonicenses","1 Timoteo","2 Timoteo","Tito","Filemón","Hebreos",
  "Santiago","1 Pedro","2 Pedro","1 Juan","2 Juan","3 Juan","Judas","Apocalipsis",
- "Tobías","Judit","Sabiduría","Eclesiástico","Baruc","1 Macabeos","2 Macabeos"
+ "Tobías","Judit","Sabiduría","Eclesiástico","Baruc","1 Macabeos","2 Macabeos",
+ "1 Esdras","2 Esdras","Oración de Manasés","Salmo 151","1 Enoc"
 };
 static_assert(sizeof(spanishNames) / sizeof(spanishNames[0]) ==
 	      sizeof(books) / sizeof(books[0]), "one Spanish name per book");

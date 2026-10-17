@@ -2,7 +2,7 @@
        xmlns:its="http://www.w3.org/2005/11/its">
 
   <info>
-    <desc>An explanation of the areas shown in the <app>Xiphos</app> window.</desc>
+    <desc>An explanation of the areas shown in the <app>Biblia Elim</app> window.</desc>
 
     <link type="guide" xref="index#getting-started" />
 
@@ -11,7 +11,7 @@
     <revision pkgversion="4.5.0" date="2026-08-10" status="draft"/>
 
     <title type='link' role="trail"></title>
-    <title type='text'>Xiphos</title>
+    <title type='text'>Biblia Elim</title>
 
     <credit type="author" its:translate="no">
       <name>Andy Piper</name>
@@ -33,13 +33,13 @@
 
   </info>
 
-  <title>Xiphos Main Window</title>
+  <title>Biblia Elim Main Window</title>
 
   <section id="menubar">
     <!-- ============= Menubar  ============-->
 
     <title>Menubar</title>
-    <p>At the top of the <app>Xiphos</app> main window is the menubar. Almost
+    <p>At the top of the <app>Biblia Elim</app> main window is the menubar. Almost
     all of the functions are available by activating the appropriate menu item.
     The functions have been grouped according to their type. For example, the
     file operations have been grouped into the <gui>File</gui> menu.</p>
@@ -120,7 +120,7 @@
     <title>The Sidebar</title>
     <media type="image" mime="image/png" src="figures/interface_sidepane.png" />
 
-    <p>On the left hand side of <app>Xiphos</app> there is the Sidebar. Here
+    <p>On the left hand side of <app>Biblia Elim</app> there is the Sidebar. Here
     the user can switch between the different Sword modules, view bookmarks, do
     simple searches and view verse lists. In the Modules listing, a module may
     be chosen for viewing in the current tab of the main window by clicking it.
@@ -169,7 +169,7 @@
     <title>The Bible Text Pane</title>
     <media style="image" mime="image/png" src="figures/interface_biblepane.png" />
     <p>Positioned to the right of the Shortcut bar is the Bible text pane. All
-    translations are displayed here.  When starting <app>Xiphos</app>, the
+    translations are displayed here.  When starting <app>Biblia Elim</app>, the
     translation last used in the leftmost tab will be displayed.</p>
 
     <section id="xiphos-bible-open">
@@ -193,7 +193,7 @@
     <section id="xiphos-bible-parallel">
       <title>Using the Parallel View Mode</title>
 
-      <p>A nice function in <app>Xiphos</app> is the ability to view your
+      <p>A nice function in <app>Biblia Elim</app> is the ability to view your
       specified bible text in several parallel translations of your choice. The
       Parallel View mode can be accessed by selecting <gui>Parallel View</gui> 
       just below the <gui>Bible Text Pane</gui>, next to the <gui>Standard View
@@ -243,7 +243,7 @@
 
     <section id="xiphos-bible-open-separate">
       <title>Opening A Separate Bible Translation</title>
-      <p>In order to view a Bible translation separate from the <app>Xiphos
+      <p>In order to view a Bible translation separate from the <app>Biblia Elim
       </app> main window interface, under the <gui>Modules</gui> option in the
       <gui>Sidebar</gui>, choose <guiseq><gui>Biblical Texts</gui><gui>language
       choice</gui></guiseq>.  Then right-click on a translation and choose <gui>
@@ -341,11 +341,11 @@
 	  verse.</p>
 	</item>
 	<item>
-	  <p>Read Aloud - If you enable this, then <app>Xiphos</app> will funnel
+	  <p>Read Aloud - If you enable this, then <app>Biblia Elim</app> will funnel
 	  all selected verses through a text-to-speech system. On Linux,
-	  <app>Xiphos</app> uses the <app>festival</app> TTS, often installed
+	  <app>Biblia Elim</app> uses the <app>festival</app> TTS, often installed
 	  by default in Linux distributions. On Windows, and on Linux systems
-	  that provide it, <app>Xiphos</app> can instead use the operating
+	  that provide it, <app>Biblia Elim</app> can instead use the operating
 	  system's own text-to-speech ("System TTS"), so no separate speech
 	  engine needs to be installed.</p>
 
@@ -379,7 +379,7 @@
       <title>User Annotation</title>
       <p>Many users wish to make personal annotations on individual verses,
       without the need to put a full "personal commentary" module to use.
-      <app>Xiphos</app> provides this in the right-click context menu in the
+      <app>Biblia Elim</app> provides this in the right-click context menu in the
       Bible pane. This brings up a dialog showing the current verse reference
       and offering a text box into which to enter a brief personal note. Once
       the user closes the dialog with "Annotate Verse," the verse will be
@@ -559,7 +559,7 @@
     top of the tab; a calendar popover lets you pick the day directly, or you
     may type a date in manually. This is in addition to, and independent of,
     the day's devotional reference optionally shown in the Previewer at
-    <app>Xiphos</app> startup (see above).</p>
+    <app>Biblia Elim</app> startup (see above).</p>
   </section>
 
 </page>

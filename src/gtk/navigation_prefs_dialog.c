@@ -1,5 +1,5 @@
 /*
- * Biblia Elim
+ * Ministerios Elim
  * navigation_prefs_dialog.c - Ver > Navegación y rueda
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team

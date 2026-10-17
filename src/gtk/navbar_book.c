@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * navbar_book.c - navigation bar for genbook modules
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team

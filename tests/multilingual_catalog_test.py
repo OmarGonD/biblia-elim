@@ -23,12 +23,12 @@ expected = {
     "zh_CN": ("圣经研读", "安装圣经"),
     "pt_BR": ("Estudo bíblico", "Instalar Bíblias"),
 }
-entries = [e for e in read_po(ROOT / "po/xiphos.pot") if e["msgid"]]
+entries = [e for e in read_po(ROOT / "po/biblia-elim.pot") if e["msgid"]]
 env = dict(os.environ, LC_ALL="C", LANG="C", LANGUAGE="",
            BIBLIA_ELIM_LOCALE_DIR=str(build / "locale"))
 checked = 0
 for language, labels in expected.items():
-    catalog = gettext.translation("xiphos", build / "locale", [language])
+    catalog = gettext.translation("biblia-elim", build / "locale", [language])
     assert catalog.info()["language"] == language
     for entry in entries:
         key = (entry.get("msgctxt", "") + "\x04" if entry.get("msgctxt") else "") + entry["msgid"]
@@ -78,7 +78,7 @@ for path in (ROOT / "ui").glob("*.gtkbuilder"):
         if node.get("translatable") == "yes" and node.text:
             key = node.text
             for language in expected:
-                catalog = gettext.translation("xiphos", build / "locale", [language])
+                catalog = gettext.translation("biblia-elim", build / "locale", [language])
                 assert key in catalog._catalog, (path.name, language, key)
             resource_labels += 1
 print(f"multilingual_catalog_test: PASS languages=6 entries={checked} "

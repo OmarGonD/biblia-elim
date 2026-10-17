@@ -95,4 +95,18 @@ StudyReadingColumn main_study_reading_column(gint available_width,
 					     gint max_width,
 					     gint min_pad);
 
+/* The embedded StudyPad is available only beside the standard Bible in
+ * ordinary mode. Divider values are stored as Bible width regardless of
+ * which side the Bible occupies. Responsive font zoom has a 100% ceiling;
+ * the effective minimum is computed from the configured baseline size. */
+gboolean main_study_editor_visible(gboolean requested, gboolean standard_view,
+				   gboolean reading_mode);
+gint main_study_editor_swapped_position(gint current_position,
+					gint available_width);
+gint main_study_editor_bible_width(gboolean swapped, gint position,
+					   gint available_width);
+gint main_study_editor_responsive_font_zoom(gint bible_width,
+						    gint target_width);
+gint main_study_editor_min_font_zoom(gint baseline_font_pixels);
+
 #endif

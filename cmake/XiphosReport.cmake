@@ -22,7 +22,7 @@ message("")
 message(STATUS "Summary")
 
 # project info
-message(STATUS "  Xiphos version               ${PROJECT_VERSION}")
+message(STATUS "  Biblia Elim version          ${PROJECT_VERSION}")
 message(STATUS "  Release date                 ${XIPHOS_RELEASE_DATE}")
 message(STATUS "  Build type                   ${CMAKE_BUILD_TYPE}")
 message(STATUS "  Install prefix               ${CMAKE_INSTALL_PREFIX}")
@@ -74,6 +74,6 @@ endif()
 # warnings
 
 # Warn about unknown platform
-if( NOT WIN32 AND NOT (CMAKE_SYSTEM_NAME STREQUAL Linux))
+if( NOT WIN32 AND NOT APPLE AND NOT (CMAKE_SYSTEM_NAME STREQUAL Linux))
   message(AUTHOR_WARNING "Unknown plateform, assuming ${CMAKE_SYSTEM_NAME} is UNIX like platform")
 endif()

@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * font_dialog.c - dialog to set module font
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team

@@ -4,6 +4,29 @@
 
 #include "main/reading_window.h"
 
+static gboolean first_paint_pending = TRUE;
+
+gboolean
+reading_window_first_paint_pending(void)
+{
+	return first_paint_pending;
+}
+
+void
+reading_window_first_painted(void)
+{
+	first_paint_pending = FALSE;
+}
+
+void
+reading_window_render_bounds(gint chapter, gint chapter_count, gint radius,
+			     gboolean main_pane, gint *first, gint *last)
+{
+	reading_window_bounds(chapter, chapter_count, radius, first, last);
+	if (main_pane && first_paint_pending)
+		*first = *last = CLAMP(chapter, 1, MAX(1, chapter_count));
+}
+
 void
 reading_window_bounds(gint chapter, gint chapter_count, gint radius,
 		      gint *first, gint *last)

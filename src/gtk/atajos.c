@@ -1,5 +1,5 @@
 /*
- * Biblia Elim
+ * Ministerios Elim
  * atajos.c - ventana de ayuda con los atajos de teclado
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team

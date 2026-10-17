@@ -6,9 +6,9 @@ Installation instructions
 - Installation Instructions
    - GNU/Linux packages
    - Windows® install
-- Compile Xiphos from source
-- Build Xiphos on *Fedora*, *Red Hat* or *CentOS*
-- Build Xiphos On *Debian*, *Ubuntu*, or *Linux Mint*
+- Compile Ministerios Elim from source
+- Build Ministerios Elim on *Fedora*, *Red Hat* or *CentOS*
+- Build Ministerios Elim On *Debian*, *Ubuntu*, or *Linux Mint*
 - Make packages with CMake
 - Building for Windows®
 
@@ -25,16 +25,16 @@ get security updates.
 
 ### *Debian*, *Ubuntu*, or *Linux Mint*:
 
-Xiphos depends on libgtkhtml that is no longer available in Ubuntu.
+Ministerios Elim depends on libgtkhtml that is no longer available in Ubuntu.
 
 You have the choice to either:
 
-- build Xiphos yourself (see Build Xiphos On *Debian*, *Ubuntu*, or *Linux Mint* below)
+- build Ministerios Elim yourself (see Build Ministerios Elim On *Debian*, *Ubuntu*, or *Linux Mint* below)
 - install packages from  ppa: https://launchpad.net/~pkgcrosswire/+archive/ubuntu/ppa
 - install the flatpak app (3rd party, may not be up to date)
-  https://www.flathub.org/apps/details/org.xiphos.Xiphos
+  https://www.flathub.org/apps/details/org.xiphos.Ministerios Elim
   Note: If you want access to the normal home folders .sword and .xiphos, run:
-  `# flatpak override --filesystem=home org.xiphos.Xiphos`
+  `# flatpak override --filesystem=home org.xiphos.Ministerios Elim`
 
 ### Other distributions
 
@@ -45,8 +45,42 @@ Windows® install:
 Download the latest .exe file from: http://xiphos.org/download/ or
 https://github.com/crosswire/xiphos/releases
 
+macOS installation and build:
+------------------------------
+The macOS build uses GTK 4's Quartz backend. Install Xcode Command Line Tools
+and Homebrew, then install the build dependencies:
 
-Compile Xiphos from source
+    $ brew install cmake pkgconf gtk4 sword libsoup sqlite icu4c gettext \
+        libxml2 libxslt minizip json-glib itstool yelp-tools util-linux
+
+BibleSync is not currently a Homebrew formula. Build and install its upstream
+library into the Homebrew prefix before configuring Ministerios Elim:
+
+    $ git clone --branch 2.1.0 https://github.com/karlkleinpaste/biblesync.git
+    $ cmake -S biblesync -B biblesync/build \
+        -DCMAKE_INSTALL_PREFIX="$(brew --prefix)"
+    $ cmake --build biblesync/build --parallel
+    $ cmake --install biblesync/build
+
+Then build and create a macOS `.pkg` installer:
+
+    $ export PKG_CONFIG_PATH="$(brew --prefix icu4c)/lib/pkgconfig:${PKG_CONFIG_PATH:-}"
+    $ cmake -S . -B build-macos -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=/usr/local \
+        -DCMAKE_INSTALL_RPATH_USE_LINK_PATH=TRUE
+    $ cmake --build build-macos --parallel
+    $ cpack --config build-macos/CPackConfig.cmake
+
+The package installs `biblia-elim.app` in `/Applications` (shown as
+“Ministerios Elim” in Finder) and shared data in
+`/usr/local/share/xiphos`. GTK, SWORD, BibleSync, and their Homebrew libraries
+remain runtime dependencies on the Mac; the package does not duplicate those
+libraries. The generated package is unsigned until it is built with an Apple
+Developer ID installer certificate, so release distribution still requires
+signing and notarization.
+
+
+Compile Ministerios Elim from source
 ==========================
 
 Current issues
@@ -58,7 +92,7 @@ Avoid to have a space in your path to the build or disable building EPUB files
 Dependencies
 ------------
 
-Before building Xiphos, please ensure that you have the platform specific
+Before building Ministerios Elim, please ensure that you have the platform specific
 dependencies installed:
 
 	chmcmd                 Creates a Compressed HTML help file (chm)
@@ -88,7 +122,7 @@ dependencies installed:
 Get source
 ----------
 
-To compile Xiphos from source you will need to get a checkout of Xiphos from
+To compile Ministerios Elim from source you will need to get a checkout of Ministerios Elim from
 GitHub. To do so, do:
 
     $ git clone https://github.com/crosswire/xiphos.git
@@ -96,13 +130,13 @@ GitHub. To do so, do:
 
 Configuring build with CMake
 -----------------------------
-Xiphos uses CMake to compile code.
+Ministerios Elim uses CMake to compile code.
 
 CMake is a cross-platform tool for generating makefiles (as well as project files
 used by IDEs).
 
 The current version of the buildsystem is capable of building and packaging
-Xiphos for the following platforms:
+Ministerios Elim for the following platforms:
 
 - Linux (GNU Makefiles, Ninja)
 - Windows (Cross compiling on Fedora 30 only)
@@ -153,9 +187,9 @@ For other options, see:
 https://cmake.org/cmake/help/v3.14/manual/cmake-variables.7.html?highlight=variables
 
 
-### Configure Xiphos Options
+### Configure Ministerios Elim Options
 
-Xiphos supports a number of build options that can enable or disable certain
+Ministerios Elim supports a number of build options that can enable or disable certain
 functionality. These options must be set when running CMake with
 `-DENABLE_<OPTION>=<ON|OFF`. `ON` forcefully enables the dependency
 and the CMake run will fail if the related dependency is not available.
@@ -178,18 +212,18 @@ GTK2     | Force UI build with Gtk2 instead of Gtk3.      | OFF
 GTKTVEDITOR | Force GTK TextView editor, overriding `GTKHTML` and `WEBKIT1`. | OFF
 GTKHTML  | Force gtkhtml editor instead of webkit editor. | OFF
 WEBKIT1  | Force webkit1 instead of webkit2.              | OFF
-DBUS     | Use the Xiphos dbus API.                       | ON
+DBUS     | Use the Ministerios Elim dbus API.                       | ON
 CHATTY   | Enable lots of tracing.                        | OFF
 HELP     | Creating help files.                           | ON
 STRIP    | Strip resulting binary (Release only).         | OFF
-DEBUG    | Enable Xiphos g_str debugging functions.       | OFF
+DEBUG    | Enable Ministerios Elim g_str debugging functions.       | OFF
 DELINT   | Build with: -Wall -Werror.                     | OFF
 CONSOLE  | Enable console window in win32.                | ON
 POSTINST | Enable post-install tasks.                     | ON
 
 
 For more information and an updated list of options, please check the file
-`cmake/XiphosOptions.cmake`
+`cmake/Ministerios ElimOptions.cmake`
 
 
 Build options
@@ -218,10 +252,10 @@ or:
     $ cmake --build . -- -v
 
 
-Build Xiphos on *Fedora*, *Red Hat* or *CentOS*:
+Build Ministerios Elim on *Fedora*, *Red Hat* or *CentOS*:
 ================================================
 
-## 1. Clone Xiphos git
+## 1. Clone Ministerios Elim git
 
     $ git clone https://github.com/crosswire/xiphos.git
 
@@ -251,7 +285,7 @@ Create a build directory as a sibling of the xiphos directory:
 	$ xiphos
 
 
-Build Xiphos On *Debian*, *Ubuntu*, or *Linux Mint*:
+Build Ministerios Elim On *Debian*, *Ubuntu*, or *Linux Mint*:
 ===================================================
 
 ## 1. Clone git
@@ -268,7 +302,7 @@ Build Xiphos On *Debian*, *Ubuntu*, or *Linux Mint*:
     $ cd build
     $ make -j$(nproc) && sudo make install
 
-## 4. Run Xiphos
+## 4. Run Ministerios Elim
 
     $ xiphos
 
@@ -327,7 +361,7 @@ or for building a regular RPM package (recommended):
 	$ fedpkg --release f30 local
 
 
-Cross-Compiling Xiphos for Windows®
+Cross-Compiling Ministerios Elim for Windows®
 ===================================
 
 These instructions describe cross-compilation for Windows® using Fedora MinGW
@@ -355,7 +389,7 @@ container.**
 Building for Windows®:
 ---------------------
 
-### 1. Clone Xiphos git
+### 1. Clone Ministerios Elim git
 
     $ git https://github.com/crosswire/xiphos.git
 
@@ -407,7 +441,7 @@ For Win64:
 	$ cd ..
 
 ### 9. Configure
-You are now ready to build Xiphos for Windows®:
+You are now ready to build Ministerios Elim for Windows®:
 
 For Win32:
 

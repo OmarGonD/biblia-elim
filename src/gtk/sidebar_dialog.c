@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * sidebar_dialog.c - dialog for detached sidebar
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team

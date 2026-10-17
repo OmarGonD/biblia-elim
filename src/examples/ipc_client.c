@@ -28,11 +28,11 @@
 #include <string.h>
 #include "ipc-gdbus.h"
 
-static XiphosRemote *remote_object = NULL;
+static BibliaElimRemote *remote_object = NULL;
 
 /* this function will be called every time the user does a sidebar search */
 static void
-search_performed_signal_handler(XiphosRemote *proxy,
+search_performed_signal_handler(BibliaElimRemote *proxy,
 				const gchar *search_term,
 				gint hits,
 				gpointer user_data)
@@ -43,7 +43,7 @@ search_performed_signal_handler(XiphosRemote *proxy,
 	printf("Search: %s, number hits: %d\n", search_term, hits);
 
 	/* get search results using type-safe generated method */
-	xiphos_remote_call_get_next_search_reference_sync(remote_object,
+	biblia_elim_remote_call_get_next_search_reference_sync(remote_object,
 							  &ref,
 							  NULL,
 							  &error);
@@ -53,12 +53,12 @@ search_performed_signal_handler(XiphosRemote *proxy,
 		return;
 	}
 
-	while (strcmp(ref, "XIPHOS_SEARCH_END")) {
+	while (strcmp(ref, "BIBLIA_ELIM_SEARCH_END")) {
 		printf("ref: %s\n", ref);
 		g_free(ref);
 		ref = NULL;
 
-		xiphos_remote_call_get_next_search_reference_sync(remote_object,
+		biblia_elim_remote_call_get_next_search_reference_sync(remote_object,
 								  &ref,
 								  NULL,
 								  &error);
@@ -72,9 +72,9 @@ search_performed_signal_handler(XiphosRemote *proxy,
 	g_free(ref);
 }
 
-/* this function will be called every time Xiphos navigates */
+/* this function will be called every time Biblia Elim navigates */
 static void
-navigation_performed_signal_handler(XiphosRemote *proxy,
+navigation_performed_signal_handler(BibliaElimRemote *proxy,
 				    const gchar *reference,
 				    gpointer user_data)
 {
@@ -85,7 +85,7 @@ navigation_performed_signal_handler(XiphosRemote *proxy,
 	printf("now calling remote method just to be sure\n");
 
 	/* verify by calling the remote method using type-safe generated function */
-	xiphos_remote_call_get_current_reference_sync(remote_object,
+	biblia_elim_remote_call_get_current_reference_sync(remote_object,
 						      &ref,
 						      NULL,
 						      &error);
@@ -96,7 +96,7 @@ navigation_performed_signal_handler(XiphosRemote *proxy,
 	}
 
 	/* of course, this doesn't actually *check* to see if they're the same :) */
-	printf("yep! Xiphos says the new reference is %s\n", ref);
+	printf("yep! Biblia Elim says the new reference is %s\n", ref);
 
 	g_free(ref);
 }
@@ -109,11 +109,11 @@ int main(int argc, char **argv)
 	mainloop = g_main_loop_new(NULL, FALSE);
 
 	/* create proxy using gdbus-codegen generated code */
-	remote_object = xiphos_remote_proxy_new_for_bus_sync(
+	remote_object = biblia_elim_remote_proxy_new_for_bus_sync(
 	    G_BUS_TYPE_SESSION,
 	    G_DBUS_PROXY_FLAGS_NONE,
-	    "org.xiphos.remote",
-	    "/org/xiphos/remote/ipc",
+	    "org.bibliaelim.remote",
+	    "/org/bibliaelim/remote/ipc",
 	    NULL, /* GCancellable */
 	    &error);
 

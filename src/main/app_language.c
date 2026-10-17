@@ -137,9 +137,54 @@ static gchar *catalog_directory(const char *id)
 	return chosen ? chosen : g_strdup(PACKAGE_LOCALE_DIR);
 }
 
+/* An installer's first-run choice is a default, never a replacement for a
+ * saved preference or an explicit --language choice. */
+static gchar *installation_language_file(const char *path)
+{
+    gchar *text = NULL;
+    if (!path || !g_file_get_contents(path, &text, NULL, NULL)) return NULL;
+    gchar *id = app_language_normalize(g_strstrip(text));
+    g_free(text);
+    gboolean valid = !strcmp(id, "system");
+    for (gsize i = 0; i < G_N_ELEMENTS(languages); ++i)
+        if (!strcmp(id, languages[i].id)) valid = TRUE;
+    if (!valid) g_clear_pointer(&id, g_free);
+    return id;
+}
+
+gchar *app_language_installation_choice(void)
+{
+    const char *override = g_getenv("BIBLIA_ELIM_INSTALL_LANGUAGE_FILE");
+    if (override && *override) return installation_language_file(override);
+    gchar *result = NULL;
+#ifdef G_OS_WIN32
+    gchar *root = g_win32_get_package_installation_directory_of_module(NULL);
+    gchar *path = g_build_filename(root, "share", "biblia-elim", "installation-language", NULL);
+    result = installation_language_file(path);
+    g_free(path);
+    g_free(root);
+#else
+    gchar *exe = g_file_read_link("/proc/self/exe", NULL);
+    if (exe) {
+        gchar *bin = g_path_get_dirname(exe);
+        gchar *path = g_build_filename(bin, "..", "share", "biblia-elim", "installation-language", NULL);
+        result = installation_language_file(path);
+        g_free(path); g_free(bin); g_free(exe);
+    }
+    if (!result) {
+        gchar *path = g_build_filename(g_get_user_data_dir(), "biblia-elim", "installation-language", NULL);
+        result = installation_language_file(path);
+        g_free(path);
+    }
+    if (!result) result = installation_language_file(SHARE_DIR "/installation-language");
+#endif
+    return result;
+}
+
 void app_language_initialize(const char *choice, const char *settings_path)
 {
 	gchar *saved = choice ? app_language_normalize(choice) : app_language_read_settings(settings_path);
+	if (!saved) saved = app_language_installation_choice();
 	gboolean use_system = !saved || !strcmp(saved, "system");
 	gchar *id = use_system ? app_language_normalize(system_language()) : g_strdup(saved);
 	/* English must also load a catalog: the fork has Spanish source strings.

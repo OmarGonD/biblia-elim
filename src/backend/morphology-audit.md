@@ -174,3 +174,23 @@ remain readable through the exact-query fallback. Across the same runs,
 ordinary verse reads were 1.26x-1.28x the no-morphology baseline, while chapter
 reads, text search, and Strong concordance remained within about 1% of the
 baseline.
+
+## Bounded cross-scheme equivalence (MORPH-112)
+
+`main_morf_equivalentes()` compares only the shared nominal feature bundle
+implemented for explicit Robinson and Logos Greek tags: part of speech, case,
+number, and gender for nouns, adjectives, and articles. For example,
+`robinson:N-NSM` and `logos:NNSM` carry the same bundle. Robinson's article
+code `T` and Logos' article code `D` are normalized to the same part of
+speech.
+
+This is intentionally a bounded crosswalk, not a claim that two full grammar
+systems are interchangeable. It accepts `robinson` and the documented
+Robinson identifier `morph.rob.g`, plus the explicit `logos` scheme. It does
+not treat `morph.gr.g` (GRAMCORD), unqualified values, Hebrew schemes, verbs,
+or unknown codes as equivalent. Robinson's code documentation is maintained
+by its author [here](https://github.com/byztxt/robinson-documentation); the
+SBLGNT front matter documents the compact Logos Greek code fields
+[here](https://www.sblgnt.com/download/revint/01-Front%20Matter.pdf). No
+real, aligned dataset for two supported schemes is available in this
+repository, so the crosswalk is validated with synthetic paired codes only.

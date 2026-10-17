@@ -34,6 +34,47 @@ jobs:
           name: windows-installers${{ matrix.version }}
           path: "*.exe"
 
+  macos:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: arm64
+            runner: macos-15
+          - arch: x86_64
+            runner: macos-15-intel
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - name: checkout Xiphos
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: fetch history
+        run: git fetch origin +refs/tags/*:refs/tags/*
+      - name: install dependencies
+        run: |
+          brew install cmake pkgconf gtk4 sword libsoup sqlite icu4c gettext \
+            libxml2 libxslt minizip json-glib itstool yelp-tools util-linux
+          git clone --branch 2.1.0 https://github.com/karlkleinpaste/biblesync.git \
+            "$RUNNER_TEMP/biblesync"
+          cmake -S "$RUNNER_TEMP/biblesync" -B "$RUNNER_TEMP/biblesync-build" \
+            -DCMAKE_INSTALL_PREFIX="$(brew --prefix)"
+          cmake --build "$RUNNER_TEMP/biblesync-build" --parallel
+          cmake --install "$RUNNER_TEMP/biblesync-build"
+      - name: build and package macOS app
+        run: |
+          export PKG_CONFIG_PATH="$(brew --prefix icu4c)/lib/pkgconfig:${PKG_CONFIG_PATH:-}"
+          cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_INSTALL_PREFIX=/usr/local \
+            -DCMAKE_INSTALL_RPATH_USE_LINK_PATH=TRUE
+          cmake --build build --parallel
+          cpack --config build/CPackConfig.cmake
+      - name: upload installer
+        uses: actions/upload-artifact@v7
+        with:
+          name: macos-installers-${{ matrix.arch }}
+          path: "build/*.pkg"
+
   arch_gtk4_libsoup3:
     runs-on: ubuntu-latest
     container:
@@ -201,6 +242,7 @@ jobs:
   deploy:
     needs:
       - windows
+      - macos
       - arch_gtk4_libsoup3
       - debian_gtk4_libsoup3
       - fedora_gtk4_libsoup3
@@ -230,6 +272,7 @@ jobs:
         with:
           artifacts: >
             source/*,
+            macos-installers-*/*,
             windows-installers-win32/*,
             windows-installers-win64/*
           allowUpdates: true

@@ -4,11 +4,24 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 BIN_SRC="${ROOT}/build/src/gtk/biblia-elim"
-PREFIX="${HOME}/.local"
+PREFIX="${BIBLIA_ELIM_INSTALL_PREFIX:-${HOME}/.local}"
 SHARE="${PREFIX}/share/biblia-elim"
 APPDIR="${PREFIX}/share/applications"
 ICONDIR="${PREFIX}/share/icons/hicolor"
 LOCDIR="${PREFIX}/share/locale"
+
+INSTALL_LANGUAGE="system"
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --language=*) INSTALL_LANGUAGE="${1#--language=}" ;;
+        *) echo "Uso: $0 [--language=system|en_GB|es|fr|ko_KR|zh_CN|zh_TW|pt_BR|pt]" >&2; exit 2 ;;
+    esac
+    shift
+done
+case "${INSTALL_LANGUAGE}" in
+    system|en_GB|es|fr|ko_KR|zh_CN|zh_TW|pt_BR|pt) ;;
+    *) echo "Idioma no admitido: ${INSTALL_LANGUAGE}" >&2; exit 2 ;;
+esac
 
 if [[ ! -x "${BIN_SRC}" ]]; then
 	echo "No encuentro el binario: ${BIN_SRC}" >&2
@@ -18,6 +31,13 @@ fi
 
 install -d "${PREFIX}/bin" "${SHARE}/pixmaps" "${APPDIR}" \
 	"${ICONDIR}/scalable/apps" "${ICONDIR}/48x48/apps" "${ICONDIR}/128x128/apps"
+
+# Required offline devotional data. Keep every language so a later change
+# of interface language works without a download.
+[[ -d "${ROOT}/modulos/devotional" ]] || { echo "Faltan los devocionales incluidos" >&2; exit 1; }
+install -d "${SHARE}/devotional"
+cp -R "${ROOT}/modulos/devotional/." "${SHARE}/devotional/"
+printf '%s\n' "${INSTALL_LANGUAGE}" > "${SHARE}/installation-language"
 
 install -m 0755 "${BIN_SRC}" "${PREFIX}/bin/biblia-elim"
 install -m 0644 "${ROOT}/desktop/biblia-elim.desktop" \
@@ -47,11 +67,11 @@ if [[ -d "${ROOT}/ui" ]]; then
 fi
 
 if [[ -d "${ROOT}/build/locale" ]]; then
-	find "${ROOT}/build/locale" -name 'xiphos.mo' | while read -r mo; do
-		lang="$(echo "${mo}" | sed -n 's|.*/locale/\([^/]*\)/LC_MESSAGES/xiphos.mo|\1|p')"
+	find "${ROOT}/build/locale" -name 'biblia-elim.mo' | while read -r mo; do
+		lang="$(echo "${mo}" | sed -n 's|.*/locale/\([^/]*\)/LC_MESSAGES/biblia-elim.mo|\1|p')"
 		[[ -n "${lang}" ]] || continue
 		install -d "${LOCDIR}/${lang}/LC_MESSAGES"
-		install -m 0644 "${mo}" "${LOCDIR}/${lang}/LC_MESSAGES/xiphos.mo"
+		install -m 0644 "${mo}" "${LOCDIR}/${lang}/LC_MESSAGES/biblia-elim.mo"
 	done
 fi
 
@@ -96,7 +116,7 @@ done
 
 # Sus notas son un comentario SWORD: el formato SQLite v1 solo guarda
 # Biblias, así que de momento viajan como SWORD.
-SWORDDIR="${HOME}/.sword"
+SWORDDIR="${BIBLIA_ELIM_SWORD_DIRECTORY:-${HOME}/.sword}"
 if [[ -d "${ROOT}/modulos" ]] && [[ ! -f "${SWORDDIR}/mods.d/torresamatnotas.conf" ]]; then
 	install -d "${SWORDDIR}/mods.d" \
 		"${SWORDDIR}/modules/comments/zcom/torresamatnotas"

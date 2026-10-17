@@ -210,6 +210,24 @@ prueba_reconocido(void)
 	}
 }
 
+/* MORPH-112: compare only the explicitly documented overlapping nominal
+ * fields. This must not turn opaque, malformed or cross-language codes into
+ * equivalences. */
+static void
+prueba_equivalencias(void)
+{
+	g_assert_true(main_morf_equivalentes("robinson:N-NSM", "logos:NNSM"));
+	g_assert_true(main_morf_equivalentes("morph.rob.g:T-GPF", "logos:DGPF"));
+	g_assert_true(main_morf_equivalentes("robinson:A-NSN", "logos:ANSN"));
+	g_assert_false(main_morf_equivalentes("robinson:N-NSM", "logos:NNSF"));
+	g_assert_false(main_morf_equivalentes("robinson:N-NSM", "logos:VNSM"));
+	g_assert_false(main_morf_equivalentes("custom:N-NSM", "logos:NNSM"));
+	g_assert_false(main_morf_equivalentes("robinson:N-NSM", "morph.gr.g:NNSM"));
+	g_assert_false(main_morf_equivalentes("N-NSM", "logos:NNSM"));
+	g_assert_false(main_morf_equivalentes("robinson:V-PAI-3S", "logos:VPAI3S"));
+	g_assert_false(main_morf_equivalentes(NULL, "logos:NNSM"));
+}
+
 static void
 prueba_corto(void)
 {
@@ -283,6 +301,7 @@ main(int argc, char *argv[])
 	g_test_add_func("/morf/hebreo", prueba_hebreo);
 	g_test_add_func("/morf/esquema-desconocido", prueba_esquema_desconocido);
 	g_test_add_func("/morf/reconocido", prueba_reconocido);
+	g_test_add_func("/morf/equivalencias", prueba_equivalencias);
 	g_test_add_func("/morf/corto", prueba_corto);
 	g_test_add_func("/morf/vacios", prueba_vacios);
 	return g_test_run();

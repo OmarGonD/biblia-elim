@@ -1,4 +1,4 @@
-# Xiphos build script
+# Biblia Elim build script
 #
 # Copyright (C) 2018 Xiphos Development Team
 #
@@ -16,10 +16,10 @@
 # along with this program; if not, see <https://www.gnu.org/licenses/>.
 #
 
-# building xiphos-nav
+# building biblia-elim-nav
 
 if (HAVE_DBUS)
-  message (STATUS "Configuring xiphos-nav target")
+  message (STATUS "Configuring biblia-elim-nav target")
 
   # Generate client-side D-Bus bindings using gdbus-codegen
   add_custom_command (
@@ -27,9 +27,9 @@ if (HAVE_DBUS)
     ${CMAKE_CURRENT_BINARY_DIR}/ipc-gdbus.c
 
     COMMAND gdbus-codegen
-    --interface-prefix org.xiphos.
+    --interface-prefix org.bibliaelim.
     --generate-c-code ipc-gdbus
-    --c-namespace Xiphos
+    --c-namespace BibliaElim
     ${CMAKE_CURRENT_SOURCE_DIR}/../gtk/ipc-interface.xml
     MAIN_DEPENDENCY ${CMAKE_CURRENT_SOURCE_DIR}/../gtk/ipc-interface.xml
 
@@ -38,14 +38,14 @@ if (HAVE_DBUS)
     )
 
   add_executable (
-    xiphos-nav
-    xiphos-nav.c
+    biblia-elim-nav
+    biblia-elim-nav.c
     ${CMAKE_CURRENT_BINARY_DIR}/ipc-gdbus.c
     )
 
 
   # specify include directories to use when compiling
-  target_include_directories (xiphos-nav
+  target_include_directories (biblia-elim-nav
     PRIVATE
     ${CMAKE_CURRENT_BINARY_DIR}
     Threads::Threads
@@ -54,7 +54,7 @@ if (HAVE_DBUS)
     )
 
   # specify libraries or flags to use when linking
-  target_link_libraries(xiphos-nav
+  target_link_libraries(biblia-elim-nav
     PRIVATE
     Threads::Threads
     PkgConfig::Core
@@ -62,8 +62,8 @@ if (HAVE_DBUS)
     )
 
 
-  # install xiphos-nav
-  install (TARGETS ${PROJECT_NAME}-nav
+  # install biblia-elim-nav
+  install (TARGETS biblia-elim-nav
     DESTINATION ${CMAKE_INSTALL_BINDIR}
     COMPONENT binaries)
 

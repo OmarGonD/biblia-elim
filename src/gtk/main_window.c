@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * main_window.c - main window gui
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -39,6 +39,7 @@
 
 #include "gui/xiphos.h"
 #include "gui/main_window.h"
+#include "gui/editable_edition_dialog.h"
 #include "main_window_layout.h"
 #include "main/tab_history.h"
 #include "gui/atajos.h"
@@ -50,6 +51,8 @@
 #include "gui/lectura_sync.h"
 #include "gui/parallel_view.h"
 #include "main/configs.h"
+#include "main/font_size.h"
+#include "webkit/wk-html.h"
 #include "main/lists.h"
 #include "main/parallel_view.h"
 #include "gui/commentary.h"
@@ -109,6 +112,15 @@ static guint reading_mode_hover_hide_src = 0;
 static GtkEventController *reading_mode_motion = NULL;
 static GtkEventController *reading_mode_toolbar_crossing = NULL;
 static gulong reading_mode_alloc_id = 0;
+static GtkWidget *study_editor_paned = NULL;
+static GtkWidget *study_editor_container = NULL;
+static GtkWidget *study_editor_panel = NULL;
+static GtkWidget *study_editor_body = NULL;
+static GtkWidget *study_editor_toggle_button = NULL;
+static GtkWidget *study_editor_title = NULL;
+static gboolean study_editor_visible = FALSE;
+static gboolean study_editor_swapped = FALSE;
+static gint study_editor_bible_width = 0;
 
 static void on_reading_mode_button_toggled(GtkToggleButton *button, gpointer data);
 static void on_reading_compare_toggled(GtkToggleButton *button, gpointer data);
@@ -127,6 +139,18 @@ static void on_lectura_hoy_clicked(GtkWidget *widget, gpointer data);
 static gboolean on_lectura_hoy_tooltip(GtkWidget *widget, gint x, gint y,
 				       gboolean del_teclado, GtkTooltip *tooltip,
 				       gpointer data);
+static void study_editor_set_visible(gboolean visible, gboolean persist);
+static void study_editor_apply_standard_visibility(void);
+static void study_editor_swap_sides(GtkButton *button, gpointer data);
+static void study_editor_hide_clicked(GtkButton *button, gpointer data);
+static void study_editor_close_clicked(GtkButton *button, gpointer data);
+static void study_editor_on_size(GtkWidget *widget, GdkRectangle *allocation,
+				 gpointer data);
+static void study_editor_update_bible_font(void);
+static void study_editor_on_divider_changed(GObject *object,
+						    GParamSpec *pspec,
+						    gpointer data);
+static void study_editor_toggle(GtkToggleButton *button, gpointer data);
 static void on_marcar_leido_clicked(GtkWidget *widget, gpointer data);
 static void on_zoom_target_changed(ZoomSurface surface, gint percent,
 				   gpointer data);
@@ -137,6 +161,361 @@ static gboolean on_marcar_leido_tooltip(GtkWidget *widget, gint x, gint y,
 gboolean gui_main_window_ready(void)
 {
 	return main_window_created;
+}
+
+static void
+study_editor_store(const gchar *key, gint value)
+{
+	gchar text[32];
+	g_snprintf(text, sizeof(text), "%d", value);
+	xml_set_value("Xiphos", "misc", key, text);
+	if (settings.fnconfigure)
+		xml_save_settings_doc(settings.fnconfigure);
+}
+
+static gint
+study_editor_load_setting(const gchar *key, gint fallback)
+{
+	gchar *value = xml_get_value("misc", key);
+	gint result = value ? atoi(value) : fallback;
+	g_free(value);
+	return result;
+}
+
+static void
+study_editor_update_bible_font(void)
+{
+	const gint target_width = 520;
+	gint allocation, position, bible_width, factor;
+	gint baseline_steps, baseline_pixels, minimum_zoom;
+	gchar *steps;
+	double scale;
+	if (!study_editor_paned || !study_editor_panel)
+		return;
+	if (!main_study_editor_visible(
+		    study_editor_visible,
+		    gtk_notebook_get_current_page(
+			GTK_NOTEBOOK(widgets.notebook_bible_parallel)) == 0,
+		    settings.reading_mode)) {
+		wk_html_set_responsive_zoom(ZOOM_SURFACE_BIBLE_MAIN, 0, 0);
+		return;
+	}
+	allocation = gtk_widget_get_allocated_width(study_editor_paned);
+	position = gtk_paned_get_position(GTK_PANED(study_editor_paned));
+	bible_width = study_editor_swapped ? allocation - position : position;
+	factor = main_study_editor_responsive_font_zoom(bible_width,
+							 target_width);
+	baseline_steps = bible_body_font_size_value();
+	steps = g_strdup_printf("%+d", baseline_steps);
+	scale = html_font_size_scale(steps);
+	g_free(steps);
+	/* Bible font settings use a 12 pt reference, or 16 CSS px. */
+	baseline_pixels = MAX(1, (gint)(16.0 * scale + 0.5));
+	minimum_zoom = main_study_editor_min_font_zoom(baseline_pixels);
+	wk_html_set_responsive_zoom(ZOOM_SURFACE_BIBLE_MAIN, factor,
+				    minimum_zoom);
+}
+
+static void
+study_editor_on_size(GtkWidget *widget, GdkRectangle *allocation,
+		     gpointer data)
+{
+	(void)widget;
+	(void)data;
+	if (allocation && study_editor_panel)
+		study_editor_update_bible_font();
+}
+
+static void
+study_editor_on_divider_changed(GObject *object, GParamSpec *pspec,
+				gpointer data)
+{
+	(void)object;
+	(void)pspec;
+	(void)data;
+	study_editor_update_bible_font();
+}
+
+static void
+study_editor_text_on_size(GtkWidget *widget, GdkRectangle *allocation,
+			  gpointer data)
+{
+	const gint max_column = 900;
+	const gint base_margin = 64;
+	gint margin;
+	(void)data;
+	if (!allocation || allocation->width < 1)
+		return;
+	margin = MAX(base_margin, (allocation->width - max_column) / 2);
+	gtk_text_view_set_left_margin(GTK_TEXT_VIEW(widget), margin);
+	gtk_text_view_set_right_margin(GTK_TEXT_VIEW(widget), margin);
+}
+
+static GtkWidget *
+study_editor_find_text_view(GtkWidget *root)
+{
+	GtkWidget *child;
+	if (GTK_IS_TEXT_VIEW(root))
+		return root;
+	for (child = gtk_widget_get_first_child(root); child;
+	     child = gtk_widget_get_next_sibling(child)) {
+		GtkWidget *found = study_editor_find_text_view(child);
+		if (found)
+			return found;
+	}
+	return NULL;
+}
+
+static void
+study_editor_build(void)
+{
+	GtkWidget *header, *swap, *hide, *close, *body;
+	gint allocation, position;
+
+	if (study_editor_panel)
+		return;
+
+	study_editor_panel = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
+	gtk_widget_add_css_class(study_editor_panel, "study-editor-panel");
+	gtk_widget_set_size_request(study_editor_panel, 260, -1);
+	header = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 8);
+	gtk_widget_add_css_class(header, "study-editor-header");
+	gtk_widget_set_margin_start(header, 12);
+	gtk_widget_set_margin_end(header, 8);
+	gtk_widget_set_margin_top(header, 6);
+	gtk_widget_set_margin_bottom(header, 6);
+	gtk_widget_show(header);
+	gtk_box_append(GTK_BOX(study_editor_panel), header);
+
+	body = editor_create_embedded_studypad(GTK_WINDOW(widgets.app),
+					       &study_editor_title);
+	study_editor_body = body;
+	{
+		GtkWidget *text_view = study_editor_find_text_view(body);
+		if (text_view)
+			gui_widget_watch_size(text_view, study_editor_text_on_size, NULL);
+	}
+	gtk_widget_show(study_editor_title);
+	gtk_box_append(GTK_BOX(header), study_editor_title);
+	swap = gtk_button_new_from_icon_name("view-dual-symbolic");
+	gtk_widget_show(swap);
+	gtk_widget_add_css_class(swap, "flat");
+	gtk_widget_set_tooltip_text(swap, _("Intercambiar Biblia y editor"));
+	g_signal_connect(swap, "clicked", G_CALLBACK(study_editor_swap_sides), NULL);
+	gtk_box_append(GTK_BOX(header), swap);
+	hide = gtk_button_new_from_icon_name("window-minimize-symbolic");
+	gtk_widget_show(hide);
+	gtk_widget_add_css_class(hide, "flat");
+	gtk_widget_set_tooltip_text(
+		hide, _("Ocultar panel de estudio; el borrador se conserva"));
+	gtk_accessible_update_property(GTK_ACCESSIBLE(hide),
+				       GTK_ACCESSIBLE_PROPERTY_LABEL,
+				       _("Ocultar panel de estudio"), -1);
+	g_signal_connect(hide, "clicked",
+			 G_CALLBACK(study_editor_hide_clicked), NULL);
+	gtk_box_append(GTK_BOX(header), hide);
+	close = gtk_button_new_from_icon_name("window-close-symbolic");
+	gtk_widget_show(close);
+	gtk_widget_add_css_class(close, "flat");
+	gtk_widget_set_tooltip_text(
+		close, _("Cerrar el estudio y revisar cambios sin guardar"));
+	gtk_accessible_update_property(GTK_ACCESSIBLE(close),
+				       GTK_ACCESSIBLE_PROPERTY_LABEL,
+				       _("Cerrar editor de estudio"), -1);
+	g_signal_connect(close, "clicked",
+			 G_CALLBACK(study_editor_close_clicked), NULL);
+	gtk_box_append(GTK_BOX(header), close);
+	gtk_box_append(GTK_BOX(study_editor_panel), body);
+	gtk_widget_show(body);
+	widgets.study_editor_panel = study_editor_panel;
+	if (study_editor_swapped) {
+		GtkWidget *bible = gtk_paned_get_start_child(
+			GTK_PANED(study_editor_paned));
+		if (bible) {
+			g_object_ref(bible);
+			gtk_paned_set_start_child(GTK_PANED(study_editor_paned), NULL);
+			gtk_paned_set_end_child(GTK_PANED(study_editor_paned), NULL);
+			gtk_paned_set_start_child(GTK_PANED(study_editor_paned),
+					  study_editor_panel);
+			gtk_paned_set_end_child(GTK_PANED(study_editor_paned), bible);
+			g_object_unref(bible);
+		}
+	} else {
+		gtk_paned_set_end_child(GTK_PANED(study_editor_paned),
+					study_editor_panel);
+	}
+	gtk_widget_set_size_request(widgets.vpaned, 180, -1);
+	gtk_paned_set_resize_start_child(GTK_PANED(study_editor_paned), TRUE);
+	gtk_paned_set_resize_end_child(GTK_PANED(study_editor_paned), TRUE);
+	gtk_paned_set_shrink_start_child(GTK_PANED(study_editor_paned), FALSE);
+	gtk_paned_set_shrink_end_child(GTK_PANED(study_editor_paned), FALSE);
+	allocation = gtk_widget_get_allocated_width(study_editor_paned);
+	position = study_editor_bible_width > 0
+		? study_editor_bible_width
+		: (allocation > 1 ? allocation * 56 / 100 : 560);
+	if (study_editor_swapped)
+		position = main_study_editor_swapped_position(position, allocation);
+	if (allocation > 1)
+		gtk_paned_set_position(GTK_PANED(study_editor_paned),
+				       MAX(1, position));
+	gtk_widget_hide(study_editor_panel);
+	g_object_unref(body);
+}
+
+static void
+study_editor_set_visible(gboolean visible, gboolean persist)
+{
+	study_editor_visible = visible != FALSE;
+	if (study_editor_visible)
+		study_editor_build();
+	if (study_editor_panel)
+		gtk_widget_set_visible(study_editor_panel,
+				       main_study_editor_visible(
+					   study_editor_visible,
+					   gtk_notebook_get_current_page(
+					       GTK_NOTEBOOK(widgets.notebook_bible_parallel)) == 0,
+					   settings.reading_mode));
+	if (widgets.study_bible_version_picker)
+		gtk_widget_set_visible(widgets.study_bible_version_picker,
+				       study_editor_visible &&
+				       gtk_notebook_get_current_page(GTK_NOTEBOOK(widgets.notebook_bible_parallel)) == 0 &&
+				       !settings.reading_mode);
+	if (study_editor_panel)
+		study_editor_update_bible_font();
+	if (study_editor_toggle_button &&
+	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(study_editor_toggle_button)) !=
+		    study_editor_visible) {
+		g_signal_handlers_block_by_func(study_editor_toggle_button,
+					G_CALLBACK(study_editor_toggle), NULL);
+		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(study_editor_toggle_button),
+					     study_editor_visible);
+		g_signal_handlers_unblock_by_func(study_editor_toggle_button,
+					  G_CALLBACK(study_editor_toggle), NULL);
+	}
+	if (persist)
+		study_editor_store("inline_study_editor", study_editor_visible);
+}
+
+static void
+study_editor_apply_standard_visibility(void)
+{
+	if (!study_editor_panel)
+		return;
+	gtk_widget_set_visible(study_editor_panel,
+				       main_study_editor_visible(
+					   study_editor_visible,
+					   gtk_notebook_get_current_page(
+					       GTK_NOTEBOOK(widgets.notebook_bible_parallel)) == 0,
+					   settings.reading_mode));
+	if (widgets.study_bible_version_picker)
+		gtk_widget_set_visible(widgets.study_bible_version_picker,
+				       study_editor_visible &&
+				       gtk_notebook_get_current_page(GTK_NOTEBOOK(widgets.notebook_bible_parallel)) == 0 &&
+				       !settings.reading_mode);
+	study_editor_update_bible_font();
+}
+
+static void
+study_editor_toggle(GtkToggleButton *button, gpointer data)
+{
+	(void)data;
+	study_editor_set_visible(gtk_toggle_button_get_active(button), TRUE);
+}
+
+static void
+study_editor_hide_clicked(GtkButton *button, gpointer data)
+{
+	(void)button;
+	(void)data;
+	study_editor_set_visible(FALSE, TRUE);
+}
+
+static void
+study_editor_close_clicked(GtkButton *button, gpointer data)
+{
+	GtkWidget *panel, *bible;
+
+	(void)button;
+	(void)data;
+	if (!study_editor_panel ||
+	    !editor_close_embedded_studypad(study_editor_body))
+		return;
+
+	panel = study_editor_panel;
+	study_editor_body = NULL;
+	study_editor_set_visible(FALSE, TRUE);
+	study_editor_title = NULL;
+	widgets.study_editor_panel = NULL;
+	study_editor_panel = NULL;
+
+	if (study_editor_swapped) {
+		bible = gtk_paned_get_end_child(GTK_PANED(study_editor_paned));
+		if (bible)
+			g_object_ref(bible);
+		gtk_paned_set_start_child(GTK_PANED(study_editor_paned), NULL);
+		gtk_paned_set_end_child(GTK_PANED(study_editor_paned), NULL);
+		if (bible) {
+			gtk_paned_set_start_child(GTK_PANED(study_editor_paned), bible);
+			g_object_unref(bible);
+		}
+	} else if (gtk_paned_get_end_child(GTK_PANED(study_editor_paned)) ==
+		   panel) {
+		gtk_paned_set_end_child(GTK_PANED(study_editor_paned), NULL);
+	}
+}
+
+void
+gui_toggle_study_editor(void)
+{
+	if (!main_window_created || !study_editor_toggle_button)
+		return;
+	if (gtk_notebook_get_current_page(
+		    GTK_NOTEBOOK(widgets.notebook_bible_parallel)) != 0)
+		gtk_notebook_set_current_page(
+			GTK_NOTEBOOK(widgets.notebook_bible_parallel), 0);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(study_editor_toggle_button),
+				     !study_editor_visible);
+}
+
+static void
+study_editor_swap_sides(GtkButton *button, gpointer data)
+{
+	gint allocation, position;
+	GtkWidget *bible;
+
+	(void)button;
+	(void)data;
+	if (!study_editor_panel)
+		return;
+	allocation = gtk_widget_get_allocated_width(study_editor_paned);
+	position = gtk_paned_get_position(GTK_PANED(study_editor_paned));
+	bible = study_editor_swapped
+		? gtk_paned_get_end_child(GTK_PANED(study_editor_paned))
+		: gtk_paned_get_start_child(GTK_PANED(study_editor_paned));
+	g_object_ref(bible);
+	g_object_ref(study_editor_panel);
+	gtk_paned_set_start_child(GTK_PANED(study_editor_paned), NULL);
+	gtk_paned_set_end_child(GTK_PANED(study_editor_paned), NULL);
+	study_editor_swapped = !study_editor_swapped;
+	if (study_editor_swapped) {
+		gtk_paned_set_start_child(GTK_PANED(study_editor_paned), study_editor_panel);
+		gtk_paned_set_end_child(GTK_PANED(study_editor_paned), bible);
+	} else {
+		gtk_paned_set_start_child(GTK_PANED(study_editor_paned), bible);
+		gtk_paned_set_end_child(GTK_PANED(study_editor_paned), study_editor_panel);
+	}
+	gtk_paned_set_resize_start_child(GTK_PANED(study_editor_paned), TRUE);
+	gtk_paned_set_resize_end_child(GTK_PANED(study_editor_paned), TRUE);
+	gtk_paned_set_shrink_start_child(GTK_PANED(study_editor_paned), FALSE);
+	gtk_paned_set_shrink_end_child(GTK_PANED(study_editor_paned), FALSE);
+	if (allocation > 1)
+		gtk_paned_set_position(GTK_PANED(study_editor_paned),
+				       main_study_editor_swapped_position(position,
+								  allocation));
+	g_object_unref(bible);
+	g_object_unref(study_editor_panel);
+	study_editor_store("inline_study_editor_swapped", study_editor_swapped);
+	study_editor_update_bible_font();
 }
 
 /******************************************************************************
@@ -1071,6 +1450,7 @@ reading_strip_build(void)
 	g_signal_connect(reading_compare_button, "toggled",
 			 G_CALLBACK(on_reading_compare_toggled), NULL);
 	gtk_box_append(GTK_BOX(reading_strip), reading_compare_button);
+	gtk_box_append(GTK_BOX(reading_strip), gui_edition_contributions_button_new(TRUE));
 
 	/* Icons, not labels: the hover header already carries the whole
 	 * verse navigation, and two worded buttons pushed it past the
@@ -1132,6 +1512,7 @@ reading_strip_sync(void)
 	 * them. They are instead disabled, which says "this exists, turn
 	 * on the comparison to use it" rather than saying nothing. */
 	gtk_widget_set_visible(reading_strip, settings.reading_mode);
+	gui_edition_contributions_button_sync(settings.MainWindowModule);
 	if (reading_compare_pick)
 		gtk_widget_set_sensitive(reading_compare_pick,
 					 settings.reading_compare != 0);
@@ -1245,6 +1626,7 @@ void gui_toggle_reading_mode(gboolean choice)
 		in_progress = FALSE;
 		return;
 	}
+	study_editor_apply_standard_visibility();
 
 	view = widgets.html_text ? wk_html_get_view(WK_HTML(widgets.html_text)) : NULL;
 
@@ -1683,7 +2065,7 @@ void gui_change_window_title(gchar *module_name)
 		desc = g_strdup(main_get_module_description(title));
 		if (!desc)
 			desc = g_strdup(main_get_module_description(settings.MainWindowModule));
-		full = g_strdup_printf("%s — Biblia Elim",
+		full = g_strdup_printf("%s — Ministerios Elim",
 				       desc ? desc : "[no title]");
 		g_free(desc);
 		gtk_window_set_title(GTK_WINDOW(widgets.app), full);
@@ -1753,6 +2135,17 @@ static gboolean epaned_button_release_event(GtkWidget *widget,
 			xml_set_value("Xiphos", "layout",
 				      "textpane", layout);
 		}
+		if (!strcmp((gchar *)user_data, "study-editor")) {
+			gint allocation = gtk_widget_get_allocated_width(widget);
+			study_editor_bible_width = main_study_editor_bible_width(
+				study_editor_swapped, panesize, allocation);
+			if (study_editor_bible_width > 15) {
+				g_snprintf(layout, sizeof(layout), "%d",
+					   study_editor_bible_width);
+				xml_set_value("Xiphos", "misc",
+					      "inline_study_editor_bible_width", layout);
+			}
+		}
 		return FALSE;
 	}
 	return TRUE;
@@ -1786,6 +2179,9 @@ void final_pane_sizes()
 				    (gchar *)"vpaned2");
 	epaned_button_release_event(GTK_WIDGET(widgets.hpaned), NULL,
 				    (gchar *)"hpaned1");
+	if (study_editor_panel)
+		epaned_button_release_event(study_editor_paned, NULL,
+					    (gchar *)"study-editor");
 }
 
 /******************************************************************************
@@ -1855,6 +2251,7 @@ static void on_notebook_bible_parallel_switch_page(GtkNotebook *notebook,
 	(void)notebook;
 	(void)arg;
 	(void)tl;
+	study_editor_apply_standard_visibility();
 	if (page_num == 1)
 		gui_parallel_page_shown();
 }
@@ -2192,7 +2589,7 @@ static gboolean on_vbox1_key_press_event(GtkWidget *widget, GuiKeyEvent *event,
 			} else if (settings.showdicts) {
 				gui_barra_busqueda_mostrar(widgets.html_dict);
 			} else
-				gui_generic_warning(_("Biblia Elim: No windows."));
+				gui_generic_warning(_("Ministerios Elim: No windows."));
 		} else if (state == (GDK_CONTROL_MASK | GDK_SHIFT_MASK)) {
 			// Ctrl-Shift-F: toggle distraction-free reading mode
 			gboolean new_state = !settings.reading_mode;
@@ -2666,13 +3063,18 @@ void create_mainwindow(void)
 	GtkWidget *marcar_leido_button;
 	GtkWidget *hbox25;
 	GtkWidget *tab_button_icon;
+	const gchar *new_tab_description;
 	GtkWidget *label;
 	GtkWidget *box_book;
 	GtkWidget *box_devot;
-	GdkPixbuf *pixbuf;
 
 	XI_print(("%s biblia-elim-%s\n", "Starting", VERSION));
-	XI_print(("%s\n\n", "Building Biblia Elim interface"));
+	XI_print(("%s\n\n", "Building Ministerios Elim interface"));
+	study_editor_visible = study_editor_load_setting("inline_study_editor", 0) != 0;
+	study_editor_swapped =
+		study_editor_load_setting("inline_study_editor_swapped", 0) != 0;
+	study_editor_bible_width =
+		MAX(0, study_editor_load_setting("inline_study_editor_bible_width", 0));
 
 	widgets.studypad_dialog = NULL;
 	widgets.entry_devotional = NULL;
@@ -2707,9 +3109,9 @@ void create_mainwindow(void)
 	 *
 	 */
 
-	// The toplevel Xiphos window
+	// The toplevel Ministerios Elim window
 	widgets.app = gtk_window_new();
-	gtk_window_set_title(GTK_WINDOW(widgets.app), _("Biblia Elim"));
+	gtk_window_set_title(GTK_WINDOW(widgets.app), _("Ministerios Elim"));
 	gtk_widget_set_name(widgets.app, "elim-app");
 	if (settings.darktheme)
 		gtk_widget_add_css_class(widgets.app, "elim-dark");
@@ -2722,16 +3124,7 @@ void create_mainwindow(void)
 	gtk_widget_set_can_focus(widgets.app, 1);
 	gtk_window_set_resizable(GTK_WINDOW(widgets.app), TRUE);
 
-	// The app icon.
-	// FIXME:: This should be a big copy of the logo because GTK does the scaling (GTK 3.16?)
-	imagename = image_locator("biblia-elim.png");
-	if (!g_file_test(imagename, G_FILE_TEST_IS_REGULAR)) {
-		g_free(imagename);
-		imagename = image_locator("gs2-48x48.png");
-	}
-	pixbuf = gdk_pixbuf_new_from_file(imagename, NULL);
-	g_free(imagename);
-	gtk_window_set_icon_name(GTK_WINDOW(widgets.app), "biblia-elim");
+	gtk_window_set_icon_name(GTK_WINDOW(widgets.app), "ministerios-elim");
 
 	// The main box for our toplevel window.
 	UI_VBOX(vbox_gs, FALSE, 0);
@@ -2750,7 +3143,7 @@ void create_mainwindow(void)
 	header_bar = gtk_header_bar_new();
 	gtk_header_bar_set_show_title_buttons(GTK_HEADER_BAR(header_bar), TRUE);
 	gtk_label_set_text(GTK_LABEL(header_title_label(header_bar)),
-			   _("Biblia Elim"));
+			   _("Ministerios Elim"));
 	gtk_widget_add_css_class(header_bar, "elim-header");
 	gtk_header_bar_pack_start(GTK_HEADER_BAR(header_bar), menu);
 
@@ -2776,6 +3169,24 @@ void create_mainwindow(void)
 	gui_toggle_set_active(GTK_WIDGET(widgets.reading_mode_button),
 				     settings.reading_mode);
 	gtk_header_bar_pack_start(GTK_HEADER_BAR(header_bar), widgets.reading_mode_button);
+
+	study_editor_toggle_button = gtk_toggle_button_new();
+	gtk_button_set_child(GTK_BUTTON(study_editor_toggle_button),
+			      gtk_image_new_from_icon_name("document-edit-symbolic"));
+	gtk_widget_add_css_class(study_editor_toggle_button, "flat");
+	gtk_widget_add_css_class(study_editor_toggle_button, "circular");
+	gtk_widget_set_tooltip_text(study_editor_toggle_button,
+				    _("Mostrar u ocultar el panel de estudio; el borrador se conserva"));
+	gtk_accessible_update_property(GTK_ACCESSIBLE(study_editor_toggle_button),
+				       GTK_ACCESSIBLE_PROPERTY_LABEL,
+				       _("Mostrar u ocultar el panel de estudio"), -1);
+	gtk_widget_show(study_editor_toggle_button);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(study_editor_toggle_button),
+				      study_editor_visible);
+	g_signal_connect(study_editor_toggle_button, "toggled",
+			 G_CALLBACK(study_editor_toggle), NULL);
+	gtk_header_bar_pack_start(GTK_HEADER_BAR(header_bar),
+				  study_editor_toggle_button);
 
 	/* La lectura del día, al lado de los otros dos botones de la
 	 * izquierda. Va con nombre y no solo con icono: es la puerta de
@@ -2886,6 +3297,8 @@ void create_mainwindow(void)
 	gtk_box_append(GTK_BOX(widgets.vboxMain), widgets.hboxtb);
 
 	widgets.button_new_tab = gtk_button_new();
+	gtk_widget_add_css_class(widgets.button_new_tab, "elim-new-tab");
+	gtk_widget_set_valign(widgets.button_new_tab, GTK_ALIGN_CENTER);
 	// Don't show button here in case !settings.browsing
 
 	tab_button_icon = gtk_image_new_from_icon_name("tab-new-symbolic");
@@ -2894,7 +3307,11 @@ void create_mainwindow(void)
 	gtk_button_set_child(GTK_BUTTON(widgets.button_new_tab), tab_button_icon);
 	gtk_button_set_has_frame(GTK_BUTTON(widgets.button_new_tab), FALSE);
 	gtk_box_append(GTK_BOX(widgets.hboxtb), widgets.button_new_tab);
-	gtk_widget_set_tooltip_text(widgets.button_new_tab, _("Open a new tab"));
+	new_tab_description = _("Open another Bible in a new tab");
+	gtk_widget_set_tooltip_text(widgets.button_new_tab, new_tab_description);
+	gtk_accessible_update_property(GTK_ACCESSIBLE(widgets.button_new_tab),
+				       GTK_ACCESSIBLE_PROPERTY_LABEL,
+				       new_tab_description, -1);
 
 	widgets.notebook_main = gtk_notebook_new();
 	gtk_widget_add_css_class(widgets.notebook_main, "elim-tabs");
@@ -2945,7 +3362,16 @@ void create_mainwindow(void)
 	widgets.vpaned = UI_VPANE();
 	gtk_widget_show(widgets.vpaned);
 	gtk_widget_set_size_request(widgets.vpaned, 50, -1);
-	gtk_paned_set_start_child(GTK_PANED(widgets.hpaned), widgets.vpaned);
+	study_editor_paned = UI_HPANE();
+	gtk_widget_show(study_editor_paned);
+	gtk_paned_set_start_child(GTK_PANED(study_editor_paned), widgets.vpaned);
+	gtk_paned_set_resize_start_child(GTK_PANED(study_editor_paned), TRUE);
+	gtk_paned_set_shrink_start_child(GTK_PANED(study_editor_paned), FALSE);
+	study_editor_container = study_editor_paned;
+	g_signal_connect(study_editor_paned, "notify::position",
+			 G_CALLBACK(study_editor_on_divider_changed), NULL);
+	gtk_paned_set_start_child(GTK_PANED(widgets.hpaned),
+				  study_editor_container);
 	gtk_paned_set_resize_start_child(GTK_PANED(widgets.hpaned), TRUE);
 	gtk_paned_set_shrink_start_child(GTK_PANED(widgets.hpaned), FALSE);
 
@@ -3089,9 +3515,13 @@ box_devot = gui_create_devotional_pane();
 
 	// Statusbar
 	widgets.appbar = gtk_statusbar_new();
-
-	gtk_box_append(GTK_BOX(vbox_gs), widgets.appbar);
-	gui_set_statusbar(_("Bienvenido a Biblia Elim"));
+	/* GtkStatusbar is not a GtkBox in GTK 4. Keep progress alongside it
+	 * in an application-owned row instead of packing into its internals. */
+	GtkWidget *status_row = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 6);
+	gtk_widget_set_hexpand(widgets.appbar, TRUE);
+	gtk_box_append(GTK_BOX(status_row), widgets.appbar);
+	gtk_box_append(GTK_BOX(vbox_gs), status_row);
+	gui_set_statusbar(_("Bienvenido a Ministerios Elim"));
 	panel_load_debug("app", "STATUSBAR_READY", NULL);
 
 	gtk_paned_set_end_child(GTK_PANED(widgets.hpaned), widgets.vpaned2);
@@ -3129,6 +3559,8 @@ box_devot = gui_create_devotional_pane();
 				       startup_window_size_allocate, "commentary-notebook");
 		gui_widget_watch_size(widgets.notebook_dict_devot,
 				       startup_window_size_allocate, "dictionary-notebook");
+		gui_widget_watch_size(study_editor_container,
+				       study_editor_on_size, NULL);
 	}
 	/* Constructors deliberately create every pane so backends and later
 	 * toggles have stable widget anchors. Apply the settings contract before
@@ -3139,6 +3571,10 @@ box_devot = gui_create_devotional_pane();
 	 * startup event drain does not lay out default paned geometry and then
 	 * immediately redo the same tree after frontend_display(). */
 	gui_set_bible_comm_layout();
+	if (study_editor_visible) {
+		study_editor_build();
+		study_editor_apply_standard_visibility();
+	}
 	startup_event_drain_profile_attach(widgets.app);
 	panel_load_debug("app", "WINDOW_SHOW_ALL_BEGIN", NULL);
 	gtk_widget_show(widgets.app);
@@ -3175,6 +3611,7 @@ box_devot = gui_create_devotional_pane();
 	gui_widget_on_button(GTK_WIDGET(widgets.vpaned), GTK_PHASE_BUBBLE, NULL, (GuiButtonFunc)epaned_button_release_event, (gchar *)"vpaned");
 	gui_widget_on_button(GTK_WIDGET(widgets.vpaned2), GTK_PHASE_BUBBLE, NULL, (GuiButtonFunc)epaned_button_release_event, (gchar *)"vpaned2");
 	gui_widget_on_button(GTK_WIDGET(widgets.hpaned), GTK_PHASE_BUBBLE, NULL, (GuiButtonFunc)epaned_button_release_event, (gchar *)"hpaned1");
+	gui_widget_on_button(study_editor_paned, GTK_PHASE_BUBBLE, NULL, (GuiButtonFunc)epaned_button_release_event, (gchar *)"study-editor");
 	panel_load_debug("app", "WINDOW_SIGNALS_CONNECTED", NULL);
 
 	main_window_created = TRUE;

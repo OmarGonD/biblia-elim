@@ -170,9 +170,9 @@ main(int argc, char **argv)
 	provider = gtk_css_provider_new();
 	g_signal_connect(provider, "parsing-error",
 			 G_CALLBACK(on_css_parsing_error), NULL);
-	gtk_css_provider_load_from_path(provider, SRCDIR "/ui/xiphos-style.css");
+	gtk_css_provider_load_from_path(provider, SRCDIR "/ui/biblia-elim-style.css");
 	CHECK(!css_parse_error);
-	CHECK(g_file_get_contents(SRCDIR "/ui/xiphos-style.css", &stylesheet,
+	CHECK(g_file_get_contents(SRCDIR "/ui/biblia-elim-style.css", &stylesheet,
 				  NULL, NULL));
 	CHECK(g_file_get_contents(SRCDIR "/src/webkit/wk-html.c", &renderer,
 				  NULL, NULL));
@@ -244,13 +244,13 @@ main(int argc, char **argv)
 		CHECK(strstr(renderer, "LOAD_COMMITTED") != NULL);
 		CHECK(strstr(renderer, "LOAD_FINISHED") != NULL);
 		CHECK(strstr(renderer, "schedule_content_reveal") != NULL);
-		CHECK(strstr(renderer, "g_idle_add(reveal_content_idle") != NULL);
+		CHECK(strstr(renderer, "g_idle_add_full(G_PRIORITY_HIGH_IDLE, reveal_content_idle") != NULL);
 		/* Annotated-word activation keeps the established click-without-drag
 		 * contract, defers past the double-click interval, and leaves the
 		 * right-click context-menu branch intact. */
 		CHECK(strstr(renderer, "action=showNeutralWord") != NULL);
 		CHECK(strstr(renderer, "gtk_drag_check_threshold") != NULL);
-		CHECK(strstr(renderer, "GDK_2BUTTON_PRESS") != NULL);
+		CHECK(strstr(renderer, "event->n_press == 2") != NULL);
 		CHECK(strstr(renderer, "event->button == 3") != NULL);
 		CHECK(strstr(renderer, "activate_pending_word") != NULL);
 

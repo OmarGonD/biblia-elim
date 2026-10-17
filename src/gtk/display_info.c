@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * display_info.c - display information (ie strongs) in a dialog
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team

@@ -71,6 +71,8 @@ void gui_close_comms_panel(void);
 void gui_schedule_bible_text_reflow(gboolean redisplay);
 void gui_show_hide_dicts(int choice);
 void gui_toggle_reading_mode(int choice);
+/* Show or hide the embedded StudyPad beside the standard Bible view. */
+void gui_toggle_study_editor(void);
 /* Syncs the reading strip's interlinear toggle with the live setting,
  * called from the interlinear code whenever that setting changes. */
 void gui_reading_interlinear_sync(void);

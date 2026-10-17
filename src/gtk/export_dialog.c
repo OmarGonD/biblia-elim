@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * export_dialog.c -
  *
  * Copyright (C) 2008-2026 Xiphos Developer Team
@@ -497,7 +497,7 @@ void gui_export_dialog(void)
 
 /* build the widget */
 	gxml = elim_gtk_builder_new();
-	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/export-dialog.gtkbuilder", NULL);
+	gtk_builder_add_from_resource(gxml, "/org/bibliaelim/ui/export-dialog.gtkbuilder", NULL);
 
 	dialog = UI_GET_ITEM(gxml, "dialog_export_passage");
 

@@ -113,7 +113,7 @@ load_strongs(void)
 	strongs = g_hash_table_new_full(g_str_hash, g_str_equal, g_free,
 					strong_free);
 
-	GBytes *bytes = g_resources_lookup_data("/org/xiphos/ui/strongs-elim.xml",
+	GBytes *bytes = g_resources_lookup_data("/org/bibliaelim/ui/strongs-elim.xml",
 						G_RESOURCE_LOOKUP_FLAGS_NONE, NULL);
 	if (!bytes)
 		return;

@@ -44,6 +44,7 @@
 #include "main/lectura_sync.h"
 #include "main/mod_mgr.h"
 #include "main/settings.h"
+#include "main/app_language.h"
 #include "main/navigation_prefs.h"
 #include "main/startup_profile.h"
 #include "main/sword.h"
@@ -303,7 +304,7 @@ int settings_init(int argc, char **argv, int new_configs,
 
 	settings.first_run = FALSE;
 	/* set program title */
-	strcpy(settings.program_title, "Xiphos");
+	strcpy(settings.program_title, "Biblia Elim");
 
 	/* Get home dir */
 	if ((settings.homedir = (char *)g_getenv(HOMEVAR)) == NULL) {
@@ -452,7 +453,7 @@ int settings_init(int argc, char **argv, int new_configs,
 			gui_generic_warning_modal(_("There are no Bibles installed.\n"
 						    "Evidently, you declined to install any.\n\n"
 						    "Without any Bible modules to display,\n"
-						    "Xiphos cannot proceed,\nand will now exit."));
+						    "Biblia Elim cannot proceed,\nand will now exit."));
 			exit(1);
 		}
 		gui_generic_warning_modal(_("Bible module installation complete."));
@@ -761,14 +762,8 @@ if (!settings.morph_heb_lex || strlen(settings.morph_heb_lex) == 0) {
 }
 
 
-	/* unusual locale setting */
-	if ((buf = xml_get_value("locale", "special")))
-		settings.special_locale = g_strdup(buf);
-	else {
-		xml_add_new_section_to_settings_doc("locale");
-		xml_add_new_item_to_section("locale", "special", NONE);
-		settings.special_locale = g_strdup(NONE);
-	}
+	/* Persist the installer's first-run default; saved choices remain intact. */
+	settings.special_locale = app_language_load_or_seed_choice();
 
 	/* mod mgr stuff */
 	if ((buf = xml_get_value("modmgr", "mod_mgr_source")))

@@ -59,7 +59,7 @@
                           <object class="GtkImage" id="image2">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="resource">/org/xiphos/ui/sword3.png</property>
+                            <property name="resource">/org/bibliaelim/ui/sword3.png</property>
                           <property name="vexpand">True</property>
                           </object>
                         </child>
@@ -395,7 +395,7 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="icon_name">dialog-warning-symbolic</property>
-                                <property name="icon_size">6</property>
+                                <property name="pixel_size">48</property>
                               </object>
                             </child>
                             <child>
@@ -516,7 +516,7 @@
                 <property name="label" translatable="yes">Actualizar</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
-                <property name="tooltip_text" translatable="yes">Refresh Xiphos' knowledge of what modules are available at the selected remote repository</property>
+                <property name="tooltip_text" translatable="yes">Refresh Ministerios Elim's knowledge of what modules are available at the selected remote repository</property>
               </object>
             </child>
             <child>

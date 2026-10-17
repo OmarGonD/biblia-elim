@@ -31,7 +31,7 @@ install (FILES
   selector-prefs.gtkbuilder
   xi-export-bookmarks.gtkbuilder
   gtk_tvedit.gtkbuilder
-  DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}
+  DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/biblia-elim
   COMPONENT data
   )
 # common stuff
@@ -59,8 +59,8 @@ install (FILES
   sword_icon-16.png
   sword.png
   translation_icon-16.png
-  xiphos-x-16.png
+  biblia-elim-x-16.png
   languages
-  DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}
+  DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/biblia-elim
   COMPONENT data
   )

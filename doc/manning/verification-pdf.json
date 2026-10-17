@@ -1,0 +1,93 @@
+{
+  "task": "EDITION-110",
+  "exports": [
+    {
+      "pages": 1465,
+      "internal_links": 392,
+      "source_links": 487,
+      "links_to_notes": 162,
+      "links_back_to_verses": 81,
+      "broken_links": 0,
+      "file": "salida/pdf/Manning-ESP.pdf",
+      "sha256": "5fdbda6b9f2efb65934cc75adc64a7852c0e00c884a9421dbd0c7709f7e7d05b",
+      "bytes": 5806978,
+      "source_module": "ManningES",
+      "source_sha256": "f3078bb5ce2c3ef413b083aaa77e6e42d3e045f6796d0d55d71d784a8ab4b437",
+      "source_verses": 31096,
+      "contributions": 81,
+      "scope": "complete"
+    },
+    {
+      "pages": 89,
+      "internal_links": 346,
+      "source_links": 487,
+      "links_to_notes": 162,
+      "links_back_to_verses": 81,
+      "broken_links": 0,
+      "file": "salida/pdf/Manning-ESP-aportes.pdf",
+      "sha256": "0724f45da9ccfb0f9bc899fdbddc28b3c25a4114fbb05f3322131b4a7973bac7",
+      "bytes": 427478,
+      "source_module": "ManningES",
+      "source_sha256": "f3078bb5ce2c3ef413b083aaa77e6e42d3e045f6796d0d55d71d784a8ab4b437",
+      "source_verses": 31096,
+      "contributions": 81,
+      "scope": "contributions"
+    },
+    {
+      "pages": 1497,
+      "internal_links": 392,
+      "source_links": 225,
+      "links_to_notes": 162,
+      "links_back_to_verses": 81,
+      "broken_links": 0,
+      "file": "salida/pdf/Manning-ENG.pdf",
+      "sha256": "adeff3c1898cfdcf909f88482872e2230f9739e5553eb015f055d8138ae83d01",
+      "bytes": 5779322,
+      "source_module": "ManningEN",
+      "source_sha256": "bedc2aa71c3c42c4894104d58e3b23ae35c16479efa35fffe276965649d469a4",
+      "source_verses": 31102,
+      "contributions": 81,
+      "scope": "complete"
+    },
+    {
+      "pages": 73,
+      "internal_links": 346,
+      "source_links": 225,
+      "links_to_notes": 162,
+      "links_back_to_verses": 81,
+      "broken_links": 0,
+      "file": "salida/pdf/Manning-ENG-aportes.pdf",
+      "sha256": "278f7d356b9ed7c93456b89fdc3fe06033fcbd8a1f6604cabbd3e69d8a8f7896",
+      "bytes": 332020,
+      "source_module": "ManningEN",
+      "source_sha256": "bedc2aa71c3c42c4894104d58e3b23ae35c16479efa35fffe276965649d469a4",
+      "source_verses": 31102,
+      "contributions": 81,
+      "scope": "contributions"
+    }
+  ],
+  "modules_unchanged": true,
+  "tests": {
+    "study_bible_pdf_test": {
+      "result": "PASS",
+      "checks": 111,
+      "independent_reader": "Poppler"
+    },
+    "editable_edition_test": "PASS",
+    "curated_edition_test": "PASS",
+    "gtk_lifecycle_smoke": {
+      "result": "PASS",
+      "checks": 653,
+      "environment": {
+        "GSK_RENDERER": "cairo",
+        "GDK_DISABLE": "gl,vulkan"
+      },
+      "gui_save_worker_verified": true
+    },
+    "build": [
+      "biblia-elim",
+      "biblia-study-pdf"
+    ],
+    "diff_check": "PASS"
+  }
+}

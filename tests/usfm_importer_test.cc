@@ -23,6 +23,19 @@ int main(int argc, char **argv)
 	options.language = "en";
 	options.versification = "custom";
 	options.source = "test";
+	const std::string enochSource = std::string(directory) + "/ENOCH.usfm";
+	const std::string enochOutput = std::string(directory) + "/enoch.sqlite";
+	g_assert_true(g_file_set_contents(enochSource.c_str(),
+		"\\id 1EN\n\\c 1\n\\v 1 Synthetic test verse for 1 Enoch.\n",
+		-1, nullptr));
+	UsfmImportOptions enochOptions = options;
+	enochOptions.moduleId = "enoch-fixture";
+	enochOptions.name = "1 Enoc";
+	UsfmImportStats enochStats;
+	std::string enochError;
+	g_assert_true(importUsfm({enochSource}, enochOutput, enochOptions,
+		enochStats, enochError));
+	g_assert_cmpuint(enochStats.books, ==, 1);
 	UsfmImportStats stats;
 	std::string error;
 	g_assert_true(importUsfm({root + "GEN.usfm", root + "JHN.usfm"}, output,
@@ -37,6 +50,10 @@ int main(int argc, char **argv)
 	g_assert_false(backend.moduleCapabilities("usfm-fixture").morphology);
 	g_assert_true(backend.moduleCapabilities("usfm-fixture").footnotes);
 	g_assert_true(backend.moduleCapabilities("usfm-fixture").crossrefs);
+	BibleKeyInfo enochKey;
+	g_assert_true(backend.resolveKey("enoch-fixture", "1 Enoc 1:1", enochKey));
+	g_assert_cmpint(enochKey.reference.book, ==, 78);
+	g_assert_cmpstr(enochKey.osisBook.c_str(), ==, "1En");
 	BibleKeyInfo key;
 	g_assert_true(backend.resolveKey("usfm-fixture", "Genesis 1:1", key));
 	BibleVerseContent content = backend.getVerseContent("usfm-fixture", key.reference);
@@ -115,6 +132,8 @@ int main(int argc, char **argv)
 	g_file_set_contents(duplicate, "\\id GEN\n\\c 1\n\\v 1 one\n\\v 1 two\n", -1, nullptr);
 	g_assert_false(importUsfm({duplicate}, std::string(directory) + "/dup.sqlite", options, badStats, badError));
 	g_remove(output.c_str());
+	g_remove(enochOutput.c_str());
+	g_remove(enochSource.c_str());
 	g_remove(badBook); g_remove(duplicate); g_free(badBook); g_free(duplicate);
 	g_rmdir(directory);
 	g_free(directory);

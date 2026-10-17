@@ -1,0 +1,57 @@
+{
+  "app": "/home/ogonzales/Projects/biblia_elim/build/src/gtk/biblia-elim",
+  "display": "current",
+  "app_sha256": "944ef8640fdf7fe0545956a5ee314a43dad55fc73058d889b7bfc7d5e63c504e",
+  "settings_sha256": "77b405787d6de60e551c8e94add88e43543f23b05ca8dc6431b4ad2771ccb61d",
+  "tabs_sha256": "3e0ca3b6721c7ab05ef7ae85a5d0a96a92707fc604adfd8f7e8a346da8b27410",
+  "display_environment": {
+    "DISPLAY": ":0",
+    "WAYLAND_DISPLAY": "wayland-1",
+    "GDK_BACKEND": "wayland,x11,*",
+    "GDK_SCALE": "2",
+    "GDK_DPI_SCALE": null
+  },
+  "renderer": "default",
+  "cache_state": "warm",
+  "runs": 1,
+  "warmups_per_mode": 1,
+  "profile": "/tmp/biblia-startup-pnvajpui",
+  "modes": {
+    "sqlite": {
+      "samples_ms": [
+        {
+          "GTK_INITIALIZED": 93.1,
+          "FIRST_CONTENT_READY": 637.2,
+          "GTK_MAIN_ENTER": 647.7,
+          "FIRST_CHAPTER_PAINTED": 746.4,
+          "FIRST_READING_WINDOW_READY": 1191.2
+        }
+      ],
+      "median_ms": {
+        "GTK_INITIALIZED": 93.1,
+        "FIRST_CONTENT_READY": 637.2,
+        "FIRST_CHAPTER_PAINTED": 746.4,
+        "GTK_MAIN_ENTER": 647.7,
+        "FIRST_READING_WINDOW_READY": 1191.2
+      }
+    },
+    "sword": {
+      "samples_ms": [
+        {
+          "GTK_INITIALIZED": 94.1,
+          "FIRST_CONTENT_READY": 599.8,
+          "GTK_MAIN_ENTER": 607.9,
+          "FIRST_CHAPTER_PAINTED": 693.2,
+          "FIRST_READING_WINDOW_READY": 1157.8
+        }
+      ],
+      "median_ms": {
+        "GTK_INITIALIZED": 94.1,
+        "FIRST_CONTENT_READY": 599.8,
+        "FIRST_CHAPTER_PAINTED": 693.2,
+        "GTK_MAIN_ENTER": 607.9,
+        "FIRST_READING_WINDOW_READY": 1157.8
+      }
+    }
+  }
+}

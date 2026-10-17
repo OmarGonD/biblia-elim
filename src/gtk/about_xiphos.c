@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * about_xiphos.c - Xiphos about dialog
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -32,37 +32,8 @@
 #include "main/settings.h"
 
 static const gchar *authors[] = {
-    "Terry Biggs",
-    "Moses McKnight",
-    "Jan Paul Schmidt",
-    "Victor Porton",
-    "Stephen Binks",
-    "Carl Constantine",
-    "Jp Robinson",
-    "Andy Piper",
-    "Karl Kleinpaste",
-    "Matthew Talbert",
-    "Peter von Kaehne",
-    "Simon Meers",
-    "Martin Zibricky",
-    "Dmitrijs Ledkovs",
-    "Christopher Bayliss",
-    "Greg Hellings",
-    "Nicholas Walkewicz",
-    "Cyrille Mattiuzzo",
+    "Omar Gonzáles Díaz",
     NULL};
-
-static const gchar *documenters[] = {
-    "Pierre Benz",
-    "Andy Piper",
-    "Peter von Kaehne",
-    "Karl Kleinpaste",
-    "Matthew Talbert",
-    "Simon Meers",
-    NULL};
-
-static gchar *translators =
-    "Jan Paul Schmidt\nJorge Chacon\nDominique Corbex\nCyrille Mattiuzzo\nZdenko Podobný\nPavlo Bohmat\nMartin Zibricky\nAri Constancio\nGertjan Francke\nEicke Godehardt\nAndy Piper\nThomas Abthorpe\nEeli Kaikkonen\nAntoine Đỗ\nGiải Ngố\nCyrille Mattiuzzo";
 
 /******************************************************************************
  * Name
@@ -98,7 +69,7 @@ on_dialog_response(GtkDialog *dialog, gint response_id,
  *   void gui_create_about_xiphos(void);
  *
  * Description
- *   Create Xiphos about dialog and return pointer on it.
+ *   Create Ministerios Elim about dialog and return pointer on it.
  *
  * Return value
  *   GtkWidget *
@@ -114,37 +85,41 @@ GtkWidget *gui_create_about_xiphos(void)
 
 	snprintf(versionbuild, 120, "%s (%s)", VERSION, BUILD_TYPE);
 
-	about1_logo_pixbuf = pixbuf_finder("about.png", 0, NULL);
+	about1_logo_pixbuf = pixbuf_finder("ministerios-elim.png", 0, NULL);
 
 	about1 = gtk_about_dialog_new();
 	g_signal_connect(about1, "response",
 			 G_CALLBACK(on_dialog_response), NULL);
 
 	gtk_about_dialog_set_version(GTK_ABOUT_DIALOG(about1), versionbuild);
+	gtk_about_dialog_set_program_name(GTK_ABOUT_DIALOG(about1), "Ministerios Elim");
 	gtk_about_dialog_set_copyright(GTK_ABOUT_DIALOG(about1),
-				       _("Copyright © 2000-2026 Xiphos Development Team"));
+					       "Copyright © 2026 Omar Gonzáles Díaz");
 	gchar *backend_status = main_backend_status();
 	gtk_about_dialog_set_comments(GTK_ABOUT_DIALOG(about1), backend_status);
 	g_free(backend_status);
 	gtk_about_dialog_set_website(GTK_ABOUT_DIALOG(about1),
-				     "http://xiphos.org/");
+					     "https://github.com/OmarGonD/biblia-elim");
 	{
 		static const gchar *stepbible[] = {
 			"STEPBible.org, Tyndale House, Cambridge (CC BY 4.0)",
-			"https://github.com/STEPBible/STEPBible-Data",
-			"Cambios respecto al TAGNT https://github.com/OmarGonD/biblia-elim/blob/master/data/sources/tagnt/SOURCE.md", NULL};
+			NULL};
 		gtk_about_dialog_add_credit_section(GTK_ABOUT_DIALOG(about1),
-						    _("Datos del texto griego (TAGNT)"),
+						    _("Atribución de datos TAGNT"),
 						    stepbible);
 	}
 	gtk_about_dialog_set_authors(GTK_ABOUT_DIALOG(about1), authors);
-	gtk_about_dialog_set_documenters(GTK_ABOUT_DIALOG(about1), documenters);
-	gtk_about_dialog_set_translator_credits(GTK_ABOUT_DIALOG(about1), translators);
 	if (about1_logo_pixbuf) {
-		GdkTexture *logo = gdk_texture_new_for_pixbuf(about1_logo_pixbuf);
+		GdkPixbuf *scaled_logo = gdk_pixbuf_scale_simple(
+			about1_logo_pixbuf, 310, 228, GDK_INTERP_BILINEAR);
+		GdkTexture *logo = gdk_texture_new_for_pixbuf(
+			scaled_logo ? scaled_logo : about1_logo_pixbuf);
 		gtk_about_dialog_set_logo(GTK_ABOUT_DIALOG(about1),
 					  GDK_PAINTABLE(logo));
 		g_object_unref(logo);
+		if (scaled_logo)
+			g_object_unref(scaled_logo);
+		g_object_unref(about1_logo_pixbuf);
 	}
 
 	set_window_icon(GTK_WINDOW(about1));

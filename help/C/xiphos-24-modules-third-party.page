@@ -11,7 +11,7 @@
     <revision pkgversion="4.1.0" date="2018-05-28" status="candidate"/>
 
     <title type='link' role="trail"></title>
-    <title type='text'>Xiphos</title>
+    <title type='text'>Biblia Elim</title>
 
     <credit type="author" its:translate="no">
       <name>Andy Piper</name>
@@ -43,14 +43,14 @@
 
   <p>Modules are normally packaged as *.zip files; they contain a configuration
   file plus a number of data files. Installation of such a module is done by
-  cd'ing to your personal Sword (not <app>Xiphos</app>) configuration directory,
+  cd'ing to your personal Sword (not <app>Biblia Elim</app>) configuration directory,
   ~/.sword, and unzipping the file there. The configuration file will be left in
   "mods.d", and the module's data files will go into a subdirectory of
   "modules". Alternatively, if you have write access to the system Sword
   directory, typically /usr/share/sword, you may cd there instead before
   unzipping.</p>
 
-  <p>Restart <app>Xiphos</app> after installing such a module, so that a fresh
+  <p>Restart <app>Biblia Elim</app> after installing such a module, so that a fresh
   instance of the program can notice the new module in place.</p>
 
 </page>

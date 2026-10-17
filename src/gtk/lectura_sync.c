@@ -1,5 +1,5 @@
 /*
- * Biblia Elim
+ * Ministerios Elim
  * lectura_sync.c - pantalla dividida de lectura sincronizada
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team

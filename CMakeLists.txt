@@ -21,13 +21,13 @@ cmake_minimum_required (VERSION 3.11 FATAL_ERROR)
 cmake_policy(VERSION 3.11)
 
 ### set project name (version set later)
-project (xiphos C CXX)
+project (biblia-elim C CXX)
 
 include (CTest)
 
 # set commonly used Xiphos variables:
 # Xiphos website
-set (XIPHOS_WEBSITE "http://xiphos.org")
+set (XIPHOS_WEBSITE "https://github.com/OmarGonD/biblia-elim")
 
 # Xiphos issues report website
 set (XIPHOS_BUG_REPORT "https://github.com/OmarGonD/biblia-elim/issues")
@@ -70,11 +70,11 @@ if(EXISTS "${PROJECT_SOURCE_DIR}/.git")
 		RESULT_VARIABLE GIT_EXIT_CODE
 		OUTPUT_STRIP_TRAILING_WHITESPACE
 	)
-	if(NOT GIT_DESCRIBE_ERROR_CODE)
+	if(GIT_EXIT_CODE EQUAL 0 AND GIT_DESCRIBE_VERSION)
 		set(VERSION ${GIT_DESCRIBE_VERSION})
 	else()
-		set(VERSION "v0-error")
-		message(WARNING "Failed to read git version. Seting version to v0")
+		file(STRINGS ${SOURCE_VERSION_CACHE} VERSION)
+		message(STATUS "Using cached Biblia Elim version ${VERSION}")
 	endif()
 	string(REGEX REPLACE "^(([0-9]+\\.?)+)-([0-9]+)-.*$" "\\1.\\3" VERSION "${VERSION}")
 	file(WRITE ${SOURCE_VERSION_CACHE} "${VERSION}")
@@ -84,7 +84,7 @@ else()
 endif()
 
 # configure project name and version
-project (xiphos
+project (biblia-elim
 	VERSION "${VERSION}")
 
 # set install directory variables as defined by the GNU Coding Standards.
@@ -107,6 +107,16 @@ include (XiphosFlags)
 # create config.h
 include (XiphosConfig_h)
 
+# First-run language selected by the package builder or installer.
+set(BIBLIA_ELIM_INSTALL_LANGUAGE "system" CACHE STRING "First-run interface/devotional language")
+set(_elim_languages system en_GB es fr ko_KR zh_CN zh_TW pt_BR pt)
+if(NOT BIBLIA_ELIM_INSTALL_LANGUAGE IN_LIST _elim_languages)
+  message(FATAL_ERROR "Unsupported BIBLIA_ELIM_INSTALL_LANGUAGE")
+endif()
+file(WRITE ${PROJECT_BINARY_DIR}/installation-language "${BIBLIA_ELIM_INSTALL_LANGUAGE}\n")
+install(FILES ${PROJECT_BINARY_DIR}/installation-language
+  DESTINATION ${CMAKE_INSTALL_DATADIR}/biblia-elim COMPONENT Devotional)
+
 # build xiphos
 add_subdirectory(win32)
 add_subdirectory(src/backend)
@@ -116,17 +126,22 @@ add_subdirectory(src/webkit)
 add_subdirectory(src/xiphos_html)
 add_subdirectory(src/gtk)
 
-# build xiphos-nav
+# build Biblia Elim's URL navigation helper
 add_subdirectory(src/examples)
 
-# pruebas (no entran en la compilación normal)
-add_subdirectory(tests)
+# pruebas (no entran en la compilación normal). Son de Linux (X11/XTest, xvfb):
+# al compilar para Windows no se configuran.
+if (NOT WIN32)
+  add_subdirectory(tests)
+endif ()
 
 # build other stuff
 add_subdirectory(pixmaps)
 add_subdirectory(ui)
 add_subdirectory(po)
-add_subdirectory(desktop)
+if (NOT APPLE)
+  add_subdirectory(desktop)
+endif ()
 add_subdirectory(doc)
 add_subdirectory(help)
 

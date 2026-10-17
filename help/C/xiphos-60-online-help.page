@@ -10,7 +10,7 @@
     <revision pkgversion="4.1.0" date="2018-05-30" status="candidate"/>
 
     <title type='link' role="trail"></title>
-    <title type='text'>Xiphos</title>
+    <title type='text'>Biblia Elim</title>
 
     <credit type="author" its:translate="no">
       <name>Andy Piper</name>
@@ -38,30 +38,20 @@
 
   <section id="xiphos-mailing-list">
 
-    <title>Users Mailing List</title>
+    <title>Project Support</title>
 
-    <p>One way you can get help with <app>Xiphos</app> is using our low-traffic
-    users' mailing list. You can sign up by clicking
-    <link href="http://www.crosswire.org/mailman/listinfo/xiphos-users/">this
-    link</link>. Once you are signed up, you can email the list with any
-    problems you are having and other users or the developers will respond,
-    typically within a day.</p>
+    <p>For help with <app>Biblia Elim</app>, report a problem or ask a question
+    on the <link href="https://github.com/OmarGonD/biblia-elim/issues">project
+    issue tracker</link>.</p>
   </section>
 
   <section id="xiphos-live-chat">
 
-    <title>Live Chat</title>
+    <title>Report a problem</title>
 
-    <p>Another way to get help is with online chat.
-    <app>Xiphos</app> has an IRC channel on libera.chat, #xiphos. If you don't know
-    what that means, it's ok. Pull down the Help menu in <app>Xiphos</app>
-    and use the Live Chat selection. It will open a browser window connected to
-    the #xiphos channel. The chat name it gives you includes the version of
-    <app>Xiphos</app> you're using. Accept that default or type a nickname, and
-    join the chat. This is a chatroom where the developers and other users are
-    available to help you with issues you may be having. Although many times
-    someone will answer your question immediately, sometimes you may have to
-    wait a few minutes or longer.</p>
+    <p>Include the Biblia Elim version and the steps needed to reproduce the
+    problem when filing a report. This helps the project maintainers diagnose
+    it.</p>
 
   </section>
 

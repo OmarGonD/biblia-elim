@@ -55,6 +55,8 @@ void gui_bibletext_lectura_sync_focus_current(void);
  * user scroll, so a navigation that follows starts from the verse the
  * reader scrolled to (see on_up/down_eventbox_button_release_event). */
 void gui_bibletext_reading_focus_flush(void);
+/* Includes the viewport restoration after filling a chapter window. */
+gboolean gui_bibletext_window_pending(void);
 /* The Bible pane's text view (NULL before it exists): where the keyboard
  * focus goes when a navbar picker has nothing else to give it back to. */
 GtkWidget *gui_bibletext_view(void);

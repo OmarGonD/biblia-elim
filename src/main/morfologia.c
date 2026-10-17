@@ -771,6 +771,59 @@ main_morf_reconocido(const char *codigo)
 	return es_robinson(codigo, c);
 }
 
+typedef struct {
+	char pos;
+	char case_number_gender[4];
+} NOMINAL;
+
+static gboolean
+nominal(const char *tag, NOMINAL *out)
+{
+	const char *colon, *scheme, *code;
+	gsize length;
+	gboolean robinson;
+
+	if (!tag || !out || !(colon = strchr(tag, ':')))
+		return FALSE;
+	scheme = tag;
+	length = (gsize)(colon - tag);
+	code = colon + 1;
+	if (!*code || strchr(code, ':'))
+		return FALSE;
+	robinson = (length == 8 && !g_ascii_strncasecmp(scheme, "robinson", length)) ||
+		(length == 11 && !g_ascii_strncasecmp(scheme, "morph.rob.g", 11));
+	/* The SBLGNT/Logos Greek scheme uses compact POS+features codes.
+	 * Do not alias morph.gr.g: that identifier belongs to GRAMCORD. */
+	if (!robinson && !(length == 5 && !g_ascii_strncasecmp(scheme, "logos", length)))
+		return FALSE;
+	if (robinson) {
+		if (strlen(code) != 5 || code[1] != '-')
+			return FALSE;
+		out->pos = code[0];
+		memcpy(out->case_number_gender, code + 2, 3);
+	} else {
+		if (strlen(code) != 4)
+			return FALSE;
+		out->pos = code[0];
+		memcpy(out->case_number_gender, code + 1, 3);
+	}
+	out->case_number_gender[3] = '\0';
+	if (out->pos == 'T') out->pos = 'D'; /* Robinson article / Logos article */
+	if (out->pos != 'N' && out->pos != 'A' && out->pos != 'D')
+		return FALSE;
+	return strchr("NGDAV", out->case_number_gender[0]) != NULL &&
+		strchr("SPD", out->case_number_gender[1]) != NULL &&
+		strchr("MFN", out->case_number_gender[2]) != NULL;
+}
+
+gboolean
+main_morf_equivalentes(const char *left, const char *right)
+{
+	NOMINAL a, b;
+	return nominal(left, &a) && nominal(right, &b) && a.pos == b.pos &&
+		!memcmp(a.case_number_gender, b.case_number_gender, 3);
+}
+
 static void
 recorrer(SALIDA *s, const char *attr)
 {

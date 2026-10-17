@@ -2,7 +2,7 @@
        xmlns:its="http://www.w3.org/2005/11/its">
 
   <info>
-    <desc>Running Xiphos.</desc>
+    <desc>Running Biblia Elim.</desc>
 
     <link type="guide" xref="index#getting-started"/>
 
@@ -10,7 +10,7 @@
     <revision pkgversion="4.1.0" date="2018-05-28" status="candidate"/>
 
     <title type='link' role="trail"></title>
-    <title type='text'>Xiphos</title>
+    <title type='text'>Biblia Elim</title>
 
     <credit type="author" its:translate="no">
       <name>Andy Piper</name>
@@ -33,47 +33,47 @@
   </info>
 
 
-  <title>Starting Xiphos</title>
+  <title>Starting Biblia Elim</title>
 
   <section id="start-xiphos">
 
-    <title>How to start Xiphos</title>
-    <p>You can start <app>Xiphos</app> in the following ways:</p>
+    <title>How to start Biblia Elim</title>
+    <p>You can start <app>Biblia Elim</app> in the following ways:</p>
     <terms>
       <item>
 	<title>Applications menu</title>
 	<p>Choose <guiseq><gui>Education</gui>
-	<gui>Xiphos Bible Guide</gui>
+	<gui>Biblia Elim Bible Guide</gui>
 	</guiseq>.
 	</p>
 
       </item>
       <item>
 	<title>Command line</title>
-	<p>Type <cmd>xiphos</cmd>, then press <key>Return</key>.</p>
+	<p>Type <cmd>biblia-elim</cmd>, then press <key>Return</key>.</p>
       </item>
       <item>
 	<title>Windows</title>
 	<p>Go to <guiseq><gui>All
-	Programs</gui><gui>Xiphos</gui><gui>Xiphos</gui></guiseq>.</p>
+	Programs</gui><gui>Biblia Elim</gui><gui>Biblia Elim</gui></guiseq>.</p>
       </item>
     </terms>
   </section>
 
   <section id="first-time">
-    <!--Starting Xiphos for the First Time  -->
+    <!--Starting Biblia Elim for the First Time  -->
 
     <title>First Start</title>
 
-    <p>When you start <app>Xiphos</app> for the first time, <app>Xiphos</app>
+    <p>When you start <app>Biblia Elim</app> for the first time, <app>Biblia Elim</app>
     creates a default selection of options for display.  Also, if no other Sword
     application has ever been run, and thus there are no Bible modules
-    installed, then <app>Xiphos</app> starts the Module Manager so that you can
+    installed, then <app>Biblia Elim</app> starts the Module Manager so that you can
     select and install a Bible module in your language preference.</p>
 
     <media type="image" mime="image/png" src="figures/first_start.png" />
 
-    <p><app>Xiphos</app> then opens its interface with one tab displayed,
+    <p><app>Biblia Elim</app> then opens its interface with one tab displayed,
     showing Romans 8:28. Once the interface is open, you can use
     <guiseq><gui>Edit</gui><gui>Preferences</gui></guiseq> to change any of the
     selections already made by default.</p>
@@ -82,22 +82,22 @@
 
   <section id="launching-xiphos">
 
-  <!-- Xiphos on first time use -->
+  <!-- Biblia Elim on first time use -->
 
-  <title>Launching Xiphos</title>
-  <p>When you start <app>Xiphos</app>, the following interface is displayed:</p>
+  <title>Launching Biblia Elim</title>
+  <p>When you start <app>Biblia Elim</app>, the following interface is displayed:</p>
 
-  <!--  Xiphos interface -->
+  <!--  Biblia Elim interface -->
   <media type="image" mime="image/png" src="figures/interface.png" />
 
-  <p>The <app>Xiphos</app> interface contains the following elements:</p>
+  <p>The <app>Biblia Elim</app> interface contains the following elements:</p>
   <terms>
     <item>
       <title>Menubar</title>
       <p>The menus on the menubar contain several commands which extend the use
-      of <app>Xiphos</app>. These include the StudyPad and advanced search
+      of <app>Biblia Elim</app>. These include the StudyPad and advanced search
       functions. The menus also help you to customize your use of
-      <app>Xiphos</app>.</p>
+      <app>Biblia Elim</app>.</p>
     </item>
     <item>
       <title>Toolbar</title>

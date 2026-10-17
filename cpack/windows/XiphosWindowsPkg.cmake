@@ -31,11 +31,11 @@ set(CPACK_MONOLITHIC_INSTALL ON)
 
 # The name of a *.ico file used as the main icon for the generated
 # install program
-set (CPACK_NSIS_MUI_ICON "${PROJECT_SOURCE_DIR}/cpack/windows/pixmaps/icon-install.ico")
+set (CPACK_NSIS_MUI_ICON "${PROJECT_SOURCE_DIR}/pixmaps/ministerios-elim.ico")
 
 # The name of a *.ico file used as the main icon for the generated
 # uninstall program
-set (CPACK_NSIS_MUI_UNIICON "${PROJECT_SOURCE_DIR}/cpack/windows/pixmaps/icon-uninstall.ico")
+set (CPACK_NSIS_MUI_UNIICON "${PROJECT_SOURCE_DIR}/pixmaps/ministerios-elim.ico")
 
 # CPACK_NSIS_INSTALLER_MUI_ICON_CODE is undocumented, but code is inserted for
 # setting up MUI_ICON and MUI_UNICON.
@@ -64,7 +64,7 @@ set (CPACK_NSIS_MUI_UNWELCOMEFINISHPAGE_BITMAP
 #  CPACK_NSIS_EXTRA_PREINSTALL_COMMANDS)
 
 # Extra NSIS commands that will be added to the end of the install Section
-# We use it for installing extra fonts and make Xiphos handle sword:// urls
+# We use it for installing extra fonts and make Ministerios Elim handle sword:// urls
 configure_file( ${CMAKE_CURRENT_SOURCE_DIR}/windows/include/nsis_extra_install_commands.nsh.in
   ${CMAKE_CURRENT_BINARY_DIR}/nsis_extra_install_commands.nsh
   @ONLY
@@ -74,7 +74,7 @@ file(READ ${CMAKE_CURRENT_BINARY_DIR}/nsis_extra_install_commands.nsh
   CPACK_NSIS_EXTRA_INSTALL_COMMANDS)
 
 # Extra NSIS commands that will be added to the uninstall Section
-# We use it for disabling Xiphos to handle sword:// urls
+# We use it for disabling Ministerios Elim to handle sword:// urls
 configure_file( ${CMAKE_CURRENT_SOURCE_DIR}/windows/include/nsis_extra_uninstall_commands.nsh.in
   ${CMAKE_CURRENT_BINARY_DIR}/nsis_extra_uninstall_commands.nsh
   @ONLY
@@ -93,13 +93,13 @@ set (CPACK_NSIS_MODIFY_PATH "OFF")
 
 # The display name string that appears in the Windows Add/Remove
 # Program control pane
-set (CPACK_NSIS_DISPLAY_NAME "Xiphos")
+set (CPACK_NSIS_DISPLAY_NAME "Ministerios Elim")
 
 # The title displayed at the top of the installer
-set (CPACK_NSIS_PACKAGE_NAME "Xiphos")
+set (CPACK_NSIS_PACKAGE_NAME "Ministerios Elim")
 
 # A path to the executable that contains the installer icon
-set (CPACK_NSIS_INSTALLED_ICON_NAME "bin\\${PROJECT_NAME}.exe")
+set (CPACK_NSIS_INSTALLED_ICON_NAME "bin\\biblia-elim.exe")
 
 # URL to a web site providing assistance in installing your application
 set (CPACK_NSIS_HELP_LINK "${XIPHOS_WEBSITE}/Help")
@@ -113,13 +113,13 @@ set (CPACK_NSIS_CONTACT "${XIPHOS_BUG_REPORT}")
 
 # Additional NSIS commands for creating start menu shortcuts.
 set(CPACK_NSIS_CREATE_ICONS_EXTRA
-  "CreateShortCut '$DESKTOP\\\\Xiphos.lnk' '$INSTDIR\\\\bin\\\\xiphos.exe'")
+  "CreateShortCut '$DESKTOP\\\\Ministerios Elim.lnk' '$INSTDIR\\\\bin\\\\biblia-elim.exe'")
 # Placeholder for inserting a custom file
 #file(READ ${CMAKE_CURRENT_BINARY_DIR}/nsis_create_icons_extra.nsh
 #  CPACK_NSIS_CREATE_ICONS_EXTRA)
 
 # Additional NSIS commands to uninstall start menu shortcuts.
-set(CPACK_NSIS_DELETE_ICONS_EXTRA "Delete $DESKTOP\\\\Xiphos.lnk")
+set(CPACK_NSIS_DELETE_ICONS_EXTRA "Delete $DESKTOP\\\\Ministerios Elim.lnk")
 # Placeholder for inserting a custom file
 #file(READ ${CMAKE_CURRENT_BINARY_DIR}/nsis_delete_icons_extra.nsh
 #  CPACK_NSIS_DELETE_ICONS_EXTRA)
@@ -141,15 +141,15 @@ set (CPACK_NSIS_MENU_LINKS
 # Lists each of the executables and associated text label to be used to
 # create Start Menu shortcuts
 set (CPACK_PACKAGE_EXECUTABLES
-  "xiphos" "Xiphos")
+  "biblia-elim" "Ministerios Elim")
 
 # List of desktop links to create. Each desktop link requires a corresponding
 # start menu shortcut as created by CPACK_PACKAGE_EXECUTABLES
-set(CPACK_CREATE_DESKTOP_LINKS "xiphos" "Xiphos")
+set(CPACK_CREATE_DESKTOP_LINKS "biblia-elim" "Ministerios Elim")
 
 # Installation directory on the target system. Added to
 # the default installation directory ${CPACK_NSIS_INSTALL_ROOT}
-set (CPACK_PACKAGE_INSTALL_DIRECTORY "Crosswire\\${PROJECT_NAME}")
+set (CPACK_PACKAGE_INSTALL_DIRECTORY "Ministerios Elim")
 
 # Ask about uninstalling previous versions first.
 set (CPACK_NSIS_ENABLE_UNINSTALL_BEFORE_INSTALL ON)

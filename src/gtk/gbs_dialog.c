@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * gbs_dialog.c - dialog for displaying a gbs module
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team

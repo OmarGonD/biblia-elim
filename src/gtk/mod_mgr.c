@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * mod_mgr.c
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -61,10 +61,10 @@
  * defines
  */
 #define XI_GENERAL_INTRO \
-	_("<b>Overview of the Module Manager.</b>\n\nThis is Xiphos' mechanism to get new and updated content.\nIf you have never been here before, please take a moment to look it over.\n\nModules come from different <u>repositories</u>.  <b>Module Sources: Add/Remove</b> will show you what repositories are currently known.\n\n<b>Module Sources: Choose</b> is for deciding from where modules should come, that is, from which repository Xiphos should obtain them, as well as where they should be placed on your system. Set <i>Install Source</i> and <i>Install Destination</i>, then click <i>Refresh</i>.\n\n<b>Modules: Install/Update</b> is for selecting and obtaining modules after choosing source and destination.\n\n<b>Modules: Maintenance</b> is for archive and index creation.\n\nSee section 5 of our manual for Module Manager detail, or ask for help via Live Chat, or (if no one is responsive in chat) send mail to our users' mailing list.\n")
+	_("<b>Overview of the Module Manager.</b>\n\nThis is Ministerios Elim's mechanism to get new and updated content.\nIf you have never been here before, please take a moment to look it over.\n\nModules come from different <u>repositories</u>.  <b>Module Sources: Add/Remove</b> will show you what repositories are currently known.\n\n<b>Module Sources: Choose</b> is for deciding from where modules should come, that is, from which repository Ministerios Elim should obtain them, as well as where they should be placed on your system. Set <i>Install Source</i> and <i>Install Destination</i>, then click <i>Refresh</i>.\n\n<b>Modules: Install/Update</b> is for selecting and obtaining modules after choosing source and destination.\n\n<b>Modules: Maintenance</b> is for archive and index creation.\n\nSee section 5 of our manual for Module Manager detail, or ask for help via Live Chat, or (if no one is responsive in chat) send mail to our users' mailing list.\n")
 
 #define XI_FIRST_INSTALL \
-	_("<b>Welcome to Xiphos.</b>\n\nThere are no Bibles installed. In order to initialize, Xiphos needs at least one Bible module. To facilitate this, the Module Manager has been opened so that you may install one or more Bibles, either from a local module set (cdrom, flash drive) or over the network from CrossWire Bible Society. Please refer to these step-by-step instructions, and to the general module manager overview that has also been opened.\n\n<u>For local install:</u>\n- In <i>Module Sources: Add/Remove</i>, add a new local folder name where modules can be found.\n  (This is where folders exist named <i>mods.d</i> and <i>modules</i>.)\n- In <i>Module Sources: Choose</i>, click the \"Local\" button, and select your folder from the pulldown.\n\n<u>For network install from CrossWire:</u>\n- In <i>Module Sources: Choose</i>, click the \"Remote\" button and select CrossWire from the pulldown.\n- Click the \"Refresh\" button at the bottom.\n\n<u>In either case:</u>\n- In <i>Modules: Install/Update</i>, select Bibles and other modules of your preference.\n- Click \"Install\".\n- Close the Module Manager when you are done.\n\n<u>Warning</u>: If you live in a persecuted country, use with care.\n\nBoth this step-by-step instruction dialog and the general introduction dialog may be closed at any time.")
+	_("<b>Welcome to Ministerios Elim.</b>\n\nThere are no Bibles installed. In order to initialize, Ministerios Elim needs at least one Bible module. To facilitate this, the Module Manager has been opened so that you may install one or more Bibles, either from a local module set (cdrom, flash drive) or over the network from CrossWire Bible Society. Please refer to these step-by-step instructions, and to the general module manager overview that has also been opened.\n\n<u>For local install:</u>\n- In <i>Module Sources: Add/Remove</i>, add a new local folder name where modules can be found.\n  (This is where folders exist named <i>mods.d</i> and <i>modules</i>.)\n- In <i>Module Sources: Choose</i>, click the \"Local\" button, and select your folder from the pulldown.\n\n<u>For network install from CrossWire:</u>\n- In <i>Module Sources: Choose</i>, click the \"Remote\" button and select CrossWire from the pulldown.\n- Click the \"Refresh\" button at the bottom.\n\n<u>In either case:</u>\n- In <i>Modules: Install/Update</i>, select Bibles and other modules of your preference.\n- Click \"Install\".\n- Close the Module Manager when you are done.\n\n<u>Warning</u>: If you live in a persecuted country, use with care.\n\nBoth this step-by-step instruction dialog and the general introduction dialog may be closed at any time.")
 
 #define GTK_RESPONSE_REFRESH 301
 #define GTK_RESPONSE_REMOVE 302
@@ -2048,15 +2048,15 @@ static void on_dialog_destroy(GObject *object, gpointer user_data)
 		if ((tmp = get_list(TEXT_LIST)))
 			main_display_bible_after_removal((char *)tmp->data);
 		else {
-			/* Zero Bibles is just not workable in Xiphos. */
+			/* Zero Bibles is just not workable in Ministerios Elim. */
 			gui_generic_warning_modal(_("You have uninstalled your last Bible.\n"
-						    "Xiphos requires at least one."));
+						    "Ministerios Elim requires at least one."));
 			main_shutdown_list();
 			gui_open_mod_mgr_initial_run();
 			main_init_lists();
 			if (settings.havebible == 0) {
 				gui_generic_warning_modal(_("There are still no Bibles installed.\n"
-							    "Xiphos cannot continue without one."));
+							    "Ministerios Elim cannot continue without one."));
 				exit(1);
 			}
 		}
@@ -2881,7 +2881,7 @@ static GtkWidget *create_module_manager_dialog(gboolean first_run)
 {
 	const gchar *ids[] = {"dialog", NULL};
 	gxml = elim_gtk_builder_new();
-	gtk_builder_add_objects_from_resource(gxml, "/org/xiphos/ui/module-manager.gtkbuilder", ids, NULL);
+	gtk_builder_add_objects_from_resource(gxml, "/org/bibliaelim/ui/module-manager.gtkbuilder", ids, NULL);
 	g_return_val_if_fail((gxml != NULL), NULL);
 
 	dialog_modmgr = UI_GET_ITEM(gxml, "dialog");

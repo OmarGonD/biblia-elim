@@ -13,7 +13,7 @@
     <revision pkgversion="4.1.0" date="2018-05-30" status="candidate"/>
 
     <title type='link' role="trail"></title>
-    <title type='text'>Xiphos</title>
+    <title type='text'>Biblia Elim</title>
 
     <credit type="author" its:translate="no">
       <name>Andy Piper</name>
@@ -50,7 +50,7 @@
   </section>
 
   <section id="current">
-    <title>Authors of the <app>Xiphos</app> User Documentation</title>
+    <title>Authors of the <app>Biblia Elim</app> User Documentation</title>
     <p>This manual was written by:</p>
     <list>
       <item its:translate="no">
@@ -74,28 +74,28 @@
 
   <section id="contact">
     <title>Contact information</title>
-    <p>The <app>Xiphos</app> software and Manual:</p>
+    <p>The <app>Biblia Elim</app> software and Manual:</p>
     <list>
       <item>
 	<p>
-	  <link href="http://xiphos.org/" its:translate="no">
+	  <link href="https://github.com/OmarGonD/biblia-elim" its:translate="no">
 	    Website
 	  </link>
 	</p>
       </item>
       <item>
 	<p>
-	  <link href="https://www.crosswire.org/mailman/listinfo/xiphos-users/"
+	  <link href="https://github.com/OmarGonD/biblia-elim/issues"
 		its:translate="no">
-	    Mailing list
+	    Project support
 	  </link>
 	</p>
       </item>
       <item>
 	<p>
-	  <link href="https://github.com/crosswire/xiphos/issues"
+	  <link href="https://github.com/OmarGonD/biblia-elim/issues"
 		its:translate="no">
-	    <app>Xiphos</app> Issues and Bug reports
+	    Issues and bug reports
 	  </link>
 	</p>
       </item>

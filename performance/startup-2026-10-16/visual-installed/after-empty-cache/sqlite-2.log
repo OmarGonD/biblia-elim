@@ -1,0 +1,253 @@
+[UI-LOAD] app APP_START 0.0ms
+[UI-LOAD] app SWORD_LOCALE_BEGIN 24.4ms es
+[UI-LOAD] app SWORD_LOCALE_READER 40.5ms es
+[UI-LOAD] app GTK_INITIALIZED 89.0ms
+[UI-LOAD] app WINDOW_PREPARED 89.0ms
+[UI-LOAD] app HTML_INITIALIZED 89.0ms
+[UI-LOAD] app THEME_INITIALIZED 111.9ms
+CKPT before gui_create_main_menu
+CKPT after gui_create_main_menu
+CKPT before gui_navbar_versekey_new
+CKPT navbar=0x55d146b01ee0 hist_back=0x55d146b04d00 hist_next=0x55d146b09880 hist_menu=0x55d146851a80
+CKPT book_up=0x55d146b10200 book_down=0x55d146b11280 chap_up=0x55d146b16730 chap_down=0x55d146b178f0 verse_up=0x55d146b1e300 verse_down=0x55d146b1f420
+CKPT book_menu=0x55d1467f7670 chap_menu=0x55d146838880 verse_menu=0x55d14686ade0 lookup=0x55d146847ff0
+CKPT eventbox_book=0x55d146b0b680
+CKPT eventbox_chapter=0x55d146b12a80
+CKPT eventbox_verse=0x55d146b10030
+CKPT after gui_navbar_versekey_new
+CKPT before gui_barra_busqueda_crear
+CKPT after gui_barra_busqueda_crear
+[UI-LOAD] app WINDOW_SHELL_READY 160.0ms
+[UI-LOAD] bible-main CREATE 162.1ms
+[UI-LOAD] bible-main PLACEHOLDER_VISIBLE 162.2ms
+[UI-LOAD] bible-compare CREATE 168.6ms
+[UI-LOAD] bible-compare PLACEHOLDER_VISIBLE 168.6ms
+[UI-LOAD] app BIBLE_PANE_READY 174.5ms
+[UI-LOAD] lower-previewer CREATE 175.8ms
+[UI-LOAD] lower-previewer PLACEHOLDER_VISIBLE 175.9ms
+[UI-LOAD] app PREVIEWER_PANE_READY 175.9ms
+[UI-LOAD] commentary CREATE 176.8ms
+[UI-LOAD] commentary PLACEHOLDER_VISIBLE 176.9ms
+[UI-LOAD] app COMMENTARY_PANE_READY 177.0ms
+[UI-LOAD] general-book CREATE 178.1ms
+[UI-LOAD] general-book PLACEHOLDER_VISIBLE 178.1ms
+[UI-LOAD] app BOOK_PANE_READY 178.1ms
+[UI-LOAD] app NOTES_PANE_READY 179.0ms
+[UI-LOAD] dictionary CREATE 180.2ms
+[UI-LOAD] dictionary PLACEHOLDER_VISIBLE 180.2ms
+[UI-LOAD] app DICTIONARY_PANE_READY 180.3ms
+[UI-LOAD] devotional CREATE 192.1ms
+[UI-LOAD] devotional PLACEHOLDER_VISIBLE 192.1ms
+[UI-LOAD] app DEVOTIONAL_PANE_READY 192.2ms
+[UI-LOAD] app STATUSBAR_READY 192.5ms
+[UI-LOAD] app WINDOW_LAYOUT_RESTORED 192.6ms
+[UI-LOAD] app WINDOW_SHOW_ALL_BEGIN 195.6ms
+[UI-LOAD] app WINDOW_REALIZE 298.3ms
+[UI-LOAD] bible-main PLACEHOLDER_VISIBLE 306.9ms
+[UI-LOAD] bible-main SHOW 306.9ms
+[UI-LOAD] bible-main MAP 306.9ms
+[UI-LOAD] app WINDOW_MAP 307.2ms
+[UI-LOAD] app WINDOW_SHOW_ALL_END 307.7ms
+[UI-LOAD] app WINDOW_VISIBILITY_SYNCED 307.7ms
+[UI-LOAD] app WINDOW_TREE_SHOWN 307.7ms
+[UI-LOAD] app WINDOW_EVENTS_DRAINED 307.7ms
+[UI-LOAD] app WINDOW_SIGNALS_CONNECTED 307.7ms
+[UI-LOAD] app WINDOW_CREATED 307.7ms
+[UI-LOAD] nav NAV_PREV_SENSITIVE 307.7ms true
+[UI-LOAD] nav NAV_NEXT_SENSITIVE 307.7ms true
+[UI-LOAD] app BACKEND_INIT_BEGIN 307.7ms
+[UI-LOAD] app SWORD_LIBRARY_BEGIN 307.8ms
+[UI-LOAD] app SWORD_LIBRARY_MANAGER 329.4ms
+[UI-LOAD] app SWORD_LIBRARY_READY 329.5ms sword_bibles=15 commentaries=4 dictionaries=4 books=0
+** Message: 10:10:09.688: Bible backend: SQLite (commentaries and dictionaries: SWORD)
+[UI-LOAD] app MODULE_LISTS_BEGIN 329.8ms
+[UI-LOAD] app MODULE_LISTS_READY 329.8ms
+[UI-LOAD] app MODULE_READY 330.0ms havebible=true
+[UI-LOAD] sidebar-previewer CREATE 334.5ms
+[UI-LOAD] sidebar-previewer PLACEHOLDER_VISIBLE 334.5ms
+[UI-LOAD] sidebar-previewer PLACEHOLDER_VISIBLE 334.5ms
+[UI-LOAD] sidebar-previewer SHOW 334.5ms
+[UI-LOAD] sidebar-previewer MAP 334.5ms
+[UI-LOAD] bible-parallel CREATE 396.1ms
+[UI-LOAD] bible-parallel PLACEHOLDER_VISIBLE 396.2ms
+[UI-LOAD] bible-parallel CREATE 397.8ms
+[UI-LOAD] bible-parallel PLACEHOLDER_VISIBLE 397.8ms
+[UI-LOAD] lower-previewer PLACEHOLDER_VISIBLE 398.4ms
+[UI-LOAD] lower-previewer SHOW 398.4ms
+[UI-LOAD] lower-previewer MAP 398.4ms
+[UI-LOAD] lower-previewer LOAD_STARTED 398.8ms
+[UI-LOAD] lower-previewer PLACEHOLDER_VISIBLE 398.8ms
+[UI-LOAD] lower-previewer LOAD_COMMITTED 399.8ms
+[UI-LOAD] lower-previewer LOAD_FINISHED 399.8ms
+[UI-LOAD] lower-previewer LOAD_STARTED 400.2ms
+[UI-LOAD] lower-previewer LOAD_COMMITTED 400.5ms
+[UI-LOAD] lower-previewer LOAD_FINISHED 400.5ms
+[UI-LOAD] app WINDOW_SHOW 400.6ms
+[UI-LOAD] app GTK_EVENT_DRAIN_BEGIN 401.3ms
+[UI-LOAD] app GTK_EVENT_ITERATION_BEGIN 401.3ms iteration=0
+[UI-LOAD] app GTK_EVENT_ITERATION_END 401.3ms iteration=0
+[UI-LOAD] app GTK_EVENT_ITERATION_BEGIN 401.4ms iteration=1
+[UI-LOAD] app GTK_EVENT_ITERATION_END 404.3ms iteration=1
+[UI-LOAD] app GTK_EVENT_ITERATION_BEGIN 404.9ms iteration=2
+[UI-LOAD] app GTK_EVENT_ITERATION_END 405.0ms iteration=2
+[UI-LOAD] app GTK_EVENT_ITERATION_BEGIN 405.0ms iteration=3
+[UI-LOAD] lower-previewer RENDERER_VISIBLE 405.0ms
+[UI-LOAD] app GTK_EVENT_ITERATION_END 405.0ms iteration=3
+[UI-LOAD] app GTK_EVENT_ITERATION_BEGIN 405.1ms iteration=4
+[UI-LOAD] app GTK_EVENT_ITERATION_END 405.1ms iteration=4
+[UI-LOAD] app GTK_EVENT_ITERATION_BEGIN 405.1ms iteration=5
+[UI-LOAD] focus SCROLL_RANGE 405.2ms documentHeight=16.0 previous=-1.0 viewportHeight=0.0 maxScrollTop=16.0
+[UI-LOAD] app GTK_EVENT_ITERATION_END 405.5ms iteration=5
+[UI-LOAD] app GTK_EVENT_ITERATION_BEGIN 405.5ms iteration=6
+[UI-LOAD] app WINDOW_SIZE_ALLOCATE 453.2ms app width=892 height=666
+[UI-LOAD] app WINDOW_SIZE_ALLOCATE 453.2ms hpaned width=892 height=482
+[UI-LOAD] app WINDOW_SIZE_ALLOCATE 453.2ms vpaned-left width=892 height=482
+[UI-LOAD] app WINDOW_SIZE_ALLOCATE 453.2ms bible-notebook width=890 height=480
+[UI-LOAD] app WINDOW_SIZE_ALLOCATE 453.2ms vpaned-right width=0 height=0
+[UI-LOAD] app WINDOW_SIZE_ALLOCATE 453.2ms commentary-notebook width=0 height=0
+[UI-LOAD] app WINDOW_SIZE_ALLOCATE 453.2ms dictionary-notebook width=0 height=0
+[UI-LOAD] app GTK_EVENT_ITERATION_END 1047.7ms iteration=6
+[UI-LOAD] app GTK_EVENT_ITERATION_BEGIN 1047.8ms iteration=7
+[UI-LOAD] app UI_HEARTBEAT 1047.8ms
+[UI-LOAD] focus FOCUS_STATE_BEFORE_NAV 1047.8ms origin=navigation focused=0 prevScrollTop=0.0 prevReadingDocumentY=0.0 lineValid=0 lineOffset=0.0
+[UI-LOAD] focus FOCUS_REBASE 1048.2ms target=23036 scrollTop=0 readingLineY=0.0 readingDocumentY=0.0 pending=1
+[UI-LOAD] app GTK_EVENT_ITERATION_END 1048.2ms iteration=7
+[UI-LOAD] app GTK_EVENT_ITERATION_BEGIN 1048.3ms iteration=8
+[UI-LOAD] app GTK_EVENT_ITERATION_END 1048.3ms iteration=8
+[UI-LOAD] app GTK_EVENT_ITERATION_BEGIN 1048.3ms iteration=9
+[UI-LOAD] focus SCROLL_RANGE 1048.4ms documentHeight=36.0 previous=16.0 viewportHeight=0.0 maxScrollTop=36.0
+[UI-LOAD] app GTK_EVENT_ITERATION_END 1059.1ms iteration=9
+[UI-LOAD] app GTK_EVENT_ITERATION_BEGIN 1059.2ms iteration=10
+[UI-LOAD] app GTK_EVENT_ITERATION_END 1061.5ms iteration=10
+[UI-LOAD] app GTK_EVENT_ITERATION_BEGIN 1061.6ms iteration=11
+[UI-LOAD] app WINDOW_SIZE_ALLOCATE 1065.3ms app width=892 height=664
+[UI-LOAD] app WINDOW_SIZE_ALLOCATE 1065.3ms hpaned width=892 height=480
+[UI-LOAD] app WINDOW_SIZE_ALLOCATE 1065.3ms vpaned-left width=892 height=480
+[UI-LOAD] app WINDOW_SIZE_ALLOCATE 1065.3ms bible-notebook width=890 height=478
+[UI-LOAD] app GTK_EVENT_ITERATION_END 1070.9ms iteration=11
+[UI-LOAD] app GTK_EVENT_ITERATION_BEGIN 1071.0ms iteration=12
+[UI-LOAD] app GTK_EVENT_ITERATION_END 1071.0ms iteration=12
+[UI-LOAD] app GTK_EVENT_ITERATION_BEGIN 1071.0ms iteration=13
+[UI-LOAD] app GTK_EVENT_ITERATION_END 1071.2ms iteration=13
+[UI-LOAD] app GTK_EVENT_ITERATION_BEGIN 1071.2ms iteration=14
+[UI-LOAD] app GTK_EVENT_ITERATION_END 1071.2ms iteration=14
+[UI-LOAD] app GTK_EVENT_DRAIN_END 1071.2ms iterations=15
+[UI-LOAD] app GTK_EVENT_ITERATION_PROFILE 1071.2ms iteration=0 attribution_version=2 realize_renderer=0 realize_paned=0 realize_notebook=0 realize_other=0 map_renderer=0 map_paned=0 map_notebook=0 map_other=0 style_renderer=0 style_paned=0 style_notebook=0 style_other=0 allocate_renderer=0 allocate_paned=0 allocate_notebook=0 allocate_other=0 root_draws=0 root_draw_us=0 renderer_draws=0 renderer_draw_us=0 unique_allocated_widgets=0 repeated_allocations=0 identical_geometry_repeats=0 changed_geometry_repeats=0 unique_style_widgets=0 repeated_style_updates=0
+[UI-LOAD] app GTK_EVENT_ITERATION_PROFILE 1071.2ms iteration=1 attribution_version=2 realize_renderer=0 realize_paned=0 realize_notebook=0 realize_other=0 map_renderer=0 map_paned=0 map_notebook=0 map_other=0 style_renderer=0 style_paned=0 style_notebook=0 style_other=0 allocate_renderer=0 allocate_paned=0 allocate_notebook=0 allocate_other=0 root_draws=0 root_draw_us=0 renderer_draws=0 renderer_draw_us=0 unique_allocated_widgets=0 repeated_allocations=0 identical_geometry_repeats=0 changed_geometry_repeats=0 unique_style_widgets=0 repeated_style_updates=0
+[UI-LOAD] app GTK_EVENT_ITERATION_PROFILE 1071.3ms iteration=2 attribution_version=2 realize_renderer=0 realize_paned=0 realize_notebook=0 realize_other=0 map_renderer=0 map_paned=0 map_notebook=0 map_other=0 style_renderer=0 style_paned=0 style_notebook=0 style_other=0 allocate_renderer=0 allocate_paned=0 allocate_notebook=0 allocate_other=0 root_draws=0 root_draw_us=0 renderer_draws=0 renderer_draw_us=0 unique_allocated_widgets=0 repeated_allocations=0 identical_geometry_repeats=0 changed_geometry_repeats=0 unique_style_widgets=0 repeated_style_updates=0
+[UI-LOAD] app GTK_EVENT_ITERATION_PROFILE 1071.3ms iteration=3 attribution_version=2 realize_renderer=0 realize_paned=0 realize_notebook=0 realize_other=0 map_renderer=0 map_paned=0 map_notebook=0 map_other=0 style_renderer=0 style_paned=0 style_notebook=0 style_other=0 allocate_renderer=0 allocate_paned=0 allocate_notebook=0 allocate_other=0 root_draws=0 root_draw_us=0 renderer_draws=0 renderer_draw_us=0 unique_allocated_widgets=0 repeated_allocations=0 identical_geometry_repeats=0 changed_geometry_repeats=0 unique_style_widgets=0 repeated_style_updates=0
+[UI-LOAD] app GTK_EVENT_ITERATION_PROFILE 1071.3ms iteration=4 attribution_version=2 realize_renderer=0 realize_paned=0 realize_notebook=0 realize_other=0 map_renderer=0 map_paned=0 map_notebook=0 map_other=0 style_renderer=0 style_paned=0 style_notebook=0 style_other=0 allocate_renderer=0 allocate_paned=0 allocate_notebook=0 allocate_other=0 root_draws=0 root_draw_us=0 renderer_draws=0 renderer_draw_us=0 unique_allocated_widgets=0 repeated_allocations=0 identical_geometry_repeats=0 changed_geometry_repeats=0 unique_style_widgets=0 repeated_style_updates=0
+[UI-LOAD] app GTK_EVENT_ITERATION_PROFILE 1071.3ms iteration=5 attribution_version=2 realize_renderer=0 realize_paned=0 realize_notebook=0 realize_other=0 map_renderer=0 map_paned=0 map_notebook=0 map_other=0 style_renderer=0 style_paned=0 style_notebook=0 style_other=0 allocate_renderer=0 allocate_paned=0 allocate_notebook=0 allocate_other=0 root_draws=0 root_draw_us=0 renderer_draws=0 renderer_draw_us=0 unique_allocated_widgets=0 repeated_allocations=0 identical_geometry_repeats=0 changed_geometry_repeats=0 unique_style_widgets=0 repeated_style_updates=0
+[UI-LOAD] app GTK_EVENT_ITERATION_PROFILE 1071.4ms iteration=6 attribution_version=2 realize_renderer=0 realize_paned=0 realize_notebook=0 realize_other=0 map_renderer=0 map_paned=0 map_notebook=0 map_other=0 style_renderer=0 style_paned=0 style_notebook=0 style_other=0 allocate_renderer=0 allocate_paned=0 allocate_notebook=0 allocate_other=0 root_draws=0 root_draw_us=0 renderer_draws=0 renderer_draw_us=0 unique_allocated_widgets=0 repeated_allocations=0 identical_geometry_repeats=0 changed_geometry_repeats=0 unique_style_widgets=0 repeated_style_updates=0
+[UI-LOAD] app GTK_EVENT_ITERATION_PROFILE 1071.4ms iteration=7 attribution_version=2 realize_renderer=0 realize_paned=0 realize_notebook=0 realize_other=0 map_renderer=0 map_paned=0 map_notebook=0 map_other=0 style_renderer=0 style_paned=0 style_notebook=0 style_other=0 allocate_renderer=0 allocate_paned=0 allocate_notebook=0 allocate_other=0 root_draws=0 root_draw_us=0 renderer_draws=0 renderer_draw_us=0 unique_allocated_widgets=0 repeated_allocations=0 identical_geometry_repeats=0 changed_geometry_repeats=0 unique_style_widgets=0 repeated_style_updates=0
+[UI-LOAD] app GTK_EVENT_ITERATION_PROFILE 1071.4ms iteration=8 attribution_version=2 realize_renderer=0 realize_paned=0 realize_notebook=0 realize_other=0 map_renderer=0 map_paned=0 map_notebook=0 map_other=0 style_renderer=0 style_paned=0 style_notebook=0 style_other=0 allocate_renderer=0 allocate_paned=0 allocate_notebook=0 allocate_other=0 root_draws=0 root_draw_us=0 renderer_draws=0 renderer_draw_us=0 unique_allocated_widgets=0 repeated_allocations=0 identical_geometry_repeats=0 changed_geometry_repeats=0 unique_style_widgets=0 repeated_style_updates=0
+[UI-LOAD] app GTK_EVENT_ITERATION_PROFILE 1071.4ms iteration=9 attribution_version=2 realize_renderer=0 realize_paned=0 realize_notebook=0 realize_other=0 map_renderer=0 map_paned=0 map_notebook=0 map_other=0 style_renderer=0 style_paned=0 style_notebook=0 style_other=0 allocate_renderer=0 allocate_paned=0 allocate_notebook=0 allocate_other=0 root_draws=0 root_draw_us=0 renderer_draws=0 renderer_draw_us=0 unique_allocated_widgets=0 repeated_allocations=0 identical_geometry_repeats=0 changed_geometry_repeats=0 unique_style_widgets=0 repeated_style_updates=0
+[UI-LOAD] app GTK_EVENT_ITERATION_PROFILE 1071.4ms iteration=10 attribution_version=2 realize_renderer=0 realize_paned=0 realize_notebook=0 realize_other=0 map_renderer=0 map_paned=0 map_notebook=0 map_other=0 style_renderer=0 style_paned=0 style_notebook=0 style_other=0 allocate_renderer=0 allocate_paned=0 allocate_notebook=0 allocate_other=0 root_draws=0 root_draw_us=0 renderer_draws=0 renderer_draw_us=0 unique_allocated_widgets=0 repeated_allocations=0 identical_geometry_repeats=0 changed_geometry_repeats=0 unique_style_widgets=0 repeated_style_updates=0
+[UI-LOAD] app GTK_EVENT_ITERATION_PROFILE 1071.5ms iteration=11 attribution_version=2 realize_renderer=0 realize_paned=0 realize_notebook=0 realize_other=0 map_renderer=0 map_paned=0 map_notebook=0 map_other=0 style_renderer=0 style_paned=0 style_notebook=0 style_other=0 allocate_renderer=0 allocate_paned=0 allocate_notebook=0 allocate_other=0 root_draws=0 root_draw_us=0 renderer_draws=0 renderer_draw_us=0 unique_allocated_widgets=0 repeated_allocations=0 identical_geometry_repeats=0 changed_geometry_repeats=0 unique_style_widgets=0 repeated_style_updates=0
+[UI-LOAD] app GTK_EVENT_ITERATION_PROFILE 1071.5ms iteration=12 attribution_version=2 realize_renderer=0 realize_paned=0 realize_notebook=0 realize_other=0 map_renderer=0 map_paned=0 map_notebook=0 map_other=0 style_renderer=0 style_paned=0 style_notebook=0 style_other=0 allocate_renderer=0 allocate_paned=0 allocate_notebook=0 allocate_other=0 root_draws=0 root_draw_us=0 renderer_draws=0 renderer_draw_us=0 unique_allocated_widgets=0 repeated_allocations=0 identical_geometry_repeats=0 changed_geometry_repeats=0 unique_style_widgets=0 repeated_style_updates=0
+[UI-LOAD] app GTK_EVENT_ITERATION_PROFILE 1071.5ms iteration=13 attribution_version=2 realize_renderer=0 realize_paned=0 realize_notebook=0 realize_other=0 map_renderer=0 map_paned=0 map_notebook=0 map_other=0 style_renderer=0 style_paned=0 style_notebook=0 style_other=0 allocate_renderer=0 allocate_paned=0 allocate_notebook=0 allocate_other=0 root_draws=0 root_draw_us=0 renderer_draws=0 renderer_draw_us=0 unique_allocated_widgets=0 repeated_allocations=0 identical_geometry_repeats=0 changed_geometry_repeats=0 unique_style_widgets=0 repeated_style_updates=0
+[UI-LOAD] app GTK_EVENT_ITERATION_PROFILE 1071.5ms iteration=14 attribution_version=2 realize_renderer=0 realize_paned=0 realize_notebook=0 realize_other=0 map_renderer=0 map_paned=0 map_notebook=0 map_other=0 style_renderer=0 style_paned=0 style_notebook=0 style_other=0 allocate_renderer=0 allocate_paned=0 allocate_notebook=0 allocate_other=0 root_draws=0 root_draw_us=0 renderer_draws=0 renderer_draw_us=0 unique_allocated_widgets=0 repeated_allocations=0 identical_geometry_repeats=0 changed_geometry_repeats=0 unique_style_widgets=0 repeated_style_updates=0
+[UI-LOAD] app GTK_EVENT_DRAIN_SESSION_PROFILE 1071.5ms attribution_version=3 iterations=15 instances=0
+[UI-LOAD] app GTK_EVENT_DRAIN_BEGIN 1072.4ms
+[UI-LOAD] app GTK_EVENT_ITERATION_BEGIN 1072.5ms iteration=0
+[UI-LOAD] app GTK_EVENT_ITERATION_END 1073.5ms iteration=0
+[UI-LOAD] app GTK_EVENT_ITERATION_BEGIN 1073.5ms iteration=1
+[UI-LOAD] app GTK_EVENT_ITERATION_END 1073.5ms iteration=1
+[UI-LOAD] app GTK_EVENT_DRAIN_END 1073.5ms iterations=2
+[UI-LOAD] app GTK_EVENT_ITERATION_PROFILE 1073.5ms iteration=0 attribution_version=2 realize_renderer=0 realize_paned=0 realize_notebook=0 realize_other=0 map_renderer=0 map_paned=0 map_notebook=0 map_other=0 style_renderer=0 style_paned=0 style_notebook=0 style_other=0 allocate_renderer=0 allocate_paned=0 allocate_notebook=0 allocate_other=0 root_draws=0 root_draw_us=0 renderer_draws=0 renderer_draw_us=0 unique_allocated_widgets=0 repeated_allocations=0 identical_geometry_repeats=0 changed_geometry_repeats=0 unique_style_widgets=0 repeated_style_updates=0
+[UI-LOAD] app GTK_EVENT_ITERATION_PROFILE 1073.6ms iteration=1 attribution_version=2 realize_renderer=0 realize_paned=0 realize_notebook=0 realize_other=0 map_renderer=0 map_paned=0 map_notebook=0 map_other=0 style_renderer=0 style_paned=0 style_notebook=0 style_other=0 allocate_renderer=0 allocate_paned=0 allocate_notebook=0 allocate_other=0 root_draws=0 root_draw_us=0 renderer_draws=0 renderer_draw_us=0 unique_allocated_widgets=0 repeated_allocations=0 identical_geometry_repeats=0 changed_geometry_repeats=0 unique_style_widgets=0 repeated_style_updates=0
+[UI-LOAD] app GTK_EVENT_DRAIN_SESSION_PROFILE 1073.6ms attribution_version=3 iterations=2 instances=0
+[UI-LOAD] app GTK_EVENT_DRAIN_BEGIN 1073.7ms
+[UI-LOAD] app GTK_EVENT_ITERATION_BEGIN 1073.7ms iteration=0
+[UI-LOAD] app GTK_EVENT_ITERATION_END 1073.7ms iteration=0
+[UI-LOAD] app GTK_EVENT_DRAIN_END 1073.7ms iterations=1
+[UI-LOAD] app GTK_EVENT_ITERATION_PROFILE 1073.7ms iteration=0 attribution_version=2 realize_renderer=0 realize_paned=0 realize_notebook=0 realize_other=0 map_renderer=0 map_paned=0 map_notebook=0 map_other=0 style_renderer=0 style_paned=0 style_notebook=0 style_other=0 allocate_renderer=0 allocate_paned=0 allocate_notebook=0 allocate_other=0 root_draws=0 root_draw_us=0 renderer_draws=0 renderer_draw_us=0 unique_allocated_widgets=0 repeated_allocations=0 identical_geometry_repeats=0 changed_geometry_repeats=0 unique_style_widgets=0 repeated_style_updates=0
+[UI-LOAD] app GTK_EVENT_DRAIN_SESSION_PROFILE 1073.7ms attribution_version=3 iterations=1 instances=0
+[UI-LOAD] commentary LOAD_STARTED 1075.4ms
+[UI-LOAD] commentary PLACEHOLDER_VISIBLE 1075.4ms
+[UI-LOAD] commentary LOAD_COMMITTED 1076.1ms
+[UI-LOAD] commentary LOAD_FINISHED 1076.1ms
+[UI-LOAD] nav DISPLAY_REQUEST 1076.1ms Luke 23:36
+[UI-LOAD] app FIRST_CONTENT_REQUEST 1076.1ms Luke 23:36
+[UI-LOAD] bible-main LOAD_STARTED 1080.0ms
+[UI-LOAD] bible-main PLACEHOLDER_VISIBLE 1080.0ms
+[UI-LOAD] bible-main LOAD_COMMITTED 1083.7ms
+[UI-LOAD] bible-main LOAD_FINISHED 1083.8ms
+[UI-LOAD] focus FOCUS_STATE_BEFORE_NAV 1084.0ms origin=navigation focused=23036 prevScrollTop=0.0 prevReadingDocumentY=0.0 lineValid=0 lineOffset=0.0
+[UI-LOAD] focus FOCUS_REBASE 1084.3ms target=23036 scrollTop=0 readingLineY=0.0 readingDocumentY=0.0 pending=1
+[UI-LOAD] focus FOCUS_STATE_BEFORE_NAV 1084.6ms origin=navigation focused=23036 prevScrollTop=0.0 prevReadingDocumentY=0.0 lineValid=0 lineOffset=0.0
+[UI-LOAD] focus FOCUS_REBASE 1084.9ms target=23036 scrollTop=0 readingLineY=0.0 readingDocumentY=0.0 pending=1
+[UI-LOAD] nav DISPLAY_COMPLETE 1084.9ms display_ms=8.8 in_place=0
+[UI-LOAD] app FIRST_CONTENT_READY 1084.9ms display_ms=8.8 in_place=0
+[UI-LOAD] nav NAVIGATION_READY 1084.9ms Luke 23:36
+[UI-LOAD] commentary LOAD_STARTED 1087.4ms
+[UI-LOAD] commentary LOAD_COMMITTED 1088.0ms
+[UI-LOAD] commentary LOAD_FINISHED 1088.0ms
+[UI-LOAD] lower-previewer RENDERER_MAP 1088.6ms
+[UI-LOAD] lower-previewer MAP 1088.7ms
+[UI-LOAD] lower-previewer LOAD_STARTED 1089.2ms
+[UI-LOAD] lower-previewer LOAD_COMMITTED 1089.8ms
+[UI-LOAD] lower-previewer LOAD_FINISHED 1089.8ms
+[UI-LOAD] devotional LOAD_STARTED 1091.2ms
+[UI-LOAD] devotional PLACEHOLDER_VISIBLE 1091.3ms
+[UI-LOAD] devotional LOAD_COMMITTED 1091.6ms
+[UI-LOAD] devotional LOAD_FINISHED 1091.6ms
+[UI-LOAD] devotional LOAD_STARTED 1093.1ms
+[UI-LOAD] devotional LOAD_COMMITTED 1093.5ms
+[UI-LOAD] devotional LOAD_FINISHED 1093.5ms
+[UI-LOAD] app FRONTEND_DISPLAY_DONE 1094.4ms display_ms=693.8
+[UI-LOAD] app GTK_MAIN_ENTER 1094.6ms
+[UI-LOAD] bible-main RENDERER_MAP 1094.8ms
+[UI-LOAD] bible-main RENDERER_VISIBLE 1094.8ms
+[UI-LOAD] commentary RENDERER_VISIBLE 1094.8ms
+[UI-LOAD] devotional RENDERER_VISIBLE 1094.9ms
+[UI-LOAD] focus SCROLL_VIEWPORT 1111.9ms previous=0.0 scrollTop=0.7 delta=0.7 maxScrollTop=36.0 origin=navigation gliding=0
+[UI-LOAD] focus SCROLL_RANGE 1119.9ms documentHeight=376.0 previous=36.0 viewportHeight=376.0 maxScrollTop=0.0
+[UI-LOAD] focus SCROLL_VIEWPORT 1119.9ms previous=0.7 scrollTop=0.0 delta=-0.7 maxScrollTop=0.0 origin=navigation gliding=0
+[UI-LOAD] app WINDOW_SIZE_ALLOCATE 1120.0ms hpaned width=892 height=471
+[UI-LOAD] app WINDOW_SIZE_ALLOCATE 1120.0ms vpaned-left width=892 height=471
+[UI-LOAD] app WINDOW_SIZE_ALLOCATE 1120.0ms bible-notebook width=890 height=469
+[UI-LOAD] app FIRST_CHAPTER_PAINTED 1128.0ms width=890
+[UI-LOAD] focus SCROLL_RANGE 1169.6ms documentHeight=1279.0 previous=376.0 viewportHeight=376.0 maxScrollTop=903.0
+[UI-LOAD] focus SCROLL_VIEWPORT 1169.6ms previous=0.0 scrollTop=903.0 delta=903.0 maxScrollTop=903.0 origin=navigation gliding=0
+[UI-LOAD] focus READING_RESERVE 1193.5ms reserve=229 previous=0 viewportHeight=376 contentBottom=1271 lastVerseTop=1226 found=1
+[UI-LOAD] focus SCROLL_RANGE 1195.6ms documentHeight=1507.0 previous=1279.0 viewportHeight=376.0 maxScrollTop=1131.0
+[UI-LOAD] focus READING_RESERVE 1200.7ms reserve=230 previous=229 viewportHeight=376 contentBottom=1270 lastVerseTop=1226 found=1
+[UI-LOAD] focus SCROLL_RANGE 1200.9ms documentHeight=1508.0 previous=1507.0 viewportHeight=376.0 maxScrollTop=1132.0
+[UI-LOAD] focus SCROLL_VIEWPORT 1203.5ms previous=903.0 scrollTop=864.1 delta=-38.9 maxScrollTop=1132.0 origin=navigation gliding=0
+[UI-LOAD] focus SCROLL_VIEWPORT 1220.3ms previous=864.1 scrollTop=831.6 delta=-32.5 maxScrollTop=1132.0 origin=navigation gliding=0
+[UI-LOAD] focus SCROLL_VIEWPORT 1237.0ms previous=831.6 scrollTop=804.9 delta=-26.6 maxScrollTop=1132.0 origin=navigation gliding=0
+[UI-LOAD] focus SCROLL_VIEWPORT 1253.6ms previous=804.9 scrollTop=783.6 delta=-21.4 maxScrollTop=1132.0 origin=navigation gliding=0
+[UI-LOAD] focus SCROLL_VIEWPORT 1270.3ms previous=783.6 scrollTop=766.9 delta=-16.6 maxScrollTop=1132.0 origin=navigation gliding=0
+[UI-LOAD] focus SCROLL_VIEWPORT 1287.1ms previous=766.9 scrollTop=754.4 delta=-12.5 maxScrollTop=1132.0 origin=navigation gliding=0
+[UI-LOAD] app UI_HEARTBEAT 1297.9ms
+[UI-LOAD] focus SCROLL_VIEWPORT 1303.6ms previous=754.4 scrollTop=745.4 delta=-9.0 maxScrollTop=1132.0 origin=navigation gliding=0
+[UI-LOAD] focus SCROLL_VIEWPORT 1320.4ms previous=745.4 scrollTop=739.4 delta=-6.0 maxScrollTop=1132.0 origin=navigation gliding=0
+[UI-LOAD] focus SCROLL_VIEWPORT 1337.0ms previous=739.4 scrollTop=735.7 delta=-3.7 maxScrollTop=1132.0 origin=navigation gliding=0
+[UI-LOAD] focus SCROLL_VIEWPORT 1353.7ms previous=735.7 scrollTop=733.8 delta=-1.9 maxScrollTop=1132.0 origin=navigation gliding=0
+[UI-LOAD] focus SCROLL_VIEWPORT 1370.5ms previous=733.8 scrollTop=733.1 delta=-0.7 maxScrollTop=1132.0 origin=navigation gliding=0
+[UI-LOAD] focus SCROLL_VIEWPORT 1387.2ms previous=733.1 scrollTop=733.0 delta=-0.1 maxScrollTop=1132.0 origin=navigation gliding=0
+[UI-LOAD] focus SCROLL_VIEWPORT 1403.9ms previous=733.0 scrollTop=733.0 delta=-0.0 maxScrollTop=1132.0 origin=navigation gliding=0
+[UI-LOAD] bible-main LOAD_STARTED 1459.3ms
+[UI-LOAD] bible-main LOAD_COMMITTED 1470.9ms
+[UI-LOAD] bible-main LOAD_FINISHED 1470.9ms
+[UI-LOAD] focus WINDOW_RECENTER 1471.0ms key=Lucas 23:36 first=window lineAnchor=23038 offset=121 viewportY=125 resumeDistance=0.0
+[UI-LOAD] focus SCROLL_RANGE 1471.4ms documentHeight=376.0 previous=1508.0 viewportHeight=376.0 maxScrollTop=0.0
+[UI-LOAD] focus SCROLL_VIEWPORT 1471.5ms previous=733.0 scrollTop=0.0 delta=-733.0 maxScrollTop=0.0 origin=navigation gliding=0
+[UI-LOAD] focus SCROLL_RANGE 1483.0ms documentHeight=2044.0 previous=376.0 viewportHeight=376.0 maxScrollTop=1668.0
+[UI-LOAD] focus SCROLL_RANGE 1483.4ms documentHeight=2098.0 previous=2044.0 viewportHeight=376.0 maxScrollTop=1722.0
+[UI-LOAD] focus SCROLL_VIEWPORT 1483.4ms previous=0.0 scrollTop=1668.0 delta=1668.0 maxScrollTop=1722.0 origin=navigation gliding=0
+[UI-LOAD] focus SCROLL_RANGE 1494.2ms documentHeight=4099.0 previous=2098.0 viewportHeight=376.0 maxScrollTop=3723.0
+[UI-LOAD] focus SCROLL_VIEWPORT 1494.4ms previous=1668.0 scrollTop=2350.0 delta=682.0 maxScrollTop=3723.0 origin=navigation gliding=0
+[UI-LOAD] focus SCROLL_RANGE 1499.6ms documentHeight=4117.0 previous=4099.0 viewportHeight=376.0 maxScrollTop=3741.0
+[UI-LOAD] focus READING_RESERVE 1499.8ms reserve=229 previous=0 viewportHeight=376 contentBottom=4109 lastVerseTop=4064 found=1
+[UI-LOAD] focus SCROLL_RANGE 1526.7ms documentHeight=4345.0 previous=4117.0 viewportHeight=376.0 maxScrollTop=3969.0
+[UI-LOAD] focus READING_RESERVE 1528.2ms reserve=230 previous=229 viewportHeight=376 contentBottom=4108 lastVerseTop=4064 found=1
+[UI-LOAD] focus SCROLL_RANGE 1528.5ms documentHeight=4346.0 previous=4345.0 viewportHeight=376.0 maxScrollTop=3970.0
+[UI-LOAD] app UI_HEARTBEAT 1548.0ms
+[UI-LOAD] app FIRST_READING_WINDOW_READY 1553.2ms
+[UI-LOAD] focus WINDOW_RESTORED 1553.3ms lineAnchor=23038 offset=121 viewportY=125 frames=5 converged=1 scrollTop=2350.0 resumeDistance=0.0 ms=99.2
+[UI-LOAD] app UI_HEARTBEAT 1798.0ms
+[UI-LOAD] app UI_HEARTBEAT 2048.2ms
+[UI-LOAD] app UI_HEARTBEAT 2298.3ms
+[UI-LOAD] app UI_HEARTBEAT 2548.6ms

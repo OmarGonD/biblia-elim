@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * navbar_verse.c - navigation bar for versekey modules
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -602,6 +602,11 @@ static GtkWidget *version_etiqueta = NULL;
 static GMenu *version_menu = NULL;
 static GSimpleAction *version_action = NULL;
 static GHashTable *version_labels = NULL;
+typedef struct {
+	GtkWidget *button;
+	GtkWidget *label;
+} VersionPicker;
+static GPtrArray *study_version_pickers = NULL;
 
 static void gui_navbar_fill_version_combo(void);
 
@@ -723,14 +728,60 @@ static void
 version_actualizar_boton(void)
 {
 	const gchar *texto;
+	guint i;
 
-	if (!version_etiqueta || !version_labels || !settings.MainWindowModule)
+	if (!version_labels || !settings.MainWindowModule)
 		return;
 	texto = g_hash_table_lookup(version_labels, settings.MainWindowModule);
 	if (!texto)
 		texto = settings.MainWindowModule;
-	gtk_label_set_text(GTK_LABEL(version_etiqueta), texto);
-	gtk_widget_set_tooltip_text(widgets.combo_bible_version, texto);
+	if (version_etiqueta)
+		gtk_label_set_text(GTK_LABEL(version_etiqueta), texto);
+	if (widgets.combo_bible_version)
+		gtk_widget_set_tooltip_text(widgets.combo_bible_version, texto);
+	for (i = 0; study_version_pickers && i < study_version_pickers->len; i++) {
+		VersionPicker *picker = g_ptr_array_index(study_version_pickers, i);
+		gtk_label_set_text(GTK_LABEL(picker->label), texto);
+		gtk_widget_set_tooltip_text(picker->button, texto);
+	}
+}
+
+GtkWidget *
+gui_navbar_version_combo_new_study_picker(void)
+{
+	GtkWidget *button, *box, *label, *arrow;
+	VersionPicker *picker;
+
+	button = gtk_menu_button_new();
+	box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 6);
+	label = gtk_label_new("");
+	gtk_label_set_xalign(GTK_LABEL(label), 0.0);
+	gtk_label_set_ellipsize(GTK_LABEL(label), PANGO_ELLIPSIZE_END);
+	gtk_label_set_max_width_chars(GTK_LABEL(label), 18);
+	gtk_box_append(GTK_BOX(box), label);
+	arrow = gtk_image_new_from_icon_name("pan-down-symbolic");
+	gtk_box_append(GTK_BOX(box), arrow);
+	gtk_menu_button_set_child(GTK_MENU_BUTTON(button), box);
+	gtk_widget_set_tooltip_text(button,
+				    _("Cambiar de Biblia (mantiene el pasaje enfocado)"));
+	gtk_widget_set_valign(button, GTK_ALIGN_CENTER);
+	gtk_widget_add_css_class(button, "elim-pill");
+	picker = g_new0(VersionPicker, 1);
+	picker->button = button;
+	picker->label = label;
+	if (!study_version_pickers)
+		study_version_pickers = g_ptr_array_new_with_free_func(g_free);
+	g_ptr_array_add(study_version_pickers, picker);
+	if (version_menu && version_action) {
+		GSimpleActionGroup *actions = g_simple_action_group_new();
+		g_action_map_add_action(G_ACTION_MAP(actions), G_ACTION(version_action));
+		gui_widget_insert_action_group(button, "version", G_ACTION_GROUP(actions));
+		g_object_unref(actions);
+		gtk_menu_button_set_menu_model(GTK_MENU_BUTTON(button),
+					       G_MENU_MODEL(version_menu));
+	}
+	version_actualizar_boton();
+	return button;
 }
 
 void
@@ -815,6 +866,16 @@ gui_navbar_fill_version_combo(void)
 	gui_widget_insert_action_group(widgets.combo_bible_version, "version",
 				       G_ACTION_GROUP(actions));
 	g_object_unref(actions);
+	for (guint i = 0; study_version_pickers && i < study_version_pickers->len; i++) {
+		VersionPicker *picker = g_ptr_array_index(study_version_pickers, i);
+		GSimpleActionGroup *picker_actions = g_simple_action_group_new();
+		g_action_map_add_action(G_ACTION_MAP(picker_actions), G_ACTION(version_action));
+		gui_widget_insert_action_group(picker->button, "version",
+					       G_ACTION_GROUP(picker_actions));
+		g_object_unref(picker_actions);
+		gtk_menu_button_set_menu_model(GTK_MENU_BUTTON(picker->button),
+					       G_MENU_MODEL(version_menu));
+	}
 
 	g_free(idioma_actual);
 	g_list_free_full(entradas, version_liberar);
@@ -859,7 +920,7 @@ GtkWidget *gui_navbar_versekey_new(void)
 
 /* build the widget */
 	gxml = elim_gtk_builder_new();
-	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/navbar_versekey.gtkbuilder", NULL);
+	gtk_builder_add_from_resource(gxml, "/org/bibliaelim/ui/navbar_versekey.gtkbuilder", NULL);
 	navbar_versekey.dialog = FALSE;
 	navbar_versekey.module_name =
 	    g_string_new(settings.MainWindowModule);

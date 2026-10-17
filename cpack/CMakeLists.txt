@@ -16,7 +16,7 @@
 # along with this program; if not, see <https://www.gnu.org/licenses/>.
 #
 
-# packaging xiphos
+# packaging Ministerios Elim
 
 
 # setting up common variables to all packagers
@@ -24,11 +24,11 @@ message(STATUS "Configuring binary and source packagers")
 
 # The name of the package (or application). If not specified, defaults to
 # the project name.
-set (CPACK_PACKAGE_NAME "${PROJECT_NAME}")
+set (CPACK_PACKAGE_NAME "biblia-elim")
 
 # The name of the package vendor.
-set(CPACK_PACKAGE_VENDOR "The Xiphos Development Team")
-set(CPACK_PACKAGE_CONTACT "xiphos-devel@crosswire.org")
+set(CPACK_PACKAGE_VENDOR "Ministerios Elim")
+set(CPACK_PACKAGE_CONTACT "https://github.com/OmarGonD/biblia-elim/issues")
 
 # The directory in which CPack is doing its packaging. If it is not set then
 # this will default (internally) to the build dir.
@@ -50,7 +50,7 @@ set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
 
 # A text file used to describe the project. Used, for example, the introduction
 # screen of a CPack-generated Windows installer to describe the project.
-set(CPACK_PACKAGE_DESCRIPTION_FILE ${CMAKE_CURRENT_SOURCE_DIR}/xiphos.desc)
+set(CPACK_PACKAGE_DESCRIPTION_FILE ${CMAKE_CURRENT_SOURCE_DIR}/biblia-elim.desc)
 
 # Short description of the project (only a few words).
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY
@@ -108,7 +108,7 @@ set(CPACK_GENERATOR "DEB;RPM")
 # Start Menu shortcuts. For example, setting this to the list ccmake;CMake will
 # create a shortcut named “CMake” that will execute the installed executable
 # ccmake. Not all CPack generators use it (at least NSIS, WIX and OSXX11 do).
-set(CPACK_PACKAGE_EXECUTABLES "Xiphos;xiphos")
+set(CPACK_PACKAGE_EXECUTABLES "biblia-elim;Ministerios Elim")
 
 # A boolean variable which enables stripping of all files.
 set(CPACK_STRIP_FILES ON)
@@ -154,8 +154,8 @@ set (CPACK_SOURCE_IGNORE_FILES
   "/.bzrrules/"
   "/.clang-format"
   "/.ci-build.yml"
-  "/xiphos-${CPACK_PACKAGE_VERSION}-win32.exe"
-  "/xiphos-${CPACK_PACKAGE_VERSION}-win64.exe"
+  "/biblia-elim-${CPACK_PACKAGE_VERSION}-win32.exe"
+  "/biblia-elim-${CPACK_PACKAGE_VERSION}-win64.exe"
   )
 
 
@@ -197,12 +197,24 @@ if(UNIX)
 endif(UNIX)
 
 # call generators
-if (UNIX)
+if (UNIX AND NOT APPLE)
     # CPack RPM generator
     include(fedora/XiphosRPMPkg.cmake)
     # CPack Debian generator (Unix only)
     include(debian/XiphosDebianPkg.cmake)
-endif (UNIX)
+endif ()
+
+if (APPLE)
+  set (CPACK_PACKAGE_NAME "Ministerios Elim")
+  set (CPACK_GENERATOR "productbuild")
+  set (CPACK_MONOLITHIC_INSTALL ON)
+  set (CPACK_PRODUCTBUILD_BACKGROUND
+    "${PROJECT_SOURCE_DIR}/cpack/macos/ministerios-elim-background.png")
+  set (CPACK_PRODUCTBUILD_IDENTIFIER "org.bibliaelim.app")
+  set (CPACK_PRODUCTBUILD_INSTALL_PREFIX "/")
+  set (CPACK_PACKAGE_FILE_NAME
+    "Ministerios-Elim-${PROJECT_VERSION}-macOS-${CMAKE_SYSTEM_PROCESSOR}")
+endif ()
 
 if(WIN32)
   set(CPACK_GENERATOR "NSIS")

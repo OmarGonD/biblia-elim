@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * menu_popup.c - main window panes and dialogs popup menus
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -1381,7 +1381,7 @@ G_MODULE_EXPORT void on_rename_perscomm_activate(gpointer menuitem,
 
 #if defined(WIN32)
 	gui_generic_warning(_("Renaming is not available in Windows.\n\n"
-			      "Xiphos is limited by Windows' filesystem,\n"
+			      "Ministerios Elim is limited by Windows' filesystem,\n"
 			      "because it disallows the renaming of filename\n"
 			      "components of currently-open files,\n"
 			      "such as the contents of this commentary.\n"
@@ -1419,7 +1419,7 @@ G_MODULE_EXPORT void on_rename_perscomm_activate(gpointer menuitem,
 	}
 
 	if (main_is_module(info->text1)) {
-		gui_generic_warning_modal(_("Xiphos already knows a module by that name."));
+		gui_generic_warning_modal(_("Ministerios Elim already knows a module by that name."));
 		goto out1;
 	}
 

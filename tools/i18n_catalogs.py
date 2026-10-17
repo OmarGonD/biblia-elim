@@ -86,7 +86,7 @@ def apply_translations(table):
         source, en, fr, ko, zh, pt = fields[:6]
         es = fields[6] if len(fields) == 7 else source
         translations[source] = dict(zip(LANGUAGES, (en, es, fr, ko, zh, pt)))
-    templates = read_po(ROOT / "po/xiphos.pot")
+    templates = read_po(ROOT / "po/biblia-elim.pot")
     original = {lang: {e["msgid"]: e for e in read_po(ROOT / f"po/{lang}.po")}
                 for lang in (*LANGUAGES, "pt")}
     inverse = {e.get("msgstr"): e["msgid"] for e in original["es"].values()

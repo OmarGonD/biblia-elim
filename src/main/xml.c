@@ -1566,10 +1566,13 @@ void xml_set_or_create_value(const char *section, const char *item,
 	    xml_find_prop(xml_settings_doc, "Xiphos", section, item);
 	if (cur)
 		xmlNodeSetContent(cur, (const xmlChar *)value);
-	else
+	else {
+		if (!xml_find_section(xml_settings_doc, "Xiphos", section))
+			xml_add_new_section_to_settings_doc((char *)section);
 		xml_add_new_item_to_section((char *)section,
 					    (char *)item,
 					    (char *)value);
+	}
 }
 
 /******************************************************************************

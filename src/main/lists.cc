@@ -34,6 +34,8 @@
 #include "backend/sword_main.hh"
 #include <swmodule.h>
 #include "backend/sword/sword_backend.h"
+#include "backend/sword/bundled_devotional.h"
+#include "main/app_language.h"
 #include "backend/sqlite/sqlite_bible_backend.h"
 
 /******************************************************************************
@@ -210,8 +212,11 @@ void main_init_lists(void)
 
 	settings.haveprayerlist = g_list_length(mods.prayermods);
 
-	if (g_list_length(mods.devotionmods) == 1) {
-		xml_set_value("Xiphos", "modules", "devotional", (char *)mods.devotionmods->data);
+	const char *devotional = selectDevotional(mods.devotionmods, settings.devotionalmod,
+		app_language_reader_locale());
+	if (devotional && g_strcmp0(devotional, settings.devotionalmod)) {
+		xml_set_value("Xiphos", "modules", "devotional", devotional);
+		g_free(settings.devotionalmod);
 		settings.devotionalmod = xml_get_value("modules", "devotional");
 	}
 

@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim Bible Study Tool
  * ipc.c - Interprocess Communication - dbus integration
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -23,7 +23,7 @@
  * @short_description: Interprocess Communication - dbus integration
  *
  * An #IpcObject is a gobject that publishes signals and methods over
- * dbus. It allows external control of Xiphos via dbus.
+ * dbus. It allows external control of Ministerios Elim via dbus.
  *
  * sample client programs are in xiphos/src/examples/ipc_client.c
  * and xiphos/src/examples/ipc_client.py
@@ -52,7 +52,7 @@ gboolean ipc_object_get_next_search_reference(IpcObject *obj,
 #include "main/url.hh"
 
 static IpcObject *main_ipc_obj;
-static XiphosRemote *ipc_skeleton;
+static BibliaElimRemote *ipc_skeleton;
 static guint owner_id;
 
 static void ipc_object_init(IpcObject *obj)
@@ -70,7 +70,7 @@ static void ipc_object_class_init(IpcObjectClass *klass)
 	 * @hits: the number of search results
 	 *
 	 * The search_performed_signal is emitted any time
-	 * Xiphos performs a sidebar search; it is intended
+	 * Ministerios Elim performs a sidebar search; it is intended
 	 * to be listened to and handled over dbus
 	 *
 	 * Since: 3.2
@@ -88,7 +88,7 @@ static void ipc_object_class_init(IpcObjectClass *klass)
 	 * IpcObject::navigation_signal:
 	 * @reference: the new reference
 	 *
-	 * The navigation_signal is emitted any time Xiphos
+	 * The navigation_signal is emitted any time Ministerios Elim
 	 * navigates to a new Bible reference; it is intended
 	 * to be listened to and handled over dbus
 	 *
@@ -129,7 +129,7 @@ gboolean ipc_object_search_performed(IpcObject *obj,
 
 	/* Emit D-Bus signal using gdbus-codegen generated function */
 	if (ipc_skeleton) {
-		xiphos_remote_emit_search_performed_signal(ipc_skeleton,
+		biblia_elim_remote_emit_search_performed_signal(ipc_skeleton,
 							   search_term, *hits);
 	}
 	return FALSE;
@@ -161,7 +161,7 @@ gboolean ipc_object_navigation_signal(IpcObject *obj,
 
 	/* Emit D-Bus signal using gdbus-codegen generated function */
 	if (ipc_skeleton) {
-		xiphos_remote_emit_navigation_signal(ipc_skeleton, reference);
+		biblia_elim_remote_emit_navigation_signal(ipc_skeleton, reference);
 	}
 	return FALSE;
 }
@@ -185,7 +185,7 @@ gboolean ipc_object_get_next_search_reference(IpcObject *obj,
 	if (obj->references)
 		*reference = g_strdup((gchar *)obj->references->data);
 	else
-		*reference = g_strdup("XIPHOS_SEARCH_END");
+		*reference = g_strdup("BIBLIA_ELIM_SEARCH_END");
 
 	obj->references = g_list_next(obj->references);
 	return TRUE;
@@ -197,7 +197,7 @@ gboolean ipc_object_get_next_search_reference(IpcObject *obj,
  * @reference: the reference to set
  * @error: GError
  *
- * to be called from dbus; sets the current reference in Xiphos;
+ * to be called from dbus; sets the current reference in Ministerios Elim;
  * calls main_url_handler to handle the navigation
  *
  * Since: 3.2
@@ -274,7 +274,7 @@ gboolean ipc_object_set_current_reference(IpcObject *obj,
  * @reference: the return reference
  * @error: GError
  *
- * to be called from dbus; gets the current reference in Xiphos;
+ * to be called from dbus; gets the current reference in Ministerios Elim;
  *
  * Since: 3.2
  */
@@ -298,7 +298,7 @@ gboolean ipc_object_get_current_reference(IpcObject *obj,
 
 /* D-Bus method handlers using gdbus-codegen skeleton */
 static gboolean
-on_handle_set_current_reference(XiphosRemote *skeleton,
+on_handle_set_current_reference(BibliaElimRemote *skeleton,
 				 GDBusMethodInvocation *invocation,
 				 const gchar *reference,
 				 gpointer user_data)
@@ -307,13 +307,13 @@ on_handle_set_current_reference(XiphosRemote *skeleton,
 	GError *error = NULL;
 
 	ipc_object_set_current_reference(obj, (gchar *)reference, &error);
-	xiphos_remote_complete_set_current_reference(skeleton, invocation);
+	biblia_elim_remote_complete_set_current_reference(skeleton, invocation);
 
 	return TRUE;
 }
 
 static gboolean
-on_handle_get_current_reference(XiphosRemote *skeleton,
+on_handle_get_current_reference(BibliaElimRemote *skeleton,
 				 GDBusMethodInvocation *invocation,
 				 gpointer user_data)
 {
@@ -322,7 +322,7 @@ on_handle_get_current_reference(XiphosRemote *skeleton,
 	GError *error = NULL;
 
 	ipc_object_get_current_reference(obj, &reference, &error);
-	xiphos_remote_complete_get_current_reference(skeleton, invocation,
+	biblia_elim_remote_complete_get_current_reference(skeleton, invocation,
 						     reference ? reference : "");
 	g_free(reference);
 
@@ -330,7 +330,7 @@ on_handle_get_current_reference(XiphosRemote *skeleton,
 }
 
 static gboolean
-on_handle_get_next_search_reference(XiphosRemote *skeleton,
+on_handle_get_next_search_reference(BibliaElimRemote *skeleton,
 				    GDBusMethodInvocation *invocation,
 				    gpointer user_data)
 {
@@ -339,7 +339,7 @@ on_handle_get_next_search_reference(XiphosRemote *skeleton,
 	GError *error = NULL;
 
 	ipc_object_get_next_search_reference(obj, &reference, &error);
-	xiphos_remote_complete_get_next_search_reference(skeleton, invocation,
+	biblia_elim_remote_complete_get_next_search_reference(skeleton, invocation,
 							 reference ? reference : "");
 	g_free(reference);
 
@@ -355,7 +355,7 @@ on_bus_acquired(GDBusConnection *connection,
 	GError *error = NULL;
 
 	/* Create skeleton from gdbus-codegen */
-	ipc_skeleton = xiphos_remote_skeleton_new();
+	ipc_skeleton = biblia_elim_remote_skeleton_new();
 
 	/* Connect method handlers */
 	g_signal_connect(ipc_skeleton, "handle-set-current-reference",
@@ -368,7 +368,7 @@ on_bus_acquired(GDBusConnection *connection,
 	/* Export the interface */
 	if (!g_dbus_interface_skeleton_export(G_DBUS_INTERFACE_SKELETON(ipc_skeleton),
 					     connection,
-					     "/org/xiphos/remote/ipc",
+					     "/org/bibliaelim/remote/ipc",
 					     &error)) {
 		g_warning("Failed to export D-Bus interface: %s", error->message);
 		g_error_free(error);
@@ -405,7 +405,7 @@ IpcObject *ipc_init_dbus_connection(IpcObject *obj)
 
 	/* Request the D-Bus name */
 	owner_id = g_bus_own_name(G_BUS_TYPE_SESSION,
-				  "org.xiphos.remote",
+				  "org.bibliaelim.remote",
 				  G_BUS_NAME_OWNER_FLAGS_NONE,
 				  on_bus_acquired,
 				  on_name_acquired,

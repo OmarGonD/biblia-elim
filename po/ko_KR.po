@@ -1,14 +1,14 @@
-# Additional Biblia Elim interface translations: see po/elim/.
-# Korean translarion for the Xiphos.
-# Copyright (C) 2016 Xiphos Developer Team and the Korean Translator.
-# This file is distributed under the same license as the Xiphos package.
+# Additional Ministerios Elim interface translations: see po/elim/.
+# Korean translarion for the Ministerios Elim.
+# Copyright (C) 2016 Ministerios Elim Developer Team and the Korean Translator.
+# This file is distributed under the same license as the Ministerios Elim package.
 # Seong-ho Cho <shcho@gnome.org>, 2015.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Biblia Elim 1\n"
+"Project-Id-Version: Ministerios Elim 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-20 09:16-0500\n"
+"POT-Creation-Date: 2026-10-08 11:06-0500\n"
 "PO-Revision-Date: 2015-07-15 20:56+0900\n"
 "Last-Translator: Seong-ho Cho <shcho@gnome.org>\n"
 "Language-Team: Seong-ho Cho <shcho@gnome.org>\n"
@@ -100,7 +100,7 @@ msgid "Are you sure you want to delete the note for"
 msgstr "정말로 해당 메모를 삭제하시겠습니까?"
 
 msgid "Open"
-msgstr "열기"
+msgstr "열기(_O)"
 
 msgid "Studies and Word documents"
 msgstr "연구 및 Word 문서"
@@ -276,10 +276,10 @@ msgid ""
 "in personal mode, to share within a small group;\n"
 "or as either speaker or audience in a formal lecture setting.\n"
 "\n"
-"There are options for how BibleSync behaves in Xiphos:\n"
+"There are options for how BibleSync behaves in Ministerios Elim:\n"
 "- To follow others' navigation directly or indirectly.\n"
 "- To send your navigation every time or only via keyboard.\n"
-"- To select speakers to whom Xiphos should listen.\n"
+"- To select speakers to whom Ministerios Elim should listen.\n"
 "\n"
 "A simple chat capability provides brief messages to be shared as well.\n"
 "\n"
@@ -302,30 +302,27 @@ msgid "BibleSync technical details"
 msgstr "BibleSync 기술 정보"
 
 msgid ""
-"Do you like using Xiphos to study the Bible? Would you like to see its user "
-"interface in your native language? You could translate Xiphos! \n"
+"Do you like using Ministerios Elim to study the Bible? Would you like to see its "
+"user interface in your native language? You could translate Ministerios Elim! \n"
 "\n"
-"We are always looking for contributions of new translations of Xiphos into "
-"other languages. If you are able to translate for us, please see the link "
-"below, contact us, and get involved with our efforts. Your help will be much "
-"appreciated!"
+"We are always looking for contributions of new translations of Ministerios Elim "
+"into other languages. If you are able to translate for us, please see the "
+"link below, contact us, and get involved with our efforts. Your help will be "
+"much appreciated!"
 msgstr ""
-"Xiphos로 성경을 연구하는 것이 좋으신가요? 인터페이스를 모국어로 번역하는 데 "
-"참여할 수 있습니다.\n"
+"Ministerios Elim로 성경을 연구하는 것이 좋으신가요? 인터페이스를 모국어로 번역하"
+"는 데 참여할 수 있습니다.\n"
 "\n"
 "새 번역 기여를 환영합니다. 아래 링크에서 안내를 확인하고 번역에 참여하세요."
 
-msgid "About Xiphos Translation"
-msgstr "xiphos 번역 참고"
+msgid "About Ministerios Elim Translation"
+msgstr "Ministerios Elim 번역 참고"
 
-msgid "See TRANSLATION-HOWTO in Xiphos source"
-msgstr "xiphos 소스 코드의 TRANSLATION-HOWTO를 참고하십시오"
+msgid "See TRANSLATION-HOWTO in Ministerios Elim source"
+msgstr "Ministerios Elim 소스 코드의 TRANSLATION-HOWTO를 참고하십시오"
 
-msgid "Xiphos development"
-msgstr "xiphos 개발"
-
-msgid "Copyright © 2000-2026 Xiphos Development Team"
-msgstr "저작권 © 2000-2026 Xiphos 개발팀"
+msgid "Ministerios Elim development"
+msgstr "Ministerios Elim 개발"
 
 msgid "Datos del texto griego (TAGNT)"
 msgstr "그리스어 본문 데이터 (TAGNT)"
@@ -770,60 +767,6 @@ msgid "No se ha importado nada."
 msgstr "가져온 항목이 없습니다."
 
 #, c-format
-msgid "%u nota nueva."
-msgid_plural "%u notas nuevas."
-msgstr[0] "새 메모 %u개."
-
-#, c-format
-msgid " %u de ellas va junto a otra nota tuya del mismo versículo."
-msgid_plural " %u de ellas van junto a otra nota tuya del mismo versículo."
-msgstr[0] " %u개는 같은 구절의 기존 메모에 추가됩니다."
-
-#, c-format
-msgid ""
-"\n"
-"%u ya estaba."
-msgid_plural ""
-"\n"
-"%u ya estaban."
-msgstr[0] ""
-"\n"
-"이미 존재하는 항목 %u개."
-
-#, c-format
-msgid ""
-"\n"
-"%u enlace nuevo."
-msgid_plural ""
-"\n"
-"%u enlaces nuevos."
-msgstr[0] ""
-"\n"
-"새 연결 %u개."
-
-#, c-format
-msgid ""
-"\n"
-"%u subrayado o enlace distinto del tuyo: se conservó el tuyo."
-msgid_plural ""
-"\n"
-"%u subrayados o enlaces distintos de los tuyos: se conservaron los tuyos."
-msgstr[0] ""
-"\n"
-"강조 또는 연결 %u개가 달라 기존 것을 유지했습니다."
-
-#, c-format
-msgid ""
-"\n"
-"%u entrada no válida, ignorada."
-msgid_plural ""
-"\n"
-"%u entradas no válidas, ignoradas."
-msgstr[0] ""
-"\n"
-"잘못된 항목 %u개를 무시했습니다."
-
-#, c-format
 msgid ""
 "\n"
 "\n"
@@ -868,7 +811,7 @@ msgid "Cerrar panel de comentarios y notas"
 msgstr "주석 및 메모 패널 닫기"
 
 msgid "_OK"
-msgstr "확인(_O)"
+msgstr "확인"
 
 msgid "_Yes"
 msgstr "예(_Y)"
@@ -880,7 +823,7 @@ msgid "_No"
 msgstr "아니요(_N)"
 
 msgid "_Cancel"
-msgstr "취소(_C)"
+msgstr "취소"
 
 msgid "Close without Saving"
 msgstr "저장 않고 닫기(_W)"
@@ -993,14 +936,14 @@ msgstr "확인"
 msgid "Cannot open the display"
 msgstr "화면을 열 수 없습니다"
 
-msgid "BUG! Biblia Elim is about to crash due to a \"STRDUP\" error."
-msgstr "버그네요?! \"STRDUP\" 오류 때문에 xiphos가 깨진 것 같습니다."
+msgid "BUG! Ministerios Elim is about to crash due to a \"STRDUP\" error."
+msgstr "버그네요?! \"STRDUP\" 오류 때문에 Ministerios Elim가 깨진 것 같습니다."
 
-msgid "Please report this error to the Biblia Elim team with:"
-msgstr "다음 내용을 첨부하여 xiphos 팀에게 오류를 보고하십시오:"
+msgid "Please report this error to the Ministerios Elim team with:"
+msgstr "다음 내용을 첨부하여 Ministerios Elim 팀에게 오류를 보고하십시오:"
 
-msgid "BUG! Biblia Elim is about to crash due to a \"STRING\" error."
-msgstr "버그네요?! \"STRING\" 오류 때문에 xiphos가 깨진 것 같습니다."
+msgid "BUG! Ministerios Elim is about to crash due to a \"STRING\" error."
+msgstr "버그네요?! \"STRING\" 오류 때문에 Ministerios Elim가 깨진 것 같습니다."
 
 msgid "Desconocido"
 msgstr "알 수 없음"
@@ -1623,8 +1566,8 @@ msgstr "키보드 바로 가기(_K)"
 msgid "Informar de un _error"
 msgstr "오류 신고(_R)"
 
-msgid "Acerca de _Biblia Elim"
-msgstr "Biblia Elim 정보(_B)"
+msgid "Acerca de _Ministerios Elim"
+msgstr "Ministerios Elim 정보(_B)"
 
 msgid "_SWORD"
 msgstr "SWORD(_S)"
@@ -1696,8 +1639,8 @@ msgstr "[보낼 메시지]"
 msgid "Comment:"
 msgstr "주석:"
 
-msgid "Biblia Elim: No windows."
-msgstr "Biblia Elim: 창이 없습니다."
+msgid "Ministerios Elim: No windows."
+msgstr "Ministerios Elim: 창이 없습니다."
 
 msgid "BibleSync: Current navigation sent."
 msgstr "BibleSync: 현재 내비게이션을 보냈습니다."
@@ -1705,8 +1648,8 @@ msgstr "BibleSync: 현재 내비게이션을 보냈습니다."
 msgid "BibleSync: Not speaking."
 msgstr "BibleSync: 스피커로 출력하지 않습니다."
 
-msgid "Biblia Elim"
-msgstr "Biblia Elim"
+msgid "Ministerios Elim"
+msgstr "Ministerios Elim"
 
 msgid "Mostrar/ocultar panel lateral (Ctrl+S)"
 msgstr "사이드바 표시/숨기기 (Ctrl+S)"
@@ -1720,8 +1663,8 @@ msgstr "글자 크기 키우기"
 msgid "Reducir tamaño del texto"
 msgstr "글자 크기 줄이기"
 
-msgid "Open a new tab"
-msgstr "새 탭 열기"
+msgid "Open another Bible in a new tab"
+msgstr "새 탭에서 다른 성경 열기"
 
 msgid "Standard View"
 msgstr "표준 보기"
@@ -1732,8 +1675,8 @@ msgstr "메모"
 msgid "Devotional"
 msgstr "매일 묵상"
 
-msgid "Bienvenido a Biblia Elim"
-msgstr "Biblia Elim에 오신 것을 환영합니다"
+msgid "Bienvenido a Ministerios Elim"
+msgstr "Ministerios Elim에 오신 것을 환영합니다"
 
 msgid "No se pudo leer el texto: abre una Biblia en la ventana principal."
 msgstr "본문을 읽을 수 없습니다. 기본 창에서 성경을 여세요."
@@ -1743,11 +1686,6 @@ msgstr "암송한 다음 본문을 확인하세요."
 
 msgid "hoy"
 msgstr "오늘"
-
-#, c-format
-msgid "atrasado %d día"
-msgid_plural "atrasado %d días"
-msgstr[0] "%d일 지남"
 
 msgid "mañana"
 msgstr "내일"
@@ -1762,18 +1700,8 @@ msgstr "아직 암송 중인 구절이 없습니다"
 msgid "Nada que repasar hoy"
 msgstr "오늘 복습할 내용이 없습니다"
 
-#, c-format
-msgid "%d versículo para repasar hoy"
-msgid_plural "%d versículos para repasar hoy"
-msgstr[0] "오늘 복습할 구절 %d개"
-
 msgid "Tus versículos"
 msgstr "내 구절"
-
-#, c-format
-msgid "Tus versículos · %d en total"
-msgid_plural "Tus versículos · %d en total"
-msgstr[0] "내 구절 · 총 %d개"
 
 msgid ""
 "Esta semana todavía no has elegido ninguno. Uno por semana es un ritmo que "
@@ -1781,16 +1709,6 @@ msgid ""
 msgstr ""
 "이번 주에는 아직 구절을 선택하지 않았습니다. 일주일에 하나씩 꾸준히 암송하세"
 "요."
-
-#, c-format
-msgid "Esta semana ya elegiste %d."
-msgid_plural "Esta semana ya elegiste %d."
-msgstr[0] "이번 주에 이미 %d개를 선택했습니다."
-
-#, c-format
-msgid "  ·  %d en la última caja"
-msgid_plural "  ·  %d en la última caja"
-msgstr[0] "  ·  마지막 상자에 %d개"
 
 msgid "No hay ningún versículo abierto."
 msgstr "열린 구절이 없습니다."
@@ -1845,7 +1763,7 @@ msgstr ""
 msgid ""
 "Renaming is not available in Windows.\n"
 "\n"
-"Xiphos is limited by Windows' filesystem,\n"
+"Ministerios Elim is limited by Windows' filesystem,\n"
 "because it disallows the renaming of filename\n"
 "components of currently-open files,\n"
 "such as the contents of this commentary.\n"
@@ -1854,7 +1772,7 @@ msgid ""
 msgstr ""
 "윈도우 운영체제에서는 이름을 바꿀 수 없습니다.\n"
 "\n"
-"xiphos는 윈도우 파일 시스템에서 기능상 제한이 있는데,\n"
+"Ministerios Elim는 윈도우 파일 시스템에서 기능상 제한이 있는데,\n"
 "개별 해설 같은 내용이 있는 이미 열린 파일의 이름을\n"
 "바꿀 수 없기 때문입니다.\n"
 "따라서 윈도우 운영체제 환경에서는 개별 해설의 이름을\n"
@@ -1875,8 +1793,8 @@ msgstr "이름: "
 msgid "Module names must contain [A-Za-z0-9_] only."
 msgstr "모듈 이름은 영문 대소문자, 숫자, 밑줄문자만 가능합니다."
 
-msgid "Xiphos already knows a module by that name."
-msgstr "xiphos에 이미 해당 이름을 가진 모듈이 있습니다."
+msgid "Ministerios Elim already knows a module by that name."
+msgstr "Ministerios Elim에 이미 해당 이름을 가진 모듈이 있습니다."
 
 #, c-format
 msgid ""
@@ -1921,16 +1839,16 @@ msgid "Números Strong"
 msgstr "Strong 번호"
 
 msgid "Lemas"
-msgstr "표제어"
+msgstr "기본형"
 
 msgid "Etiquetas morfológicas"
-msgstr "형태론 태그"
+msgstr "어형론상 태그"
 
 msgid "Marcas de nota/referencia"
 msgstr "메모/참조 표시"
 
 msgid "Acentos griegos"
-msgstr "그리스어 악센트"
+msgstr "그리스어 강세"
 
 msgid "Vocales hebreas"
 msgstr "히브리어 모음"
@@ -1942,10 +1860,10 @@ msgid "Lectura principal"
 msgstr "주 독법"
 
 msgid "Lectura secundaria"
-msgstr "보조 독법"
+msgstr "제 2독서"
 
 msgid "Todas las lecturas"
-msgstr "모든 읽기"
+msgstr "모든 독서"
 
 msgid "Variantes"
 msgstr "이문"
@@ -2043,15 +1961,15 @@ msgstr "이 창에 모듈이 없습니다."
 msgid ""
 "<b>Overview of the Module Manager.</b>\n"
 "\n"
-"This is Xiphos' mechanism to get new and updated content.\n"
+"This is Ministerios Elim's mechanism to get new and updated content.\n"
 "If you have never been here before, please take a moment to look it over.\n"
 "\n"
 "Modules come from different <u>repositories</u>.  <b>Module Sources: Add/"
 "Remove</b> will show you what repositories are currently known.\n"
 "\n"
 "<b>Module Sources: Choose</b> is for deciding from where modules should "
-"come, that is, from which repository Xiphos should obtain them, as well as "
-"where they should be placed on your system. Set <i>Install Source</i> and "
+"come, that is, from which repository Ministerios Elim should obtain them, as well "
+"as where they should be placed on your system. Set <i>Install Source</i> and "
 "<i>Install Destination</i>, then click <i>Refresh</i>.\n"
 "\n"
 "<b>Modules: Install/Update</b> is for selecting and obtaining modules after "
@@ -2065,16 +1983,16 @@ msgid ""
 msgstr ""
 "<b>모듈 관리자 살펴보기입니다.</b>\n"
 "\n"
-"xiphos에서 새 컨텐트를 가져오는 방식에 대한 내용입니다.\n"
+"Ministerios Elim에서 새 컨텐트를 가져오는 방식에 대한 내용입니다.\n"
 "이 내용을 본 적이 없다면 잠깐 살펴보십시오.\n"
 "\n"
 "모듈은 개별 <u>저장소</u>에서 가져옵니다. <b>모듈 공급원: 추가/제거</b> 항목"
 "에서는 현재 알려진 저장소를 보여줍니다.\n"
 "\n"
 "<b>모듈 공급원: 선택</b> 항목은 모듈을 가져올 위치를 선택하는데, 시스템의 어"
-"떤 위치에 모듈을 저장할지 설정하는 것처럼 xiphos가 모듈을 가져올 저장소를 언"
-"급합니다. <i>설치 원본</i> 과 <i>설치 대상</i>을 설정하시고, <i>새로 고침</i>"
-"을 누르십시오.\n"
+"떤 위치에 모듈을 저장할지 설정하는 것처럼 Ministerios Elim가 모듈을 가져올 저장소"
+"를 언급합니다. <i>설치 원본</i> 과 <i>설치 대상</i>을 설정하시고, <i>새로 고"
+"침</i>을 누르십시오.\n"
 "\n"
 "<b>모듈: 설치/업데이트</b> 는 원본과 대상을 선택한 후 모듈을 선택하고 가져올 "
 "때 필요한 설정 항목입니다.\n"
@@ -2086,14 +2004,14 @@ msgstr ""
 "일링 리스트에 전자메일을 보내십시오.\n"
 
 msgid ""
-"<b>Welcome to Xiphos.</b>\n"
+"<b>Welcome to Ministerios Elim.</b>\n"
 "\n"
-"There are no Bibles installed. In order to initialize, Xiphos needs at least "
-"one Bible module. To facilitate this, the Module Manager has been opened so "
-"that you may install one or more Bibles, either from a local module set "
-"(cdrom, flash drive) or over the network from CrossWire Bible Society. "
-"Please refer to these step-by-step instructions, and to the general module "
-"manager overview that has also been opened.\n"
+"There are no Bibles installed. In order to initialize, Ministerios Elim needs at "
+"least one Bible module. To facilitate this, the Module Manager has been "
+"opened so that you may install one or more Bibles, either from a local "
+"module set (cdrom, flash drive) or over the network from CrossWire Bible "
+"Society. Please refer to these step-by-step instructions, and to the general "
+"module manager overview that has also been opened.\n"
 "\n"
 "<u>For local install:</u>\n"
 "- In <i>Module Sources: Add/Remove</i>, add a new local folder name where "
@@ -2118,7 +2036,7 @@ msgid ""
 "Both this step-by-step instruction dialog and the general introduction "
 "dialog may be closed at any time."
 msgstr ""
-"<b>xiphos를 사용하시는 여러분 반갑습니다.</b>\n"
+"<b>Ministerios Elim를 사용하시는 여러분 반갑습니다.</b>\n"
 "\n"
 "설치한 성경이 없습니다. 초기화하려면, 최소한 한가지 성경 모듈이 필요합니다. "
 "성경 모듈을 설치하려 모듈 관리자를 연 후, 지역 모듈 집합(CD-ROM, 또는 USB 메"
@@ -2212,9 +2130,6 @@ msgstr "삭제"
 
 msgid "The module has no About information."
 msgstr "모듈 정보가 없습니다."
-
-msgid "Module Name"
-msgstr "모듈 이름"
 
 msgid "Installed"
 msgstr "설치함"
@@ -2346,9 +2261,6 @@ msgstr "원격 원본으로 새로 고치는 중"
 msgid "Remote source not found"
 msgstr "원격 원본이 없습니다"
 
-msgid "Type"
-msgstr "유형:"
-
 msgid "Caption"
 msgstr "설명 제목:"
 
@@ -2376,6 +2288,9 @@ msgstr "추가/제거"
 msgid "Choose"
 msgstr "선택"
 
+msgid "Modules"
+msgstr "모듈"
+
 msgid "Install/Update"
 msgstr "설치/업데이트"
 
@@ -2390,17 +2305,17 @@ msgstr "모듈 목록이 최신이 아닙니다!"
 
 msgid ""
 "You have uninstalled your last Bible.\n"
-"Xiphos requires at least one."
+"Ministerios Elim requires at least one."
 msgstr ""
 "마지막 성경을 제거했습니다.\n"
-"xiphos에는 최소한 하나의 성경이 필요합니다."
+"Ministerios Elim에는 최소한 하나의 성경이 필요합니다."
 
 msgid ""
 "There are still no Bibles installed.\n"
-"Xiphos cannot continue without one."
+"Ministerios Elim cannot continue without one."
 msgstr ""
 "여전히 설치한 성경이 없습니다.\n"
-"xiphos는 성경이 아무것도 없으면 계속 실행할 수 없습니다."
+"Ministerios Elim는 성경이 아무것도 없으면 계속 실행할 수 없습니다."
 
 #, c-format
 msgid ""
@@ -2429,9 +2344,6 @@ msgstr "원격 원본 정보를 입력하십시오"
 
 msgid "Caption:"
 msgstr "설명 제목:"
-
-msgid "Type:"
-msgstr "유형:"
 
 msgid "Host:"
 msgstr "호스트:"
@@ -2703,11 +2615,6 @@ msgid "Parallel View"
 msgstr "나란히 보기"
 
 #, c-format
-msgid "%d capítulo"
-msgid_plural "%d capítulos"
-msgstr[0] "%d장"
-
-#, c-format
 msgid "%d capítulos"
 msgstr "%d장"
 
@@ -2721,26 +2628,11 @@ msgid "Nuevo Testamento"
 msgstr "신약성경"
 
 #, c-format
-msgid "%s y %d libro más"
-msgid_plural "%s y %d libros más"
-msgstr[0] "%s 및 다른 책 %d권"
-
-#, c-format
 msgid "%d de %s de %d"
 msgstr "%d %s %d"
 
 msgid "<i>Marca los libros que quieras leer.</i>"
 msgstr "<i>읽을 책을 선택하세요.</i>"
-
-#, c-format
-msgid "%d libro"
-msgid_plural "%d libros"
-msgstr[0] "%d권"
-
-#, c-format
-msgid "%d día"
-msgid_plural "%d días"
-msgstr[0] "%d일"
 
 #, c-format
 msgid "Si empiezas hoy, terminarías el %s."
@@ -2754,17 +2646,6 @@ msgstr "계획 편집"
 
 msgid "Guardar los cambios"
 msgstr "변경 사항 저장"
-
-#, c-format
-msgid ""
-"Llevas %d día marcado. Las marcas se quedan donde están: si cambias los "
-"libros o los días, el día 1 pasa a ser otra lectura."
-msgid_plural ""
-"Llevas %d días marcados. Las marcas se quedan donde están: si cambias los "
-"libros o los días, el día 1 pasa a ser otra lectura."
-msgstr[0] ""
-"%d일을 표시했습니다. 책이나 기간을 바꾸면 1일차의 읽기가 달라지지만 표시는 그"
-"대로 유지됩니다."
 
 msgid "Mi plan"
 msgstr "내 계획"
@@ -2809,16 +2690,6 @@ msgid "Sin empezar · %d capítulos en total"
 msgstr "시작 전 · 총 %d장"
 
 #, c-format
-msgid "Toca el día %d · vas %d día por detrás del calendario"
-msgid_plural "Toca el día %d · vas %d días por detrás del calendario"
-msgstr[0] "오늘 일정은 %d일차 · %d일 늦음"
-
-#, c-format
-msgid "Toca el día %d · vas %d día adelantado"
-msgid_plural "Toca el día %d · vas %d días adelantado"
-msgstr[0] "오늘 일정은 %d일차 · %d일 앞섬"
-
-#, c-format
 msgid "Toca el día %d · vas al día"
 msgstr "오늘 일정은 %d일차 · 일정대로"
 
@@ -2849,11 +2720,6 @@ msgid "¿Borrar el plan «%s» y lo que llevas leído de él?"
 msgstr "“%s” 계획과 읽기 진행 상황을 삭제할까요?"
 
 #, c-format
-msgid "Vas %d día por detrás en «%s»."
-msgid_plural "Vas %d días por detrás en «%s»."
-msgstr[0] "%d일 늦음: “%s”."
-
-#, c-format
 msgid ""
 "Del día %d al %d están sin marcar.\n"
 "\n"
@@ -2875,10 +2741,10 @@ msgid "Darlos por leídos"
 msgstr "읽음으로 표시"
 
 msgid ""
-"Aviso del escritorio, solo en este equipo. Llega aunque Biblia Elim esté "
+"Aviso del escritorio, solo en este equipo. Llega aunque Ministerios Elim esté "
 "cerrada. Si ya marcaste la lectura del día, no avisa."
 msgstr ""
-"이 컴퓨터의 데스크톱 알림입니다. Biblia Elim이 닫혀 있어도 도착합니다. 오늘 "
+"이 컴퓨터의 데스크톱 알림입니다. Ministerios Elim이 닫혀 있어도 도착합니다. 오늘 "
 "읽기를 이미 표시했으면 알리지 않습니다."
 
 msgid "Leído"
@@ -2934,6 +2800,9 @@ msgstr "-- 선택 --"
 msgid "Locale will take effect after restart."
 msgstr "다시 시작하고 나서 로캘을 적용합니다."
 
+msgid "Options"
+msgstr "옵션"
+
 msgid "BibleSync"
 msgstr "BibleSync"
 
@@ -2945,6 +2814,9 @@ msgstr "색상"
 
 msgid "Sizes and Faces"
 msgstr "크기 및 모양새"
+
+msgid "Special"
+msgstr "특수"
 
 msgid "Idioma del sistema"
 msgstr "시스템 언어"
@@ -3008,11 +2880,6 @@ msgid "terminado · %d días"
 msgstr "완료 · %d일"
 
 #, c-format
-msgid "%d de %d días · %d por detrás"
-msgid_plural "%d de %d días · %d por detrás"
-msgstr[0] "%d / %d일 · %d일 늦음"
-
-#, c-format
 msgid "%d de %d días · al día"
 msgstr "%d / %d일 · 일정대로"
 
@@ -3028,11 +2895,6 @@ msgstr "아직 집계할 내용이 없습니다"
 msgid "Sin racha ahora mismo"
 msgstr "현재 연속 기록 없음"
 
-#, c-format
-msgid "%d día seguido"
-msgid_plural "%d días seguidos"
-msgstr[0] "%d일 연속"
-
 msgid ""
 "La constancia empieza a medirse con la primera lectura que marques. De lo de "
 "antes no hay registro: el progreso guardaba qué días del plan estaban "
@@ -3043,16 +2905,6 @@ msgstr ""
 
 msgid "Hoy todavía no. La racha sigue viva hasta medianoche.  ·  "
 msgstr "오늘은 아직 읽지 않았습니다. 자정까지 연속 기록이 유지됩니다.  ·  "
-
-#, c-format
-msgid "La más larga: %d día"
-msgid_plural "La más larga: %d días"
-msgstr[0] "최장: %d일"
-
-#, c-format
-msgid "  ·  %d día con lectura"
-msgid_plural "  ·  %d días con lectura"
-msgstr[0] "  ·  읽은 날 %d일"
 
 #, c-format
 msgid "  ·  desde el %s"
@@ -3415,6 +3267,12 @@ msgstr "고급 검색 열기(_O)"
 msgid "Open the separate Advanced Search dialog"
 msgstr "고급 검색 별도 창 열기"
 
+msgid "Search Module"
+msgstr "모듈 검색"
+
+msgid "Search Type"
+msgstr "검색 형식"
+
 msgid "Optimized (\"Lucene\")"
 msgstr "최적화(\"루씬\")"
 
@@ -3524,7 +3382,7 @@ msgid "Libro/capítulo"
 msgstr "책/장"
 
 msgid "Search"
-msgstr "검색(_S)"
+msgstr "검색 ✓"
 
 msgid "Sidebar"
 msgstr "가장자리 표시줄"
@@ -3684,11 +3542,6 @@ msgstr ""
 "요세푸스의 전집은 모듈 관리자에서 별도로 설치할 수 있습니다. “Josephus”는 "
 "Whiston의 영어 번역이며 퍼블릭 도메인입니다."
 
-#, c-format
-msgid "%u fuente, y funciona sin internet."
-msgid_plural "%u fuentes, y funcionan sin internet."
-msgstr[0] "출처 %u개, 오프라인 사용 가능."
-
 msgid "No se pudo abrir «Jesús en la historia»."
 msgstr "“역사 속의 예수”를 열 수 없습니다."
 
@@ -3753,18 +3606,13 @@ msgstr "12월"
 
 msgid ""
 "An image file's size could not be determined.\n"
-"Xiphos cannot resize images to fit window."
+"Ministerios Elim cannot resize images to fit window."
 msgstr ""
 "그림 파일의 크기를 알 수 없습니다.\n"
-"xiphos에서 창 크기에 맞춰 그림을 크기조절 할 수 없습니다."
+"Ministerios Elim에서 창 크기에 맞춰 그림을 크기조절 할 수 없습니다."
 
 msgid "Se guarda sola mientras escribes."
 msgstr "입력하는 동안 자동 저장됩니다."
-
-#, c-format
-msgid "Se guarda sola · %d día con algo escrito."
-msgid_plural "Se guarda sola · %d días con algo escrito."
-msgstr[0] "자동 저장 · 작성한 날 %d일."
 
 msgid "Tu reflexión de hoy"
 msgstr "오늘의 묵상"
@@ -4059,8 +3907,8 @@ msgstr "이 번역본에 해당 구절이 없습니다."
 msgid "Elige una o más Biblias para comparar este versículo."
 msgstr "이 구절을 비교할 성경을 하나 이상 선택하세요."
 
-msgid "Xiphos does not understand more than one argument."
-msgstr "xiphos에서 하나 이상의 매개변수를 인식할 수 없습니다."
+msgid "Ministerios Elim does not understand more than one argument."
+msgstr "Ministerios Elim에서 하나 이상의 매개변수를 인식할 수 없습니다."
 
 msgid "Initiating HTML"
 msgstr "HTML 초기화 중"
@@ -4074,8 +3922,8 @@ msgstr "sword 시작 중"
 msgid "Loading Settings"
 msgstr "설정 불러오는 중"
 
-msgid "Displaying Xiphos"
-msgstr "xiphos 창 표시 중"
+msgid "Displaying Ministerios Elim"
+msgstr "Ministerios Elim 창 표시 중"
 
 msgid "Previewer"
 msgstr "미리보기"
@@ -4913,19 +4761,14 @@ msgstr "메모가 열려 있지 않습니다."
 msgid "El archivo está vacío."
 msgstr "파일이 비어 있습니다."
 
-msgid "No es una copia de notas de Biblia Elim."
-msgstr "Biblia Elim 메모 백업이 아닙니다."
+msgid "No es una copia de notas de Ministerios Elim."
+msgstr "Ministerios Elim 메모 백업이 아닙니다."
 
-msgid "La copia es de una versión de Biblia Elim más nueva que esta."
-msgstr "더 최신 버전의 Biblia Elim에서 만든 백업입니다."
+msgid "La copia es de una versión de Ministerios Elim más nueva que esta."
+msgstr "더 최신 버전의 Ministerios Elim에서 만든 백업입니다."
 
 msgid "Mis notas"
 msgstr "내 메모"
-
-#, c-format
-msgid "Exportadas de Biblia Elim el %s · %u nota.\n"
-msgid_plural "Exportadas de Biblia Elim el %s · %u notas.\n"
-msgstr[0] "Biblia Elim에서 %s에 내보냄 · 메모 %u개.\n"
 
 msgid "Unknown parallel module: "
 msgstr "알 수 없는 병렬 모듈: "
@@ -5231,11 +5074,6 @@ msgid "menos de un capítulo por día"
 msgstr "하루 한 장 미만"
 
 #, c-format
-msgid "%d capítulo por día"
-msgid_plural "%d capítulos por día"
-msgstr[0] "하루 %d장"
-
-#, c-format
 msgid "entre %d y %d capítulos por día"
 msgstr "하루 %d ~ %d장"
 
@@ -5316,19 +5154,19 @@ msgstr "<b>하위 주제 4</b><br/>"
 msgid "Name for new prayer list or journal"
 msgstr "새 기도 목록 또는 묵상 일기의 이름"
 
-msgid "Xiphos finds that prayer list already."
-msgstr "xiphos에서 이미 기도 목록을 찾았습니다."
+msgid "Ministerios Elim finds that prayer list already."
+msgstr "Ministerios Elim에서 이미 기도 목록을 찾았습니다."
 
 #, c-format
 msgid ""
-"Biblia Elim cannot create module's path:\n"
+"Ministerios Elim cannot create module's path:\n"
 "%s"
 msgstr ""
-"Biblia Elim이 모듈 경로를 만들 수 없습니다:\n"
+"Ministerios Elim이 모듈 경로를 만들 수 없습니다:\n"
 "%s"
 
-msgid "A basic prayer list. \\par\\par Module created by Xiphos."
-msgstr "기본 기도 목록. \\par\\par xiphos가 만든 모듈임."
+msgid "A basic prayer list. \\par\\par Module created by Ministerios Elim."
+msgstr "기본 기도 목록. \\par\\par Ministerios Elim가 만든 모듈임."
 
 msgid "BasicPrayerList"
 msgstr "기본 기도 목록"
@@ -5343,8 +5181,8 @@ msgstr ""
 "<b>성도:</b><br/>Bob<br/>Sam<br/>Sue<br/><br/><b>교회:</b><br/>pews<br/"
 ">fellowship<br/>Bibles for missionaries<br/><br/><br/>"
 
-msgid "A subject-based prayer list. \\par\\par Module created by Xiphos."
-msgstr "제목 기반 기도 목록. \\par\\par xiphos가 만든 모듈임."
+msgid "A subject-based prayer list. \\par\\par Module created by Ministerios Elim."
+msgstr "제목 기반 기도 목록. \\par\\par Ministerios Elim가 만든 모듈임."
 
 msgid "SubjectPrayerList"
 msgstr "기도 제목 목록"
@@ -5361,35 +5199,40 @@ msgstr "Mike<br/>Steve<br/>"
 msgid "Sue<br/>John<br/>"
 msgstr "Sue<br/>John<br/>"
 
-msgid "A monthly prayer list. \\par\\par Module created by Xiphos."
-msgstr "월별 기도 목록. \\par\\par xiphos가 만든 모듈임."
+msgid "A monthly prayer list. \\par\\par Module created by Ministerios Elim."
+msgstr "월별 기도 목록. \\par\\par Ministerios Elim가 만든 모듈임."
 
 msgid "MonthlyPrayerList"
 msgstr "월간 기도 목록"
 
-msgid "A daily journal. \\par\\par Module created by Xiphos."
-msgstr "매일 저널. \\par\\par xiphos가 만든 모듈임."
+msgid "A daily journal. \\par\\par Module created by Ministerios Elim."
+msgstr "매일 저널. \\par\\par Ministerios Elim가 만든 모듈임."
 
 msgid "DailyJournal"
 msgstr "묵상 일기"
 
-msgid "An outlined topic (e.g. sermon). \\par\\par Module created by Xiphos."
-msgstr "주제(예: 설교) 윤곽잡기. \\par\\par xiphos가 만든 모듈임."
+msgid ""
+"An outlined topic (e.g. sermon). \\par\\par Module created by Ministerios Elim."
+msgstr "주제(예: 설교) 윤곽잡기. \\par\\par Ministerios Elim가 만든 모듈임."
 
 msgid "OutlinedTopic"
 msgstr "개요주제"
 
-msgid "<b>Major Topic A</b><br/>"
-msgstr "<b>주제 가</b><br/>"
+msgid "Major Topic A"
+msgstr "주제 가"
 
-msgid "<b>Major Topic B</b><br/>"
-msgstr "<b>주제 나</b><br/>"
+msgid "Major Topic B"
+msgstr "주제 나"
+
+msgid "Major Topic C"
+msgstr "주제 다"
 
 msgid ""
 "A journal sectioned by Bible book and chapter. \\par\\par Module created by "
-"Xiphos."
+"Ministerios Elim."
 msgstr ""
-"성경의 책과 장별로 나눈 일지입니다. \\par\\par Xiphos에서 만든 모듈입니다."
+"성경의 책과 장별로 나눈 일지입니다. \\par\\par Ministerios Elim에서 만든 모듈입니"
+"다."
 
 msgid "BookChapter"
 msgstr "BookChapter"
@@ -5408,9 +5251,6 @@ msgstr "예화"
 
 msgid "Multi-word"
 msgstr "여러 단어"
-
-msgid "Attribute"
-msgstr "속성"
 
 #, c-format
 msgid "Search result %s: %s"
@@ -5467,12 +5307,12 @@ msgstr "$HOME을 설정하지 않았습니다"
 
 #, c-format
 msgid ""
-"Biblia Elim cannot create directory %s:\n"
+"Ministerios Elim cannot create directory %s:\n"
 "%s\n"
 "\n"
-"Biblia Elim cannot continue."
+"Ministerios Elim cannot continue."
 msgstr ""
-"Biblia Elim이 %s 폴더를 만들 수 없습니다:\n"
+"Ministerios Elim이 %s 폴더를 만들 수 없습니다:\n"
 "%s\n"
 "\n"
 "계속할 수 없습니다."
@@ -5495,14 +5335,14 @@ msgid ""
 "Evidently, you declined to install any.\n"
 "\n"
 "Without any Bible modules to display,\n"
-"Xiphos cannot proceed,\n"
+"Ministerios Elim cannot proceed,\n"
 "and will now exit."
 msgstr ""
 "설치한 성경이 없습니다.\n"
 "분명하게도 어떤 성경 모듈이든\n"
 "\n"
 "표시할 성경의 설치를 거부했기 때문에,\n"
-"xiphos는 계속 진행할 수 없으며,\n"
+"Ministerios Elim는 계속 진행할 수 없으며,\n"
 "빠져나가겠습니다."
 
 msgid "Bible module installation complete."
@@ -5576,32 +5416,18 @@ msgid "Migración SQLite incompleta: revise la ruta antigua"
 msgstr "SQLite 이전이 완료되지 않았습니다. 이전 경로를 확인하세요"
 
 msgid ""
-"Xiphos's language abbreviation\n"
-"file cannot be opened."
-msgstr ""
-"xiphos 언어 약어 파일을\n"
-"열 수 없습니다"
-
-msgid ""
-"Xiphos cannot allocate space\n"
+"Ministerios Elim cannot allocate space\n"
 "for language abbreviations."
 msgstr ""
-"xiphos에서 언어 약어를 저장할\n"
+"Ministerios Elim에서 언어 약어를 저장할\n"
 "공간을 확보할 수 없습니다"
 
 msgid ""
-"Xiphos cannot read the\n"
+"Ministerios Elim cannot read the\n"
 "language abbreviation file."
 msgstr ""
-"xiphos에서 언어 약어 파일을\n"
+"Ministerios Elim에서 언어 약어 파일을\n"
 "읽을 수 없습니다."
-
-msgid ""
-"Xiphos's file for language\n"
-"abbreviations is missing."
-msgstr ""
-"xiphos 언어 약어 파일이\n"
-"빠졌습니다"
 
 #, c-format
 msgid ""
@@ -5689,8 +5515,8 @@ msgid "URL not found:"
 msgstr "URL이 없습니다:"
 
 #, c-format
-msgid "Xiphos could not execute %s: %s"
-msgstr "Biblia Elim이 %s을 실행할 수 없습니다: %s"
+msgid "Ministerios Elim could not execute %s: %s"
+msgstr "Ministerios Elim이 %s을 실행할 수 없습니다: %s"
 
 #, c-format
 msgid "Show %s in main window"
@@ -5740,10 +5566,6 @@ msgstr "잘못된 유형: 루트 노드가 Copy_Export가 아닙니다\n"
 #, c-format
 msgid "%s<center>%s<br>Chapter %d</center><br>"
 msgstr "%s<center>%s<br>제%d장</center><br>"
-
-#, c-format
-msgid "<br><center>Chapter %d</center><br>"
-msgstr "<br><center>제%d장</center><br>"
 
 #, c-format
 msgid ""
@@ -5925,12 +5747,6 @@ msgstr "메모 안에 태그를 작성하세요: #기도, #예언"
 msgid "_Libro:"
 msgstr "책"
 
-msgid "_Versión:"
-msgstr "버전"
-
-msgid "E_xportar…"
-msgstr "내보내기"
-
 msgid ""
 "Las notas mostradas en Markdown, para leer o imprimir; o una copia completa "
 "de todas en JSON"
@@ -5981,17 +5797,14 @@ msgstr "확인"
 msgid "Copy/Export Passage"
 msgstr "과정 기록 복사/내보내기"
 
-msgid "Version"
-msgstr "버전"
-
 msgid ": "
 msgstr ": "
 
 msgid "Key"
 msgstr "키"
 
-msgid "<b>Copy</b>"
-msgstr "<b>복사</b>"
+msgid "<b>Export</b>"
+msgstr "<b>내보내기</b>"
 
 msgid "Book"
 msgstr "책"
@@ -6022,6 +5835,9 @@ msgstr "절 라디오 단추"
 
 msgid "Verse range"
 msgstr "절 범위"
+
+msgid "<b>Format</b>"
+msgstr "<b>형식</b>"
 
 msgid "Plain Text"
 msgstr "일반 텍스트"
@@ -6261,9 +6077,9 @@ msgid "Actualizar"
 msgstr "새로 고침"
 
 msgid ""
-"Refresh Xiphos' knowledge of what modules are available at the selected "
-"remote repository"
-msgstr "선택한 원격 저장소에 있는 모듈 정보를 xiphos에서 새로 고칩니다"
+"Refresh Ministerios Elim's knowledge of what modules are available at the "
+"selected remote repository"
+msgstr "선택한 원격 저장소에 있는 모듈 정보를 Ministerios Elim에서 새로 고칩니다"
 
 msgid "Install or update the selected modules"
 msgstr "선택한 모듈을 설치하거나 업데이트합니다"
@@ -6447,6 +6263,9 @@ msgstr "기본 설정(_P)"
 msgid "Cover"
 msgstr "표지"
 
+msgid "<b>Font Colors</b>"
+msgstr " <b>글꼴 색상</b>"
+
 msgid "Background"
 msgstr "배경"
 
@@ -6479,9 +6298,6 @@ msgstr "일반 텍스트"
 
 msgid "Highlight"
 msgstr "강조"
-
-msgid "Font Colors"
-msgstr "글꼴 색상"
 
 msgid "<b>Font Sizes</b>"
 msgstr "<b>글꼴 크기</b>"
@@ -6595,8 +6411,9 @@ msgstr "<i>탐색:</i>"
 msgid "_Direct"
 msgstr "직접(_D)"
 
-msgid "BibleSync navigation will send Xiphos directly to the verse indicated."
-msgstr "BibleSync 탐색에서는 표시 구절을 xiphos로 바로 보냅니다."
+msgid ""
+"BibleSync navigation will send Ministerios Elim directly to the verse indicated."
+msgstr "BibleSync 탐색에서는 표시 구절을 Ministerios Elim로 바로 보냅니다."
 
 msgid "BSP nav direct radio button"
 msgstr "BSP 탐색 직접 라디오 단추"
@@ -6604,8 +6421,8 @@ msgstr "BSP 탐색 직접 라디오 단추"
 msgid "_Verse list"
 msgstr "절 목록(_V)"
 
-msgid "BibleSync navigation will use Xiphos' sidebar verse list."
-msgstr "BibleSync 탐색에서는 xiphos 측면의 절 목록을 사용합니다."
+msgid "BibleSync navigation will use Ministerios Elim's sidebar verse list."
+msgstr "BibleSync 탐색에서는 Ministerios Elim 측면의 절 목록을 사용합니다."
 
 msgid "BSP nav verse list radio button"
 msgstr "BSP 탐색 절 목록 라디오 단추"
@@ -6614,17 +6431,17 @@ msgid "Sólo con el _teclado"
 msgstr "키보드로만(_O)"
 
 msgid ""
-"When checked, do not transmit every time Xiphos navigates; instead, transmit "
-"only using keyboard shortcut (Ctrl-Shift-Alt-N)."
+"When checked, do not transmit every time Ministerios Elim navigates; instead, "
+"transmit only using keyboard shortcut (Ctrl-Shift-Alt-N)."
 msgstr ""
-"선택하면 Xiphos에서 이동할 때마다 전송하지 않고 Ctrl-Shift-Alt-N으로만 전송합"
-"니다."
+"선택하면 Ministerios Elim에서 이동할 때마다 전송하지 않고 Ctrl-Shift-Alt-N으로만 "
+"전송합니다."
 
 msgid "BSP keyboard button"
 msgstr "BibleSync 키보드 제어"
 
-msgid "Xiphos will listen to Speakers according to choice here."
-msgstr "xiphos는 여기에서 선택한 대로 연사의 전송 내용을 감청합니다."
+msgid "Ministerios Elim will listen to Speakers according to choice here."
+msgstr "Ministerios Elim는 여기에서 선택한 대로 연사의 전송 내용을 감청합니다."
 
 msgid "<i>Escuchar:</i>"
 msgstr "<i>수신:</i>"
@@ -6659,12 +6476,13 @@ msgstr "BSP에서 라디오 단추 선택 내용 감청하지 않음"
 msgid ""
 "Additional traces can be presented during BibleSync operation by enabling "
 "presence, mismatch, and debug. Beware enabling these, they can be very "
-"chatty. Also, decide whether to allow group parameter as Xiphos' tab number."
+"chatty. Also, decide whether to allow group parameter as Ministerios Elim's tab "
+"number."
 msgstr ""
 "과정 기록, 불일치, 디버깅을 활성화하면 BibleSync가 동작하는 과정에 추가 기록"
 "이 나타납니다. 이들 항목을 활성화하면 로그 내용이 수다스러워질 수 있음을 참고"
-"하십시오. 또한 xiphos 탭 번호 처럼 그룹 매개 변수를 허용할지 여부도 결정하십"
-"시오."
+"하십시오. 또한 Ministerios Elim 탭 번호 처럼 그룹 매개 변수를 허용할지 여부도 결정"
+"하십시오."
 
 msgid "<i>Otros:</i>"
 msgstr "<i>기타:</i>"
@@ -6700,12 +6518,12 @@ msgid "_Group as tab"
 msgstr "탭 그룹(_G)"
 
 msgid ""
-"Interpret the protocol's group number parameter as Xiphos' tab number. "
+"Interpret the protocol's group number parameter as Ministerios Elim's tab number. "
 "Disabling this may be necessary if some Speakers' use of group number is not "
 "appropriate as a tab number."
 msgstr ""
-"프로토콜의 그룹 번호 매개변수를 xiphos의 탭 번호로 해석합니다. 일부 독서자의 "
-"그룹 번호가 탭 번호로 적합하지 않다면 이 설정의 비활성화가 필요합니다."
+"프로토콜의 그룹 번호 매개변수를 Ministerios Elim의 탭 번호로 해석합니다. 일부 독서"
+"자의 그룹 번호가 탭 번호로 적합하지 않다면 이 설정의 비활성화가 필요합니다."
 
 msgid "BSP event group-as-tab button"
 msgstr "BSP 이벤트 탭 그룹 단추"
@@ -6896,9 +6714,6 @@ msgstr "사전 추가 기능 바꾸기"
 msgid "Change Book Combo"
 msgstr "책 추가 기능 바꾸기"
 
-msgid "<b>Modules</b>"
-msgstr "<b>모듈</b>"
-
 msgid "Clear all modules from the list"
 msgstr "목록에서 모든 모듈 지우기"
 
@@ -7010,9 +6825,6 @@ msgstr "꾸준함"
 msgid "Advanced Search"
 msgstr "고급 검색(_A)"
 
-msgid "<b>search module</b>"
-msgstr "<b>검색 모듈</b>"
-
 msgid "For: "
 msgstr "대상: "
 
@@ -7088,9 +6900,6 @@ msgstr "검색시 개별 모듈 목록을 사용합니다"
 msgid "Custom module list radiobutton"
 msgstr "개별 모듈 목록 라디오 단추"
 
-msgid "<b>Search Type</b>"
-msgstr "<b>검색 형식</b>"
-
 msgid ""
 "Fast, featureful, index-based search\n"
 "Indexes must have been built beforehand:\n"
@@ -7121,9 +6930,6 @@ msgstr "속성 검색 탭에서 선택하십시오"
 msgid "Attributes radiobutton"
 msgstr "속성 라디오 단추"
 
-msgid "<b>Options</b>"
-msgstr "<b>옵션</b>"
-
 msgid "Match case checkbox"
 msgstr "대소문자를 일치하는 확인 상자입니다"
 
@@ -7139,9 +6945,6 @@ msgstr "검색 결과를 책갈피로 저장"
 msgid "Export current search results"
 msgstr "현재 검색 결과 내보내기"
 
-msgid "Export"
-msgstr "내보내기"
-
 msgid "Clear lists for new search"
 msgstr "새 검색 목록 지우기"
 
@@ -7156,6 +6959,9 @@ msgstr "결과 요약 창"
 
 msgid "<b>Search Results</b>"
 msgstr "<b>검색 결과</b>"
+
+msgid "<b>Preview</b>"
+msgstr "<b>미리보기</b>"
 
 msgid "Results"
 msgstr "결과"
@@ -7351,8 +7157,8 @@ msgstr "책갈피 폴더 내보내기"
 msgid "<b>Export to:</b>"
 msgstr "<b>내보내기 대상:</b>"
 
-msgid "Xiphos bookmarks"
-msgstr "xiphos 책갈피"
+msgid "Ministerios Elim bookmarks"
+msgstr "Ministerios Elim 책갈피"
 
 msgid "Html"
 msgstr "HTML"
@@ -7360,1607 +7166,275 @@ msgstr "HTML"
 msgid "Include Bible text"
 msgstr "성경 본문 포함"
 
-msgid "Modules"
-msgstr "모듈"
+msgid "Module Name"
+msgstr "모듈 이름"
 
-msgid "Options"
-msgstr "옵션"
+msgid "Type"
+msgstr "유형:"
 
-msgid "Search Module"
-msgstr "모듈 검색"
+msgid "Type:"
+msgstr "유형:"
 
-msgid "Search Type"
-msgstr "검색 형식"
+msgid "<b>Major Topic A</b><br/>"
+msgstr "<b>주제 가</b><br/>"
 
-msgid "Major Topic A"
-msgstr "주제 가"
+msgid "<b>Major Topic B</b><br/>"
+msgstr "<b>주제 나</b><br/>"
 
-msgid "Major Topic B"
-msgstr "주제 나"
+msgid "Attribute"
+msgstr "속성"
 
-msgid "Major Topic C"
-msgstr "주제 다"
-
-msgid "<b>Export</b>"
-msgstr "<b>내보내기</b>"
-
-msgid "<b>Font Colors</b>"
-msgstr " <b>글꼴 색상</b>"
-
-msgid "<b>Format</b>"
-msgstr "<b>형식</b>"
-
-#: ../src/backend/sword_main.cc:792
-msgid ""
-"Xiphos failure: \"can't happen\", display_mod: null\n"
-"Please report this. sword_main.cc:set_treekey\n"
-"What were you doing when this occurred?"
-msgstr ""
-"xiphos 치명적 오류: \"동작을 수행할 수 없음\", display_mod: null\n"
-"이 문제를 보고하십시오: sword_main.cc:set_treekey\n"
-"이 문제가 일어났을때 무얼 하고 있었습니까?"
-
-#: ../src/editor/slib-editor.c:238 ../ui/gtk2_webedit.ui.h:77
-#: ../ui/gtk_webedit.ui.h:77
-#, fuzzy
-msgid "Save As"
-msgstr "다른 이름으로 저장"
-
-#: ../src/editor/slib-editor.c:317
-#, fuzzy
-msgid "_Close"
-msgstr "닫기"
-
-#: ../src/editor/slib-editor.c:482
-msgid "HTML Output"
-msgstr ""
-
-#: ../src/editor/slib-editor.c:488
-#, fuzzy
-msgid "HTML Source"
-msgstr "원본"
-
-#: ../src/editor/slib-editor.c:494
-#, fuzzy
-msgid "Plain Source"
-msgstr "원본"
-
-#: ../src/editor/slib-editor.c:505 ../ui/editor_note.xml.h:13
-#: ../ui/editor_studypad.xml.h:19
-msgid "_Print..."
-msgstr "인쇄(_P)..."
-
-#: ../src/editor/slib-editor.c:516 ../ui/editor_note.xml.h:12
-#: ../ui/editor_studypad.xml.h:18
-msgid "Print Pre_view"
-msgstr "인쇄 미리보기(_V)"
-
-#: ../src/editor/slib-editor.c:527
-#, fuzzy
-msgid "_Quit"
-msgstr "끝내기"
-
-#: ../src/editor/slib-editor.c:560
-#, fuzzy
-msgid "Save _As..."
-msgstr "다른 이름으로 저장"
-
-#: ../src/editor/slib-editor.c:566 ../ui/gtk2_webedit.ui.h:56
-#: ../ui/gtk_webedit.ui.h:56
-msgid "New"
-msgstr "새로 만들기"
-
-#: ../src/editor/slib-editor.c:568
-#, fuzzy
-msgid "Open new document"
-msgstr "새 문서 만들기"
-
-#: ../src/editor/slib-editor.c:572 ../ui/gtk2_webedit.ui.h:14
-#: ../ui/gtk_webedit.ui.h:14
-msgid "Delete"
-msgstr "삭제"
-
-#: ../src/editor/slib-editor.c:574
-#, fuzzy
-msgid "Delete current note"
-msgstr "현재 메모 삭제"
-
-#: ../src/editor/slib-editor.c:579 ../ui/editor_note.xml.h:9
-#: ../ui/editor_studypad.xml.h:7 ../ui/gtk2_webedit.ui.h:86
-#: ../ui/gtk_webedit.ui.h:87 ../ui/xi-menus.glade.h:1
-#: ../ui/xi-menus.gtkbuilder.h:1
-msgid "_File"
-msgstr "파일(_F)"
-
-#: ../src/editor/slib-editor.c:634
-msgid "HTML _Output"
-msgstr ""
-
-#: ../src/editor/slib-editor.c:641
-#, fuzzy
-msgid "_HTML Source"
-msgstr "원본"
-
-#: ../src/editor/slib-editor.c:648
-#, fuzzy
-msgid "_Plain Source"
-msgstr "원본"
-
-#: ../src/editor/slib-editor.c:655 ../ui/xi-menus.glade.h:17
-#: ../ui/xi-menus.gtkbuilder.h:11
-msgid "_View"
-msgstr "보기(_V)"
-
-#: ../src/editor/slib-editor.c:664 ../ui/editor_note.xml.h:16
-#: ../ui/editor_studypad.xml.h:11 ../ui/gtk2_webedit.ui.h:75
-#: ../ui/gtk_webedit.ui.h:75
-msgid "Save"
-msgstr "저장"
-
-#: ../src/editor/slib-editor.c:1071 ../src/editor/webkit_editor.c:1232
-#: ../ui/xi-menus.glade.h:61 ../ui/xi-menus-popup.gtkbuilder.h:39
-msgid "File"
-msgstr "파일"
-
-#: ../src/gtk/about_xiphos.c:131
-msgid ""
-"\n"
-"Powered by The SWORD Project.\n"
-"We would like to thank Troy Griffitts and all the other folks who have given "
-"us The SWORD Project."
-msgstr ""
-"\n"
-"SWORD 프로젝트 제공.\n"
-"Troy Griffitts과 SWORD 프로젝트에 도움을 준 모든 분께 감사드립니다."
-
-#: ../src/gtk/bookmark_dialog.c:167 ../src/gtk/bookmarks_menu.c:757
-msgid "Folder Name"
-msgstr "폴더 이름"
-
-#: ../src/gtk/bookmarks_menu.c:364
-msgid "Folder name: "
-msgstr "폴더 이름: "
-
-#: ../src/gtk/dialog.c:724
-msgid "Xiphos:"
-msgstr "xiphos:"
-
-#: ../src/gtk/font_dialog.c:376 ../src/gtk/font_dialog.c:391
-#: ../ui/prefs.gtkbuilder.h:3
-msgid "+0"
-msgstr "+0"
-
-#: ../src/gtk/gui.c:107
-msgid "BUG! Xiphos is about to crash due to a \"STRDUP\" error."
-msgstr "버그네요?! \"STRDUP\" 오류 때문에 xiphos가 깨진 것 같습니다."
-
-#: ../src/gtk/gui.c:108 ../src/gtk/gui.c:138
-msgid "Please report this error to the Xiphos team with:"
-msgstr "다음 내용을 첨부하여 xiphos 팀에게 오류를 보고하십시오:"
-
-#: ../src/gtk/gui.c:137
-msgid "BUG! Xiphos is about to crash due to a \"STRING\" error."
-msgstr "버그네요?! \"STRING\" 오류 때문에 xiphos가 깨진 것 같습니다."
-
-#: ../src/gtk/main_window.c:677
-msgid "Xiphos: No windows."
-msgstr "xiphos: 창이 없습니다."
-
-#: ../src/gtk/main_window.c:1013
-msgid "Xiphos - Bible Study Software"
-msgstr "xiphos - 성경 공부 프로그램"
-
-#: ../src/gtk/main_window.c:1172
-msgid "Commentary View"
-msgstr "해설 보기"
-
-#: ../src/gtk/main_window.c:1180
-msgid "Book View"
-msgstr "책 보기"
-
-#: ../src/gtk/main_window.c:1195
-msgid "Welcome to Xiphos"
-msgstr "xiphos를 사용하시는 여러분 반갑습니다"
-
-#: ../src/gtk/menu_popup.c:1410
-msgid ""
-"Configuration build error:\n"
-"\n"
-msgstr ""
-"설정 빌드 오류:\n"
-"\n"
-
-#: ../src/gtk/mod_mgr.c:664 ../src/main/biblesync_glue.cc:640
-#: ../ui/gtk2_webedit.ui.h:2 ../ui/gtk_webedit.ui.h:2 ../ui/xi-menus.glade.h:57
-#: ../ui/xi-menus-popup.gtkbuilder.h:35
-msgid "About"
-msgstr "정보"
-
-#: ../src/gtk/mod_mgr.c:1847
-msgid "Configure"
-msgstr "설정"
-
-#: ../src/gtk/mod_mgr.c:3633
-msgid "[no module]"
-msgstr "[모듈 없음]"
-
-#: ../src/gtk/preferences_dialog.c:2197
-msgid "Special"
-msgstr "특수"
-
-#: ../src/gtk/splash.c:403
-msgid "Powered by the SWORD Project"
-msgstr "SWORD 프로젝트에서 기술 제공함"
-
-#: ../src/main/biblesync_glue.cc:590
-msgid "Check the box to listen to this Speaker"
-msgstr "이 독서자의 읽기를 들으려면 상자에 표시하십시오"
-
-#: ../src/main/biblesync_glue.cc:603
-msgid "Available Speakers"
-msgstr "존재하는 독서자"
-
-#: ../src/main/biblesync_glue.cc:622
-msgid "Last navigation was Direct or Indirect"
-msgstr "마지막 탐색은 직간접적인 방식입니다"
-
-#: ../src/main/biblesync_glue.cc:631
-msgid "Last Navigation"
-msgstr "마지막 탐색"
-
-#: ../src/main/biblesync_glue.cc:650
-msgid "UUID"
-msgstr "UUID"
-
-#: ../src/main/display.cc:258
 #, c-format
-msgid ""
-"Improperly encoded personal annotation label:\n"
-"'%s'"
-msgstr ""
-"개인 주석을 올버르지 못한 방법으로 인코딩했습니다:\n"
-"'%s'"
+msgid "<br><center>Chapter %d</center><br>"
+msgstr "<br><center>제%d장</center><br>"
 
-#: ../src/main/parallel_view.cc:358 ../ui/xi-menus.glade.h:71
-#: ../ui/xi-menus-popup.gtkbuilder.h:48
-msgid "Strong's Numbers"
-msgstr "불규칙 변화 수"
+msgid "_Versión:"
+msgstr "버전"
 
-#: ../src/main/parallel_view.cc:385 ../ui/xi-menus.glade.h:79
-#: ../ui/xi-menus-popup.gtkbuilder.h:55
-msgid "Hebrew Vowel Points"
-msgstr "히브리어 모음 부호"
+msgid "E_xportar…"
+msgstr "내보내기"
 
-#: ../src/main/parallel_view.cc:394 ../ui/xi-menus.glade.h:80
-#: ../ui/xi-menus-popup.gtkbuilder.h:56
-msgid "Hebrew Cantillation"
-msgstr "히브리어 가사"
+msgid "Version"
+msgstr "버전"
 
-#: ../src/main/parallel_view.cc:403 ../ui/xi-menus.glade.h:78
-#: ../ui/xi-menus-popup.gtkbuilder.h:54
-msgid "Greek Accents"
-msgstr "그리스어 강세"
+msgid "<b>Copy</b>"
+msgstr "<b>복사</b>"
 
-#: ../src/main/parallel_view.cc:412 ../ui/xi-menus.glade.h:75
-#: ../ui/xi-menus-popup.gtkbuilder.h:52
-msgid "Cross-references"
-msgstr "교차 목록"
-
-#: ../src/main/parallel_view.cc:421 ../ui/xi-menus.glade.h:72
-#: ../ui/xi-menus-popup.gtkbuilder.h:49
-msgid "Lemmas"
-msgstr "기본형"
-
-#: ../src/main/parallel_view.cc:430 ../ui/xi-menus.glade.h:68
-#: ../ui/xi-menus-popup.gtkbuilder.h:45
-msgid "Headings"
-msgstr "제목"
-
-#: ../src/main/parallel_view.cc:440 ../ui/xi-menus.glade.h:69
-#: ../ui/xi-menus-popup.gtkbuilder.h:46
-#, fuzzy
-msgid "Italic Headings"
-msgstr "제목"
-
-#: ../src/main/parallel_view.cc:450 ../src/main/parallel_view.cc:539
-#: ../ui/xi-menus.glade.h:89 ../ui/xi-menus-popup.gtkbuilder.h:65
-msgid "Morpheme Segmentation"
-msgstr "형태소 분리"
-
-#: ../src/main/parallel_view.cc:459 ../ui/xi-menus.glade.h:70
-#: ../ui/xi-menus-popup.gtkbuilder.h:47
-msgid "Words of Christ in Red"
-msgstr "적 그리스도 구절"
-
-#: ../src/main/parallel_view.cc:468 ../ui/xi-menus.glade.h:81
-#: ../ui/xi-menus-popup.gtkbuilder.h:57
-msgid "Transliteration"
-msgstr "음역"
-
-#: ../src/main/parallel_view.cc:485 ../ui/xi-menus.glade.h:83
-#: ../ui/xi-menus-popup.gtkbuilder.h:59
-msgid "Primary Reading"
-msgstr "제 1독서"
-
-#: ../src/main/parallel_view.cc:494 ../ui/xi-menus.glade.h:84
-#: ../ui/xi-menus-popup.gtkbuilder.h:60
-msgid "Secondary Reading"
-msgstr "제 2독서"
-
-#: ../src/main/parallel_view.cc:503 ../ui/xi-menus.glade.h:85
-#: ../ui/xi-menus-popup.gtkbuilder.h:61
-msgid "All Readings"
-msgstr "모든 독서"
-
-#: ../src/main/parallel_view.cc:512 ../ui/xi-menus.glade.h:86
-#: ../ui/xi-menus-popup.gtkbuilder.h:62
-msgid "Transliterated Forms"
-msgstr "음역 양식"
-
-#: ../src/main/parallel_view.cc:521 ../ui/xi-menus.glade.h:87
-#: ../ui/xi-menus-popup.gtkbuilder.h:63
-msgid "Enumerations"
-msgstr "목록"
-
-#: ../src/main/parallel_view.cc:530 ../ui/xi-menus.glade.h:88
-#: ../ui/xi-menus-popup.gtkbuilder.h:64
-msgid "Glosses"
-msgstr "해설 목록"
-
-#: ../src/main/parallel_view.cc:727
-msgid "view context"
-msgstr "뷰 컨텍스트"
-
-#. this one matters.
-#: ../src/main/prayerlists.cc:274
-#, c-format
-msgid ""
-"Xiphos cannot create module's path:\n"
-"%s"
-msgstr ""
-"xiphos에서 모듈 경로를 만들 수 없습니다:\n"
-"%s"
-
-#: ../src/main/prayerlists.cc:532
-msgid "<b>Major Topic C</b><br/>"
-msgstr "<b>주제 다</b><br/.>"
-
-#: ../src/main/search_dialog.cc:652 ../src/main/search_dialog.cc:1069
-#: ../src/main/search_dialog.cc:1072 ../src/main/search_dialog.cc:1092
-#: ../src/main/search_dialog.cc:1095
-msgid "Search: "
-msgstr "검색:"
-
-#: ../src/main/settings.c:145
-#, c-format
-msgid "Xiphos can not create directory "
-msgstr "xiphos에서 디렉터리를 만들 수 없습니다"
-
-#: ../src/main/sidebar.cc:410
-msgid "verse"
-msgstr "절"
-
-#: ../src/main/sidebar.cc:470
-msgid "chapter"
-msgstr "장"
-
-#: ../src/main/url.cc:194
-#, c-format
-msgid "Xiphos could not execute %s"
-msgstr "xiphos에서 %s을(를) 실행할 수 없습니다"
-
-#: ../src/main/url.cc:202
-msgid "Viewer error:\n"
-msgstr "보기 프로그램 오류:\n"
-
-#: ../ui/editor_note.xml.h:1 ../ui/editor_studypad.xml.h:1
-msgid "Exit the program"
-msgstr "프로그램을 빠져 나갑니다"
-
-#: ../ui/editor_note.xml.h:2 ../ui/editor_studypad.xml.h:2
-msgid "Exit"
-msgstr "나가기"
-
-#: ../ui/editor_note.xml.h:3
-msgid "Print this note"
-msgstr "이 메모 인쇄"
-
-#: ../ui/editor_note.xml.h:4
-msgid "Preview the note to be printed"
-msgstr "인쇄할 메모 미리보기"
-
-#: ../ui/editor_note.xml.h:5 ../ui/editor_studypad.xml.h:5
-msgid "HTML Format switch"
-msgstr "HTML 형식 전환"
-
-#: ../ui/editor_note.xml.h:6 ../ui/editor_studypad.xml.h:6
-msgid "HTML mode"
-msgstr "HTML 모드"
-
-#: ../ui/editor_note.xml.h:7
-msgid "Delete the current note"
-msgstr "현재 메모 삭제"
-
-#: ../ui/editor_note.xml.h:8
-msgid "_Delete Personal Comment"
-msgstr "현재 개인 주석 삭제(_D)"
-
-#: ../ui/editor_note.xml.h:10
-msgid "Save the current note"
-msgstr "현재 메모 저장"
-
-#: ../ui/editor_note.xml.h:11
-msgid "_Save (Personal Comment)"
-msgstr "저장(개인 메모)(_S)"
-
-#: ../ui/editor_note.xml.h:14 ../ui/editor_studypad.xml.h:20
-msgid "E_xit"
-msgstr "나가기(_X)"
-
-#: ../ui/editor_note.xml.h:15 ../ui/editor_studypad.xml.h:21
-msgid "For_mat"
-msgstr "형식(_M)"
-
-#: ../ui/editor_studypad.xml.h:3
-msgid "Print this document"
-msgstr "이 문서 인쇄"
-
-#: ../ui/editor_studypad.xml.h:4
-msgid "Preview the document to be printed"
-msgstr "인쇄할 문서 미리보기"
-
-#: ../ui/editor_studypad.xml.h:8
-msgid "Open a file in Studypad"
-msgstr "학습장에 파일 열기"
-
-#: ../ui/editor_studypad.xml.h:10
-msgid "Save the current file"
-msgstr "현재 파일 저장"
-
-#: ../ui/editor_studypad.xml.h:12
-msgid "Save the current file as"
-msgstr "다른 이름으로 현재 파일 저장"
-
-#: ../ui/editor_studypad.xml.h:13
-#, fuzzy
-msgid "Save As…"
-msgstr "다른 이름으로 저장"
-
-#: ../ui/editor_studypad.xml.h:14
-msgid "Add this file to your bookmarks"
-msgstr "이 파일을 책갈피에 추가"
-
-#: ../ui/editor_studypad.xml.h:16
-msgid "Create a new document"
-msgstr "새 문서 만들기"
-
-#: ../ui/editor_studypad.xml.h:17
-msgid "New Document"
-msgstr "새 문서"
-
-#: ../ui/export-dialog.glade.h:25
-msgid ""
-"Indicates whether verse numbers should appear inline in the text for more "
-"than 1 verse."
-msgstr "1절 이상 검색했을 경우 절 마다 번호를 표시할 지를 나타냅니다."
-
-#: ../ui/export-dialog.glade.h:32
-msgid "Include Version"
-msgstr "버전 포함"
-
-#: ../ui/export-dialog.glade.h:34
-msgid "Save Export As"
-msgstr "다른 이름으로 내보내기 저장"
-
-#: ../ui/gtk2_webedit.ui.h:1 ../ui/gtk_webedit.ui.h:1
-msgid "About Studypad"
-msgstr "학습장 정보"
-
-#: ../ui/gtk2_webedit.ui.h:3 ../ui/gtk_webedit.ui.h:3
-msgid "Open about dialog"
-msgstr "정보 대화상자 열기"
-
-#: ../ui/gtk2_webedit.ui.h:5 ../ui/gtk_webedit.ui.h:5
-msgid "Make selection bold"
-msgstr "선택 부분을 굵게"
-
-#: ../ui/gtk2_webedit.ui.h:6 ../ui/gtk_webedit.ui.h:6
-msgid "Copy"
-msgstr "복사"
-
-#: ../ui/gtk2_webedit.ui.h:7 ../ui/gtk_webedit.ui.h:7
-msgid "Copy selection to clipboard"
-msgstr "선택 부분을 클립보드에 복사"
-
-#: ../ui/gtk2_webedit.ui.h:8 ../ui/gtk_webedit.ui.h:8
-msgid "Cut"
-msgstr "잘라내기"
-
-#: ../ui/gtk2_webedit.ui.h:9 ../ui/gtk_webedit.ui.h:9
-msgid "Cut selection"
-msgstr "선택 부분 잘라내기"
-
-#: ../ui/gtk2_webedit.ui.h:10 ../ui/gtk_webedit.ui.h:10
-msgid "Decrease indent"
-msgstr "들여쓰기 줄이기"
-
-#: ../ui/gtk2_webedit.ui.h:11 ../ui/gtk_webedit.ui.h:11
-msgid "Decrease"
-msgstr "줄이기"
-
-#: ../ui/gtk2_webedit.ui.h:12 ../ui/gtk_webedit.ui.h:12
-msgid "Decrease paragraph indent"
-msgstr "문단 들여쓰기 깊이를 줄입니다"
-
-#: ../ui/gtk2_webedit.ui.h:13 ../ui/gtk_webedit.ui.h:13
-msgid "Delete selection"
-msgstr "선택 부분 삭제"
-
-#: ../ui/gtk2_webedit.ui.h:15 ../ui/gtk_webedit.ui.h:15
-msgid "Remove selection"
-msgstr "선택 부분 제거"
-
-#: ../ui/gtk2_webedit.ui.h:16 ../ui/gtk_webedit.ui.h:16
-#: ../ui/xi-menus.glade.h:125 ../ui/xi-menus-popup.gtkbuilder.h:11
-msgid "Delete Item"
-msgstr "항목 삭제"
-
-#: ../ui/gtk2_webedit.ui.h:17 ../ui/gtk_webedit.ui.h:17
-msgid "Delete current item"
-msgstr "현재 항목 삭제"
-
-#: ../ui/gtk2_webedit.ui.h:19 ../ui/gtk_webedit.ui.h:19
-msgid "Search current document"
-msgstr "현재 문서 검색"
-
-#: ../ui/gtk2_webedit.ui.h:20 ../ui/gtk_webedit.ui.h:20
-msgid "Font"
-msgstr "글꼴"
-
-#: ../ui/gtk2_webedit.ui.h:21 ../ui/gtk_webedit.ui.h:21
-msgid "Change font"
-msgstr "글꼴 바꾸기"
-
-#: ../ui/gtk2_webedit.ui.h:22 ../ui/gtk_webedit.ui.h:22
-msgid "Increase indent"
-msgstr "들여쓰기 늘이기"
-
-#: ../ui/gtk2_webedit.ui.h:23 ../ui/gtk_webedit.ui.h:23
-msgid "Increase"
-msgstr "늘이기"
-
-#: ../ui/gtk2_webedit.ui.h:24 ../ui/gtk_webedit.ui.h:24
-msgid "Increase paragraph indent"
-msgstr "문단 들여쓰기 깊이를 늘입니다"
-
-#: ../ui/gtk2_webedit.ui.h:25 ../ui/gtk_webedit.ui.h:25
-msgid "Insert emoticon"
-msgstr "이모티콘 삽입"
-
-#: ../ui/gtk2_webedit.ui.h:26 ../ui/gtk_webedit.ui.h:26
-msgid "Emoticon"
-msgstr "이모티콘"
-
-#: ../ui/gtk2_webedit.ui.h:27 ../ui/gtk_webedit.ui.h:27
-msgid "Insert an emoticon"
-msgstr "이모티콘을 삽입합니다"
-
-#: ../ui/gtk2_webedit.ui.h:28 ../ui/gtk_webedit.ui.h:28
-msgid "Insert image"
-msgstr "그림 삽입"
-
-#: ../ui/gtk2_webedit.ui.h:29 ../ui/gtk_webedit.ui.h:29
-msgid "Image"
-msgstr "그림"
-
-#: ../ui/gtk2_webedit.ui.h:30 ../ui/gtk_webedit.ui.h:30
-msgid "Insert image at cursor"
-msgstr "커서 위치에 그림을 삽입합니다"
-
-#: ../ui/gtk2_webedit.ui.h:31 ../ui/gtk_webedit.ui.h:31
-msgid "Insert link"
-msgstr "링크 삽입"
-
-#: ../ui/gtk2_webedit.ui.h:32 ../ui/gtk_webedit.ui.h:32
-msgid "Link"
-msgstr "링크"
-
-#: ../ui/gtk2_webedit.ui.h:33 ../ui/gtk_webedit.ui.h:33
-msgid "Insert a link"
-msgstr "링크를 삽입합니다"
-
-#: ../ui/gtk2_webedit.ui.h:34 ../ui/gtk_webedit.ui.h:34
-msgid "Insert Outline"
-msgstr "개요 삽입"
-
-#: ../ui/gtk2_webedit.ui.h:35 ../ui/gtk_webedit.ui.h:35
-msgid "Outline"
-msgstr "개요"
-
-#: ../ui/gtk2_webedit.ui.h:36 ../ui/gtk_webedit.ui.h:36
-msgid "Insert outline"
-msgstr "개요를 삽입합니다"
-
-#: ../ui/gtk2_webedit.ui.h:37 ../ui/gtk_webedit.ui.h:37
-msgid "Insert rule"
-msgstr "구분선 삽입"
-
-#: ../ui/gtk2_webedit.ui.h:38 ../ui/gtk_webedit.ui.h:38
-msgid "Rule"
-msgstr "구분선"
-
-#: ../ui/gtk2_webedit.ui.h:39 ../ui/gtk_webedit.ui.h:39
-msgid "Insert horizontal rule"
-msgstr "수평 구분선 삽입"
-
-#: ../ui/gtk2_webedit.ui.h:40 ../ui/gtk_webedit.ui.h:40
-msgid "Xiphos Link"
-msgstr "xiphos 링크"
-
-#: ../ui/gtk2_webedit.ui.h:41 ../ui/gtk_webedit.ui.h:41
-msgid "Xiphos"
-msgstr "xiphos"
-
-#: ../ui/gtk2_webedit.ui.h:42 ../ui/gtk_webedit.ui.h:42
-msgid "Insert a link to a sword module"
-msgstr "sword 모듈에 링크 삽입"
-
-#: ../ui/gtk2_webedit.ui.h:43 ../ui/gtk_webedit.ui.h:43
-msgid "Insert table"
-msgstr "표 삽입"
-
-#: ../ui/gtk2_webedit.ui.h:44 ../ui/gtk_webedit.ui.h:44
-msgid "Table"
-msgstr "표"
-
-#: ../ui/gtk2_webedit.ui.h:45 ../ui/gtk_webedit.ui.h:45
-msgid "Insert a table"
-msgstr "표를 삽입합니다"
-
-#: ../ui/gtk2_webedit.ui.h:46 ../ui/gtk_webedit.ui.h:46
-msgid "Italic"
-msgstr "기울기"
-
-#: ../ui/gtk2_webedit.ui.h:47 ../ui/gtk_webedit.ui.h:47
-msgid "Change selection to italic font"
-msgstr "선택한 영역을 기울기체로 바꿉니다"
-
-#: ../ui/gtk2_webedit.ui.h:48 ../ui/gtk_webedit.ui.h:48
-msgid "Center"
-msgstr "가운데로"
-
-#: ../ui/gtk2_webedit.ui.h:49 ../ui/gtk_webedit.ui.h:49
-msgid "Center justify paragraph"
-msgstr "문단 정렬을 가로 방향 가운데로 합니다"
-
-#: ../ui/gtk2_webedit.ui.h:50 ../ui/gtk_webedit.ui.h:50
-msgid "Full"
-msgstr "전체"
-
-#: ../ui/gtk2_webedit.ui.h:51 ../ui/gtk_webedit.ui.h:51
-msgid "full justify"
-msgstr "전체 좌우 균형 정렬"
-
-#: ../ui/gtk2_webedit.ui.h:52 ../ui/gtk_webedit.ui.h:52
-msgid "Left"
-msgstr "왼쪽"
-
-#: ../ui/gtk2_webedit.ui.h:53 ../ui/gtk_webedit.ui.h:53
-msgid "Left justify paragraph"
-msgstr "문단 정렬을 가로 방향 왼쪽으로 합니다"
-
-#: ../ui/gtk2_webedit.ui.h:54 ../ui/gtk_webedit.ui.h:54
-msgid "Right"
-msgstr "오른쪽"
-
-#: ../ui/gtk2_webedit.ui.h:55 ../ui/gtk_webedit.ui.h:55
-msgid "Right justify paragraph"
-msgstr "문단 정렬을 가로 방향 오른쪽으로 합니다"
-
-#: ../ui/gtk2_webedit.ui.h:57 ../ui/gtk_webedit.ui.h:57
-msgid "Create new file"
-msgstr "새 파일 만들기"
-
-#: ../ui/gtk2_webedit.ui.h:59 ../ui/gtk_webedit.ui.h:59
-msgid "Open file"
-msgstr "파일 열기"
-
-#: ../ui/gtk2_webedit.ui.h:60 ../ui/gtk_webedit.ui.h:60
-msgid "Paste"
-msgstr "붙여넣기"
-
-#: ../ui/gtk2_webedit.ui.h:61 ../ui/gtk_webedit.ui.h:61
-msgid "Paste clipboard at cursor."
-msgstr "커서 위치에 클립보드 내용을 붙여넣습니다."
-
-#: ../ui/gtk2_webedit.ui.h:62 ../ui/gtk_webedit.ui.h:62
-msgid "Print Document"
-msgstr "문서 인쇄"
-
-#: ../ui/gtk2_webedit.ui.h:63 ../ui/gtk_webedit.ui.h:63
-msgid "Print"
-msgstr "인쇄"
-
-#: ../ui/gtk2_webedit.ui.h:64 ../ui/gtk_webedit.ui.h:64
-msgid "Print the current document"
-msgstr "현재 문서를 인쇄합니다"
-
-#: ../ui/gtk2_webedit.ui.h:65 ../ui/gtk_webedit.ui.h:65
-msgid "Print Preview"
-msgstr "인쇄 미리보기"
-
-#: ../ui/gtk2_webedit.ui.h:66 ../ui/gtk_webedit.ui.h:66
-msgid "Preview"
-msgstr "미리보기"
-
-#: ../ui/gtk2_webedit.ui.h:67 ../ui/gtk_webedit.ui.h:67
-msgid "Print preview of current document"
-msgstr "현재 문서에 대한 인쇄 미리보기입니다"
-
-#: ../ui/gtk2_webedit.ui.h:68 ../ui/gtk_webedit.ui.h:68
-msgid "Quit"
-msgstr "끝내기"
-
-#: ../ui/gtk2_webedit.ui.h:69 ../ui/gtk_webedit.ui.h:69
-msgid "Shut down editor"
-msgstr "편집기를 끕니다."
-
-#: ../ui/gtk2_webedit.ui.h:70 ../ui/gtk_webedit.ui.h:70
-msgid "Redo"
-msgstr "재 실행"
-
-#: ../ui/gtk2_webedit.ui.h:71 ../ui/gtk_webedit.ui.h:71
-msgid "Redo last undo"
-msgstr "마지막에 실행 취소한 작업을 다시 실행합니다"
-
-#: ../ui/gtk2_webedit.ui.h:72 ../ui/gtk_webedit.ui.h:72
-msgid "Find and replace"
-msgstr "찾아 바꾸기"
-
-#: ../ui/gtk2_webedit.ui.h:73 ../ui/gtk_webedit.ui.h:73
-msgid "Replace"
-msgstr "바꾸기"
-
-#: ../ui/gtk2_webedit.ui.h:74 ../ui/gtk_webedit.ui.h:74
-msgid "Search and replace"
-msgstr "검색하고 바꿉니다"
-
-#: ../ui/gtk2_webedit.ui.h:76 ../ui/gtk_webedit.ui.h:76
-msgid "Save changes to file"
-msgstr "바뀐 내용 파일에 저장"
-
-#: ../ui/gtk2_webedit.ui.h:78 ../ui/gtk_webedit.ui.h:78
-#, fuzzy
-msgid "Save File As..."
-msgstr "다른 이름으로 파일 저장 ..."
-
-#: ../ui/gtk2_webedit.ui.h:79 ../ui/gtk_webedit.ui.h:79
-msgid "Strikethrough"
-msgstr "취소선"
-
-#: ../ui/gtk2_webedit.ui.h:80 ../ui/gtk_webedit.ui.h:80
-msgid "Strikethrough selection"
-msgstr "선택 영역 취소선"
-
-#: ../ui/gtk2_webedit.ui.h:81 ../ui/gtk_webedit.ui.h:81
-msgid "Underline"
-msgstr "밑줄"
-
-#: ../ui/gtk2_webedit.ui.h:82 ../ui/gtk_webedit.ui.h:82
-msgid "Underline selection"
-msgstr "선택 영역 밑줄"
-
-#: ../ui/gtk2_webedit.ui.h:83 ../ui/gtk_webedit.ui.h:83
-msgid "Undo"
-msgstr "실행 취소"
-
-#: ../ui/gtk2_webedit.ui.h:84 ../ui/gtk_webedit.ui.h:84
-msgid "Undo last change"
-msgstr "마지막 바꾼 동작 실행 취소"
-
-#: ../ui/gtk2_webedit.ui.h:85 ../ui/gtk_webedit.ui.h:86
-msgid "Editor"
-msgstr "편집기"
-
-#: ../ui/gtk2_webedit.ui.h:87 ../ui/gtk_webedit.ui.h:88
-msgid "Recent files"
-msgstr "죄근 파일"
-
-#: ../ui/gtk2_webedit.ui.h:88 ../ui/gtk_webedit.ui.h:89
-#: ../ui/xi-menus.glade.h:9 ../ui/xi-menus.gtkbuilder.h:6
-msgid "_Edit"
-msgstr "편집(_E)"
-
-#: ../ui/gtk2_webedit.ui.h:89 ../ui/gtk_webedit.ui.h:90
-#: ../ui/xi-menus.glade.h:38 ../ui/xi-menus.gtkbuilder.h:24
-msgid "_Help"
-msgstr "도움말(_H)"
-
-#: ../ui/gtk2_webedit.ui.h:90 ../ui/gtk_webedit.ui.h:91
-msgid "Normal"
-msgstr "일반"
-
-#: ../ui/gtk2_webedit.ui.h:91 ../ui/gtk_webedit.ui.h:92
-msgid "Header 1"
-msgstr "제목 1"
-
-#: ../ui/gtk2_webedit.ui.h:92 ../ui/gtk_webedit.ui.h:93
-msgid "Header 2"
-msgstr "제목 2"
-
-#: ../ui/gtk2_webedit.ui.h:93 ../ui/gtk_webedit.ui.h:94
-msgid "Header 3"
-msgstr "제목 3"
-
-#: ../ui/gtk2_webedit.ui.h:94 ../ui/gtk_webedit.ui.h:95
-msgid "Header 4"
-msgstr "제목 4"
-
-#: ../ui/gtk2_webedit.ui.h:95 ../ui/gtk_webedit.ui.h:96
-msgid "Header 5"
-msgstr "제목 5"
-
-#: ../ui/gtk2_webedit.ui.h:96 ../ui/gtk_webedit.ui.h:97
-msgid "Header 6"
-msgstr "제목 6"
-
-#: ../ui/gtk2_webedit.ui.h:97 ../ui/gtk_webedit.ui.h:98
-msgid "Address"
-msgstr "주소"
-
-#: ../ui/gtk2_webedit.ui.h:98 ../ui/gtk_webedit.ui.h:99
-msgid "Preformatted"
-msgstr "선 형식 맞춤"
-
-#: ../ui/gtk2_webedit.ui.h:99 ../ui/gtk_webedit.ui.h:100
-msgid "Bulleted List"
-msgstr "비순서 목록"
-
-#: ../ui/gtk2_webedit.ui.h:100 ../ui/gtk_webedit.ui.h:101
-msgid "Roman Numeral List"
-msgstr "로마 숫자 목록"
-
-#: ../ui/gtk2_webedit.ui.h:101 ../ui/gtk_webedit.ui.h:102
-msgid "Numbered List"
-msgstr "숫자 목록"
-
-#: ../ui/gtk2_webedit.ui.h:102 ../ui/gtk_webedit.ui.h:103
-msgid "Alphabetical List"
-msgstr "영문자 목록"
-
-#: ../ui/gtk2_webedit.ui.h:103 ../ui/gtk_webedit.ui.h:104
-msgid "Strike"
-msgstr "취소선"
-
-#: ../ui/gtk2_webedit.ui.h:104 ../ui/gtk_webedit.ui.h:105
-msgid "Set font color of selected text."
-msgstr "선택한 텍스트의 글꼴 색상을 설정합니다."
-
-#: ../ui/gtk2_webedit.ui.h:105 ../ui/gtk_webedit.ui.h:106
-msgid "Highlight selected text by setting background color."
-msgstr "배경색을 설정하여 선택한 텍스트를 강조합니다."
-
-#: ../ui/markverse.glade.h:12 ../ui/xi-export-bookmarks.glade.h:7
-msgid "gtk-cancel"
-msgstr "gtk-cancel"
-
-#: ../ui/module-manager.glade.h:21 ../ui/module-manager.gtkbuilder.h:22
 msgid "<b>Module Manager</b>"
 msgstr "<b>모듈 관리자</b>"
 
-#: ../ui/navbar_versekey.glade.h:2
-msgid "Choose book to display"
-msgstr "표시할 책 선택"
+msgid "Font Colors"
+msgstr "글꼴 색상"
 
-#: ../ui/navbar_versekey.glade.h:5
-msgid "Choose chapter to display"
-msgstr "표시할 장 선택"
+msgid "<b>Modules</b>"
+msgstr "<b>모듈</b>"
 
-#: ../ui/navbar_versekey.glade.h:8
-msgid "Choose Verse to display"
-msgstr "표시할 절 선택"
+msgid "<b>search module</b>"
+msgstr "<b>검색 모듈</b>"
 
-#: ../ui/prefs.glade.h:19
+msgid "<b>Search Type</b>"
+msgstr "<b>검색 형식</b>"
+
+msgid "<b>Options</b>"
+msgstr "<b>옵션</b>"
+
+msgid "Export"
+msgstr "내보내기"
+
+msgid "Open a new tab"
+msgstr "새 탭 열기"
+
 msgid ""
-"-2\n"
-"-1\n"
-"+0\n"
-"+1\n"
-"+2\n"
-"+3\n"
-"+4\n"
-"+5"
+"Ministerios Elim'ss language abbreviation\n"
+"file cannot be opened."
 msgstr ""
-"-2\n"
-"-1\n"
-"+0\n"
-"+1\n"
-"+2\n"
-"+3\n"
-"+4\n"
-"+5"
+"Ministerios Elim 언어 약어 파일을\n"
+"열 수 없습니다"
 
-#: ../ui/prefs.glade.h:30 ../ui/prefs.gtkbuilder.h:34
-msgid "Font preferences, per language"
-msgstr "언어별 글꼴 크기"
-
-#: ../ui/prefs.glade.h:33 ../ui/prefs.gtkbuilder.h:37
-msgid "Default display columns"
-msgstr ""
-
-#: ../ui/prefs.glade.h:34 ../ui/prefs.gtkbuilder.h:38
-msgid "Justify margins"
-msgstr ""
-
-#: ../ui/prefs.glade.h:38 ../ui/prefs.gtkbuilder.h:42
 msgid ""
-"Xiphos is the first Bible study program to provide an implementation of "
-"BibleSync, a synchronization protocol for Bible programs. If you work with "
-"multiple Bible programs, or if you work in a team, or if you have classroom "
-"activities using shared study, BibleSync can be a useful tool for you. "
-"BibleSync operates in 1 of 3 modes: Personal, to synchronize multiple Bible "
-"applications of your own, or in a working team; Speaker, to drive a lecture "
-"audience's Bible programs to follow along; Audience, to receive the "
-"speaker's navigation."
+"Ministerios Elim'ss file for language\n"
+"abbreviations is missing."
 msgstr ""
-"xiphos는 성경 프로그램을 동기화 할 BibleSync의 구현 기능을 제공하는 성경 공"
-"부 프로그램입니다. 여러 성경 프로그램으로 작업하거나, 모임에서 작업하거나, 열"
-"린 공부 모임에서 교리 공부 활동을 한다면, BibleSync가 그 해답을 제공해줄 수 "
-"있습니다. BibleSync는 총 세가지 방식 중 한가지 방식으로 동작합니다. 사용자 여"
-"러분 또는 모임에서 여러 성경 프로그램으로 동기화할 개인용 사용 방식, 청중이 "
-"성경 프로그램을 따라오도록 이끄는 독서자 내지는 연사용 사용 방식, 마지막으로 "
-"일반 성도가 연사의 탐색 내용을 받아 보는 청중용 사용 방식이 있습니다."
+"Ministerios Elim 언어 약어 파일이\n"
+"빠졌습니다"
 
-#: ../ui/prefs.glade.h:39 ../ui/prefs.gtkbuilder.h:44
-msgid "<i>Mode:</i>"
-msgstr " <i>모드:</i>"
-
-#: ../ui/prefs.glade.h:56 ../ui/prefs.gtkbuilder.h:61
-msgid "<i>Navigate:</i>"
-msgstr "<i>탐색:</i>"
-
-#: ../ui/prefs.glade.h:64 ../ui/prefs.gtkbuilder.h:68
-msgid "_Keyboard only"
+#: src/gtk/about_xiphos.c:125
+msgid "Copyright © 2026 Ministerios Elim contributors"
 msgstr ""
 
-#: ../ui/prefs.glade.h:67 ../ui/prefs.gtkbuilder.h:72
-msgid "<i>Listen:</i>"
-msgstr "<i>듣기:</i>"
+#: src/gtk/buscar_notas.c:807
+#, c-format
+msgid "%u nota nueva."
+msgid_plural "%u notas nuevas."
+msgstr[0] "새 메모 %u개."
 
-#: ../ui/prefs.glade.h:78 ../ui/prefs.gtkbuilder.h:83
-msgid "<i>Special:</i>"
-msgstr "<i>특수:</i>"
+#: src/gtk/buscar_notas.c:811
+#, c-format
+msgid " %u de ellas va junto a otra nota tuya del mismo versículo."
+msgid_plural " %u de ellas van junto a otra nota tuya del mismo versículo."
+msgstr[0] " %u개는 같은 구절의 기존 메모에 추가됩니다."
 
-#: ../ui/prefs.glade.h:94 ../ui/prefs.gtkbuilder.h:98
+#: src/gtk/buscar_notas.c:817
+#, c-format
 msgid ""
-"Select a particular language for interface display, other than your usual "
-"setting"
-msgstr "다른 설정 내용이 아닌 인터페이스를 표시할 각각의 언어를 선택하십시오"
-
-#: ../ui/prefs.glade.h:95 ../ui/prefs.gtkbuilder.h:99
-#, fuzzy
-msgid "Locale (requires restart)"
-msgstr "특수 로캘(다시 시작해야 함)"
-
-#: ../ui/prefs.glade.h:121 ../ui/prefs.gtkbuilder.h:125
-msgid "Enable Statusbar"
-msgstr "상태 표시줄 활성화"
-
-#: ../ui/prefs.glade.h:122
-msgid "Enable/Disable Statusbar."
-msgstr "상태 표시줄을 활성화/비활성화합니다."
-
-#: ../ui/prefs.glade.h:124 ../ui/prefs.gtkbuilder.h:128
-msgid "Parallel color alternation"
-msgstr ""
-
-#: ../ui/prefs.gtkbuilder.h:1
-msgid "-2"
-msgstr "-2"
-
-#: ../ui/prefs.gtkbuilder.h:2
-msgid "-1"
-msgstr "-1"
-
-#: ../ui/prefs.gtkbuilder.h:4
-msgid "+1"
-msgstr "+1"
-
-#: ../ui/prefs.gtkbuilder.h:5
-msgid "+2"
-msgstr "+2"
-
-#: ../ui/prefs.gtkbuilder.h:6
-msgid "+3"
-msgstr "+3"
-
-#: ../ui/prefs.gtkbuilder.h:7
-msgid "+4"
-msgstr "+4"
-
-#: ../ui/prefs.gtkbuilder.h:8
-msgid "+5"
-msgstr "+5"
-
-#: ../ui/prefs.gtkbuilder.h:10
-#, fuzzy
-msgid "2"
-msgstr "-2"
-
-#: ../ui/prefs.gtkbuilder.h:11
-#, fuzzy
-msgid "3"
-msgstr "+3"
-
-#: ../ui/prefs.gtkbuilder.h:12
-#, fuzzy
-msgid "4"
-msgstr "+4"
-
-#: ../ui/prefs.gtkbuilder.h:126
-msgid "Enable/disable the Statusbar"
-msgstr "상태 표시줄 활성화/비활성화"
-
-#: ../ui/search-dialog.glade.h:32
-msgid "Custom Module List Combo"
-msgstr "개별 모듈 목록 추가 기능"
-
-#: ../ui/search-dialog.glade.h:61 ../ui/search-dialog.gtkbuilder.h:61
-msgid "<b>Preview</b>"
-msgstr "<b>미리보기</b>"
-
-#: ../ui/xi-export-bookmarks.glade.h:8
-msgid "gtk-ok"
-msgstr "gtk-ok"
-
-#: ../ui/xi-menus.glade.h:2 ../ui/xi-menus.gtkbuilder.h:2
-msgid "Open Study_pad"
-msgstr "학습장 열기(_P)"
-
-#: ../ui/xi-menus.glade.h:3 ../ui/xi-menus.gtkbuilder.h:3
-msgid "_Open Session"
-msgstr "세션 열기(_O)"
-
-#: ../ui/xi-menus.glade.h:4
-msgid "Open a saved tab settings collection"
-msgstr "저장한 탭 설정 모음을 엽니다"
-
-#: ../ui/xi-menus.glade.h:5 ../ui/xi-menus.gtkbuilder.h:4
-msgid "_Save Session"
-msgstr "세션 저장(_S)"
-
-#: ../ui/xi-menus.glade.h:6
-msgid "Save this collection of tab settings"
-msgstr "이 탭 설정 모음을 저장합니다"
-
-#: ../ui/xi-menus.glade.h:7 ../ui/xi-menus.gtkbuilder.h:5
-msgid "_New Prayerlist/Journal"
-msgstr "새 기도 목록/묵상 일기(_N)"
-
-#: ../ui/xi-menus.glade.h:8
-msgid "Create a new journal or prayerlist from a template"
-msgstr "양식을 활용하여 새 묵상 일기 또는 기도 목록을 만듭니다"
-
-#: ../ui/xi-menus.glade.h:10 ../ui/xi-menus.gtkbuilder.h:7
-msgid "_Search"
-msgstr "검색(_S)"
-
-#: ../ui/xi-menus.glade.h:11
-msgid "Bring the simple sidebar search forward"
-msgstr "간단한 가장자리 표시줄 검색창을 띄웁니다"
-
-#: ../ui/xi-menus.glade.h:12 ../ui/xi-menus.gtkbuilder.h:8
-msgid "_Advanced Search"
-msgstr "고급 검색(_A)"
-
-#: ../ui/xi-menus.glade.h:13
-msgid "Open the advanced search dialog, to run complex queries"
-msgstr "복잡한 검색어를 처리할 고급 검색 대화상자를 엽니다."
-
-#: ../ui/xi-menus.glade.h:14 ../ui/xi-menus.gtkbuilder.h:9
-msgid "_Preferences"
-msgstr "기본 설정(_P)"
-
-#: ../ui/xi-menus.glade.h:15
-msgid "Use module manager to install and remove Sword modules"
-msgstr "sword 모듈을 설치하고 제거할 때 모듈 관리자를 사용합니다"
-
-#: ../ui/xi-menus.glade.h:16 ../ui/xi-menus.gtkbuilder.h:10
-msgid "_Module Manager"
-msgstr "모듈 관리자(_M)"
-
-#: ../ui/xi-menus.glade.h:18 ../ui/xi-menus.gtkbuilder.h:12
-msgid "Preview _Daily Devotion"
-msgstr "매일 말씀 미리보기(_D)"
-
-#: ../ui/xi-menus.glade.h:19
-msgid "Show today's entry from your selected daily devotional in the previewer"
-msgstr "미리보기에서 선택한 매일 말씀으로 오늘의 항목을 표시합니다"
-
-#: ../ui/xi-menus.glade.h:20 ../ui/xi-menus.gtkbuilder.h:13
-msgid "_Bible"
-msgstr "성경(_B)"
-
-#: ../ui/xi-menus.glade.h:21 ../ui/xi-menus.gtkbuilder.h:14
-msgid "_Preview"
-msgstr "미리보기(_P)"
-
-#: ../ui/xi-menus.glade.h:22 ../ui/xi-menus.gtkbuilder.h:15
-msgid "_Commentary/Book"
-msgstr "해설/책(_C)"
-
-#: ../ui/xi-menus.glade.h:23 ../ui/xi-menus.gtkbuilder.h:16
-msgid "Dictionar_y"
-msgstr "사전(_Y)"
-
-#: ../ui/xi-menus.glade.h:24 ../ui/xi-menus.gtkbuilder.h:17
-msgid "L_ink Tabs"
-msgstr "탭 연결(_I)"
-
-#: ../ui/xi-menus.glade.h:25
-msgid "Make all tabs' Bibles navigate together"
-msgstr "모든 탭에 대해 성경 탐색을 처리합니다"
-
-#: ../ui/xi-menus.glade.h:26 ../ui/xi-menus.gtkbuilder.h:18
-msgid "_Read Aloud"
-msgstr "소리내어 읽기(_R)"
-
-#: ../ui/xi-menus.glade.h:27
-msgid "Turn on text-to-speech reading of Bible verses as they are selected"
-msgstr "선택한 성경 절의 TTS 읽기 기능을 켭니다"
-
-#: ../ui/xi-menus.glade.h:28 ../ui/xi-menus.gtkbuilder.h:19
-msgid "Show Verse _Numbers"
-msgstr "절 번호 표시(_N)"
-
-#: ../ui/xi-menus.glade.h:29
-msgid "Display verse numbers in the text"
-msgstr "본문 절 번호를 표시합니다"
-
-#: ../ui/xi-menus.glade.h:30 ../ui/xi-menus.gtkbuilder.h:20
-msgid "_Highlight Current Verse"
-msgstr "현재 절 강조(_H)"
-
-#: ../ui/xi-menus.glade.h:31
-msgid "Apply a high-contrast highlight to the current verse"
-msgstr "현재 절을 고대비 강조 표시합니다"
-
-#: ../ui/xi-menus.glade.h:32 ../ui/xi-menus.gtkbuilder.h:21
-msgid "_Show/Hide Attached Sidebar"
-msgstr "창에 붙인 가장자리 표시줄 표시/숨김(_S)"
-
-#: ../ui/xi-menus.glade.h:33
-msgid "Remove the sidebar entirely from view"
-msgstr "보기 화면에서 가장자리 표시줄을 완전히 제거합니다"
-
-#: ../ui/xi-menus.glade.h:34 ../ui/xi-menus.gtkbuilder.h:22
-msgid "Show Parallel View in a _Tab"
-msgstr "나란히 보기를 탭에 표시(_T)"
-
-#: ../ui/xi-menus.glade.h:35
-msgid "Provide the full-chapter parallel Bible window as another tab"
-msgstr "전체 장에 대한 성경 나란히 보기 창을 다른 탭처럼 표시합니다"
-
-#: ../ui/xi-menus.glade.h:36 ../ui/xi-menus.gtkbuilder.h:23
-msgid "Show Previe_wer in the Sidebar"
-msgstr "가장자리 표시줄에 미리보기 표시(_W)"
-
-#: ../ui/xi-menus.glade.h:37
-msgid "Select Previewer position between sidebar or beneath Bible"
-msgstr ""
-"미리보기 위치를 가장자리 표시줄로 할 지 성경 아랫 부분에 할 지 선택합니다"
-
-#: ../ui/xi-menus.glade.h:39 ../ui/xi-menus.gtkbuilder.h:25
-msgid "_Contents"
-msgstr "내용(_C)"
-
-#: ../ui/xi-menus.glade.h:40
-msgid "Open the help viewer on the Xiphos manual"
-msgstr "도움말 보기 창에 xiphos 도움말을 엽니다"
-
-#: ../ui/xi-menus.glade.h:41 ../ui/xi-menus.gtkbuilder.h:26
-msgid "_Mailing List"
-msgstr "메일링 리스트(_M)"
-
-#: ../ui/xi-menus.glade.h:42
-msgid "Open a browser on the users' mailing list webpage"
-msgstr "사용자 메일링 리스트 웹 페이지를 브라우저에 엽니다"
-
-#: ../ui/xi-menus.glade.h:43 ../ui/xi-menus.gtkbuilder.h:27
-msgid "_Live Chat"
-msgstr "실시간 대화(_L)"
-
-#: ../ui/xi-menus.glade.h:44
-msgid "Open a browser on an interface to live IRC chat"
-msgstr "실시간 IRC 대화 인터페이스를 브라우저에 엽니다"
-
-#: ../ui/xi-menus.glade.h:45 ../ui/xi-menus.gtkbuilder.h:28
-msgid "_Report Bug"
-msgstr "문제점 보고(_R)"
-
-#: ../ui/xi-menus.glade.h:46
-msgid "Open a browser on our bug tracker"
-msgstr "문제점 추적 시스템을 브라우저에 엽니다"
-
-#: ../ui/xi-menus.glade.h:47 ../ui/xi-menus.gtkbuilder.h:29
-msgid "About _Translation"
-msgstr "번역 정보(_T)"
-
-#: ../ui/xi-menus.glade.h:48
-msgid "Learn about translating the Xiphos interface to other languages"
-msgstr "xiphos 인터페이스를 다른 언어로 번역하는 방법을 알아봅니다"
-
-#: ../ui/xi-menus.glade.h:49 ../ui/xi-menus.gtkbuilder.h:30
-msgid "_About The SWORD Project"
-msgstr "SWORD 프로젝트 정보(_A)"
-
-# 참고: Sword 는 프로젝트 이름 고유 명사이므로 번역하지 말 것.
-#: ../ui/xi-menus.glade.h:50
-msgid "Learn about The Sword Project, of which Xiphos is one application"
-msgstr "xiphos에 있는 프로그램 중 하나인 sword 프로젝트를 알아봅니다"
-
-# 주: 고유명사이므로 번역해선 안됨. xiphos도 음역하지 않았으므로 용어 번역 일관성을 따르기 위해 번역하지 마십시오.
-#: ../ui/xi-menus.glade.h:51 ../ui/xi-menus.gtkbuilder.h:31
-#, fuzzy
-msgid "About _BibleSync"
-msgstr "BibleSync"
-
-#: ../ui/xi-menus.glade.h:52
-msgid "Learn about BibleSync, the shared navigation protocol"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:53 ../ui/xi-menus.gtkbuilder.h:32
-msgid "_View Xiphos Releases"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:54
-msgid "Visit the releases web page. Is your Xiphos current?"
-msgstr ""
-
-#: ../ui/xi-menus.glade.h:55 ../ui/xi-menus.gtkbuilder.h:33
-msgid "About _Xiphos"
-msgstr "xiphos 정보(_X)"
-
-#: ../ui/xi-menus.glade.h:56
-msgid "Learn about Xiphos"
-msgstr "xiphos 배우기"
-
-#: ../ui/xi-menus.glade.h:59 ../ui/xi-menus-popup.gtkbuilder.h:37
-msgid "Annotate Verse"
-msgstr "절 주석"
-
-#: ../ui/xi-menus.glade.h:62 ../ui/xi-menus-popup.gtkbuilder.h:40
-msgid "Open Module"
-msgstr "모듈 열기"
-
-#: ../ui/xi-menus.glade.h:64 ../ui/xi-menus-popup.gtkbuilder.h:41
-msgid "Note"
-msgstr "메모"
-
-#: ../ui/xi-menus.glade.h:65 ../ui/xi-menus-popup.gtkbuilder.h:42
-msgid "Open in editor"
-msgstr "편집기에서 열기"
-
-#: ../ui/xi-menus.glade.h:67 ../ui/xi-menus-popup.gtkbuilder.h:44
-msgid "Verse Per Line"
-msgstr "줄 단위 절"
-
-#: ../ui/xi-menus.glade.h:76 ../ui/xi-menus-popup.gtkbuilder.h:53
-msgid "Footnote/Cross-ref Markers"
-msgstr "각주/교차참조 표시"
-
-#: ../ui/xi-menus.glade.h:77
-msgid "Show non-anonymous markers e.g. \"*n23\""
-msgstr "\"*n23\" 같은 비 익명 마커 표시"
-
-#: ../ui/xi-menus.glade.h:82 ../ui/xi-menus-popup.gtkbuilder.h:58
-msgid "Variants"
-msgstr "변형"
-
-#: ../ui/xi-menus.glade.h:90 ../ui/xi-menus-popup.gtkbuilder.h:66
-msgid "Image Content"
-msgstr "그림 컨텐트"
-
-#: ../ui/xi-menus.glade.h:91 ../ui/xi-menus-popup.gtkbuilder.h:67
-msgid "Respect Font Faces"
-msgstr "개별 글꼴"
-
-#: ../ui/xi-menus.glade.h:92 ../ui/xi-menus-popup.gtkbuilder.h:68
-msgid "Commentary by Chapter"
-msgstr "절 단위 해설"
-
-#: ../ui/xi-menus.glade.h:93 ../ui/xi-menus-popup.gtkbuilder.h:69
-msgid "Doublespace"
-msgstr "이중 공백"
-
-#: ../ui/xi-menus.glade.h:94 ../ui/xi-menus-popup.gtkbuilder.h:70
-msgid "Lookup Selection"
-msgstr "선택 찾아보기"
-
-#: ../ui/xi-menus.glade.h:95 ../ui/xi-menus-popup.gtkbuilder.h:71
-msgid "Use Current Dictionary"
-msgstr "현재 사전 사용"
-
-#: ../ui/xi-menus.glade.h:96 ../ui/xi-menus-popup.gtkbuilder.h:72
-msgid "Browse in BibleMap.org"
-msgstr "BibleMap.org 탐색"
-
-#: ../ui/xi-menus.glade.h:97 ../ui/xi-menus-popup.gtkbuilder.h:73
-msgid "Unlock This Module"
-msgstr "이 모듈 잠금 해제"
-
-#: ../ui/xi-menus.glade.h:98 ../ui/xi-menus-popup.gtkbuilder.h:74
-msgid "Display Book Heading"
-msgstr "책 제목 표시"
-
-#: ../ui/xi-menus.glade.h:99 ../ui/xi-menus-popup.gtkbuilder.h:75
-msgid "Display Chapter Heading"
-msgstr "장 제목 표시"
-
-#: ../ui/xi-menus.glade.h:100 ../ui/xi-menus-popup.gtkbuilder.h:76
-msgid "Rename Pers.Comm."
-msgstr "개별 해설 이름 바꾸기"
-
-#: ../ui/xi-menus.glade.h:101 ../ui/xi-menus-popup.gtkbuilder.h:77
-msgid "Dump Pers.Comm."
-msgstr "전체 개별 해설 내보내기"
-
-#: ../ui/xi-menus.glade.h:102 ../ui/xi-menus-popup.gtkbuilder.h:78
-msgid "Read Selection Aloud"
-msgstr "선택 항목 소리내어 읽기"
-
-#: ../ui/xi-menus.glade.h:103 ../ui/xi-menus-popup.gtkbuilder.h:93
-msgid "Save these results as a single bookmark"
-msgstr "이 결과를 단일 책갈피로 저장합니다"
-
-#: ../ui/xi-menus.glade.h:104 ../ui/xi-menus-popup.gtkbuilder.h:92
-msgid "Save list as a single bookmark"
-msgstr "목록을 단일 책갈피로 저장"
-
-#: ../ui/xi-menus.glade.h:105 ../ui/xi-menus-popup.gtkbuilder.h:95
-msgid "Save these results as a series of bookmarks in their own folder"
-msgstr "이 결과를 자체 폴더안에 여러 책갈피로 저장합니다."
-
-#: ../ui/xi-menus.glade.h:106 ../ui/xi-menus-popup.gtkbuilder.h:94
-msgid "Save list as a series of bookmarks"
-msgstr "목록을 책갈피 모음으로 저장"
-
-#: ../ui/xi-menus.glade.h:107 ../ui/xi-menus-popup.gtkbuilder.h:97
+"\n"
+"%u ya estaba."
+msgid_plural ""
+"\n"
+"%u ya estaban."
+msgstr[0] ""
+"\n"
+"이미 존재하는 항목 %u개."
+
+#: src/gtk/buscar_notas.c:821
+#, c-format
 msgid ""
-"Provide a dialog in which to paste a line of verse references, to fill the "
-"verse list."
-msgstr "절 목록을 채우는 절 참조 줄을 표시할 대화상자를 제공합니다."
+"\n"
+"%u enlace nuevo."
+msgid_plural ""
+"\n"
+"%u enlaces nuevos."
+msgstr[0] ""
+"\n"
+"새 연결 %u개."
 
-#: ../ui/xi-menus.glade.h:108 ../ui/xi-menus-popup.gtkbuilder.h:96
-msgid "Populate verse list"
-msgstr "절 목록 내보내기"
-
-#: ../ui/xi-menus.glade.h:109 ../ui/xi-menus-popup.gtkbuilder.h:99
-msgid "Push the entire verse list contents directly into the history list."
-msgstr "전체 절 목록내용을 기록 목록에 바로 넣습니다."
-
-#: ../ui/xi-menus.glade.h:110 ../ui/xi-menus-popup.gtkbuilder.h:98
-msgid "Preload history from verse list"
-msgstr "절 목록에서 기록 미리 불러오기"
-
-#: ../ui/xi-menus.glade.h:111 ../ui/xi-menus-popup.gtkbuilder.h:101
+#: src/gtk/buscar_notas.c:826
+#, c-format
 msgid ""
-"Send this verse list via BibleSync to others, if you are in Personal or "
-"Speaker mode."
-msgstr ""
-"개인 또는 독서자 모드일 때, BibleSync로 다른 대상에 절 목록을 보냅니다."
+"\n"
+"%u subrayado o enlace distinto del tuyo: se conservó el tuyo."
+msgid_plural ""
+"\n"
+"%u subrayados o enlaces distintos de los tuyos: se conservaron los tuyos."
+msgstr[0] ""
+"\n"
+"강조 또는 연결 %u개가 달라 기존 것을 유지했습니다."
 
-#: ../ui/xi-menus.glade.h:112 ../ui/xi-menus-popup.gtkbuilder.h:100
-msgid "Send list via BibleSync"
-msgstr "BibleSync로 내보낼 목록입니다"
-
-#: ../ui/xi-menus.glade.h:113 ../ui/xi-menus-popup.gtkbuilder.h:102
-msgid "Export List"
-msgstr "내보내기 목록"
-
-#: ../ui/xi-menus.glade.h:114 ../ui/xi-menus-popup.gtkbuilder.h:2
-msgid "Open this bookmark in a new tab"
-msgstr "이 책갈피를 새 탭에서 엽니다"
-
-#: ../ui/xi-menus.glade.h:115 ../ui/xi-menus-popup.gtkbuilder.h:1
-msgid "Open in new tab"
-msgstr "새 탭에서 열기"
-
-#: ../ui/xi-menus.glade.h:116 ../ui/xi-menus-popup.gtkbuilder.h:4
-msgid "Open this bookmark in a dialog"
-msgstr "대화상자에서 이 책갈피를 엽니다"
-
-#: ../ui/xi-menus.glade.h:117 ../ui/xi-menus-popup.gtkbuilder.h:3
-msgid "Open in a dialog"
-msgstr "대화상자에서 열기"
-
-#: ../ui/xi-menus.glade.h:118 ../ui/xi-menus-popup.gtkbuilder.h:6
-msgid "Add new folder to selected folder"
-msgstr "선택한 폴더에 새 폴더 추가"
-
-#: ../ui/xi-menus.glade.h:120 ../ui/xi-menus-popup.gtkbuilder.h:8
-msgid "Insert new bookmark here"
-msgstr "새 책갈피를 여기에 삽입합니다"
-
-#: ../ui/xi-menus.glade.h:121 ../ui/xi-menus-popup.gtkbuilder.h:7
-msgid "Insert Bookmark"
-msgstr "책갈피 삽입"
-
-#: ../ui/xi-menus.glade.h:122 ../ui/xi-menus-popup.gtkbuilder.h:10
-msgid "Edit bookmark item"
-msgstr "책갈피 항목을 편집합니다"
-
-#: ../ui/xi-menus.glade.h:123 ../ui/xi-menus-popup.gtkbuilder.h:9
-msgid "_Edit Item"
-msgstr "항목 편집(_E)"
-
-#: ../ui/xi-menus.glade.h:124 ../ui/xi-menus-popup.gtkbuilder.h:12
-msgid "Delete item"
-msgstr "항목 삭제"
-
-#: ../ui/xi-menus.glade.h:126 ../ui/xi-menus-popup.gtkbuilder.h:14
-msgid "Expand all Bookmarks groups"
-msgstr "모든 책갈피 그룹을 확장합니다"
-
-#: ../ui/xi-menus.glade.h:127 ../ui/xi-menus-popup.gtkbuilder.h:13
-msgid "Expand All"
-msgstr "모두 확장"
-
-#: ../ui/xi-menus.glade.h:128 ../ui/xi-menus-popup.gtkbuilder.h:16
-msgid "Collapse all Bookmarks groups"
-msgstr "모든 책갈피 그룹을 접습니다"
-
-#: ../ui/xi-menus.glade.h:129 ../ui/xi-menus-popup.gtkbuilder.h:15
-msgid "Collapse All"
-msgstr "모두 접기"
-
-#: ../ui/xi-menus.glade.h:130 ../ui/xi-menus-popup.gtkbuilder.h:17
-msgid "Allow items to be moved from one folder to another"
-msgstr "한 폴더에서 다른 곳으로 항목 옮기기를 허용합니다"
-
-#: ../ui/xi-menus.glade.h:131 ../ui/xi-menus-popup.gtkbuilder.h:18
-msgid "Allow Reordering"
-msgstr "재정렬 허용"
-
-#: ../ui/xi-menus.glade.h:132 ../ui/xi-menus-popup.gtkbuilder.h:20
-msgid "Load other bookmarks file (default: from BibleTime)"
-msgstr "다른 책갈피 파일을 불러옵니다(기본: BiboeTime 에서)"
-
-#: ../ui/xi-menus.glade.h:133 ../ui/xi-menus-popup.gtkbuilder.h:19
-msgid "Import Bookmarks"
-msgstr "책갈피 가져오기"
-
-#: ../ui/xi-menus.glade.h:134 ../ui/xi-menus-popup.gtkbuilder.h:22
-msgid "Remove folder and save it"
-msgstr "폴더를 제거하고 저장"
-
-#: ../ui/xi-menus.glade.h:135 ../ui/xi-menus-popup.gtkbuilder.h:21
-msgid "Export Folder"
-msgstr "폴더 내보내기"
-
-#: ../ui/xi-menus.glade.h:136 ../ui/xi-menus-popup.gtkbuilder.h:31
-msgid "Open selected module in a new tab"
-msgstr "새 탭에 선택한 모듈을 엽니다"
-
-#: ../ui/xi-menus.glade.h:137 ../ui/xi-menus-popup.gtkbuilder.h:33
+#: src/gtk/buscar_notas.c:832
+#, c-format
 msgid ""
-"Open selected module in a\n"
-"\tseparate ['dialog'] window"
-msgstr ""
-"선택한 모듈을 분리한\n"
-"\t['대화상자'] 창에서 엽니다"
+"\n"
+"%u entrada no válida, ignorada."
+msgid_plural ""
+"\n"
+"%u entradas no válidas, ignoradas."
+msgstr[0] ""
+"\n"
+"잘못된 항목 %u개를 무시했습니다."
 
-#: ../ui/xi-menus.glade.h:139 ../ui/xi-menus-popup.gtkbuilder.h:32
-msgid "Open in a separate window"
-msgstr "새 창에서 열기"
+#: src/gtk/memorizacion.c:213
+#, c-format
+msgid "atrasado %d día"
+msgid_plural "atrasado %d días"
+msgstr[0] "%d일 지남"
 
-#: ../ui/xi-menus.glade.h:140 ../ui/xi-menus-popup.gtkbuilder.h:80
-msgid "Create a new simple prayer list"
-msgstr "간단한 새 기도 목록을 만듭니다"
+#: src/gtk/memorizacion.c:267
+#, c-format
+msgid "%d versículo para repasar hoy"
+msgid_plural "%d versículos para repasar hoy"
+msgstr[0] "오늘 복습할 구절 %d개"
 
-#: ../ui/xi-menus.glade.h:142 ../ui/xi-menus-popup.gtkbuilder.h:82
-msgid "Create a new subject prayer list"
-msgstr "새 주제의 기도 목록을 만듭니다"
+#: src/gtk/memorizacion.c:283
+#, c-format
+msgid "Tus versículos · %d en total"
+msgid_plural "Tus versículos · %d en total"
+msgstr[0] "내 구절 · 총 %d개"
 
-#: ../ui/xi-menus.glade.h:143 ../ui/xi-menus-popup.gtkbuilder.h:81
-msgid "Subject"
-msgstr "주제"
+#: src/gtk/memorizacion.c:303
+#, c-format
+msgid "Esta semana ya elegiste %d."
+msgid_plural "Esta semana ya elegiste %d."
+msgstr[0] "이번 주에 이미 %d개를 선택했습니다."
 
-#: ../ui/xi-menus.glade.h:144 ../ui/xi-menus-popup.gtkbuilder.h:84
-msgid "Create a new monthly journal"
-msgstr "월별 묵상 일기를 만듭니다"
+#: src/gtk/memorizacion.c:310
+#, c-format
+msgid "  ·  %d en la última caja"
+msgid_plural "  ·  %d en la última caja"
+msgstr[0] "  ·  마지막 상자에 %d개"
 
-#: ../ui/xi-menus.glade.h:145 ../ui/xi-menus-popup.gtkbuilder.h:83
-msgid "Monthly"
-msgstr "월별"
+#: src/gtk/plan_personal.c:70 src/gtk/plan_personal.c:258
+#, c-format
+msgid "%d capítulo"
+msgid_plural "%d capítulos"
+msgstr[0] "%d장"
 
-#: ../ui/xi-menus.glade.h:146 ../ui/xi-menus-popup.gtkbuilder.h:86
-msgid "Create a new daily journal"
-msgstr "묵상 일기를 만듭니다"
+#: src/gtk/plan_personal.c:168
+#, c-format
+msgid "%s y %d libro más"
+msgid_plural "%s y %d libros más"
+msgstr[0] "%s 및 다른 책 %d권"
 
-#: ../ui/xi-menus.glade.h:147 ../ui/xi-menus-popup.gtkbuilder.h:85
-msgid "Daily"
-msgstr "매일"
+#: src/gtk/plan_personal.c:262 src/main/planes_lectura.c:504
+#, c-format
+msgid "%d libro"
+msgid_plural "%d libros"
+msgstr[0] "%d권"
 
-#: ../ui/xi-menus.glade.h:148 ../ui/xi-menus-popup.gtkbuilder.h:88
-msgid "Create a new outlined topic"
-msgstr "개요 서술 주제를 만듭니다"
+#: src/gtk/plan_personal.c:266 src/gtk/planes_lectura.c:491
+#: src/main/planes_lectura.c:507
+#, c-format
+msgid "%d día"
+msgid_plural "%d días"
+msgstr[0] "%d일"
 
-#: ../ui/xi-menus.glade.h:149 ../ui/xi-menus-popup.gtkbuilder.h:87
-msgid "Outlined"
-msgstr "개요 서술"
+#: src/gtk/plan_personal.c:476
+#, c-format
+msgid ""
+"Llevas %d día marcado. Las marcas se quedan donde están: si cambias los "
+"libros o los días, el día 1 pasa a ser otra lectura."
+msgid_plural ""
+"Llevas %d días marcados. Las marcas se quedan donde están: si cambias los "
+"libros o los días, el día 1 pasa a ser otra lectura."
+msgstr[0] ""
+"%d일을 표시했습니다. 책이나 기간을 바꾸면 1일차의 읽기가 달라지지만 표시는 그"
+"대로 유지됩니다."
 
-#: ../ui/xi-menus.glade.h:150 ../ui/xi-menus-popup.gtkbuilder.h:90
-#, fuzzy
-msgid "Create a new book/chapter outline"
-msgstr "개요 서술 주제를 만듭니다"
+#: src/gtk/planes_lectura.c:418
+#, c-format
+msgid "Toca el día %d · vas %d día por detrás del calendario"
+msgid_plural "Toca el día %d · vas %d días por detrás del calendario"
+msgstr[0] "오늘 일정은 %d일차 · %d일 늦음"
 
-#: ../ui/xi-menus.glade.h:151 ../ui/xi-menus-popup.gtkbuilder.h:89
-#, fuzzy
-msgid "Book/Chapter"
-msgstr "장"
+#: src/gtk/planes_lectura.c:423
+#, c-format
+msgid "Toca el día %d · vas %d día adelantado"
+msgid_plural "Toca el día %d · vas %d días adelantado"
+msgstr[0] "오늘 일정은 %d일차 · %d일 앞섬"
 
-#: ../ui/xi-menus.glade.h:152 ../ui/xi-menus-popup.gtkbuilder.h:91
-msgid "Open module in editor or plain display window"
-msgstr "편집기 또는 빈 표시 창에서 모듈을 엽니다"
+#: src/gtk/planes_lectura.c:744
+#, c-format
+msgid "Vas %d día por detrás en «%s»."
+msgid_plural "Vas %d días por detrás en «%s»."
+msgstr[0] "%d일 늦음: “%s”."
 
-#: ../ui/xi-menus.glade.h:153 ../ui/xi-menus-popup.gtkbuilder.h:24
-msgid "Add a sub-item"
-msgstr "하위 항목 추가"
+#: src/gtk/progreso_lectura.c:164
+#, c-format
+msgid "%d de %d días · %d por detrás"
+msgid_plural "%d de %d días · %d por detrás"
+msgstr[0] "%d / %d일 · %d일 늦음"
 
-#: ../ui/xi-menus.glade.h:154 ../ui/xi-menus-popup.gtkbuilder.h:23
-msgid "Add Sub-Item"
-msgstr "하위 항목 추가"
+#: src/gtk/progreso_lectura.c:378
+#, c-format
+msgid "%d día seguido"
+msgid_plural "%d días seguidos"
+msgstr[0] "%d일 연속"
 
-#: ../ui/xi-menus.glade.h:155 ../ui/xi-menus-popup.gtkbuilder.h:26
-msgid "Add an item"
-msgstr "항목 추가"
+#: src/gtk/progreso_lectura.c:403
+#, c-format
+msgid "La más larga: %d día"
+msgid_plural "La más larga: %d días"
+msgstr[0] "최장: %d일"
 
-#: ../ui/xi-menus.glade.h:156 ../ui/xi-menus-popup.gtkbuilder.h:25
-msgid "Add Item"
-msgstr "항목 추가"
+#: src/gtk/progreso_lectura.c:407
+#, c-format
+msgid "  ·  %d día con lectura"
+msgid_plural "  ·  %d días con lectura"
+msgstr[0] "  ·  읽은 날 %d일"
 
-#: ../ui/xi-menus.glade.h:157 ../ui/xi-menus-popup.gtkbuilder.h:28
-msgid "Remove this item"
-msgstr "이 항목 제거"
+#: src/gtk/testimonios.c:300
+#, c-format
+msgid "%u fuente, y funciona sin internet."
+msgid_plural "%u fuentes, y funcionan sin internet."
+msgstr[0] "출처 %u개, 오프라인 사용 가능."
 
-#: ../ui/xi-menus.glade.h:159 ../ui/xi-menus-popup.gtkbuilder.h:30
-msgid "Edit this item"
-msgstr "이 항목 편집"
+#: src/gtk/versiculo_dia.c:120
+#, c-format
+msgid "Se guarda sola · %d día con algo escrito."
+msgid_plural "Se guarda sola · %d días con algo escrito."
+msgstr[0] "자동 저장 · 작성한 날 %d일."
 
-#~ msgid "Journals and prayer lists cannot be indexed."
-#~ msgstr "묵상 일기 및 기도 목록을 색인할 수 없습니다."
+#: src/main/notes_exchange.c:379
+#, c-format
+msgid "Exportadas de Ministerios Elim el %s · %u nota.\n"
+msgid_plural "Exportadas de Ministerios Elim el %s · %u notas.\n"
+msgstr[0] "Ministerios Elim에서 %s에 내보냄 · 메모 %u개.\n"
 
-#~ msgid "The last module list may not be deleted"
-#~ msgstr "마지막 모듈 목록은 삭제하지 않을 수도 있습니다"
+#: src/main/planes_lectura.c:490
+#, c-format
+msgid "%d capítulo por día"
+msgid_plural "%d capítulos por día"
+msgstr[0] "하루 %d장"
 
-#, fuzzy
-#~ msgid "Optimized (\"lucene\")"
-#~ msgstr "최적화(\"루씬\")"
-
-#~ msgid "Save AS"
-#~ msgstr "다른 이름으로 저장"
-
-#~ msgid "for "
-#~ msgstr "대상 "
-
-#~ msgid "Multi word"
-#~ msgstr "여러 단어 일치"
-
-#~ msgid "Plain text"
-#~ msgstr "일반 본문"
-
-#~ msgid "Open in separate window"
-#~ msgstr "새 창에서 열기"
-
-#~ msgid "Xiphos Bible Guide"
-#~ msgstr "xiphos 성경 안내"
-
-#~ msgid "Study the Bible"
-#~ msgstr "성경 공부"
-
-#~ msgid "_Attach/Detach Sidebar"
-#~ msgstr "가장자리 표시줄 붙이기/떼어내기(_A)"
-
-#~ msgid "Operate the sidebar as a separate window"
-#~ msgstr "가장자리 표시줄을 별도의 창으로 취급합니다"
+#: src/main/prayerlists.cc:527
+msgid "<b>Major Topic C</b><br/>"
+msgstr "<b>주제 다</b><br/.>"

@@ -24,6 +24,13 @@ G_BEGIN_DECLS
 void reading_window_bounds(gint chapter, gint chapter_count, gint radius,
 			   gint *first, gint *last);
 
+/* Startup is process-wide, but only the main Bible pane uses the smaller
+ * window. Zero radius keeps its existing whole-book meaning. */
+gboolean reading_window_first_paint_pending(void);
+void reading_window_first_painted(void);
+void reading_window_render_bounds(gint chapter, gint chapter_count, gint radius,
+				  gboolean main_pane, gint *first, gint *last);
+
 /* Whether reading `chapter` with [first, last] laid out needs the window
  * moved: a neighbouring chapter that exists in the book is not there, or
  * the chapter itself is not. */

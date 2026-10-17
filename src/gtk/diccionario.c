@@ -1,5 +1,5 @@
 /*
- * Biblia Elim — diálogo Diccionario / Léxico (offline)
+ * Ministerios Elim — diálogo Diccionario / Léxico (offline)
  */
 
 #ifdef HAVE_CONFIG_H
@@ -279,7 +279,7 @@ static void
 crear_dialogo(void)
 {
 	GtkBuilder *gxml = elim_gtk_builder_new();
-	if (!gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/diccionario.gtkbuilder", NULL)) {
+	if (!gtk_builder_add_from_resource(gxml, "/org/bibliaelim/ui/diccionario.gtkbuilder", NULL)) {
 		g_object_unref(gxml);
 		gui_generic_warning(_("No se pudo abrir el Diccionario."));
 		return;

@@ -198,7 +198,7 @@ if (HELP)
       endforeach(page)
       # install help files
       install (FILES ${install_pages}
-	DESTINATION ${HELPDIR}/${lang}/${PROJECT_NAME}
+	DESTINATION ${HELPDIR}/${lang}/biblia-elim
 	)
       # list figures to install
       set (install_media)
@@ -207,7 +207,7 @@ if (HELP)
       endforeach(media)
       # install figures
       install (FILES ${install_media}
-	DESTINATION ${HELPDIR}/${lang}/${PROJECT_NAME}/figures
+	DESTINATION ${HELPDIR}/${lang}/biblia-elim/figures
 	)
     endforeach (lang)
   endif (UNIX)

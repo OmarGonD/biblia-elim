@@ -4,6 +4,33 @@
 #
 #   cmake --build build --target pulpito_test && ./build/tests/pulpito_test
 
+# Execute pre-GTK policy from gui.c with projected target macros on the host.
+add_executable(selection_toolbar_test selection_toolbar_test.c)
+target_include_directories(selection_toolbar_test PRIVATE ${PROJECT_SOURCE_DIR}/src)
+target_link_libraries(selection_toolbar_test PRIVATE PkgConfig::Gtk)
+if(BUILD_TESTING)
+  add_test(NAME selection_toolbar_test COMMAND selection_toolbar_test)
+  set_tests_properties(selection_toolbar_test PROPERTIES SKIP_RETURN_CODE 77
+    TIMEOUT 20 ENVIRONMENT "GSK_RENDERER=cairo")
+endif()
+
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+  foreach(platform linux windows macos)
+    add_executable(gui_platform_${platform}_test gui_platform_defaults_test.c)
+    string(TOUPPER "${platform}" platform_upper)
+    target_compile_definitions(gui_platform_${platform}_test PRIVATE TEST_${platform_upper}=1)
+    target_include_directories(gui_platform_${platform}_test PRIVATE
+      ${PROJECT_SOURCE_DIR}/src ${PROJECT_BINARY_DIR})
+    target_link_libraries(gui_platform_${platform}_test PRIVATE PkgConfig::Core PkgConfig::Gtk)
+    if(BUILD_TESTING)
+      foreach(scenario default explicit older-gtk)
+        add_test(NAME gui_platform_${platform}_${scenario}
+          COMMAND gui_platform_${platform}_test ${scenario})
+      endforeach()
+    endif()
+  endforeach()
+endif()
+
 add_executable(app_language_test app_language_test.c
   ${PROJECT_SOURCE_DIR}/src/main/app_language.c)
 target_include_directories(app_language_test PRIVATE
@@ -74,12 +101,20 @@ endforeach()
 if (BUILD_TESTING AND UNIX)
   find_program (PYTHON3_EXECUTABLE NAMES python3)
   if (PYTHON3_EXECUTABLE)
+    if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+      add_test(NAME windows_release_build
+        COMMAND ${PYTHON3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/windows_release_build_test.py)
+    endif()
     add_test(NAME multilingual_catalog_test
       COMMAND ${PYTHON3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/multilingual_catalog_test.py
               ${PROJECT_BINARY_DIR} $<TARGET_FILE:app_language_test>
               $<TARGET_FILE:gtk_builder_language_test>)
     find_program (GRESOURCE_EXECUTABLE NAMES gresource)
     if (GRESOURCE_EXECUTABLE)
+      add_test(NAME preferences_resource_layout_test
+        COMMAND ${PYTHON3_EXECUTABLE}
+                ${CMAKE_CURRENT_SOURCE_DIR}/preferences_resource_layout_test.py
+                ${GRESOURCE_EXECUTABLE} $<TARGET_FILE:biblia-elim>)
       add_test (
         NAME navbar_resource_layout_test
         COMMAND ${PYTHON3_EXECUTABLE}
@@ -268,7 +303,48 @@ if (BUILD_TESTING)
   add_test (NAME notes_store_test COMMAND notes_store_test)
 endif ()
 
+# EDITION-101: complete editable Bible projects with book/verse comments.
+add_executable (editable_edition_test
+  editable_edition_test.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/editable_edition.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_module_writer.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sqlite/sqlite_bible_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc
+  )
+target_include_directories (editable_edition_test PRIVATE
+  ${PROJECT_SOURCE_DIR}/src
+  PkgConfig::Sqlite3
+  PkgConfig::Core
+  )
+target_link_libraries (editable_edition_test PRIVATE
+  PkgConfig::Sqlite3
+  PkgConfig::Core
+  )
+if (BUILD_TESTING)
+  add_test (NAME editable_edition_test COMMAND editable_edition_test)
+endif ()
+
+if(BUILD_TESTING AND PYTHON3_EXECUTABLE)
+  add_test(NAME curated_edition_test
+    COMMAND ${PYTHON3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/curated_edition_test.py
+      $<TARGET_FILE:biblia-curated-edition>)
+endif()
+
 # NOTES-EXPORT-101: exportar e importar las notas.
+add_executable(study_bible_pdf_test study_bible_pdf_test.cc)
+target_link_libraries(study_bible_pdf_test PRIVATE study_bible_pdf)
+# Poppler is a test reader only, never a runtime/export dependency.
+pkg_check_modules(TestPdf QUIET IMPORTED_TARGET "poppler-glib")
+if(TestPdf_FOUND)
+  target_link_libraries(study_bible_pdf_test PRIVATE PkgConfig::TestPdf)
+  target_compile_definitions(study_bible_pdf_test PRIVATE HAVE_TEST_POPPLER=1)
+endif()
+if(BUILD_TESTING)
+  add_test(NAME study_bible_pdf_test COMMAND study_bible_pdf_test)
+endif()
+
 pkg_check_modules (TestJson REQUIRED IMPORTED_TARGET "json-glib-1.0")
 add_executable (notes_exchange_test
   notes_exchange_test.c
@@ -480,6 +556,11 @@ add_executable (main_window_layout_test
   ${PROJECT_SOURCE_DIR}/src/gtk/main_window_layout.c
   )
 
+target_compile_definitions (main_window_layout_test
+  PRIVATE
+  SRCDIR="${PROJECT_SOURCE_DIR}"
+  )
+
 target_include_directories (main_window_layout_test
   PRIVATE
   ${PROJECT_SOURCE_DIR}/src/gtk
@@ -492,6 +573,24 @@ target_link_libraries (main_window_layout_test
   )
 
 add_test (NAME main_window_layout_test COMMAND main_window_layout_test)
+
+add_executable (studypad_lifecycle_contract_test
+  EXCLUDE_FROM_ALL
+  studypad_lifecycle_contract_test.c
+  )
+
+target_compile_definitions (studypad_lifecycle_contract_test
+  PRIVATE
+  SRCDIR="${PROJECT_SOURCE_DIR}"
+  )
+
+target_link_libraries (studypad_lifecycle_contract_test
+  PRIVATE
+  PkgConfig::Core
+  )
+
+add_test (NAME studypad_lifecycle_contract_test
+  COMMAND studypad_lifecycle_contract_test)
 
 add_executable (verse_navigation_readiness_test
   EXCLUDE_FROM_ALL
@@ -2013,9 +2112,11 @@ add_executable (content_resolver_sword_test EXCLUDE_FROM_ALL
   ${PROJECT_SOURCE_DIR}/src/backend/source_quirks.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sword_main.cc
   ${PROJECT_SOURCE_DIR}/src/backend/sword/sword_backend.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sword/bundled_devotional.cc
   ${PROJECT_SOURCE_DIR}/src/backend/bible_book_map.cc
   ${PROJECT_SOURCE_DIR}/src/backend/strong_id.cc
   ${PROJECT_SOURCE_DIR}/src/backend/morphology.cc
+  ${PROJECT_SOURCE_DIR}/src/main/app_language.c
   ${PROJECT_SOURCE_DIR}/src/main/busqueda_tildes.c)
 target_compile_options (content_resolver_sword_test PRIVATE
   -ffunction-sections)
@@ -2113,3 +2214,30 @@ if (BUILD_TESTING AND UNIX)
     COMMAND $<TARGET_FILE:sqlite_interlinear_test>
     )
 endif ()
+
+add_executable(preferences_layout_test preferences_layout_test.c)
+target_include_directories(preferences_layout_test PRIVATE ${PROJECT_SOURCE_DIR}/src)
+target_link_libraries(preferences_layout_test PRIVATE PkgConfig::Gtk)
+if(BUILD_TESTING)
+  add_test(NAME preferences_layout_test COMMAND preferences_layout_test
+    ${PROJECT_SOURCE_DIR}/ui/biblia-elim-style.css)
+  set_tests_properties(preferences_layout_test PROPERTIES SKIP_RETURN_CODE 77)
+endif()
+
+add_executable(bundled_devotional_test bundled_devotional_test.cc
+  ${PROJECT_SOURCE_DIR}/src/backend/sword/bundled_devotional.cc
+  ${PROJECT_SOURCE_DIR}/src/main/app_language.c)
+target_include_directories(bundled_devotional_test PRIVATE
+  ${PROJECT_SOURCE_DIR}/src ${PROJECT_BINARY_DIR})
+target_link_libraries(bundled_devotional_test PRIVATE
+  PkgConfig::Core PkgConfig::Sword PkgConfig::Gnome)
+if(BUILD_TESTING)
+  add_test(NAME bundled_devotional_test COMMAND bundled_devotional_test
+    ${PROJECT_SOURCE_DIR}/modulos/devotional)
+  if(PYTHON3_EXECUTABLE)
+    add_test(NAME devotional_package_test COMMAND ${PYTHON3_EXECUTABLE}
+      ${CMAKE_CURRENT_SOURCE_DIR}/devotional_package_test.py
+      ${PROJECT_SOURCE_DIR} ${PROJECT_BINARY_DIR}
+      $<TARGET_FILE:biblia-devotional-writer> $<TARGET_FILE:bundled_devotional_test>)
+  endif()
+endif()

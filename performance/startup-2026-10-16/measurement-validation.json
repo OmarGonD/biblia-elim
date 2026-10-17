@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "settings_and_tabs_identical": true,
+  "viewport_widths": [
+    890
+  ],
+  "cases": {
+    "before-debug": "5 samples per backend, diagnostics clean",
+    "before-optimized": "5 samples per backend, diagnostics clean",
+    "after-optimized": "5 samples per backend, diagnostics clean; viewport restore converged",
+    "after-cairo": "5 samples per backend, diagnostics clean; viewport restore converged",
+    "before-empty-cache": "5 samples per backend, diagnostics clean",
+    "after-empty-cache": "5 samples per backend, diagnostics clean; viewport restore converged"
+  }
+}

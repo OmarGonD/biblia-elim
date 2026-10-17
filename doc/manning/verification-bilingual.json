@@ -1,0 +1,76 @@
+{
+  "checked_on": "2026-10-16",
+  "sources_unchanged": {
+    "SpaRV": "2421dc3a5c676e8fca70809da37c9afa2ee6ec45a65adbcb3a491d6e939db9b5",
+    "KJV": "891bb9bdb680c974f0e88da8b55b3f503b8ca8a9117932389541b8d5a13eff62",
+    "BibliaOGD": "5b04f45f7211d2f5ad04be707360a8569386f09b884bada5a0f05b53de312851",
+    "BibliaManning": "9d95d63f036e43d6124c2d017324bd2a3085d6560f6682f0a8c7eab3ece8a84b"
+  },
+  "editions": [
+    {
+      "id": "ManningES",
+      "path": "/home/ogonzales/.local/share/biblia-elim/modules/ManningES.sqlite",
+      "sha256": "ea62edf310574e57b4781ce8c7c20178201458969627c6bdfc714c28fd87e61b",
+      "base": "SpaRV",
+      "language": "es",
+      "license": "Public Domain",
+      "verses": 31096,
+      "books": 66,
+      "documented_passages": 81,
+      "revisions": 11,
+      "unapplied_proposals": 3,
+      "book_notes": 66,
+      "glossary": 9,
+      "integrity": "ok",
+      "foreign_key_errors": 0,
+      "source_urls_in_every_documented_verse_comment": true
+    },
+    {
+      "id": "ManningEN",
+      "path": "/home/ogonzales/.local/share/biblia-elim/modules/ManningEN.sqlite",
+      "sha256": "af348e0d11391822eb0cf5b818ffa228bb6c915be817635e0ade76d9c59025eb",
+      "base": "KJV",
+      "language": "en",
+      "license": "GPL",
+      "verses": 31102,
+      "books": 66,
+      "documented_passages": 81,
+      "revisions": 11,
+      "unapplied_proposals": 3,
+      "book_notes": 66,
+      "glossary": 9,
+      "integrity": "ok",
+      "foreign_key_errors": 0,
+      "source_urls_in_every_documented_verse_comment": true
+    }
+  ],
+  "editorial_status": "All 81 decisions per edition remain pending human review; no endorsement by Manning.",
+  "spanish_project_backup": {
+    "path": "/home/ogonzales/.local/share/biblia-elim/edition-backups/BibliaManning-before-bilingual-20261016.sqlite",
+    "sha256": "9d95d63f036e43d6124c2d017324bd2a3085d6560f6682f0a8c7eab3ece8a84b",
+    "history_preserved_exactly": true
+  },
+  "greek_check": "The eleven revised English passages were compared with the installed TR Greek text; uncertain interpretations are documented in rationale.",
+  "validation": {
+    "build": [
+      "biblia-curated-edition",
+      "biblia-elim",
+      "editable_edition_test",
+      "sqlite_bible_backend_test"
+    ],
+    "curated_regression_cases": 9,
+    "sqlite_backend_cases": 16,
+    "ctest_passed": [
+      "gtk_lifecycle_smoke",
+      "editable_edition_test",
+      "curated_edition_test",
+      "sqlite_reader_tools_test",
+      "sqlite_interlinear_test",
+      "dropdown_helpers_test",
+      "sqlite_module_manager_test",
+      "sqlite_versification_test"
+    ],
+    "installed_reader_probe": "Both IDs: module open, canonical reference, revised verse, Genesis, phrase search and visible title PASS",
+    "git_diff_check": "PASS"
+  }
+}

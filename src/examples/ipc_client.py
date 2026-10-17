@@ -28,12 +28,12 @@ import gtk
 import dbus
 from dbus.mainloop.glib import DBusGMainLoop
 
-class ControlXiphos:
+class ControlBibliaElim:
 
     def receive_search_event(self, hits):
         self.liststore = gtk.ListStore(str)
         s = self.proxy.getNextSearchReference()
-        while s != 'XIPHOS_SEARCH_END':
+        while s != 'BIBLIA_ELIM_SEARCH_END':
             self.liststore.append([s,])
             s = self.proxy.getNextSearchReference()
         self.results_tree.set_model(self.liststore)
@@ -41,7 +41,7 @@ class ControlXiphos:
     def receive_navigation(self, reference):
         self.label_ref.set_text(reference)
 
-    def navigate_xiphos(self, widget, data=None):
+    def navigate_biblia_elim(self, widget, data=None):
         self.proxy.setCurrentReference('sword://' + self.entry.get_text())
 
     def destroy(self, widget, data=None):
@@ -53,13 +53,13 @@ class ControlXiphos:
 
         self.session_bus = dbus.SessionBus()
 
-        self.proxy = self.session_bus.get_object('org.xiphos.remote',
-                                                 '/org/xiphos/remote/ipc')
+        self.proxy = self.session_bus.get_object('org.bibliaelim.remote',
+                                                 '/org/bibliaelim/remote/ipc')
         self.session_bus.add_signal_receiver(self.receive_navigation,
-                                       dbus_interface='org.xiphos.remote',
+                                       dbus_interface='org.bibliaelim.remote',
                                        signal_name='navigationSignal')
         self.session_bus.add_signal_receiver(self.receive_search_event,
-                                            dbus_interface='org.xiphos.remote',
+                                            dbus_interface='org.bibliaelim.remote',
                                             signal_name='searchPerformedSignal')
 
         self.window = gtk.Window(gtk.WINDOW_TOPLEVEL)
@@ -80,8 +80,8 @@ class ControlXiphos:
         self.hbox.pack_start(self.entry)
         self.entry.show()
 
-        self.button = gtk.Button("Navigate Xiphos")
-        self.button.connect("clicked", self.navigate_xiphos, None)
+        self.button = gtk.Button("Navigate Biblia Elim")
+        self.button.connect("clicked", self.navigate_biblia_elim, None)
         self.hbox.pack_end(self.button)
         self.button.show()
 
@@ -124,5 +124,5 @@ class ControlXiphos:
         gtk.main()
 
 if __name__ == "__main__":
-    ipc = ControlXiphos()
+    ipc = ControlBibliaElim()
     ipc.main()

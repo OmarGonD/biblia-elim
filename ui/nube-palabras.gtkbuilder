@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated for Biblia Elim - Nube de palabras -->
+<!-- Generated for Ministerios Elim - Nube de palabras -->
 <interface>
   <requires lib="gtk" version="4.0"/>
   <object class="GtkDialog" id="dialog_nube_palabras">

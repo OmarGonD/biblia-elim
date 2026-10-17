@@ -8,6 +8,7 @@
 #include <iostream>
 #include <map>
 #include <string>
+#include <tuple>
 #include <vector>
 
 namespace {
@@ -234,19 +235,19 @@ int main()
 	check(importFixture("real-world/torres-amat-1882-psalm-1.xml", torresOutput,
 		torresOptions, torresStats), "Torres Amat fixture imports");
 
-	/* A book outside the supported set (the Vulgate appendix's 3 Esdras)
+	/* A book outside the supported set (3 Maccabees)
 	 * is still rejected, never mapped into another book. */
 	UsfmImportStats unsupportedStats;
 	std::string unsupportedError;
 	const bool unsupportedAccepted = importOsis(std::string(SRCDIR) +
-		"/tests/fixtures/osis/real-world/unsupported-esdras-structure.xml",
+		"/tests/fixtures/osis/real-world/unsupported-3macc-structure.xml",
 		unsupportedOutput, torresOptions, unsupportedStats, unsupportedError);
 	check(!unsupportedAccepted &&
-		unsupportedError == "invalid OSIS verse osisID: 1Esd.1.1",
-		"unsupported 1 Esdras is rejected explicitly");
+		unsupportedError == "invalid OSIS verse osisID: 3Macc.1.1",
+		"unsupported 3 Maccabees is rejected explicitly");
 	check(!g_file_test(unsupportedOutput.c_str(), G_FILE_TEST_EXISTS) &&
 		!g_file_test((unsupportedOutput + ".tmp").c_str(), G_FILE_TEST_EXISTS),
-		"unsupported 1 Esdras leaves no output artifacts");
+		"unsupported 3 Maccabees leaves no output artifacts");
 
 	/* Styled verse text: words of Christ (container and milestones across
 	 * verses), words the translators added, the divine name; the primary
@@ -350,14 +351,15 @@ int main()
 		deuteroDirectory + "/vulgata.sqlite",
 		options("vulgata", "Vulgata", "es", "Deuterocanon order", "fixture", "local"),
 		deuteroStats), "deuterocanonical fixture imports");
-	check(deuteroStats.books == 6 && deuteroStats.verses == 8,
+	check(deuteroStats.books == 11 && deuteroStats.verses == 13,
 		"deuterocanonical fixture counts");
 	{
 		SqliteBibleBackend backend(deuteroDirectory);
 		const std::string m = "vulgata";
 		const std::vector<std::string> ot = backend.bookNames(m, 1);
 		const std::vector<std::string> nt = backend.bookNames(m, 2);
-		check(ot == std::vector<std::string>({"Nehemías", "Tobías", "Judit", "Ester"}),
+		check(ot == std::vector<std::string>({"Nehemías", "Tobías", "Judit", "Ester",
+			"1 Esdras", "2 Esdras", "Oración de Manasés", "Salmo 151", "1 Enoc"}),
 			"Old Testament in the module's order, in Spanish");
 		check(nt == std::vector<std::string>({"Mateo", "Lucas"}),
 			"New Testament in Spanish");
@@ -372,18 +374,38 @@ int main()
 		check(backend.resolveKey(m, "Tob 1:1", alias) && alias.key == "Tobías 1:1",
 			"OSIS id resolves");
 		check(backend.resolveKey(m, "lucas 23:33", alias) &&
-			alias.key == "Lucas 23:33" && alias.bookIndex == 6,
+			alias.key == "Lucas 23:33" && alias.bookIndex == 11,
 			"a saved Spanish reference resolves, any case");
 		check(backend.resolveKey(m, "Luke 23:33", alias) && alias.key == "Lucas 23:33",
 			"English reference resolves");
+		const std::vector<std::tuple<std::string, int, std::string>> extraBooks = {
+			{"1 Esdras 1:1", 74, "1Esd"}, {"2 Esdras 1:1", 75, "2Esd"},
+			{"Prayer of Manasseh 1:1", 76, "PrMan"}, {"Psalm 151 1:1", 77, "Ps151"},
+			{"1 Enoch 1:1", 78, "1En"}
+		};
+		for (const auto &book : extraBooks) {
+			BibleKeyInfo resolved;
+			check(backend.resolveKey(m, std::get<0>(book), resolved) &&
+				resolved.reference.book == std::get<1>(book) &&
+				resolved.osisBook == std::get<2>(book),
+				"additional book id resolves distinctly: " + std::get<0>(book));
+			if (resolved.reference.book == std::get<1>(book)) {
+				const BibleVerseContent verse = backend.getVerseContent(m, resolved.reference, true);
+				check(verse.valid && !verse.plainText.empty(),
+					"additional deuterocanonical reference round trips: " + std::get<0>(book));
+			}
+		}
 		check(!backend.resolveKey(m, "Génesis 1:1", alias),
 			"a book the module lacks does not resolve");
 		check(backend.navigate(m, "Nehemías 1:2", 1) == "Tobías 1:1",
 			"next verse follows the module's order into Tobit");
 		check(backend.navigate(m, "Tobías 1:1", -1) == "Nehemías 1:2",
 			"previous verse goes back to Nehemiah");
-		check(backend.navigate(m, "Ester 1:1", 1) == "Mateo 1:1",
-			"next verse crosses into the New Testament");
+		check(backend.navigate(m, "Ester 1:1", 1) == "1 Esdras 1:1",
+			"next verse follows the extended Vulgate module order");
+		check(backend.navigate(m, "Salmo 151 1:1", 1) == "1 Enoc 1:1" &&
+			backend.navigate(m, "1 Enoc 1:1", 1) == "Mateo 1:1",
+			"module order includes 1 Enoch before the New Testament");
 		check(backend.setBook(m, "Tobías 1:1", 1, 3) == "Judit 1:1",
 			"setBook: third Old Testament book");
 		check(backend.setBook(m, "Tobías 1:1", 2, 1) == "Mateo 1:1",

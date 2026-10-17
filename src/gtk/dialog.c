@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * dialog.c -
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -531,7 +531,7 @@ nombre_aplicacion(void)
 	const char *nombre = g_get_application_name();
 
 	/* Un aviso muy temprano puede llegar antes de gui_init(). */
-	return (nombre && *nombre) ? nombre : "Biblia Elim";
+	return (nombre && *nombre) ? nombre : "Ministerios Elim";
 }
 
 void gui_generic_warning_modal(const char *message)

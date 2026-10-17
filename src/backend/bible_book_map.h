@@ -15,8 +15,8 @@ struct BibleBookDefinition {
 };
 
 const BibleBookDefinition *findBibleBookByUsfm(const std::string &code);
-/* The 66 books, then the deuterocanonical ones (ids 67-73); a book's id
- * is its index + 1. */
+/* The 66 books, deuterocanonical ones (ids 67-77), and 1 Enoch (78); a
+ * book's id is its index + 1. */
 const std::vector<BibleBookDefinition> &canonicalBibleBooks();
 /* The book's name in `language` ("es", "es-ES", "spa": Spanish, the
  * spelling SWORD's Spanish locale uses); English otherwise. */

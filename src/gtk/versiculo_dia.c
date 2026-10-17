@@ -1,5 +1,5 @@
 /*
- * Biblia Elim
+ * Ministerios Elim
  * versiculo_dia.c - diálogo Versículo del día
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -485,7 +485,7 @@ gui_versiculo_dia_dialog(GtkWindow *padre)
 
 	gxml = elim_gtk_builder_new();
 	if (!gtk_builder_add_from_resource(gxml,
-					   "/org/xiphos/ui/versiculo-dia.gtkbuilder",
+					   "/org/bibliaelim/ui/versiculo-dia.gtkbuilder",
 					   NULL)) {
 		g_object_unref(gxml);
 		gui_generic_warning(_("No se pudo abrir el diálogo Versículo "

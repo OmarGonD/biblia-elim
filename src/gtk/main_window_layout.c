@@ -113,6 +113,46 @@ main_study_reading_column(gint available_width, gint max_width, gint min_pad)
 	return col;
 }
 
+gboolean
+main_study_editor_visible(gboolean requested, gboolean standard_view,
+			  gboolean reading_mode)
+{
+	return requested && standard_view && !reading_mode;
+}
+
+gint
+main_study_editor_swapped_position(gint current_position, gint available_width)
+{
+	if (available_width <= 1)
+		return current_position;
+	return CLAMP(available_width - current_position, 1, available_width - 1);
+}
+
+gint
+main_study_editor_bible_width(gboolean swapped, gint position,
+			      gint available_width)
+{
+	if (available_width <= 1 || !swapped)
+		return MAX(0, position);
+	return MAX(0, available_width - position);
+}
+
+gint
+main_study_editor_responsive_font_zoom(gint bible_width, gint target_width)
+{
+	if (bible_width <= 0 || target_width <= 0)
+		return 100;
+	return CLAMP((bible_width * 100) / target_width, 1, 100);
+}
+
+gint
+main_study_editor_min_font_zoom(gint baseline_font_pixels)
+{
+	if (baseline_font_pixels <= 0)
+		return 100;
+	return (10 * 100 + baseline_font_pixels - 1) / baseline_font_pixels;
+}
+
 MainEscapeAction
 main_escape_action(gboolean ficha_active, gboolean reading_mode,
 		   gboolean focus_is_editable)

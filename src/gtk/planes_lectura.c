@@ -1,5 +1,5 @@
 /*
- * Biblia Elim
+ * Ministerios Elim
  * planes_lectura.c - diálogo Planes de lectura
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -823,7 +823,7 @@ refrescar_recordatorio(void)
 		texto = g_markup_printf_escaped(
 		    "<span size='small' alpha='70%%'>%s</span>",
 		    _("Aviso del escritorio, solo en este equipo. Llega "
-		      "aunque Biblia Elim esté cerrada. Si ya marcaste la "
+		      "aunque Ministerios Elim esté cerrada. Si ya marcaste la "
 		      "lectura del día, no avisa."));
 	else
 		texto = g_strdup("");
@@ -932,7 +932,7 @@ crear_dialogo(void)
 	const PL_PLAN *inicial;
 
 	if (!gtk_builder_add_from_resource(gxml,
-					   "/org/xiphos/ui/planes-lectura.gtkbuilder",
+					   "/org/bibliaelim/ui/planes-lectura.gtkbuilder",
 					   NULL)) {
 		g_object_unref(gxml);
 		gui_generic_warning(_("No se pudo abrir el diálogo Planes de lectura."));

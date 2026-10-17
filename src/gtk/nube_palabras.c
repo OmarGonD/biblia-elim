@@ -1,5 +1,5 @@
 /*
- * Biblia Elim
+ * Ministerios Elim
  * nube_palabras.c - diálogo Nube de palabras
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -919,7 +919,7 @@ crear_dialogo(void)
 {
 	GtkBuilder *gxml = elim_gtk_builder_new();
 	if (!gtk_builder_add_from_resource(gxml,
-					   "/org/xiphos/ui/nube-palabras.gtkbuilder",
+					   "/org/bibliaelim/ui/nube-palabras.gtkbuilder",
 					   NULL)) {
 		g_object_unref(gxml);
 		gui_generic_warning(_("No se pudo abrir el diálogo Nube de palabras."));

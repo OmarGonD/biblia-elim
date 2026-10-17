@@ -1,0 +1,7 @@
+{
+  "app": "/home/ogonzales/Projects/biblia_elim/build/performance/startup-2026-10-16/after-optimized",
+  "display": "current",
+  "renderer": "cairo",
+  "cache_state": "warm",
+  "error": "incomplete startup: performance/startup-2026-10-16/visual-comparison/after-cairo/sqlite-0.log; events={}"
+}

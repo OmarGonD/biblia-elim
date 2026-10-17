@@ -1,0 +1,37 @@
+...................................
+----------------------------------------------------------------------
+Ran 35 tests in 0.853s
+
+OK
+# Startup performance baseline
+
+## fresh-profile
+
+Samples: 7. Dominant median phase: `APP_START->GTK_INITIALIZED`.
+
+| Phase | Median (ms) | MAD (ms) | Min (ms) | Max (ms) |
+|---|---:|---:|---:|---:|
+| `APP_START->GTK_INITIALIZED` | 10.0 | 0.0 | 10.0 | 10.0 |
+| `GTK_INITIALIZED->WINDOW_CREATED` | 10.0 | 0.0 | 10.0 | 10.0 |
+| `WINDOW_CREATED->MODULE_READY` | 10.0 | 0.0 | 10.0 | 10.0 |
+| `MODULE_READY->FIRST_CONTENT_REQUEST` | 10.0 | 0.0 | 10.0 | 10.0 |
+| `FIRST_CONTENT_REQUEST->FIRST_CONTENT_READY` | 10.0 | 0.0 | 10.0 | 10.0 |
+| `FIRST_CONTENT_READY->FRONTEND_DISPLAY_DONE` | 10.0 | 0.0 | 10.0 | 10.0 |
+| `FRONTEND_DISPLAY_DONE->GTK_MAIN_ENTER` | 10.0 | 0.0 | 10.0 | 10.0 |
+| `APP_START->GTK_MAIN_ENTER` | 70.0 | 0.0 | 70.0 | 70.0 |
+
+## reused-profile
+
+Samples: 7. Dominant median phase: `APP_START->GTK_INITIALIZED`.
+
+| Phase | Median (ms) | MAD (ms) | Min (ms) | Max (ms) |
+|---|---:|---:|---:|---:|
+| `APP_START->GTK_INITIALIZED` | 10.0 | 0.0 | 10.0 | 10.0 |
+| `GTK_INITIALIZED->WINDOW_CREATED` | 10.0 | 0.0 | 10.0 | 10.0 |
+| `WINDOW_CREATED->MODULE_READY` | 10.0 | 0.0 | 10.0 | 10.0 |
+| `MODULE_READY->FIRST_CONTENT_REQUEST` | 10.0 | 0.0 | 10.0 | 10.0 |
+| `FIRST_CONTENT_REQUEST->FIRST_CONTENT_READY` | 10.0 | 0.0 | 10.0 | 10.0 |
+| `FIRST_CONTENT_READY->FRONTEND_DISPLAY_DONE` | 10.0 | 0.0 | 10.0 | 10.0 |
+| `FRONTEND_DISPLAY_DONE->GTK_MAIN_ENTER` | 10.0 | 0.0 | 10.0 | 10.0 |
+| `APP_START->GTK_MAIN_ENTER` | 70.0 | 0.0 | 70.0 | 70.0 |
+

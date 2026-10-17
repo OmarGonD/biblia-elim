@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * export_bookmarks.c -
  *
  * Copyright (C) 2003-2026 Xiphos Developer Team
@@ -644,7 +644,7 @@ void gui_export_bookmarks_dialog(gint export_type, GList *verses)
 	}
 
 	builder = elim_gtk_builder_new();
-	gtk_builder_add_from_resource(builder, "/org/xiphos/ui/xi-export-bookmarks.gtkbuilder", NULL);
+	gtk_builder_add_from_resource(builder, "/org/bibliaelim/ui/xi-export-bookmarks.gtkbuilder", NULL);
 
 	dialog =
 	    GTK_WIDGET(gtk_builder_get_object(builder, "dialog_export_bookmarks"));

@@ -64,14 +64,16 @@ int main(int argc, char **argv)
 		"Strong words: %zu\nStrong IDs: %zu\nFootnotes: %zu\nCross references: %zu\n\n"
 		"Unknown inline elements: %zu\nUnknown structural elements: %zu\n"
 		"Ignored attributes: %zu\nMorph attributes: %zu\nNon-Strong lemmas: %zu\n"
-		"Range references: %zu\nUnresolved targets: %zu\n\nImport time: %.3f s\nOutput: %s\n",
+		"Range references: %zu\nResolved ranges: %zu\nUnresolved ranges: %zu\n"
+		"Unresolved reference tokens: %zu\n\nImport time: %.3f s\nOutput: %s\n",
 		options.moduleId.c_str(), stats.books, stats.chapters, stats.verses,
 		stats.containerVerses, stats.milestoneVerses, stats.wordsWithStrong,
 		stats.strongIdsImported, stats.footnotesImported,
 		stats.crossReferencesImported, total(stats.unknownInlineElements),
 		total(stats.unknownStructuralElements), total(stats.ignoredAttributes),
 		total(stats.morphAttributes), total(stats.nonStrongLemmaAttributes),
-		total(stats.rangeReferences), total(stats.unresolvedReferences), seconds,
+		total(stats.rangeReferences), stats.crossrefRangesResolved,
+		stats.crossrefRangesUnresolved, total(stats.unresolvedReferences), seconds,
 		output.c_str());
 	printDetails("Unknown inline element keys", stats.unknownInlineElements);
 	printDetails("Unknown structural element keys", stats.unknownStructuralElements);

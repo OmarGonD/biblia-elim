@@ -52,8 +52,15 @@ public:
 		const std::size_t slash = file.rfind('/');
 		std::ostringstream key;
 		key << (slash == std::string::npos ? file : file.substr(slash + 1)) << '|'
-		    << st.st_size << '|' << st.st_mtim.tv_sec << '.' << st.st_mtim.tv_nsec
+		    << st.st_size
+#ifdef _WIN32
+		    /* MinGW's struct stat has no sub-second times; the header counters below cover it. */
+		    << '|' << st.st_mtime << '.' << 0
+		    << '|' << st.st_ctime << '.' << 0
+#else
+		    << '|' << st.st_mtim.tv_sec << '.' << st.st_mtim.tv_nsec
 		    << '|' << st.st_ctim.tv_sec << '.' << st.st_ctim.tv_nsec
+#endif
 		    << '|' << st.st_ino;
 		/* SQLite's own change counters (header bytes 24 and 92): a file
 		 * rewritten within the clock's granularity still differs. */
@@ -130,8 +137,14 @@ struct Module {
 	BibleModuleCapabilities capabilities;
 	bool hasFts = false;
 	Statement verse, chapter, bookByName, bookInfo, books, counts;
-	Statement annotation, headings, spans, footnotes, crossReferences, crossReferenceTargets;
+	Statement annotation, headings, spans, footnotes, crossReferences, crossReferenceTargets, crossReferenceRanges, crossReferenceRangeTargets;
 	Statement words;
+	/* Chapter variants feed the reading pane in a bounded number of queries
+	 * instead of repeating every annotation query for every verse. */
+	Statement chapterContent, chapterAnnotations, chapterHeadings, chapterSpans;
+	Statement chapterFootnotes, chapterCrossReferences, chapterCrossReferenceTargets;
+	Statement chapterCrossReferenceRanges, chapterCrossReferenceRangeTargets;
+	Statement chapterWords;
 	bool wordsIncludeMorphology = false;
 	/* Strong and morphology are validated against the whole module (every
 	 * row), which costs hundreds of milliseconds on an annotated Bible. It
@@ -161,10 +174,51 @@ void reset(Statement &statement)
 	sqlite3_clear_bindings(statement.value);
 }
 
+/* A completed row is still an active SQLite read cursor until its statement
+ * is reset. Release cached read statements when a backend operation returns
+ * so an editable project can be written while it is open in the reader. */
+void resetModuleStatements(Module &module)
+{
+	Statement *statements[] = {
+		&module.verse, &module.chapter, &module.bookByName, &module.bookInfo,
+		&module.books, &module.counts, &module.annotation, &module.headings,
+		&module.spans, &module.footnotes, &module.crossReferences,
+		&module.crossReferenceTargets, &module.crossReferenceRanges,
+		&module.crossReferenceRangeTargets, &module.words,
+		&module.chapterContent, &module.chapterAnnotations,
+		&module.chapterHeadings, &module.chapterSpans, &module.chapterFootnotes,
+		&module.chapterCrossReferences, &module.chapterCrossReferenceTargets,
+		&module.chapterCrossReferenceRanges,
+		&module.chapterCrossReferenceRangeTargets, &module.chapterWords,
+		&module.strongOccurrences, &module.morphologyOccurrences, &module.next,
+		&module.previous, &module.firstInBook, &module.firstInChapter,
+		&module.bookOrdinal, &module.searchFts, &module.searchText,
+		&module.searchTextCase
+	};
+	for (Statement *statement : statements)
+		if (statement->value) reset(*statement);
+}
+
+struct ResetModuleStatementsOnExit {
+	Module &module;
+	~ResetModuleStatementsOnExit() { resetModuleStatements(module); }
+};
+
 std::string text(sqlite3_stmt *statement, int column)
 {
 	const unsigned char *value = sqlite3_column_text(statement, column);
 	return value ? reinterpret_cast<const char *>(value) : std::string();
+}
+
+bool parseTextStyle(const std::string &value, BibleTextStyle &style)
+{
+	if (value == "added") style = BibleTextStyle::Added;
+	else if (value == "words_of_christ") style = BibleTextStyle::WordsOfChrist;
+	else if (value == "divine_name") style = BibleTextStyle::DivineName;
+	else if (value == "italic") style = BibleTextStyle::Italic;
+	else if (value == "bold") style = BibleTextStyle::Bold;
+	else return false;
+	return true;
 }
 
 bool tableExists(sqlite3 *db, const char *name)
@@ -430,6 +484,7 @@ std::unique_ptr<Module> openModule(const std::string &path,
 	const bool valid =
 		prepare(module->db, "SELECT text FROM verses WHERE book_id=? AND chapter=? AND verse=?", module->verse) &&
 		prepare(module->db, "SELECT v.verse,v.text,b.name,b.osis FROM verses v JOIN books b USING(book_id) WHERE v.book_id=? AND v.chapter=? ORDER BY v.verse", module->chapter) &&
+		prepare(module->db, "SELECT verse,text FROM verses WHERE book_id=? AND chapter=? ORDER BY verse", module->chapterContent) &&
 		prepare(module->db, "SELECT book_id,name,osis,testament FROM books WHERE name=? COLLATE NOCASE OR osis=? COLLATE NOCASE LIMIT 1", module->bookByName) &&
 		prepare(module->db, "SELECT name,osis FROM books WHERE book_id=?", module->bookInfo) &&
 		prepare(module->db, "SELECT name FROM books WHERE testament=? ORDER BY position", module->books) &&
@@ -445,12 +500,38 @@ std::unique_ptr<Module> openModule(const std::string &path,
 	if (module->hasFts && !prepare(module->db,
 		"SELECT b.testament,v.book_id,v.chapter,v.verse,v.text,b.name,b.osis FROM verses_fts f JOIN verses v ON v.rowid=f.rowid JOIN books b USING(book_id) WHERE verses_fts MATCH ? ORDER BY b.position,v.chapter,v.verse LIMIT ? OFFSET ?",
 		module->searchFts)) module->hasFts = false;
-	if (hasAnnotations) prepare(module->db, "SELECT paragraph_break FROM verse_annotations WHERE book_id=? AND chapter=? AND verse=?", module->annotation);
-	if (hasHeadings) prepare(module->db, "SELECT text FROM headings WHERE book_id=? AND chapter=? AND verse=? ORDER BY sequence", module->headings);
-	if (hasSpans) prepare(module->db, "SELECT start,length,style FROM verse_spans WHERE book_id=? AND chapter=? AND verse=? ORDER BY start", module->spans);
-	if (hasFootnotes) prepare(module->db, "SELECT offset,caller,body FROM footnotes WHERE book_id=? AND chapter=? AND verse=? ORDER BY sequence", module->footnotes);
-	if (hasCrossrefs) prepare(module->db, "SELECT sequence,offset,display_text FROM cross_references WHERE book_id=? AND chapter=? AND verse=? ORDER BY sequence", module->crossReferences);
-	if (hasCrossrefs && tableExists(module->db, "cross_reference_targets")) prepare(module->db, "SELECT sequence,target_sequence,target_book_id,target_chapter,target_verse FROM cross_reference_targets WHERE book_id=? AND chapter=? AND verse=? ORDER BY sequence,target_sequence", module->crossReferenceTargets);
+	if (hasAnnotations) {
+		prepare(module->db, "SELECT paragraph_break FROM verse_annotations WHERE book_id=? AND chapter=? AND verse=?", module->annotation);
+		prepare(module->db, "SELECT verse,paragraph_break FROM verse_annotations WHERE book_id=? AND chapter=? ORDER BY verse", module->chapterAnnotations);
+	}
+	if (hasHeadings) {
+		prepare(module->db, "SELECT text FROM headings WHERE book_id=? AND chapter=? AND verse=? ORDER BY sequence", module->headings);
+		prepare(module->db, "SELECT verse,text FROM headings WHERE book_id=? AND chapter=? ORDER BY verse,sequence", module->chapterHeadings);
+	}
+	if (hasSpans) {
+		prepare(module->db, "SELECT start,length,style FROM verse_spans WHERE book_id=? AND chapter=? AND verse=? ORDER BY start", module->spans);
+		prepare(module->db, "SELECT verse,start,length,style FROM verse_spans WHERE book_id=? AND chapter=? ORDER BY verse,start", module->chapterSpans);
+	}
+	if (hasFootnotes) {
+		prepare(module->db, "SELECT offset,caller,body FROM footnotes WHERE book_id=? AND chapter=? AND verse=? ORDER BY sequence", module->footnotes);
+		prepare(module->db, "SELECT verse,offset,caller,body FROM footnotes WHERE book_id=? AND chapter=? ORDER BY verse,sequence", module->chapterFootnotes);
+	}
+	if (hasCrossrefs) {
+		prepare(module->db, "SELECT sequence,offset,display_text FROM cross_references WHERE book_id=? AND chapter=? AND verse=? ORDER BY sequence", module->crossReferences);
+		prepare(module->db, "SELECT verse,sequence,offset,display_text FROM cross_references WHERE book_id=? AND chapter=? ORDER BY verse,sequence", module->chapterCrossReferences);
+	}
+	if (hasCrossrefs && tableExists(module->db, "cross_reference_targets")) {
+		prepare(module->db, "SELECT sequence,target_sequence,target_book_id,target_chapter,target_verse FROM cross_reference_targets WHERE book_id=? AND chapter=? AND verse=? ORDER BY sequence,target_sequence", module->crossReferenceTargets);
+		prepare(module->db, "SELECT verse,sequence,target_sequence,target_book_id,target_chapter,target_verse FROM cross_reference_targets WHERE book_id=? AND chapter=? ORDER BY verse,sequence,target_sequence", module->chapterCrossReferenceTargets);
+	}
+	if (hasCrossrefs && tableExists(module->db, "cross_reference_ranges")) {
+		prepare(module->db, "SELECT sequence,range_sequence,start_testament,start_book_id,start_chapter,start_verse,end_testament,end_book_id,end_chapter,end_verse FROM cross_reference_ranges WHERE book_id=? AND chapter=? AND verse=? ORDER BY sequence,range_sequence", module->crossReferenceRanges);
+		prepare(module->db, "SELECT verse,sequence,range_sequence,start_testament,start_book_id,start_chapter,start_verse,end_testament,end_book_id,end_chapter,end_verse FROM cross_reference_ranges WHERE book_id=? AND chapter=? ORDER BY verse,sequence,range_sequence", module->chapterCrossReferenceRanges);
+	}
+	if (hasCrossrefs && tableExists(module->db, "cross_reference_range_targets")) {
+		prepare(module->db, "SELECT sequence,range_sequence,target_testament,target_book_id,target_chapter,target_verse FROM cross_reference_range_targets WHERE book_id=? AND chapter=? AND verse=? ORDER BY sequence,range_sequence,target_sequence", module->crossReferenceRangeTargets);
+		prepare(module->db, "SELECT verse,sequence,range_sequence,target_testament,target_book_id,target_chapter,target_verse FROM cross_reference_range_targets WHERE book_id=? AND chapter=? ORDER BY verse,sequence,range_sequence,target_sequence", module->chapterCrossReferenceRangeTargets);
+	}
 	module->capabilities.footnotes = module->capabilities.footnotes && hasFootnotes && module->footnotes.value;
 	module->capabilities.crossrefs = module->capabilities.crossrefs && hasCrossrefs && module->crossReferences.value;
 	return module;
@@ -483,6 +564,15 @@ void prepareAnnotations(Module *module)
 			"m.word_sequence=vw.sequence WHERE vw.book_id=? AND "
 			"vw.chapter=? AND vw.verse=? ORDER BY vw.sequence,"
 			"m.morphology_sequence", module->words);
+		if (module->wordsIncludeMorphology)
+			prepare(module->db,
+				"SELECT vw.verse,vw.sequence,vw.start,vw.length,vw.text,vw.strong,"
+				"m.morphology_sequence,m.scheme,m.code FROM verse_words vw "
+				"LEFT JOIN verse_word_morphology m ON m.book_id=vw.book_id AND "
+				"m.chapter=vw.chapter AND m.verse=vw.verse AND "
+				"m.word_sequence=vw.sequence WHERE vw.book_id=? AND "
+				"vw.chapter=? ORDER BY vw.verse,vw.sequence,m.morphology_sequence",
+				module->chapterWords);
 		module->capabilities.morphology = module->wordsIncludeMorphology;
 		const char *indexedMorphology =
 			"SELECT b.testament,m.book_id,m.chapter,m.verse,v.text,vw.text,"
@@ -508,8 +598,10 @@ void prepareAnnotations(Module *module)
 		module->capabilities.morphology = module->capabilities.morphology &&
 			module->morphologyOccurrences.value;
 	}
-	if (hasWords && !module->words.value)
+	if (hasWords && !module->words.value) {
 		prepare(module->db, "SELECT start,length,text,strong FROM verse_words WHERE book_id=? AND chapter=? AND verse=? ORDER BY sequence", module->words);
+		prepare(module->db, "SELECT verse,sequence,start,length,text,strong FROM verse_words WHERE book_id=? AND chapter=? ORDER BY verse,sequence", module->chapterWords);
+	}
 	if (hasStrongIndex && hasCanonicalStrongIndex) {
 		if (!prepare(module->db, "SELECT b.testament,s.book_id,s.chapter,s.verse,v.text,vw.text,b.name FROM books b CROSS JOIN verse_word_strongs s INDEXED BY verse_word_strongs_canonical JOIN verse_words vw USING(book_id,chapter,verse,sequence) JOIN verses v USING(book_id,chapter,verse) WHERE s.strong=? AND s.book_id=b.book_id ORDER BY b.position,s.chapter,s.verse,s.sequence LIMIT ? OFFSET ?", module->strongOccurrences))
 			prepare(module->db, "SELECT b.testament,v.book_id,v.chapter,v.verse,v.text,vw.text,b.name FROM verse_word_strongs s JOIN verses v USING(book_id,chapter,verse) JOIN verse_words vw USING(book_id,chapter,verse,sequence) JOIN books b USING(book_id) WHERE s.strong=? ORDER BY b.position,v.chapter,v.verse,vw.sequence LIMIT ? OFFSET ?", module->strongOccurrences);
@@ -583,7 +675,10 @@ BibleModuleCapabilities SqliteBibleBackend::moduleCapabilities(const std::string
 {
 	BibleModuleCapabilities result;
 	Module *module = withAnnotations(impl_->find(id));
-	if (module) result = module->capabilities;
+	if (module) {
+		ResetModuleStatementsOnExit resetOnExit{*module};
+		result = module->capabilities;
+	}
 	return result;
 }
 std::string SqliteBibleBackend::moduleDescription(const std::string &id) const
@@ -682,6 +777,7 @@ bool SqliteBibleBackend::resolveKey(const std::string &id, const std::string &ke
 	std::string bookName;
 	int chapter = 0, verse = 0;
 	if (!module || !splitReference(key, bookName, chapter, verse)) return false;
+	ResetModuleStatementsOnExit resetOnExit{*module};
 	reset(module->bookByName);
 	sqlite3_bind_text(module->bookByName.value, 1, bookName.c_str(), -1, SQLITE_TRANSIENT);
 	sqlite3_bind_text(module->bookByName.value, 2, bookName.c_str(), -1, SQLITE_TRANSIENT);
@@ -735,6 +831,7 @@ std::string SqliteBibleBackend::osisRefFromKey(const std::string &id,
 	BibleKeyInfo info;
 	if (!resolveKey(id, key, info)) return {};
 	Module *module = impl_->find(id);
+	ResetModuleStatementsOnExit resetOnExit{*module};
 	reset(module->bookInfo);
 	sqlite3_bind_int(module->bookInfo.value, 1, info.reference.book);
 	if (sqlite3_step(module->bookInfo.value) != SQLITE_ROW) return {};
@@ -748,6 +845,7 @@ BibleVerseContent SqliteBibleBackend::getVerseContent(
 	BibleVerseContent result;
 	Module *module = withAnnotations(impl_->find(id));
 	if (!module) return result;
+	ResetModuleStatementsOnExit resetOnExit{*module};
 	reset(module->verse);
 	sqlite3_bind_int(module->verse.value, 1, reference.book);
 	sqlite3_bind_int(module->verse.value, 2, reference.chapter);
@@ -782,13 +880,8 @@ BibleVerseContent SqliteBibleBackend::getVerseContent(
 			span.start = sqlite3_column_int(module->spans.value, 0);
 			span.length = sqlite3_column_int(module->spans.value, 1);
 			/* Unknown styles (from a newer writer) are ignored. */
-			const std::string style = text(module->spans.value, 2);
-			if (style == "added") span.style = BibleTextStyle::Added;
-			else if (style == "words_of_christ") span.style = BibleTextStyle::WordsOfChrist;
-			else if (style == "divine_name") span.style = BibleTextStyle::DivineName;
-			else if (style == "italic") span.style = BibleTextStyle::Italic;
-			else if (style == "bold") span.style = BibleTextStyle::Bold;
-			else continue;
+			if (!parseTextStyle(text(module->spans.value, 2), span.style))
+				continue;
 			result.spans.push_back(span);
 		}
 	}
@@ -827,9 +920,234 @@ BibleVerseContent SqliteBibleBackend::getVerseContent(
 	if (module->crossReferences.value) {
 		reset(module->crossReferences); sqlite3_bind_int(module->crossReferences.value,1,reference.book); sqlite3_bind_int(module->crossReferences.value,2,reference.chapter); sqlite3_bind_int(module->crossReferences.value,3,reference.verse);
 		std::map<int,std::vector<BibleReference>> targets; if(module->crossReferenceTargets.value){ reset(module->crossReferenceTargets); sqlite3_bind_int(module->crossReferenceTargets.value,1,reference.book); sqlite3_bind_int(module->crossReferenceTargets.value,2,reference.chapter); sqlite3_bind_int(module->crossReferenceTargets.value,3,reference.verse); while(sqlite3_step(module->crossReferenceTargets.value)==SQLITE_ROW) targets[sqlite3_column_int(module->crossReferenceTargets.value,0)].push_back({0,sqlite3_column_int(module->crossReferenceTargets.value,2),sqlite3_column_int(module->crossReferenceTargets.value,3),sqlite3_column_int(module->crossReferenceTargets.value,4)}); }
-		while (sqlite3_step(module->crossReferences.value)==SQLITE_ROW) { BibleCrossReference x; int seq=sqlite3_column_int(module->crossReferences.value,0); x.offset=sqlite3_column_int(module->crossReferences.value,1); x.displayText=text(module->crossReferences.value,2); x.references=targets[seq]; if(x.references.empty()) parseCrossTargets(x.displayText,x.references); result.crossReferences.push_back(std::move(x)); }
+		std::map<int,std::vector<BibleCrossReference::Range>> ranges;
+		if (module->crossReferenceRanges.value) {
+			reset(module->crossReferenceRanges);
+			sqlite3_bind_int(module->crossReferenceRanges.value, 1, reference.book);
+			sqlite3_bind_int(module->crossReferenceRanges.value, 2, reference.chapter);
+			sqlite3_bind_int(module->crossReferenceRanges.value, 3, reference.verse);
+			while (sqlite3_step(module->crossReferenceRanges.value) == SQLITE_ROW) {
+				BibleCrossReference::Range range;
+				range.start = {sqlite3_column_int(module->crossReferenceRanges.value, 2),
+					sqlite3_column_int(module->crossReferenceRanges.value, 3),
+					sqlite3_column_int(module->crossReferenceRanges.value, 4),
+					sqlite3_column_int(module->crossReferenceRanges.value, 5)};
+				range.end = {sqlite3_column_int(module->crossReferenceRanges.value, 6),
+					sqlite3_column_int(module->crossReferenceRanges.value, 7),
+					sqlite3_column_int(module->crossReferenceRanges.value, 8),
+					sqlite3_column_int(module->crossReferenceRanges.value, 9)};
+				ranges[sqlite3_column_int(module->crossReferenceRanges.value, 0)].push_back(range);
+			}
+		}
+		if (module->crossReferenceRangeTargets.value) {
+			reset(module->crossReferenceRangeTargets);
+			sqlite3_bind_int(module->crossReferenceRangeTargets.value, 1, reference.book);
+			sqlite3_bind_int(module->crossReferenceRangeTargets.value, 2, reference.chapter);
+			sqlite3_bind_int(module->crossReferenceRangeTargets.value, 3, reference.verse);
+			while (sqlite3_step(module->crossReferenceRangeTargets.value) == SQLITE_ROW) {
+				const int sequence = sqlite3_column_int(module->crossReferenceRangeTargets.value, 0);
+				const int range = sqlite3_column_int(module->crossReferenceRangeTargets.value, 1);
+				auto &rangeList = ranges[sequence];
+				if (range >= 0 && static_cast<std::size_t>(range) < rangeList.size())
+					rangeList[range].expandedReferences.push_back({
+						sqlite3_column_int(module->crossReferenceRangeTargets.value, 2),
+						sqlite3_column_int(module->crossReferenceRangeTargets.value, 3),
+						sqlite3_column_int(module->crossReferenceRangeTargets.value, 4),
+						sqlite3_column_int(module->crossReferenceRangeTargets.value, 5)});
+			}
+		}
+		while (sqlite3_step(module->crossReferences.value)==SQLITE_ROW) { BibleCrossReference x; int seq=sqlite3_column_int(module->crossReferences.value,0); x.offset=sqlite3_column_int(module->crossReferences.value,1); x.displayText=text(module->crossReferences.value,2); x.references=targets[seq]; x.ranges=ranges[seq]; if(x.references.empty() && x.ranges.empty()) parseCrossTargets(x.displayText,x.references); result.crossReferences.push_back(std::move(x)); }
 	}
 	result.valid = true;
+	return result;
+}
+
+std::vector<BibleVerseContent> SqliteBibleBackend::getChapterContent(
+	const std::string &id, const BibleReference &chapterReference,
+	int verseCount, bool)
+{
+	std::vector<BibleVerseContent> result;
+	Module *module = withAnnotations(impl_->find(id));
+	if (!module || verseCount < 1)
+		return result;
+	ResetModuleStatementsOnExit resetOnExit{*module};
+	result.resize(static_cast<std::size_t>(verseCount));
+
+	auto contentAt = [&](int verse) -> BibleVerseContent * {
+		return verse >= 1 && verse <= verseCount
+			? &result[static_cast<std::size_t>(verse - 1)] : nullptr;
+	};
+	auto bindChapter = [&](Statement &statement) {
+		reset(statement);
+		sqlite3_bind_int(statement.value, 1, chapterReference.book);
+		sqlite3_bind_int(statement.value, 2, chapterReference.chapter);
+	};
+
+	bindChapter(module->chapterContent);
+	while (sqlite3_step(module->chapterContent.value) == SQLITE_ROW) {
+		BibleVerseContent *content = contentAt(
+			sqlite3_column_int(module->chapterContent.value, 0));
+		if (!content) continue;
+		content->reference = { chapterReference.testament,
+			chapterReference.book, chapterReference.chapter,
+			sqlite3_column_int(module->chapterContent.value, 0) };
+		content->plainText = text(module->chapterContent.value, 1);
+		content->renderedText = content->plainText;
+		content->valid = true;
+	}
+	if (module->chapterAnnotations.value) {
+		bindChapter(module->chapterAnnotations);
+		while (sqlite3_step(module->chapterAnnotations.value) == SQLITE_ROW) {
+			BibleVerseContent *content = contentAt(
+				sqlite3_column_int(module->chapterAnnotations.value, 0));
+			if (content) content->paragraphBreak =
+				sqlite3_column_int(module->chapterAnnotations.value, 1) != 0;
+		}
+	}
+	if (module->chapterHeadings.value) {
+		bindChapter(module->chapterHeadings);
+		while (sqlite3_step(module->chapterHeadings.value) == SQLITE_ROW) {
+			BibleVerseContent *content = contentAt(
+				sqlite3_column_int(module->chapterHeadings.value, 0));
+			if (content) content->headings.push_back({
+				text(module->chapterHeadings.value, 1) });
+		}
+	}
+	if (module->chapterSpans.value) {
+		bindChapter(module->chapterSpans);
+		while (sqlite3_step(module->chapterSpans.value) == SQLITE_ROW) {
+			BibleVerseContent *content = contentAt(
+				sqlite3_column_int(module->chapterSpans.value, 0));
+			BibleTextSpan span;
+			span.start = sqlite3_column_int(module->chapterSpans.value, 1);
+			span.length = sqlite3_column_int(module->chapterSpans.value, 2);
+			if (content && parseTextStyle(
+				text(module->chapterSpans.value, 3), span.style))
+				content->spans.push_back(span);
+		}
+	}
+	if (module->chapterWords.value) {
+		bindChapter(module->chapterWords);
+		int previousVerse = -1;
+		int previousSequence = -1;
+		while (sqlite3_step(module->chapterWords.value) == SQLITE_ROW) {
+			const int verse = sqlite3_column_int(module->chapterWords.value, 0);
+			const int sequence = sqlite3_column_int(module->chapterWords.value, 1);
+			BibleVerseContent *content = contentAt(verse);
+			if (!content) continue;
+			if (verse != previousVerse || sequence != previousSequence) {
+				BibleWordInfo word;
+				word.start = sqlite3_column_int(module->chapterWords.value, 2);
+				word.length = sqlite3_column_int(module->chapterWords.value, 3);
+				word.text = text(module->chapterWords.value, 4);
+				word.strong = text(module->chapterWords.value, 5);
+				word.strongs = parseStrongIds(word.strong);
+				content->words.push_back(std::move(word));
+				previousVerse = verse;
+				previousSequence = sequence;
+			}
+			if (module->wordsIncludeMorphology &&
+			    sqlite3_column_type(module->chapterWords.value, 6) != SQLITE_NULL)
+				content->words.back().morphologyTags.push_back({
+					text(module->chapterWords.value, 7),
+					text(module->chapterWords.value, 8) });
+		}
+	}
+	if (module->chapterFootnotes.value) {
+		bindChapter(module->chapterFootnotes);
+		while (sqlite3_step(module->chapterFootnotes.value) == SQLITE_ROW) {
+			BibleVerseContent *content = contentAt(
+				sqlite3_column_int(module->chapterFootnotes.value, 0));
+			if (!content) continue;
+			BibleFootnote note;
+			note.offset = sqlite3_column_int(module->chapterFootnotes.value, 1);
+			note.id = text(module->chapterFootnotes.value, 2);
+			note.label = note.id;
+			note.body = text(module->chapterFootnotes.value, 3);
+			content->footnotes.push_back(std::move(note));
+		}
+	}
+
+	using CrossKey = std::pair<int, int>;
+	std::map<CrossKey, std::vector<BibleReference>> targets;
+	std::map<CrossKey, std::vector<BibleCrossReference::Range>> ranges;
+	if (module->chapterCrossReferenceTargets.value) {
+		bindChapter(module->chapterCrossReferenceTargets);
+		while (sqlite3_step(module->chapterCrossReferenceTargets.value) == SQLITE_ROW) {
+			const int verse = sqlite3_column_int(
+				module->chapterCrossReferenceTargets.value, 0);
+			const int sequence = sqlite3_column_int(
+				module->chapterCrossReferenceTargets.value, 1);
+			targets[{verse, sequence}].push_back({0,
+				sqlite3_column_int(module->chapterCrossReferenceTargets.value, 3),
+				sqlite3_column_int(module->chapterCrossReferenceTargets.value, 4),
+				sqlite3_column_int(module->chapterCrossReferenceTargets.value, 5)});
+		}
+	}
+	if (module->chapterCrossReferenceRanges.value) {
+		bindChapter(module->chapterCrossReferenceRanges);
+		while (sqlite3_step(module->chapterCrossReferenceRanges.value) == SQLITE_ROW) {
+			const int verse = sqlite3_column_int(
+				module->chapterCrossReferenceRanges.value, 0);
+			const int sequence = sqlite3_column_int(
+				module->chapterCrossReferenceRanges.value, 1);
+			BibleCrossReference::Range range;
+			range.start = {
+				sqlite3_column_int(module->chapterCrossReferenceRanges.value, 3),
+				sqlite3_column_int(module->chapterCrossReferenceRanges.value, 4),
+				sqlite3_column_int(module->chapterCrossReferenceRanges.value, 5),
+				sqlite3_column_int(module->chapterCrossReferenceRanges.value, 6)};
+			range.end = {
+				sqlite3_column_int(module->chapterCrossReferenceRanges.value, 7),
+				sqlite3_column_int(module->chapterCrossReferenceRanges.value, 8),
+				sqlite3_column_int(module->chapterCrossReferenceRanges.value, 9),
+				sqlite3_column_int(module->chapterCrossReferenceRanges.value, 10)};
+			ranges[{verse, sequence}].push_back(std::move(range));
+		}
+	}
+	if (module->chapterCrossReferenceRangeTargets.value) {
+		bindChapter(module->chapterCrossReferenceRangeTargets);
+		while (sqlite3_step(module->chapterCrossReferenceRangeTargets.value) == SQLITE_ROW) {
+			const int verse = sqlite3_column_int(
+				module->chapterCrossReferenceRangeTargets.value, 0);
+			const int sequence = sqlite3_column_int(
+				module->chapterCrossReferenceRangeTargets.value, 1);
+			const int rangeIndex = sqlite3_column_int(
+				module->chapterCrossReferenceRangeTargets.value, 2);
+			auto &rangeList = ranges[{verse, sequence}];
+			if (rangeIndex >= 0 &&
+			    static_cast<std::size_t>(rangeIndex) < rangeList.size())
+				rangeList[static_cast<std::size_t>(rangeIndex)]
+					.expandedReferences.push_back({
+						sqlite3_column_int(module->chapterCrossReferenceRangeTargets.value, 3),
+						sqlite3_column_int(module->chapterCrossReferenceRangeTargets.value, 4),
+						sqlite3_column_int(module->chapterCrossReferenceRangeTargets.value, 5),
+						sqlite3_column_int(module->chapterCrossReferenceRangeTargets.value, 6)});
+		}
+	}
+	if (module->chapterCrossReferences.value) {
+		bindChapter(module->chapterCrossReferences);
+		while (sqlite3_step(module->chapterCrossReferences.value) == SQLITE_ROW) {
+			const int verse = sqlite3_column_int(
+				module->chapterCrossReferences.value, 0);
+			const int sequence = sqlite3_column_int(
+				module->chapterCrossReferences.value, 1);
+			BibleVerseContent *content = contentAt(verse);
+			if (!content) continue;
+			BibleCrossReference crossReference;
+			crossReference.offset = sqlite3_column_int(
+				module->chapterCrossReferences.value, 2);
+			crossReference.displayText = text(
+				module->chapterCrossReferences.value, 3);
+			crossReference.references = targets[{verse, sequence}];
+			crossReference.ranges = ranges[{verse, sequence}];
+			if (crossReference.references.empty() &&
+			    crossReference.ranges.empty())
+				parseCrossTargets(crossReference.displayText,
+					crossReference.references);
+			content->crossReferences.push_back(std::move(crossReference));
+		}
+	}
 	return result;
 }
 
@@ -839,6 +1157,7 @@ std::vector<BibleVerse> SqliteBibleBackend::getChapter(
 	std::vector<BibleVerse> result;
 	Module *module = impl_->find(id);
 	if (!module) return result;
+	ResetModuleStatementsOnExit resetOnExit{*module};
 	reset(module->chapter);
 	sqlite3_bind_int(module->chapter.value, 1, reference.book);
 	sqlite3_bind_int(module->chapter.value, 2, reference.chapter);
@@ -874,6 +1193,7 @@ std::string SqliteBibleBackend::navigate(const std::string &id,
 	BibleKeyInfo info;
 	Module *module = impl_->find(id);
 	if (!module || direction == 0 || !resolveKey(id, key, info)) return {};
+	ResetModuleStatementsOnExit resetOnExit{*module};
 	return navigationResult(direction < 0 ? module->previous : module->next,
 		info.reference, info.key);
 }
@@ -883,6 +1203,7 @@ std::string SqliteBibleBackend::setBook(const std::string &id,
 {
 	Module *module = impl_->find(id);
 	if (!module) return {};
+	ResetModuleStatementsOnExit resetOnExit{*module};
 	/* BibleBackend's contract, as in SWORD: `book` is the n-th book of
 	 * `testament` (the navbar's book menus and arrows), not an id. */
 	if (book <= 0) return {};
@@ -901,6 +1222,7 @@ std::string SqliteBibleBackend::setChapter(const std::string &id,
 	BibleKeyInfo info;
 	if (chapter <= 0 || !resolveKey(id, key, info)) return {};
 	Module *module = impl_->find(id);
+	ResetModuleStatementsOnExit resetOnExit{*module};
 	reset(module->firstInChapter);
 	sqlite3_bind_int(module->firstInChapter.value, 1, info.reference.book);
 	sqlite3_bind_int(module->firstInChapter.value, 2, chapter);
@@ -928,6 +1250,7 @@ std::vector<std::string> SqliteBibleBackend::bookNames(
 	std::vector<std::string> result;
 	Module *module = impl_->find(id);
 	if (!module) return result;
+	ResetModuleStatementsOnExit resetOnExit{*module};
 	reset(module->books);
 	sqlite3_bind_int(module->books.value, 1, testament);
 	while (sqlite3_step(module->books.value) == SQLITE_ROW)
@@ -942,6 +1265,7 @@ std::vector<BibleSearchResult> SqliteBibleBackend::search(
 	Module *module = impl_->find(id);
 	if (!module || query.text.empty() || query.mode == BibleSearchMode::Regex ||
 	    query.mode == BibleSearchMode::Attribute) return result;
+	ResetModuleStatementsOnExit resetOnExit{*module};
 	Statement *statement;
 	std::string queryText = query.text;
 	if (!query.caseSensitive && module->hasFts &&
@@ -989,6 +1313,7 @@ StrongOccurrencePage SqliteBibleBackend::findStrongOccurrencePage(
 	StrongOccurrencePage result;
 	Module *module = withAnnotations(impl_->find(id));
 	if (!module || !module->strongOccurrences.value) return result;
+	ResetModuleStatementsOnExit resetOnExit{*module};
 	const std::string value = formatStrongId(strong);
 	const std::size_t fetchLimit = limit == std::numeric_limits<std::size_t>::max()
 		? limit : limit + 1;
@@ -1021,6 +1346,7 @@ MorphologyOccurrencePage SqliteBibleBackend::findMorphologyOccurrencePage(
 	Module *module = withAnnotations(impl_->find(id));
 	if (!module || !module->morphologyOccurrences.value ||
 	    !isValidMorphologyTag(morphology)) return result;
+	ResetModuleStatementsOnExit resetOnExit{*module};
 	const std::size_t fetchLimit = limit == std::numeric_limits<std::size_t>::max()
 		? limit : limit + 1;
 	reset(module->morphologyOccurrences);

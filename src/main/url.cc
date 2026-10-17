@@ -47,6 +47,7 @@
 #include "gui/interlineal.h"
 #include "gui/bibletext.h"
 #include "gui/dialog.h"
+#include "gui/editable_edition_dialog.h"
 #include "gui/parallel_dialog.h"
 #include "gui/parallel_view.h"
 #include "gui/main_window.h"
@@ -176,7 +177,7 @@ static gint show_separate_image(const gchar *filename, gboolean clicked)
 				break;
 		}
 		if (display_progs[i] == NULL) {
-			gui_generic_warning((char *)"Xiphos cannot find\nan image display program.");
+			gui_generic_warning((char *)"Biblia Elim cannot find\nan image display program.");
 			return 0;
 		}
 
@@ -187,7 +188,7 @@ static gint show_separate_image(const gchar *filename, gboolean clicked)
 				   (GSpawnFlags)(G_SPAWN_SEARCH_PATH | G_SPAWN_STDOUT_TO_DEV_NULL | G_SPAWN_STDERR_TO_DEV_NULL),
 				   NULL, NULL, NULL, &error)) {
 			gchar *msg = g_strdup_printf(
-					_("Xiphos could not execute %s: %s"),
+					_("Biblia Elim could not execute %s: %s"),
 					display_progs[i], error->message);
 			gui_generic_warning(msg);
 			g_free(msg);
@@ -1149,7 +1150,15 @@ gint main_url_handler(const gchar *url, gboolean clicked)
 					retval = 1;
 				}
 			}
-		} else if (!strcmp(action, "showNeutralFootnote") || !strcmp(action, "showNeutralCrossref")) {
+		} else if (!strcmp(action, "showEditionComparison")) {
+   if (HAS_URL_PARAM(module) && HAS_URL_PARAM(passage)) {
+    BibleKeyInfo info;
+    if (main_backend_for(module).resolveKey(module,passage,info)) {
+     if(clicked)gui_show_edition_comparison(GTK_WINDOW(widgets.app),module,info.reference.book,info.reference.chapter,info.reference.verse);
+     retval=1;
+    }
+   }
+  } else if (!strcmp(action, "showNeutralFootnote") || !strcmp(action, "showNeutralCrossref")) {
 			if (HAS_URL_PARAM(module) && HAS_URL_PARAM(passage) && HAS_URL_PARAM(svalue)) {
 				gchar *end = NULL; guint64 sequence = g_ascii_strtoull(svalue, &end, 10);
 				const bool footnote = !strcmp(action, "showNeutralFootnote");

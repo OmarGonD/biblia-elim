@@ -11,7 +11,7 @@
     <revision pkgversion="4.5.0" date="2026-08-10" status="draft"/>
 
     <title type='link' role="trail"></title>
-    <title type='text'>Xiphos</title>
+    <title type='text'>Biblia Elim</title>
 
     <credit type="author" its:translate="no">
       <name>Andy Piper</name>
@@ -37,7 +37,7 @@
 
   <title>Journals and Prayer Lists</title>
 
-  <p><app>Xiphos</app> supports	user-created and -editable modules to contain
+  <p><app>Biblia Elim</app> supports	user-created and -editable modules to contain
   general content.  Initially conceived as simple prayer lists,	they have
   expanded to include daily journals and topic-outline content.  The user can
   maintain prayer lists, or prepare sermons, or write any structured content

@@ -1,5 +1,5 @@
 /*
- * Biblia Elim
+ * Ministerios Elim
  * notas_verso.c - pestaña de notas del versículo enfocado, dentro del
  * panel Comentario/Libro
  *

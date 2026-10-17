@@ -124,6 +124,10 @@ void wk_html_set_zoom_observer(WkHtmlZoomObserver observer, gpointer user_data);
 void wk_html_zoom(WkHtml *html, gboolean increase);
 void wk_html_zoom_active(gboolean increase);
 void wk_html_zoom_active_reset(void);
+/* Temporary responsive scale for all panes on a named surface. The minimum
+ * is an effective zoom percentage and is applied after the user's zoom. */
+void wk_html_set_responsive_zoom(ZoomSurface surface, gint scale_percent,
+				 gint minimum_effective_percent);
 void wk_html_set_base_uri(WkHtml *html, const gchar *uri);
 void wk_html_open_stream(WkHtml *html, const gchar *mime);
 void wk_html_write(WkHtml *html, const gchar *data, gint len);
@@ -155,6 +159,7 @@ void wk_html_find_clear(WkHtml *html);
 void wk_html_jump_to_anchor(WkHtml *html, gchar *anchor);
 /* Drops the retries of a pending wk_html_jump_to_anchor(). */
 void wk_html_cancel_anchor_jump(WkHtml *html);
+gboolean wk_html_anchor_jump_pending(WkHtml *html);
 void wk_html_copy_selection(WkHtml *html);
 /* Si hay algo seleccionado con el ratón en este panel. Lo mira en el
  * buffer y no en el portapapeles primario, que es global y podría traer

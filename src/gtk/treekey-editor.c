@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * treekey-editor.c - functions to manage a treeview of keys
  *
  * Copyright (C) 2007-2026 Xiphos Developer Team

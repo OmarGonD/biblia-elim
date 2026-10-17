@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-16",
+  "binaries": {
+    "build/performance/startup-2026-10-16/before-debug": "e5db5e8cfa235fa050081789e5f2b6dfc422675dcc167596e332608c0181c7c9",
+    "build/performance/startup-2026-10-16/before-optimized": "9404226594e2b822eca61a97df438ebe49b6530ec3fa13d557f899014aab6f8f",
+    "build/performance/startup-2026-10-16/after-optimized": "31cd501702c5c8c2cd61c7199ca9e3a774de849fab2e0a797457a233eec1a005",
+    "build/tests/sqlite_bible_backend_benchmark": "47dc48f0a11fbfe7e696660f658197d71f39184eb018b776152d0950502f03d0",
+    "build/performance/startup-2026-10-16/backend-debug": "c7c873b1561803a588a3ac0cc7f7d2b8c4c5b9dc9711b361d0b006e15cc8545e",
+    "build/performance/startup-2026-10-16/after-first-pass": "160a255b9b93ed554bea371fa5ad4c849988ebe14603c37ae202dc11671a2927",
+    "build/performance/startup-2026-10-16/after-double-theme": "944ef8640fdf7fe0545956a5ee314a43dad55fc73058d889b7bfc7d5e63c504e"
+  },
+  "gtk_version": "4.24.1",
+  "backend_debug_flags": "-g -DDEBUG (no optimization)",
+  "optimized_flags": "-O2 -g -DNDEBUG -DDEBUG",
+  "module_directory": "modulos/sqlite",
+  "modules": [
+    "ChiUns.sqlite",
+    "KJV.sqlite",
+    "KorRV.sqlite",
+    "PorAlmeida1911.sqlite",
+    "SpaPlatense.sqlite",
+    "TorresAmat.sqlite"
+  ],
+  "visual": {
+    "results": "verified-wayland/comparison.json",
+    "backend": "native Wayland, GSK OpenGL default; separate Cairo case",
+    "module_directory": "/home/ogonzales/.local/share/biblia-elim/modules",
+    "input_modules": [
+      "KJV.sqlite",
+      "NacarColunga.sqlite",
+      "OSHB.sqlite",
+      "Peshitta.sqlite",
+      "SpaPlatense.sqlite",
+      "SpaRV.sqlite",
+      "SpaRV1909.sqlite",
+      "SpaRVG.sqlite",
+      "SpaTDP.sqlite",
+      "TR.sqlite",
+      "Tisch.sqlite",
+      "TorresAmat.sqlite",
+      "VulgClementine.sqlite",
+      "WLC.sqlite"
+    ],
+    "runs_per_mode": 5,
+    "warmups_per_mode": 1,
+    "viewport_width": 890
+  }
+}

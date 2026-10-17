@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * splash.c - Splash related functions
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -29,7 +29,7 @@
 #include "gui/splash.h"
 #include "gui/utilities.h"
 
-/* Biblia Elim shows no splash window: the main window appears as soon as
+/* Ministerios Elim shows no splash window: the main window appears as soon as
  * it is built. These keep the startup code's calls meaningful. */
 
 gboolean gui_splash_done(void)

@@ -1,5 +1,5 @@
 /*
- * Biblia Elim
+ * Ministerios Elim
  * pulpito.c - la ventana de púlpito
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team

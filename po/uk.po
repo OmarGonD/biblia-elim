@@ -1,4 +1,4 @@
-# Translation of xiphos.pot to Ukrainian
+# Translation of biblia-elim.pot to Ukrainian
 # Copyright (C) 2004 Free Software Foundation, Inc.
 # Pavlo Bohmat <bohm@ukr.net>, 2004.
 # Зауваження щодо якості перекладу вітаються :о)
@@ -7,7 +7,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xiphos-2.1.dev1\n"
+"Project-Id-Version: Ministerios Elim-2.1.dev1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-20 09:16-0500\n"
 "PO-Revision-Date: 2009-12-09 22:28+0000\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: ../src/backend/sword_main.cc:792
 msgid ""
-"Xiphos failure: \"can't happen\", display_mod: null\n"
+"Ministerios Elim failure: \"can't happen\", display_mod: null\n"
 "Please report this. sword_main.cc:set_treekey\n"
 "What were you doing when this occurred?"
 msgstr ""
@@ -418,10 +418,10 @@ msgid ""
 "in personal mode, to share within a small group;\n"
 "or as either speaker or audience in a formal lecture setting.\n"
 "\n"
-"There are options for how BibleSync behaves in Xiphos:\n"
+"There are options for how BibleSync behaves in Ministerios Elim:\n"
 "- To follow others' navigation directly or indirectly.\n"
 "- To send your navigation every time or only via keyboard.\n"
-"- To select speakers to whom Xiphos should listen.\n"
+"- To select speakers to whom Ministerios Elim should listen.\n"
 "\n"
 "A simple chat capability provides brief messages to be shared as well.\n"
 "\n"
@@ -435,29 +435,29 @@ msgstr ""
 
 #: ../src/gtk/about_trans.c:82
 msgid ""
-"Do you like using Xiphos to study the Bible? Would you like to see its user "
-"interface in your native language? You could translate Xiphos! \n"
+"Do you like using Ministerios Elim to study the Bible? Would you like to see its user "
+"interface in your native language? You could translate Ministerios Elim! \n"
 "\n"
-"We are always looking for contributions of new translations of Xiphos into "
+"We are always looking for contributions of new translations of Ministerios Elim into "
 "other languages. If you are able to translate for us, please see the link "
 "below, contact us, and get involved with our efforts. Your help will be much "
 "appreciated!"
 msgstr ""
 
 #: ../src/gtk/about_trans.c:96
-msgid "About Xiphos Translation"
+msgid "About Ministerios Elim Translation"
 msgstr ""
 
 #: ../src/gtk/about_trans.c:135
-msgid "See TRANSLATION-HOWTO in Xiphos source"
+msgid "See TRANSLATION-HOWTO in Ministerios Elim source"
 msgstr ""
 
 #: ../src/gtk/about_trans.c:141
-msgid "Xiphos development"
+msgid "Ministerios Elim development"
 msgstr ""
 
 #: ../src/gtk/about_xiphos.c:129
-msgid "Copyright © 2000-2026 Xiphos Development Team"
+msgid "Copyright © 2000-2026 Ministerios Elim Development Team"
 msgstr ""
 
 #: ../src/gtk/about_xiphos.c:131
@@ -584,7 +584,7 @@ msgid "Close without Saving"
 msgstr ""
 
 #: ../src/gtk/dialog.c:724
-msgid "Xiphos:"
+msgid "Ministerios Elim:"
 msgstr ""
 
 #: ../src/gtk/dialog.c:854
@@ -654,24 +654,23 @@ msgid "+0"
 msgstr "+0"
 
 #: ../src/gtk/font_dialog.c:397
-#, fuzzy
 msgid "Display columns"
-msgstr "Відображення Xiphos"
+msgstr "Відображення Ministerios Elim"
 
 #: ../src/gtk/font_dialog.c:427
 msgid "Use the default font for this module"
 msgstr "Використовувати для цього модуля типовий шрифт"
 
 #: ../src/gtk/gui.c:107
-msgid "BUG! Xiphos is about to crash due to a \"STRDUP\" error."
+msgid "BUG! Ministerios Elim is about to crash due to a \"STRDUP\" error."
 msgstr ""
 
 #: ../src/gtk/gui.c:108 ../src/gtk/gui.c:138
-msgid "Please report this error to the Xiphos team with:"
+msgid "Please report this error to the Ministerios Elim team with:"
 msgstr ""
 
 #: ../src/gtk/gui.c:137
-msgid "BUG! Xiphos is about to crash due to a \"STRING\" error."
+msgid "BUG! Ministerios Elim is about to crash due to a \"STRING\" error."
 msgstr ""
 
 #: ../src/gtk/main_menu.c:653
@@ -707,9 +706,8 @@ msgid "Comment:"
 msgstr "Коментар"
 
 #: ../src/gtk/main_window.c:677
-#, fuzzy
-msgid "Xiphos: No windows."
-msgstr "Xiphos вимкнено"
+msgid "Ministerios Elim: No windows."
+msgstr "Ministerios Elim вимкнено"
 
 #: ../src/gtk/main_window.c:733
 msgid "BibleSync: Current navigation sent."
@@ -720,8 +718,8 @@ msgid "BibleSync: Not speaking."
 msgstr ""
 
 #: ../src/gtk/main_window.c:1013
-msgid "Xiphos - Bible Study Software"
-msgstr "Xiphos - програма з вивчення Біблії"
+msgid "Ministerios Elim - Bible Study Software"
+msgstr "Ministerios Elim - програма з вивчення Біблії"
 
 #: ../src/gtk/main_window.c:1077
 msgid "Open a new tab"
@@ -743,14 +741,14 @@ msgid "Book View"
 msgstr ""
 
 #: ../src/gtk/main_window.c:1195
-msgid "Welcome to Xiphos"
+msgid "Welcome to Ministerios Elim"
 msgstr ""
 
 #: ../src/gtk/menu_popup.c:1319
 msgid ""
 "Renaming is not available in Windows.\n"
 "\n"
-"Xiphos is limited by Windows' filesystem,\n"
+"Ministerios Elim is limited by Windows' filesystem,\n"
 "because it disallows the renaming of filename\n"
 "components of currently-open files,\n"
 "such as the contents of this commentary.\n"
@@ -781,7 +779,7 @@ msgid "Module names must contain [A-Za-z0-9_] only."
 msgstr ""
 
 #: ../src/gtk/menu_popup.c:1359 ../src/main/prayerlists.cc:254
-msgid "Xiphos already knows a module by that name."
+msgid "Ministerios Elim already knows a module by that name."
 msgstr ""
 
 #: ../src/gtk/menu_popup.c:1401
@@ -809,14 +807,14 @@ msgstr "Знайти в цій нотатці"
 msgid ""
 "<b>Overview of the Module Manager.</b>\n"
 "\n"
-"This is Xiphos' mechanism to get new and updated content.\n"
+"This is Ministerios Elim' mechanism to get new and updated content.\n"
 "If you have never been here before, please take a moment to look it over.\n"
 "\n"
 "Modules come from different <u>repositories</u>.  <b>Module Sources: Add/"
 "Remove</b> will show you what repositories are currently known.\n"
 "\n"
 "<b>Module Sources: Choose</b> is for deciding from where modules should "
-"come, that is, from which repository Xiphos should obtain them, as well as "
+"come, that is, from which repository Ministerios Elim should obtain them, as well as "
 "where they should be placed on your system. Set <i>Install Source</i> and "
 "<i>Install Destination</i>, then click <i>Refresh</i>.\n"
 "\n"
@@ -832,9 +830,9 @@ msgstr ""
 
 #: ../src/gtk/mod_mgr.c:67
 msgid ""
-"<b>Welcome to Xiphos.</b>\n"
+"<b>Welcome to Ministerios Elim.</b>\n"
 "\n"
-"There are no Bibles installed. In order to initialize, Xiphos needs at least "
+"There are no Bibles installed. In order to initialize, Ministerios Elim needs at least "
 "one Bible module. To facilitate this, the Module Manager has been opened so "
 "that you may install one or more Bibles, either from a local module set "
 "(cdrom, flash drive) or over the network from CrossWire Bible Society. "
@@ -1180,17 +1178,17 @@ msgstr "Будь-ласка, поновіть"
 msgid "Your module list is not up to date!"
 msgstr "Ваш список модулів застарілий"
 
-#. Zero Bibles is just not workable in Xiphos.
+#. Zero Bibles is just not workable in Ministerios Elim.
 #: ../src/gtk/mod_mgr.c:2482
 msgid ""
 "You have uninstalled your last Bible.\n"
-"Xiphos requires at least one."
+"Ministerios Elim requires at least one."
 msgstr ""
 
 #: ../src/gtk/mod_mgr.c:2488
 msgid ""
 "There are still no Bibles installed.\n"
-"Xiphos cannot continue without one."
+"Ministerios Elim cannot continue without one."
 msgstr ""
 
 #: ../src/gtk/mod_mgr.c:2613
@@ -1701,7 +1699,7 @@ msgstr ""
 #: ../src/gtk/utilities.c:2021
 msgid ""
 "An image file's size could not be determined.\n"
-"Xiphos cannot resize images to fit window."
+"Ministerios Elim cannot resize images to fit window."
 msgstr ""
 
 #: ../src/main/biblesync_glue.cc:107
@@ -1820,13 +1818,12 @@ msgid "Chapter"
 msgstr ""
 
 #: ../src/main/main.c:147
-msgid "Xiphos does not understand more than one argument."
+msgid "Ministerios Elim does not understand more than one argument."
 msgstr ""
 
 #: ../src/main/main.c:258
-#, fuzzy
 msgid "Initiating HTML"
-msgstr "Ініціалізація Xiphos"
+msgstr "Ініціалізація Ministerios Elim"
 
 #: ../src/main/main.c:263
 msgid "Building Interface"
@@ -1841,8 +1838,8 @@ msgid "Loading Settings"
 msgstr ""
 
 #: ../src/main/main.c:272
-msgid "Displaying Xiphos"
-msgstr "Відображення Xiphos"
+msgid "Displaying Ministerios Elim"
+msgstr "Відображення Ministerios Elim"
 
 #: ../src/main/module_dialogs.cc:186 ../src/main/previewer.cc:90
 msgid "Previewer"
@@ -2081,19 +2078,19 @@ msgid "Name for new prayer list or journal"
 msgstr ""
 
 #: ../src/main/prayerlists.cc:262
-msgid "Xiphos finds that prayer list already."
+msgid "Ministerios Elim finds that prayer list already."
 msgstr ""
 
 #. this one matters.
 #: ../src/main/prayerlists.cc:274
 #, c-format
 msgid ""
-"Xiphos cannot create module's path:\n"
+"Ministerios Elim cannot create module's path:\n"
 "%s"
 msgstr ""
 
 #: ../src/main/prayerlists.cc:313
-msgid "A basic prayer list. \\par\\par Module created by Xiphos."
+msgid "A basic prayer list. \\par\\par Module created by Ministerios Elim."
 msgstr ""
 
 #: ../src/main/prayerlists.cc:314
@@ -2111,7 +2108,7 @@ msgid ""
 msgstr ""
 
 #: ../src/main/prayerlists.cc:353
-msgid "A subject-based prayer list. \\par\\par Module created by Xiphos."
+msgid "A subject-based prayer list. \\par\\par Module created by Ministerios Elim."
 msgstr ""
 
 #: ../src/main/prayerlists.cc:354
@@ -2135,7 +2132,7 @@ msgid "Sue<br/>John<br/>"
 msgstr ""
 
 #: ../src/main/prayerlists.cc:397
-msgid "A monthly prayer list. \\par\\par Module created by Xiphos."
+msgid "A monthly prayer list. \\par\\par Module created by Ministerios Elim."
 msgstr ""
 
 #: ../src/main/prayerlists.cc:398
@@ -2143,7 +2140,7 @@ msgid "MonthlyPrayerList"
 msgstr ""
 
 #: ../src/main/prayerlists.cc:447
-msgid "A daily journal. \\par\\par Module created by Xiphos."
+msgid "A daily journal. \\par\\par Module created by Ministerios Elim."
 msgstr ""
 
 #: ../src/main/prayerlists.cc:448
@@ -2151,7 +2148,7 @@ msgid "DailyJournal"
 msgstr ""
 
 #: ../src/main/prayerlists.cc:510
-msgid "An outlined topic (e.g. sermon). \\par\\par Module created by Xiphos."
+msgid "An outlined topic (e.g. sermon). \\par\\par Module created by Ministerios Elim."
 msgstr ""
 
 #: ../src/main/prayerlists.cc:511
@@ -2185,7 +2182,7 @@ msgstr ""
 #: ../src/main/prayerlists.cc:557
 msgid ""
 "A journal sectioned by Bible book and chapter. \\par\\par Module created by "
-"Xiphos."
+"Ministerios Elim."
 msgstr ""
 
 #: ../src/main/prayerlists.cc:558
@@ -2275,7 +2272,7 @@ msgstr ""
 
 #: ../src/main/settings.c:145
 #, c-format
-msgid "Xiphos can not create directory "
+msgid "Ministerios Elim can not create directory "
 msgstr ""
 
 #: ../src/main/settings.c:159 ../src/main/settings.c:169
@@ -2299,7 +2296,7 @@ msgid ""
 "Evidently, you declined to install any.\n"
 "\n"
 "Without any Bible modules to display,\n"
-"Xiphos cannot proceed,\n"
+"Ministerios Elim cannot proceed,\n"
 "and will now exit."
 msgstr ""
 
@@ -2323,25 +2320,25 @@ msgstr "розділ"
 
 #: ../src/main/sword.cc:634
 msgid ""
-"Xiphos's file for language\n"
+"Ministerios Elim's file for language\n"
 "abbreviations is missing."
 msgstr ""
 
 #: ../src/main/sword.cc:640
 msgid ""
-"Xiphos's language abbreviation\n"
+"Ministerios Elim's language abbreviation\n"
 "file cannot be opened."
 msgstr ""
 
 #: ../src/main/sword.cc:652
 msgid ""
-"Xiphos cannot allocate space\n"
+"Ministerios Elim cannot allocate space\n"
 "for language abbreviations."
 msgstr ""
 
 #: ../src/main/sword.cc:658
 msgid ""
-"Xiphos cannot read the\n"
+"Ministerios Elim cannot read the\n"
 "language abbreviation file."
 msgstr ""
 
@@ -2406,7 +2403,7 @@ msgstr ""
 
 #: ../src/main/url.cc:194
 #, c-format
-msgid "Xiphos could not execute %s"
+msgid "Ministerios Elim could not execute %s"
 msgstr ""
 
 #: ../src/main/url.cc:202
@@ -3069,12 +3066,11 @@ msgid "Insert horizontal rule"
 msgstr ""
 
 #: ../ui/gtk2_webedit.ui.h:40 ../ui/gtk_webedit.ui.h:40
-#, fuzzy
-msgid "Xiphos Link"
-msgstr "Xiphos вимкнено"
+msgid "Ministerios Elim Link"
+msgstr "Ministerios Elim вимкнено"
 
 #: ../ui/gtk2_webedit.ui.h:41 ../ui/gtk_webedit.ui.h:41
-msgid "Xiphos"
+msgid "Ministerios Elim"
 msgstr ""
 
 #: ../ui/gtk2_webedit.ui.h:42 ../ui/gtk_webedit.ui.h:42
@@ -3400,7 +3396,7 @@ msgstr ""
 
 #: ../ui/module-manager.glade.h:6 ../ui/module-manager.gtkbuilder.h:6
 msgid ""
-"Refresh Xiphos' knowledge of what modules are available at the selected "
+"Refresh Ministerios Elim' knowledge of what modules are available at the selected "
 "remote repository"
 msgstr ""
 
@@ -3724,7 +3720,7 @@ msgstr ""
 
 #: ../ui/prefs.glade.h:38 ../ui/prefs.gtkbuilder.h:42
 msgid ""
-"Xiphos is the first Bible study program to provide an implementation of "
+"Ministerios Elim is the first Bible study program to provide an implementation of "
 "BibleSync, a synchronization protocol for Bible programs. If you work with "
 "multiple Bible programs, or if you work in a team, or if you have classroom "
 "activities using shared study, BibleSync can be a useful tool for you. "
@@ -3821,7 +3817,7 @@ msgid "_Direct"
 msgstr "Каталог"
 
 #: ../ui/prefs.glade.h:59 ../ui/prefs.gtkbuilder.h:63
-msgid "BibleSync navigation will send Xiphos directly to the verse indicated."
+msgid "BibleSync navigation will send Ministerios Elim directly to the verse indicated."
 msgstr ""
 
 #: ../ui/prefs.glade.h:60 ../ui/prefs.gtkbuilder.h:64
@@ -3834,7 +3830,7 @@ msgid "_Verse list"
 msgstr "Список віршів"
 
 #: ../ui/prefs.glade.h:62 ../ui/prefs.gtkbuilder.h:66
-msgid "BibleSync navigation will use Xiphos' sidebar verse list."
+msgid "BibleSync navigation will use Ministerios Elim' sidebar verse list."
 msgstr ""
 
 #: ../ui/prefs.glade.h:63 ../ui/prefs.gtkbuilder.h:67
@@ -3847,7 +3843,7 @@ msgstr ""
 
 #: ../ui/prefs.glade.h:65 ../ui/prefs.gtkbuilder.h:69
 msgid ""
-"When checked, do not transmit every time Xiphos navigates; instead, transmit "
+"When checked, do not transmit every time Ministerios Elim navigates; instead, transmit "
 "only using keyboard shortcut (Ctrl-Shift-Alt-N)."
 msgstr ""
 
@@ -3861,7 +3857,7 @@ msgid "<i>Listen:</i>"
 msgstr ""
 
 #: ../ui/prefs.glade.h:68 ../ui/prefs.gtkbuilder.h:71
-msgid "Xiphos will listen to Speakers according to choice here."
+msgid "Ministerios Elim will listen to Speakers according to choice here."
 msgstr ""
 
 #: ../ui/prefs.glade.h:69 ../ui/prefs.gtkbuilder.h:73
@@ -3911,7 +3907,7 @@ msgstr ""
 msgid ""
 "Additional traces can be presented during BibleSync operation by enabling "
 "presence, mismatch, and debug. Beware enabling these, they can be very "
-"chatty. Also, decide whether to allow group parameter as Xiphos' tab number."
+"chatty. Also, decide whether to allow group parameter as Ministerios Elim' tab number."
 msgstr ""
 
 #: ../ui/prefs.glade.h:80 ../ui/prefs.gtkbuilder.h:84
@@ -3958,7 +3954,7 @@ msgstr ""
 
 #: ../ui/prefs.glade.h:90 ../ui/prefs.gtkbuilder.h:94
 msgid ""
-"Interpret the protocol's group number parameter as Xiphos' tab number. "
+"Interpret the protocol's group number parameter as Ministerios Elim' tab number. "
 "Disabling this may be necessary if some Speakers' use of group number is not "
 "appropriate as a tab number."
 msgstr ""
@@ -4748,7 +4744,7 @@ msgid "<b>Export to:</b>"
 msgstr ""
 
 #: ../ui/xi-export-bookmarks.glade.h:3
-msgid "Xiphos bookmarks"
+msgid "Ministerios Elim bookmarks"
 msgstr ""
 
 #: ../ui/xi-export-bookmarks.glade.h:4
@@ -4906,9 +4902,8 @@ msgid "_Contents"
 msgstr ""
 
 #: ../ui/xi-menus.glade.h:40
-#, fuzzy
-msgid "Open the help viewer on the Xiphos manual"
-msgstr "Відкрити посібник по Xiphos"
+msgid "Open the help viewer on the Ministerios Elim manual"
+msgstr "Відкрити посібник по Ministerios Elim"
 
 #: ../ui/xi-menus.glade.h:41 ../ui/xi-menus.gtkbuilder.h:26
 msgid "_Mailing List"
@@ -4939,7 +4934,7 @@ msgid "About _Translation"
 msgstr ""
 
 #: ../ui/xi-menus.glade.h:48
-msgid "Learn about translating the Xiphos interface to other languages"
+msgid "Learn about translating the Ministerios Elim interface to other languages"
 msgstr ""
 
 #: ../ui/xi-menus.glade.h:49 ../ui/xi-menus.gtkbuilder.h:30
@@ -4947,7 +4942,7 @@ msgid "_About The SWORD Project"
 msgstr ""
 
 #: ../ui/xi-menus.glade.h:50
-msgid "Learn about The Sword Project, of which Xiphos is one application"
+msgid "Learn about The Sword Project, of which Ministerios Elim is one application"
 msgstr ""
 
 #: ../ui/xi-menus.glade.h:51 ../ui/xi-menus.gtkbuilder.h:31
@@ -4960,19 +4955,19 @@ msgid "Learn about BibleSync, the shared navigation protocol"
 msgstr ""
 
 #: ../ui/xi-menus.glade.h:53 ../ui/xi-menus.gtkbuilder.h:32
-msgid "_View Xiphos Releases"
+msgid "_View Ministerios Elim Releases"
 msgstr ""
 
 #: ../ui/xi-menus.glade.h:54
-msgid "Visit the releases web page. Is your Xiphos current?"
+msgid "Visit the releases web page. Is your Ministerios Elim current?"
 msgstr ""
 
 #: ../ui/xi-menus.glade.h:55 ../ui/xi-menus.gtkbuilder.h:33
-msgid "About _Xiphos"
+msgid "About _Ministerios Elim"
 msgstr ""
 
 #: ../ui/xi-menus.glade.h:56
-msgid "Learn about Xiphos"
+msgid "Learn about Ministerios Elim"
 msgstr ""
 
 #: ../ui/xi-menus.glade.h:59 ../ui/xi-menus-popup.gtkbuilder.h:37
@@ -5283,598 +5278,3 @@ msgstr ""
 #: ../ui/xi-menus.glade.h:159 ../ui/xi-menus-popup.gtkbuilder.h:30
 msgid "Edit this item"
 msgstr ""
-
-#, c-format
-#~ msgid "Page %d of %d"
-#~ msgstr "Сторінка %d з %d"
-
-#, fuzzy
-#~ msgid "Save as"
-#~ msgstr "Зберегти"
-
-#~ msgid "Multi word"
-#~ msgstr "Декілька слів"
-
-#, fuzzy
-#~ msgid "Open in separate window"
-#~ msgstr "Відкрити у діалозі"
-
-#~ msgid "Xiphos Bible Guide"
-#~ msgstr "Xiphos - Біблійний довідник"
-
-#~ msgid "Study the Bible"
-#~ msgstr "Вивчай Біблію"
-
-#, fuzzy
-#~ msgid "[no dump ready]"
-#~ msgstr "Цілий модуль"
-
-#~ msgid "Unlock "
-#~ msgstr "Разблокувати "
-
-#~ msgid "Use tabbed browsing"
-#~ msgstr "Використовувати відображення вкладок"
-
-#~ msgid "Bible Texts"
-#~ msgstr "Тексти Біблії"
-
-#~ msgid "Dictionary/Lexicon"
-#~ msgstr "Словник/Лексикон"
-
-#~ msgid "Tabs and Panes"
-#~ msgstr "Вкладки та панелі"
-
-#~ msgid "Go to "
-#~ msgstr "Перейти "
-
-#~ msgid "Main"
-#~ msgstr "Основний"
-
-#~ msgid "Cipher Key?"
-#~ msgstr "Кодувати ключ?"
-
-#~ msgid "Change parallel 1"
-#~ msgstr "Змінити паралельний 1"
-
-#~ msgid "Change parallel 2"
-#~ msgstr "Змінити паралельний 2"
-
-#~ msgid "Change parallel 3"
-#~ msgstr "Змінити паралельний 3"
-
-#~ msgid "Change parallel 4"
-#~ msgstr "Змінити паралельний 4"
-
-#~ msgid "Change parallel 5"
-#~ msgstr "Змінити паралельний 5"
-
-#~ msgid "Parallel 1"
-#~ msgstr "Паралельний 1"
-
-#~ msgid "Parallel 2"
-#~ msgstr "Паралельний 2"
-
-#~ msgid "Parallel 3"
-#~ msgstr "Паралельний 3"
-
-#~ msgid "Parallel 4"
-#~ msgstr "Паралельний 4"
-
-#~ msgid "Parallel 5"
-#~ msgstr "Паралельний 5"
-
-#~ msgid "Import Bibletime Bookmarks"
-#~ msgstr "Імпорт закладок Bibletime"
-
-#~ msgid "Restore Folder"
-#~ msgstr "Відновити теку"
-
-#~ msgid "Restore saved folder"
-#~ msgstr "Відновити збережену теку"
-
-#~ msgid "Open StudyPad File"
-#~ msgstr "Відкрити файл конспекту"
-
-#~ msgid "Save StudyPad File"
-#~ msgstr "Зберегти файл конспекту"
-
-#~ msgid "item1"
-#~ msgstr "пункт 1"
-
-#~ msgid "item2"
-#~ msgstr "пункт 2"
-
-#~ msgid "_Module Options"
-#~ msgstr "_Опції модуля"
-
-#~ msgid "About the SWORD Project"
-#~ msgstr "Про проект SWORD"
-
-#~ msgid "Sync with main"
-#~ msgstr "Синхронізувати з головним вікном"
-
-#~ msgid "Stay in sync"
-#~ msgstr "Залишатися в режимі синхронізації"
-
-#~ msgid "-3"
-#~ msgstr "-3"
-
-#~ msgid "Move backwards through history"
-#~ msgstr "Перейти назад в історії"
-
-#~ msgid "Move foward through history"
-#~ msgstr "Перейти вперед в історії"
-
-#~ msgid "Select a Book of the Bible"
-#~ msgstr "Виберіть книгу Біблії"
-
-#~ msgid "Change Chapter"
-#~ msgstr "Змінити розділ"
-
-#~ msgid "Change Verse"
-#~ msgstr "Змінити вірш"
-
-#~ msgid "Refreshing remote"
-#~ msgstr "Дистанційне поновлення"
-
-#~ msgid "Remote not found"
-#~ msgstr "Віддалений сервер не знайдено"
-
-#~ msgid "Sources"
-#~ msgstr "Джерела"
-
-#~ msgid "Select Local Source"
-#~ msgstr "Виберіть локальне джерело"
-
-#~ msgid "Save the search results as bookmarks"
-#~ msgstr "Зберегти результати пошуку як закладки"
-
-#~ msgid "Open in a new tab"
-#~ msgstr "Відкрити у новій вкладці"
-
-#~ msgid "View information about the selected dialog"
-#~ msgstr "Перегляд информации о выбранном диалоге"
-
-#~ msgid "_Modules"
-#~ msgstr "_Модулі"
-
-#~ msgid "_Bookmarks"
-#~ msgstr "_Закладки"
-
-#~ msgid "Verse _List"
-#~ msgstr "Список _віршів"
-
-#~ msgid "Text"
-#~ msgstr "Текст"
-
-#~ msgid "Text to render"
-#~ msgstr "Текст для рендеренгу"
-
-#~ msgid "Pixbuf Object"
-#~ msgstr "Об'єкт pixbuf"
-
-#~ msgid "The pixbuf to render."
-#~ msgstr "Pixbuf для рендеренгу."
-
-#~ msgid ""
-#~ "We would like to thank Troy Griffitts and all the other folks who have "
-#~ "given us The SWORD Project."
-#~ msgstr ""
-#~ "Ми би хотіли висловити подяку Трою Гриффиттсу та всім іншим людям, які "
-#~ "надали нам проект SWORD."
-
-#~ msgid "has been modified. Do you wish to save it?"
-#~ msgstr "було змінено. Бажаєте це зберегти?"
-
-#~ msgid "done"
-#~ msgstr "готово"
-
-#~ msgid "Restore Bookmark Folder"
-#~ msgstr "Відновити теку закладок"
-
-#~ msgid "Remove Folder"
-#~ msgstr "Видалити теку"
-
-#~ msgid "Remove - Restore"
-#~ msgstr "Видалити - Відновити"
-
-#~ msgid "Open the StudyPad editor"
-#~ msgstr "Відкрити редактор конспекту"
-
-#~ msgid "Copy highlighted text from main window"
-#~ msgstr "Зкопіювати виділенний текст з головного вікна"
-
-#~ msgid "Search using the shortcut bar"
-#~ msgstr "Пошук з використанням контекстного меню"
-
-#~ msgid "Advanced search using the search dialog"
-#~ msgstr "Розширений пошук з використанням діалогу пошука"
-
-#~ msgid "C_lear"
-#~ msgstr "О_чистити"
-
-#~ msgid "Show the Daily Devotion for today"
-#~ msgstr "Показати щоденне молитовне читання на сьогодні"
-
-#~ msgid "Show or hide Bible texts window"
-#~ msgstr "Показати чи сховати вікно текстів Біблії"
-
-#~ msgid "Show or hide commentaries"
-#~ msgstr "Показати чи сховати коментарі"
-
-#~ msgid "More information about the SWORD Project"
-#~ msgstr "Більше інформації про проект SWORD"
-
-#~ msgid "Hi_story"
-#~ msgstr "І_сторія"
-
-#~ msgid "Number of Text modules"
-#~ msgstr "Кількість текстових модулів:"
-
-#~ msgid "Number of Dict/lex modules"
-#~ msgstr "Кількість словникових модулів:"
-
-#~ msgid "Number of Book modules"
-#~ msgstr "Кількість книжкових модулів:"
-
-#~ msgid "Number of Percomm modules"
-#~ msgstr "Кількість модулів особистих коментарів:"
-
-#~ msgid "Number of Devotion modules"
-#~ msgstr "Кількість молитовних модулів:"
-
-#~ msgid "H_istory/<Separator>"
-#~ msgstr "І_сторія/<Separator>"
-
-#~ msgid "H_istory/C_lear"
-#~ msgstr "І_сторія/О_чистити"
-
-#~ msgid "Show Tabs"
-#~ msgstr "Показувати вкладки"
-
-#~ msgid "Go to %s"
-#~ msgstr "Перейти до %s"
-
-#~ msgid "The Setup Druid was cancelled."
-#~ msgstr "Помічник встановлення був скасований."
-
-#~ msgid "Do you wish to set preferences now?"
-#~ msgstr "Ви бажаєте зараз встановити параметри?"
-
-#~ msgid "Old"
-#~ msgstr "Старий"
-
-#~ msgid "URL:"
-#~ msgstr "URL:"
-
-#~ msgid "Bible text"
-#~ msgstr "Текст Біблії"
-
-#~ msgid "-untitled-"
-#~ msgstr "-безіменний-"
-
-#~ msgid "Add reference Link"
-#~ msgstr "Додати ланку на посилання"
-
-#~ msgid "Spell Check"
-#~ msgstr "Перевірити орфографію"
-
-#~ msgid "Link..."
-#~ msgstr "Ланка..."
-
-#~ msgid "Replace confirmation"
-#~ msgstr "Підтвердження заміни"
-
-#~ msgid "Delete Note?"
-#~ msgstr "Видалити нотатку?"
-
-#~ msgid "Check spelling in this note"
-#~ msgstr "Перевірка орфографії в цій нотатці"
-
-#~ msgid "Automatic"
-#~ msgstr "Автоматичний"
-
-#~ msgid "Left align"
-#~ msgstr "Вирівнювати по лівій межі"
-
-#~ msgid "Typewriter"
-#~ msgstr "Друкарська машинка"
-
-#~ msgid "Toggle typewriter font style"
-#~ msgstr "Переключити стиль шрифта 'друкарська машинка'"
-
-#~ msgid "Makes the text italic"
-#~ msgstr "Текст курсивом"
-
-#~ msgid "Strikes out the text"
-#~ msgstr "Закреслений текст"
-
-#~ msgid "Indents the paragraphs more"
-#~ msgstr "Збільшити відступ абзаців"
-
-#~ msgid "Save Note"
-#~ msgstr "Зберегти нотатку"
-
-#~ msgid "Delete Note"
-#~ msgstr "Видалити нотатку"
-
-#~ msgid "Genesis"
-#~ msgstr "Буття"
-
-#~ msgid "Welcome To Xiphos"
-#~ msgstr "Вітаємо у Xiphos"
-
-#~ msgid "Setup"
-#~ msgstr "Встановлення"
-
-#~ msgid "Xiphos Configuration - Page 1 of 5"
-#~ msgstr "Конфігурація Xiphos - стор. 1 з 5"
-
-#~ msgid ""
-#~ "Since this is the first time you have run Xiphos, this assistant will "
-#~ "guide you through the initial setup by asking a few simple questions.\n"
-#~ "\n"
-#~ "Once you have completed these steps, you can always change the settings "
-#~ "later by using the Preferences dialog."
-#~ msgstr ""
-#~ "Оскільки це ваш перший запуск Xiphos, цей помічник поставить вам декілька "
-#~ "простих питань для початкового встановлення.\n"
-#~ "Коли ви пройдете ці кроки, пізніше ви завжди матимете змогу змінити "
-#~ "налаштування за допомогою діалогу 'Вподобання'."
-
-#~ msgid "Xiphos Configuration - Page 2 of 5"
-#~ msgstr "Конфігурація Xiphos - стор. 2 з 5"
-
-#~ msgid "These values have been detected automatically"
-#~ msgstr "Ці значення було визначено автоматично"
-
-#~ msgid "Your home directory:"
-#~ msgstr "Ваш домашній каталог:"
-
-#~ msgid "Sword"
-#~ msgstr "sword"
-
-#~ msgid "SWORD version"
-#~ msgstr "Версія SWORD:"
-
-#~ msgid "SWORD Directory:"
-#~ msgstr "Каталог SWORD:"
-
-#~ msgid "Number of Bible text modules:"
-#~ msgstr "Кількість текстових модулів Біблії:"
-
-#~ msgid "Number of Commentary modules:"
-#~ msgstr "Кількість модулів коментарів:"
-
-#~ msgid "Number of Dictionary/Lexicon modules:"
-#~ msgstr "Кількість модулів словників/лексиконів:"
-
-#~ msgid "Xiphos Configuration - Page 3 of 5"
-#~ msgstr "Конфігурація Xiphos - стор. 3 з 5"
-
-#~ msgid "Settings to use when Xiphos starts"
-#~ msgstr "Налаштування, які використовуватимуться при старті Xiphos'у"
-
-#~ msgid "Show Bible tabs"
-#~ msgstr "Показувати вкладки Біблій"
-
-#~ msgid "Show Bible window"
-#~ msgstr "Показувати вікно Біблії"
-
-#~ msgid "Show upper workbook"
-#~ msgstr "Показувати верхню робочу частину"
-
-#~ msgid "Show Dictionary/Lexicon tabs"
-#~ msgstr "Показувати вкладки словнику/лексикону"
-
-#~ msgid "Show lower workbook"
-#~ msgstr "Показувати нижню робочу частину"
-
-#~ msgid "Show book tabs"
-#~ msgstr "Показувати вкладки книг"
-
-#~ msgid "Xiphos Configuration - Page 4 of 5"
-#~ msgstr "Конфігурація Xiphos - стор. 4 з 5"
-
-#~ msgid "Choose default SWORD modules"
-#~ msgstr "Обрати типові модулі SWORD"
-
-#~ msgid "Text Module       "
-#~ msgstr "Текстовий модуль       "
-
-#~ msgid "Generic book"
-#~ msgstr "Типова книга"
-
-#~ msgid ""
-#~ "Which Greek Lexicon to display in Dictionary/Lexicon Window when a link "
-#~ "or word is clicked"
-#~ msgstr ""
-#~ "Який грецький лексикон відображати у вікні Словнику/Лексикону при "
-#~ "клацанні на ланці або слові"
-
-#~ msgid ""
-#~ "Which Hebrew Lexicon to display in Dictionary/Lexicon Window when a link "
-#~ "or word is clicked"
-#~ msgstr ""
-#~ "Який лексикон івриту відображати у вікні Словнику/Лексикону при клацанні "
-#~ "на ланці або слові"
-
-#~ msgid "Xiphos Configuration - Page 5 of 5"
-#~ msgstr "Конфігурація Xiphos - стор. 5 з 5"
-
-#~ msgid ""
-#~ "Thank you for using Xiphos.\n"
-#~ "\n"
-#~ "Click Apply to close this dialog and run Xiphos."
-#~ msgstr ""
-#~ "Дякуємо за використання Xiphos.\n"
-#~ "\n"
-#~ "Натисніть 'Застосувати' для закриття цього діалогу та старту Xiphos'а."
-
-#~ msgid "Include Morphological Tags"
-#~ msgstr "Включаючи морфологічні теги"
-
-#~ msgid "Include Strong's Numbers"
-#~ msgstr "Включаючи номери Стронгу"
-
-#~ msgid "The modules are out of sync!"
-#~ msgstr "Модулі не синхронізуються"
-
-#~ msgid "SWORD"
-#~ msgstr "SWORD"
-
-#~ msgid "WARNING:"
-#~ msgstr "ПОПЕРЕДЖЕННЯ:"
-
-#~ msgid "Refresh remote sources"
-#~ msgstr "Поновити віддалені джерела"
-
-#~ msgid "Remove selected module(s)"
-#~ msgstr "Видалити виділені модулі"
-
-#~ msgid "Pick the background color"
-#~ msgstr "Вибрати колір фону"
-
-#~ msgid "Pick the Bible text color"
-#~ msgstr "Вибрати колір тексту Біблії"
-
-#~ msgid "Pick the current Verse color"
-#~ msgstr "Вибрати колір поточного вірша"
-
-#~ msgid "Strong's Numbers & Morphological Tags"
-#~ msgstr "Номери Стронгу і морфологічні теги"
-
-#~ msgid "Bible Text Window"
-#~ msgstr "Вікно тексту Біблії"
-
-#~ msgid "Zero is the base font size. Increase or decrease the size."
-#~ msgstr "Нуль є базовим розміром шрифта. Збільшити чи зменшити розмір."
-
-#~ msgid "Use Defaults When Starting Xiphos"
-#~ msgstr "Під час запуску використовувати типові параметри"
-
-#~ msgid "Yes, use defaults"
-#~ msgstr "Так, використовувати типові"
-
-#~ msgid "No, use settings saved the last time I used Xiphos"
-#~ msgstr ""
-#~ "Ні, використовувати налаштування, збережені під час останнього "
-#~ "використання"
-
-#~ msgid "Show"
-#~ msgstr "Показати"
-
-#~ msgid "Display Bible text window"
-#~ msgstr "Показати вікно тексту Біблії"
-
-#~ msgid "Show Daily Devotion if you have a Devotion module"
-#~ msgstr "Показувати щоденні читання, якщо у вас є такий модуль"
-
-#~ msgid "Show the splash screen when Xiphos starts"
-#~ msgstr "Показувати заставку при старті Xiphos'а"
-
-#~ msgid "Show Dictionary / Lexicon"
-#~ msgstr "Показувати словник/лексикон"
-
-#~ msgid "In Sidebar viewer"
-#~ msgstr "У переглядачі контекстного меню"
-
-#~ msgid "In Dictionary/Lexicon window"
-#~ msgstr "У вікні словника/лексикона"
-
-#~ msgid ""
-#~ "Which Greek Lexicon to display in Dictionary/Lexicon window when a link "
-#~ "or word is clicked"
-#~ msgstr ""
-#~ "Котрий грецький лексикон відображати у вікні Словник/Лексикон при "
-#~ "клацанні на ланці чи слові"
-
-#~ msgid "Hebrew Lexicon Viewer"
-#~ msgstr "Переглядач лексикону іврита"
-
-#~ msgid ""
-#~ "Which Hebrew Lexicon to display in viewer when a link or word is clicked"
-#~ msgstr ""
-#~ "Який лексикон івриту відображати у переглядачі при клацанні на ланці або "
-#~ "слові"
-
-#~ msgid "Greek Lexicon Viewer"
-#~ msgstr "Переглядач грецького лексикона"
-
-#~ msgid ""
-#~ "Which Greek Lexicon to display in viewer when a link or word is clicked"
-#~ msgstr ""
-#~ "Який грецький лексикон відображати у переглядачі при клацанні на ланці "
-#~ "або слові"
-
-#~ msgid "Scope"
-#~ msgstr "Контекст"
-
-#~ msgid "examples"
-#~ msgstr "приклади"
-
-#~ msgid "Clear"
-#~ msgstr "Очистити"
-
-#~ msgid "Sync"
-#~ msgstr "Синхронізувати"
-
-#~ msgid "Romans"
-#~ msgstr "Римлян"
-
-#~ msgid "Goto verse"
-#~ msgstr "Перейти до вірша"
-
-#~ msgid "Go to verse in free form lookup and add verse to history"
-#~ msgstr "Перейти до вірша у вільній формі перегляду і додати вірш в історію"
-
-#~ msgid "Lower Workbook"
-#~ msgstr "Нижня робоча частина"
-
-#~ msgid "Commentaries, Personal Comments and StudyPad"
-#~ msgstr "Коментарі, персональні коментарі та конспект"
-
-#~ msgid "Lower workbook"
-#~ msgstr "Нижню робочу частину"
-
-#~ msgid "Dictionary/Lexicon and generic books"
-#~ msgstr "Словник/Лексикон і типові книги"
-
-#~ msgid "Toggle sync with main window"
-#~ msgstr "Відключити синхронізацію з головним вікном"
-
-#~ msgid "Load current key"
-#~ msgstr "Завантажити поточний ключ"
-
-#~ msgid "Match Case"
-#~ msgstr "Зважати на регістр"
-
-#~ msgid "Word found"
-#~ msgstr "Слово знайдено"
-
-#~ msgid "Replace with"
-#~ msgstr "Замінити на"
-
-#~ msgid "Replace misspelled word with suggested word"
-#~ msgstr "Замінити невірно написане слово на запропоноване"
-
-#~ msgid "Replace word"
-#~ msgstr "Замінити слово"
-
-#~ msgid "Leave word as is"
-#~ msgstr "Залишити слово, як є"
-
-#~ msgid "Skip Word"
-#~ msgstr "Пропустити слово"
-
-#~ msgid "Accept word for this session but do not add to dictionary"
-#~ msgstr "Прийняти слово для цієї сесії, але не додавати у словник"
-
-#~ msgid "Accept word"
-#~ msgstr "Прийняти слово"
-
-#~ msgid "Insert word into Personal Dictionary"
-#~ msgstr "Вставити слово у персональний словник"
-
-#~ msgid "I could not initialize Bonobo"
-#~ msgstr "Не можу ініціалізувати Bonobo"

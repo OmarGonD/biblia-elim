@@ -194,6 +194,8 @@ static std::string executable_path(void) {
 
 static void show_batch_progress(size_t index, size_t total, const std::string &id) {
     if (!widgets.appbar) return;
+    GtkWidget *status_row = gtk_widget_get_parent(widgets.appbar);
+    if (!GTK_IS_BOX(status_row)) return;
     if (!batch_bar) {
         batch_bar = gtk_progress_bar_new();
         gtk_progress_bar_set_show_text(GTK_PROGRESS_BAR(batch_bar), TRUE);
@@ -205,7 +207,7 @@ static void show_batch_progress(size_t index, size_t total, const std::string &i
         /* at the right end of the status bar */
         gtk_widget_set_hexpand(batch_bar, TRUE);
         gtk_widget_set_halign(batch_bar, GTK_ALIGN_END);
-        gui_box_pack(GTK_BOX(widgets.appbar), batch_bar, FALSE, FALSE, 6);
+        gtk_box_append(GTK_BOX(status_row), batch_bar);
         batch_statusbar_was_visible = gtk_widget_get_visible(widgets.appbar);
         gtk_widget_show(widgets.appbar);
     }

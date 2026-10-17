@@ -1,6 +1,6 @@
 /*
- * Xiphos Bible Study Tool
- * about_sword.c - Xiphos "About Sword" dialog
+ * Ministerios Elim — Bible study
+ * about_sword.c - Ministerios Elim "About Sword" dialog
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
  *
@@ -138,10 +138,10 @@ on the local network.\n\n\
 Enable BibleSync from Preferences:\n\
 in personal mode, to share within a small group;\n\
 or as either speaker or audience in a formal lecture setting.\n\n\
-There are options for how BibleSync behaves in Xiphos:\n\
+There are options for how BibleSync behaves in Ministerios Elim:\n\
 - To follow others' navigation directly or indirectly.\n\
 - To send your navigation every time or only via keyboard.\n\
-- To select speakers to whom Xiphos should listen.\n\n\
+- To select speakers to whom Ministerios Elim should listen.\n\n\
 A simple chat capability provides brief messages to be shared as well.\n\n\
 See the manual for details.\n\
 (Preferences -> BibleSync Settings and Interface -> Keyboard Shortcuts.)");

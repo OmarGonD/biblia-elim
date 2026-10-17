@@ -14,6 +14,39 @@ static int failures;
 	} while (0)
 
 static void
+test_first_paint(void)
+{
+	gint first, last;
+	CHECK(reading_window_first_paint_pending());
+	/* The main pane starts at exactly the requested chapter, even for
+	 * the whole-book setting. Side panes retain their complete window. */
+	reading_window_render_bounds(16, 28, 1, TRUE, &first, &last);
+	CHECK(first == 16 && last == 16);
+	reading_window_render_bounds(119, 150, 0, TRUE, &first, &last);
+	CHECK(first == 119 && last == 119);
+	reading_window_render_bounds(16, 28, 1, FALSE, &first, &last);
+	CHECK(first == 15 && last == 17);
+	reading_window_render_bounds(119, 150, 0, FALSE, &first, &last);
+	CHECK(first == 1 && last == 150);
+	reading_window_render_bounds(40, 28, 1, TRUE, &first, &last);
+	CHECK(first == 28 && last == 28);
+	reading_window_render_bounds(0, 0, 1, TRUE, &first, &last);
+	CHECK(first == 1 && last == 1);
+	reading_window_render_bounds(1, 1, 1, TRUE, &first, &last);
+	CHECK(first == 1 && last == 1);
+
+	reading_window_first_painted();
+	CHECK(!reading_window_first_paint_pending());
+	/* Once painted, neighbours return and zero still means the whole book. */
+	reading_window_render_bounds(16, 28, 1, TRUE, &first, &last);
+	CHECK(first == 15 && last == 17);
+	reading_window_render_bounds(119, 150, 0, TRUE, &first, &last);
+	CHECK(first == 1 && last == 150);
+	reading_window_first_painted();
+	CHECK(!reading_window_first_paint_pending());
+}
+
+static void
 test_bounds(void)
 {
 	gint first, last;
@@ -66,6 +99,7 @@ test_recenter(void)
 int
 main(void)
 {
+	test_first_paint();
 	test_bounds();
 	test_recenter();
 	printf("reading_window_failures=%d\n", failures);

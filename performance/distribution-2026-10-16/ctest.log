@@ -1,0 +1,29 @@
+Test project /home/ogonzales/Projects/biblia_elim/build
+      Start  1: gui_platform_linux_default
+ 1/12 Test  #1: gui_platform_linux_default .......   Passed    0.05 sec
+      Start  2: gui_platform_linux_explicit
+ 2/12 Test  #2: gui_platform_linux_explicit ......   Passed    0.04 sec
+      Start  3: gui_platform_linux_older-gtk
+ 3/12 Test  #3: gui_platform_linux_older-gtk .....   Passed    0.04 sec
+      Start  4: gui_platform_windows_default
+ 4/12 Test  #4: gui_platform_windows_default .....   Passed    0.05 sec
+      Start  5: gui_platform_windows_explicit
+ 5/12 Test  #5: gui_platform_windows_explicit ....   Passed    0.05 sec
+      Start  6: gui_platform_windows_older-gtk
+ 6/12 Test  #6: gui_platform_windows_older-gtk ...   Passed    0.04 sec
+      Start  7: gui_platform_macos_default
+ 7/12 Test  #7: gui_platform_macos_default .......   Passed    0.04 sec
+      Start  8: gui_platform_macos_explicit
+ 8/12 Test  #8: gui_platform_macos_explicit ......   Passed    0.04 sec
+      Start  9: gui_platform_macos_older-gtk
+ 9/12 Test  #9: gui_platform_macos_older-gtk .....   Passed    0.04 sec
+      Start 15: windows_release_build
+10/12 Test #15: windows_release_build ............   Passed    0.87 sec
+      Start 20: gtk_lifecycle_smoke
+11/12 Test #20: gtk_lifecycle_smoke ..............   Passed   25.65 sec
+      Start 21: author_commentary_probe
+12/12 Test #21: author_commentary_probe ..........   Passed   12.59 sec
+
+100% tests passed out of 12
+
+Total Test time (real) =  39.53 sec

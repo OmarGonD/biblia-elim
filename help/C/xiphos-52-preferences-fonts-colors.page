@@ -10,7 +10,7 @@
     <revision pkgversion="4.1.0" date="2018-05-29" status="candidate"/>
 
     <title type='link' role="trail"></title>
-    <title type='text'>Xiphos</title>
+    <title type='text'>Biblia Elim</title>
 
     <credit type="author" its:translate="no">
       <name>Andy Piper</name>
@@ -60,7 +60,7 @@
     Options</gui> selector provides font name and size selection.</p>
 
     <p>The base font size is the size initially chosen for all modules displayed
-    by <app>Xiphos</app>.  The verse number and individual modules' font size
+    by <app>Biblia Elim</app>.  The verse number and individual modules' font size
     choices are relative to the base font size.</p>
 
     <p>The font name and size used for display is chosen from this order:</p>

@@ -161,6 +161,12 @@ struct BibleFootnote {
 struct BibleCrossReference {
 	std::string label;
 	std::vector<BibleReference> references;
+	struct Range {
+		BibleReference start;
+		BibleReference end;
+		std::vector<BibleReference> expandedReferences;
+	};
+	std::vector<Range> ranges;
 	std::string displayText;
 	std::size_t offset = 0;
 };

@@ -44,9 +44,9 @@ INSERT INTO metadata(key, value) VALUES
     ('feature.search', 'true'),
     ('feature.strong', 'true'),
     ('feature.morphology', 'true'),
-    ('feature.headings', 'false'),
-    ('feature.footnotes', 'false'),
-    ('feature.crossrefs', 'false'),
+    ('feature.headings', 'true'),
+    ('feature.footnotes', 'true'),
+    ('feature.crossrefs', 'true'),
     ('feature.dictionary', 'false'),
     ('source_format', 'fixture');
 
@@ -101,3 +101,41 @@ INSERT INTO verse_word_morphology VALUES
     (40,3,16,1,0,'','HR/Ncfsa'),
     (40,3,17,0,0,'robinson','V-AAI-3S'),
     (40,3,17,0,1,'custom.alpha','V-AAI-3S');
+
+CREATE TABLE verse_annotations (
+    book_id INTEGER, chapter INTEGER, verse INTEGER,
+    paragraph_break INTEGER NOT NULL,
+    PRIMARY KEY(book_id, chapter, verse)
+);
+CREATE TABLE headings (
+    book_id INTEGER, chapter INTEGER, verse INTEGER, sequence INTEGER,
+    text TEXT NOT NULL,
+    PRIMARY KEY(book_id, chapter, verse, sequence)
+);
+CREATE TABLE verse_spans (
+    book_id INTEGER, chapter INTEGER, verse INTEGER,
+    start INTEGER, length INTEGER, style TEXT,
+    PRIMARY KEY(book_id, chapter, verse, start, style)
+);
+CREATE TABLE footnotes (
+    book_id INTEGER, chapter INTEGER, verse INTEGER, sequence INTEGER,
+    offset INTEGER, caller TEXT, body TEXT,
+    PRIMARY KEY(book_id, chapter, verse, sequence)
+);
+CREATE TABLE cross_references (
+    book_id INTEGER, chapter INTEGER, verse INTEGER, sequence INTEGER,
+    offset INTEGER, display_text TEXT,
+    PRIMARY KEY(book_id, chapter, verse, sequence)
+);
+CREATE TABLE cross_reference_targets (
+    book_id INTEGER, chapter INTEGER, verse INTEGER, sequence INTEGER,
+    target_sequence INTEGER, target_book_id INTEGER,
+    target_chapter INTEGER, target_verse INTEGER,
+    PRIMARY KEY(book_id, chapter, verse, sequence, target_sequence)
+);
+INSERT INTO verse_annotations VALUES(40,3,16,1);
+INSERT INTO headings VALUES(40,3,16,0,'A test heading');
+INSERT INTO verse_spans VALUES(40,3,16,4,3,'italic');
+INSERT INTO footnotes VALUES(40,3,16,0,7,'a','A test note.');
+INSERT INTO cross_references VALUES(40,3,16,0,7,'John 3:17');
+INSERT INTO cross_reference_targets VALUES(40,3,16,0,0,40,3,17);

@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * bookmark_dialog.c - gui to popup a dialog for adding a bookmark
  *
  * Copyright (C) 2005-2026 Xiphos Developer Team
@@ -189,7 +189,7 @@ static void add_folder_button(void)
 		return;
 
 	GtkBuilder *gxml = elim_gtk_builder_new();
-	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/folder.gtkbuilder", NULL);
+	gtk_builder_add_from_resource(gxml, "/org/bibliaelim/ui/folder.gtkbuilder", NULL);
 
 	GtkWidget *entry  = GTK_WIDGET(UI_GET_ITEM(gxml, "folder_entry_name"));
 	GtkWidget *dialog = GTK_WIDGET(UI_GET_ITEM(gxml, "dialog_folder"));
@@ -457,7 +457,7 @@ static GtkWidget *_create_bookmark_dialog(gchar *label,
 
 /* build the widget */
 	gxml = elim_gtk_builder_new();
-	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/bookmarks.gtkbuilder", NULL);
+	gtk_builder_add_from_resource(gxml, "/org/bibliaelim/ui/bookmarks.gtkbuilder", NULL);
 	g_return_val_if_fail(gxml != NULL, NULL);
 
 	/* lookup the root widget */
@@ -517,7 +517,7 @@ static GtkWidget *_create_mark_verse_dialog(gchar *module, gchar *key)
 
 /* build the widget */
 	gxml = elim_gtk_builder_new();
-	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/markverse.gtkbuilder", NULL);
+	gtk_builder_add_from_resource(gxml, "/org/bibliaelim/ui/markverse.gtkbuilder", NULL);
 	g_return_val_if_fail(gxml != NULL, NULL);
 
 	/* lookup the root widget */

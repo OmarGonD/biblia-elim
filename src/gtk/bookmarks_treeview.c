@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * bookmarks_treeview.c - gui for bookmarks using treeview
  *
  * Copyright (C) 2003-2026 Xiphos Developer Team

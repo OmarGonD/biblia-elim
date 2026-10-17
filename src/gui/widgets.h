@@ -59,6 +59,7 @@ struct _app_widgets
 	    *frame_parallel, /* frame for interlinear html  */
 			     /* editor_dialog */
 	    *studypad_dialog,
+	    *study_editor_panel,
 	    /* entry widgets */
 	    *entry_dict,
 	    /* toolbars */
@@ -69,6 +70,7 @@ struct _app_widgets
 				    * in reading mode (see
 				    * gui_toggle_reading_mode()) */
 	    *combo_bible_version, /* picker for the main window's Bible version, preserves book/chapter/verse */
+	    *study_bible_version_picker, /* local Bible picker shown beside the study editor */
 	    /* html widgets */
 	    *eventbox1, *html_search_report, /* html widget for serch report shortcut bar */
 	    *html_parallel,		     /* parallel html widget */

@@ -1,5 +1,5 @@
 /*
- * Biblia Elim
+ * Ministerios Elim
  * plan_personal.c - diálogo del plan de lectura que arma el lector
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -435,7 +435,7 @@ gui_plan_personal_dialog(GtkWindow *padre, const PL_PLAN *plan)
 	gint respuesta;
 
 	if (!gtk_builder_add_from_resource(gxml,
-					   "/org/xiphos/ui/plan-personal.gtkbuilder",
+					   "/org/bibliaelim/ui/plan-personal.gtkbuilder",
 					   NULL)) {
 		g_object_unref(gxml);
 		gui_generic_warning(_("No se pudo abrir el diálogo del plan personalizado."));

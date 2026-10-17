@@ -1,0 +1,75 @@
+{
+  "cases": {
+    "before-debug": {
+      "error": {
+        "app": "/home/ogonzales/Projects/biblia_elim/build/performance/startup-2026-10-16/before-debug",
+        "display": "current",
+        "renderer": "default",
+        "cache_state": "warm",
+        "error": "incomplete startup: performance/startup-2026-10-16/visual-comparison/before-debug/sqlite-0.log; events={}"
+      }
+    },
+    "before-optimized": {
+      "error": {
+        "app": "/home/ogonzales/Projects/biblia_elim/build/performance/startup-2026-10-16/before-optimized",
+        "display": "current",
+        "renderer": "default",
+        "cache_state": "warm",
+        "error": "incomplete startup: performance/startup-2026-10-16/visual-comparison/before-optimized/sqlite-0.log; events={}"
+      }
+    },
+    "after-optimized": {
+      "error": {
+        "app": "/home/ogonzales/Projects/biblia_elim/build/performance/startup-2026-10-16/after-optimized",
+        "display": "current",
+        "renderer": "default",
+        "cache_state": "warm",
+        "error": "incomplete startup: performance/startup-2026-10-16/visual-comparison/after-optimized/sqlite-0.log; events={}"
+      }
+    },
+    "after-cairo": {
+      "error": {
+        "app": "/home/ogonzales/Projects/biblia_elim/build/performance/startup-2026-10-16/after-optimized",
+        "display": "current",
+        "renderer": "cairo",
+        "cache_state": "warm",
+        "error": "incomplete startup: performance/startup-2026-10-16/visual-comparison/after-cairo/sqlite-0.log; events={}"
+      }
+    },
+    "before-empty-cache": {
+      "error": {
+        "app": "/home/ogonzales/Projects/biblia_elim/build/performance/startup-2026-10-16/before-optimized",
+        "display": "current",
+        "renderer": "default",
+        "cache_state": "empty",
+        "error": "incomplete startup: performance/startup-2026-10-16/visual-comparison/before-empty-cache/sqlite-0.log; events={}"
+      }
+    },
+    "after-empty-cache": {
+      "error": {
+        "app": "/home/ogonzales/Projects/biblia_elim/build/performance/startup-2026-10-16/after-optimized",
+        "display": "current",
+        "renderer": "default",
+        "cache_state": "empty",
+        "error": "incomplete startup: performance/startup-2026-10-16/visual-comparison/after-empty-cache/sqlite-0.log; events={}"
+      }
+    }
+  },
+  "comparisons": {
+    "optimized-build": {
+      "status": "unavailable"
+    },
+    "deferred-neighbours": {
+      "status": "unavailable"
+    },
+    "total": {
+      "status": "unavailable"
+    },
+    "cairo": {
+      "status": "unavailable"
+    },
+    "empty-cache": {
+      "status": "unavailable"
+    }
+  }
+}

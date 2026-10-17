@@ -20,3 +20,15 @@ gboolean app_language_save_choice(const char *choice, gchar **current,
 	g_free(id);
 	return changed;
 }
+
+gchar *app_language_load_or_seed_choice(void)
+{
+    gchar *saved = xml_get_value("locale", "special");
+    if (saved) return saved;
+    gchar *choice = app_language_installation_choice();
+    const char *stored = !choice || !strcmp(choice, "system") ? "None" : choice;
+    xml_set_or_create_value("locale", "special", stored);
+    saved = g_strdup(stored);
+    g_free(choice);
+    return saved;
+}

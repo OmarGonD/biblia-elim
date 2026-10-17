@@ -137,6 +137,18 @@ downgrade inconsistent declarations to false. USFM import currently supports
 without entering `verses.text`. Cross-reference target resolution is best
 effort and unresolved text remains in `display_text`.
 
+`cross_reference_ranges` is an optional v1-compatible child table. It stores
+ordered, explicitly parsed start/end references (including testament, book,
+chapter, and verse) beside the cross-reference sequence. Readers continue
+opening older v1 modules without this table.
+
+`cross_reference_range_targets` is a second optional v1-compatible child
+table. For each explicit range it stores, in module order, only the actual
+imported verses in the inclusive interval. Its target foreign key prevents a
+writer from persisting synthesized or absent verse references. Missing,
+reversed, and empty endpoint intervals therefore have no rows. The target's
+testament is retained with its book, chapter, and verse.
+
 `tests/fixtures/sqlite/test-bible.sql` is a complete baseline v1 example. The
 format does not define comments, dictionaries, compression, packages, or other
 import formats.

@@ -1,0 +1,169 @@
+{
+  "conditions": "7 runs per build after one warmup; alternating order; same current backend sources and modules; XDG/OS caches not cleared; GUI not measured",
+  "results": {
+    "debug": {
+      "samples": [
+        {
+          "startup_us": 9615,
+          "100_chapters_us": 15212,
+          "1000_verses_us": 284732,
+          "100_chapter_verse_reads_us": 449553,
+          "100_chapter_bulk_reads_us": 172241,
+          "search_us": 313,
+          "feature_strong": 1,
+          "feature_morphology": 1
+        },
+        {
+          "startup_us": 9592,
+          "100_chapters_us": 14893,
+          "1000_verses_us": 280330,
+          "100_chapter_verse_reads_us": 444836,
+          "100_chapter_bulk_reads_us": 168069,
+          "search_us": 302,
+          "feature_strong": 1,
+          "feature_morphology": 1
+        },
+        {
+          "startup_us": 9572,
+          "100_chapters_us": 14941,
+          "1000_verses_us": 278778,
+          "100_chapter_verse_reads_us": 443833,
+          "100_chapter_bulk_reads_us": 168421,
+          "search_us": 299,
+          "feature_strong": 1,
+          "feature_morphology": 1
+        },
+        {
+          "startup_us": 9624,
+          "100_chapters_us": 14988,
+          "1000_verses_us": 280821,
+          "100_chapter_verse_reads_us": 446951,
+          "100_chapter_bulk_reads_us": 168016,
+          "search_us": 310,
+          "feature_strong": 1,
+          "feature_morphology": 1
+        },
+        {
+          "startup_us": 9617,
+          "100_chapters_us": 15086,
+          "1000_verses_us": 280298,
+          "100_chapter_verse_reads_us": 446367,
+          "100_chapter_bulk_reads_us": 168544,
+          "search_us": 302,
+          "feature_strong": 1,
+          "feature_morphology": 1
+        },
+        {
+          "startup_us": 9563,
+          "100_chapters_us": 15059,
+          "1000_verses_us": 278136,
+          "100_chapter_verse_reads_us": 441985,
+          "100_chapter_bulk_reads_us": 168416,
+          "search_us": 303,
+          "feature_strong": 1,
+          "feature_morphology": 1
+        },
+        {
+          "startup_us": 9505,
+          "100_chapters_us": 14888,
+          "1000_verses_us": 277016,
+          "100_chapter_verse_reads_us": 441624,
+          "100_chapter_bulk_reads_us": 167803,
+          "search_us": 299,
+          "feature_strong": 1,
+          "feature_morphology": 1
+        }
+      ],
+      "median_us": {
+        "startup_us": 9592,
+        "100_chapters_us": 14988,
+        "1000_verses_us": 280298,
+        "100_chapter_verse_reads_us": 444836,
+        "100_chapter_bulk_reads_us": 168416,
+        "search_us": 302
+      }
+    },
+    "optimized": {
+      "samples": [
+        {
+          "startup_us": 9023,
+          "100_chapters_us": 5458,
+          "1000_verses_us": 183512,
+          "100_chapter_verse_reads_us": 324194,
+          "100_chapter_bulk_reads_us": 67418,
+          "search_us": 294,
+          "feature_strong": 1,
+          "feature_morphology": 1
+        },
+        {
+          "startup_us": 9171,
+          "100_chapters_us": 5449,
+          "1000_verses_us": 186052,
+          "100_chapter_verse_reads_us": 326999,
+          "100_chapter_bulk_reads_us": 67627,
+          "search_us": 293,
+          "feature_strong": 1,
+          "feature_morphology": 1
+        },
+        {
+          "startup_us": 9087,
+          "100_chapters_us": 5431,
+          "1000_verses_us": 184255,
+          "100_chapter_verse_reads_us": 323898,
+          "100_chapter_bulk_reads_us": 67047,
+          "search_us": 303,
+          "feature_strong": 1,
+          "feature_morphology": 1
+        },
+        {
+          "startup_us": 9149,
+          "100_chapters_us": 5557,
+          "1000_verses_us": 186240,
+          "100_chapter_verse_reads_us": 327885,
+          "100_chapter_bulk_reads_us": 67682,
+          "search_us": 299,
+          "feature_strong": 1,
+          "feature_morphology": 1
+        },
+        {
+          "startup_us": 9165,
+          "100_chapters_us": 5515,
+          "1000_verses_us": 185372,
+          "100_chapter_verse_reads_us": 326260,
+          "100_chapter_bulk_reads_us": 67649,
+          "search_us": 304,
+          "feature_strong": 1,
+          "feature_morphology": 1
+        },
+        {
+          "startup_us": 9093,
+          "100_chapters_us": 5410,
+          "1000_verses_us": 186168,
+          "100_chapter_verse_reads_us": 326260,
+          "100_chapter_bulk_reads_us": 67587,
+          "search_us": 291,
+          "feature_strong": 1,
+          "feature_morphology": 1
+        },
+        {
+          "startup_us": 9163,
+          "100_chapters_us": 5437,
+          "1000_verses_us": 183329,
+          "100_chapter_verse_reads_us": 322973,
+          "100_chapter_bulk_reads_us": 67020,
+          "search_us": 296,
+          "feature_strong": 1,
+          "feature_morphology": 1
+        }
+      ],
+      "median_us": {
+        "startup_us": 9149,
+        "100_chapters_us": 5449,
+        "1000_verses_us": 185372,
+        "100_chapter_verse_reads_us": 326260,
+        "100_chapter_bulk_reads_us": 67587,
+        "search_us": 296
+      }
+    }
+  }
+}

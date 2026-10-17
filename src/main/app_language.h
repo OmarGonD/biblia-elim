@@ -19,6 +19,10 @@ gboolean app_language_parse_args(int *argc, char **argv, gchar **choice,
 /* Call before SWORD, GTK or any translated startup content. */
 void app_language_initialize(const char *choice, const char *settings_path);
 const char *app_language_reader_locale(void);
+/* Installer default, owned by caller; NULL when no valid default is present. */
+gchar *app_language_installation_choice(void);
+/* Read the loaded settings, seeding the installation choice only if missing. */
+gchar *app_language_load_or_seed_choice(void);
 /* Uses the settings document already loaded by main/xml.c. */
 gboolean app_language_save_choice(const char *choice, gchar **current,
 				gchar *settings_path);

@@ -1,5 +1,5 @@
 /*
- * Biblia Elim
+ * Ministerios Elim
  * progreso_lectura.c - diálogo Tu progreso
  *
  * Copyright (C) 2000-2026 Xiphos Developer Team
@@ -574,7 +574,7 @@ gui_progreso_lectura_dialog(GtkWindow *padre)
 
 	gxml = elim_gtk_builder_new();
 	if (!gtk_builder_add_from_resource(gxml,
-					   "/org/xiphos/ui/progreso-lectura.gtkbuilder",
+					   "/org/bibliaelim/ui/progreso-lectura.gtkbuilder",
 					   NULL)) {
 		g_object_unref(gxml);
 		gui_generic_warning(_("No se pudo abrir el diálogo Tu progreso."));

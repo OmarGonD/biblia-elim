@@ -188,6 +188,29 @@ void compareVerse(NeutralComparisonResult &result, const BibleReference &referen
 			if (!sameReference(left.references[target], right.references[target]))
 				mismatch(result, ref, field + ".targets[" + number(target) + "]",
 					referenceValue(left.references[target]), referenceValue(right.references[target]));
+		if (left.ranges.size() != right.ranges.size()) mismatch(result, ref,
+			field + ".ranges.size", number(left.ranges.size()), number(right.ranges.size()));
+		const std::size_t rangeCount = std::min(left.ranges.size(), right.ranges.size());
+		for (std::size_t range = 0; range < rangeCount; ++range) {
+			if (!sameReference(left.ranges[range].start, right.ranges[range].start))
+				mismatch(result, ref, field + ".ranges[" + number(range) + "].start",
+					referenceValue(left.ranges[range].start), referenceValue(right.ranges[range].start));
+			if (!sameReference(left.ranges[range].end, right.ranges[range].end))
+				mismatch(result, ref, field + ".ranges[" + number(range) + "].end",
+					referenceValue(left.ranges[range].end), referenceValue(right.ranges[range].end));
+			const auto &leftExpanded = left.ranges[range].expandedReferences;
+			const auto &rightExpanded = right.ranges[range].expandedReferences;
+			if (leftExpanded.size() != rightExpanded.size()) mismatch(result, ref,
+				field + ".ranges[" + number(range) + "].expandedReferences.size",
+				number(leftExpanded.size()), number(rightExpanded.size()));
+			const std::size_t expandedCount = std::min(leftExpanded.size(), rightExpanded.size());
+			for (std::size_t target = 0; target < expandedCount; ++target)
+				if (!sameReference(leftExpanded[target], rightExpanded[target]))
+					mismatch(result, ref, field + ".ranges[" + number(range) +
+						"].expandedReferences[" + number(target) + "]",
+						referenceValue(leftExpanded[target]),
+						referenceValue(rightExpanded[target]));
+		}
 	}
 }
 

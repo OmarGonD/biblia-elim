@@ -17,6 +17,7 @@ struct UsfmImportStats {
 	std::size_t books = 0, chapters = 0, verses = 0;
 	std::size_t footnotesImported = 0, crossReferencesImported = 0;
 	std::size_t crossrefTargetsResolved = 0, crossrefTargetsUnresolved = 0;
+	std::size_t crossrefRangesResolved = 0, crossrefRangesUnresolved = 0;
 	std::size_t footnotesSkipped = 0, crossReferencesSkipped = 0;
 	std::size_t unsupportedMarkers = 0;
 	std::size_t paragraphMarkers = 0, headingsImported = 0, addedSpans = 0;

@@ -45,10 +45,45 @@ int main(void)
 		g_free(verse); g_free(mode);
 	}
 	g_assert_cmpstr(current, ==, "None");
+    gchar *installer = g_build_filename(directory, "installation-language", NULL);
+    g_assert_true(g_file_set_contents(installer, "es\n", -1, NULL));
+    g_setenv("BIBLIA_ELIM_INSTALL_LANGUAGE_FILE", installer, TRUE);
+    gchar *preserved = app_language_load_or_seed_choice();
+    g_assert_cmpstr(preserved, ==, "None"); /* explicit system choice survives */
+    g_free(preserved);
+    xml_free_settings_doc();
+    g_assert_true(g_file_set_contents(path,
+        "<Xiphos><keys><verse>Juan 3:16</verse></keys></Xiphos>", -1, NULL));
+    g_assert_true(xml_parse_settings_file(path));
+    gchar *seeded = app_language_load_or_seed_choice();
+    g_assert_cmpstr(seeded, ==, "es");
+    xml_save_settings_doc(path);
+    g_assert_true(g_file_set_contents(installer, "fr\n", -1, NULL));
+    app_language_initialize(NULL, path);
+    g_assert_cmpstr(app_language_reader_locale(), ==, "es");
+    gchar *again = app_language_load_or_seed_choice();
+    g_assert_cmpstr(again, ==, "es");
+    g_free(again); g_free(seeded);
+    /* An existing empty locale section must receive the key without duplication. */
+    xml_free_settings_doc();
+    g_assert_true(g_file_set_contents(path, "<Xiphos><locale/></Xiphos>", -1, NULL));
+    g_assert_true(xml_parse_settings_file(path));
+    gchar *empty_locale = app_language_load_or_seed_choice();
+    g_assert_cmpstr(empty_locale, ==, "fr");
+    g_free(empty_locale);
+    xml_save_settings_doc(path);
+    xmlDocPtr saved_doc = xmlReadFile(path, NULL, XML_PARSE_NONET);
+    int sections = 0;
+    for (xmlNode *n = xmlDocGetRootElement(saved_doc)->children; n; n = n->next)
+        if (xmlStrEqual(n->name, BAD_CAST "locale")) sections++;
+    g_assert_cmpint(sections, ==, 1);
+    xmlFreeDoc(saved_doc);
+    g_unsetenv("BIBLIA_ELIM_INSTALL_LANGUAGE_FILE");
+    g_remove(installer); g_free(installer);
 	xml_free_settings_doc();
 	gchar *backup = g_strconcat(path, ".SAVE", NULL);
 	g_remove(backup); g_remove(path); g_rmdir(directory);
 	g_free(backup); g_free(directory); g_free(path); g_free(current);
-	puts("language_settings_test: PASS (7 persisted choices; legacy aliases; unrelated settings intact)");
+	puts("language_settings_test: PASS (7 persisted choices; installer default survives restart; existing system preference preserved)");
 	return 0;
 }

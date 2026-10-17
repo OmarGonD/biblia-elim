@@ -9,7 +9,7 @@
     <revision pkgversion="4.5.0" date="2026-08-10" status="draft"/>
 
     <title type='link' role="trail"></title>
-    <title type='text'>Xiphos</title>
+    <title type='text'>Biblia Elim</title>
 
     <credit type="author" its:translate="no">
       <name>Andy Piper</name>
@@ -74,11 +74,11 @@
   <section id="xiphos-bookmark-andbible-import">
     <title>Importing Bookmarks From AndBible</title>
     <p>If you also use <app>AndBible</app> (a Sword-compatible Bible app for
-    Android) and want to bring its bookmarks into <app>Xiphos</app>, use the
+    Android) and want to bring its bookmarks into <app>Biblia Elim</app>, use the
     bookmark import function to read an AndBible bookmarks database file and
-    convert it into <app>Xiphos</app> bookmarks. Locate the AndBible database
+    convert it into <app>Biblia Elim</app> bookmarks. Locate the AndBible database
     file (copied from your Android device) when prompted, and the bookmarks it
-    contains will be added to your existing <app>Xiphos</app> bookmarks.</p>
+    contains will be added to your existing <app>Biblia Elim</app> bookmarks.</p>
   </section>
 
 </page>

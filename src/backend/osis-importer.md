@@ -5,7 +5,8 @@ SQLite module format v1 used by `SqliteBibleBackend`. Parsing is offline with
 libxml2 `XML_PARSE_NONET`; external entities and network access are disabled.
 
 Supported initially: Bible `<chapter>`/`<verse>` elements for the 66 books and
-the deuterocanonical Tob, Jdt, Wis, Sir, Bar, 1Macc and 2Macc (DEUTERO-101),
+the deuterocanonical Tob, Jdt, Wis, Sir, Bar, 1Macc, 2Macc, 1Esd, 2Esd,
+PrMan, and Ps151 (DEUTERO-101/102), plus 1 Enoch (`1En`),
 `osisID` (and basic `sID` verse milestones), paragraph/title text, supplied
 word text, `lemma="strong:H.../G..."`, footnote/cross-reference notes and
 OSIS-style book/chapter/verse references. Morphology is parsed, persisted, and
@@ -28,7 +29,7 @@ final `std::string`.
 
 | Feature | Status |
 |---|---|
-| Bible OSIS / 66 books + 7 deuterocanonical | supported subset |
+| Bible OSIS / 66 books + 11 deuterocanonical + 1 Enoch | supported subset |
 | verse `osisID` | supported |
 | verse/chapter `sID`/`eID` | supported for validated milestones |
 | Strong / multi-Strong | supported subset |
@@ -40,9 +41,9 @@ final `std::string`.
 | unknown inline | text preserved and element counted |
 | unknown structural wrapper | children traversed and element counted |
 | ignored attributes | counted as `element.attribute` |
-| structured cross-reference ranges | unsupported; display and audit preserved, no structured target |
+| structured cross-reference ranges | explicit full start/end pairs supported; abbreviated/malformed ranges remain display-only |
 | external entities | not substituted; file and network regressions pass |
-| deuterocanonical books | Tob, Jdt, Wis, Sir, Bar, 1Macc, 2Macc (ids 67-73); others (1Esd, 2Esd, PrMan, ...) rejected |
+| deuterocanonical books | Tob, Jdt, Wis, Sir, Bar, 1Macc, 2Macc, 1Esd, 2Esd, PrMan, Ps151 (ids 67-77); 1 Enoch (`1En`, id 78) is recognized separately; other books (e.g. 3Macc) rejected |
 | book order | the source's order (`position` = order of first appearance): Vulgate interleaved, NRSVA appendix |
 | book names | module language: Spanish (`es`) as SWORD's Spanish locale spells them, English otherwise; any spelling resolves |
 | commentaries/dictionaries | unsupported |
@@ -79,12 +80,17 @@ the same `lemma` remain available. The measured data, neutral representation,
 parsing rules, and SQLite design are documented in `morphology-audit.md`.
 
 Cross-reference `osisRef` values are tokenized into simple references and
-range tokens. Valid simple targets surrounding a range are retained in source
-order. Range tokens are counted and their note display text is preserved, but
-neither endpoint is emitted as a structured target because schema v1 has no
-representation for a range. Invalid simple targets are aggregated separately.
-Structured range support therefore remains explicitly unsupported; overall
-range handling is partial and display/audit only.
+ranges. Simple targets retain their order. A range is structured only when
+both endpoints are complete, explicit `Book.chapter.verse` references
+separated by one hyphen; both endpoints round-trip in the optional v1
+`cross_reference_ranges` table. The importer never fills in an omitted book,
+chapter, or verse. Abbreviated or malformed range tokens remain visible in
+the note display, are audited as unresolved, and produce no structured range.
+The stored range retains its explicit endpoint pair. When both endpoints are
+present in the imported module and ordered, the optional
+`cross_reference_range_targets` extension also exposes the inclusive sequence
+of actual imported verses between them. It never synthesizes a missing verse;
+missing endpoints, reversed ranges, and empty ranges have no expanded targets.
 
 ## DOM memory benchmark
 

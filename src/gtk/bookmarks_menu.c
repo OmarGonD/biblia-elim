@@ -1,5 +1,5 @@
 /*
- * Xiphos Bible Study Tool
+ * Ministerios Elim — Bible study
  * bookmarks_menu.c - gui for bookmarks using menu
  *
  * Copyright (C) 2003-2026 Xiphos Developer Team
@@ -503,7 +503,7 @@ G_MODULE_EXPORT void on_edit_item_activate(gpointer menuitem,
 
 		/* --- Folder: use the dedicated folder dialog --- */
 		GtkBuilder *gxml = elim_gtk_builder_new();
-		gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/folder.gtkbuilder", NULL);
+		gtk_builder_add_from_resource(gxml, "/org/bibliaelim/ui/folder.gtkbuilder", NULL);
 		GtkWidget *dialog  = GTK_WIDGET(UI_GET_ITEM(gxml, "dialog_folder"));
 		GtkWidget *entry   = GTK_WIDGET(UI_GET_ITEM(gxml, "folder_entry_name"));
 		GtkWidget *colorbtn = GTK_WIDGET(UI_GET_ITEM(gxml, "folder_color_button"));
@@ -898,7 +898,7 @@ G_MODULE_EXPORT void on_new_folder_activate(gpointer menuitem,
 		return;
 
 	GtkBuilder *gxml = elim_gtk_builder_new();
-	gtk_builder_add_from_resource(gxml, "/org/xiphos/ui/folder.gtkbuilder", NULL);
+	gtk_builder_add_from_resource(gxml, "/org/bibliaelim/ui/folder.gtkbuilder", NULL);
 
 	GtkWidget *dialog     = GTK_WIDGET(UI_GET_ITEM(gxml, "dialog_folder"));
 	GtkWidget *entry      = GTK_WIDGET(UI_GET_ITEM(gxml, "folder_entry_name"));
