@@ -1057,7 +1057,10 @@ study_save_confirmation(EDITOR *e)
 	GtkWidget *discard = gtk_dialog_add_button(GTK_DIALOG(dialog),
 						      _("Cerrar sin guardar"), GTK_RESPONSE_NO);
 	gtk_widget_add_css_class(discard, "destructive-action");
-	gtk_dialog_add_button(GTK_DIALOG(dialog), _("Cancelar"), GTK_RESPONSE_CANCEL);
+	gtk_widget_set_margin_end(discard, 10);
+	GtkWidget *cancel = gtk_dialog_add_button(
+		GTK_DIALOG(dialog), _("Cancelar"), GTK_RESPONSE_CANCEL);
+	gtk_widget_set_margin_end(cancel, 10);
 	gtk_dialog_add_button(GTK_DIALOG(dialog), _("Guardar"), GTK_RESPONSE_YES);
 	gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_YES);
 	gint response = gui_dialog_run(GTK_DIALOG(dialog));
