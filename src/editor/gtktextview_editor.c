@@ -37,6 +37,7 @@
 #include "editor/docx_import.h"
 #include "editor/study_library.h"
 #include "editor/study_document_export.h"
+#include "editor/study_templates.h"
 #include "editor/link_dialog.h"
 #include "gui/table_helpers.h"
 
@@ -188,10 +189,10 @@ _setup_text_tags(GtkTextBuffer *buffer)
 				   "foreground", "#0000EE",
 				   "underline", PANGO_UNDERLINE_SINGLE,
 				   NULL);
-				   gtk_text_buffer_create_tag(buffer, "h1", "weight", PANGO_WEIGHT_BOLD, "scale", 2.0, NULL);
-	gtk_text_buffer_create_tag(buffer, "h2", "weight", PANGO_WEIGHT_BOLD, "scale", 1.7, NULL);
-	gtk_text_buffer_create_tag(buffer, "h3", "weight", PANGO_WEIGHT_BOLD, "scale", 1.4, NULL);
-	gtk_text_buffer_create_tag(buffer, "h4", "weight", PANGO_WEIGHT_BOLD, "scale", 1.2, NULL);
+	gtk_text_buffer_create_tag(buffer, "h1", "weight", PANGO_WEIGHT_BOLD, "scale", 1.65, "pixels-above-lines", 12, "pixels-below-lines", 8, NULL);
+	gtk_text_buffer_create_tag(buffer, "h2", "weight", PANGO_WEIGHT_BOLD, "scale", 1.25, "pixels-above-lines", 10, "pixels-below-lines", 5, NULL);
+	gtk_text_buffer_create_tag(buffer, "h3", "weight", PANGO_WEIGHT_BOLD, "scale", 1.1, NULL);
+	gtk_text_buffer_create_tag(buffer, "h4", "weight", PANGO_WEIGHT_BOLD, "scale", 1.05, NULL);
 	gtk_text_buffer_create_tag(buffer, "h5", "weight", PANGO_WEIGHT_BOLD, "scale", 1.0, NULL);
 	gtk_text_buffer_create_tag(buffer, "h6", "weight", PANGO_WEIGHT_BOLD, "scale", 0.8, NULL);
 	gtk_text_buffer_create_tag(buffer, "address",
@@ -267,6 +268,7 @@ _serialize_buffer(EDITOR *e)
     gtk_text_buffer_get_end_iter(buffer, &end);
 
     while (!gtk_text_iter_equal(&iter, &end)) {
+        gboolean block_closed = FALSE;
         /* tags ouvrants */
         GSList *tags = gtk_text_iter_get_toggled_tags(&iter, TRUE);
         for (GSList *t = tags; t; t = t->next) {
@@ -323,6 +325,11 @@ _serialize_buffer(EDITOR *e)
             GtkTextTag *tag = t->data;
             gchar *name = NULL;
             g_object_get(tag, "name", &name, NULL);
+            if ((name && strlen(name) == 2 && name[0] == 'h' &&
+                 name[1] >= '1' && name[1] <= '6') ||
+                !g_strcmp0(name, "address") || !g_strcmp0(name, "pre") ||
+                (name && g_str_has_prefix(name, "list-")))
+                block_closed = TRUE;
             if (!g_strcmp0(name, TAG_BOLD))
                 g_string_append(html, "</b>");
             else if (!g_strcmp0(name, TAG_ITALIC))
@@ -380,8 +387,10 @@ _serialize_buffer(EDITOR *e)
 			g_string_append(html, "&gt;");
 		else if (c == '&')
 			g_string_append(html, "&amp;");
-		else if (c == '\n')
-			g_string_append(html, "<br/>");
+		else if (c == '\n') {
+			/* A closing block already supplies this paragraph boundary. */
+			if (!block_closed) g_string_append(html, "<br/>");
+		}
 		else {
 			gchar buf[7];
 			gint len = g_unichar_to_utf8(c, buf);
@@ -497,6 +506,26 @@ study_recovery_offer(EDITOR *e)
  * Load content into the buffer
  * ============================================================ */
 
+/* Insert unstyled text; GtkTextBuffer otherwise inherits the preceding
+ * heading/bold tags at adjacent HTML boundaries. Ancestors apply their own
+ * tags after all descendants have been inserted. */
+static void
+insert_html_text(GtkTextBuffer *buffer, GtkTextIter *iter, const gchar *text)
+{
+	gint offset = gtk_text_iter_get_offset(iter);
+	gtk_text_buffer_insert(buffer, iter, text, -1);
+	GtkTextIter start;
+	gtk_text_buffer_get_iter_at_offset(buffer, &start, offset);
+	gtk_text_buffer_remove_all_tags(buffer, &start, iter);
+}
+
+static void
+ensure_html_newline(GtkTextBuffer *buffer, GtkTextIter *iter)
+{
+	if (!gtk_text_iter_is_start(iter) && !gtk_text_iter_starts_line(iter))
+		insert_html_text(buffer, iter, "\n");
+}
+
 static void
 _parse_html_node(GtkTextBuffer *buffer, GtkTextIter *iter,
 		 xmlNodePtr node, EDITOR *e)
@@ -506,8 +535,17 @@ _parse_html_node(GtkTextBuffer *buffer, GtkTextIter *iter,
 			/* remplacer les entités HTML */
 			gchar *content = (gchar *)n->content;
 			if (content)
-				gtk_text_buffer_insert(buffer, iter, content, -1);
+				insert_html_text(buffer, iter, content);
 		} else if (n->type == XML_ELEMENT_NODE) {
+			const gchar *name = (const gchar *)n->name;
+			gboolean block = !g_ascii_strcasecmp(name, "p") ||
+				!g_ascii_strcasecmp(name, "div") || !g_ascii_strcasecmp(name, "li") ||
+				!g_ascii_strcasecmp(name, "blockquote") || !g_ascii_strcasecmp(name, "pre") ||
+				!g_ascii_strcasecmp(name, "address") ||
+				(strlen(name) == 2 && g_ascii_tolower(name[0]) == 'h' &&
+				 name[1] >= '1' && name[1] <= '6');
+			if (block)
+				ensure_html_newline(buffer, iter);
 			GtkTextMark *mark_start =
 				gtk_text_buffer_create_mark(buffer, NULL, iter, TRUE);
 
@@ -556,7 +594,7 @@ _parse_html_node(GtkTextBuffer *buffer, GtkTextIter *iter,
 			else if (!g_ascii_strcasecmp((gchar *)n->name, "pre"))
 				tag = "pre";
 			else if (!g_ascii_strcasecmp((gchar *)n->name, "br"))
-				gtk_text_buffer_insert(buffer, iter, "\n", -1);
+				insert_html_text(buffer, iter, "\n");
 			else if (!g_ascii_strcasecmp((gchar *)n->name, "a")) {
 				xmlChar *href = xmlGetProp(n, (xmlChar *)"href");
 				if (href) {
@@ -615,6 +653,12 @@ _parse_html_node(GtkTextBuffer *buffer, GtkTextIter *iter,
 			if (tag)
 				gtk_text_buffer_apply_tag_by_name(buffer, tag,
 								  &start, iter);
+			if (block) {
+				if (gtk_text_iter_equal(&start, iter))
+					insert_html_text(buffer, iter, "\n");
+				else
+					ensure_html_newline(buffer, iter);
+			}
 		}
 	}
 }
@@ -1265,18 +1309,20 @@ action_import_word_activate_cb(GtkWidget *widget, EDITOR *e)
 }
 
 static void
+study_template_selected(GtkDropDown *choice, GParamSpec *pspec, GtkLabel *label)
+{
+	(void)pspec;
+	const StudyTemplate *selected = study_template_get(gtk_drop_down_get_selected(choice));
+	gtk_label_set_text(label, selected ? _(selected->description) : "");
+}
+
+static void
 study_template_dialog(EDITOR *e)
 {
-	static const gchar *names[] = {
-		"Estudio inductivo", "Sermón", "Estudio devocional",
-		"Lectura y reflexión", NULL
-	};
-	static const gchar *templates[] = {
-		"<h1>Estudio inductivo</h1><h2>Pasaje</h2><br/><h2>Observación</h2><br/><h2>Interpretación</h2><br/><h2>Aplicación</h2><br/><h2>Oración</h2><br/>",
-		"<h1>Sermón</h1><h2>Título</h2><br/><h2>Texto base</h2><br/><h2>Idea central</h2><br/><h2>Introducción</h2><br/><h2>I. Primer punto</h2><br/><h2>II. Segundo punto</h2><br/><h2>III. Tercer punto</h2><br/><h2>Conclusión</h2><br/>",
-		"<h1>Estudio devocional</h1><h2>Lectura</h2><br/><h2>¿Qué revela de Dios?</h2><br/><h2>¿Qué me enseña?</h2><br/><h2>¿Cómo responderé?</h2><br/><h2>Oración</h2><br/>",
-		"<h1>Lectura y reflexión</h1><h2>Pasaje</h2><br/><h2>Notas</h2><br/><h2>Preguntas</h2><br/><h2>Conclusiones</h2><br/>"
-	};
+	const gchar *names[study_template_count() + 1];
+	for (guint i = 0; i < study_template_count(); i++)
+		names[i] = _(study_template_get(i)->name);
+	names[study_template_count()] = NULL;
 	GtkWidget *dialog = gtk_dialog_new();
 	GtkWidget *content = gtk_dialog_get_content_area(GTK_DIALOG(dialog));
 	GtkWidget *choice = gtk_drop_down_new_from_strings(names);
@@ -1287,19 +1333,32 @@ study_template_dialog(EDITOR *e)
 	gtk_widget_set_margin_bottom(content, 12);
 	gtk_widget_set_margin_start(content, 18);
 	gtk_widget_set_margin_end(content, 18);
+	gtk_box_set_spacing(GTK_BOX(content), 12);
 	GtkWidget *label = gtk_label_new(
 		_("Elige una estructura para comenzar un nuevo estudio."));
 	gtk_label_set_xalign(GTK_LABEL(label), 0.0);
 	gtk_box_append(GTK_BOX(content), label);
 	gtk_box_append(GTK_BOX(content), choice);
+	GtkWidget *description = gtk_label_new(NULL);
+	gtk_label_set_wrap(GTK_LABEL(description), TRUE);
+	gtk_label_set_max_width_chars(GTK_LABEL(description), 54);
+	gtk_label_set_xalign(GTK_LABEL(description), 0.0);
+	gtk_box_append(GTK_BOX(content), description);
+	g_signal_connect(choice, "notify::selected", G_CALLBACK(study_template_selected), description);
+	study_template_selected(GTK_DROP_DOWN(choice), NULL, GTK_LABEL(description));
 	gtk_dialog_add_button(GTK_DIALOG(dialog), _("Cancelar"), GTK_RESPONSE_CANCEL);
 	gtk_dialog_add_button(GTK_DIALOG(dialog), _("Usar plantilla"), GTK_RESPONSE_ACCEPT);
 	gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_ACCEPT);
 	if (gui_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
 		gint selected = gtk_drop_down_get_selected(GTK_DROP_DOWN(choice));
-		if (selected < G_N_ELEMENTS(templates) &&
+		if (selected >= 0 && (guint)selected < study_template_count() &&
 		    (!e->is_changed || ask_about_saving(e) != GS_CANCEL)) {
-			_load_text_into_buffer(e, templates[selected]);
+			_load_text_into_buffer(e, study_template_get(selected)->html);
+			GtkTextIter start;
+			gtk_text_buffer_get_start_iter(_get_buffer(e), &start);
+			gtk_text_buffer_place_cursor(_get_buffer(e), &start);
+			gtk_text_view_scroll_to_iter(GTK_TEXT_VIEW(e->text_widget), &start,
+				0.0, TRUE, 0.0, 0.0);
 			study_recovery_clear(e);
 			g_clear_pointer(&e->save_suggestion, g_free);
 			g_free(e->filename);
@@ -1312,6 +1371,7 @@ study_template_dialog(EDITOR *e)
 		}
 	}
 	gui_widget_destroy(dialog);
+	gtk_widget_grab_focus(e->text_widget);
 }
 
 static void
@@ -1813,10 +1873,82 @@ _on_buffer_changed(GtkTextBuffer *buffer, EDITOR *e)
  * Create on_key_press
  * ============================================================ */
  
- static gboolean
+/* Zoom changes the view's base font; document tags and exported text retain
+ * their original formatting. The provider belongs to this text view. */
+static void
+study_editor_set_zoom(EDITOR *e, gint percent, gboolean persist)
+{
+	e->zoom_percent = CLAMP(percent, 50, 200);
+	GtkCssProvider *provider = g_object_get_data(G_OBJECT(e->text_widget), "study-zoom-css");
+	if (!provider) {
+		provider = gtk_css_provider_new();
+		gtk_style_context_add_provider(gtk_widget_get_style_context(e->text_widget),
+			GTK_STYLE_PROVIDER(provider), GTK_STYLE_PROVIDER_PRIORITY_APPLICATION + 1);
+		g_object_set_data_full(G_OBJECT(e->text_widget), "study-zoom-css", provider, g_object_unref);
+	}
+	/* CSS numbers always use a decimal point, independently of the UI locale. */
+	char size[G_ASCII_DTOSTR_BUF_SIZE];
+	g_ascii_formatd(size, sizeof(size), "%.3f", 13.0 * e->zoom_percent / 100.0);
+	gchar *css = g_strdup_printf("textview.studypad-document { font-size: %spt; }", size);
+	gtk_css_provider_load_from_string(provider, css);
+	g_free(css);
+	if (e->zoom_label) {
+		gchar *label = g_strdup_printf("%d %%", e->zoom_percent);
+		gtk_button_set_label(GTK_BUTTON(e->zoom_label), label);
+		g_free(label);
+	}
+	if (e->zoom_out) gtk_widget_set_sensitive(e->zoom_out, e->zoom_percent > 50);
+	if (e->zoom_in) gtk_widget_set_sensitive(e->zoom_in, e->zoom_percent < 200);
+	if (persist) {
+		gchar *value = g_strdup_printf("%d", e->zoom_percent);
+		xml_set_value("Xiphos", "studypad", "zoom", value);
+		g_free(value);
+	}
+}
+
+static void study_zoom_out(GtkButton *button, EDITOR *e)
+{
+	(void)button;
+	study_editor_set_zoom(e, e->zoom_percent - 10, TRUE);
+}
+
+static void study_zoom_in(GtkButton *button, EDITOR *e)
+{
+	(void)button;
+	study_editor_set_zoom(e, e->zoom_percent + 10, TRUE);
+}
+
+static void study_zoom_reset(GtkButton *button, EDITOR *e)
+{
+	(void)button;
+	study_editor_set_zoom(e, 100, TRUE);
+}
+
+static gboolean study_zoom_scroll(GtkEventControllerScroll *controller,
+				 gdouble dx, gdouble dy, EDITOR *e)
+{
+	(void)dx;
+	if (!(gtk_event_controller_get_current_event_state(GTK_EVENT_CONTROLLER(controller)) & GDK_CONTROL_MASK))
+		return FALSE;
+	if (dy != 0)
+		study_editor_set_zoom(e, e->zoom_percent + (dy < 0 ? 10 : -10), TRUE);
+	return TRUE;
+}
+
+static gboolean
 _on_key_press(GtkWidget *widget, GuiKeyEvent *event, EDITOR *e)
 
 {
+	if (e->studypad && (event->state & GDK_CONTROL_MASK)) {
+		switch (event->keyval) {
+		case GDK_KEY_plus: case GDK_KEY_equal: case GDK_KEY_KP_Add:
+			study_zoom_in(NULL, e); return TRUE;
+		case GDK_KEY_minus: case GDK_KEY_KP_Subtract:
+			study_zoom_out(NULL, e); return TRUE;
+		case GDK_KEY_0: case GDK_KEY_KP_0:
+			study_zoom_reset(NULL, e); return TRUE;
+		}
+	}
 	if ((event->state & GDK_CONTROL_MASK) &&
 	    (event->keyval == GDK_KEY_s || event->keyval == GDK_KEY_S)) {
 		action_save_activate_cb(NULL, e);
@@ -2012,6 +2144,25 @@ editor_new(const gchar *title, EDITOR *e)
 	    gtk_builder_get_object(builder, "scrolledwindow1"));
 	create_editor_window(scrollwindow, e);
 	e->is_changed = FALSE;
+	if (e->studypad) {
+		e->zoom_label = GTK_WIDGET(gtk_builder_get_object(builder, "study_zoom_reset"));
+		e->zoom_out = GTK_WIDGET(gtk_builder_get_object(builder, "study_zoom_out"));
+		e->zoom_in = GTK_WIDGET(gtk_builder_get_object(builder, "study_zoom_in"));
+		g_signal_connect(e->zoom_out, "clicked", G_CALLBACK(study_zoom_out), e);
+		g_signal_connect(e->zoom_in, "clicked", G_CALLBACK(study_zoom_in), e);
+		g_signal_connect(e->zoom_label, "clicked", G_CALLBACK(study_zoom_reset), e);
+		gchar *saved_zoom = xml_get_value("studypad", "zoom");
+		gint percent = saved_zoom ? atoi(saved_zoom) : 100;
+		study_editor_set_zoom(e, percent > 0 ? percent : 100, FALSE);
+		g_free(saved_zoom);
+		GtkEventController *scroll = gtk_event_controller_scroll_new(
+			GTK_EVENT_CONTROLLER_SCROLL_VERTICAL | GTK_EVENT_CONTROLLER_SCROLL_DISCRETE);
+		gtk_event_controller_set_propagation_phase(scroll, GTK_PHASE_CAPTURE);
+		g_signal_connect(scroll, "scroll", G_CALLBACK(study_zoom_scroll), e);
+		gtk_widget_add_controller(e->text_widget, scroll);
+	} else {
+		gtk_widget_set_visible(GTK_WIDGET(gtk_builder_get_object(builder, "study_zoom_group")), FALSE);
+	}
 
 	/* GTK4 removed gtk_builder_connect_signals(); connect the editor
 	 * controls explicitly so Builder remains declarative and type-safe. */
@@ -2298,7 +2449,7 @@ _create_new(const gchar *filename, const gchar *key, gint editor_type)
 	EDITOR *editor;
 	GtkWidget *toolbar_nav = NULL;
 
-	editor = g_new(EDITOR, 1);
+	editor = g_new0(EDITOR, 1);
 	editor->text_widget = NULL;
 	editor->save_suggestion = NULL;
 	editor->title_label = NULL;

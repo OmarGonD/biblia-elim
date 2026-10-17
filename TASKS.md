@@ -12004,6 +12004,19 @@
       A rendered capture was inspected. `studypad_lifecycle_contract_test`
       and `main_window_layout_test` also PASS (3/3 tests); `biblia-elim` builds
       and the installed executable's extracted UI matches the corrected source.
+    - Improved the four study templates with contextual prompts, editable
+      paragraphs, and restrained heading sizes. Fixed HTML block boundaries
+      and inherited formatting; heading line breaks no longer multiply on
+      save/reopen. Added independent 50–200% StudyPad zoom with percentage,
+      reset, Ctrl +/-/0, Ctrl+wheel, and a persisted preference. Zoom changes
+      the view font without modifying buffer contents or the dirty state.
+      `study_templates_zoom_test` checks all templates through three actual
+      loader/serializer cycles, heading isolation, nested formatting, effective
+      font enlargement, zoom limits/reset/readout, persistence, and unchanged
+      serialization. That test and `studypad_builder_test`,
+      `study_docx_import_test`, `main_window_layout_test`, and
+      `studypad_lifecycle_contract_test` PASS (5/5). Sermon rendering inspected
+      with the application theme; `biblia-elim` builds.
 
 - [x] EDITION-101 Crear una Biblia propia e instalable desde una fuente autorizada
   - Status: DONE

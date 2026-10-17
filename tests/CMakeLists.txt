@@ -136,6 +136,17 @@ if (BUILD_TESTING AND UNIX)
 
   find_program (XVFB_RUN_EXECUTABLE NAMES xvfb-run)
   if (XVFB_RUN_EXECUTABLE)
+    add_executable(study_templates_zoom_test study_templates_zoom_test.c
+      ${PROJECT_SOURCE_DIR}/src/editor/study_templates.c)
+    target_compile_definitions(study_templates_zoom_test PRIVATE USE_GTKTVeditor)
+    target_compile_options(study_templates_zoom_test PRIVATE -ffunction-sections -fdata-sections -fvisibility=hidden)
+    target_link_options(study_templates_zoom_test PRIVATE -Wl,--gc-sections)
+    target_include_directories(study_templates_zoom_test PRIVATE ${PROJECT_SOURCE_DIR}/src ${PROJECT_BINARY_DIR})
+    target_link_libraries(study_templates_zoom_test PRIVATE PkgConfig::Gtk PkgConfig::Core PkgConfig::Gnome PkgConfig::Sword PkgConfig::Soup)
+    add_test(NAME study_templates_zoom_test COMMAND ${XVFB_RUN_EXECUTABLE} -a
+      $<TARGET_FILE:study_templates_zoom_test>)
+    set_tests_properties(study_templates_zoom_test PROPERTIES TIMEOUT 20
+      ENVIRONMENT "GDK_BACKEND=x11;GDK_SCALE=1;GDK_DPI_SCALE=1;GSK_RENDERER=cairo;GTK_A11Y=none")
     add_executable(studypad_builder_test studypad_builder_test.c)
     target_link_libraries(studypad_builder_test PRIVATE PkgConfig::Gtk)
     add_test(NAME studypad_builder_test

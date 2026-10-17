@@ -58,6 +58,10 @@ struct _editor
 	GtkWidget *statusbar;
 	GtkWidget *text_widget;  // For GtkTextView
 	GtkWidget *title_label;  // Embedded StudyPad document title
+	GtkWidget *zoom_label;
+	GtkWidget *zoom_out;
+	GtkWidget *zoom_in;
+	gint zoom_percent;
 	GtkWidget *navbar_box;   // For navbar
 	GtkWidget *box;          // For main vbox
 	TOOL_ITEMS toolitems;

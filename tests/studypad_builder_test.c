@@ -46,7 +46,7 @@ int main(int argc, char **argv)
 		"toolbutton_insert_citation", "toolbutton_template", "toolbutton_history",
 		"toolbutton_export_docx", "toolbutton_export_pdf", "toolbutton_bold",
 		"toolbuttonunderline", "colorbutton1", "toolbutton_align_justify",
-		"scrolledwindow1"
+		"study_zoom_out", "study_zoom_reset", "study_zoom_in", "scrolledwindow1"
 	};
 	for (guint w = 0; w < G_N_ELEMENTS(widths); w++) {
 		gtk_window_set_default_size(host, widths[w], 640);

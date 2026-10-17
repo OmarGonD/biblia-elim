@@ -101,6 +101,13 @@
                     <child><object class="GtkButton" id="toolbutton_align_justify"><property name="icon-name">format-justify-fill-symbolic</property><property name="tooltip-text">Justificar</property></object></child>
                   </object></child><child><object class="GtkLabel"><property name="label">Párrafo</property><style><class name="ribbon-group-title"/></style></object></child>
                 </object></child>
+                <child><object class="GtkBox" id="study_zoom_group"><property name="orientation">vertical</property><style><class name="ribbon-group"/></style>
+                  <child><object class="GtkBox"><property name="spacing">3</property>
+                    <child><object class="GtkButton" id="study_zoom_out"><property name="icon-name">zoom-out-symbolic</property><property name="tooltip-text">Reducir zoom del estudio (Ctrl+-)</property></object></child>
+                    <child><object class="GtkButton" id="study_zoom_reset"><property name="label">100 %</property><property name="tooltip-text">Restablecer zoom del estudio (Ctrl+0)</property></object></child>
+                    <child><object class="GtkButton" id="study_zoom_in"><property name="icon-name">zoom-in-symbolic</property><property name="tooltip-text">Ampliar zoom del estudio (Ctrl++)</property></object></child>
+                  </object></child><child><object class="GtkLabel"><property name="label">Zoom del estudio</property><style><class name="ribbon-group-title"/></style></object></child>
+                </object></child>
                       </object>
                     </child>
                   </object>
